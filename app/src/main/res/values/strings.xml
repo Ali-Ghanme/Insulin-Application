@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Diabestes_Care_App</string>
+    <string name="Home">الرئيسة</string>
+    <string name="todo">TODO</string>
+    <string name="Welcome_text">صباح الخير سلوى</string>
+    <string name="number_of_Aviliable_doctor">17/40</string>
 </resources>

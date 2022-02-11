@@ -57,7 +57,7 @@
             android:textColor="@color/Doctor_Color" />
 
         <Spinner
-            android:id="@+id/edit_text_type"
+            android:id="@+id/spinnerg"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_below="@id/edit_text_name"
@@ -75,7 +75,7 @@
             android:id="@+id/edit_text_data"
             android:layout_width="300dp"
             android:layout_height="50dp"
-            android:layout_below="@id/edit_text_type"
+            android:layout_below="@id/spinnerg"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="25dp"
             android:background="@drawable/bg_edit_text"
@@ -148,9 +148,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
             android:backgroundTint="@color/white_smoke"
             android:elevation="10dp"
             app:borderWidth="0dp"

@@ -4,4 +4,26 @@
     <string name="todo">TODO</string>
     <string name="Welcome_text">صباح الخير سلوى</string>
     <string name="number_of_Aviliable_doctor">17/40</string>
+
+
+    <string name="login">تسجيل الدخول  </string>
+    <string name="hi">سعداء لانظمامكم</string>
+
+    <string name="phone_numper">Phone Numper</string>
+    <string name="registration">  Registration </string>
+    <string name="regist">  تسجيل جديد  </string>
+
+    <string name="password">  تسجيل جديد  </string>
+    <string name="ar"> طبيب </string>
+    <string name="pa"> مريض  </string>
+    <string name="name">  Name </string>
+    <string name="email"> Email </string>
+    <string name="Createanewaccount">Create a new account   :</string>
+    <string name="haveaccount">do you have an account   :</string>
+
+    <string-array name="spinnerg_array">
+        <item>Male</item>
+        <item>Female</item>
+
+    </string-array>
 </resources>

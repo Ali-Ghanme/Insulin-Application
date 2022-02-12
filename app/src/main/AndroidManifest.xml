@@ -10,8 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Diabestes_Care_App">
         <activity
-            android:name=".activity_patient_sing_up"
-            android:exported="false" />
+            android:name=".Activity_main_login"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Home_Activitey"
             android:exported="false" />
@@ -20,13 +26,7 @@
             android:exported="false" />
         <activity
             android:name=".Patient_sing_up"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
     </application>
 
     <supports-screens

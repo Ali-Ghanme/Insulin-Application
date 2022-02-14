@@ -8,18 +8,19 @@
     <RelativeLayout
         android:id="@+id/Sing_up_header"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="100dp"
         android:background="@drawable/bg_sing_up"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:id="@+id/back_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/ic_baseline_arrow_back_ios_24"
+            android:layout_marginTop="@dimen/dp40"
+            android:background="@drawable/ic_arrow_back"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
@@ -28,30 +29,29 @@
             android:layout_centerInParent="true"
             android:fontFamily="@font/cairo_bold"
             android:text="اخبرنا عن نفسك"
-            android:textColor="@color/white_smoke"
-            android:textSize="25dp" />
+            android:textColor="@color/white"
+            android:textSize="30dp" />
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/Subject"
-        android:layout_width="413dp"
-        android:layout_height="383dp"
+        android:layout_width="350dp"
+        android:layout_height="450dp"
         android:layout_below="@id/Sing_up_header"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="@dimen/dp10"
         app:layout_constraintBottom_toTopOf="@id/Sing_up_header_bottom"
-        app:layout_constraintTop_toBottomOf="@id/Sing_up_header"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        tools:layout_editor_absoluteX="-2dp">
+        app:layout_constraintTop_toBottomOf="@id/Sing_up_header">
 
         <EditText
             android:id="@+id/edit_text_name"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
+            android:layout_width="347dp"
+            android:layout_height="51dp"
             android:layout_centerHorizontal="true"
             android:background="@drawable/bg_edit_text"
-            android:elevation="10dp"
+            android:elevation="2dp"
             android:ems="1"
             android:fontFamily="@font/cairo_bold"
             android:hint="الاسم"
@@ -61,14 +61,14 @@
             android:textSize="15dp" />
 
         <Spinner
-            android:id="@+id/edit_text_type"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
+            android:id="@+id/spinner_type"
+            android:layout_width="347dp"
+            android:layout_height="51dp"
             android:layout_below="@id/edit_text_name"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="25dp"
             android:background="@drawable/bg_edit_text"
-            android:elevation="10dp"
+            android:elevation="2dp"
             android:ems="1"
             android:fontFamily="@font/cairo_bold"
             android:maxLines="1"
@@ -78,13 +78,13 @@
 
         <EditText
             android:id="@+id/edit_text_data"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:layout_below="@id/edit_text_type"
+            android:layout_width="347dp"
+            android:layout_height="51dp"
+            android:layout_below="@id/spinner_type"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="25dp"
             android:background="@drawable/bg_edit_text"
-            android:elevation="10dp"
+            android:elevation="2dp"
             android:ems="1"
             android:fontFamily="@font/cairo_bold"
             android:hint="تاريخ الميلاد"
@@ -95,13 +95,13 @@
 
         <EditText
             android:id="@+id/edit_text_whight"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
+            android:layout_width="347dp"
+            android:layout_height="51dp"
             android:layout_below="@id/edit_text_data"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="25dp"
             android:background="@drawable/bg_edit_text"
-            android:elevation="10dp"
+            android:elevation="2dp"
             android:ems="1"
             android:fontFamily="@font/cairo_bold"
             android:hint="الوزن"
@@ -112,29 +112,30 @@
 
         <EditText
             android:id="@+id/edit_text_tall"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
+            android:layout_width="347dp"
+            android:layout_height="51dp"
             android:layout_below="@id/edit_text_whight"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="25dp"
             android:background="@drawable/bg_edit_text"
-            android:elevation="10dp"
+            android:elevation="2dp"
             android:ems="1"
             android:fontFamily="@font/cairo_bold"
             android:hint="الطول"
             android:maxLines="1"
             android:paddingRight="20dp"
-            android:textColor="@color/Doctor_Color" />
+            android:textColor="@color/Doctor_Color"
+            android:textSize="15dp" />
 
         <EditText
             android:id="@+id/edit_text_National_ID"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
+            android:layout_width="347dp"
+            android:layout_height="51dp"
             android:layout_below="@id/edit_text_tall"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="25dp"
             android:background="@drawable/bg_edit_text"
-            android:elevation="10dp"
+            android:elevation="2dp"
             android:ems="1"
             android:fontFamily="@font/cairo_bold"
             android:hint="رقم الهوية"
@@ -145,8 +146,8 @@
 
     <RelativeLayout
         android:id="@+id/Sing_up_header_bottom"
-        android:layout_width="wrap_content"
-        android:layout_height="120dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
         android:layout_below="@id/Subject"
         android:background="@drawable/bg_sing_up_bottom"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -159,8 +160,9 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:backgroundTint="@color/white_smoke"
+            android:backgroundTint="@color/white"
             android:elevation="10dp"
+            android:src="@drawable/ic_float_action"
             app:borderWidth="0dp"
             tools:ignore="SpeakableTextPresentCheck" />
 

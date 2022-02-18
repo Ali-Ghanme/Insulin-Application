@@ -1,11 +1,13 @@
 package com.example.diabestes_care_app.Sing_up_pages;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+
 import com.example.diabestes_care_app.Home_Activitey;
 import com.example.diabestes_care_app.MainActivity;
 import com.example.diabestes_care_app.R;
@@ -33,7 +35,7 @@ public class character_choice_screen extends AppCompatActivity {
         btn_p.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(character_choice_screen.this, Home_Activitey.class);
+                Intent intent = new Intent(character_choice_screen.this, Sing_Up_1.class);
                 startActivity(intent);
             }
         });

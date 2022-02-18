@@ -9,23 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Diabestes_Care_App">
-        <activity
-            android:name=".Splah_Screens.Splash_Dilog"
-            android:exported="false" />
+
         <activity
             android:name=".Sing_up_pages.character_choice_screen"
             android:exported="false" />
         <activity
-            android:name=".Splah_Screens.Splash_Screen_3"
-            android:exported="false" />
-        <activity
-            android:name=".Splah_Screens.Splash_Screen_2"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
-            android:exported="false"
-            android:label="@string/title_activity_splash_screen1"
-            android:theme="@style/Theme.Diabestes_Care_App.NoActionBar" />
+            android:exported="false" />
         <activity
             android:name=".Sing_up_pages.Sing_Up_2"
             android:exported="false" />

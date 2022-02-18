@@ -71,6 +71,8 @@
             android:layout_width="@dimen/_347sdp"
             android:layout_height="@dimen/_45sdp"
             android:layout_below="@id/edit_text_name"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="0dp"
             android:layout_marginTop="@dimen/dp25"
             android:background="@drawable/bg_edit_text"
             android:elevation="2dp"
@@ -89,11 +91,11 @@
 
             <AutoCompleteTextView
                 android:id="@+id/autoComplete"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/_260sdp"
+                android:layout_height="@dimen/_50sdp"
                 android:layout_weight="1"
                 android:fontFamily="@font/cairo_bold"
-                android:inputType="none"
+                android:inputType="textAutoComplete"
                 android:textColor="@color/Patient_Color"
                 android:textDirection="rtl"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />

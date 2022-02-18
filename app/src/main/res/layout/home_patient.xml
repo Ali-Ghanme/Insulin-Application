@@ -21,7 +21,7 @@
             android:fontFamily="@font/cairo_bold"
             android:text="@string/Home"
             android:textColor="@color/white"
-            android:textSize="25sp" />
+            android:textSize="30sp" />
 
         <ImageView
             android:id="@+id/profile_img_home"
@@ -70,7 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="160dp"
             android:layout_marginTop="30dp"
-            android:fontFamily="@font/cairo"
+            android:fontFamily="@font/cairo_semibold"
             android:text="@string/Welcome_text"
             android:textColor="@color/black"
             android:textSize="25sp" />
@@ -147,9 +147,9 @@
             app:abb_indicatorColor="@color/white"
             app:abb_indicatorHeight="5dp"
             app:abb_indicatorMargin="30dp"
-            app:abb_selectedIndex="1"
+            app:abb_selectedIndex="0"
             app:abb_selectedTabType="text"
-            app:abb_tabAnimation="slide"
+            app:abb_tabAnimation="fade"
             app:abb_tabColor="@color/white"
             app:abb_tabColorSelected="@color/white"
             app:abb_tabs="@menu/navgation" />

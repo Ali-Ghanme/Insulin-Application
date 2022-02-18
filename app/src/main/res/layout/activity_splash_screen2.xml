@@ -7,20 +7,20 @@
     tools:context=".Splah_Screens.Splash_Screen_2">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/_120sdp"
+        android:layout_height="@dimen/_120sdp"
         android:contentDescription="back"
-        android:src="@drawable/bg_rectangel_top"
+        android:src="@drawable/bg_rectangel_splash_top"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/dp50"
-        android:contentDescription="back"
-        android:src="@drawable/splash_screen_2"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="@dimen/_250sdp"
+        android:layout_marginBottom="100dp"
+        android:elevation="@dimen/dp10"
+        android:src="@drawable/ic_splash_2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,21 +29,21 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="130dp"
+        android:layout_marginBottom="180dp"
         android:fontFamily="@font/cairo_bold"
         android:text="يمكنك استشارة نخبة من الاطباء المختصين بمرضى السكري"
         android:textAlignment="center"
         android:textColor="@color/Doctor_Color"
-        android:textSize="20sp"
+        android:textSize="@dimen/_15sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/_120sdp"
+        android:layout_height="@dimen/_120sdp"
         android:contentDescription="back"
-        android:src="@drawable/bg_rectangel_bottom"
+        android:src="@drawable/bg_rectangel_splash_bottom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -44,6 +44,5 @@ dependencies {
     implementation 'nl.joery.animatedbottombar:library:1.1.0'
     implementation 'com.android.support:design:31.0.0'
     implementation 'com.tbuonomo:dotsindicator:4.2'
-
-
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
 }

@@ -18,6 +18,7 @@ import com.example.diabestes_care_app.Adapters.Splash_Adapter;
 import com.example.diabestes_care_app.MainActivity;
 import com.example.diabestes_care_app.Models.ScreenItem;
 import com.example.diabestes_care_app.R;
+import com.example.diabestes_care_app.Sing_up_pages.character_choice_screen;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -45,7 +46,7 @@ public class Splash_Screen_1 extends AppCompatActivity {
 
         //=======================check if its opened before or not==================================
         if (restorePrefData()) {
-            Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
+            Intent mainActivity = new Intent(getApplicationContext(), character_choice_screen.class);
             startActivity(mainActivity);
             finish();
         }
@@ -113,7 +114,7 @@ public class Splash_Screen_1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //open main activity
-                Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
+                Intent mainActivity = new Intent(getApplicationContext(), character_choice_screen.class);
                 startActivity(mainActivity);
                 // also we need to save a boolean value to storage so next time when the user run the app
                 // we could know that he is already checked the intro screen activity

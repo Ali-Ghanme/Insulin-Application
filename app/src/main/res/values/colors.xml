@@ -7,6 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="text_input_pa">#23B1FE</color>
+    <color name="text_input_title">#26B887</color>
 
     <color name="Patient_Color">#23B1FE</color>
     <color name="Doctor_Color">#26B887</color>

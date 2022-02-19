@@ -53,11 +53,12 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_13sdp"
-            android:fontFamily="@font/cairo_light"
+
+            android:fontFamily="@font/cairo_bold"
             android:layoutDirection="rtl"
-            android:text="معلومات السكن "
+            android:text="معلومات الاتصال "
             android:textAlignment="textStart"
-            android:textColor="@color/design_default_color_error"
+            android:textColor="@color/text_input_title"
             android:textSize="15sp"
             android:textStyle="bold" />
 
@@ -68,11 +69,11 @@
             android:layout_below="@+id/cont_confirmpassword"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_13sdp"
-            android:fontFamily="@font/cairo_light"
+            android:fontFamily="@font/cairo_bold"
             android:layoutDirection="rtl"
             android:text="معلومات السكن "
             android:textAlignment="textStart"
-            android:textColor="@color/design_default_color_error"
+            android:textColor="@color/text_input_title"
             android:textSize="15sp"
             android:textStyle="bold" />
 
@@ -86,7 +87,7 @@
             android:layout_marginTop="@dimen/dp5"
             android:elevation="2dp"
             android:ems="1"
-            android:hint="ايميل "
+            android:hint="الايميل "
             android:layoutDirection="rtl"
             android:maxLines="1"
             android:textColorHint="#989696"
@@ -109,7 +110,7 @@
                 android:maxLines="1"
                 android:paddingEnd="20dp"
                 android:paddingStart="20dp"
-                android:textColor="@color/Doctor_Color"
+                android:textColor="@color/text_input_pa"
                 android:textColorHint="#78909C"
                 android:textSize="15sp" />
 
@@ -149,7 +150,7 @@
                 android:maxLines="1"
                 android:paddingEnd="20dp"
                 android:paddingStart="20dp"
-                android:textColor="@color/Doctor_Color"
+                android:textColor="@color/text_input_pa"
                 android:textColorHint="#78909C"
                 android:textSize="15sp" />
 
@@ -189,7 +190,7 @@
                 android:maxLines="1"
                 android:paddingEnd="20dp"
                 android:paddingStart="20dp"
-                android:textColor="@color/Doctor_Color"
+                android:textColor="@color/text_input_pa"
                 android:textColorHint="#78909C"
                 android:textSize="15sp" />
 
@@ -204,11 +205,15 @@
             android:layout_below="@id/tv_show"
             android:layout_marginStart="-5dp"
             android:layout_marginTop="@dimen/dp5"
-            android:elevation="2dp"
+            android:elevation="10dp"
             android:ems="1"
-            android:hint="رقم الجوال"
-            android:layoutDirection="rtl"
+            android:hint="رقم الجوال  "
+
+            android:layoutDirection="ltr"
+
             android:maxLines="1"
+
+
             android:textColorHint="#989696"
             app:boxCornerRadiusBottomEnd="@dimen/dp50"
             app:boxCornerRadiusBottomStart="@dimen/dp50"
@@ -222,22 +227,21 @@
                 android:layout_height="match_parent"
                 android:autofillHints="name"
                 android:background="@drawable/bg_edit_text"
-                android:elevation="2dp"
                 android:ems="1"
                 android:fontFamily="@font/cairo_bold"
                 android:inputType="number"
                 android:maxLines="1"
                 android:paddingEnd="20dp"
                 android:paddingStart="20dp"
-                android:textColor="@color/Doctor_Color"
+                android:textColor="@color/text_input_pa"
                 android:textColorHint="#78909C"
                 android:textSize="15sp" />
-
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/cont_living"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="375dp"
             android:layout_height="57dp"
             android:layout_alignParentStart="true"
@@ -264,7 +268,7 @@
                 android:background="@drawable/bg_edit_text"
                 android:fontFamily="@font/cairo_bold"
                 android:inputType="textAutoComplete"
-                android:textColor="@color/Patient_Color"
+                android:textColor="@color/text_input_pa"
                 android:textDirection="rtl"
                 android:textSize="15sp"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
@@ -274,6 +278,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/cont_living1"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="375dp"
             android:layout_height="57dp"
             android:layout_alignParentStart="true"
@@ -285,6 +290,7 @@
             android:hint=" المحافظة"
             android:layoutDirection="rtl"
             android:maxLines="1"
+
             android:textColorHint="#989696"
             app:boxCornerRadiusBottomEnd="@dimen/dp50"
             app:boxCornerRadiusBottomStart="@dimen/dp50"
@@ -299,17 +305,11 @@
                 android:layout_weight="1"
                 android:background="@drawable/bg_edit_text"
                 android:fontFamily="@font/cairo_bold"
-           android:inputType="textAutoComplete"
-                android:textColor="@color/Patient_Color"
+                android:inputType="textAutoComplete"
+                android:textColor="@color/text_input_pa"
                 android:textDirection="rtl"
                 android:textSize="15sp"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-
-            
-
-
-
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -347,10 +347,10 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginBottom="@dimen/_20sdp"
-            android:layout_marginEnd="132dp"
-            android:layout_marginStart="36dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginBottom="44dp"
+            android:layout_marginEnd="144dp"
+            android:layout_marginStart="37dp"
+            android:layout_marginTop="12dp"
             android:layout_toStartOf="@+id/btn_next"
             app:dotsColor="@color/white_smoke"
             app:dotsCornerRadius="6dp"

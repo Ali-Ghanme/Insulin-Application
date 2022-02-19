@@ -26,7 +26,7 @@ public class character_choice_screen extends AppCompatActivity {
         btn_d.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(character_choice_screen.this, MainActivity.class);
+                Intent intent = new Intent(character_choice_screen.this, Sing_Up_1.class );
                 startActivity(intent);
             }
         });
@@ -44,7 +44,7 @@ public class character_choice_screen extends AppCompatActivity {
         log_in.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(character_choice_screen.this, Home_Activitey.class);
+                Intent intent = new Intent(character_choice_screen.this, Sing_Up_2.class);
                 startActivity(intent);
             }
         });

@@ -17,12 +17,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/item_recommended_picture"
+        <ImageView
             android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/doctor_photo" />
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/starts_icon" />
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="60dp"
+            android:src="@drawable/like" />
 
         <TextView
             android:id="@+id/doctor_name"
@@ -48,20 +55,6 @@
             android:text="اختصاصي سكري"
             android:textColor="@color/gray" />
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/starts_icon" />
-
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="60dp"
-            android:src="@drawable/like" />
-
         <TextView
             android:id="@+id/like_percent"
             android:layout_width="wrap_content"
@@ -72,6 +65,13 @@
             android:text="95%"
             android:textColor="@color/Doctor_Color"
             android:textSize="20dp" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/item_recommended_picture"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/doctor_photo" />
 
     </RelativeLayout>
 </RelativeLayout>

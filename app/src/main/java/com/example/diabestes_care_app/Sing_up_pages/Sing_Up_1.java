@@ -1,19 +1,13 @@
 package com.example.diabestes_care_app.Sing_up_pages;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.Button;
 import android.widget.Toast;
-
-import com.example.diabestes_care_app.Home_Activitey;
-import com.example.diabestes_care_app.MainActivity;
 import com.example.diabestes_care_app.R;
 
 public class Sing_Up_1 extends AppCompatActivity implements AdapterView.OnItemSelectedListener {

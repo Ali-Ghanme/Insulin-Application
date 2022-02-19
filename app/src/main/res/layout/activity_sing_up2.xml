@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Sing_up_pages.Sing_Up_2">
+
     <RelativeLayout
         android:id="@+id/Sing_up_header"
         android:layout_width="match_parent"
@@ -18,308 +19,179 @@
             android:id="@+id/back_arrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginStart="@dimen/_30sdp"
             android:layout_marginTop="@dimen/_25sdp"
             android:background="@drawable/ic_arrow_back"
             android:contentDescription="icon"
-            android:minHeight="35dp"
-            android:minWidth="45dp" />
+            android:minWidth="48dp"
+            android:minHeight="48dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:fontFamily="@font/cairo_bold"
-            android:text=" معلومات الاتصال والسكن1"
-
+            android:text="اخبرنا عن نفسك"
             android:textColor="@color/white"
-            android:textSize="@dimen/_15sdp" />
+            android:textSize="@dimen/_20sdp" />
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/Subject"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_400sdp"
         android:layout_margin="20dp"
         app:layout_constraintBottom_toTopOf="@id/Sing_up_header_bottom"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Sing_up_header"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@id/Sing_up_header">
 
-        <TextView
-            android:id="@+id/tv_show"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <EditText
+            android:id="@+id/edit_text_name"
+            android:layout_width="@dimen/_347sdp"
+            android:layout_height="@dimen/_45sdp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_13sdp"
-
+            android:autofillHints="name"
+            android:background="@drawable/bg_edit_text"
+            android:elevation="2dp"
+            android:ems="1"
             android:fontFamily="@font/cairo_bold"
-            android:layoutDirection="rtl"
-            android:text="معلومات الاتصال "
-            android:textAlignment="textStart"
-            android:textColor="@color/text_input_title"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tv_show1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/cont_confirmpassword"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_13sdp"
-            android:fontFamily="@font/cairo_bold"
-            android:layoutDirection="rtl"
-            android:text="معلومات السكن "
-            android:textAlignment="textStart"
-            android:textColor="@color/text_input_title"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/cont_email"
-            android:layout_width="375dp"
-            android:layout_height="57dp"
-            android:layout_alignParentStart="true"
-            android:layout_below="@id/cont_name"
-            android:layout_marginStart="-5dp"
-            android:layout_marginTop="@dimen/dp5"
-            android:elevation="2dp"
-            android:ems="1"
-            android:hint="الايميل "
-            android:layoutDirection="rtl"
+            android:hint="الاسم"
+            android:inputType="textPersonName"
             android:maxLines="1"
-            android:textColorHint="#989696"
-            app:boxCornerRadiusBottomEnd="@dimen/dp50"
-            app:boxCornerRadiusBottomStart="@dimen/dp50"
-            app:boxCornerRadiusTopEnd="@dimen/dp50"
-            app:boxCornerRadiusTopStart="@dimen/dp50"
-            app:boxStrokeWidth="0dp">
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textColor="@color/Doctor_Color"
+            android:textColorHint="#78909C"
+            android:textSize="15sp" />
 
-            <EditText
-                android:id="@+id/email"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:autofillHints="name"
-                android:background="@drawable/bg_edit_text"
-                android:elevation="2dp"
-                android:ems="1"
-                android:fontFamily="@font/cairo_bold"
-                android:inputType="textEmailAddress"
-                android:maxLines="1"
-                android:paddingEnd="20dp"
-                android:paddingStart="20dp"
-                android:textColor="@color/text_input_pa"
-                android:textColorHint="#78909C"
-                android:textSize="15sp" />
-
-
-        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/cont_password"
-            android:layout_width="375dp"
-            android:layout_height="57dp"
-            android:layout_alignParentStart="true"
-            android:layout_below="@id/cont_email"
-            android:layout_marginStart="-5dp"
-            android:layout_marginTop="@dimen/dp5"
-            android:elevation="2dp"
-            android:ems="1"
-            android:hint="كلمة السر "
-            android:layoutDirection="rtl"
-            android:maxLines="1"
-            android:textColorHint="#989696"
-            app:boxCornerRadiusBottomEnd="@dimen/dp50"
-            app:boxCornerRadiusBottomStart="@dimen/dp50"
-            app:boxCornerRadiusTopEnd="@dimen/dp50"
-            app:boxCornerRadiusTopStart="@dimen/dp50"
-            app:boxStrokeWidth="0dp">
-
-            <EditText
-                android:id="@+id/password"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:autofillHints="name"
-                android:background="@drawable/bg_edit_text"
-                android:elevation="2dp"
-                android:ems="1"
-                android:fontFamily="@font/cairo_bold"
-                android:inputType="textPassword"
-                android:maxLines="1"
-                android:paddingEnd="20dp"
-                android:paddingStart="20dp"
-                android:textColor="@color/text_input_pa"
-                android:textColorHint="#78909C"
-                android:textSize="15sp" />
-
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/cont_confirmpassword"
-            android:layout_width="375dp"
-            android:layout_height="57dp"
-            android:layout_alignParentStart="true"
-            android:layout_below="@id/cont_password"
-            android:layout_marginStart="-5dp"
-            android:layout_marginTop="@dimen/dp5"
-            android:elevation="2dp"
-            android:ems="1"
-            android:hint="تاكيد كلمة السر "
-            android:layoutDirection="rtl"
-            android:maxLines="1"
-            android:textColorHint="#989696"
-            app:boxCornerRadiusBottomEnd="@dimen/dp50"
-            app:boxCornerRadiusBottomStart="@dimen/dp50"
-            app:boxCornerRadiusTopEnd="@dimen/dp50"
-            app:boxCornerRadiusTopStart="@dimen/dp50"
-            app:boxStrokeWidth="0dp">
-
-            <EditText
-                android:id="@+id/confirmpassword"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:autofillHints="name"
-                android:background="@drawable/bg_edit_text"
-                android:elevation="2dp"
-                android:ems="1"
-                android:fontFamily="@font/cairo_bold"
-                android:inputType="textPassword"
-                android:maxLines="1"
-                android:paddingEnd="20dp"
-                android:paddingStart="20dp"
-                android:textColor="@color/text_input_pa"
-                android:textColorHint="#78909C"
-                android:textSize="15sp" />
-
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/cont_name"
-            android:layout_width="375dp"
-            android:layout_height="57dp"
-            android:layout_alignParentStart="true"
-            android:layout_below="@id/tv_show"
-            android:layout_marginStart="-5dp"
-            android:layout_marginTop="@dimen/dp5"
-            android:elevation="10dp"
-            android:ems="1"
-            android:hint="رقم الجوال  "
-
-            android:layoutDirection="ltr"
-
-            android:maxLines="1"
-
-
-            android:textColorHint="#989696"
-            app:boxCornerRadiusBottomEnd="@dimen/dp50"
-            app:boxCornerRadiusBottomStart="@dimen/dp50"
-            app:boxCornerRadiusTopEnd="@dimen/dp50"
-            app:boxCornerRadiusTopStart="@dimen/dp50"
-            app:boxStrokeWidth="0dp">
-
-            <EditText
-                android:id="@+id/et_name"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:autofillHints="name"
-                android:background="@drawable/bg_edit_text"
-                android:ems="1"
-                android:fontFamily="@font/cairo_bold"
-                android:inputType="number"
-                android:maxLines="1"
-                android:paddingEnd="20dp"
-                android:paddingStart="20dp"
-                android:textColor="@color/text_input_pa"
-                android:textColorHint="#78909C"
-                android:textSize="15sp" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/cont_living"
+            android:id="@+id/spinner_type"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_width="375dp"
-            android:layout_height="57dp"
+            android:layout_width="@dimen/_347sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_below="@id/edit_text_name"
             android:layout_alignParentStart="true"
-            android:layout_below="@id/tv_show1"
-            android:layout_marginStart="-5dp"
-            android:layout_marginTop="@dimen/dp5"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="@dimen/dp25"
+            android:background="@drawable/bg_edit_text"
             android:elevation="2dp"
-            android:ems="1"
-            android:hint=" المدينة"
+            android:hint="النوع"
             android:layoutDirection="rtl"
-            android:maxLines="1"
             android:textColorHint="#989696"
             app:boxCornerRadiusBottomEnd="@dimen/dp50"
             app:boxCornerRadiusBottomStart="@dimen/dp50"
             app:boxCornerRadiusTopEnd="@dimen/dp50"
             app:boxCornerRadiusTopStart="@dimen/dp50"
-            app:boxStrokeWidth="0dp">
+            app:boxStrokeWidth="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <AutoCompleteTextView
-                android:id="@+id/autoComplete1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:id="@+id/autoComplete"
+                android:layout_width="@dimen/_260sdp"
+                android:layout_height="@dimen/_50sdp"
                 android:layout_weight="1"
-                android:background="@drawable/bg_edit_text"
                 android:fontFamily="@font/cairo_bold"
                 android:inputType="textAutoComplete"
-                android:textColor="@color/text_input_pa"
+                android:textColor="@color/Patient_Color"
                 android:textDirection="rtl"
-                android:textSize="15sp"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/cont_living1"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_width="375dp"
-            android:layout_height="57dp"
-            android:layout_alignParentStart="true"
-            android:layout_below="@id/cont_living"
-            android:layout_marginStart="-5dp"
-            android:layout_marginTop="@dimen/dp5"
+
+        <EditText
+            android:id="@+id/edit_text_data"
+            android:layout_width="@dimen/_347sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_below="@id/spinner_type"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:autofillHints="creditCardExpirationDate"
+            android:background="@drawable/bg_edit_text"
+            android:drawableStart="@drawable/ic_data"
             android:elevation="2dp"
             android:ems="1"
-            android:hint=" المحافظة"
-            android:layoutDirection="rtl"
+            android:fontFamily="@font/cairo_bold"
+            android:hint="تاريخ الميلاد"
+            android:inputType="date"
             android:maxLines="1"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textColor="@color/Doctor_Color"
+            android:textColorHint="#78909C"
+            android:textSize="15sp" />
 
-            android:textColorHint="#989696"
-            app:boxCornerRadiusBottomEnd="@dimen/dp50"
-            app:boxCornerRadiusBottomStart="@dimen/dp50"
-            app:boxCornerRadiusTopEnd="@dimen/dp50"
-            app:boxCornerRadiusTopStart="@dimen/dp50"
-            app:boxStrokeWidth="0dp">
+        <EditText
+            android:id="@+id/edit_text_whight"
+            android:layout_width="@dimen/_347sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_below="@id/edit_text_data"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:autofillHints="creditCardNumber"
+            android:background="@drawable/bg_edit_text"
+            android:elevation="2dp"
+            android:ems="1"
+            android:fontFamily="@font/cairo_bold"
+            android:hint="الوزن"
+            android:inputType="number"
+            android:maxLines="1"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textColor="@color/Doctor_Color"
+            android:textColorHint="#78909C"
+            android:textSize="15sp" />
 
-            <AutoCompleteTextView
-                android:id="@+id/autoComplete2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/bg_edit_text"
-                android:fontFamily="@font/cairo_bold"
-                android:inputType="textAutoComplete"
-                android:textColor="@color/text_input_pa"
-                android:textDirection="rtl"
-                android:textSize="15sp"
-                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+        <EditText
+            android:id="@+id/edit_text_tall"
+            android:layout_width="@dimen/_347sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_below="@id/edit_text_whight"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:autofillHints="creditCardNumber"
+            android:background="@drawable/bg_edit_text"
+            android:elevation="2dp"
+            android:ems="1"
+            android:fontFamily="@font/cairo_bold"
+            android:hint="الطول"
+            android:inputType="number"
+            android:maxLines="1"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textColor="@color/Doctor_Color"
+            android:textColorHint="#78909C"
+            android:textSize="15sp" />
 
-        </com.google.android.material.textfield.TextInputLayout>
-
-
+        <EditText
+            android:id="@+id/edit_text_National_ID"
+            android:layout_width="@dimen/_347sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_below="@id/edit_text_tall"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:autofillHints="creditCardNumber"
+            android:background="@drawable/bg_edit_text"
+            android:elevation="2dp"
+            android:ems="1"
+            android:fontFamily="@font/cairo_bold"
+            android:hint="رقم الهوية"
+            android:inputType="number"
+            android:paddingStart="@dimen/_20sdp"
+            android:paddingEnd="@dimen/_20sdp"
+            android:textColor="@color/Doctor_Color"
+            android:textColorHint="#78909C"
+            android:textSize="15sp" />
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/Sing_up_header_bottom"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_71sdp"
+        android:layout_height="@dimen/_80sdp"
         android:layout_below="@id/Subject"
         android:background="@drawable/bg_sing_up_bottom"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -327,12 +199,12 @@
 
         <Button
             android:id="@+id/btn_next"
-            android:layout_width="@dimen/_40sdp"
-            android:layout_height="@dimen/_40sdp"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
             android:layout_alignParentEnd="true"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
             android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
             android:background="@drawable/float_action_btn"
             android:drawableStart="@drawable/ic_float_action"
             android:elevation="10dp"
@@ -344,14 +216,8 @@
             android:id="@+id/dots_indicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginBottom="44dp"
-            android:layout_marginEnd="144dp"
-            android:layout_marginStart="37dp"
-            android:layout_marginTop="12dp"
-            android:layout_toStartOf="@+id/btn_next"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_25sdp"
             app:dotsColor="@color/white_smoke"
             app:dotsCornerRadius="6dp"
             app:dotsSize="@dimen/_16sdp"

@@ -9,18 +9,19 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.diabestes_care_app.Models.ScreenItem;
 import com.example.diabestes_care_app.R;
 
 import java.util.List;
 
-public class Splash_Adapter extends PagerAdapter {
-    Context mContext;
+public class ViewAdapter extends PagerAdapter {
+    Context context;
     List<ScreenItem> mListScreen;
 
-    public Splash_Adapter(Context mContext, List<ScreenItem> mListScreen) {
-        this.mContext = mContext;
+    public ViewAdapter(Context mContext, List<ScreenItem> mListScreen) {
+        this.context = mContext;
         this.mListScreen = mListScreen;
     }
 
@@ -28,19 +29,21 @@ public class Splash_Adapter extends PagerAdapter {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
 
-        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View layoutScreen = inflater.inflate(R.layout.activity_splash_screen2,null);
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.item, null);
 
-        ImageView imgSlide = layoutScreen.findViewById(R.id.image_splash);
-        TextView title_S = layoutScreen.findViewById(R.id.title_splash);
-        TextView description = layoutScreen.findViewById(R.id.description_splash);
+        ImageView imageView = view.findViewById(R.id.image_view);
+        imageView.setImageResource(mListScreen.get(position).getScreenImg());
 
+        TextView title_S = view.findViewById(R.id.title_splash_2);
         title_S.setText(mListScreen.get(position).getTitle());
-        description.setText(mListScreen.get(position).getDescription());
-        imgSlide.setImageResource(mListScreen.get(position).getScreenImg());
 
-        container.addView(layoutScreen);
-        return layoutScreen;
+        TextView description = view.findViewById(R.id.description_splash_2);
+        description.setText(mListScreen.get(position).getDescription());
+
+        container.addView(view);
+        return view;
+
     }
 
     @Override

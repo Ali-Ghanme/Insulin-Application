@@ -198,7 +198,7 @@
         app:layout_constraintLeft_toLeftOf="parent">
 
         <Button
-            android:id="@+id/btn_next"
+            android:id="@+id/btn_next_S_2"
             android:layout_width="@dimen/_50sdp"
             android:layout_height="@dimen/_50sdp"
             android:layout_alignParentEnd="true"
@@ -213,7 +213,7 @@
             tools:ignore="SpeakableTextPresentCheck" />
 
         <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
-            android:id="@+id/dots_indicator"
+            android:id="@+id/dots_indicator_S_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_25sdp"

@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Sing_up_pages.Sing_Up_3">
+
+    <RelativeLayout
+        android:id="@+id/Sing_up_header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_65sdp"
+        android:background="@drawable/bg_sing_up"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/back_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:background="@drawable/ic_arrow_back"
+            android:contentDescription="icon"
+            android:minHeight="35dp"
+            android:minWidth="45dp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/cairo_bold"
+
+            android:text="عن السكري "
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15sdp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/Subject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        app:layout_constraintBottom_toTopOf="@id/Sing_up_header_bottom"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Sing_up_header"
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <TextView
+            android:id="@+id/tv_show"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_13sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:layoutDirection="rtl"
+            android:text="نوع المرض "
+            android:textAlignment="textStart"
+            android:textColor="@color/text_input_title"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/cont_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_show"
+            android:orientation="vertical"
+            android:textDirection="rtl">
+
+            <CheckBox
+                android:id="@+id/checkbox_one"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_edit_text"
+                android:checked="true"
+                android:elevation="2dp"
+                android:ems="1"
+                android:fontFamily="@font/cairo_bold"
+                android:gravity="right|center_vertical"
+                android:paddingBottom="10dp"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp"
+                android:paddingTop="10dp"
+                android:text="النوع الاول "
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <CheckBox
+                android:id="@+id/checkbox_tow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:textColor="@color/black"
+                android:elevation="2dp"
+                android:ems="1"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:textSize="15sp"
+                android:background="@drawable/bg_edit_text"
+                android:gravity="right|center_vertical"
+                android:text="النوع الثاني" />
+
+            <CheckBox
+                android:id="@+id/checkbox_thre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:textColor="@color/black"
+                android:elevation="2dp"
+                android:ems="1"
+                android:fontFamily="@font/cairo_bold"
+                android:textSize="15sp"
+                android:layout_marginTop="@dimen/_15sdp"
+
+                android:background="@drawable/bg_edit_text"
+                android:gravity="right|center_vertical"
+                android:text="سكري الحمل " />
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cont_type"
+            android:orientation="vertical"
+            android:textDirection="rtl">
+            <TextView
+                android:id="@+id/tv_show1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_13sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:layoutDirection="rtl"
+                android:text="نوع المرض "
+                android:textAlignment="textStart"
+                android:textColor="@color/text_input_title"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+            <CheckBox
+                android:id="@+id/checkbox_one1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:textColor="@color/black"
+                android:elevation="2dp"
+                android:ems="1"
+                android:fontFamily="@font/cairo_bold"
+                android:textSize="15sp"
+                android:background="@drawable/bg_edit_text"
+                android:gravity="right|center_vertical"
+                android:text="ابر انسولين  " />
+
+            <CheckBox
+                android:id="@+id/checkbox_tow2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:textColor="@color/black"
+                android:elevation="2dp"
+                android:ems="1"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:textSize="15sp"
+                android:background="@drawable/bg_edit_text"
+                android:gravity="right|center_vertical"
+                android:text="حبوب " />
+
+            <CheckBox
+                android:id="@+id/checkbox_thre3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:textColor="@color/black"
+                android:elevation="2dp"
+                android:ems="1"
+                android:fontFamily="@font/cairo_bold"
+                android:textSize="15sp"
+                android:layout_marginTop="@dimen/_15sdp"
+
+                android:background="@drawable/bg_edit_text"
+                android:gravity="right|center_vertical"
+                android:text="الاثنين معا  " />
+
+
+            <Button
+                android:id="@+id/btn_test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:text="test" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/Sing_up_header_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_below="@id/Subject"
+        android:background="@drawable/bg_sing_up_bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:background="@drawable/float_action_btn"
+            android:drawableStart="@drawable/ic_float_action"
+            android:elevation="10dp"
+            android:paddingHorizontal="@dimen/_20sdp"
+            app:borderWidth="0dp"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+            android:id="@+id/dots_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="36dp"
+            android:layout_marginEnd="144dp"
+            android:layout_marginStart="37dp"
+            android:layout_marginTop="20dp"
+            android:layout_toStartOf="@+id/btn_next"
+            app:dotsColor="@color/white_smoke"
+            app:dotsCornerRadius="6dp"
+            app:dotsSize="@dimen/_14sdp"
+            app:dotsSpacing="@dimen/_4sdp"
+            app:dotsWidthFactor="2.5"
+            app:progressMode="true"
+            app:selectedDotColor="@color/white" />
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_marginLeft="@dimen/_90sdp"
+            android:layout_marginStart="@dimen/_90sdp"
             android:layout_marginTop="@dimen/_15sdp"
             android:fontFamily="@font/cairo_bold"
             android:text="  الاتصال والسكن"
@@ -62,7 +62,7 @@
             android:layoutDirection="rtl"
             android:text="معلومات الاتصال "
             android:textAlignment="textStart"
-            android:textColor="@color/text_input_title"
+            android:textColor="@color/Patient_Color"
             android:textSize="15sp"
             android:textStyle="bold" />
 
@@ -77,7 +77,7 @@
             android:layoutDirection="rtl"
             android:text="معلومات السكن "
             android:textAlignment="textStart"
-            android:textColor="@color/text_input_title"
+            android:textColor="@color/Patient_Color"
             android:textSize="15sp"
             android:textStyle="bold" />
 
@@ -94,30 +94,33 @@
             android:hint="رقم الجوال"
             android:layoutDirection="rtl"
             android:maxLines="1"
+            android:paddingTop="@dimen/_2sdp"
             android:textColorHint="#989696"
             android:textDirection="rtl"
-            app:boxCornerRadiusBottomEnd="@dimen/dp50"
-            app:boxCornerRadiusBottomStart="@dimen/dp50"
-            app:boxCornerRadiusTopEnd="@dimen/dp50"
-            app:boxCornerRadiusTopStart="@dimen/dp50"
+            app:boxCornerRadiusBottomEnd="@dimen/_100sdp"
+            app:boxCornerRadiusBottomStart="@dimen/_100sdp"
+            app:boxCornerRadiusTopEnd="@dimen/_100sdp"
+            app:boxCornerRadiusTopStart="@dimen/_100sdp"
             app:boxStrokeWidth="0dp">
 
             <EditText
                 android:id="@+id/et_name"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_25sdp"
-                android:layout_marginTop="@dimen/_30sdp"
-                android:autofillHints="name"
+                android:layout_width="@dimen/_270sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:autofillHints="phone"
                 android:background="@drawable/bg_edit_text"
                 android:fontFamily="@font/cairo_bold"
-                android:inputType="textPersonName"
+                android:inputType="phone"
                 android:maxLines="1"
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"
-                android:textColor="@color/Doctor_Color"
+                android:paddingBottom="@dimen/_2sdp"
+                android:textColor="@color/Patient_Color"
                 android:textColorHint="#78909C"
-                android:textSize="15sp" />
-
+                android:textDirection="ltr"
+                android:textSize="15sp"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -130,24 +133,25 @@
             android:layout_marginEnd="@dimen/_5sdp"
             android:background="@drawable/bg_edit_text"
             android:elevation="@dimen/_2sdp"
-            android:ems="1"
             android:hint="الايميل "
             android:layoutDirection="rtl"
             android:maxLines="1"
+            android:paddingTop="@dimen/_2sdp"
             android:textColorHint="#989696"
-            app:boxCornerRadiusBottomEnd="@dimen/dp50"
-            app:boxCornerRadiusBottomStart="@dimen/dp50"
-            app:boxCornerRadiusTopEnd="@dimen/dp50"
-            app:boxCornerRadiusTopStart="@dimen/dp50"
+            android:textDirection="ltr"
+            app:boxCornerRadiusBottomEnd="@dimen/_100sdp"
+            app:boxCornerRadiusBottomStart="@dimen/_100sdp"
+            app:boxCornerRadiusTopEnd="@dimen/_100sdp"
+            app:boxCornerRadiusTopStart="@dimen/_100sdp"
             app:boxStrokeWidth="0dp">
 
             <EditText
                 android:id="@+id/email"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_25sdp"
-                android:autofillHints="name"
+                android:layout_width="@dimen/_270sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:autofillHints="emailAddress"
                 android:background="@drawable/bg_edit_text"
-                android:elevation="2dp"
                 android:ems="1"
                 android:fontFamily="@font/cairo_bold"
                 android:inputType="textEmailAddress"
@@ -156,7 +160,8 @@
                 android:paddingEnd="20dp"
                 android:textColor="@color/text_input_pa"
                 android:textColorHint="#78909C"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -170,24 +175,24 @@
             android:layout_marginEnd="@dimen/_5sdp"
             android:background="@drawable/bg_edit_text"
             android:elevation="@dimen/_2sdp"
-            android:ems="1"
             android:hint="كلمة السر "
             android:layoutDirection="rtl"
             android:maxLines="1"
+            android:paddingTop="@dimen/_2sdp"
             android:textColorHint="#989696"
-            app:boxCornerRadiusBottomEnd="@dimen/dp50"
-            app:boxCornerRadiusBottomStart="@dimen/dp50"
-            app:boxCornerRadiusTopEnd="@dimen/dp50"
-            app:boxCornerRadiusTopStart="@dimen/dp50"
+            android:textDirection="rtl"
+            app:boxCornerRadiusBottomEnd="@dimen/_100sdp"
+            app:boxCornerRadiusBottomStart="@dimen/_100sdp"
+            app:boxCornerRadiusTopEnd="@dimen/_100sdp"
+            app:boxCornerRadiusTopStart="@dimen/_100sdp"
             app:boxStrokeWidth="0dp">
 
             <EditText
                 android:id="@+id/password"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_25sdp"
-                android:autofillHints="name"
+                android:layout_width="@dimen/_270sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:autofillHints="password"
                 android:background="@drawable/bg_edit_text"
-                android:elevation="2dp"
                 android:ems="1"
                 android:fontFamily="@font/cairo_bold"
                 android:inputType="textPassword"
@@ -196,7 +201,8 @@
                 android:paddingEnd="20dp"
                 android:textColor="@color/text_input_pa"
                 android:textColorHint="#78909C"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -211,11 +217,12 @@
             android:layout_marginEnd="@dimen/_5sdp"
             android:background="@drawable/bg_edit_text"
             android:elevation="@dimen/_2sdp"
-            android:ems="1"
             android:hint="تاكيد كلمة السر "
             android:layoutDirection="rtl"
             android:maxLines="1"
+            android:paddingTop="@dimen/_2sdp"
             android:textColorHint="#989696"
+            android:textDirection="rtl"
             app:boxCornerRadiusBottomEnd="@dimen/dp50"
             app:boxCornerRadiusBottomStart="@dimen/dp50"
             app:boxCornerRadiusTopEnd="@dimen/dp50"
@@ -225,11 +232,9 @@
             <EditText
                 android:id="@+id/confirmpassword"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_25sdp"
-                android:autofillHints="name"
+                android:layout_height="@dimen/_20sdp"
+                android:autofillHints="password"
                 android:background="@drawable/bg_edit_text"
-                android:elevation="2dp"
-                android:ems="1"
                 android:fontFamily="@font/cairo_bold"
                 android:inputType="textPassword"
                 android:maxLines="1"
@@ -237,15 +242,16 @@
                 android:paddingEnd="20dp"
                 android:textColor="@color/text_input_pa"
                 android:textColorHint="#78909C"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/cont_living"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
             android:layout_width="@dimen/_347sdp"
-            android:layout_height="@dimen/_35sdp"
+            android:layout_height="@dimen/_40sdp"
             android:layout_below="@id/tv_show1"
             android:layout_marginStart="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_10sdp"
@@ -257,10 +263,10 @@
             android:layoutDirection="rtl"
             android:maxLines="1"
             android:textColorHint="#989696"
-            app:boxCornerRadiusBottomEnd="@dimen/dp50"
-            app:boxCornerRadiusBottomStart="@dimen/dp50"
-            app:boxCornerRadiusTopEnd="@dimen/dp50"
-            app:boxCornerRadiusTopStart="@dimen/dp50"
+            app:boxCornerRadiusBottomEnd="@dimen/_100sdp"
+            app:boxCornerRadiusBottomStart="@dimen/_100sdp"
+            app:boxCornerRadiusTopEnd="@dimen/_100sdp"
+            app:boxCornerRadiusTopStart="@dimen/_100sdp"
             app:boxStrokeWidth="0dp">
 
             <AutoCompleteTextView
@@ -270,18 +276,20 @@
                 android:layout_weight="1"
                 android:background="@drawable/bg_edit_text"
                 android:fontFamily="@font/cairo_bold"
-                android:inputType="textAutoComplete"
+                android:inputType="textNoSuggestions"
+                android:textIsSelectable="true"
                 android:textColor="@color/text_input_pa"
-                android:textDirection="rtl"
+                android:textDirection="ltr"
                 android:textSize="15sp"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/cont_living1"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="@dimen/_347sdp"
-            android:layout_height="@dimen/_35sdp"
+            android:layout_height="@dimen/_40sdp"
             android:layout_below="@id/cont_living"
             android:layout_marginStart="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_10sdp"
@@ -293,10 +301,10 @@
             android:layoutDirection="rtl"
             android:maxLines="1"
             android:textColorHint="#989696"
-            app:boxCornerRadiusBottomEnd="@dimen/dp50"
-            app:boxCornerRadiusBottomStart="@dimen/dp50"
-            app:boxCornerRadiusTopEnd="@dimen/dp50"
-            app:boxCornerRadiusTopStart="@dimen/dp50"
+            app:boxCornerRadiusBottomEnd="@dimen/_100sdp"
+            app:boxCornerRadiusBottomStart="@dimen/_100sdp"
+            app:boxCornerRadiusTopEnd="@dimen/_100sdp"
+            app:boxCornerRadiusTopStart="@dimen/_100sdp"
             app:boxStrokeWidth="0dp">
 
             <AutoCompleteTextView

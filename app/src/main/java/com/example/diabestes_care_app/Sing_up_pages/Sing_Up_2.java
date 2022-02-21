@@ -1,16 +1,22 @@
 package com.example.diabestes_care_app.Sing_up_pages;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.diabestes_care_app.R;
+
+
+
 
 public class Sing_Up_2 extends AppCompatActivity  {
     String[] country = {"الضفة الغربية ","جنين  ","نابلس  ", "قطاع غزة"};
@@ -18,6 +24,8 @@ public class Sing_Up_2 extends AppCompatActivity  {
     AutoCompleteTextView auto_1;
     AutoCompleteTextView auto_2;
     ArrayAdapter<String> adapterItems;
+    Button btn_next ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +35,7 @@ public class Sing_Up_2 extends AppCompatActivity  {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         auto_1 = (AutoCompleteTextView)findViewById(R.id.autoComplete1);
         auto_2 = (AutoCompleteTextView)findViewById(R.id.autoComplete2);
+        btn_next = findViewById(R.id.btn_next);
 
 
         ArrayAdapter a2 =new ArrayAdapter(this, android.R.layout.simple_spinner_item,country);
@@ -60,6 +69,19 @@ public class Sing_Up_2 extends AppCompatActivity  {
             }
         });
 
+
+
+
+        //====================================الانتقال من صفحة الستجيل الحالية للصفحة الثانية ===============================
+
+        btn_next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),Sing_Up_3.class);
+                startActivity(intent);
+            }
+
+        });
     }
 
 }

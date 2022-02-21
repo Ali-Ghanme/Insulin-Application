@@ -50,7 +50,7 @@ public class Splash_Screen_1 extends AppCompatActivity {
             finish();
         }
         //==================================define views===============================================
-        btnNext = findViewById(R.id.btn_next);
+        btnNext = findViewById(R.id.btn_next_S);
         btnGetStarted = findViewById(R.id.btn_get_started);
         dotsIndicator = findViewById(R.id.Splash_indicator);
         btnAnim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.animation_button);

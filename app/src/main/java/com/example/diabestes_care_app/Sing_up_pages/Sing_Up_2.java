@@ -16,15 +16,14 @@ import android.widget.Toast;
 import com.example.diabestes_care_app.R;
 
 
+public class Sing_Up_2 extends AppCompatActivity {
 
-
-public class Sing_Up_2 extends AppCompatActivity  {
-    String[] country = {"الضفة الغربية ","جنين  ","نابلس  ", "قطاع غزة"};
-    String[] Governorate = {"جنوب غزة ","غرب غزة ","شرق غزة  ", "شمال غزة "};
+    String[] country = {"الضفة الغربية ", "جنين  ", "نابلس  ", "قطاع غزة"};
+    String[] Governorate = {"جنوب غزة ", "غرب غزة ", "شرق غزة  ", "شمال غزة "};
     AutoCompleteTextView auto_1;
     AutoCompleteTextView auto_2;
     ArrayAdapter<String> adapterItems;
-    Button btn_next ;
+    Button btn_next;
 
 
     @Override
@@ -33,12 +32,12 @@ public class Sing_Up_2 extends AppCompatActivity  {
         setContentView(R.layout.activity_sing_up2);
         // code  is to make the Activity full screen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        auto_1 = (AutoCompleteTextView)findViewById(R.id.autoComplete1);
-        auto_2 = (AutoCompleteTextView)findViewById(R.id.autoComplete2);
-        btn_next = findViewById(R.id.btn_next);
+        auto_1 = (AutoCompleteTextView) findViewById(R.id.autoComplete1);
+        auto_2 = (AutoCompleteTextView) findViewById(R.id.autoComplete2);
+        btn_next = findViewById(R.id.btn_next_2);
 
 
-        ArrayAdapter a2 =new ArrayAdapter(this, android.R.layout.simple_spinner_item,country);
+        ArrayAdapter a2 = new ArrayAdapter(this, android.R.layout.simple_spinner_item, country);
         a2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         auto_1.setAdapter(a2);
         auto_1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -53,7 +52,7 @@ public class Sing_Up_2 extends AppCompatActivity  {
             }
         });
 
-        ArrayAdapter a1 =new ArrayAdapter(this, android.R.layout.simple_spinner_item,Governorate);
+        ArrayAdapter a1 = new ArrayAdapter(this, android.R.layout.simple_spinner_item, Governorate);
         a1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         auto_2.setAdapter(a1);
 
@@ -70,14 +69,12 @@ public class Sing_Up_2 extends AppCompatActivity  {
         });
 
 
-
-
         //====================================الانتقال من صفحة الستجيل الحالية للصفحة الثانية ===============================
 
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),Sing_Up_3.class);
+                Intent intent = new Intent(getApplicationContext(), Sing_Up_3.class);
                 startActivity(intent);
             }
 

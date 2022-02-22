@@ -277,9 +277,9 @@
                 android:background="@drawable/bg_edit_text"
                 android:fontFamily="@font/cairo_bold"
                 android:inputType="textNoSuggestions"
-                android:textIsSelectable="true"
                 android:textColor="@color/text_input_pa"
                 android:textDirection="ltr"
+                android:textIsSelectable="true"
                 android:textSize="15sp"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 

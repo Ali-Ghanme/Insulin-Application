@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
 
 import com.example.diabestes_care_app.Models.ScreenItem;
 import com.example.diabestes_care_app.R;
@@ -30,7 +29,7 @@ public class ViewAdapter extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.item, null);
+        View view = inflater.inflate(R.layout.splash_item_screen, null);
 
         ImageView imageView = view.findViewById(R.id.image_view);
         imageView.setImageResource(mListScreen.get(position).getScreenImg());

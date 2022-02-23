@@ -16,7 +16,7 @@
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_120sdp"
+            android:layout_height="@dimen/_150sdp"
             android:src="@drawable/bg_rectangel_choice" />
 
         <TextView
@@ -28,7 +28,7 @@
             android:fontFamily="@font/cairo_bold"
             android:text="مرحبا بك"
             android:textColor="@color/white"
-            android:textSize="@dimen/_25sdp" />
+            android:textSize="@dimen/_33sdp" />
 
         <TextView
             android:id="@+id/textView"
@@ -74,7 +74,7 @@
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_120sdp"
+        android:layout_height="@dimen/_150sdp"
         android:src="@drawable/bg_rectangel_choice_bottom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

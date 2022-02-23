@@ -31,10 +31,11 @@
 
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_sing_up21">Sing_Up2_1</string>
-    <string-array name="spinnerg_array">
-        <item>Male</item>
-        <item>Female</item>
+    <string name="city">المدينة</string>
 
+    <string-array name="Gender_array">
+        <item>ذكر</item>
+        <item>انثى</item>
     </string-array>
 
 

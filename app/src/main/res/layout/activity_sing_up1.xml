@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
-        android:id="@+id/Sing_up_header"
+        android:id="@+id/Sing_up_1_header"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_70sdp"
         android:background="@drawable/bg_sing_up"
@@ -14,25 +14,10 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/btn_back"
-            android:layout_width="@dimen/_40sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_marginStart="@dimen/_16sdp"
-            android:layout_marginTop="@dimen/_30sdp"
-            android:layout_marginEnd="14dp"
-            android:background="@drawable/float_action_btn"
-            android:drawableStart="@drawable/ic_arrow_back"
-            android:elevation="10dp"
-            android:paddingHorizontal="@dimen/_13sdp"
-            android:paddingTop="@dimen/_5sdp"
-            app:borderWidth="0dp"
-            tools:ignore="SpeakableTextPresentCheck" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_90sdp"
+            android:layout_marginStart="@dimen/_90sdp"
             android:layout_marginTop="@dimen/_15sdp"
             android:fontFamily="@font/cairo_bold"
             android:text="اخبرنا عن نفسك"
@@ -49,70 +34,80 @@
         android:layout_marginRight="@dimen/_10sdp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Sing_up_header">
+        app:layout_constraintTop_toBottomOf="@id/Sing_up_1_header">
 
         <EditText
-            android:id="@+id/edit_text_name"
-            android:layout_width="@dimen/_347sdp"
-            android:layout_height="@dimen/_40sdp"
+            android:id="@+id/Sing_up_1_name"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_35sdp"
             android:layout_centerHorizontal="true"
             android:autofillHints="name"
             android:background="@drawable/bg_edit_text"
-            android:elevation="2dp"
-            android:ems="1"
+            android:drawableStart="@drawable/ic_user"
+            android:elevation="1.5dp"
             android:fontFamily="@font/cairo_bold"
             android:hint="الاسم"
             android:inputType="textPersonName"
             android:maxLines="1"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
-            android:textColor="@color/Doctor_Color"
+            android:textColor="@color/Patient_Color"
             android:textColorHint="#78909C"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            tools:ignore="TouchTargetSizeCheck" />
 
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/spinner_type"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_width="@dimen/_347sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_below="@id/edit_text_name"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="0dp"
+        <RadioGroup
+            android:id="@+id/Sing_up_1_Gender"
+            android:layout_width="@dimen/_220sdp"
+            android:layout_height="@dimen/_55sdp"
+            android:layout_below="@+id/Sing_up_1_name"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_20sdp"
-            android:background="@drawable/bg_edit_text"
-            android:elevation="2dp"
-            android:hint="النوع"
-            android:layoutDirection="rtl"
-            android:textColorHint="#989696"
-            app:boxCornerRadiusBottomEnd="@dimen/dp50"
-            app:boxCornerRadiusBottomStart="@dimen/dp50"
-            app:boxCornerRadiusTopEnd="@dimen/dp50"
-            app:boxCornerRadiusTopStart="@dimen/dp50"
-            app:boxStrokeWidth="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:checkedButton="@id/male"
+            android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <AutoCompleteTextView
-                android:id="@+id/autoComplete"
-                android:layout_width="@dimen/_260sdp"
-                android:layout_height="@dimen/_50sdp"
-                android:layout_weight="1"
+            <RadioButton
+                android:id="@+id/male"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_45sdp"
+                android:background="@drawable/gender_background_selector"
+                android:button="@android:color/transparent"
+                android:drawableStart="@drawable/ic_male"
+                android:elevation="@dimen/_3sdp"
+                android:text="ذكر"
+                android:paddingLeft="@dimen/_15sdp"
                 android:fontFamily="@font/cairo_bold"
-                android:inputType="textAutoComplete"
-                android:textColor="@color/Patient_Color"
-                android:textDirection="rtl"
-                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:textAlignment="center"
+                android:textColor="@drawable/gender_text_selector"
+                android:textSize="@dimen/_15sdp"
+                app:drawableTint="@drawable/gender_text_selector" />
 
+            <RadioButton
+                android:id="@+id/female"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_marginLeft="@dimen/_40sdp"
+                android:background="@drawable/gender_background_selector"
+                android:button="@android:color/transparent"
+                android:drawableStart="@drawable/ic_female"
+                android:elevation="@dimen/_3sdp"
+                android:paddingLeft="@dimen/_15sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:text="أنثى"
+                android:textAlignment="center"
+                android:textColor="@drawable/gender_text_selector"
+                android:textSize="16sp"
+                app:drawableTint="@drawable/gender_text_selector" />
+        </RadioGroup>
 
         <EditText
-            android:id="@+id/edit_text_data"
-            android:layout_width="@dimen/_347sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_below="@id/spinner_type"
+            android:id="@+id/Sing_up_1_date"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_below="@id/Sing_up_1_Gender"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_20sdp"
             android:autofillHints="creditCardExpirationDate"
@@ -126,15 +121,16 @@
             android:maxLines="1"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
-            android:textColor="@color/Doctor_Color"
+            android:textColor="@color/Patient_Color"
             android:textColorHint="#78909C"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
-            android:id="@+id/edit_text_whight"
-            android:layout_width="@dimen/_347sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_below="@id/edit_text_data"
+            android:id="@+id/Sing_up_1_wehigt"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_below="@id/Sing_up_1_date"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_20sdp"
             android:autofillHints="creditCardNumber"
@@ -147,15 +143,16 @@
             android:maxLines="1"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
-            android:textColor="@color/Doctor_Color"
+            android:textColor="@color/Patient_Color"
             android:textColorHint="#78909C"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
-            android:id="@+id/edit_text_tall"
-            android:layout_width="@dimen/_347sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_below="@id/edit_text_whight"
+            android:id="@+id/Sing_up_1_tall"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_below="@id/Sing_up_1_wehigt"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_20sdp"
             android:autofillHints="creditCardNumber"
@@ -168,15 +165,16 @@
             android:maxLines="1"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
-            android:textColor="@color/Doctor_Color"
+            android:textColor="@color/Patient_Color"
             android:textColorHint="#78909C"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
-            android:id="@+id/edit_text_National_ID"
-            android:layout_width="@dimen/_347sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_below="@id/edit_text_tall"
+            android:id="@+id/Sing_up_1_ID"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_below="@id/Sing_up_1_tall"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_20sdp"
             android:autofillHints="creditCardNumber"
@@ -188,52 +186,26 @@
             android:inputType="number"
             android:paddingStart="@dimen/_20sdp"
             android:paddingEnd="@dimen/_20sdp"
-            android:textColor="@color/Doctor_Color"
+            android:textColor="@color/Patient_Color"
             android:textColorHint="#78909C"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            tools:ignore="TouchTargetSizeCheck" />
     </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/Sing_up_header_bottom"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_70sdp"
-        android:layout_below="@id/Subject"
-        android:background="@drawable/bg_sing_up_bottom"
+    <Button
+        android:id="@+id/btn_next_S"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/_50sdp"
+        android:background="@drawable/float_action_btn"
+        android:drawableStart="@drawable/ic_float_action"
+        android:elevation="10dp"
+        android:paddingHorizontal="@dimen/_20sdp"
+        app:borderWidth="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
 
-        <Button
-            android:id="@+id/btn_next_S"
-            android:layout_width="@dimen/_40sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_30sdp"
-            android:background="@drawable/float_action_btn"
-            android:drawableStart="@drawable/ic_float_action"
-            android:elevation="10dp"
-            android:paddingHorizontal="@dimen/_17sdp"
-            app:borderWidth="0dp"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
-            android:id="@+id/dots_indicator"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="37dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="144dp"
-            android:layout_marginBottom="36dp"
-            app:dotsColor="@color/white_smoke"
-            app:dotsCornerRadius="6dp"
-            app:dotsSize="@dimen/_14sdp"
-            app:dotsSpacing="@dimen/_4sdp"
-            app:dotsWidthFactor="2.5"
-            app:progressMode="true"
-            app:selectedDotColor="@color/white" />
-    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

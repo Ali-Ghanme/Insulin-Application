@@ -21,13 +21,4 @@
     <color name="card_bg_color">#FFFFFF</color>
     <color name="card_bg_dark_color">#0e0e0e</color>
     <color name="edit_text_color">#F4F6FF</color>
-
-
-    <color name="pa">#24B2FF</color>
-    <color name="dr">#26B887</color>
-    <color name="rea">#EC2C2C</color>
-    <color name="ramadi">#DAD8D8</color>
-
-
-
 </resources>

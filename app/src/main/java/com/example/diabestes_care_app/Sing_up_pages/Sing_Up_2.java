@@ -14,15 +14,13 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.diabestes_care_app.R;
+import com.google.android.material.textfield.TextInputLayout;
 
 
 public class Sing_Up_2 extends AppCompatActivity {
 
-    String[] country = {"الضفة الغربية ", "جنين  ", "نابلس  ", "قطاع غزة"};
-    String[] Governorate = {"جنوب غزة ", "غرب غزة ", "شرق غزة  ", "شمال غزة "};
-    AutoCompleteTextView auto_1;
-    AutoCompleteTextView auto_2;
-    ArrayAdapter<String> adapterItems;
+    TextInputLayout textInputLayout;
+    AutoCompleteTextView auto_1, auto_2;
     Button btn_next;
 
 
@@ -32,53 +30,26 @@ public class Sing_Up_2 extends AppCompatActivity {
         setContentView(R.layout.activity_sing_up2);
         // code  is to make the Activity full screen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        auto_1 = (AutoCompleteTextView) findViewById(R.id.autoComplete1);
-        auto_2 = (AutoCompleteTextView) findViewById(R.id.autoComplete2);
+        textInputLayout = findViewById(R.id.Sing_up_2_city_menu_drop);
+        auto_1 = (AutoCompleteTextView) findViewById(R.id.Sign_up_2_autoComplete_textview_1);
         btn_next = findViewById(R.id.btn_next_2);
 
-
-        ArrayAdapter a2 = new ArrayAdapter(this, android.R.layout.simple_spinner_item, country);
-        a2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        auto_1.setAdapter(a2);
-        auto_1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        String[] country = {"الضفة الغربية ", "جنين  ", "نابلس  ", "قطاع غزة"};
+        ArrayAdapter<String> itemAdapter = new ArrayAdapter<>(Sing_Up_2.this, R.layout.spinner_list_item, country);
+        auto_1.setAdapter(itemAdapter);
+        auto_1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//          Toast.makeText((String)parent.getItemAtPosition(position)); set textview specific text
             }
         });
-
-        ArrayAdapter a1 = new ArrayAdapter(this, android.R.layout.simple_spinner_item, Governorate);
-        a1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        auto_2.setAdapter(a1);
-
-        auto_2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-
-
         //====================================الانتقال من صفحة الستجيل الحالية للصفحة الثانية ===============================
-
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Sing_Up_3.class);
                 startActivity(intent);
             }
-
         });
     }
-
 }

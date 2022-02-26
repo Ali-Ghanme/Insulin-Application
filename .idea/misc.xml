@@ -45,6 +45,8 @@
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/drawable/ic_male.xml" value="0.192" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/drawable/ic_next_icon_splash.xml" value="0.2035" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/drawable/ic_online_doctor_amico.xml" value="0.244" />
+        <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/drawable/ic_password_hide.xml" value="0.1025" />
+        <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/drawable/ic_password_show.xml" value="0.203" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/drawable/ic_search.xml" value="0.241" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/drawable/ic_splash_1.xml" value="0.1965" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/drawable/ic_splash_2.xml" value="0.25" />
@@ -79,7 +81,7 @@
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_main.xml" value="0.2975630611372381" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_patient_sing_up.xml" value="0.3625" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_sing_up1.xml" value="0.2936708860759494" />
-        <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_sing_up2.xml" value="0.2936708860759494" />
+        <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_sing_up2.xml" value="0.29743589743589743" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_sing_up3.xml" value="0.2936708860759494" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_splash_dilog.xml" value="0.29379485014774165" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_splash_screen1.xml" value="0.29379485014774165" />

@@ -54,7 +54,7 @@ public class Sing_Up_2 extends Basic_Activity {
             }
         });
 
-        //============================Show password and hid password==================================
+        //============================Show password and hid password================================
         password.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -82,7 +82,7 @@ public class Sing_Up_2 extends Basic_Activity {
                 return false;
             }
         });
-        //============================Show password and hid password==================================
+        //=================Show password and hid password edit text tow confirmation================
         confirm_Password.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -111,7 +111,6 @@ public class Sing_Up_2 extends Basic_Activity {
             }
         });
 
-        //====================================الانتقال من صفحة الستجيل الحالية للصفحة الثانية ===============================
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

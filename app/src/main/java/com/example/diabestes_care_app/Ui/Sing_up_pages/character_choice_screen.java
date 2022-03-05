@@ -1,24 +1,22 @@
-package com.example.diabestes_care_app.Sing_up_pages;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.diabestes_care_app.Ui.Sing_up_pages;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 
-import com.example.diabestes_care_app.Home_Activitey;
-import com.example.diabestes_care_app.MainActivity;
+import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.R;
+import com.example.diabestes_care_app.Ui.Sing_In.Sing_In;
 
-public class character_choice_screen extends AppCompatActivity {
+public class character_choice_screen extends Basic_Activity {
     Button btn_d;
     Button btn_p;
     Button log_in;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        fullscreen();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character_choice_screen);
 
@@ -26,7 +24,7 @@ public class character_choice_screen extends AppCompatActivity {
         btn_d.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(character_choice_screen.this, Sing_Up_1.class );
+                Intent intent = new Intent(character_choice_screen.this, Sing_Up_1.class);
                 startActivity(intent);
             }
         });
@@ -44,11 +42,9 @@ public class character_choice_screen extends AppCompatActivity {
         log_in.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(character_choice_screen.this, Sing_Up_2.class);
+                Intent intent = new Intent(character_choice_screen.this, Sing_In.class);
                 startActivity(intent);
             }
         });
-        // code  is to make the Activity full screen
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 }

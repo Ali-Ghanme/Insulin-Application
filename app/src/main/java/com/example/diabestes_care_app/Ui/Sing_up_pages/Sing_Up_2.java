@@ -1,4 +1,4 @@
-package com.example.diabestes_care_app.Sing_up_pages;
+package com.example.diabestes_care_app.Ui.Sing_up_pages;
 
 
 import android.annotation.SuppressLint;
@@ -8,7 +8,6 @@ import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;

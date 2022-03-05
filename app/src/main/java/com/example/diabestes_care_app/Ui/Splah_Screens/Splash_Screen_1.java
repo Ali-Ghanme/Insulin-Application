@@ -1,4 +1,4 @@
-package com.example.diabestes_care_app.Splah_Screens;
+package com.example.diabestes_care_app.Ui.Splah_Screens;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -16,8 +16,7 @@ import android.widget.TextView;
 import com.example.diabestes_care_app.Adapters.ViewAdapter;
 import com.example.diabestes_care_app.Models.ScreenItem;
 import com.example.diabestes_care_app.R;
-import com.example.diabestes_care_app.Sing_up_pages.character_choice_screen;
-import com.google.android.material.tabs.TabLayout;
+import com.example.diabestes_care_app.Ui.Sing_up_pages.character_choice_screen;
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
 
 import java.util.ArrayList;

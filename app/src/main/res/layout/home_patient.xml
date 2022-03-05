@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#23B1FE"
     android:orientation="vertical"
-    tools:context=".Home_Activitey">
+    tools:context=".Ui.Home_Activitey">
 
     <RelativeLayout
         android:id="@+id/header"

@@ -1,4 +1,4 @@
-package com.example.diabestes_care_app.Sing_up_pages;
+package com.example.diabestes_care_app.Ui.Sing_up_pages;
 
 
 import android.content.Intent;

@@ -1,15 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Ui.Fragment.Patient_Fragment">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Patient"
-        android:gravity="center"
-        android:textSize="@dimen/_50sdp"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_50sdp">
+
+        <TextView
+            android:id="@+id/Log_int_tv_show_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:layoutDirection="rtl"
+            android:text=" البريد الالكتروني/رقم الهاتف "
+            android:textAlignment="textStart"
+            android:textColor="@color/Patient_Color"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/Log_in_email"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_60sdp"
+            android:autofillHints="emailAddress"
+            android:background="@drawable/bg_edit_text"
+            android:drawableStart="@drawable/ic_email"
+            android:drawablePadding="@dimen/_13sdp"
+            android:elevation="1.5dp"
+            android:fontFamily="@font/cairo_bold"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textColor="@color/Patient_Color"
+            android:textColorHint="#78909C"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/Log_int_tv_show_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Log_in_email"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:layoutDirection="rtl"
+            android:text=" كلمة المرور "
+            android:textAlignment="textStart"
+            android:textColor="@color/Patient_Color"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/Log_in_pass"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@id/Log_int_tv_show_pass"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:autofillHints="password"
+            android:background="@drawable/bg_edit_text"
+            android:drawableStart="@drawable/ic_password_hide"
+            android:drawablePadding="@dimen/_13sdp"
+            android:elevation="1.5dp"
+            android:fontFamily="@font/cairo_bold"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textColor="@color/Patient_Color"
+            android:textColorHint="#78909C"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Log_in_pass"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/_50sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:text="تذكرني"
+            android:layoutDirection="rtl"
+            android:fontFamily="@font/cairo_bold"
+            android:textColor="@color/Patient_Color"
+            android:textSize="@dimen/_10sdp"/>
+    </RelativeLayout>
 
 </FrameLayout>

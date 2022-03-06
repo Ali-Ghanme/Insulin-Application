@@ -59,9 +59,7 @@
             <RadioGroup
                 android:id="@+id/Sing_up_1_Gender"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_130sdp"
-                android:layout_below="@+id/Sing_up_1_name"
-                android:layout_centerHorizontal="true"
+                android:layout_height="@dimen/_150sdp"
                 android:layout_marginTop="@dimen/_20sdp"
                 android:checkedButton="@id/male"
                 android:orientation="vertical"
@@ -71,8 +69,8 @@
 
                 <RadioButton
                     android:id="@+id/Sing_up_3_diabetis_type_1"
-                    android:layout_width="@dimen/_250sdp"
-                    android:layout_height="@dimen/_35sdp"
+                    android:layout_width="@dimen/_230sdp"
+                    android:layout_height="@dimen/_40sdp"
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/gender_background_selector"
                     android:button="@android:color/transparent"
@@ -87,8 +85,8 @@
 
                 <RadioButton
                     android:id="@+id/Sing_up_3_diabetis_type_2"
-                    android:layout_width="@dimen/_250sdp"
-                    android:layout_height="@dimen/_35sdp"
+                    android:layout_width="@dimen/_230sdp"
+                    android:layout_height="@dimen/_40sdp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:background="@drawable/gender_background_selector"
@@ -105,8 +103,8 @@
 
                 <RadioButton
                     android:id="@+id/Sing_up_3_diabetis_type_3"
-                    android:layout_width="@dimen/_250sdp"
-                    android:layout_height="@dimen/_35sdp"
+                    android:layout_width="@dimen/_230sdp"
+                    android:layout_height="@dimen/_40sdp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:background="@drawable/gender_background_selector"
@@ -146,7 +144,7 @@
             <RadioGroup
                 android:id="@+id/Sing_up_1_medics_types"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_130sdp"
+                android:layout_height="@dimen/_150sdp"
                 android:layout_marginTop="@dimen/_20sdp"
                 android:checkedButton="@id/male"
                 android:orientation="vertical"
@@ -156,8 +154,8 @@
 
                 <RadioButton
                     android:id="@+id/Sing_up_1_medics_types_1"
-                    android:layout_width="@dimen/_250sdp"
-                    android:layout_height="@dimen/_35sdp"
+                    android:layout_width="@dimen/_230sdp"
+                    android:layout_height="@dimen/_40sdp"
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/gender_background_selector"
                     android:button="@android:color/transparent"
@@ -172,8 +170,8 @@
 
                 <RadioButton
                     android:id="@+id/Sing_up_1_medics_types_2"
-                    android:layout_width="@dimen/_250sdp"
-                    android:layout_height="@dimen/_35sdp"
+                    android:layout_width="@dimen/_230sdp"
+                    android:layout_height="@dimen/_40sdp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:background="@drawable/gender_background_selector"
@@ -190,8 +188,8 @@
 
                 <RadioButton
                     android:id="@+id/Sing_up_1_medics_types_3"
-                    android:layout_width="@dimen/_250sdp"
-                    android:layout_height="@dimen/_35sdp"
+                    android:layout_width="@dimen/_230sdp"
+                    android:layout_height="@dimen/_40sdp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:background="@drawable/gender_background_selector"

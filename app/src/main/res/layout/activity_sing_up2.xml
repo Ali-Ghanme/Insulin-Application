@@ -54,8 +54,8 @@
 
         <EditText
             android:id="@+id/S2_et_name"
-            android:layout_width="@dimen/_250sdp"
-            android:layout_height="@dimen/_35sdp"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_40sdp"
             android:layout_below="@id/sing_up_2_tv_show"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
@@ -66,23 +66,23 @@
             android:elevation="1.5dp"
             android:fontFamily="@font/cairo_bold"
             android:hint="رقم الجوال"
-            android:inputType="phone"
+            android:inputType="number"
             android:maxLines="1"
-            android:paddingStart="@dimen/_10sdp"
-            android:paddingEnd="@dimen/_10sdp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
             android:textColor="@color/Patient_Color"
             android:textColorHint="#78909C"
             android:textSize="15sp"
-            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+            tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
             android:id="@+id/S2_et_email"
-            android:layout_width="@dimen/_250sdp"
-            android:layout_height="@dimen/_35sdp"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_40sdp"
             android:layout_below="@id/S2_et_name"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
-            android:autofillHints="emailAddress#"
+            android:autofillHints="emailAddress"
             android:background="@drawable/bg_edit_text"
             android:drawableStart="@drawable/ic_email"
             android:drawablePadding="@dimen/_13sdp"
@@ -113,8 +113,8 @@
 
         <EditText
             android:id="@+id/S2_et_Password"
-            android:layout_width="@dimen/_250sdp"
-            android:layout_height="@dimen/_35sdp"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_40sdp"
             android:layout_below="@id/secure_text"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
@@ -136,8 +136,8 @@
 
         <EditText
             android:id="@+id/S2_et_confirm_Password"
-            android:layout_width="@dimen/_250sdp"
-            android:layout_height="@dimen/_35sdp"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_40sdp"
             android:layout_below="@id/S2_et_Password"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
@@ -190,13 +190,13 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/S2_city_menu_drop"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
-            android:layout_width="@dimen/_250sdp"
-            android:layout_height="@dimen/_35sdp"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_40sdp"
             android:layout_below="@id/sing_up_2_sub_tv"
             android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_5sdp"
             android:background="@drawable/bg_edit_text"
-            android:elevation="@dimen/_2sdp"
+            android:elevation="1.5dp"
             android:layoutDirection="rtl"
             android:maxLines="1"
             android:textColorHint="#989696"
@@ -208,8 +208,8 @@
 
             <AutoCompleteTextView
                 android:id="@+id/Sign_up_2_autoComplete_textview_1"
-                android:layout_width="@dimen/_250sdp"
-                android:layout_height="@dimen/_35sdp"
+                android:layout_width="@dimen/_225sdp"
+                android:layout_height="@dimen/_40sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_weight="1"
                 android:background="@drawable/bg_edit_text"

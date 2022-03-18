@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Sing_up_5_final">
+    tools:context=".Ui.Sing_up_pages.Sing_up_5_final">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Diabestes_Care_App">
         <activity
-            android:name=".Sing_up_5_final"
+            android:name=".Ui.Sing_up_pages.Sing_up_5_final"
             android:exported="false" />
         <activity
-            android:name=".Sing_up_4"
+            android:name=".Ui.Sing_up_pages.Sing_up_4"
             android:exported="false" />
         <activity
             android:name=".Ui.Sing_In.Sing_In"

@@ -1,8 +1,10 @@
-package com.example.diabestes_care_app;
+package com.example.diabestes_care_app.Ui.Sing_up_pages;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.diabestes_care_app.R;
 
 public class Sing_up_5_final extends AppCompatActivity {
 

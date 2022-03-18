@@ -1,6 +1,5 @@
 package com.example.diabestes_care_app.Ui.Sing_In;
 
-
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,15 +11,15 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.R;
-import com.example.diabestes_care_app.Ui.Fragment.Doctor_Fragment;
-import com.example.diabestes_care_app.Ui.Fragment.Patient_Fragment;
+import com.example.diabestes_care_app.Ui.Sing_In.Fragment.Doctor_Fragment;
+import com.example.diabestes_care_app.Ui.Sing_In.Fragment.Patient_Fragment;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
 public class Sing_In extends Basic_Activity {
     TabLayout tabLayout;
-    ViewPager viewPager;
+    ViewPager viewPager_subject;
     MainAdapter adapter;
 
     @Override
@@ -29,19 +28,19 @@ public class Sing_In extends Basic_Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sing_in);
         tabLayout = findViewById(R.id.tab_layout);
-        viewPager = findViewById(R.id.viewpager_tab);
+        viewPager_subject = findViewById(R.id.viewpager_tab);
 
         adapter = new MainAdapter(getSupportFragmentManager());
 
-        adapter.AddFragment(new Patient_Fragment(), "Patient");
-        adapter.AddFragment(new Doctor_Fragment(), "Doctor");
 
-        viewPager.setAdapter(adapter);
+        adapter.AddFragment(new Patient_Fragment(), "مريض");
+        adapter.AddFragment(new Doctor_Fragment(), "طبيب");
 
-        tabLayout.setupWithViewPager(viewPager);
+        viewPager_subject.setAdapter(adapter);
+        tabLayout.setupWithViewPager(viewPager_subject);
     }
 
-    private class MainAdapter extends FragmentPagerAdapter {
+    private static class MainAdapter extends FragmentPagerAdapter {
         ArrayList<Fragment> fragmentArrayList = new ArrayList<>();
         ArrayList<String> stringArrayList = new ArrayList<>();
 

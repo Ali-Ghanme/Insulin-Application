@@ -15,4 +15,5 @@ public class Basic_Activity extends AppCompatActivity {
     public void fullscreen() {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
+
 }

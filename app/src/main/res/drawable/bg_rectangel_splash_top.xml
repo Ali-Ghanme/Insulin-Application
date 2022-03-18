@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="@color/Patient_Color" />
+    <gradient
+        android:endColor="@color/Doctor_Color"
+        android:startColor="@color/Patient_Color" />
     <corners android:bottomLeftRadius="@dimen/_300sdp" />
 </shape>

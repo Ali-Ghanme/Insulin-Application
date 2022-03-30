@@ -228,6 +228,7 @@
                     android:textSize="15sp"
                     app:drawableTint="@drawable/gender_text_selector"
                     tools:ignore="TouchTargetSizeCheck" />
+
             </RadioGroup>
 
             <RelativeLayout

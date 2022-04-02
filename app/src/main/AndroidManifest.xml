@@ -16,28 +16,34 @@
             android:name=".Ui.Sing_up_pages.Sing_up_4"
             android:exported="false" />
         <activity
-            android:name=".Ui.Sing_In.Sing_In"
+            android:name=".Sign_up_dr.patient_profile"
             android:exported="false" />
         <activity
-            android:name=".Ui.Sing_up_pages.Sing_Up_3"
+            android:name=".Sign_up_dr.sign_up_dr4"
             android:exported="false" />
         <activity
-            android:name=".Ui.Sing_up_pages.character_choice_screen"
+            android:name=".Sign_up_dr.sign_up_dr2"
             android:exported="false" />
         <activity
-            android:name=".Ui.MainActivity"
+            android:name=".Sing_up_pages.Sing_Up_3"
             android:exported="false" />
         <activity
-            android:name=".Ui.Sing_up_pages.Sing_Up_2"
+            android:name=".Sing_up_pages.character_choice_screen"
             android:exported="false" />
         <activity
-            android:name=".Ui.Sing_up_pages.Sing_Up_1"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".Ui.Home_Activitey"
+            android:name=".Sing_up_pages.Sing_Up_2"
             android:exported="false" />
         <activity
-            android:name=".Ui.Splah_Screens.Splash_Screen_1"
+            android:name=".Sing_up_pages.Sing_Up_1"
+            android:exported="false" />
+        <activity
+            android:name=".Home_Activitey"
+            android:exported="false" />
+        <activity
+            android:name=".Splah_Screens.Splash_Screen_1"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

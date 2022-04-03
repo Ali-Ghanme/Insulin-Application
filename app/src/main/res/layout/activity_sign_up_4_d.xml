@@ -66,7 +66,7 @@
 
     </RelativeLayout>
     <Button
-        android:id="@+id/btn_next_2_dr4"
+        android:id="@+id/btn_next_4_dr"
         android:layout_width="@dimen/_50sdp"
         android:layout_height="@dimen/_50sdp"
         android:layout_centerHorizontal="true"

@@ -49,7 +49,7 @@
             android:name=".Ui.Sing_In.Sing_In"
             android:exported="false" />
         <activity
-            android:name=".Ui.Patient.Home_Activitey"
+            android:name=".Ui.Sing_up_pages.Patient.Patient.Home_Activitey"
             android:exported="false" />
         <activity
             android:name=".Ui.Splah_Screens.Splash_Screen_1"

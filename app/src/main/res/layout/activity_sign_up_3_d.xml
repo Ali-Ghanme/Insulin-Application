@@ -6,4 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".Ui.Sing_up_pages.Doctor.Sing_Up_3_D">
 
+    <Button
+        android:id="@+id/btn_next_3_dr"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/_50sdp"
+        android:background="@drawable/float_action_btn"
+        android:drawableStart="@drawable/ic_float_action"
+        android:elevation="10dp"
+        android:paddingHorizontal="@dimen/_20sdp"
+        app:borderWidth="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>

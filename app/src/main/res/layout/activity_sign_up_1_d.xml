@@ -27,7 +27,7 @@
     <RelativeLayout
         android:id="@+id/Subject"
         android:layout_width="@dimen/_280sdp"
-        android:layout_height="@dimen/_360sdp"
+        android:layout_height="@dimen/_230sdp"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_60sdp"
         android:layout_marginRight="@dimen/_10sdp"

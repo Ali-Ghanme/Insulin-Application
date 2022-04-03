@@ -1,4 +1,4 @@
-package com.example.diabestes_care_app.Ui.Patient;
+package com.example.diabestes_care_app.Ui.Sing_up_pages.Patient.Patient;
 
 import androidx.appcompat.app.AppCompatActivity;
 

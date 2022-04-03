@@ -8,6 +8,7 @@ import android.widget.Button;
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Sing_In.Sing_In;
+import com.example.diabestes_care_app.Ui.Sing_up_pages.Doctor.Sing_Up_1_D;
 import com.example.diabestes_care_app.Ui.Sing_up_pages.Patient.Sing_Up_1_P;
 
 public class character_choice_screen extends Basic_Activity {
@@ -25,7 +26,7 @@ public class character_choice_screen extends Basic_Activity {
         btn_d.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(character_choice_screen.this, Sing_Up_1_P.class);
+                Intent intent = new Intent(character_choice_screen.this, Sing_Up_1_D.class);
                 startActivity(intent);
             }
         });

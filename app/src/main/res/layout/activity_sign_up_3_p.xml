@@ -212,7 +212,7 @@
         android:layout_width="@dimen/_50sdp"
         android:layout_height="@dimen/_50sdp"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/_50sdp"
+        android:layout_marginBottom="@dimen/_30sdp"
         android:background="@drawable/float_action_btn"
         android:drawableStart="@drawable/ic_float_action"
         android:elevation="10dp"

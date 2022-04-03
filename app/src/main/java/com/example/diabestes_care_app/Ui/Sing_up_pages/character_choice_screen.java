@@ -8,6 +8,7 @@ import android.widget.Button;
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Sing_In.Sing_In;
+import com.example.diabestes_care_app.Ui.Sing_up_pages.Patient.Sing_Up_1_P;
 
 public class character_choice_screen extends Basic_Activity {
     Button btn_d;
@@ -18,13 +19,13 @@ public class character_choice_screen extends Basic_Activity {
     protected void onCreate(Bundle savedInstanceState) {
         fullscreen();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_character_choice_screen);
+        setContentView(R.layout.activity_character_choice);
 
         btn_d = findViewById(R.id.doctor_btn);
         btn_d.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(character_choice_screen.this, Sing_Up_1.class);
+                Intent intent = new Intent(character_choice_screen.this, Sing_Up_1_P.class);
                 startActivity(intent);
             }
         });
@@ -33,7 +34,7 @@ public class character_choice_screen extends Basic_Activity {
         btn_p.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(character_choice_screen.this, Sing_Up_1.class);
+                Intent intent = new Intent(character_choice_screen.this, Sing_Up_1_P.class);
                 startActivity(intent);
             }
         });

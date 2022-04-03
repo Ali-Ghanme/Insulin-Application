@@ -2,22 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/nav_menu_home"
-        android:icon="@drawable/ic_1"
+        android:icon="@drawable/ic_home"
         android:title="الرئيسة"
         />
 
     <item
         android:id="@+id/my_heartbeat"
-        android:icon="@drawable/ic2"
+        android:icon="@drawable/ic_heart_beat"
         android:title="صحتي"/>
 
     <item
         android:id="@+id/nav_menu_signin"
-        android:icon="@drawable/chat"
+        android:icon="@drawable/ic_chat"
         android:title="المحادثات"/>
 
     <item
         android:id="@+id/user_profile"
-        android:icon="@drawable/user_nav"
+        android:icon="@drawable/ic_user_nav"
         android:title="الملف الشخصي"/>
 </menu>

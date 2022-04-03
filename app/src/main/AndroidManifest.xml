@@ -10,40 +10,49 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Diabestes_Care_App">
         <activity
-            android:name=".Ui.Sing_up_pages.Sing_up_5_final"
+            android:name=".Ui.Sing_up_pages.Patient.Sing_Up_1_P"
             android:exported="false" />
         <activity
-            android:name=".Ui.Sing_up_pages.Sing_up_4"
+            android:name=".Ui.Sing_up_pages.Patient.Sing_Up_2_P"
             android:exported="false" />
         <activity
-            android:name=".Sign_up_dr.patient_profile"
+            android:name=".Ui.Sing_up_pages.Patient.Sing_Up_3_P"
             android:exported="false" />
         <activity
-            android:name=".Sign_up_dr.sign_up_dr4"
+            android:name=".Ui.Sing_up_pages.Patient.Sing_Up_4_P"
             android:exported="false" />
         <activity
-            android:name=".Sign_up_dr.sign_up_dr2"
+            android:name=".Ui.Sing_up_pages.Patient.Sing_Up_5_P"
             android:exported="false" />
         <activity
-            android:name=".Sing_up_pages.Sing_Up_3"
+            android:name=".Ui.Sing_up_pages.Doctor.Sing_Up_1_D"
             android:exported="false" />
         <activity
-            android:name=".Sing_up_pages.character_choice_screen"
+            android:name=".Ui.Sing_up_pages.Doctor.Sing_Up_2_D"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Ui.Sing_up_pages.Doctor.Sing_Up_3_D"
             android:exported="false" />
         <activity
-            android:name=".Sing_up_pages.Sing_Up_2"
+            android:name=".Ui.Sing_up_pages.Doctor.Sing_Up_4_D"
             android:exported="false" />
         <activity
-            android:name=".Sing_up_pages.Sing_Up_1"
+            android:name=".Ui.Sing_up_pages.Doctor.Patient_Profile_D"
             android:exported="false" />
         <activity
-            android:name=".Home_Activitey"
+            android:name=".Ui.Sing_up_pages.character_choice_screen"
             android:exported="false" />
         <activity
-            android:name=".Splah_Screens.Splash_Screen_1"
+            android:name=".Ui.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Ui.Sing_In.Sing_In"
+            android:exported="false" />
+        <activity
+            android:name=".Ui.Patient.Home_Activitey"
+            android:exported="false" />
+        <activity
+            android:name=".Ui.Splah_Screens.Splash_Screen_1"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

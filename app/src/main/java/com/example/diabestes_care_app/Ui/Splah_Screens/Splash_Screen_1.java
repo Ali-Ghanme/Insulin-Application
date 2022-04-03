@@ -39,7 +39,7 @@ public class Splash_Screen_1 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash_screen1);
+        setContentView(R.layout.activity_splash_screen);
         //========================make the activity on full screen==================================
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //=======================check if its opened before or not==================================

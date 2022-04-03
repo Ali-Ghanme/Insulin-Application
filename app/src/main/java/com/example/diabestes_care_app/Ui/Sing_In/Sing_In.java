@@ -26,7 +26,7 @@ public class Sing_In extends Basic_Activity {
     protected void onCreate(Bundle savedInstanceState) {
         fullscreen();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sing_in);
+        setContentView(R.layout.activity_log_in);
         tabLayout = findViewById(R.id.tab_layout);
         viewPager_subject = findViewById(R.id.viewpager_tab);
 

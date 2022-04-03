@@ -29,7 +29,7 @@ public class ViewAdapter extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.splash_item_screen, null);
+        View view = inflater.inflate(R.layout.activity_splash_screen_item, null);
 
         ImageView imageView = view.findViewById(R.id.image_view);
         imageView.setImageResource(mListScreen.get(position).getScreenImg());

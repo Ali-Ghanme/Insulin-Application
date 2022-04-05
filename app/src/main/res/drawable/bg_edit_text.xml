@@ -3,5 +3,5 @@
     <solid
         android:color="@color/edit_text_color"
         android:elevation="10dp" />
-    <corners android:radius="50dp" />
+    <corners android:radius="@dimen/_13sdp" />
 </shape>

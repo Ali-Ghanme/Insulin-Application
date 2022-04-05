@@ -60,40 +60,42 @@
             android:orientation="horizontal">
 
             <Button
-                android:layout_width="@dimen/_50sdp"
-                android:layout_height="@dimen/_50sdp"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
                 android:layout_gravity="center"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginStart="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_25sdp"
                 android:layout_marginBottom="30dp"
                 android:background="@drawable/ic_report"
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <RelativeLayout
-                android:layout_width="250dp"
+                android:layout_width="@dimen/_190sdp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="30dp">
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/bg_edit_text"
+                android:elevation="@dimen/_5sdp">
 
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/profile_img_home_dr"
-                    android:layout_width="@dimen/_50sdp"
-                    android:layout_height="@dimen/_50sdp"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
                     android:contentDescription="@string/todo"
-                    android:elevation="3dp"
                     android:src="@drawable/ic_user"
-                    app:civ_border_color="@android:color/white"
-                    app:civ_border_width="3dp" />
+                    app:civ_border_color="@color/Doctor_Color"
+                    app:civ_border_overlay="true"
+                    app:civ_border_width="@dimen/_2sdp" />
 
                 <TextView
                     android:id="@+id/text_name_patient"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
                     android:layout_toStartOf="@+id/profile_img_home_dr"
                     android:fontFamily="@font/cairo_bold"
                     android:text="@string/Home"
@@ -104,8 +106,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/text_name_patient"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_marginEnd="@dimen/_14sdp"
                     android:layout_toStartOf="@+id/profile_img_home_dr"
                     android:fontFamily="@font/cairo_bold"
                     android:text="@string/Home"
@@ -113,10 +115,7 @@
                     android:textSize="12sp" />
 
             </RelativeLayout>
-
-
         </LinearLayout>
-
 
         <RelativeLayout
             android:id="@+id/text1_patient"
@@ -136,9 +135,10 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/cairo_bold"
                 android:text="سلوى سكر"
                 android:textColor="@color/Patient_Color"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -146,6 +146,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/cairo_bold"
                 android:text="النوع الاول"
                 android:textColor="@color/gray"
                 android:textSize="15sp" />
@@ -159,8 +160,9 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/bg_edit_text"
+            android:elevation="1.5dp"
             android:paddingStart="20dp"
-            android:paddingEnd="20dp">
+            android:paddingEnd="@dimen/_20sdp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -168,9 +170,10 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/cairo_bold"
                 android:text="مؤشر الكتلة"
                 android:textColor="@color/Patient_Color"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -178,6 +181,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/cairo_bold"
                 android:text="27"
                 android:textColor="@color/gray"
                 android:textSize="15sp" />
@@ -191,8 +195,9 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/bg_edit_text"
+            android:elevation="1.5dp"
             android:paddingStart="20dp"
-            android:paddingEnd="20dp">
+            android:paddingEnd="@dimen/_20sdp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -200,9 +205,10 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/cairo_bold"
                 android:text="نوع العلاج"
                 android:textColor="@color/Patient_Color"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -210,6 +216,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/cairo_bold"
                 android:text="ابر أنسولين"
                 android:textColor="@color/gray"
                 android:textSize="15sp" />
@@ -223,8 +230,9 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/bg_edit_text"
+            android:elevation="1.5dp"
             android:paddingStart="20dp"
-            android:paddingEnd="20dp">
+            android:paddingEnd="@dimen/_20sdp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -232,9 +240,10 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/cairo_bold"
                 android:text="العمر"
                 android:textColor="@color/Patient_Color"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -242,6 +251,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/cairo_bold"
                 android:text="22"
                 android:textColor="@color/gray"
                 android:textSize="15sp" />
@@ -255,8 +265,10 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/bg_edit_text"
+            android:elevation="1.5dp"
+            android:fontFamily="@font/cairo_bold"
             android:paddingStart="20dp"
-            android:paddingEnd="20dp">
+            android:paddingEnd="@dimen/_20sdp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -264,9 +276,10 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/cairo_bold"
                 android:text="تاريخ الاصابة"
                 android:textColor="@color/Patient_Color"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -274,6 +287,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/cairo_bold"
                 android:text="05/01/2018"
                 android:textColor="@color/gray"
                 android:textSize="15sp" />
@@ -287,6 +301,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/bg_edit_text"
+            android:elevation="1.5dp"
             android:paddingStart="20dp"
             android:paddingEnd="20dp">
 
@@ -296,9 +311,10 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/cairo_bold"
                 android:text="أمراض أخرى"
                 android:textColor="@color/Patient_Color"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -306,6 +322,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/cairo_bold"
                 android:text="الضغط"
                 android:textColor="@color/gray"
                 android:textSize="15sp" />

@@ -70,32 +70,33 @@
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <RelativeLayout
-                android:layout_width="@dimen/_190sdp"
+                android:layout_width="@dimen/_150sdp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_70sdp"
                 android:layout_marginTop="@dimen/_30sdp"
                 android:layout_marginBottom="30dp"
-                android:background="@drawable/bg_edit_text"
-                android:elevation="@dimen/_5sdp">
+                android:background="@drawable/bg_edit_text">
 
-                <de.hdodenhof.circleimageview.CircleImageView
+                <ImageView
                     android:id="@+id/profile_img_home_dr"
-                    android:layout_width="@dimen/_40sdp"
-                    android:layout_height="@dimen/_40sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="0dp"
                     android:contentDescription="@string/todo"
+                    android:paddingEnd="@dimen/_10sdp"
                     android:src="@drawable/ic_user"
-                    app:civ_border_color="@color/Doctor_Color"
+                    app:civ_border_color="@color/light_gray2"
                     app:civ_border_overlay="true"
-                    app:civ_border_width="@dimen/_2sdp" />
+                    app:civ_border_width="@dimen/_1sdp" />
 
                 <TextView
                     android:id="@+id/text_name_patient"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
                     android:layout_toStartOf="@+id/profile_img_home_dr"
                     android:fontFamily="@font/cairo_bold"
                     android:text="@string/Home"
@@ -107,7 +108,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/text_name_patient"
                     android:layout_marginTop="@dimen/_2sdp"
-                    android:layout_marginEnd="@dimen/_14sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
                     android:layout_toStartOf="@+id/profile_img_home_dr"
                     android:fontFamily="@font/cairo_bold"
                     android:text="@string/Home"
@@ -125,7 +126,6 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/bg_edit_text"
-            android:elevation="1.5dp"
             android:paddingStart="20dp"
             android:paddingEnd="20dp">
 
@@ -160,7 +160,6 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/bg_edit_text"
-            android:elevation="1.5dp"
             android:paddingStart="20dp"
             android:paddingEnd="@dimen/_20sdp">
 
@@ -195,7 +194,6 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/bg_edit_text"
-            android:elevation="1.5dp"
             android:paddingStart="20dp"
             android:paddingEnd="@dimen/_20sdp">
 
@@ -230,7 +228,6 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/bg_edit_text"
-            android:elevation="1.5dp"
             android:paddingStart="20dp"
             android:paddingEnd="@dimen/_20sdp">
 
@@ -265,7 +262,6 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/bg_edit_text"
-            android:elevation="1.5dp"
             android:fontFamily="@font/cairo_bold"
             android:paddingStart="20dp"
             android:paddingEnd="@dimen/_20sdp">
@@ -301,7 +297,6 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/bg_edit_text"
-            android:elevation="1.5dp"
             android:paddingStart="20dp"
             android:paddingEnd="20dp">
 

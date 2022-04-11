@@ -4,6 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scaleType="centerCrop"
     tools:context=".Ui.Sing_up_pages.Patient.Sing_Up_5_P">
+
+    <RelativeLayout
+        android:id="@+id/Sing_up_header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_65sdp"
+        android:background="@drawable/bg_sing_up"
+        android:scaleType="centerCrop"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/cairo_bold"
+            android:scaleType="centerCrop"
+            android:text="@string/Photo"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_20sdp"
+            tools:ignore="TextContrastCheck" />
+    </RelativeLayout>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageView"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_150sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:civ_border_width="@dimen/_1sdp"
+        android:layout_marginTop="@dimen/_80sdp"
+        app:civ_border_color="@color/gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Sing_up_header"
+        android:src="@drawable/ic_user"/>
+
+    <Button
+        android:id="@+id/btn_Upload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_input_dark_style"
+        android:layout_marginTop="@dimen/_80sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="اختيار الصورة"
+        android:fontFamily="@font/cairo_bold"
+        android:textColor="@color/white_ghost"
+        android:textSize="@dimen/_15sdp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

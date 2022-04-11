@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_65sdp"
         android:background="@drawable/bg_sing_up"
+        android:scaleType="centerCrop"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -20,6 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:fontFamily="@font/cairo_bold"
+            android:scaleType="centerCrop"
             android:text="عن السكري "
             android:textColor="@color/white"
             android:textSize="@dimen/_20sdp" />
@@ -30,6 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        android:scaleType="centerCrop"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/Sing_up_header"
@@ -42,6 +45,7 @@
             android:layout_marginTop="@dimen/_13sdp"
             android:fontFamily="@font/cairo_bold"
             android:layoutDirection="rtl"
+            android:scaleType="centerCrop"
             android:text="نوع المرض "
             android:textAlignment="textStart"
             android:textColor="@color/Patient_Color"
@@ -54,6 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_show"
             android:orientation="vertical"
+            android:scaleType="centerCrop"
             android:textDirection="rtl">
 
             <RadioGroup
@@ -63,6 +68,7 @@
                 android:layout_marginTop="@dimen/_20sdp"
                 android:checkedButton="@id/male"
                 android:orientation="vertical"
+                android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -76,6 +82,7 @@
                     android:button="@android:color/transparent"
                     android:elevation="@dimen/_3sdp"
                     android:fontFamily="@font/cairo_bold"
+                    android:scaleType="centerCrop"
                     android:text="النوع الاول"
                     android:textAlignment="center"
                     android:textColor="@drawable/gender_text_selector"
@@ -94,6 +101,7 @@
                     android:elevation="@dimen/_3sdp"
                     android:fontFamily="@font/cairo_bold"
                     android:paddingLeft="@dimen/_15sdp"
+                    android:scaleType="centerCrop"
                     android:text="النوع الثاني"
                     android:textAlignment="center"
                     android:textColor="@drawable/gender_text_selector"
@@ -112,6 +120,7 @@
                     android:elevation="@dimen/_3sdp"
                     android:fontFamily="@font/cairo_bold"
                     android:paddingLeft="@dimen/_15sdp"
+                    android:scaleType="centerCrop"
                     android:text="سكري الحمل"
                     android:textAlignment="center"
                     android:textColor="@drawable/gender_text_selector"
@@ -126,6 +135,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/cont_type"
             android:orientation="vertical"
+            android:scaleType="centerCrop"
             android:textDirection="rtl">
 
             <TextView
@@ -135,6 +145,7 @@
                 android:layout_marginTop="@dimen/_13sdp"
                 android:fontFamily="@font/cairo_bold"
                 android:layoutDirection="rtl"
+                android:scaleType="centerCrop"
                 android:text="نوع المرض "
                 android:textAlignment="textStart"
                 android:textColor="@color/Patient_Color"
@@ -148,6 +159,7 @@
                 android:layout_marginTop="@dimen/_20sdp"
                 android:checkedButton="@id/male"
                 android:orientation="vertical"
+                android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -161,6 +173,7 @@
                     android:button="@android:color/transparent"
                     android:elevation="@dimen/_3sdp"
                     android:fontFamily="@font/cairo_bold"
+                    android:scaleType="centerCrop"
                     android:text="جرعات انسولين"
                     android:textAlignment="center"
                     android:textColor="@drawable/gender_text_selector"
@@ -179,6 +192,7 @@
                     android:elevation="@dimen/_3sdp"
                     android:fontFamily="@font/cairo_bold"
                     android:paddingLeft="@dimen/_15sdp"
+                    android:scaleType="centerCrop"
                     android:text="حبوب و اقراص"
                     android:textAlignment="center"
                     android:textColor="@drawable/gender_text_selector"
@@ -197,6 +211,7 @@
                     android:elevation="@dimen/_3sdp"
                     android:fontFamily="@font/cairo_bold"
                     android:paddingLeft="@dimen/_15sdp"
+                    android:scaleType="centerCrop"
                     android:text="الاثنين معا"
                     android:textAlignment="center"
                     android:textColor="@drawable/gender_text_selector"
@@ -217,6 +232,7 @@
         android:drawableStart="@drawable/ic_float_action"
         android:elevation="10dp"
         android:paddingHorizontal="@dimen/_20sdp"
+        android:scaleType="centerCrop"
         app:borderWidth="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

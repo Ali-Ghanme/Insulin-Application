@@ -7,6 +7,7 @@
     android:background="#26B887"
     android:orientation="vertical"
     tools:context=".Ui.Sing_up_pages.Doctor.Home_D">
+
     <RelativeLayout
         android:id="@+id/header_dr"
         android:layout_width="match_parent"

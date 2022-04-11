@@ -23,7 +23,7 @@ public class Sing_Up_3_P extends Basic_Activity {
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Sing_Up_4_P.class);
+                Intent intent = new Intent(Sing_Up_3_P.this, Sing_Up_4_P.class);
                 startActivity(intent);
             }
         });

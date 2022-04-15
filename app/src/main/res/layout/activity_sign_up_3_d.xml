@@ -6,6 +6,214 @@
     android:layout_height="match_parent"
     tools:context=".Ui.Sing_up_pages.Doctor.Sing_Up_3_D">
 
+    <RelativeLayout
+        android:id="@+id/Sing_up_header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_65sdp"
+        android:background="@drawable/bg_sing_up"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/cairo_bold"
+            android:text="الوثائق التعليمية والعملية"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_20sdp" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/Subject"
+        android:layout_width="@dimen/_280sdp"
+        android:layout_height="@dimen/_390sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Sing_up_header">
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/S2_city_menu_drop"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@drawable/bg_edit_text"
+            android:elevation="1.5dp"
+            android:layoutDirection="rtl"
+            android:maxLines="1"
+            android:hint="الشهادة الجامعية "
+            android:textColorHint="#989696"
+            app:boxCornerRadiusBottomEnd="@dimen/_100sdp"
+            app:boxCornerRadiusBottomStart="@dimen/_100sdp"
+            app:boxCornerRadiusTopEnd="@dimen/_100sdp"
+            app:boxCornerRadiusTopStart="@dimen/_100sdp"
+            app:boxStrokeWidth="0dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/Sign_up_2_autoComplete_textview_1"
+                android:layout_width="@dimen/_225sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_edit_text"
+                android:completionHintView="@string/city"
+                android:focusable="false"
+                android:fontFamily="@font/cairo_bold"
+                android:inputType="none"
+                android:drawableStart="@drawable/ic_email"
+                android:paddingTop="@dimen/_10sdp"
+                android:textColor="@color/Patient_Color"
+                android:textSize="@dimen/_10sdp"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/S22_city_menu_drop"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@id/S2_city_menu_drop"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@drawable/bg_edit_text"
+            android:elevation="1.5dp"
+            android:layoutDirection="rtl"
+            android:maxLines="1"
+            android:hint="بلد التخرج "
+
+            android:textColorHint="#989696"
+            app:boxCornerRadiusBottomEnd="@dimen/_100sdp"
+            app:boxCornerRadiusBottomStart="@dimen/_100sdp"
+            app:boxCornerRadiusTopEnd="@dimen/_100sdp"
+            app:boxCornerRadiusTopStart="@dimen/_100sdp"
+            app:boxStrokeWidth="0dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/Sign_up_22_autoComplete_textview_1"
+                android:layout_width="@dimen/_225sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_edit_text"
+                android:completionHintView="@string/city"
+                android:focusable="false"
+                android:fontFamily="@font/cairo_bold"
+                android:inputType="none"
+                android:drawableStart="@drawable/ic_email"
+                android:paddingTop="@dimen/_10sdp"
+                android:textColor="@color/Patient_Color"
+                android:textSize="@dimen/_10sdp"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/S232_city_menu_drop"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@id/S22_city_menu_drop"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@drawable/bg_edit_text"
+            android:elevation="1.5dp"
+            android:layoutDirection="rtl"
+            android:maxLines="1"
+            android:hint="سنة التررج"
+
+            android:textColorHint="#989696"
+            app:boxCornerRadiusBottomEnd="@dimen/_100sdp"
+            app:boxCornerRadiusBottomStart="@dimen/_100sdp"
+            app:boxCornerRadiusTopEnd="@dimen/_100sdp"
+            app:boxCornerRadiusTopStart="@dimen/_100sdp"
+            app:boxStrokeWidth="0dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/Sign_up2_22_autoComplete_textview_1"
+                android:layout_width="@dimen/_225sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_weight="1"
+                android:drawableStart="@drawable/ic_email"
+                android:background="@drawable/bg_edit_text"
+                android:completionHintView="@string/city"
+                android:focusable="false"
+                android:fontFamily="@font/cairo_bold"
+                android:inputType="none"
+                android:paddingTop="@dimen/_10sdp"
+                android:textColor="@color/Patient_Color"
+                android:textSize="@dimen/_10sdp"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/S232_city_m3enu_drop"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@id/S232_city_menu_drop"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@drawable/bg_edit_text"
+            android:elevation="1.5dp"
+            android:layoutDirection="rtl"
+            android:maxLines="1"
+            android:hint="اسم الجامعة  "
+
+            android:textColorHint="#989696"
+            app:boxCornerRadiusBottomEnd="@dimen/_100sdp"
+            app:boxCornerRadiusBottomStart="@dimen/_100sdp"
+            app:boxCornerRadiusTopEnd="@dimen/_100sdp"
+            app:boxCornerRadiusTopStart="@dimen/_100sdp"
+            app:boxStrokeWidth="0dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/Sign_up2_22_aut3oComplete_textview_1"
+                android:layout_width="@dimen/_225sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_edit_text"
+                android:completionHintView="@string/city"
+                android:focusable="false"
+                android:drawableStart="@drawable/ic_email"
+                android:fontFamily="@font/cairo_bold"
+                android:inputType="none"
+                android:paddingTop="@dimen/_10sdp"
+                android:textColor="@color/Patient_Color"
+                android:textSize="@dimen/_10sdp"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <EditText
+            android:id="@+id/S2_et_name"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@id/S232_city_m3enu_drop"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:autofillHints="phone"
+            android:background="@drawable/bg_edit_text"
+            android:drawablePadding="@dimen/_13sdp"
+
+            android:elevation="1.5dp"
+            android:fontFamily="@font/cairo_bold"
+            android:hint=" اختيار المرفقات "
+            android:inputType="number"
+            android:maxLines="1"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:textColor="@color/Patient_Color"
+            android:textColorHint="#78909C"
+            android:textSize="15sp"
+            tools:ignore="TouchTargetSizeCheck" />
+
+    </RelativeLayout>
+
+
     <Button
         android:id="@+id/btn_next_3_dr"
         android:layout_width="@dimen/_50sdp"
@@ -21,4 +229,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="SpeakableTextPresentCheck" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

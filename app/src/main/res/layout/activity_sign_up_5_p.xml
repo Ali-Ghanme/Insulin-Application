@@ -23,7 +23,7 @@
             android:layout_centerInParent="true"
             android:fontFamily="@font/cairo_bold"
             android:scaleType="centerCrop"
-            android:text="@string/Photo"
+            android:text="Photo"
             android:textColor="@color/white"
             android:textSize="@dimen/_20sdp"
             tools:ignore="TextContrastCheck" />

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#23B1FE"
     android:orientation="vertical"
-    tools:context=".Ui.Sing_up_pages.Patient.Patient.Home_Activitey">
+    tools:context=".Ui.Patient_all.Home_Patient">
 
     <RelativeLayout
         android:id="@+id/header"

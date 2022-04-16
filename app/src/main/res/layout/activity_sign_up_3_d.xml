@@ -24,6 +24,7 @@
             android:textColor="@color/white"
             android:textSize="@dimen/_20sdp" />
     </RelativeLayout>
+
     <RelativeLayout
         android:id="@+id/Subject"
         android:layout_width="@dimen/_280sdp"
@@ -36,7 +37,6 @@
         app:layout_constraintTop_toBottomOf="@id/Sing_up_header">
 
 
-
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/S2_city_menu_drop"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
@@ -46,9 +46,9 @@
             android:layout_marginTop="@dimen/_5sdp"
             android:background="@drawable/bg_edit_text"
             android:elevation="1.5dp"
+            android:hint="الشهادة الجامعية "
             android:layoutDirection="rtl"
             android:maxLines="1"
-            android:hint="الشهادة الجامعية "
             android:textColorHint="#989696"
             app:boxCornerRadiusBottomEnd="@dimen/_100sdp"
             app:boxCornerRadiusBottomStart="@dimen/_100sdp"
@@ -58,21 +58,21 @@
 
             <AutoCompleteTextView
                 android:id="@+id/Sign_up_2_autoComplete_textview_1"
-                android:layout_width="@dimen/_225sdp"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_width="@dimen/_220sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginStart="@dimen/_5sdp"
                 android:layout_weight="1"
-                android:background="@drawable/bg_edit_text"
+                android:background="@color/white_ghost"
                 android:completionHintView="@string/city"
                 android:focusable="false"
                 android:fontFamily="@font/cairo_bold"
                 android:inputType="none"
-                android:drawableStart="@drawable/ic_email"
                 android:paddingTop="@dimen/_10sdp"
                 android:textColor="@color/Patient_Color"
                 android:textSize="@dimen/_10sdp"
                 tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/S22_city_menu_drop"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
@@ -83,10 +83,9 @@
             android:layout_marginTop="@dimen/_15sdp"
             android:background="@drawable/bg_edit_text"
             android:elevation="1.5dp"
+            android:hint="بلد التخرج "
             android:layoutDirection="rtl"
             android:maxLines="1"
-            android:hint="بلد التخرج "
-
             android:textColorHint="#989696"
             app:boxCornerRadiusBottomEnd="@dimen/_100sdp"
             app:boxCornerRadiusBottomStart="@dimen/_100sdp"
@@ -96,21 +95,21 @@
 
             <AutoCompleteTextView
                 android:id="@+id/Sign_up_22_autoComplete_textview_1"
-                android:layout_width="@dimen/_225sdp"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_width="@dimen/_220sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginStart="@dimen/_5sdp"
                 android:layout_weight="1"
-                android:background="@drawable/bg_edit_text"
+                android:background="@color/white_ghost"
                 android:completionHintView="@string/city"
                 android:focusable="false"
                 android:fontFamily="@font/cairo_bold"
                 android:inputType="none"
-                android:drawableStart="@drawable/ic_email"
                 android:paddingTop="@dimen/_10sdp"
                 android:textColor="@color/Patient_Color"
                 android:textSize="@dimen/_10sdp"
                 tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/S232_city_menu_drop"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
@@ -121,10 +120,9 @@
             android:layout_marginTop="@dimen/_15sdp"
             android:background="@drawable/bg_edit_text"
             android:elevation="1.5dp"
+            android:hint="سنة التررج"
             android:layoutDirection="rtl"
             android:maxLines="1"
-            android:hint="سنة التررج"
-
             android:textColorHint="#989696"
             app:boxCornerRadiusBottomEnd="@dimen/_100sdp"
             app:boxCornerRadiusBottomStart="@dimen/_100sdp"
@@ -134,12 +132,11 @@
 
             <AutoCompleteTextView
                 android:id="@+id/Sign_up2_22_autoComplete_textview_1"
-                android:layout_width="@dimen/_225sdp"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_width="@dimen/_220sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginStart="@dimen/_5sdp"
                 android:layout_weight="1"
-                android:drawableStart="@drawable/ic_email"
-                android:background="@drawable/bg_edit_text"
+                android:background="@color/white_ghost"
                 android:completionHintView="@string/city"
                 android:focusable="false"
                 android:fontFamily="@font/cairo_bold"
@@ -149,6 +146,7 @@
                 android:textSize="@dimen/_10sdp"
                 tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/S232_city_m3enu_drop"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
@@ -159,10 +157,9 @@
             android:layout_marginTop="@dimen/_15sdp"
             android:background="@drawable/bg_edit_text"
             android:elevation="1.5dp"
+            android:hint="اسم الجامعة  "
             android:layoutDirection="rtl"
             android:maxLines="1"
-            android:hint="اسم الجامعة  "
-
             android:textColorHint="#989696"
             app:boxCornerRadiusBottomEnd="@dimen/_100sdp"
             app:boxCornerRadiusBottomStart="@dimen/_100sdp"
@@ -172,14 +169,13 @@
 
             <AutoCompleteTextView
                 android:id="@+id/Sign_up2_22_aut3oComplete_textview_1"
-                android:layout_width="@dimen/_225sdp"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_width="@dimen/_220sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginStart="@dimen/_5sdp"
                 android:layout_weight="1"
-                android:background="@drawable/bg_edit_text"
+                android:background="@color/white_ghost"
                 android:completionHintView="@string/city"
                 android:focusable="false"
-                android:drawableStart="@drawable/ic_email"
                 android:fontFamily="@font/cairo_bold"
                 android:inputType="none"
                 android:paddingTop="@dimen/_10sdp"
@@ -198,21 +194,19 @@
             android:autofillHints="phone"
             android:background="@drawable/bg_edit_text"
             android:drawablePadding="@dimen/_13sdp"
-
             android:elevation="1.5dp"
             android:fontFamily="@font/cairo_bold"
             android:hint=" اختيار المرفقات "
             android:inputType="number"
             android:maxLines="1"
-            android:paddingEnd="20dp"
             android:paddingStart="20dp"
+            android:paddingEnd="20dp"
             android:textColor="@color/Patient_Color"
             android:textColorHint="#78909C"
             android:textSize="15sp"
             tools:ignore="TouchTargetSizeCheck" />
 
     </RelativeLayout>
-
 
     <Button
         android:id="@+id/btn_next_3_dr"

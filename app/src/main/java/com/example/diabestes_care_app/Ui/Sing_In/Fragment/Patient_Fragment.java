@@ -1,5 +1,6 @@
 package com.example.diabestes_care_app.Ui.Sing_In.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.diabestes_care_app.R;
+import com.example.diabestes_care_app.Ui.Patient_all.Home_Patient;
 
 public class Patient_Fragment extends Fragment {
 
@@ -24,6 +26,8 @@ public class Patient_Fragment extends Fragment {
         log_in.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Home_Patient.class);
+                startActivity(intent);
                 Toast.makeText(getActivity(), "Log In Success", Toast.LENGTH_SHORT).show();
             }
         });

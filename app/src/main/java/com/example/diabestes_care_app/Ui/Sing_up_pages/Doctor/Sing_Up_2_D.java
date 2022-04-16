@@ -1,7 +1,5 @@
 package com.example.diabestes_care_app.Ui.Sing_up_pages.Doctor;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;

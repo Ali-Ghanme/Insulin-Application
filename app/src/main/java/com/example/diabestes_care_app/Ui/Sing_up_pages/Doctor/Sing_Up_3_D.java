@@ -1,7 +1,5 @@
 package com.example.diabestes_care_app.Ui.Sing_up_pages.Doctor;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -23,7 +21,7 @@ public class Sing_Up_3_D extends Basic_Activity {
         btn_next_S.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Sing_Up_4_D.class);
+                Intent intent = new Intent(Sing_Up_3_D.this, Sing_Up_4_D.class);
                 startActivity(intent);
             }
         });

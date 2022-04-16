@@ -1,7 +1,5 @@
 package com.example.diabestes_care_app.Ui.Sing_up_pages.Doctor;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,7 +7,6 @@ import android.widget.Button;
 
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.R;
-import com.example.diabestes_care_app.Ui.Sing_up_pages.Patient.Sing_Up_2_P;
 
 public class Sing_Up_1_D extends Basic_Activity {
     Button btn_next_S;

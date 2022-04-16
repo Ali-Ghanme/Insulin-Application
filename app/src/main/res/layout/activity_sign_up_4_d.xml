@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Ui.Sing_up_pages.Doctor.Sing_Up_4_D">
+
     <RelativeLayout
         android:id="@+id/Sing_up_header_dr4"
         android:layout_width="match_parent"
@@ -25,29 +26,31 @@
             android:textColor="@color/white"
             android:textSize="@dimen/_20sdp" />
     </RelativeLayout>
+
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageView"
         android:layout_width="@dimen/_150sdp"
         android:layout_height="@dimen/_150sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:civ_border_width="@dimen/_1sdp"
         android:layout_marginTop="@dimen/_80sdp"
+        android:src="@drawable/ic_user"
         app:civ_border_color="@color/gray"
+        app:civ_border_width="@dimen/_1sdp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Sing_up_header_dr4"
-        android:src="@drawable/ic_user"/>
+        app:layout_constraintTop_toBottomOf="@+id/Sing_up_header_dr4" />
+
     <Button
         android:id="@+id/btn_Upload"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/search_input_dark_style"
         android:layout_marginTop="@dimen/_80sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="اختيار الصورة"
+        android:background="@drawable/search_input_dark_style"
         android:fontFamily="@font/cairo_bold"
+        android:text="اختيار الصورة"
         android:textColor="@color/white_ghost"
         android:textSize="@dimen/_15sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

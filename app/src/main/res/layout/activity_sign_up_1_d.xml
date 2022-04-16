@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Ui.Sing_up_pages.Doctor.Sing_Up_1_D">
+
     <RelativeLayout
         android:id="@+id/Sing_up_1_header"
         android:layout_width="match_parent"
@@ -24,6 +25,7 @@
             android:textColor="@color/white"
             android:textSize="@dimen/_20sdp" />
     </RelativeLayout>
+
     <RelativeLayout
         android:id="@+id/Subject"
         android:layout_width="@dimen/_280sdp"
@@ -42,7 +44,7 @@
             android:layout_centerHorizontal="true"
             android:autofillHints="name"
             android:background="@drawable/bg_edit_text"
-            android:drawableStart="@drawable/ic_user"
+            android:drawableStart="@drawable/ic_user_edit"
             android:elevation="1.5dp"
             android:fontFamily="@font/cairo_bold"
             android:hint="الاسم باللغة العربية "
@@ -54,6 +56,7 @@
             android:textColorHint="#78909C"
             android:textSize="15sp"
             tools:ignore="TouchTargetSizeCheck" />
+
         <EditText
             android:id="@+id/Sing_up_1_date_dr"
             android:layout_width="@dimen/_250sdp"
@@ -76,6 +79,7 @@
             android:textColorHint="#78909C"
             android:textSize="15sp"
             tools:ignore="TouchTargetSizeCheck" />
+
         <RadioGroup
             android:id="@+id/Sing_up_1_Gender_dr"
             android:layout_width="@dimen/_220sdp"
@@ -97,9 +101,9 @@
                 android:button="@android:color/transparent"
                 android:drawableStart="@drawable/ic_male"
                 android:elevation="@dimen/_3sdp"
-                android:text="ذكر"
-                android:paddingLeft="@dimen/_15sdp"
                 android:fontFamily="@font/cairo_bold"
+                android:paddingLeft="@dimen/_15sdp"
+                android:text="ذكر"
                 android:textAlignment="center"
                 android:textColor="@drawable/gender_text_selector"
                 android:textSize="@dimen/_15sdp"
@@ -114,8 +118,8 @@
                 android:button="@android:color/transparent"
                 android:drawableStart="@drawable/ic_female"
                 android:elevation="@dimen/_3sdp"
-                android:paddingLeft="@dimen/_15sdp"
                 android:fontFamily="@font/cairo_bold"
+                android:paddingLeft="@dimen/_15sdp"
                 android:text="أنثى"
                 android:textAlignment="center"
                 android:textColor="@drawable/gender_text_selector"
@@ -123,6 +127,7 @@
                 app:drawableTint="@drawable/gender_text_selector" />
         </RadioGroup>
     </RelativeLayout>
+
     <Button
         android:id="@+id/btn_next_S_dr"
         android:layout_width="@dimen/_50sdp"

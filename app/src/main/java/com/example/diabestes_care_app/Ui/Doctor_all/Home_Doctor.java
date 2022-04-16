@@ -1,4 +1,4 @@
-package com.example.diabestes_care_app.Ui.Sing_up_pages.Doctor;
+package com.example.diabestes_care_app.Ui.Doctor_all;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.diabestes_care_app.R;
 
-public class Home_D extends AppCompatActivity {
+public class Home_Doctor extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -7,17 +7,18 @@
         />
 
     <item
-        android:id="@+id/my_heartbeat"
+        android:id="@+id/nav_menu_my_heartbeat"
         android:icon="@drawable/ic_heart_beat"
         android:title="صحتي"/>
 
     <item
-        android:id="@+id/nav_menu_signin"
+        android:id="@+id/nav_menu_chat_"
         android:icon="@drawable/ic_chat"
         android:title="المحادثات"/>
 
     <item
-        android:id="@+id/user_profile"
+        android:id="@+id/nav_menu_user_profile"
         android:icon="@drawable/ic_user_nav"
         android:title="الملف الشخصي"/>
+
 </menu>

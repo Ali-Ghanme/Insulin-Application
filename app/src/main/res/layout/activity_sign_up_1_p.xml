@@ -47,7 +47,7 @@
             android:layout_marginTop="@dimen/_4sdp"
             android:autofillHints="name"
             android:background="@drawable/bg_edit_text"
-            android:drawableStart="@drawable/ic_user"
+            android:drawableStart="@drawable/ic_user_edit"
             android:fontFamily="@font/cairo_bold"
             android:hint="الاسم"
             android:inputType="textPersonName"

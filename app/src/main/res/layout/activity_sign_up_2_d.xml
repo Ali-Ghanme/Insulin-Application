@@ -27,13 +27,14 @@
             android:textSize="@dimen/_20sdp" />
     </RelativeLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/Subject"
         android:layout_width="@dimen/_280sdp"
-        android:layout_height="@dimen/_300sdp"
+        android:layout_height="@dimen/_280sdp"
         android:layout_marginLeft="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
+        android:orientation="vertical"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/Sing_up_header">
@@ -42,23 +43,20 @@
             android:id="@+id/sing_up_2_tv_show"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_13sdp"
             android:fontFamily="@font/cairo_bold"
-            android:layoutDirection="rtl"
             android:text="معلومات الاتصال "
             android:textAlignment="textStart"
             android:textColor="@color/Patient_Color"
             android:textSize="16sp"
             android:textStyle="bold" />
 
-
         <EditText
             android:id="@+id/S2_et_name_dr"
             android:layout_width="@dimen/_250sdp"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_below="@id/sing_up_2_tv_show"
-            android:layout_centerHorizontal="true"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:autofillHints="phone"
             android:background="@drawable/bg_edit_text"
@@ -79,9 +77,8 @@
         <EditText
             android:id="@+id/S2_et_email_dr"
             android:layout_width="@dimen/_250sdp"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_below="@id/S2_et_name_dr"
-            android:layout_centerHorizontal="true"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:autofillHints="emailAddress#"
             android:background="@drawable/bg_edit_text"
@@ -103,8 +100,7 @@
             android:id="@+id/secure_text_dr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/S2_et_email_dr"
-            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_13sdp"
             android:fontFamily="@font/cairo_bold"
             android:text="الامان"
@@ -115,9 +111,8 @@
         <EditText
             android:id="@+id/S2_et_Password_dr"
             android:layout_width="@dimen/_250sdp"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_below="@id/secure_text_dr"
-            android:layout_centerHorizontal="true"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:autofillHints="password"
             android:background="@drawable/bg_edit_text"
@@ -138,9 +133,8 @@
         <EditText
             android:id="@+id/S2_et_confirm_Password_dr"
             android:layout_width="@dimen/_250sdp"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_below="@id/S2_et_Password_dr"
-            android:layout_centerHorizontal="true"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:autofillHints="password"
             android:background="@drawable/bg_edit_text"
@@ -157,45 +151,36 @@
             android:textColorHint="#78909C"
             android:textSize="15sp"
             tools:ignore="TouchTargetSizeCheck" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="@dimen/_280sdp"
+        android:layout_height="@dimen/_230sdp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Subject">
 
         <TextView
             android:id="@+id/Sing_up_2_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/S2_et_confirm_Password_dr"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_13sdp"
             android:fontFamily="@font/cairo_bold"
-            android:layoutDirection="rtl"
             android:text="معلومات السكن "
             android:textAlignment="textStart"
             android:textColor="@color/Patient_Color"
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/sing_up_2_sub_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/Sing_up_2_textview"
-            android:layout_marginLeft="@dimen/_230sdp"
-            android:fontFamily="@font/cairo_bold"
-            android:layoutDirection="rtl"
-            android:text="@string/city"
-            android:textAlignment="textStart"
-            android:textColor="@color/Patient_Color"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/S2_city_menu_drop"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
-            android:layout_width="@dimen/_230sdp"
+            android:layout_width="@dimen/_250sdp"
             android:layout_height="@dimen/_40sdp"
-            android:layout_below="@id/sing_up_2_sub_tv"
-            android:layout_marginStart="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
             android:background="@drawable/bg_edit_text"
             android:elevation="1.5dp"
             android:layoutDirection="rtl"
@@ -209,35 +194,35 @@
 
             <AutoCompleteTextView
                 android:id="@+id/Sign_up_2_autoComplete_textview_1"
-                android:layout_width="@dimen/_225sdp"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_width="@dimen/_240sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginStart="@dimen/_5sdp"
                 android:layout_weight="1"
-                android:background="@drawable/bg_edit_text"
+                android:background="@color/white_ghost"
                 android:completionHintView="@string/city"
                 android:focusable="false"
                 android:fontFamily="@font/cairo_bold"
+                android:hint="المدينة"
                 android:inputType="none"
                 android:paddingTop="@dimen/_10sdp"
                 android:textColor="@color/Patient_Color"
-                android:textSize="@dimen/_10sdp"
+                android:textSize="@dimen/_12sdp"
                 tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <EditText
             android:id="@+id/S2_city_menu"
             android:layout_width="@dimen/_250sdp"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_below="@id/S2_city_menu_drop"
-            android:layout_centerHorizontal="true"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:autofillHints="phone"
             android:background="@drawable/bg_edit_text"
-            android:drawableStart="@drawable/ic_phone"
+            android:drawableStart="@drawable/ic_user_edit"
             android:drawablePadding="@dimen/_13sdp"
             android:elevation="1.5dp"
             android:fontFamily="@font/cairo_bold"
-            android:hint="رقم الجوال"
+            android:hint="رقم الهوية"
             android:inputType="phone"
             android:maxLines="1"
             android:paddingStart="@dimen/_10sdp"
@@ -246,21 +231,22 @@
             android:textColorHint="#78909C"
             android:textSize="15sp"
             tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-    </RelativeLayout>
 
-    <Button
-        android:id="@+id/btn_next_2_dr"
-        android:layout_width="@dimen/_50sdp"
-        android:layout_height="@dimen/_50sdp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/_50sdp"
-        android:background="@drawable/float_action_btn"
-        android:drawableStart="@drawable/ic_float_action"
-        android:elevation="10dp"
-        android:paddingHorizontal="@dimen/_20sdp"
-        app:borderWidth="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
+        <Button
+            android:id="@+id/btn_next_2_dr"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:background="@drawable/float_action_btn"
+            android:drawableStart="@drawable/ic_float_action"
+            android:elevation="10dp"
+            android:paddingHorizontal="@dimen/_20sdp"
+            app:borderWidth="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="SpeakableTextPresentCheck" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,16 +2,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/roo_Fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#23B1FE"
+    android:orientation="vertical"
     tools:context=".Ui.Patient_all.Fragment.Home_Fragment">
 
     <RelativeLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="110dp">
+        android:layout_height="@dimen/_65sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/home_txt"
@@ -52,85 +56,54 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:elevation="50dp"
-        android:ems="1">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:contentDescription="@string/todo"
-            android:src="@drawable/rectangel_home" />
+        android:background="@drawable/rectangel_home"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header">
 
         <TextView
             android:id="@+id/welcome_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="160dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginStart="@dimen/_180sdp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:fontFamily="@font/cairo_semibold"
             android:text="@string/Welcome_text"
             android:textColor="@color/black"
-            android:textSize="25sp" />
-
-        <LinearLayout
-            android:id="@+id/availbel_doctor"
-            android:layout_width="50dp"
-            android:layout_height="25sp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="30dp"
-            android:background="@drawable/rectangel_small_home">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="4dp"
-                android:fontFamily="@font/cairo_bold"
-                android:text="@string/number_of_Aviliable_doctor"
-                android:textColor="@color/white"
-                android:textSize="10dp" />
-        </LinearLayout>
-
-        <View
-            android:id="@+id/news"
-            android:layout_width="250dp"
-            android:layout_height="150dp"
-            android:layout_below="@+id/availbel_doctor"
-            android:layout_centerInParent="true"
-            android:background="@drawable/news_rectangel"
-            android:elevation="@dimen/_2sdp"
-            android:ems="1" />
+            android:textSize="@dimen/_15sdp" />
 
         <EditText
-            android:id="@+id/search_recipe"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/news"
+            android:id="@+id/search_input"
+            android:layout_width="@dimen/_260sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@+id/welcome_txt"
             android:layout_centerInParent="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:background="@drawable/search_input_style"
             android:drawableEnd="@drawable/ic_search"
             android:drawablePadding="10dp"
-            android:elevation="10dp"
-            android:ems="1"
+            android:elevation="1.5dp"
             android:fontFamily="@font/cairo_semibold"
             android:hint="|  أتبحث عن طبيب ؟"
             android:iconifiedByDefault="false"
-            android:inputType="text"
+            android:inputType="textPersonName"
             android:queryBackground="@android:color/transparent"
             android:textColor="@color/gray"
-            android:textDirection="rtl" />
+            android:textDirection="rtl"
+            android:textSize="@dimen/_10sdp" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
+            android:id="@+id/Doctor_List_recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/search_recipe"
-            android:layout_centerHorizontal="true" />
+            android:layout_height="match_parent"
+            android:layout_below="@id/search_input"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintEnd_toEndOf="parent" />
+
     </RelativeLayout>
 
 </LinearLayout>

@@ -1,16 +1,16 @@
 package com.example.diabestes_care_app.Models;
 
-public class ScreenItem {
+public class Splash_Screen_Modal {
     String Title, Description;
     int ScreenImg;
 
-    public ScreenItem(String title, String description, int screenImg) {
+    public Splash_Screen_Modal(String title, String description, int screenImg) {
         Title = title;
         Description = description;
         ScreenImg = screenImg;
     }
 
-    public ScreenItem() {
+    public Splash_Screen_Modal() {
     }
 
     public String getTitle() {

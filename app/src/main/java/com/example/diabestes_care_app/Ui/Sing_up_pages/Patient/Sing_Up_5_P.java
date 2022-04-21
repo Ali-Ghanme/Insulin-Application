@@ -12,7 +12,6 @@ import androidx.annotation.Nullable;
 
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.R;
-import com.example.diabestes_care_app.Ui.Sing_In.Sing_In;
 
 public class Sing_Up_5_P extends Basic_Activity {
     Button btn_Upload;
@@ -23,7 +22,7 @@ public class Sing_Up_5_P extends Basic_Activity {
         super.onCreate(savedInstanceState);
         fullscreen();
         setContentView(R.layout.activity_sign_up_5_p);
-        //====================================Define Checkbox===============================
+        //        //====================================Define Checkbox===============================
         btn_Upload = findViewById(R.id.btn_Upload);
         imageView = findViewById(R.id.imageView);
         //====================================الانتقال من صفحة الستجيل الحالية للصفحة الثانية ===============================

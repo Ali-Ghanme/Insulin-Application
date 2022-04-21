@@ -38,7 +38,7 @@
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
@@ -48,9 +48,10 @@
         app:tabIndicatorAnimationMode="elastic"
         app:tabIndicatorColor="@color/Patient_Color"
         app:tabIndicatorFullWidth="true"
+        android:splitMotionEvents="true"
         app:tabIndicatorGravity="stretch"
-        app:tabMaxWidth="@dimen/_50sdp"
-        app:tabMode="fixed"
+        app:tabMaxWidth="@dimen/_300sdp"
+        app:tabMode="auto"
         app:tabSelectedTextColor="@color/white"
         tools:ignore="SpeakableTextPresentCheck"/>
 

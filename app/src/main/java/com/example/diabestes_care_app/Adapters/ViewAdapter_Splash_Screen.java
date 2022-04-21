@@ -10,16 +10,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
-import com.example.diabestes_care_app.Models.ScreenItem;
+import com.example.diabestes_care_app.Models.Splash_Screen_Modal;
 import com.example.diabestes_care_app.R;
 
 import java.util.List;
 
-public class ViewAdapter extends PagerAdapter {
+public class ViewAdapter_Splash_Screen extends PagerAdapter {
     Context context;
-    List<ScreenItem> mListScreen;
+    List<Splash_Screen_Modal> mListScreen;
 
-    public ViewAdapter(Context mContext, List<ScreenItem> mListScreen) {
+    public ViewAdapter_Splash_Screen(Context mContext, List<Splash_Screen_Modal> mListScreen) {
         this.context = mContext;
         this.mListScreen = mListScreen;
     }

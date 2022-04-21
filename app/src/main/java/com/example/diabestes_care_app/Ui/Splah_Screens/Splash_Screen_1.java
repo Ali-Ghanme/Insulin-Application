@@ -13,8 +13,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.diabestes_care_app.Adapters.ViewAdapter;
-import com.example.diabestes_care_app.Models.ScreenItem;
+import com.example.diabestes_care_app.Adapters.ViewAdapter_Splash_Screen;
+import com.example.diabestes_care_app.Models.Splash_Screen_Modal;
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Sing_up_pages.character_choice_screen;
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
@@ -33,7 +33,7 @@ public class Splash_Screen_1 extends AppCompatActivity {
     TextView tvSkip;
     ViewPager viewPager;
     DotsIndicator dotsIndicator;
-    ViewAdapter viewAdapter;
+    ViewAdapter_Splash_Screen viewAdapterSplashScreen;
 
 
     @Override
@@ -54,16 +54,16 @@ public class Splash_Screen_1 extends AppCompatActivity {
         btnAnim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.animation_button);
         tvSkip = findViewById(R.id.tv_skip);
         //=================================fill list screen=========================================
-        final List<ScreenItem> mList = new ArrayList<>();
-        mList.add(new ScreenItem(" اصحاء", "تطبيق  هو تطبيق للرعاية" + " بمرضى السكري", R.drawable.ic_splash_1));
-        mList.add(new ScreenItem("نخبة من الاطباء", "يمكنك استشارة نخبة من الأطباء\n" + " المختصين بمرض السكري", R.drawable.ic_splash_2));
-        mList.add(new ScreenItem("نظم جرعاتك", "يمكنك وضع منبه للتذكير بجرعات\n" + " العلاج يمكنك اختيار نوع العلاج ", R.drawable.ic_splash_1));
+        final List<Splash_Screen_Modal> mList = new ArrayList<>();
+        mList.add(new Splash_Screen_Modal(" اصحاء", "تطبيق  هو تطبيق للرعاية" + " بمرضى السكري", R.drawable.ic_splash_1));
+        mList.add(new Splash_Screen_Modal("نخبة من الاطباء", "يمكنك استشارة نخبة من الأطباء\n" + " المختصين بمرض السكري", R.drawable.ic_splash_2));
+        mList.add(new Splash_Screen_Modal("نظم جرعاتك", "يمكنك وضع منبه للتذكير بجرعات\n" + " العلاج يمكنك اختيار نوع العلاج ", R.drawable.ic_splash_1));
 
         //=============================== setup viewpager===========================================
         viewPager = findViewById(R.id.screen_view_pager_splash);
         dotsIndicator = findViewById(R.id.Splash_indicator);
-        viewAdapter = new ViewAdapter(this, mList);
-        viewPager.setAdapter(viewAdapter);
+        viewAdapterSplashScreen = new ViewAdapter_Splash_Screen(this, mList);
+        viewPager.setAdapter(viewAdapterSplashScreen);
         dotsIndicator.setViewPager(viewPager);
 
         //===============================next button click Listener=================================

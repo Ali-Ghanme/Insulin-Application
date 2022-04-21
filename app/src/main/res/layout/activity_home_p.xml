@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,16 +9,18 @@
 
     <FrameLayout
         android:id="@+id/fragment_container"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_550sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <nl.joery.animatedbottombar.AnimatedBottomBar
-        android:id="@+id/navigation"
+        android:id="@+id/animate_bottom"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_50sdp"
         android:background="@drawable/home_nav_bottom"
-        android:elevation="@dimen/_50sdp"
+        android:elevation="@dimen/_100sdp"
         app:abb_animationDuration="400"
         app:abb_animationInterpolator="@android:anim/overshoot_interpolator"
         app:abb_indicatorAppearance="round"
@@ -31,6 +33,7 @@
         app:abb_tabColor="@color/white"
         app:abb_tabColorSelected="@color/white"
         app:abb_tabs="@menu/navgation"
-        app:abb_textAppearance="@style/CustomText" />
-
-</LinearLayout>
+        app:abb_textAppearance="@style/CustomText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_container" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,41 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/item_recommended_doctor"
-    android:layout_width="wrap_content"
-    android:layout_height="100dp"
-    android:layout_marginStart="10dp"
-    android:layout_marginTop="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_70sdp"
+    android:layout_marginStart="@dimen/_10sdp"
+    android:layout_marginTop="@dimen/_10sdp"
     android:layout_marginEnd="10dp"
-    android:layout_marginBottom="40dp"
     android:background="@drawable/bg_doctors_list"
     android:clickable="true"
-    android:elevation="10dp"
+    android:elevation="1.5dp"
     android:focusable="true">
 
     <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
+            android:id="@+id/starts"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:contentDescription="@string/todo"
             android:src="@drawable/starts_icon" />
 
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="60dp"
-            android:src="@drawable/like" />
+        <TextView
+            android:id="@+id/starts_percent"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_45sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:textColor="@color/starts_color"
+            android:textSize="@dimen/_11sdp" />
 
         <TextView
             android:id="@+id/doctor_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="220dp"
+            android:layout_marginStart="@dimen/_140sdp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/cairo_semibold"
             android:lines="1"
@@ -45,33 +53,21 @@
             android:textColor="@color/black" />
 
         <TextView
-            android:id="@+id/sub_titel"
+            android:id="@+id/sub_tiltel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/doctor_name"
-            android:layout_marginLeft="190dp"
+            android:layout_marginStart="@dimen/_120sdp"
             android:layout_marginTop="5dp"
             android:fontFamily="@font/cairo_semibold"
             android:text="اختصاصي سكري"
             android:textColor="@color/gray" />
 
-        <TextView
-            android:id="@+id/like_percent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="55dp"
-            android:fontFamily="@font/cairo_bold"
-            android:text="95%"
-            android:textColor="@color/Doctor_Color"
-            android:textSize="20dp" />
-
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/item_recommended_picture"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/doctor_photo" />
-
+            android:id="@+id/Doctor_image"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_marginStart="@dimen/_193sdp" />
     </RelativeLayout>
-</RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

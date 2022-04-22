@@ -29,7 +29,7 @@
     <RelativeLayout
         android:id="@+id/Subject"
         android:layout_width="@dimen/_280sdp"
-        android:layout_height="@dimen/_230sdp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_60sdp"
         android:layout_marginRight="@dimen/_10sdp"
@@ -45,13 +45,38 @@
             android:autofillHints="name"
             android:background="@drawable/bg_edit_text"
             android:drawableStart="@drawable/ic_user_edit"
+            android:drawableTint="@color/Doctor_Color"
             android:elevation="1.5dp"
             android:fontFamily="@font/cairo_bold"
             android:hint="الاسم باللغة العربية "
             android:inputType="textPersonName"
             android:maxLines="1"
-            android:paddingStart="20dp"
             android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:textColor="@color/Patient_Color"
+            android:textColorHint="#78909C"
+            android:textSize="15sp"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <EditText
+            android:id="@+id/Sing_up_en_name_dr"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_below="@+id/Sing_up_1_name_dr"
+            android:layout_centerHorizontal="true"
+            android:autofillHints="name"
+            android:background="@drawable/bg_edit_text"
+            android:drawableStart="@drawable/ic_user_edit"
+            android:drawableTint="@color/Doctor_Color"
+
+            android:elevation="1.5dp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:hint="الاسم باللغة الانجليزية  "
+            android:inputType="textPersonName"
+            android:maxLines="1"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
             android:textColor="@color/Patient_Color"
             android:textColorHint="#78909C"
             android:textSize="15sp"
@@ -61,20 +86,22 @@
             android:id="@+id/Sing_up_1_date_dr"
             android:layout_width="@dimen/_250sdp"
             android:layout_height="@dimen/_35sdp"
-            android:layout_below="@id/Sing_up_1_name_dr"
+            android:layout_below="@id/Sing_up_en_name_dr"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_20sdp"
             android:autofillHints="creditCardExpirationDate"
             android:background="@drawable/bg_edit_text"
             android:drawableStart="@drawable/ic_data"
+            android:drawableTint="@color/Doctor_Color"
+
             android:elevation="2dp"
             android:ems="1"
             android:fontFamily="@font/cairo_bold"
             android:hint="تاريخ الميلاد"
             android:inputType="date"
             android:maxLines="1"
-            android:paddingStart="20dp"
             android:paddingEnd="20dp"
+            android:paddingStart="20dp"
             android:textColor="@color/Patient_Color"
             android:textColorHint="#78909C"
             android:textSize="15sp"
@@ -100,6 +127,8 @@
                 android:background="@drawable/gender_background_selector"
                 android:button="@android:color/transparent"
                 android:drawableStart="@drawable/ic_male"
+                android:drawableTint="@color/Doctor_Color"
+
                 android:elevation="@dimen/_3sdp"
                 android:fontFamily="@font/cairo_bold"
                 android:paddingLeft="@dimen/_15sdp"
@@ -126,6 +155,46 @@
                 android:textSize="16sp"
                 app:drawableTint="@drawable/gender_text_selector" />
         </RadioGroup>
+
+        <TextView
+            android:id="@+id/sing_up_2_tv_show"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Sing_up_1_Gender_dr"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_13sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:text="معلومات العمل  "
+            android:textAlignment="textStart"
+            android:textColor="@color/Doctor_Color"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/Sing_up_1rr_date_dr"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_below="@id/sing_up_2_tv_show"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:autofillHints="creditCardExpirationDate"
+            android:background="@drawable/bg_edit_text"
+
+            android:elevation="2dp"
+            android:ems="1"
+            android:fontFamily="@font/cairo_bold"
+            android:hint="هل تعمل حاليا "
+            android:inputType="date"
+            android:maxLines="1"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:textColor="@color/Patient_Color"
+            android:textColorHint="#78909C"
+            android:textSize="15sp"
+            tools:ignore="TouchTargetSizeCheck" />
+
+
+
     </RelativeLayout>
 
     <Button
@@ -134,7 +203,7 @@
         android:layout_height="@dimen/_50sdp"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/_50sdp"
-        android:background="@drawable/float_action_btn"
+        android:background="@drawable/bg_doctor_button"
         android:drawableStart="@drawable/ic_float_action"
         android:elevation="10dp"
         android:paddingHorizontal="@dimen/_20sdp"
@@ -142,6 +211,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Subject"
         tools:ignore="SpeakableTextPresentCheck" />
 
 

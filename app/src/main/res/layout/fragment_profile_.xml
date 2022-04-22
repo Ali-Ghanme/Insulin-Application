@@ -1,14 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Ui.Patient_all.Fragment.Profile_Fragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
+        android:id="@+id/Sing_up_header_dr4"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="@dimen/_70sdp"
+        android:background="@drawable/bg_sing_up"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-</FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/_90sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:text="الإعدادات "
+            android:textColor="@color/white"
+            android:textSize="@dimen/_20sdp" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Sing_up_header_dr4">
+
+        <ImageView
+            android:id="@+id/starts"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/starts_icon" />
+
+        <TextView
+            android:id="@+id/starts_percent"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_45sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:textColor="@color/starts_color"
+            android:textSize="@dimen/_11sdp" />
+
+        <TextView
+            android:id="@+id/doctor_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_140sdp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/cairo_semibold"
+            android:lines="1"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="د.احمد زويد"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/sub_tiltel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/doctor_name"
+            android:layout_marginStart="@dimen/_120sdp"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/cairo_semibold"
+            android:text="اختصاصي سكري"
+            android:textColor="@color/gray" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/Doctor_image"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_marginStart="@dimen/_193sdp"
+            android:src="@drawable/doctor_photo" />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Ui.Patient_all.Fragment.Profile_Fragment">
-
     <RelativeLayout
         android:id="@+id/Sing_up_header_dr4"
         android:layout_width="match_parent"
@@ -30,40 +29,32 @@
         android:id="@+id/container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20sdp"
+
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/Sing_up_header_dr4">
 
         <ImageView
-            android:id="@+id/starts"
-            android:layout_width="@dimen/_50sdp"
-            android:layout_height="@dimen/_10sdp"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_25sdp"
+            android:id="@+id/starts_profile"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_27sdp"
             android:contentDescription="@string/todo"
-            android:src="@drawable/starts_icon" />
+            android:src="@drawable/arrw" />
 
-        <TextView
-            android:id="@+id/starts_percent"
-            android:layout_width="@dimen/_20sdp"
-            android:layout_height="@dimen/_15sdp"
-            android:layout_marginStart="@dimen/_25sdp"
-            android:layout_marginTop="@dimen/_45sdp"
-            android:fontFamily="@font/cairo_bold"
-            android:textColor="@color/starts_color"
-            android:textSize="@dimen/_11sdp" />
 
         <TextView
             android:id="@+id/doctor_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_140sdp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="30dp"
             android:fontFamily="@font/cairo_semibold"
             android:lines="1"
             android:maxLines="1"
             android:singleLine="true"
-            android:text="د.احمد زويد"
+            android:text="د. محمد صيام "
             android:textColor="@color/black" />
 
         <TextView
@@ -71,10 +62,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/doctor_name"
-            android:layout_marginStart="@dimen/_120sdp"
+            android:layout_marginStart="@dimen/_110sdp"
             android:layout_marginTop="5dp"
             android:fontFamily="@font/cairo_semibold"
-            android:text="اختصاصي سكري"
+            android:text="تكنولوجيا معلومات "
             android:textColor="@color/gray" />
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -83,5 +74,183 @@
             android:layout_height="@dimen/_100sdp"
             android:layout_marginStart="@dimen/_193sdp"
             android:src="@drawable/doctor_photo" />
+
     </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/notification"
+        android:layout_width="@dimen/_280sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/container">
+        <View style="@style/Divider.Horizontal"/>
+
+        <TextView
+            android:id="@+id/notification_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:drawableEnd="@drawable/arrwdr"
+            android:drawablePadding="20dp"
+            android:drawableStart="@drawable/notifications"
+            android:layoutDirection="rtl"
+            android:paddingBottom="@dimen/_15sdp"
+            android:paddingTop="@dimen/_15sdp"
+            android:text="الإشعارات "
+            android:textAlignment="textStart"
+            android:textSize="@dimen/_20sdp" />
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/darkmode"
+        android:layout_width="@dimen/_280sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_10sdp"
+        android:paddingTop="@dimen/_10sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/notification">
+        <View style="@style/Divider.Horizontal"/>
+
+        <TextView
+            android:id="@+id/darkmode_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:drawablePadding="20dp"
+            android:drawableStart="@drawable/darkmode"
+            android:layoutDirection="rtl"
+            android:paddingBottom="@dimen/_15sdp"
+            android:paddingTop="@dimen/_15sdp"
+            android:text="الوضع المظلم "
+            android:textAlignment="textStart"
+            android:textSize="@dimen/_20sdp" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:checked="false"
+            android:paddingBottom="@dimen/_15sdp"
+            android:paddingTop="@dimen/_15sdp"
+            app:getTrackTintList="@color/Doctor_Color"
+
+            />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/help"
+        android:layout_width="@dimen/_280sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_10sdp"
+        android:paddingTop="@dimen/_10sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/darkmode">
+
+        <View style="@style/Divider.Horizontal"/>
+
+        <TextView
+            android:id="@+id/help_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:drawableEnd="@drawable/arrwdr"
+            android:drawablePadding="20dp"
+            android:drawableStart="@drawable/help"
+            android:layoutDirection="rtl"
+            android:paddingBottom="@dimen/_15sdp"
+            android:paddingTop="@dimen/_15sdp"
+            android:text="مساعدة "
+            android:textAlignment="textStart"
+            android:textSize="@dimen/_20sdp" />
+
+    </RelativeLayout>
+    <RelativeLayout
+            android:id="@+id/loguot"
+            android:layout_width="@dimen/_280sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+
+            android:paddingBottom="@dimen/_10sdp"
+            android:paddingTop="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/help">
+        <View style="@style/Divider.Horizontal"/>
+
+        <TextView
+            android:id="@+id/loguot_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginEnd="20dp"
+            android:drawableEnd="@drawable/arrwdr"
+            android:drawablePadding="20dp"
+            android:drawableStart="@drawable/logout"
+            android:layoutDirection="rtl"
+            android:paddingBottom="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:paddingTop="@dimen/_15sdp"
+            android:text="مساعدة "
+            android:textAlignment="textStart"
+            android:textSize="@dimen/_20sdp" />
+
+    </RelativeLayout>
+<!--    <RelativeLayout-->
+<!--        android:id="@+id/loguot"-->
+<!--        android:layout_width="@dimen/_280sdp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="@dimen/_10sdp"-->
+<!--        android:layout_marginRight="@dimen/_10sdp"-->
+<!--        android:paddingBottom="@dimen/_10sdp"-->
+<!--        android:paddingTop="@dimen/_10sdp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/help">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/loguot_text"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_marginEnd="20dp"-->
+<!--            android:layout_toEndOf="@+id/starts_loguot"-->
+<!--            android:drawablePadding="20dp"-->
+<!--            android:drawableStart="@drawable/logout"-->
+<!--            android:layoutDirection="rtl"-->
+<!--            android:text="تسجيل الخروج  "-->
+<!--            android:textAlignment="textStart"-->
+<!--            android:textSize="@dimen/_20sdp" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/starts_loguot"-->
+<!--            android:layout_width="@dimen/_25sdp"-->
+<!--            android:layout_height="@dimen/_30sdp"-->
+<!--            android:contentDescription="@string/todo"-->
+<!--            android:src="@drawable/arrw"-->
+
+<!--            android:srcTint="@color/Doctor_Color" />-->
+<!--    </RelativeLayout>-->
+
 </androidx.constraintlayout.widget.ConstraintLayout>

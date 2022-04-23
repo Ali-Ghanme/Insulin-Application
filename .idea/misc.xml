@@ -3,16 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/drawable-v24/arrwdr.xml" value="0.175" />
+        <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/drawable-v24/bg_text_dr.xml" value="0.1795" />
+        <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/drawable/bg_edit_text.xml" value="0.1795" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout-anydpi/activity_splash_screen_item.xml" value="0.1675929884566054" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_character_choice.xml" value="0.1675929884566054" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_character_choice_screen.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_help.xml" value="0.25" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_main.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_notification.xml" value="0.22" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_patient_profile.xml" value="0.25" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_sign_up_1_d.xml" value="0.25" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_sign_up_1_p.xml" value="0.21" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_sign_up_2_d.xml" value="0.22" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_sign_up_2_p.xml" value="0.25" />
-        <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_sign_up_3_d.xml" value="0.33" />
+        <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_sign_up_3_d.xml" value="0.22" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_sign_up_3_p.xml" value="0.1675929884566054" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_sign_up_4_d.xml" value="0.1675929884566054" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_sign_up_4_p.xml" value="0.21" />
@@ -28,10 +33,14 @@
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_splash_screen.xml" value="0.1675929884566054" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_splash_screen1.xml" value="0.1675929884566054" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/doctors_item.xml" value="0.33" />
+        <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/fragment_care_.xml" value="0.14023086789226166" />
+        <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/fragment_chat_.xml" value="0.14023086789226166" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/fragment_doctor_.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/fragment_health.xml" value="0.18" />
+        <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/fragment_home_.xml" value="0.14023086789226166" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/fragment_log_in_p.xml" value="0.1675929884566054" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/fragment_patient.xml" value="0.2" />
-        <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/fragment_profile_.xml" value="0.5" />
+        <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/fragment_profile_.xml" value="0.2" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/home_patient.xml" value="0.1675929884566054" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/spinner_list_item.xml" value="0.1675929884566054" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/drawable-v24/editbutton1.xml" value="0.241" />

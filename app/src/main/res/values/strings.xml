@@ -34,12 +34,12 @@
     <string name="title_activity_sing_up21">Sing_Up2_1</string>
     <string name="city">المدينة</string>
 
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- TODO: Remove or change this placeholder text -->
     <string-array name="Gender_array">
         <item>ذكر</item>
         <item>انثى</item>
     </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

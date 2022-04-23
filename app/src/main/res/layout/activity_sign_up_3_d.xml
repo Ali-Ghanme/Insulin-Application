@@ -218,6 +218,7 @@
         android:background="@drawable/float_action_btn"
         android:drawableStart="@drawable/ic_float_action"
         android:elevation="10dp"
+        android:backgroundTint="@color/Doctor_Color"
         android:paddingHorizontal="@dimen/_20sdp"
         app:borderWidth="0dp"
         app:layout_constraintBottom_toBottomOf="parent"

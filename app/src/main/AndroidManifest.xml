@@ -11,6 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Diabestes_Care_App">
         <activity
+            android:name=".Ui.Setting.Help"
+            android:exported="false" />
+        <activity
+            android:name=".Ui.Setting.notification"
+            android:exported="false" />
+        <activity
             android:name=".Ui.Sing_up_pages.Patient.Sing_Up_1_P"
             android:exported="false" />
         <activity

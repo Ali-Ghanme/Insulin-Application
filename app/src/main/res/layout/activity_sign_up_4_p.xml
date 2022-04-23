@@ -50,7 +50,7 @@
             android:scaleType="centerCrop"
             android:text=" التاريخ المرضي "
             android:textAlignment="textStart"
-            android:textColor="@color/Doctor_Color"
+            android:textColor="@color/Patient_Color"
             android:textSize="@dimen/_15sdp"
             android:textStyle="bold" />
 
@@ -63,15 +63,15 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:autofillHints="phone"
             android:background="@drawable/bg_edit_text"
-            android:drawableStart="@drawable/ic_data"
             android:drawablePadding="@dimen/_13sdp"
+            android:drawableStart="@drawable/ic_data"
             android:elevation="1.5dp"
             android:fontFamily="@font/cairo_bold"
             android:hint=" تاريخ الاصابة"
             android:inputType="number"
             android:maxLines="1"
-            android:paddingStart="20dp"
             android:paddingEnd="20dp"
+            android:paddingStart="20dp"
             android:scaleType="centerCrop"
             android:textColor="@color/Patient_Color"
             android:textColorHint="#78909C"
@@ -136,7 +136,7 @@
             android:scaleType="centerCrop"
             android:text="أمراض أخرى"
             android:textAlignment="textStart"
-            android:textColor="@color/Doctor_Color"
+            android:textColor="@color/Patient_Color"
             android:textSize="@dimen/_15sdp"
             android:textStyle="bold" />
 

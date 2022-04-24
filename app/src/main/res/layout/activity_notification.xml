@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Ui.Setting.notification">
+
     <RelativeLayout
         android:id="@+id/notification"
         android:layout_width="match_parent"
@@ -25,14 +26,15 @@
             android:textColor="@color/white"
             android:textSize="@dimen/_20sdp" />
     </RelativeLayout>
+
     <RelativeLayout
-        android:id="@+id/notification_run"
+        android:id="@+id/notification_on_off"
         android:layout_width="@dimen/_280sdp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
-        android:paddingBottom="@dimen/_10sdp"
         android:paddingTop="@dimen/_20sdp"
+        android:paddingBottom="@dimen/_10sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/notification">
@@ -40,144 +42,182 @@
 
         <TextView
             android:id="@+id/notification_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:drawablePadding="20dp"
-            android:layoutDirection="rtl"
-            android:paddingBottom="@dimen/_15sdp"
-            android:paddingTop="@dimen/_20sdp"
-            android:text=" تشغيل الاشعارات "
-            android:textAlignment="textStart"
-            android:textSize="@dimen/_20sdp" />
-
-        <com.google.android.material.switchmaterial.SwitchMaterial
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:checked="true"
-            android:paddingBottom="@dimen/_15sdp"
-            android:paddingTop="@dimen/_20sdp"
-            app:getTrackTintList="@color/Doctor_Color"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginEnd="@dimen/_60sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:layoutDirection="rtl"
+            android:text=" تشغيل الاشعارات "
+            android:textAlignment="textStart"
+            android:textSize="@dimen/_15sdp" />
 
-            />
+        <ImageView
+            android:id="@+id/notification_ic_1"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_240sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_notification" />
+
+        <com.bitvale.switcher.SwitcherX
+            android:id="@+id/switcher_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:checked="true"
+            app:elevation="@dimen/_5sdp"
+            app:switcher_icon_color="@color/switcher_icon_color"
+            app:switcher_off_color="@color/Red"
+            app:switcher_on_color="@color/Patient_Color" />
 
     </RelativeLayout>
+
     <RelativeLayout
         android:id="@+id/notification_sound"
         android:layout_width="@dimen/_280sdp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/notification_run">
+        app:layout_constraintTop_toBottomOf="@+id/notification_on_off">
 
         <View style="@style/Divider.Horizontal" />
 
         <TextView
             android:id="@+id/notification_sound_text"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:drawableEnd="@drawable/arrwdr"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginEnd="@dimen/_60sdp"
+            android:fontFamily="@font/cairo_bold"
             android:layoutDirection="rtl"
-            android:paddingBottom="@dimen/_15sdp"
-            android:paddingTop="@dimen/_15sdp"
             android:text="النغمة "
             android:textAlignment="textStart"
-            android:textSize="@dimen/_20sdp" />
+            android:textSize="@dimen/_15sdp" />
 
+        <ImageView
+            android:id="@+id/notification_ic_2"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_240sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_notification" />
+
+        <ImageView
+            android:id="@+id/btn_next_notification"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_arrwa" />
 
     </RelativeLayout>
+
     <RelativeLayout
-        android:id="@+id/notification_up"
+        android:id="@+id/notification_vibration"
         android:layout_width="@dimen/_280sdp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
-        android:paddingBottom="@dimen/_10sdp"
         android:paddingTop="@dimen/_20sdp"
+        android:paddingBottom="@dimen/_10sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/notification_sound">
+
         <View style="@style/Divider.Horizontal" />
 
         <TextView
-            android:id="@+id/notification_up_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:drawablePadding="20dp"
-            android:layoutDirection="rtl"
-            android:paddingBottom="@dimen/_15sdp"
-            android:paddingTop="@dimen/_20sdp"
-            android:text=" اهتزاز مع نغمة "
-            android:textAlignment="textStart"
-            android:textSize="@dimen/_20sdp" />
-
-        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/notification_vibration_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:checked="false"
-            android:paddingBottom="@dimen/_15sdp"
-            android:paddingTop="@dimen/_20sdp"
-            app:getTrackTintList="@color/Doctor_Color"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginEnd="@dimen/_60sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:layoutDirection="rtl"
+            android:text="اهتزاز مع النغمة"
+            android:textAlignment="textStart"
+            android:textSize="@dimen/_15sdp" />
 
-            />
+        <ImageView
+            android:id="@+id/notification_ic_3"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_240sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_notification" />
+
+        <com.bitvale.switcher.SwitcherX
+            android:id="@+id/switcher_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:checked="true"
+            app:elevation="@dimen/_5sdp"
+            app:switcher_icon_color="@color/switcher_icon_color"
+            app:switcher_off_color="@color/Red"
+            app:switcher_on_color="@color/Patient_Color" />
 
     </RelativeLayout>
+
     <RelativeLayout
         android:id="@+id/notification_messages"
         android:layout_width="@dimen/_280sdp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
-        android:paddingBottom="@dimen/_10sdp"
         android:paddingTop="@dimen/_20sdp"
+        android:paddingBottom="@dimen/_10sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/notification_up">
+        app:layout_constraintTop_toBottomOf="@+id/notification_vibration">
 
         <View style="@style/Divider.Horizontal" />
 
         <TextView
             android:id="@+id/notification_messages_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:drawablePadding="20dp"
-            android:layoutDirection="rtl"
-            android:paddingBottom="@dimen/_15sdp"
-            android:paddingTop="@dimen/_20sdp"
-            android:text=" اشعارات الرسائل  "
-            android:textAlignment="textStart"
-            android:textSize="@dimen/_20sdp" />
-
-        <com.google.android.material.switchmaterial.SwitchMaterial
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:checked="false"
-            android:paddingBottom="@dimen/_15sdp"
-            android:paddingTop="@dimen/_20sdp"
-            app:getTrackTintList="@color/Doctor_Color"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginEnd="@dimen/_60sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:layoutDirection="rtl"
+            android:text=" اشعارات الرسائل  "
+            android:textAlignment="textStart"
+            android:textSize="@dimen/_15sdp" />
 
-            />
+        <ImageView
+            android:id="@+id/notification_ic_4"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_240sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_notification" />
+
+        <com.bitvale.switcher.SwitcherX
+            android:id="@+id/switcher_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:checked="true"
+            app:elevation="@dimen/_5sdp"
+            app:switcher_icon_color="@color/switcher_icon_color"
+            app:switcher_off_color="@color/Red"
+            app:switcher_on_color="@color/Patient_Color" />
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

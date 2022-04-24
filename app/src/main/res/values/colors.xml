@@ -12,6 +12,7 @@
 
     <color name="Patient_Color">#23B1FE</color>
     <color name="Doctor_Color">#26B887</color>
+    <color name="Red">#ff4651</color>
     <color name="white_smoke">#8BC0DD</color>
     <color name="white_ghost">#f9f8fd</color>
     <color name="black_soft">#740C0C0C</color>

@@ -27,13 +27,14 @@
 
         <Button
             android:id="@+id/back_prof"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
             android:layout_alignParentEnd="false"
             android:layout_marginStart="30dp"
             android:layout_marginTop="50dp"
             android:layout_marginEnd="15dp"
-            android:background="@drawable/ic_notification"
+            android:background="@drawable/notifications"
+            android:backgroundTint="@color/white"
             android:contentDescription="@string/todo"
             android:elevation="3dp"
             app:civ_border_color="@android:color/white"
@@ -60,13 +61,13 @@
             android:orientation="horizontal">
 
             <Button
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_40sdp"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
                 android:layout_gravity="center"
                 android:layout_marginStart="@dimen/_30sdp"
                 android:layout_marginTop="@dimen/_25sdp"
                 android:layout_marginBottom="30dp"
-                android:background="@drawable/ic_report"
+                android:background="@drawable/ic_repor"
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <RelativeLayout

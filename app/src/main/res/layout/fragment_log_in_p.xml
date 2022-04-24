@@ -100,7 +100,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="@dimen/_8sdp"
             android:layout_marginEnd="@dimen/_30sdp"
-            android:button="@drawable/bg_check_box"
+            android:button="@drawable/bg_check_box_p"
             android:checked="true"
             android:fontFamily="@font/cairo_bold"
             android:layoutDirection="rtl"

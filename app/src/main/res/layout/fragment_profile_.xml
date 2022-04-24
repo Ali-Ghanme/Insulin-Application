@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Ui.Patient_all.Fragment.Profile_Fragment">
+
     <RelativeLayout
         android:id="@+id/Sing_up_header_dr4"
         android:layout_width="match_parent"
@@ -23,234 +24,263 @@
             android:fontFamily="@font/cairo_bold"
             android:text="الإعدادات "
             android:textColor="@color/white"
-            android:textSize="@dimen/_20sdp" />
+            android:textSize="@dimen/_20sdp"
+            tools:ignore="TextContrastCheck" />
     </RelativeLayout>
+
     <RelativeLayout
         android:id="@+id/container"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_20sdp"
-
+        app:layout_constraintHorizontal_bias="0.727"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/Sing_up_header_dr4">
 
         <ImageView
-            android:id="@+id/starts_profile"
+            android:id="@+id/btn_next_profile"
             android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_30sdp"
-            android:layout_marginTop="@dimen/_27sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_30sdp"
             android:contentDescription="@string/todo"
-            android:src="@drawable/arrw" />
-
+            android:src="@drawable/ic_arrwa"
+            tools:ignore="ImageContrastCheck" />
 
         <TextView
             android:id="@+id/doctor_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_140sdp"
-            android:layout_marginTop="30dp"
-            android:fontFamily="@font/cairo_semibold"
+            android:layout_marginStart="@dimen/_130sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/cairo_bold"
             android:lines="1"
             android:maxLines="1"
             android:singleLine="true"
-            android:text="د. محمد صيام "
-            android:textColor="@color/black" />
+            android:text=" محمد صيام "
+            android:textColor="#0091EA"
+            android:textSize="@dimen/_15sdp" />
 
         <TextView
             android:id="@+id/sub_tiltel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/doctor_name"
-            android:layout_marginStart="@dimen/_110sdp"
-            android:layout_marginTop="5dp"
+            android:layout_marginStart="@dimen/_145sdp"
+            android:layout_marginTop="@dimen/_2sdp"
             android:fontFamily="@font/cairo_semibold"
-            android:text="تكنولوجيا معلومات "
-            android:textColor="@color/gray" />
+            android:text="username@"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/_12sdp" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/Doctor_image"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="@dimen/_100sdp"
-            android:layout_marginStart="@dimen/_193sdp"
-            android:src="@drawable/doctor_photo" />
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_marginStart="@dimen/_220sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:elevation="1.5dp"
+            android:src="@drawable/ic_user"
+            tools:ignore="ImageContrastCheck" />
 
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/notification"
+        android:id="@+id/notification_cont"
         android:layout_width="@dimen/_280sdp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/container">
-        <View style="@style/Divider.Horizontal"/>
+
+        <View style="@style/Divider.Horizontal" />
 
         <TextView
             android:id="@+id/notification_text"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:drawableEnd="@drawable/arrwdr"
-            android:drawablePadding="20dp"
-            android:drawableStart="@drawable/notifications"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginEnd="@dimen/_60sdp"
+            android:fontFamily="@font/cairo_bold"
             android:layoutDirection="rtl"
-            android:paddingBottom="@dimen/_15sdp"
-            android:paddingTop="@dimen/_15sdp"
             android:text="الإشعارات "
             android:textAlignment="textStart"
-            android:textSize="@dimen/_20sdp" />
+            android:textSize="@dimen/_15sdp" />
 
+        <ImageView
+            android:id="@+id/notification"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_240sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_notification"
+            tools:ignore="ImageContrastCheck" />
+
+        <ImageView
+            android:id="@+id/btn_next_notification"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_arrwa"
+            tools:ignore="ImageContrastCheck" />
 
     </RelativeLayout>
+
     <RelativeLayout
         android:id="@+id/darkmode"
         android:layout_width="@dimen/_280sdp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
-        android:paddingBottom="@dimen/_10sdp"
         android:paddingTop="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_10sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/notification">
-        <View style="@style/Divider.Horizontal"/>
+        app:layout_constraintTop_toBottomOf="@+id/notification_cont">
+
+        <View style="@style/Divider.Horizontal" />
 
         <TextView
             android:id="@+id/darkmode_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:drawablePadding="20dp"
-            android:drawableStart="@drawable/darkmode"
-            android:layoutDirection="rtl"
-            android:paddingBottom="@dimen/_15sdp"
-            android:paddingTop="@dimen/_15sdp"
-            android:text="الوضع المظلم "
-            android:textAlignment="textStart"
-            android:textSize="@dimen/_20sdp" />
-
-        <com.google.android.material.switchmaterial.SwitchMaterial
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:checked="false"
-            android:paddingBottom="@dimen/_15sdp"
-            android:paddingTop="@dimen/_15sdp"
-            app:getTrackTintList="@color/Doctor_Color"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginEnd="@dimen/_60sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:layoutDirection="rtl"
+            android:text="الوضع المظلم "
+            android:textAlignment="textStart"
+            android:textSize="@dimen/_15sdp" />
 
-            />
+        <ImageView
+            android:id="@+id/DarkMode"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_240sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/darkmode"
+            tools:ignore="ImageContrastCheck" />
+
+        <com.bitvale.switcher.SwitcherX
+            android:id="@+id/switcher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:checked="false"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            app:elevation="@dimen/_5sdp"
+            app:switcher_icon_color="@color/switcher_icon_color"
+            app:switcher_off_color="@color/Red"
+            app:switcher_on_color="@color/Patient_Color"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     </RelativeLayout>
+
     <RelativeLayout
         android:id="@+id/help"
         android:layout_width="@dimen/_280sdp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
-        android:paddingBottom="@dimen/_10sdp"
         android:paddingTop="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_10sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/darkmode">
 
-        <View style="@style/Divider.Horizontal"/>
+        <View style="@style/Divider.Horizontal" />
 
         <TextView
             android:id="@+id/help_text"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:drawableEnd="@drawable/arrwdr"
-            android:drawablePadding="20dp"
-            android:drawableStart="@drawable/help"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginEnd="@dimen/_60sdp"
+            android:fontFamily="@font/cairo_bold"
             android:layoutDirection="rtl"
-            android:paddingBottom="@dimen/_15sdp"
-            android:paddingTop="@dimen/_15sdp"
             android:text="مساعدة "
             android:textAlignment="textStart"
-            android:textSize="@dimen/_20sdp" />
+            android:textSize="@dimen/_15sdp" />
 
+        <ImageView
+            android:id="@+id/Help_Section"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_240sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/help"
+            tools:ignore="ImageContrastCheck" />
+
+        <ImageView
+            android:id="@+id/btn_next_Help"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_arrwa"
+            tools:ignore="ImageContrastCheck" />
     </RelativeLayout>
-    <RelativeLayout
-            android:id="@+id/loguot"
-            android:layout_width="@dimen/_280sdp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_10sdp"
 
-            android:paddingBottom="@dimen/_10sdp"
-            android:paddingTop="@dimen/_10sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/help">
-        <View style="@style/Divider.Horizontal"/>
+    <RelativeLayout
+        android:id="@+id/loguot"
+        android:layout_width="@dimen/_280sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:paddingTop="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_10sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help">
+
+        <View style="@style/Divider.Horizontal" />
 
         <TextView
-            android:id="@+id/loguot_text"
-            android:layout_width="match_parent"
+            android:id="@+id/logout_text"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginEnd="20dp"
-            android:drawableEnd="@drawable/arrwdr"
-            android:drawablePadding="20dp"
-            android:drawableStart="@drawable/logout"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginEnd="@dimen/_60sdp"
+            android:fontFamily="@font/cairo_bold"
             android:layoutDirection="rtl"
-            android:paddingBottom="@dimen/_15sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:paddingTop="@dimen/_15sdp"
             android:text="مساعدة "
             android:textAlignment="textStart"
-            android:textSize="@dimen/_20sdp" />
+            android:textSize="@dimen/_15sdp" />
+
+        <ImageView
+            android:id="@+id/logout_Section"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_240sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/logout"
+            tools:ignore="ImageContrastCheck" />
+
+        <ImageView
+            android:id="@+id/btn_next_logout"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_arrwa"
+            tools:ignore="ImageContrastCheck" />
 
     </RelativeLayout>
-<!--    <RelativeLayout-->
-<!--        android:id="@+id/loguot"-->
-<!--        android:layout_width="@dimen/_280sdp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginLeft="@dimen/_10sdp"-->
-<!--        android:layout_marginRight="@dimen/_10sdp"-->
-<!--        android:paddingBottom="@dimen/_10sdp"-->
-<!--        android:paddingTop="@dimen/_10sdp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/help">-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/loguot_text"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_alignParentEnd="true"-->
-<!--            android:layout_marginEnd="20dp"-->
-<!--            android:layout_toEndOf="@+id/starts_loguot"-->
-<!--            android:drawablePadding="20dp"-->
-<!--            android:drawableStart="@drawable/logout"-->
-<!--            android:layoutDirection="rtl"-->
-<!--            android:text="تسجيل الخروج  "-->
-<!--            android:textAlignment="textStart"-->
-<!--            android:textSize="@dimen/_20sdp" />-->
-
-<!--        <ImageView-->
-<!--            android:id="@+id/starts_loguot"-->
-<!--            android:layout_width="@dimen/_25sdp"-->
-<!--            android:layout_height="@dimen/_30sdp"-->
-<!--            android:contentDescription="@string/todo"-->
-<!--            android:src="@drawable/arrw"-->
-
-<!--            android:srcTint="@color/Doctor_Color" />-->
-<!--    </RelativeLayout>-->
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -58,7 +58,7 @@
             app:boxStrokeWidth="0dp">
 
             <AutoCompleteTextView
-                android:id="@+id/Sign_up_2_autoComplete_textview_1"
+                android:id="@+id/Sign_up_3_auto_certificate"
                 android:layout_width="@dimen/_220sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:layout_marginStart="@dimen/_5sdp"
@@ -95,7 +95,7 @@
             app:boxStrokeWidth="0dp">
 
             <AutoCompleteTextView
-                android:id="@+id/Sign_up_22_autoComplete_textview_1"
+                android:id="@+id/Sign_up_3_auto_city"
                 android:layout_width="@dimen/_220sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:layout_marginStart="@dimen/_5sdp"
@@ -132,7 +132,7 @@
             app:boxStrokeWidth="0dp">
 
             <AutoCompleteTextView
-                android:id="@+id/Sign_up2_22_autoComplete_textview_1"
+                android:id="@+id/Sign_up_3_auto_year"
                 android:layout_width="@dimen/_220sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:layout_marginStart="@dimen/_5sdp"
@@ -169,7 +169,7 @@
             app:boxStrokeWidth="0dp">
 
             <AutoCompleteTextView
-                android:id="@+id/Sign_up2_22_aut3oComplete_textview_1"
+                android:id="@+id/Sign_up_3_auto_university"
                 android:layout_width="@dimen/_220sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:layout_marginStart="@dimen/_5sdp"

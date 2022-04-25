@@ -31,7 +31,12 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/bg_text_dr"
+        android:padding="@dimen/_5sdp"
+        android:elevation="1.5dp"
         app:layout_constraintHorizontal_bias="0.727"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -39,12 +44,12 @@
 
         <ImageView
             android:id="@+id/btn_next_profile"
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
             android:layout_marginStart="@dimen/_30sdp"
-            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:contentDescription="@string/todo"
-            android:src="@drawable/ic_arrwa"
+            android:src="@drawable/ic_edit_icon"
             tools:ignore="ImageContrastCheck" />
 
         <TextView
@@ -58,7 +63,7 @@
             android:maxLines="1"
             android:singleLine="true"
             android:text=" محمد صيام "
-            android:textColor="#0091EA"
+            android:textColor="#000000"
             android:textSize="@dimen/_15sdp" />
 
         <TextView
@@ -77,13 +82,23 @@
             android:id="@+id/Doctor_image"
             android:layout_width="@dimen/_60sdp"
             android:layout_height="@dimen/_60sdp"
-            android:layout_marginStart="@dimen/_220sdp"
             android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_220sdp"
             android:src="@drawable/ic_user"
             app:civ_border_width="@dimen/_1sdp"
             tools:ignore="ImageContrastCheck" />
 
     </RelativeLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager_tab_2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tab_layout_2"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout_2"
@@ -104,16 +119,6 @@
         app:tabMode="auto"
         app:tabSelectedTextColor="@color/white"
         app:tabTextAppearance="@style/MyCustomTextAppearance"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewpager_tab_2"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tab_layout_2"
         tools:ignore="SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

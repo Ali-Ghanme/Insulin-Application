@@ -83,6 +83,7 @@
             android:src="@drawable/ic_user"
             app:civ_border_color="@color/white_smoke"
             app:civ_border_width="@dimen/_1sdp"
+
             tools:ignore="ImageContrastCheck" />
 
     </RelativeLayout>
@@ -178,8 +179,8 @@
             android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_30sdp"
             android:checked="false"
-            android:minWidth="48dp"
             android:minHeight="48dp"
+            android:minWidth="48dp"
             app:elevation="@dimen/_5sdp"
             app:switcher_icon_color="@color/switcher_icon_color"
             app:switcher_off_color="@color/Red"

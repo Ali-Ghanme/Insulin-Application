@@ -2,32 +2,19 @@ package com.example.diabestes_care_app.Ui.Patient_all;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
-import android.view.WindowManager;
-import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.diabestes_care_app.Adapters.ViewAdapter_Home_P;
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
-import com.example.diabestes_care_app.Models.Doctor_List_Modal_P;
 import com.example.diabestes_care_app.R;
-import com.example.diabestes_care_app.Ui.Patient_all.Fragment.Care_Fragment;
-import com.example.diabestes_care_app.Ui.Patient_all.Fragment.Chat_Fragment;
-import com.example.diabestes_care_app.Ui.Patient_all.Fragment.Home_Fragment;
-import com.example.diabestes_care_app.Ui.Patient_all.Fragment.Profile_Fragment;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P.Care_Fragment;
+import com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P.Chat_Fragment;
+import com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P.Home_Fragment;
+import com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P.Profile_Fragment;
 
 import nl.joery.animatedbottombar.AnimatedBottomBar;
 

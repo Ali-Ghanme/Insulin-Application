@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Ui.Setting.Help">
+    tools:context=".Ui.Patient_all.Setting_P.Help">
 
     <RelativeLayout
         android:id="@+id/help"
@@ -30,9 +30,9 @@
     <RelativeLayout
         android:id="@+id/help_app"
         android:layout_width="@dimen/_280sdp"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_60sdp"
         android:layout_marginLeft="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_30sdp"
         android:layout_marginRight="@dimen/_10sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_15sdp"
             android:layout_marginEnd="@dimen/_60sdp"
             android:fontFamily="@font/cairo_bold"
             android:layoutDirection="rtl"
@@ -52,23 +52,32 @@
             android:textSize="@dimen/_15sdp" />
 
         <ImageView
+            android:id="@+id/notification_ic_1"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_240sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_notification" />
+
+        <ImageView
             android:id="@+id/btn_next_notification"
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_25sdp"
-            android:layout_marginStart="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_15sdp"
             android:contentDescription="@string/todo"
             android:src="@drawable/ic_arrwa" />
 
     </RelativeLayout>
 
+
     <RelativeLayout
-        android:id="@+id/about_app"
+        android:id="@+id/notification_sound"
         android:layout_width="@dimen/_280sdp"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_60sdp"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/help_app">
@@ -76,52 +85,80 @@
         <View style="@style/Divider.Horizontal" />
 
         <TextView
-            android:id="@+id/about_text"
-            android:layout_width="match_parent"
+            android:id="@+id/about_app"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginEnd="20dp"
-            android:drawableEnd="@drawable/ic_arrwa"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginEnd="@dimen/_60sdp"
+            android:fontFamily="@font/cairo_bold"
             android:layoutDirection="rtl"
-            android:paddingTop="@dimen/_20sdp"
-            android:paddingBottom="@dimen/_20sdp"
-            android:text="عن التطبيق  "
+            android:text="عن التطبيق"
             android:textAlignment="textStart"
-            android:textSize="@dimen/_20sdp" />
+            android:textSize="@dimen/_15sdp" />
 
+        <ImageView
+            android:id="@+id/ic_about_app"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_240sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_notification" />
+
+        <ImageView
+            android:id="@+id/ic_arrow"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_arrwa" />
 
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/agreement_app"
         android:layout_width="@dimen/_280sdp"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_60sdp"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/about_app">
+        app:layout_constraintTop_toBottomOf="@+id/notification_sound">
 
         <View style="@style/Divider.Horizontal" />
 
         <TextView
             android:id="@+id/contract_text"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginEnd="20dp"
-            android:drawableEnd="@drawable/ic_arrwa"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginEnd="@dimen/_60sdp"
+            android:fontFamily="@font/cairo_bold"
             android:layoutDirection="rtl"
-            android:paddingTop="@dimen/_20sdp"
-            android:paddingBottom="@dimen/_20sdp"
             android:text="اتفاقية الترخيص "
             android:textAlignment="textStart"
-            android:textSize="@dimen/_20sdp" />
+            android:textSize="@dimen/_15sdp" />
+
+        <ImageView
+            android:id="@+id/ic_Policy"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_240sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_notification" />
+
+        <ImageView
+            android:id="@+id/ic_arrow_2"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_arrwa" />
 
 
     </RelativeLayout>
@@ -132,7 +169,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/agreement_app">
@@ -141,20 +177,33 @@
 
         <TextView
             android:id="@+id/notification_sound_text"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginEnd="20dp"
-            android:drawableEnd="@drawable/ic_arrwa"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginEnd="@dimen/_60sdp"
+            android:fontFamily="@font/cairo_bold"
             android:layoutDirection="rtl"
-            android:paddingTop="@dimen/_20sdp"
-            android:paddingBottom="@dimen/_20sdp"
             android:text="شروط الخصوصية  "
             android:textAlignment="textStart"
-            android:textSize="@dimen/_20sdp" />
+            android:textSize="@dimen/_15sdp" />
 
+        <ImageView
+            android:id="@+id/ic_Privacy"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_240sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_notification" />
 
+        <ImageView
+            android:id="@+id/arrow"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_arrwa" />
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

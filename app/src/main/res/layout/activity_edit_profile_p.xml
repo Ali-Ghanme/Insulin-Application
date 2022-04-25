@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Ui.Patient_all.Setting_P.Edit_Profile_P">
+
+    <RelativeLayout
+        android:id="@+id/help"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_70sdp"
+        android:background="@drawable/bg_sing_up"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/_90sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:text="اعدادات الملف الشخصي"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_18sdp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20sdp"
+        app:layout_constraintHorizontal_bias="0.727"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/help">
+
+        <ImageView
+            android:id="@+id/btn_next_profile"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_arrwa"
+            tools:ignore="ImageContrastCheck" />
+
+        <TextView
+            android:id="@+id/doctor_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_130sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:lines="1"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text=" محمد صيام "
+            android:textColor="#0091EA"
+            android:textSize="@dimen/_15sdp" />
+
+        <TextView
+            android:id="@+id/sub_tiltel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/doctor_name"
+            android:layout_marginStart="@dimen/_145sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:fontFamily="@font/cairo_semibold"
+            android:text="username@"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/_12sdp" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/Doctor_image"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_marginStart="@dimen/_220sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:src="@drawable/ic_user"
+            app:civ_border_width="@dimen/_1sdp"
+            tools:ignore="ImageContrastCheck" />
+
+    </RelativeLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:splitMotionEvents="true"
+        app:layout_constraintBottom_toTopOf="@id/viewpager_tab_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/container"
+        app:tabGravity="center"
+        app:tabIndicator="@drawable/bg_log_in_tab"
+        app:tabIndicatorAnimationMode="elastic"
+        app:tabIndicatorColor="@color/Patient_Color"
+        app:tabIndicatorFullWidth="true"
+        app:tabIndicatorGravity="stretch"
+        app:tabMaxWidth="@dimen/_300sdp"
+        app:tabMode="auto"
+        app:tabSelectedTextColor="@color/white"
+        app:tabTextAppearance="@style/MyCustomTextAppearance"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager_tab_2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tab_layout_2"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

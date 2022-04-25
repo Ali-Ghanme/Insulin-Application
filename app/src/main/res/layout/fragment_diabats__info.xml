@@ -3,9 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Ui.Patient_all.Nav_Fragment_P.Care_Fragment">
+    tools:context=".Ui.Patient_all.Setting_P.Edit_Profile_Fragmane.Diabats_Info">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

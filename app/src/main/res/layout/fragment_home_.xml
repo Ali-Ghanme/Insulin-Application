@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#23B1FE"
     android:orientation="vertical"
-    tools:context=".Ui.Patient_all.Fragment.Home_Fragment">
+    tools:context=".Ui.Patient_all.Nav_Fragment_P.Home_Fragment">
 
     <RelativeLayout
         android:id="@+id/header"

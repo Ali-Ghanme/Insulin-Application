@@ -11,10 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Diabestes_Care_App">
         <activity
-            android:name=".Ui.Setting.Help"
+            android:name=".Ui.Patient_all.Setting_P.Edit_Profile_P"
             android:exported="false" />
         <activity
-            android:name=".Ui.Setting.notification"
+            android:name=".Ui.Patient_all.Setting_P.Help"
+            android:exported="false" />
+        <activity
+            android:name=".Ui.Patient_all.Setting_P.notification"
             android:exported="false" />
         <activity
             android:name=".Ui.Sing_up_pages.Patient.Sing_Up_1_P"

@@ -1,4 +1,4 @@
-package com.example.diabestes_care_app.Ui.Setting;
+package com.example.diabestes_care_app.Ui.Patient_all.Setting_P;
 
 import androidx.appcompat.app.AppCompatActivity;
 

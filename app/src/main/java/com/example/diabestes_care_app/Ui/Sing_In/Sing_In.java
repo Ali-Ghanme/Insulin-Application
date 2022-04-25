@@ -40,7 +40,7 @@ public class Sing_In extends Basic_Activity {
         tabLayout.setupWithViewPager(viewPager_subject);
     }
 
-    private static class MainAdapter extends FragmentPagerAdapter {
+    public static class MainAdapter extends FragmentPagerAdapter {
         ArrayList<Fragment> fragmentArrayList = new ArrayList<>();
         ArrayList<String> stringArrayList = new ArrayList<>();
 

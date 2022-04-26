@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -29,9 +29,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="15dp"
-            android:layout_marginStart="30dp"
             android:contentDescription="@string/todo"
             android:elevation="3dp"
             android:src="@drawable/ic_user_nav"
@@ -43,9 +43,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="false"
-            android:layout_marginEnd="15dp"
             android:layout_marginStart="30dp"
             android:layout_marginTop="30dp"
+            android:layout_marginEnd="15dp"
             android:background="@drawable/ic_notification"
             android:backgroundTint="@color/edit_text_color"
             android:contentDescription="@string/todo"
@@ -61,174 +61,186 @@
         android:elevation="50dp"
         android:ems="1">
 
+        <EditText
+            android:id="@+id/Sing_up_1_date_dr"
+            android:layout_width="@dimen/_300sdp"
+            android:layout_height="@dimen/_140sdp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:autofillHints="creditCardExpirationDate"
+            android:background="@drawable/rectangel_home"
+            android:elevation="@dimen/_10sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:padding="@dimen/_30sdp"
+            android:text="@string/pargrah"
+            android:textAlignment="center"
+            android:textColor="@color/Doctor_Color"
+            android:textDirection="rtl"
+            android:textSize="@dimen/_14sdp"
+            tools:ignore="TouchTargetSizeCheck" />
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/todo"
             android:src="@drawable/rectangel_home" />
 
-
-
-
-        <LinearLayout
-            android:id="@+id/linee"
+        <GridLayout
+            android:id="@+id/grid_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/Sing_up_1_date_dr"
-            android:layout_marginEnd="@dimen/_40sdp"
-            android:layout_marginTop="@dimen/_34sdp"
-
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_180sdp"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:id="@+id/lineeee"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <GridLayout
+                android:layout_width="300dp"
+                android:layout_height="140dp"
+                android:alignmentMode="alignMargins"
+                android:columnCount="2"
+                android:columnOrderPreserved="false"
+                android:rowCount="3">
 
-                android:layout_marginEnd="@dimen/_40sdp"
-                android:layout_marginStart="@dimen/_40sdp"
-                android:layout_marginTop="@dimen/_26sdp"
-                android:background="@drawable/bg_text_dr"
-                android:orientation="vertical">
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/new_task"
+                    android:layout_width="75dp"
+                    android:layout_height="100dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="12dp"
+                    app:cardBackgroundColor="@color/Doctor_Color"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="6dp">
 
-                <ImageView
-                    android:id="@+id/img_speace"
-                    android:layout_width="@dimen/_80sdp"
-                    android:layout_height="@dimen/_80sdp"
-                    android:layout_weight="1"
-                    android:padding="@dimen/_5sdp"
-                    android:src="@drawable/ic_edit_icon" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="16dp">
 
-                <TextView
-                    android:id="@+id/tev"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="التعليمات"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/cairo_light"
-                    android:textSize="@dimen/_16sdp"
-                    android:textAlignment="center"
-                    android:padding="@dimen/_5sdp"
-                    android:textDirection="rtl" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:fontFamily="@font/cairo_bold"
+                            android:gravity="center_horizontal"
+                            android:text="جرعات"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_15sdp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
 
-            </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/lineee"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/task_mange"
+                    android:layout_width="75dp"
+                    android:layout_height="100dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="12dp"
+                    app:cardBackgroundColor="@color/Doctor_Color"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="6dp">
 
-                android:layout_marginEnd="@dimen/_40sdp"
-                android:layout_marginStart="@dimen/_40sdp"
-                android:layout_marginTop="@dimen/_26sdp"
-                android:background="@drawable/bg_text_dr"
-                android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="16dp">
 
-                <ImageView
-                    android:id="@+id/img_space"
-                    android:layout_width="@dimen/_80sdp"
-                    android:layout_height="@dimen/_80sdp"
-                    android:layout_weight="2"
-                    android:padding="@dimen/_5sdp"
-                    android:src="@drawable/ic_edit_icon" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:fontFamily="@font/cairo_bold"
+                            android:gravity="center_horizontal"
+                            android:text="تعليمات"
+                            android:textColor="#FFFFFF"
+                            android:textSize="@dimen/_15sdp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
 
-                <TextView
-                    android:id="@+id/teewv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="مساحة"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/cairo_light"
-                    android:textSize="@dimen/_16sdp"
-                    android:textAlignment="center"
-                    android:padding="@dimen/_5sdp"
-                    android:textDirection="rtl" />
 
-            </LinearLayout>
-        </LinearLayout>
+            </GridLayout>
 
-        <LinearLayout
-            android:id="@+id/linewedwee"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/Sing_up_1_date_dr"
-            android:layout_marginStart="@dimen/_150sdp"
-            android:layout_marginTop="44dp"
-            android:orientation="vertical">
+            <GridLayout
+                android:layout_width="300dp"
+                android:layout_height="140dp"
+                android:layout_marginTop="50dp"
+                android:alignmentMode="alignMargins"
+                android:columnCount="2"
+                android:columnOrderPreserved="false"
+                android:rowCount="3">
 
-            <LinearLayout
-                android:id="@+id/lineweeee"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/about_us"
+                    android:layout_width="75dp"
+                    android:layout_height="100dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="12dp"
+                    app:cardBackgroundColor="@color/Doctor_Color"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="6dp">
 
-                android:layout_marginEnd="@dimen/_40sdp"
-                android:layout_marginStart="@dimen/_40sdp"
-                android:layout_marginTop="@dimen/_26sdp"
-                android:background="@drawable/bg_text_dr"
-                android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="16dp">
 
-                <ImageView
-                    android:id="@+id/img_speweace"
-                    android:layout_width="@dimen/_80sdp"
-                    android:layout_height="@dimen/_80sdp"
-                    android:layout_weight="2"
-                    android:padding="@dimen/_5sdp"
-                    android:src="@drawable/ic_edit_icon" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:fontFamily="@font/cairo_bold"
+                            android:gravity="center_horizontal"
+                            android:text="تقارير"
+                            android:textColor="#FFFFFF"
+                            android:textSize="@dimen/_15sdp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
 
-                <TextView
-                    android:id="@+id/tevr"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="أنظمة غذائية"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/cairo_light"
-                    android:textSize="@dimen/_13sdp"
-                    android:textAlignment="center"
-                    android:padding="@dimen/_5sdp"
-                    android:textDirection="rtl" />
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/feedback"
+                    android:layout_width="75dp"
+                    android:layout_height="100dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="12dp"
+                    app:cardBackgroundColor="@color/Doctor_Color"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="6dp">
 
-            </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="16dp">
 
-            <LinearLayout
-                android:id="@+id/lineewee"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_marginEnd="@dimen/_40sdp"
-                android:layout_marginStart="@dimen/_40sdp"
-                android:layout_marginTop="@dimen/_26sdp"
-                android:background="@drawable/bg_text_dr"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/img_spaewce"
-                    android:layout_width="@dimen/_80sdp"
-                    android:layout_height="@dimen/_80sdp"
-                    android:layout_weight="2"
-                    android:padding="@dimen/_5sdp"
-                    android:src="@drawable/ic_edit_icon" />
-
-                <TextView
-                    android:id="@+id/teewev"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="تقاير"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/cairo_light"
-                    android:textSize="@dimen/_16sdp"
-                    android:textAlignment="center"
-                    android:padding="@dimen/_5sdp"
-                    android:textDirection="rtl" />
-
-            </LinearLayout>
-        </LinearLayout>
-
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:fontFamily="@font/cairo_bold"
+                            android:gravity="center_horizontal"
+                            android:text="أنظمة غذائية"
+                            android:textColor="#FFFFFF"
+                            android:textSize="@dimen/_15sdp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </GridLayout>
+        </GridLayout>
     </RelativeLayout>
-
 
 
 </LinearLayout>

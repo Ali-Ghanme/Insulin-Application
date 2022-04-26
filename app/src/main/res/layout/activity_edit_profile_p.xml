@@ -49,11 +49,9 @@
             android:layout_height="@dimen/_35sdp"
             android:layout_marginStart="@dimen/_30sdp"
             android:layout_marginTop="@dimen/_20sdp"
-            android:background="@drawable/list_task_back_cercel"
             android:contentDescription="@string/todo"
             android:elevation="3dp"
-
-            android:src="@drawable/ic_edit_icon"
+            android:src="@drawable/ic_arrwa"
             tools:ignore="ImageContrastCheck" />
 
         <TextView

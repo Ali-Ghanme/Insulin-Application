@@ -67,7 +67,25 @@
             android:contentDescription="@string/todo"
             android:src="@drawable/rectangel_home" />
 
-
+        <EditText
+            android:id="@+id/Sing_up_1_date_dr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:autofillHints="creditCardExpirationDate"
+            android:background="@drawable/bg_text_dr"
+            android:fontFamily="@font/cairo_regular"
+            android:padding="@dimen/_30sdp"
+            android:text="يمكنك وضع منبه للتذكير بجرعات
+ العلاج يمكنك اختيار نوع العلاج
+الذي تأخذاما حبوب او جرعات انسولين "
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textDirection="rtl"
+            android:textSize="16sp"
+            tools:ignore="TouchTargetSizeCheck" />
 
 
         <LinearLayout
@@ -104,13 +122,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="التعليمات"
+                    android:text="أنظمة غذائية"
                     android:textColor="@color/black"
                     android:fontFamily="@font/cairo_light"
-                    android:textSize="@dimen/_16sdp"
+                    android:textSize="@dimen/_13sdp"
                     android:textAlignment="center"
                     android:padding="@dimen/_5sdp"
-                    android:textDirection="rtl" />
+                    android:textDirection="rtl"/>
 
             </LinearLayout>
 
@@ -134,14 +152,14 @@
                     android:src="@drawable/ic_edit_icon" />
 
                 <TextView
-                    android:id="@+id/teewv"
+                    android:id="@+id/tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="مساحة"
+                    android:text="أنظمة غذائية"
                     android:textColor="@color/black"
                     android:fontFamily="@font/cairo_light"
-                    android:textSize="@dimen/_16sdp"
+                    android:textSize="@dimen/_13sdp"
                     android:textAlignment="center"
                     android:padding="@dimen/_5sdp"
                     android:textDirection="rtl" />
@@ -212,14 +230,14 @@
                     android:src="@drawable/ic_edit_icon" />
 
                 <TextView
-                    android:id="@+id/teewev"
+                    android:id="@+id/tewv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="تقاير"
+                    android:text="أنظمة غذائية"
                     android:textColor="@color/black"
                     android:fontFamily="@font/cairo_light"
-                    android:textSize="@dimen/_16sdp"
+                    android:textSize="@dimen/_13sdp"
                     android:textAlignment="center"
                     android:padding="@dimen/_5sdp"
                     android:textDirection="rtl" />

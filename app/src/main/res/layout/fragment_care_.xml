@@ -69,13 +69,13 @@
             android:layout_marginStart="@dimen/_40sdp"
             android:layout_marginTop="@dimen/_20sdp"
             android:autofillHints="creditCardExpirationDate"
-            android:background="@drawable/rectangel_home"
+            android:background="@drawable/home_nav_bottom2"
             android:elevation="@dimen/_10sdp"
             android:fontFamily="@font/cairo_bold"
             android:padding="@dimen/_30sdp"
             android:text="@string/pargrah"
             android:textAlignment="center"
-            android:textColor="@color/Doctor_Color"
+            android:textColor="@color/white_ghost"
             android:textDirection="rtl"
             android:textSize="@dimen/_14sdp"
             tools:ignore="TouchTargetSizeCheck" />
@@ -109,7 +109,7 @@
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_margin="12dp"
-                    app:cardBackgroundColor="@color/Doctor_Color"
+                    app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="5dp"
                     app:cardElevation="6dp">
 
@@ -127,7 +127,7 @@
                             android:fontFamily="@font/cairo_bold"
                             android:gravity="center_horizontal"
                             android:text="جرعات"
-                            android:textColor="@color/white"
+                            android:textColor="@color/Doctor_Color"
                             android:textSize="@dimen/_15sdp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -141,7 +141,7 @@
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_margin="12dp"
-                    app:cardBackgroundColor="@color/Doctor_Color"
+                    app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="5dp"
                     app:cardElevation="6dp">
 
@@ -159,7 +159,7 @@
                             android:fontFamily="@font/cairo_bold"
                             android:gravity="center_horizontal"
                             android:text="تعليمات"
-                            android:textColor="#FFFFFF"
+                            android:textColor="@color/Doctor_Color"
                             android:textSize="@dimen/_15sdp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -184,7 +184,7 @@
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_margin="12dp"
-                    app:cardBackgroundColor="@color/Doctor_Color"
+                    app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="5dp"
                     app:cardElevation="6dp">
 
@@ -202,7 +202,7 @@
                             android:fontFamily="@font/cairo_bold"
                             android:gravity="center_horizontal"
                             android:text="تقارير"
-                            android:textColor="#FFFFFF"
+                            android:textColor="@color/Doctor_Color"
                             android:textSize="@dimen/_15sdp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -215,7 +215,7 @@
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_margin="12dp"
-                    app:cardBackgroundColor="@color/Doctor_Color"
+                    app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="5dp"
                     app:cardElevation="6dp">
 
@@ -233,7 +233,7 @@
                             android:fontFamily="@font/cairo_bold"
                             android:gravity="center_horizontal"
                             android:text="أنظمة غذائية"
-                            android:textColor="#FFFFFF"
+                            android:textColor="@color/Doctor_Color"
                             android:textSize="@dimen/_15sdp"
                             android:textStyle="bold" />
                     </LinearLayout>

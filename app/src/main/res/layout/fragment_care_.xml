@@ -1,14 +1,234 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#26B887"
+    android:orientation="vertical"
     tools:context=".Ui.Patient_all.Nav_Fragment_P.Care_Fragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
+        android:id="@+id/header_dr"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/home_txt_dr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/cairo_bold"
+            android:text="صحتى"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+
+        <ImageView
+            android:id="@+id/profile_img_home_dr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="30dp"
+            android:contentDescription="@string/todo"
+            android:elevation="3dp"
+            android:src="@drawable/ic_user_nav"
+            app:civ_border_color="@android:color/white"
+            app:civ_border_width="3dp" />
+
+        <ImageView
+            android:id="@+id/notification_img_home_dr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="false"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/ic_notification"
+            android:backgroundTint="@color/edit_text_color"
+            android:contentDescription="@string/todo"
+            android:elevation="3dp"
+            app:civ_border_color="@android:color/white"
+            app:civ_border_width="3dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:elevation="50dp"
+        android:ems="1">
 
-</FrameLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/rectangel_home" />
+
+
+
+
+        <LinearLayout
+            android:id="@+id/linee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Sing_up_1_date_dr"
+            android:layout_marginEnd="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_34sdp"
+
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/lineeee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginEnd="@dimen/_40sdp"
+                android:layout_marginStart="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_26sdp"
+                android:background="@drawable/bg_text_dr"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/img_speace"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_80sdp"
+                    android:layout_weight="1"
+                    android:padding="@dimen/_5sdp"
+                    android:src="@drawable/ic_edit_icon" />
+
+                <TextView
+                    android:id="@+id/tev"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="التعليمات"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/cairo_light"
+                    android:textSize="@dimen/_16sdp"
+                    android:textAlignment="center"
+                    android:padding="@dimen/_5sdp"
+                    android:textDirection="rtl" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lineee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginEnd="@dimen/_40sdp"
+                android:layout_marginStart="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_26sdp"
+                android:background="@drawable/bg_text_dr"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/img_space"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_80sdp"
+                    android:layout_weight="2"
+                    android:padding="@dimen/_5sdp"
+                    android:src="@drawable/ic_edit_icon" />
+
+                <TextView
+                    android:id="@+id/teewv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="مساحة"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/cairo_light"
+                    android:textSize="@dimen/_16sdp"
+                    android:textAlignment="center"
+                    android:padding="@dimen/_5sdp"
+                    android:textDirection="rtl" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linewedwee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Sing_up_1_date_dr"
+            android:layout_marginStart="@dimen/_150sdp"
+            android:layout_marginTop="44dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/lineweeee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginEnd="@dimen/_40sdp"
+                android:layout_marginStart="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_26sdp"
+                android:background="@drawable/bg_text_dr"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/img_speweace"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_80sdp"
+                    android:layout_weight="2"
+                    android:padding="@dimen/_5sdp"
+                    android:src="@drawable/ic_edit_icon" />
+
+                <TextView
+                    android:id="@+id/tevr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="أنظمة غذائية"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/cairo_light"
+                    android:textSize="@dimen/_13sdp"
+                    android:textAlignment="center"
+                    android:padding="@dimen/_5sdp"
+                    android:textDirection="rtl" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lineewee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginEnd="@dimen/_40sdp"
+                android:layout_marginStart="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_26sdp"
+                android:background="@drawable/bg_text_dr"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/img_spaewce"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_80sdp"
+                    android:layout_weight="2"
+                    android:padding="@dimen/_5sdp"
+                    android:src="@drawable/ic_edit_icon" />
+
+                <TextView
+                    android:id="@+id/teewev"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="تقاير"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/cairo_light"
+                    android:textSize="@dimen/_16sdp"
+                    android:textAlignment="center"
+                    android:padding="@dimen/_5sdp"
+                    android:textDirection="rtl" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

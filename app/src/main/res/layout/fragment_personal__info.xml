@@ -41,7 +41,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/cairo_bold"
-                android:text="65555555555555555555"
+                android:text="65"
                 android:textColor="@color/gray"
                 android:textSize="15sp" />
         </RelativeLayout>

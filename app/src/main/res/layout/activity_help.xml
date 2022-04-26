@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Ui.Setting.Help">
+    tools:context=".Ui.Patient_all.Setting_P.Help">
 
     <RelativeLayout
         android:id="@+id/help"
@@ -40,25 +40,19 @@
 
         <TextView
             android:id="@+id/help_text"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="@dimen/_25sdp"
-            android:layout_marginEnd="@dimen/_60sdp"
-            android:fontFamily="@font/cairo_bold"
+            android:layout_alignParentStart="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:drawableEnd="@drawable/ic_arrwa"
             android:layoutDirection="rtl"
-            android:text="مساعدة  "
+            android:paddingBottom="@dimen/_20sdp"
+            android:paddingTop="@dimen/_20sdp"
+            android:text="عن التطبيق  "
             android:textAlignment="textStart"
-            android:textSize="@dimen/_15sdp" />
-
-        <ImageView
-            android:id="@+id/btn_next_notification"
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
-            android:layout_marginStart="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_30sdp"
-            android:contentDescription="@string/todo"
-            android:src="@drawable/ic_arrwa" />
+            android:textSize="@dimen/_20sdp" />
 
     </RelativeLayout>
 
@@ -79,14 +73,14 @@
             android:id="@+id/about_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_alignParentStart="true"
             android:layout_marginEnd="20dp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:drawableEnd="@drawable/ic_arrwa"
             android:layoutDirection="rtl"
-            android:paddingTop="@dimen/_20sdp"
             android:paddingBottom="@dimen/_20sdp"
+            android:paddingTop="@dimen/_20sdp"
             android:text="عن التطبيق  "
             android:textAlignment="textStart"
             android:textSize="@dimen/_20sdp" />

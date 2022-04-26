@@ -29,7 +29,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/cairo_bold"
-                android:text=" الوزن"
+                android:text="نوع المرض"
                 android:textColor="@color/Patient_Color"
                 android:textSize="15sp" />
 
@@ -41,7 +41,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/cairo_bold"
-                android:text="65"
+                android:text="الاول"
                 android:textColor="@color/gray"
                 android:textSize="15sp" />
         </RelativeLayout>
@@ -63,7 +63,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/cairo_bold"
-                android:text="الطول"
+                android:text="نوع العلاج"
                 android:textColor="@color/Patient_Color"
                 android:textSize="15sp" />
 
@@ -75,7 +75,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/cairo_bold"
-                android:text="157"
+                android:text="ابر انسولين"
                 android:textColor="@color/gray"
                 android:textSize="15sp" />
 
@@ -99,7 +99,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/cairo_bold"
-                android:text="العمر "
+                android:text="عامل الإصابة"
                 android:textColor="@color/Patient_Color"
                 android:textSize="15sp" />
 
@@ -111,7 +111,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/cairo_bold"
-                android:text="22"
+                android:text="وراثة"
                 android:textColor="@color/gray"
                 android:textSize="15sp" />
 
@@ -136,7 +136,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/cairo_bold"
-                android:text="تاريخ الميلاد "
+                android:text="هل تملك جهاز فحص السكر"
                 android:textColor="@color/Patient_Color"
                 android:textSize="15sp" />
 
@@ -148,7 +148,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/cairo_bold"
-                android:text="05/01/2018"
+                android:text="نعم"
                 android:textColor="@color/gray"
                 android:textSize="15sp" />
             <View style="@style/Divider.Horizontal" />
@@ -170,7 +170,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/cairo_bold"
-                android:text="رقم الجوال "
+                android:text=" تاريخ الاصابة"
                 android:textColor="@color/Patient_Color"
                 android:textSize="15sp" />
 
@@ -182,7 +182,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/cairo_bold"
-                android:text="0592149300"
+                android:text="05/01/2018"
                 android:textColor="@color/gray"
                 android:textSize="15sp" />
 
@@ -199,6 +199,7 @@
             android:fontFamily="@font/cairo_bold"
             android:paddingEnd="@dimen/_20sdp"
             android:paddingStart="20dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -206,7 +207,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/cairo_bold"
-                android:text="الإيميل "
+                android:text="أمراض اخرى "
                 android:textColor="@color/Patient_Color"
                 android:textSize="15sp" />
 
@@ -218,7 +219,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/cairo_bold"
-                android:text="الايميل"
+                android:text="لا"
                 android:textColor="@color/gray"
                 android:textSize="15sp" />
 
@@ -226,41 +227,7 @@
             <View style="@style/Divider.Horizontal" />
         </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/text6_patient"
-            android:layout_width="@dimen/_250sdp"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_below="@id/text5_patient"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:paddingEnd="20dp"
-            android:paddingStart="20dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/cairo_bold"
-                android:text="العنوان "
-                android:textColor="@color/Patient_Color"
-                android:textSize="15sp" />
 
-            <TextView
-                android:id="@+id/address"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/cairo_bold"
-                android:text="قطاع غزة - دارنا"
-                android:textColor="@color/gray"
-                android:textSize="15sp" />
-
-
-            <View style="@style/Divider.Horizontal" />
-        </RelativeLayout>
 
     </RelativeLayout>
 

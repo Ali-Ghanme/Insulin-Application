@@ -23,7 +23,7 @@
             android:layout_centerInParent="true"
             android:fontFamily="@font/cairo_bold"
             android:scaleType="centerCrop"
-            android:text="Photo"
+            android:text="الصورة الشخصية "
             android:textColor="@color/white"
             android:textSize="@dimen/_20sdp"
             tools:ignore="TextContrastCheck" />
@@ -34,12 +34,10 @@
         android:layout_width="@dimen/_150sdp"
         android:layout_height="@dimen/_150sdp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:civ_border_width="@dimen/_1sdp"
-        android:layout_marginTop="@dimen/_80sdp"
-        app:civ_border_color="@color/gray"
-        app:layout_constraintStart_toStartOf="parent"
+         android:layout_marginTop="@dimen/_80sdp"
+         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Sing_up_header"
-        android:src="@drawable/ic_user"/>
+        android:src="@drawable/up"/>
 
     <Button
         android:id="@+id/btn_Upload"

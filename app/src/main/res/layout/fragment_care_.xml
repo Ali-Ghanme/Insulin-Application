@@ -69,7 +69,7 @@
             android:layout_marginStart="@dimen/_40sdp"
             android:layout_marginTop="@dimen/_20sdp"
             android:autofillHints="creditCardExpirationDate"
-            android:background="@drawable/home_nav_bottom2"
+            android:background="@drawable/bg_text_dr"
             android:elevation="@dimen/_10sdp"
             android:fontFamily="@font/cairo_bold"
             android:padding="@dimen/_30sdp"
@@ -91,6 +91,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+
             android:layout_marginTop="@dimen/_180sdp"
             android:orientation="vertical">
 
@@ -99,6 +100,7 @@
                 android:layout_height="140dp"
                 android:alignmentMode="alignMargins"
                 android:columnCount="2"
+
                 android:columnOrderPreserved="false"
                 android:rowCount="3">
 
@@ -106,16 +108,17 @@
                     android:id="@+id/new_task"
                     android:layout_width="75dp"
                     android:layout_height="100dp"
-                    android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_margin="12dp"
-                    app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@drawable/bg_text_dr"
+                    app:cardCornerRadius="15dp"
                     app:cardElevation="6dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@drawable/bg_text_dr"
                         android:gravity="center"
                         android:orientation="vertical"
                         android:padding="16dp">
@@ -127,7 +130,8 @@
                             android:fontFamily="@font/cairo_bold"
                             android:gravity="center_horizontal"
                             android:text="جرعات"
-                            android:textColor="@color/Doctor_Color"
+
+                            android:textColor="@color/black"
                             android:textSize="@dimen/_15sdp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -138,10 +142,11 @@
                     android:id="@+id/task_mange"
                     android:layout_width="75dp"
                     android:layout_height="100dp"
-                    android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_margin="12dp"
-                    app:cardBackgroundColor="@color/white"
+                    android:layout_rowWeight="1"
+                    android:background="@drawable/bg_text_dr"
+
                     app:cardCornerRadius="5dp"
                     app:cardElevation="6dp">
 
@@ -181,11 +186,10 @@
                     android:id="@+id/about_us"
                     android:layout_width="75dp"
                     android:layout_height="100dp"
-                    android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_margin="12dp"
-                    app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@drawable/bg_text_dr"
                     app:cardElevation="6dp">
 
                     <LinearLayout
@@ -212,11 +216,11 @@
                     android:id="@+id/feedback"
                     android:layout_width="75dp"
                     android:layout_height="100dp"
-                    android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_margin="12dp"
-                    app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@drawable/bg_text_dr"
+                    app:cardCornerRadius="15dp"
                     app:cardElevation="6dp">
 
                     <LinearLayout

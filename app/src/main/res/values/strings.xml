@@ -36,7 +36,7 @@
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="pargrah">يمكنك وضع منبه للتذكير بجرعات العلاج يمكنك اختيار نوع العلاج الذي تأخذاما حبوب او جرعات انسولين</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string-array name="Gender_array">
         <item>ذكر</item>
         <item>انثى</item>

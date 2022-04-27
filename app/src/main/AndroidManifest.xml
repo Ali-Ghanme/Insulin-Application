@@ -11,17 +11,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Diabestes_Care_App">
         <activity
+            android:name=".Ui.Patient_all.Community.Space_Post"
+            android:exported="false" />
+        <activity
+            android:name=".Ui.Patient_all.Community.Food_System_Patient_P"
+            android:exported="false" />
+        <activity
             android:name=".Ui.Patient_all.Community.Instructions_Patient_P"
             android:exported="false" />
         <activity
             android:name=".Ui.Patient_all.Setting_P.Edit_Profile_P"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".Ui.Patient_all.Setting_P.Help"
             android:exported="false" />
@@ -45,7 +46,8 @@
             android:exported="false" />
         <activity
             android:name=".Ui.Patient_all.Home_Patient"
-            android:exported="false" />
+            android:exported="false"/> >
+
         <activity
             android:name=".Ui.Patient_all.Patient_Profile_D"
             android:exported="false" />
@@ -66,13 +68,20 @@
             android:exported="false" />
         <activity
             android:name=".Ui.Sing_up_pages.character_choice_screen"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Ui.MainActivity"
             android:exported="false" />
         <activity
             android:name=".Ui.Sing_In.Sing_In"
             android:exported="false" />
+
         <activity
             android:name=".Ui.Splah_Screens.Splash_Screen_1"
             android:exported="false" />

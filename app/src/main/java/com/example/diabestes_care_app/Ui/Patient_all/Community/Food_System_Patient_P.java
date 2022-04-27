@@ -10,23 +10,18 @@ import com.example.diabestes_care_app.R;
 
 import java.util.ArrayList;
 
-public class Instructions_Patient_P extends AppCompatActivity {
-
-ListView lv;
-
+public class Food_System_Patient_P extends AppCompatActivity {
+    ListView lv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_instructions_patient_p);
-
+        setContentView(R.layout.activity_food_system_patient_p);
         ArrayList Item = new ArrayList<>();
-        Item.add("عن مرض السكري");
-        Item.add("أنواع مرض السكري ");
-        Item.add("مضاعفات مرض السكري");
-        Item.add("ما هي غيبوبة السكر");
-        Item.add("التعامل مع حالات اغماء السكري");
-        Item.add("جرعات الانسولين وكيفية اخدها");
-        Item.add("اعراض مبكرة لمرض السكري");
+        Item.add("الفطور");
+        Item.add("الغذاء");
+        Item.add("العشاء");
+        Item.add("الفطور في رمضان ");
+        Item.add("السحور في رمضان");
         ArrayAdapter items = new ArrayAdapter(this, android.R.layout.simple_list_item_activated_1 ,Item );
         ListView list = (ListView) findViewById(R.id.lv);
         list.setAdapter(items);

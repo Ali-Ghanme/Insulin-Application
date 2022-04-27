@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Ui.Patient_all.Community.Instructions_Patient_P">
+    tools:context=".Ui.Patient_all.Community.Food_System_Patient_P">
     <RelativeLayout
         android:id="@+id/help"
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
             android:layout_marginStart="@dimen/_90sdp"
             android:layout_marginTop="@dimen/_15sdp"
             android:fontFamily="@font/cairo_bold"
-            android:text=" التعمليات "
+            android:text=" أنظمة غذائية "
             android:textColor="@color/white"
             android:textSize="@dimen/_20sdp" />
     </RelativeLayout>
@@ -52,7 +52,7 @@
             android:elevation="@dimen/_10sdp"
             android:fontFamily="@font/cairo_bold"
             android:padding="@dimen/_30sdp"
-            android:text="@string/pargrah"
+            android:text=" يحتوي قسم الأنظمة الغذائية على أنظمة غذائية صحية ومتبعة عالميا خاصة لمرضى السكري ويحتوي على فرعين فرع الأنظمة التقليدية والأنظمة الصحية الشعبية"
             android:textAlignment="center"
             android:textColor="@color/white_ghost"
             android:textDirection="rtl"

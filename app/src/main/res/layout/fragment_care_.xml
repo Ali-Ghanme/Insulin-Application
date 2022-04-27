@@ -67,7 +67,7 @@
             android:layout_height="@dimen/_140sdp"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="@dimen/_40sdp"
-            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_30sdp"
             android:autofillHints="creditCardExpirationDate"
             android:background="@drawable/bg_text_dr"
             android:elevation="@dimen/_10sdp"
@@ -84,6 +84,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/todo"
+
+
             android:src="@drawable/rectangel_home" />
 
         <GridLayout
@@ -91,27 +93,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-
-            android:layout_marginTop="@dimen/_180sdp"
+            android:layout_marginTop="@dimen/_190sdp"
             android:orientation="vertical">
 
             <GridLayout
                 android:layout_width="300dp"
-                android:layout_height="140dp"
+                android:layout_height="170dp"
                 android:alignmentMode="alignMargins"
                 android:columnCount="2"
-
                 android:columnOrderPreserved="false"
                 android:rowCount="3">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/new_task"
                     android:layout_width="75dp"
-                    android:layout_height="100dp"
+                    android:layout_height="match_parent"
                     android:layout_columnWeight="1"
                     android:layout_margin="12dp"
                     android:layout_rowWeight="1"
-                    android:background="@drawable/bg_text_dr"
                     app:cardCornerRadius="15dp"
                     app:cardElevation="6dp">
 
@@ -123,15 +122,19 @@
                         android:orientation="vertical"
                         android:padding="16dp">
 
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="70dp"
+                            android:src="@drawable/ic_book" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
                             android:fontFamily="@font/cairo_bold"
                             android:gravity="center_horizontal"
-                            android:text="جرعات"
-
-                            android:textColor="@color/black"
+                            android:text="أنظمة غذائية"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/_15sdp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -145,17 +148,22 @@
                     android:layout_columnWeight="1"
                     android:layout_margin="12dp"
                     android:layout_rowWeight="1"
-                    android:background="@drawable/bg_text_dr"
 
-                    app:cardCornerRadius="5dp"
+                    app:cardCornerRadius="15dp"
                     app:cardElevation="6dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@drawable/bg_text_dr"
                         android:gravity="center"
                         android:orientation="vertical"
                         android:padding="16dp">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="70dp"
+                            android:src="@drawable/ic_apple" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -163,8 +171,8 @@
                             android:layout_marginTop="12dp"
                             android:fontFamily="@font/cairo_bold"
                             android:gravity="center_horizontal"
-                            android:text="تعليمات"
-                            android:textColor="@color/Doctor_Color"
+                            android:text="أنظمة غذائية"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/_15sdp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -175,8 +183,8 @@
 
             <GridLayout
                 android:layout_width="300dp"
-                android:layout_height="140dp"
-                android:layout_marginTop="50dp"
+                android:layout_height="170dp"
+                android:layout_marginTop="30dp"
                 android:alignmentMode="alignMargins"
                 android:columnCount="2"
                 android:columnOrderPreserved="false"
@@ -189,15 +197,23 @@
                     android:layout_columnWeight="1"
                     android:layout_margin="12dp"
                     android:layout_rowWeight="1"
-                    android:background="@drawable/bg_text_dr"
+                    app:cardCornerRadius="15dp"
+
                     app:cardElevation="6dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@drawable/bg_text_dr"
                         android:gravity="center"
                         android:orientation="vertical"
+
                         android:padding="16dp">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="70dp"
+                            android:src="@drawable/ic_repor" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -205,8 +221,8 @@
                             android:layout_marginTop="12dp"
                             android:fontFamily="@font/cairo_bold"
                             android:gravity="center_horizontal"
-                            android:text="تقارير"
-                            android:textColor="@color/Doctor_Color"
+                            android:text="أنظمة غذائية"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/_15sdp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -219,13 +235,13 @@
                     android:layout_columnWeight="1"
                     android:layout_margin="12dp"
                     android:layout_rowWeight="1"
-                    android:background="@drawable/bg_text_dr"
                     app:cardCornerRadius="15dp"
                     app:cardElevation="6dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@drawable/bg_text_dr"
                         android:gravity="center"
                         android:orientation="vertical"
                         android:padding="16dp">
@@ -233,7 +249,7 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/ic_apple" />
+                            android:src="@drawable/ic_book" />
 
 
                         <TextView
@@ -243,8 +259,8 @@
                             android:fontFamily="@font/cairo_bold"
                             android:gravity="center_horizontal"
                             android:text="أنظمة غذائية"
-                            android:textColor="@color/Doctor_Color"
-                            android:textSize="@dimen/_15sdp"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_13sdp"
                             android:textStyle="bold" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>

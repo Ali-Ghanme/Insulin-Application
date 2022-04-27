@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Ui.Patient_all.Community.Instructions_Patient_P">
+    <RelativeLayout
+        android:id="@+id/help"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_70sdp"
+        android:background="@drawable/bg_sing_up"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/_90sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:text=" التعمليات "
+            android:textColor="@color/white"
+            android:textSize="@dimen/_20sdp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/help_app"
+        android:layout_width="@dimen/_280sdp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_70sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_below="@id/help"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help">
+
+        <EditText
+            android:id="@+id/Sing_up_1_date_dr"
+            android:layout_width="@dimen/_300sdp"
+            android:layout_height="@dimen/_140sdp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:autofillHints="creditCardExpirationDate"
+            android:background="@drawable/bg_text_dr"
+            android:elevation="@dimen/_10sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:padding="@dimen/_30sdp"
+            android:text="@string/pargrah"
+            android:textAlignment="center"
+            android:textColor="@color/white_ghost"
+            android:textDirection="rtl"
+            android:textSize="@dimen/_14sdp"
+            tools:ignore="TouchTargetSizeCheck" />
+
+
+        <ListView
+            android:id="@+id/lv"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_below="@id/Sing_up_1_date_dr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </ListView>
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

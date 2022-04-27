@@ -11,14 +11,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Diabestes_Care_App">
         <activity
+            android:name=".Ui.Patient_all.Community.Instructions_Patient_P"
+            android:exported="false" />
+        <activity
             android:name=".Ui.Patient_all.Setting_P.Edit_Profile_P"
-            android:exported="true" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Ui.Patient_all.Setting_P.Help"
             android:exported="false" />
@@ -72,8 +75,7 @@
             android:exported="false" />
         <activity
             android:name=".Ui.Splah_Screens.Splash_Screen_1"
-            android:exported="false"/>
-
+            android:exported="false" />
 
         <meta-data
             android:name="preloaded_fonts"

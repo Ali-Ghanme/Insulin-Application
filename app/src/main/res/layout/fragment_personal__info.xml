@@ -199,6 +199,7 @@
             android:fontFamily="@font/cairo_bold"
             android:paddingEnd="@dimen/_20sdp"
             android:paddingStart="20dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

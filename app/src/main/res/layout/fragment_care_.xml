@@ -69,7 +69,7 @@
             android:layout_marginStart="@dimen/_40sdp"
             android:layout_marginTop="@dimen/_20sdp"
             android:autofillHints="creditCardExpirationDate"
-            android:background="@drawable/bg_text_dr"
+            android:background="@drawable/home_nav_bottom2"
             android:elevation="@dimen/_10sdp"
             android:fontFamily="@font/cairo_bold"
             android:padding="@dimen/_30sdp"
@@ -109,7 +109,7 @@
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_margin="12dp"
-                    app:cardBackgroundColor="@color/Doctor_Color"
+                    app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="5dp"
                     app:cardElevation="6dp">
 
@@ -120,18 +120,14 @@
                         android:orientation="vertical"
                         android:padding="16dp">
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_book" />
-
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
                             android:fontFamily="@font/cairo_bold"
                             android:gravity="center_horizontal"
                             android:text="جرعات"
-                            android:textColor="@color/white"
+                            android:textColor="@color/Doctor_Color"
                             android:textSize="@dimen/_15sdp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -145,8 +141,7 @@
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_margin="12dp"
-                    android:background="@drawable/bg_text_dr"
-                    app:cardBackgroundColor="@color/Doctor_Color"
+                    app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="5dp"
                     app:cardElevation="6dp">
 
@@ -157,18 +152,14 @@
                         android:orientation="vertical"
                         android:padding="16dp">
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_book" />
-
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
                             android:fontFamily="@font/cairo_bold"
                             android:gravity="center_horizontal"
                             android:text="تعليمات"
-                            android:textColor="@color/white"
+                            android:textColor="@color/Doctor_Color"
                             android:textSize="@dimen/_15sdp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -193,7 +184,7 @@
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_margin="12dp"
-                    app:cardBackgroundColor="@color/Doctor_Color"
+                    app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="5dp"
                     app:cardElevation="6dp">
 
@@ -204,18 +195,14 @@
                         android:orientation="vertical"
                         android:padding="16dp">
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_reports" />
-
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
                             android:fontFamily="@font/cairo_bold"
                             android:gravity="center_horizontal"
                             android:text="تقارير"
-                            android:textColor="@color/white"
+                            android:textColor="@color/Doctor_Color"
                             android:textSize="@dimen/_15sdp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -228,7 +215,7 @@
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_margin="12dp"
-                    app:cardBackgroundColor="@color/Doctor_Color"
+                    app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="5dp"
                     app:cardElevation="6dp">
 
@@ -248,11 +235,12 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
                             android:fontFamily="@font/cairo_bold"
                             android:gravity="center_horizontal"
                             android:text="أنظمة غذائية"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_11sdp"
+                            android:textColor="@color/Doctor_Color"
+                            android:textSize="@dimen/_15sdp"
                             android:textStyle="bold" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>

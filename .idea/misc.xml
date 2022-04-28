@@ -10,6 +10,7 @@
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/drawable/bg_log_in_header.xml" value="0.206" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/drawable/bg_rectangel_splash_top.xml" value="0.206" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/drawable/bg_sing_up.xml" value="0.206" />
+        <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/drawable/ic_group_334.xml" value="0.2115" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/drawable/list_task_back.xml" value="0.2625" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/drawable/list_task_back_cercel.xml" value="0.2535" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout-anydpi/activity_splash_screen_item.xml" value="0.22402736212056434" />
@@ -23,7 +24,7 @@
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_log_in.xml" value="0.11584800741427248" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_notification.xml" value="0.22119037568594344" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_patient_profile.xml" value="0.25" />
-        <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_sign_up_1_d.xml" value="0.22402736212056434" />
+        <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_sign_up_1_d.xml" value="0.25" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_sign_up_2_d.xml" value="0.22402736212056434" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_sign_up_2_p.xml" value="0.22" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_sign_up_3_d.xml" value="0.25" />

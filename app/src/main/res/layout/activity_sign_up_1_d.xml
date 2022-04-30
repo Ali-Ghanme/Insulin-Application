@@ -196,22 +196,35 @@
 
     </RelativeLayout>
 
-    <Button
-        android:id="@+id/btn_next_S_dr"
-        android:layout_width="@dimen/_50sdp"
-        android:layout_height="@dimen/_50sdp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/_50sdp"
-        android:background="@drawable/bg_doctor_button"
-        android:drawableStart="@drawable/ic_float_action"
-        android:elevation="10dp"
-        android:paddingHorizontal="@dimen/_20sdp"
-        app:borderWidth="0dp"
+
+    <RelativeLayout
+        android:id="@+id/btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Subject"
-        tools:ignore="SpeakableTextPresentCheck" />
+        android:background="@drawable/ic_bg_btn_new"
+        >
+
+        <Button
+            android:id="@+id/btn_next_S_dr"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:background="@drawable/bg_doctor_button"
+            android:drawableStart="@drawable/ic_float_action"
+            android:elevation="10dp"
+            android:paddingHorizontal="@dimen/_20sdp"
+            app:borderWidth="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+
+    </RelativeLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

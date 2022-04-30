@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
-        android:id="@+id/Sing_up_1_header"
+        android:id="@+id/Sp1_header_P"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_70sdp"
         android:background="@drawable/bg_sing_up"
@@ -30,17 +30,17 @@
     <RelativeLayout
         android:id="@+id/Subject"
         android:layout_width="@dimen/_280sdp"
-        android:layout_height="@dimen/_370sdp"
+        android:layout_height="@dimen/_380sdp"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_50sdp"
         android:layout_marginRight="@dimen/_10sdp"
         android:scaleType="centerCrop"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Sing_up_1_header">
+        app:layout_constraintTop_toBottomOf="@id/Sp1_header_P">
 
         <EditText
-            android:id="@+id/Sing_up_1_name"
+            android:id="@+id/Sp1_name_P"
             android:layout_width="@dimen/_230sdp"
             android:layout_height="@dimen/_40sdp"
             android:layout_centerHorizontal="true"
@@ -60,70 +60,19 @@
             android:textSize="15sp"
             tools:ignore="TouchTargetSizeCheck" />
 
-        <RadioGroup
-            android:id="@+id/Sing_up_1_Gender"
-            android:layout_width="@dimen/_225sdp"
-            android:layout_height="@dimen/_55sdp"
-            android:layout_below="@+id/Sing_up_1_name"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:checkedButton="@id/male"
-            android:orientation="horizontal"
-            android:scaleType="centerCrop"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <RadioButton
-                android:id="@+id/male"
-                android:layout_width="@dimen/_90sdp"
-                android:layout_height="@dimen/_40sdp"
-                android:background="@drawable/gender_background_selector"
-                android:button="@android:color/transparent"
-                android:drawableStart="@drawable/ic_male"
-                android:elevation="1.5dp"
-                android:fontFamily="@font/cairo_bold"
-                android:paddingLeft="@dimen/_15sdp"
-                android:scaleType="centerCrop"
-                android:text="ذكر"
-                android:textAlignment="center"
-                android:textColor="@drawable/gender_text_selector"
-                android:textSize="@dimen/_15sdp"
-                app:drawableTint="@drawable/gender_text_selector" />
-
-            <RadioButton
-                android:id="@+id/female"
-                android:layout_width="@dimen/_90sdp"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_marginLeft="@dimen/_40sdp"
-                android:background="@drawable/gender_background_selector"
-                android:button="@android:color/transparent"
-                android:drawableStart="@drawable/ic_female"
-                android:elevation="1.5dp"
-                android:fontFamily="@font/cairo_bold"
-                android:paddingLeft="@dimen/_15sdp"
-                android:scaleType="centerCrop"
-                android:text="أنثى"
-                android:textAlignment="center"
-                android:textColor="@drawable/gender_text_selector"
-                android:textSize="16sp"
-                app:drawableTint="@drawable/gender_text_selector" />
-        </RadioGroup>
-
         <EditText
-            android:id="@+id/Sing_up_1_date"
+            android:id="@+id/Sp1_username_P"
             android:layout_width="@dimen/_230sdp"
             android:layout_height="@dimen/_40sdp"
-            android:layout_below="@id/Sing_up_1_Gender"
+            android:layout_below="@id/Sp1_name_P"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:autofillHints="creditCardExpirationDate"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:autofillHints="name"
             android:background="@drawable/bg_edit_text"
-            android:drawableStart="@drawable/ic_data"
-            android:ems="1"
+            android:drawableStart="@drawable/ic_user_edit"
             android:fontFamily="@font/cairo_bold"
-            android:hint="تاريخ الميلاد"
-            android:inputType="date"
+            android:hint="اسم مستخدم مميز"
+            android:inputType="textPersonName"
             android:maxLines="1"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
@@ -133,13 +82,91 @@
             android:textSize="15sp"
             tools:ignore="TouchTargetSizeCheck" />
 
+        <RadioGroup
+            android:id="@+id/Sp1_Gender_P"
+            android:layout_width="@dimen/_225sdp"
+            android:layout_height="@dimen/_55sdp"
+            android:layout_below="@+id/Sp1_username_P"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:checkedButton="@id/male"
+            android:orientation="horizontal"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RadioButton
+                android:id="@+id/Sp1_male_P"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/gender_background_selector"
+                android:button="@android:color/transparent"
+                android:drawableStart="@drawable/ic_male"
+                android:elevation="1.5dp"
+                android:fontFamily="@font/cairo_bold"
+                android:paddingStart="@dimen/_15sdp"
+                android:scaleType="centerCrop"
+                android:text="ذكر"
+                android:textAlignment="center"
+                android:textColor="@drawable/gender_text_selector"
+                android:textSize="@dimen/_15sdp"
+                app:drawableTint="@drawable/gender_text_selector" />
+
+            <RadioButton
+                android:id="@+id/Sp1_female_P"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginStart="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/gender_background_selector"
+                android:button="@android:color/transparent"
+                android:drawableStart="@drawable/ic_female"
+                android:elevation="1.5dp"
+                android:fontFamily="@font/cairo_bold"
+                android:paddingStart="@dimen/_15sdp"
+                android:scaleType="centerCrop"
+                android:text="أنثى"
+                android:textAlignment="center"
+                android:textColor="@drawable/gender_text_selector"
+                android:textSize="16sp"
+                app:drawableTint="@drawable/gender_text_selector" />
+        </RadioGroup>
+
         <EditText
-            android:id="@+id/Sing_up_1_wehigt"
+            android:id="@+id/Sp1_date_P"
             android:layout_width="@dimen/_230sdp"
             android:layout_height="@dimen/_40sdp"
-            android:layout_below="@id/Sing_up_1_date"
+            android:layout_below="@id/Sp1_Gender_P"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:autofillHints="creditCardExpirationDate"
+            android:background="@drawable/bg_edit_text"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:drawableStart="@drawable/ic_data"
+            android:ems="1"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:fontFamily="@font/cairo_bold"
+            android:hint="تاريخ الميلاد"
+            android:maxLines="1"
+            android:paddingStart="@dimen/_15sdp"
+            android:paddingEnd="@dimen/_15sdp"
+            android:scaleType="centerCrop"
+            android:textColor="@color/Patient_Color"
+            android:textColorHint="#78909C"
+            android:textSize="15sp"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <EditText
+            android:id="@+id/Sp1_wehigt_P"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@id/Sp1_date_P"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_10sdp"
             android:autofillHints="creditCardNumber"
             android:background="@drawable/bg_edit_text"
             android:ems="1"
@@ -156,12 +183,12 @@
             tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
-            android:id="@+id/Sing_up_1_tall"
+            android:id="@+id/Sp1_tall_P"
             android:layout_width="@dimen/_230sdp"
             android:layout_height="@dimen/_40sdp"
-            android:layout_below="@id/Sing_up_1_wehigt"
+            android:layout_below="@id/Sp1_wehigt_P"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:autofillHints="creditCardNumber"
             android:background="@drawable/bg_edit_text"
             android:ems="1"
@@ -178,12 +205,12 @@
             tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
-            android:id="@+id/Sing_up_1_ID"
+            android:id="@+id/Sp1_ID_P"
             android:layout_width="@dimen/_230sdp"
             android:layout_height="@dimen/_40sdp"
-            android:layout_below="@id/Sing_up_1_tall"
+            android:layout_below="@id/Sp1_tall_P"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:autofillHints="creditCardNumber"
             android:background="@drawable/bg_edit_text"
             android:ems="1"
@@ -200,7 +227,7 @@
     </RelativeLayout>
 
     <Button
-        android:id="@+id/btn_next_S"
+        android:id="@+id/Sp1_bt_next_P"
         android:layout_width="@dimen/_50sdp"
         android:layout_height="@dimen/_50sdp"
         android:layout_centerHorizontal="true"

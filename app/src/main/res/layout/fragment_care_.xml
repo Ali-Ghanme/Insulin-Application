@@ -123,8 +123,8 @@
                         android:padding="16dp">
 
                         <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="70dp"
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
                             android:src="@drawable/ic_book" />
 
                         <TextView
@@ -161,8 +161,8 @@
                         android:padding="16dp">
 
                         <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="70dp"
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
                             android:src="@drawable/ic_apple" />
 
                         <TextView
@@ -207,12 +207,11 @@
                         android:background="@drawable/bg_text_dr"
                         android:gravity="center"
                         android:orientation="vertical"
-
                         android:padding="16dp">
 
                         <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="70dp"
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
                             android:src="@drawable/ic_repor" />
 
                         <TextView

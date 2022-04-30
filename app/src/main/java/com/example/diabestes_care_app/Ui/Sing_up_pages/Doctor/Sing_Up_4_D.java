@@ -17,7 +17,8 @@ import com.example.diabestes_care_app.Ui.Sing_up_pages.Patient.Sing_Up_2_P;
 
 public class Sing_Up_4_D extends Basic_Activity {
     Button btn_next_S;
-    AutoCompleteTextView auto_1 ,auto_2,auto_3,auto_4 ;
+    AutoCompleteTextView auto_1, auto_2, auto_3, auto_4;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

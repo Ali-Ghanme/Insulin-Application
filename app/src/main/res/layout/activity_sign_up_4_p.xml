@@ -7,7 +7,7 @@
     tools:context=".Ui.Sing_up_pages.Patient.Sing_Up_4_P">
 
     <RelativeLayout
-        android:id="@+id/Sing_up_header"
+        android:id="@+id/Sp4_header_P"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_65sdp"
         android:background="@drawable/bg_sing_up"
@@ -37,10 +37,10 @@
         android:scaleType="centerCrop"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Sing_up_header">
+        app:layout_constraintTop_toBottomOf="@id/Sp4_header_P">
 
         <TextView
-            android:id="@+id/sing_up_4_tv_show"
+            android:id="@+id/Sp4_tv_show_P"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
@@ -55,23 +55,22 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/S4_et_enjerd_date"
+            android:id="@+id/Sp4_et_enjerdDate_P"
             android:layout_width="@dimen/_230sdp"
             android:layout_height="@dimen/_40sdp"
-            android:layout_below="@id/sing_up_4_tv_show"
+            android:layout_below="@id/Sp4_tv_show_P"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
-            android:autofillHints="phone"
             android:background="@drawable/bg_edit_text"
-            android:drawablePadding="@dimen/_13sdp"
             android:drawableStart="@drawable/ic_data"
+            android:drawablePadding="@dimen/_13sdp"
             android:elevation="1.5dp"
+            android:focusable="false"
             android:fontFamily="@font/cairo_bold"
             android:hint=" تاريخ الاصابة"
-            android:inputType="number"
             android:maxLines="1"
-            android:paddingEnd="20dp"
             android:paddingStart="20dp"
+            android:paddingEnd="20dp"
             android:scaleType="centerCrop"
             android:textColor="@color/Patient_Color"
             android:textColorHint="#78909C"
@@ -79,10 +78,10 @@
             tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
-            android:id="@+id/S4_et_cause"
+            android:id="@+id/Sp4_et_cause_P"
             android:layout_width="@dimen/_230sdp"
             android:layout_height="@dimen/_40sdp"
-            android:layout_below="@id/S4_et_enjerd_date"
+            android:layout_below="@id/Sp4_et_enjerdDate_P"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:autofillHints="phone"
@@ -102,10 +101,10 @@
             tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
-            android:id="@+id/S4_et_have_device"
+            android:id="@+id/Sp4_et_have_device_P"
             android:layout_width="@dimen/_230sdp"
             android:layout_height="@dimen/_40sdp"
-            android:layout_below="@id/S4_et_cause"
+            android:layout_below="@id/Sp4_et_cause_P"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:autofillHints="phone"
@@ -125,10 +124,10 @@
             tools:ignore="TouchTargetSizeCheck" />
 
         <TextView
-            android:id="@+id/sing_up_4_tv_show_2"
+            android:id="@+id/Sp4_tv_other_P"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/S4_et_have_device"
+            android:layout_below="@id/Sp4_et_have_device_P"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_13sdp"
             android:fontFamily="@font/cairo_bold"
@@ -141,10 +140,10 @@
             android:textStyle="bold" />
 
         <LinearLayout
-            android:id="@+id/cont_type"
+            android:id="@+id/Sp4_cont_type_P"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_120sdp"
-            android:layout_below="@+id/sing_up_4_tv_show_2"
+            android:layout_below="@+id/Sp4_tv_other_P"
             android:layout_marginTop="0dp"
             android:orientation="vertical"
             android:scaleType="centerCrop"
@@ -156,6 +155,7 @@
                 android:scaleType="centerCrop">
 
                 <EditText
+                    android:id="@+id/SP4_et_others_P"
                     android:layout_width="@dimen/_230sdp"
                     android:layout_height="@dimen/_40sdp"
                     android:layout_marginStart="@dimen/dp30"
@@ -174,29 +174,27 @@
                     tools:ignore="TouchTargetSizeCheck" />
 
             </RelativeLayout>
-
-            <RadioButton
-                android:id="@+id/Sing_up_3_diabetis_type__2"
-                android:layout_width="@dimen/_150sdp"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="@dimen/_40sdp"
-                android:background="@drawable/gender_background_selector"
-                android:button="@android:color/transparent"
-                android:elevation="1.5dp"
-                android:fontFamily="@font/cairo_bold"
-                android:paddingEnd="@dimen/_15sdp"
-                android:scaleType="centerCrop"
-                android:text="لا يوجد أمراض اخرى"
-                android:textColor="@drawable/gender_text_selector"
-                android:textSize="15sp"
-                app:drawableTint="@drawable/gender_text_selector"
-                tools:ignore="TouchTargetSizeCheck" />
+                <CheckBox
+                    android:id="@+id/Sp4_diabetis_others_P"
+                    android:layout_width="@dimen/_150sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="@dimen/_40sdp"
+                    android:background="@drawable/gender_background_selector"
+                    android:button="@android:color/transparent"
+                    android:elevation="1.5dp"
+                    android:fontFamily="@font/cairo_bold"
+                    android:paddingEnd="@dimen/_15sdp"
+                    android:scaleType="centerCrop"
+                    android:text="لا يوجد أمراض اخرى"
+                    android:textColor="@drawable/gender_text_selector"
+                    android:textSize="15sp"
+                    app:drawableTint="@drawable/gender_text_selector"
+                    tools:ignore="TouchTargetSizeCheck" />
         </LinearLayout>
     </RelativeLayout>
-
     <Button
-        android:id="@+id/btn_next_4"
+        android:id="@+id/Sp4_bt_next_P"
         android:layout_width="@dimen/_50sdp"
         android:layout_height="@dimen/_50sdp"
         android:layout_centerHorizontal="true"

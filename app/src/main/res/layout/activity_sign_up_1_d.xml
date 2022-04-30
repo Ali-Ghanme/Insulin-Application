@@ -128,7 +128,6 @@
                 android:button="@android:color/transparent"
                 android:drawableStart="@drawable/ic_male"
                 android:drawableTint="@color/Doctor_Color"
-
                 android:elevation="@dimen/_3sdp"
                 android:fontFamily="@font/cairo_bold"
                 android:paddingLeft="@dimen/_15sdp"

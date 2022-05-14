@@ -28,7 +28,6 @@ public class Sing_Up_4_P extends Basic_Activity {
     EditText mDateInjury, mCause, mDevice, others;
     final Calendar myCalendar = Calendar.getInstance();
     CheckBox C_Other;
-    String strOther;
 
 
     @Override

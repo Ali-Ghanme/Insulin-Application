@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Ui.Sing_In.Fragment.Doctor_Fragment">
 
     <RelativeLayout
@@ -11,7 +11,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/tv_show_fb"
+            android:id="@+id/FSI_tv_show_D"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -26,7 +26,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/Log_in_email"
+            android:id="@+id/FIS_et_username_D"
             android:layout_width="@dimen/_230sdp"
             android:layout_height="@dimen/_40sdp"
             android:layout_centerHorizontal="true"
@@ -35,7 +35,6 @@
             android:background="@drawable/bg_edit_text"
             android:drawableStart="@drawable/ic_email_doctor"
             android:drawablePadding="@dimen/_13sdp"
-            android:elevation="1.5dp"
             android:fontFamily="@font/cairo_bold"
             android:inputType="textEmailAddress"
             android:maxLines="1"
@@ -51,10 +50,10 @@
             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
         <TextView
-            android:id="@+id/tv_show_fb_2"
+            android:id="@+id/FIS_tv_show_fb_D"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/Log_in_email"
+            android:layout_below="@id/FIS_et_username_D"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_30sdp"
@@ -67,17 +66,17 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/Log_in_pass"
+            android:id="@+id/FIS_et_pass_D"
             android:layout_width="@dimen/_230sdp"
             android:layout_height="@dimen/_40sdp"
-            android:layout_below="@id/tv_show_fb_2"
+            android:layout_below="@id/FIS_tv_show_fb_D"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:autofillHints="password"
             android:background="@drawable/bg_edit_text"
             android:drawableStart="@drawable/ic_password_hide"
             android:drawablePadding="@dimen/_13sdp"
-            android:elevation="1.5dp"
+            android:drawableTint="@color/Doctor_Color"
             android:fontFamily="@font/cairo_bold"
             android:inputType="textEmailAddress"
             android:longClickable="false"
@@ -94,14 +93,15 @@
             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
         <CheckBox
-            android:id="@+id/remmber_me_ch_fb"
+            android:id="@+id/FIS_ch_remember_D"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/Log_in_pass"
+            android:layout_below="@id/FIS_et_pass_D"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="@dimen/_8sdp"
             android:layout_marginEnd="@dimen/_30sdp"
             android:button="@drawable/bg_check_box_p"
+            android:buttonTint="@color/Doctor_Color"
             android:checked="true"
             android:fontFamily="@font/cairo_bold"
             android:layoutDirection="rtl"
@@ -111,10 +111,10 @@
             tools:ignore="TouchTargetSizeCheck" />
 
         <TextView
-            android:id="@+id/tv_show_fb_3"
+            android:id="@+id/FIS_tv_show_D"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/remmber_me_ch_fb"
+            android:layout_below="@id/FIS_ch_remember_D"
             android:layout_alignParentEnd="true"
             android:layout_centerHorizontal="true"
             android:layout_marginRight="@dimen/_35sdp"
@@ -124,10 +124,10 @@
             android:textSize="@dimen/_12sdp" />
 
         <Button
-            android:id="@+id/btn_log_in_fb"
+            android:id="@+id/FIS_bt_D"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/remmber_me_ch_fb"
+            android:layout_below="@id/FIS_tv_show_D"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_30sdp"
             android:background="@drawable/bt_log_in_doctor"
@@ -138,10 +138,10 @@
             android:textSize="@dimen/_13sdp" />
 
         <TextView
-            android:id="@+id/tv_show_fb_4"
+            android:id="@+id/FIS_tvShow1_D"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/btn_log_in_fb"
+            android:layout_below="@id/FIS_bt_D"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_15sdp"
             android:fontFamily="@font/cairo_regular"
@@ -150,10 +150,10 @@
             android:textSize="@dimen/_12sdp" />
 
         <Button
-            android:id="@+id/btn_sing_up_fb"
+            android:id="@+id/FIS_bt_sing_up_D"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_show_fb_4"
+            android:layout_below="@id/FIS_tvShow1_D"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:alpha="0"
@@ -164,7 +164,7 @@
             android:id="@+id/tv_show_fb_5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_show_fb_4"
+            android:layout_below="@id/FIS_tvShow1_D"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/dp40"

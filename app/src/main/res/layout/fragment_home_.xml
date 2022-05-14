@@ -27,16 +27,16 @@
             android:textColor="@color/white"
             android:textSize="30sp" />
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_img_home"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
             android:contentDescription="@string/todo"
             android:elevation="3dp"
-            android:src="@drawable/ic_user_nav"
-            app:civ_border_color="@android:color/white"
+            app:civ_border_color="@android:color/transparent"
             app:civ_border_width="3dp" />
 
         <ImageView
@@ -59,8 +59,8 @@
         android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:elevation="50dp"
         android:background="@drawable/rectangel_home"
+        android:elevation="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header">
@@ -69,10 +69,21 @@
             android:id="@+id/welcome_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_180sdp"
+            android:layout_marginStart="@dimen/_190sdp"
             android:layout_marginTop="@dimen/_20sdp"
             android:fontFamily="@font/cairo_semibold"
             android:text="@string/Welcome_text"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_15sdp" />
+
+        <TextView
+            android:id="@+id/Home_user_name"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_120sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:fontFamily="@font/cairo_semibold"
+            android:text=""
             android:textColor="@color/black"
             android:textSize="@dimen/_15sdp" />
 
@@ -97,7 +108,7 @@
             android:textSize="@dimen/_10sdp" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/Doctor_List_recyclerView"
+            android:id="@+id/recyclerView_HP"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/search_input"

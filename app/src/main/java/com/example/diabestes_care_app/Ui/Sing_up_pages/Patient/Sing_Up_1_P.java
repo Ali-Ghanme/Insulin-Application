@@ -52,6 +52,7 @@ public class Sing_Up_1_P extends Basic_Activity {
         mTall = findViewById(R.id.Sp1_tall_P);
         mID = findViewById(R.id.Sp1_ID_P);
 
+        //====================================Gender Radio Group to get Data And set into Firebase===============================
         mGender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -68,6 +69,7 @@ public class Sing_Up_1_P extends Basic_Activity {
             }
         });
 
+        //====================================Gender Radio Group to get Data And set into Firebase===============================
         btn_next_S.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,7 +81,6 @@ public class Sing_Up_1_P extends Basic_Activity {
                 String patientWehigt = mWehigt.getText().toString();
                 String patientTall = mTall.getText().toString();
                 String PatientID = mID.getText().toString();
-
 
                 //====================================Validation===============================
                 // cheek if user fill all data fields before sending data to firebase
@@ -98,7 +99,7 @@ public class Sing_Up_1_P extends Basic_Activity {
                                 // sending data to firebase real time
                                 // we are using a phone number as unique identity of every user
                                 databaseReference.child("patient").child(patientUsername).child("personal_info").child("name").setValue(patientName);
-                                databaseReference.child("patient").child(patientUsername).child("personal_info").child("username").setValue(patientUsername);
+                                databaseReference.child("patient").child(patientUsername).child("username").setValue(patientUsername);
                                 databaseReference.child("patient").child(patientUsername).child("personal_info").child("Date").setValue(patientDate);
                                 databaseReference.child("patient").child(patientUsername).child("personal_info").child("Gender").setValue(strGender);
                                 databaseReference.child("patient").child(patientUsername).child("personal_info").child("wehigt").setValue(patientWehigt);
@@ -121,6 +122,7 @@ public class Sing_Up_1_P extends Basic_Activity {
                 }
             }
         });
+
         //====================================DataPicker===============================
         DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -128,7 +130,7 @@ public class Sing_Up_1_P extends Basic_Activity {
                 myCalendar.set(Calendar.YEAR, year);
                 myCalendar.set(Calendar.MONTH, month);
                 myCalendar.set(Calendar.DAY_OF_MONTH, day);
-                updateLabel();
+                updateLabel(mDate, myCalendar, "dd/MM/yyyy");
             }
         };
         mDate.setOnClickListener(new View.OnClickListener() {
@@ -137,10 +139,5 @@ public class Sing_Up_1_P extends Basic_Activity {
                 new DatePickerDialog(Sing_Up_1_P.this, date, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show();
             }
         });
-    }
-    private void updateLabel() {
-        String myFormat = "dd/MM/yyyy";
-        SimpleDateFormat dateFormat = new SimpleDateFormat(myFormat, Locale.UK);
-        mDate.setText(dateFormat.format(myCalendar.getTime()));
     }
 }

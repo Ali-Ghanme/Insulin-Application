@@ -8,73 +8,100 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Doctor_all.Home_Doctor;
 import com.example.diabestes_care_app.Ui.Patient_all.Home_Patient;
 import com.example.diabestes_care_app.Ui.Sing_up_pages.Patient.Sing_Up_2_P;
+import com.example.diabestes_care_app.Ui.Sing_up_pages.Patient.Sing_Up_4_P;
+import com.example.diabestes_care_app.Ui.Sing_up_pages.Patient.Sing_Up_5_P;
+import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Sing_Up_4_D extends Basic_Activity {
-    Button btn_next_S;
-    AutoCompleteTextView auto_1, auto_2, auto_3, auto_4;
+
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://diabeticsproject-default-rtdb.firebaseio.com/");
+    AutoCompleteTextView auto_City, auto_SubCity, auto_Qu, auto_WP;
+    Button ButtonNext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         fullscreen();
         setContentView(R.layout.activity_sign_up_4_d);
-        auto_1 = (AutoCompleteTextView) findViewById(R.id.Sign_up_3_auto_certificate);
-        auto_2 = (AutoCompleteTextView) findViewById(R.id.Sign_up_3_auto_city);
-        auto_3 = (AutoCompleteTextView) findViewById(R.id.Sign_up_3_auto_year);
-        auto_4 = (AutoCompleteTextView) findViewById(R.id.Sign_up_3_auto_university);
-        btn_next_S = findViewById(R.id.btn_Upload);
-        //====================================Define variables===============================
-        btn_next_S.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Sing_Up_4_D.this, Home_Doctor.class);
-                startActivity(intent);
-            }
-        });
-//######################### Spinner #################################
-        String[] certificate = {" دكتورا ", "ماجستير  ", "بكالوريس  ", " دبلوم"};
-        ArrayAdapter<String> itemAdapter = new ArrayAdapter<>(getApplicationContext(), R.layout.spinner_list_item, certificate);
-        auto_1.setAdapter(itemAdapter);
-        auto_1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+        //============================Spinner Function==============================================
+        ButtonNext = findViewById(R.id.Sp4_bt_next_D);
+        auto_City = findViewById(R.id.Sp4_City_auto_D);
+        auto_SubCity = findViewById(R.id.Sp4_subCity_auto_D);
+        auto_Qu = findViewById(R.id.Sp4_have_work_auto_D);
+        auto_WP = findViewById(R.id.Sp4_placeOfWork_auto_D);
+
+        Intent intentUsername = getIntent();
+        String patient_userName = intentUsername.getStringExtra("username3");
+
+        //============================Spinner Function==============================================
+        String[] city = {"الضفة الغربية ", "قطاع غزة"};
+        ArrayAdapter<String> itemAdapter = new ArrayAdapter<>(Sing_Up_4_D.this, R.layout.spinner_list_item, city);
+        auto_City.setAdapter(itemAdapter);
+        auto_City.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//          Toast.makeText((String)parent.getItemAtPosition(position)); set textview specific text
+                String doctorCity = parent.getItemAtPosition(position).toString();
+                databaseReference.child("doctor").child(patient_userName).child("doctor_info").child("المدينة").setValue(doctorCity);
+                Toast.makeText(Sing_Up_4_D.this, "Data Add Successfully ", Toast.LENGTH_SHORT).show();
+
             }
         });
-//######################### Spinner #################################
-        String[] city = {"الضفة الغربية ", "جنين  ", "نابلس  ", "قطاع غزة"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext(), R.layout.spinner_list_item, city);
-        auto_1.setAdapter(adapter);
-        auto_1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        //============================Spinner Function==============================================
+        String[] SubCity = {"الشمال", "دير البلح", "خانيونس", "رفح", "غزة"};
+        ArrayAdapter<String> itemAdapter2 = new ArrayAdapter<>(Sing_Up_4_D.this, R.layout.spinner_list_item, SubCity);
+        auto_SubCity.setAdapter(itemAdapter2);
+        auto_SubCity.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//          Toast.makeText((String)parent.getItemAtPosition(position)); set textview specific text
+                String SubCity = parent.getItemAtPosition(position).toString();
+                databaseReference.child("doctor").child(patient_userName).child("doctor_info").child("المحافظة").setValue(SubCity);
+                Toast.makeText(Sing_Up_4_D.this, "Data Add Successfully ", Toast.LENGTH_SHORT).show();
+
             }
         });
-        //######################### Spinner #################################
-        String[] year = {" 2003 ", "  2002", " 2001 ", " 2000"};
-        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(getApplicationContext(), R.layout.spinner_list_item, year);
-        auto_1.setAdapter(adapter1);
-        auto_1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        //============================Spinner Function==============================================
+        String[] Qu = {"نعم", "لا"};
+        ArrayAdapter<String> itemAdapter3 = new ArrayAdapter<>(Sing_Up_4_D.this, R.layout.spinner_list_item, Qu);
+        auto_Qu.setAdapter(itemAdapter3);
+        auto_Qu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//          Toast.makeText((String)parent.getItemAtPosition(position)); set textview specific text
+                String doctorQu = parent.getItemAtPosition(position).toString();
+                databaseReference.child("doctor").child(patient_userName).child("doctor_info").child("عيادة خارجية").setValue(doctorQu);
+                Toast.makeText(Sing_Up_4_D.this, "Data Add Successfully ", Toast.LENGTH_SHORT).show();
+
             }
         });
-        //######################### Spinner #################################
-        String[] university = {" اخرى ", "  الازهر", " فلسطين ", " الاسلامية"};
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(getApplicationContext(), R.layout.spinner_list_item, university);
-        auto_1.setAdapter(adapter2);
-        auto_1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        //============================Spinner Function==============================================
+        String[] WP = {"خاص", "حكومي"};
+        ArrayAdapter<String> itemAdapter4 = new ArrayAdapter<>(Sing_Up_4_D.this, R.layout.spinner_list_item, WP);
+        auto_WP.setAdapter(itemAdapter4);
+        auto_WP.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//          Toast.makeText((String)parent.getItemAtPosition(position)); set textview specific text
+                String doctorWP = parent.getItemAtPosition(position).toString();
+                databaseReference.child("doctor").child(patient_userName).child("doctor_info").child("طبيعة العمل").setValue(doctorWP);
+                Toast.makeText(Sing_Up_4_D.this, "Data Add Successfully ", Toast.LENGTH_SHORT).show();
+            }
+        });
+        //============================Button Click==============================================
+        ButtonNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent4 = new Intent(Sing_Up_4_D.this, Sing_up_5_D.class);
+                intent4.putExtra("username4", patient_userName);
+                startActivity(intent4);
+                finish();
             }
         });
     }

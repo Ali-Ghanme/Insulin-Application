@@ -4,15 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:scaleType="centerCrop"
-    tools:context=".Ui.Sing_up_pages.Patient.Sing_Up_5_P">
+    tools:context=".Ui.Sing_up_pages.Doctor.Sing_up_5_D">
 
     <RelativeLayout
-        android:id="@+id/Sp5_header_P"
+        android:id="@+id/Sp5_header_D"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_65sdp"
+        android:layout_height="@dimen/_70sdp"
         android:background="@drawable/bg_sing_up"
-        android:scaleType="centerCrop"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -21,46 +19,46 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/_90sdp"
+            android:layout_marginTop="@dimen/_15sdp"
             android:fontFamily="@font/cairo_bold"
-            android:scaleType="centerCrop"
-            android:text="الصورة الشخصية "
+            android:text="رفع صورة شخصية"
             android:textColor="@color/white"
-            android:textSize="@dimen/_20sdp"
-            tools:ignore="TextContrastCheck" />
+            android:textSize="@dimen/_20sdp" />
     </RelativeLayout>
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/Sp5_img_Select_P"
+        android:id="@+id/Sp5_imageView_D"
         android:layout_width="@dimen/_150sdp"
         android:layout_height="@dimen/_150sdp"
         android:layout_marginTop="@dimen/_80sdp"
-        android:src="@drawable/ic_image_up"
+        android:background="@drawable/ic_image_up_d"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Sp5_header_P"
+        app:layout_constraintTop_toBottomOf="@+id/Sp5_header_D"
         app:civ_border_color="@android:color/transparent"
         />
 
     <Button
-        android:id="@+id/Sp5_bt_Upload_P"
-        android:layout_width="wrap_content"
+        android:id="@+id/Sp5_bt_Upload_D"
+        android:layout_width="@dimen/_80sdp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_80sdp"
         android:background="@drawable/search_input_dark_style"
+        android:backgroundTint="@color/Doctor_Color"
         android:fontFamily="@font/cairo_bold"
-        android:text="رفع الصورة"
+        android:text="تأكيد"
         android:textColor="@color/white_ghost"
         android:textSize="@dimen/_15sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Sp5_img_Select_P" />
+        app:layout_constraintTop_toBottomOf="@+id/Sp5_imageView_D" />
 
     <ProgressBar
-        android:id="@+id/Sp5_upPrg_bar_P"
+        android:id="@+id/Sp5_upPrg_bar_D"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Sp5_bt_Upload_P" />
-
+        app:layout_constraintTop_toBottomOf="@+id/Sp5_bt_Upload_D" />
 </androidx.constraintlayout.widget.ConstraintLayout>

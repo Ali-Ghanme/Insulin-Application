@@ -29,14 +29,14 @@ public class Sing_Up_3_P extends Basic_Activity {
         fullscreen();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_3_p);
-        //====================================Define Checkbox===============================
+        //====================================Define Checkbox=======================================
         btn_next = findViewById(R.id.Sp3_bt_next_P);
         RG_mType = findViewById(R.id.Sp3_RG_type_P);
         Rg_mMedics = findViewById(R.id.Sp3_medics_types_P);
 
         Intent intentUsername = getIntent();
         String patient_userName = intentUsername.getStringExtra("username2");
-        //====================================الانتقال من صفحة الستجيل الحالية للصفحة الثانية ===============================
+        //===================Gender Radio Group to get Data And set into Firebase===================
         RG_mType.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -74,6 +74,8 @@ public class Sing_Up_3_P extends Basic_Activity {
                 }
             }
         });
+
+        //=================Gender Radio Group to get Data And set into Firebase=====================
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

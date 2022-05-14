@@ -214,8 +214,8 @@
                 android:fontFamily="@font/cairo_bold"
                 android:inputType="none"
                 android:paddingTop="@dimen/_10sdp"
-                android:textColor="@color/Patient_Color"
-                android:textSize="@dimen/_10sdp"
+                android:textColor="@color/Doctor_Color"
+                android:textSize="@dimen/_12sdp"
                 tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 

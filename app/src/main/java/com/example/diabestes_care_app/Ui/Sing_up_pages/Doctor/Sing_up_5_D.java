@@ -1,5 +1,8 @@
-package com.example.diabestes_care_app.Ui.Sing_up_pages.Patient;
+package com.example.diabestes_care_app.Ui.Sing_up_pages.Doctor;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -12,14 +15,11 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.Models.Upload;
 import com.example.diabestes_care_app.R;
-import com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P.Home_Fragment;
 import com.example.diabestes_care_app.Ui.Sing_In.Sing_In;
+import com.example.diabestes_care_app.Ui.Sing_up_pages.Patient.Sing_Up_5_P;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
@@ -31,15 +31,15 @@ import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
-public class Sing_Up_5_P extends Basic_Activity {
+public class Sing_up_5_D extends Basic_Activity {
     private static final int PICK_IMAGE_REQUEST = 1;
-    private ImageView mImageView;
+    ImageView mImageView;
     private DatabaseReference DB_Ref = FirebaseDatabase.getInstance().getReferenceFromUrl("https://diabeticsproject-default-rtdb.firebaseio.com/");
     private StorageReference Storage_Ref = FirebaseStorage.getInstance().getReference();
 
-    Error error;
-    StorageTask muploadTask;
-    ProgressBar mProgressBa;
+    Error mError;
+    StorageTask mUploadTask;
+    ProgressBar mProgress;
     Button btn_Upload;
     Uri mImageUri;
 
@@ -47,16 +47,17 @@ public class Sing_Up_5_P extends Basic_Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         fullscreen();
-        setContentView(R.layout.activity_sign_up_5_p);
-        //====================================Define===============================
-        btn_Upload = findViewById(R.id.Sp5_bt_Upload_P);
-        mImageView = findViewById(R.id.Sp5_img_Select_P);
-        mProgressBa = findViewById(R.id.Sp5_upPrg_bar_P);
+        setContentView(R.layout.activity_sing_up5_d);
 
-        Storage_Ref = FirebaseStorage.getInstance().getReference("Patient");
-        DB_Ref = FirebaseDatabase.getInstance().getReference("patient");
+        //====================================Define================================================
+        btn_Upload = findViewById(R.id.Sp5_bt_Upload_D);
+        mImageView = findViewById(R.id.Sp5_imageView_D);
+        mProgress = findViewById(R.id.Sp5_upPrg_bar_D);
 
-        //====================================Pick Up Image===============================
+        Storage_Ref = FirebaseStorage.getInstance().getReference("Doctor");
+        DB_Ref = FirebaseDatabase.getInstance().getReference("doctor");
+
+        //====================================Pick Up Image=========================================
         mImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,21 +65,20 @@ public class Sing_Up_5_P extends Basic_Activity {
             }
         });
 
-        //====================================Take The Username From The Previous Page ===============================
+        //==========================Take The Username From The Previous Page========================
         Intent intent_for_image = getIntent();
         String patient_userName = intent_for_image.getStringExtra("username4");
 
-        //====================================Upload Image to Storage Firebase===============================
+        //====================================Upload Image to Storage Firebase======================
         btn_Upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if (muploadTask != null && muploadTask.isInProgress()) {
-                    Toast.makeText(Sing_Up_5_P.this, "Upload is progress", Toast.LENGTH_SHORT).show();
+                if (mUploadTask != null && mUploadTask.isInProgress()) {
+                    Toast.makeText(Sing_up_5_D.this, "Upload is progress", Toast.LENGTH_SHORT).show();
                 } else {
                     if (mImageUri != null) {
                         StorageReference fileReference = Storage_Ref.child(System.currentTimeMillis() + "." + getFileExtension(mImageUri));
-                        muploadTask = fileReference.putFile(mImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        mUploadTask = fileReference.putFile(mImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                             @Override
                             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                                 // This Handler handle with progress bar delay
@@ -86,7 +86,7 @@ public class Sing_Up_5_P extends Basic_Activity {
                                 handler.postDelayed(new Runnable() {
                                     @Override
                                     public void run() {
-                                        mProgressBa.setProgress(0);
+                                        mProgress.setProgress(0);
                                     }
                                 }, 500);
 
@@ -95,11 +95,11 @@ public class Sing_Up_5_P extends Basic_Activity {
                                     @Override
                                     public void onSuccess(Uri uri) {
                                         Upload upload = new Upload(uri.toString());
-                                        String uploadId = DB_Ref.push().getKey();
-                                        assert uploadId != null;
-
-                                        DB_Ref.child(patient_userName).child("Image").child(uploadId).setValue(upload);
-                                        Toast.makeText(Sing_Up_5_P.this, "Upload Successfully", Toast.LENGTH_SHORT).show();
+                                        DB_Ref.child(patient_userName).child("personal_info").child("Image").setValue(upload);
+                                        Toast.makeText(Sing_up_5_D.this, "Upload Successfully", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(Sing_up_5_D.this, Sing_In.class);
+                                        startActivity(intent);
+                                        finish();
                                     }
                                 });
                             }
@@ -107,29 +107,26 @@ public class Sing_Up_5_P extends Basic_Activity {
                                 .addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(Sing_Up_5_P.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                                        Log.e("My_Error", error.getMessage());
+                                        Toast.makeText(Sing_up_5_D.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                        Log.e("My_Error", mError.getMessage());
                                     }
                                 })
                                 .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                                     @Override
                                     public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
                                         double progress = (100.0 * snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
-                                        mProgressBa.setProgress((int) progress);
-
-                                        Intent intent = new Intent(Sing_Up_5_P.this, Sing_In.class);
-                                        startActivity(intent);
+                                        mProgress.setProgress((int) progress);
                                     }
                                 });
                     } else {
-                        Toast.makeText(Sing_Up_5_P.this, "No File Selected", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Sing_up_5_D.this, "No File Selected", Toast.LENGTH_SHORT).show();
                     }
                 }
-
             }
         });
     }
 
+    //====================================Pick Up Image=========================================
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

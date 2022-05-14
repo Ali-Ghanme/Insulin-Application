@@ -126,8 +126,8 @@ public class Sing_Up_2_P extends Basic_Activity {
                     // we are using a phone number as unique identity of every user
                     databaseReference.child("patient").child(patient_userName).child("personal_info").child("Phone").setValue(patientPhone);
                     databaseReference.child("patient").child(patient_userName).child("personal_info").child("Email").setValue(patientEmail);
-                    databaseReference.child("patient").child(patient_userName).child("personal_info").child("Password").setValue(patientPass);
-                    databaseReference.child("patient").child(patient_userName).child("personal_info").child("CoPassword").setValue(patientCoPass);
+                    databaseReference.child("patient").child(patient_userName).child("Password").setValue(patientPass);
+                    databaseReference.child("patient").child(patient_userName).child("CoPassword").setValue(patientCoPass);
                     databaseReference.child("patient").child(patient_userName).child("personal_info").child("City").setValue(patientCity);
                     Toast.makeText(Sing_Up_2_P.this, "User have registered successfully ", Toast.LENGTH_SHORT).show();
                     finish();

@@ -11,7 +11,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/tv_show_fb"
+            android:id="@+id/FSI_tv_show_P"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -26,7 +26,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/Log_in_email"
+            android:id="@+id/FSI_et_username_P"
             android:layout_width="@dimen/_230sdp"
             android:layout_height="@dimen/_40sdp"
             android:layout_centerHorizontal="true"
@@ -35,9 +35,8 @@
             android:background="@drawable/bg_edit_text"
             android:drawableStart="@drawable/ic_email"
             android:drawablePadding="@dimen/_13sdp"
-            android:elevation="1.5dp"
             android:fontFamily="@font/cairo_bold"
-            android:inputType="textEmailAddress"
+            android:inputType="text"
             android:maxLines="1"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
@@ -51,10 +50,10 @@
             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
         <TextView
-            android:id="@+id/tv_show_fb_2"
+            android:id="@+id/FSI_tv2_show_P"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/Log_in_email"
+            android:layout_below="@id/FSI_et_username_P"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_30sdp"
@@ -67,17 +66,16 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/Log_in_pass"
+            android:id="@+id/FSI_et_pass_P"
             android:layout_width="@dimen/_230sdp"
             android:layout_height="@dimen/_40sdp"
-            android:layout_below="@id/tv_show_fb_2"
+            android:layout_below="@id/FSI_tv2_show_P"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:autofillHints="password"
             android:background="@drawable/bg_edit_text"
             android:drawableStart="@drawable/ic_password_hide"
             android:drawablePadding="@dimen/_13sdp"
-            android:elevation="1.5dp"
             android:fontFamily="@font/cairo_bold"
             android:inputType="textEmailAddress"
             android:maxLines="1"
@@ -93,10 +91,10 @@
             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
         <CheckBox
-            android:id="@+id/remmber_me_ch_fb"
+            android:id="@+id/FSI_remember_CB_P"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/Log_in_pass"
+            android:layout_below="@id/FSI_et_pass_P"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="@dimen/_8sdp"
             android:layout_marginEnd="@dimen/_30sdp"
@@ -110,23 +108,23 @@
             tools:ignore="TouchTargetSizeCheck" />
 
         <TextView
-            android:id="@+id/tv_show_fb_3"
+            android:id="@+id/FSI_tv3_show_P"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/remmber_me_ch_fb"
+            android:layout_below="@id/FSI_remember_CB_P"
             android:layout_alignParentEnd="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginRight="@dimen/_35sdp"
+            android:layout_marginEnd="@dimen/_35sdp"
             android:fontFamily="@font/cairo_regular"
-            android:text="لا تمتلك حساب بعد !"
+            android:text="إعادة تعين كلمة السر ؟"
             android:textColor="@color/Patient_Color"
             android:textSize="@dimen/_12sdp" />
 
         <Button
-            android:id="@+id/btn_log_in_fb"
+            android:id="@+id/FSI_btn_login_P"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/remmber_me_ch_fb"
+            android:layout_below="@id/FSI_remember_CB_P"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_30sdp"
             android:background="@drawable/bt_log_in_patient"
@@ -137,10 +135,10 @@
             android:textSize="@dimen/_13sdp" />
 
         <TextView
-            android:id="@+id/tv_show_fb_4"
+            android:id="@+id/FSI_tv4_show_P"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/btn_log_in_fb"
+            android:layout_below="@id/FSI_btn_login_P"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_15sdp"
             android:fontFamily="@font/cairo_regular"
@@ -149,10 +147,10 @@
             android:textSize="@dimen/_12sdp" />
 
         <Button
-            android:id="@+id/btn_sing_up_fb"
+            android:id="@+id/FSI_btn_Signup_P"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_show_fb_4"
+            android:layout_below="@id/FSI_tv4_show_P"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:alpha="0"
@@ -160,10 +158,10 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/tv_show_fb_5"
+            android:id="@+id/FSI_tv5_show_P"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_show_fb_4"
+            android:layout_below="@id/FSI_tv4_show_P"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/dp40"

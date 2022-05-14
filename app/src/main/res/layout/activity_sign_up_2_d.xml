@@ -7,7 +7,7 @@
     tools:context=".Ui.Sing_up_pages.Doctor.Sing_Up_2_D">
 
     <RelativeLayout
-        android:id="@+id/Sing_up_header"
+        android:id="@+id/Sp2_header_D"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_70sdp"
         android:background="@drawable/bg_sing_up"
@@ -29,18 +29,18 @@
 
     <LinearLayout
         android:id="@+id/Subject"
-        android:layout_width="@dimen/_280sdp"
-        android:layout_height="@dimen/_280sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
         android:orientation="vertical"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Sing_up_header">
+        app:layout_constraintTop_toBottomOf="@id/Sp2_header_D">
 
         <TextView
-            android:id="@+id/sing_up_2_tv_show"
+            android:id="@+id/Sp2_tv_show_D"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
@@ -50,58 +50,77 @@
             android:textAlignment="textStart"
             android:textColor="@color/Doctor_Color"
             android:textSize="16sp"
-
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/S2_et_name_dr"
-            android:layout_width="@dimen/_250sdp"
+            android:id="@+id/Sp2_et_phone_D"
+            android:layout_width="@dimen/_230sdp"
             android:layout_height="@dimen/_40sdp"
-            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_30sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:autofillHints="phone"
             android:background="@drawable/bg_edit_text"
             android:drawableStart="@drawable/ic_phone"
             android:drawablePadding="@dimen/_13sdp"
             android:drawableTint="@color/Doctor_Color"
-            android:elevation="1.5dp"
             android:fontFamily="@font/cairo_bold"
             android:hint="رقم الجوال"
             android:inputType="phone"
             android:maxLines="1"
             android:paddingStart="@dimen/_10sdp"
             android:paddingEnd="@dimen/_10sdp"
-            android:textColor="@color/Patient_Color"
+            android:textColor="@color/Doctor_Color"
             android:textColorHint="#78909C"
             android:textSize="15sp"
             tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
         <EditText
-            android:id="@+id/S2_et_email_dr"
-            android:layout_width="@dimen/_250sdp"
+            android:id="@+id/Sp2_et_email_D"
+            android:layout_width="@dimen/_230sdp"
             android:layout_height="@dimen/_40sdp"
-            android:layout_marginStart="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:autofillHints="emailAddress#"
             android:background="@drawable/bg_edit_text"
             android:drawableStart="@drawable/ic_email"
             android:drawablePadding="@dimen/_13sdp"
             android:drawableTint="@color/Doctor_Color"
-
-            android:elevation="1.5dp"
             android:fontFamily="@font/cairo_bold"
             android:hint="الايميل"
             android:inputType="textEmailAddress"
             android:maxLines="1"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
-            android:textColor="@color/Patient_Color"
+            android:textColor="@color/Doctor_Color"
             android:textColorHint="#78909C"
             android:textSize="15sp"
             tools:ignore="TouchTargetSizeCheck" />
 
+        <EditText
+            android:id="@+id/Sp2_NID_D"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@+id/Sp1_Gender_D"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:autofillHints="phone"
+            android:background="@drawable/bg_edit_text"
+            android:drawablePadding="@dimen/_13sdp"
+            android:drawableTint="@color/Doctor_Color"
+            android:drawableStart="@drawable/ic_user_edit"
+            android:fontFamily="@font/cairo_bold"
+            android:hint="رقم الهوية الوطنية"
+            android:inputType="number"
+            android:maxLines="1"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:textColor="@color/Doctor_Color"
+            android:textColorHint="#78909C"
+            android:textSize="15sp"
+            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
         <TextView
-            android:id="@+id/secure_text_dr"
+            android:id="@+id/Sp2_secure_text_D"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
@@ -113,16 +132,15 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/S2_et_Password_dr"
-            android:layout_width="@dimen/_250sdp"
+            android:id="@+id/Sp2_et_Pass_D"
+            android:layout_width="@dimen/_230sdp"
             android:layout_height="@dimen/_40sdp"
-            android:layout_marginStart="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:autofillHints="password"
             android:background="@drawable/bg_edit_text"
             android:drawableEnd="@drawable/ic_password_hide"
             android:drawableTint="@color/Doctor_Color"
-            android:elevation="1.5dp"
             android:fontFamily="@font/cairo_bold"
             android:hint="كلمة السر"
             android:inputType="textPassword"
@@ -130,130 +148,49 @@
             android:maxLines="1"
             android:paddingStart="@dimen/_20sdp"
             android:paddingEnd="@dimen/_10sdp"
-            android:textColor="@color/Patient_Color"
+            android:textColor="@color/Doctor_Color"
             android:textColorHint="#78909C"
             android:textSize="15sp"
             tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
-            android:id="@+id/S2_et_confirm_Password_dr"
-            android:layout_width="@dimen/_250sdp"
+            android:id="@+id/Sp2_et_coPass_D"
+            android:layout_width="@dimen/_230sdp"
             android:layout_height="@dimen/_40sdp"
-            android:layout_marginStart="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:autofillHints="password"
             android:background="@drawable/bg_edit_text"
             android:drawableEnd="@drawable/ic_password_hide"
-            android:drawableTint="@color/Doctor_Color"
             android:drawablePadding="@dimen/_20sdp"
-            android:elevation="1.5dp"
+            android:drawableTint="@color/Doctor_Color"
             android:fontFamily="@font/cairo_bold"
             android:hint="أعد كتابة كلمة السر"
             android:inputType="textPassword"
             android:maxLines="1"
             android:paddingStart="@dimen/_20sdp"
             android:paddingEnd="@dimen/_10sdp"
-            android:textColor="@color/Patient_Color"
+            android:textColor="@color/Doctor_Color"
             android:textColorHint="#78909C"
             android:textSize="15sp"
             tools:ignore="TouchTargetSizeCheck" />
+
+
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="@dimen/_280sdp"
-        android:layout_height="@dimen/_230sdp"
-        android:orientation="vertical"
+    <Button
+        android:id="@+id/Sp2_bt_next_D"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/bg_doctor_button"
+        android:drawableStart="@drawable/ic_float_action"
+        android:paddingHorizontal="@dimen/_20sdp"
+        app:borderWidth="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Subject">
-
-        <TextView
-            android:id="@+id/Sing_up_2_textview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_13sdp"
-            android:fontFamily="@font/cairo_bold"
-            android:text="معلومات السكن "
-            android:textAlignment="textStart"
-            android:textColor="@color/Doctor_Color"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/S2_city_menu_drop"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
-            android:layout_width="@dimen/_250sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:layout_marginEnd="@dimen/_20sdp"
-            android:background="@drawable/bg_edit_text"
-            android:elevation="1.5dp"
-            android:layoutDirection="rtl"
-            android:maxLines="1"
-            android:textColorHint="#989696"
-            app:boxCornerRadiusBottomEnd="@dimen/_100sdp"
-            app:boxCornerRadiusBottomStart="@dimen/_100sdp"
-            app:boxCornerRadiusTopEnd="@dimen/_100sdp"
-            app:boxCornerRadiusTopStart="@dimen/_100sdp"
-            app:boxStrokeWidth="0dp">
-
-            <AutoCompleteTextView
-                android:id="@+id/Sign_up_2_autoComplete_textview_1"
-                android:layout_width="@dimen/_240sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:layout_weight="1"
-                android:background="@color/white_ghost"
-                android:completionHintView="@string/city"
-                android:focusable="false"
-                android:fontFamily="@font/cairo_bold"
-                android:hint="المدينة"
-                android:inputType="none"
-                android:paddingTop="@dimen/_10sdp"
-                android:textColor="@color/Patient_Color"
-                android:textSize="@dimen/_12sdp"
-                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <EditText
-            android:id="@+id/S2_city_menu"
-            android:layout_width="@dimen/_250sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_marginStart="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:autofillHints="phone"
-            android:background="@drawable/bg_edit_text"
-            android:drawableStart="@drawable/ic_user_edit"
-            android:drawableTint="@color/Doctor_Color"
-            android:drawablePadding="@dimen/_13sdp"
-            android:elevation="1.5dp"
-            android:fontFamily="@font/cairo_bold"
-            android:hint="رقم الهوية"
-            android:inputType="phone"
-            android:maxLines="1"
-            android:paddingStart="@dimen/_10sdp"
-            android:paddingEnd="@dimen/_10sdp"
-            android:textColor="@color/Patient_Color"
-            android:textColorHint="#78909C"
-            android:textSize="15sp"
-            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-        <Button
-            android:id="@+id/btn_next_2_dr"
-            android:layout_width="@dimen/_50sdp"
-            android:layout_height="@dimen/_50sdp"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/_25sdp"
-            android:background="@drawable/bg_doctor_button"
-            android:drawableStart="@drawable/ic_float_action"
-            android:elevation="10dp"
-            android:paddingHorizontal="@dimen/_20sdp"
-            app:borderWidth="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="SpeakableTextPresentCheck" />
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/Subject"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

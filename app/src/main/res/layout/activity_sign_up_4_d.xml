@@ -27,32 +27,223 @@
             android:textSize="@dimen/_20sdp" />
     </RelativeLayout>
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imageView"
-        android:layout_width="@dimen/_150sdp"
-        android:layout_height="@dimen/_150sdp"
-        android:layout_marginTop="@dimen/_80sdp"
-        android:src="@drawable/ic_user"
-        android:drawableTint="@color/Doctor_Color"
-        app:civ_border_color="@color/gray"
-        app:civ_border_width="@dimen/_1sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Sing_up_header_dr4" />
+    <LinearLayout
+        android:id="@+id/Subject"
+        android:layout_width="@dimen/_280sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:orientation="vertical"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Sing_up_header_dr4">
+
+        <TextView
+            android:id="@+id/Sp4_tv_city_D"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_210sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:text=" المدينة "
+            android:textAlignment="textStart"
+            android:textColor="@color/Doctor_Color"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Sp4_City_D"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:background="@drawable/bg_edit_text"
+            android:layoutDirection="rtl"
+            android:maxLines="1"
+            android:textColorHint="#989696"
+            app:boxCornerRadiusBottomEnd="@dimen/_100sdp"
+            app:boxCornerRadiusBottomStart="@dimen/_100sdp"
+            app:boxCornerRadiusTopEnd="@dimen/_100sdp"
+            app:boxCornerRadiusTopStart="@dimen/_100sdp"
+            app:boxStrokeWidth="0dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/Sp4_City_auto_D"
+                android:layout_width="@dimen/_220sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_weight="1"
+                android:background="@color/white_ghost"
+                android:completionHintView="@string/city"
+                android:focusable="false"
+                android:fontFamily="@font/cairo_bold"
+                android:inputType="none"
+                android:paddingTop="@dimen/_10sdp"
+                android:textColor="@color/Doctor_Color"
+                android:textSize="@dimen/_10sdp"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/Sp4_tv_SubCity_D"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_210sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:text=" المحافظة "
+            android:textAlignment="textStart"
+            android:textColor="@color/Doctor_Color"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Sp4_subCity_D"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:background="@drawable/bg_edit_text"
+            android:layoutDirection="rtl"
+            android:maxLines="1"
+            android:textColorHint="#989696"
+            app:boxCornerRadiusBottomEnd="@dimen/_100sdp"
+            app:boxCornerRadiusBottomStart="@dimen/_100sdp"
+            app:boxCornerRadiusTopEnd="@dimen/_100sdp"
+            app:boxCornerRadiusTopStart="@dimen/_100sdp"
+            app:boxStrokeWidth="0dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/Sp4_subCity_auto_D"
+                android:layout_width="@dimen/_220sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_weight="1"
+                android:background="@color/white_ghost"
+                android:completionHintView="@string/city"
+                android:focusable="false"
+                android:fontFamily="@font/cairo_bold"
+                android:inputType="none"
+                android:paddingTop="@dimen/_10sdp"
+                android:textColor="@color/Doctor_Color"
+                android:textSize="@dimen/_10sdp"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/Sp4_tv_haveWork_D"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_140sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:text="هل تمتلك عيادة خاصة"
+            android:textAlignment="textStart"
+            android:textColor="@color/Doctor_Color"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Sp4_have_work_D"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@+id/Sp2_textview_D"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:background="@drawable/bg_edit_text"
+            android:layoutDirection="rtl"
+            android:maxLines="1"
+            android:textColorHint="#989696"
+            app:boxCornerRadiusBottomEnd="@dimen/_100sdp"
+            app:boxCornerRadiusBottomStart="@dimen/_100sdp"
+            app:boxCornerRadiusTopEnd="@dimen/_100sdp"
+            app:boxCornerRadiusTopStart="@dimen/_100sdp"
+            app:boxStrokeWidth="0dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/Sp4_have_work_auto_D"
+                android:layout_width="@dimen/_220sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_weight="1"
+                android:background="@color/white_ghost"
+                android:completionHintView="@string/city"
+                android:focusable="false"
+                android:fontFamily="@font/cairo_bold"
+                android:inputType="none"
+                android:paddingTop="@dimen/_10sdp"
+                android:textColor="@color/Doctor_Color"
+                android:textSize="@dimen/_10sdp"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/Sp4_tv_whatWork_D"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_185sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:text=" مكان العمل "
+            android:textAlignment="textStart"
+            android:textColor="@color/Doctor_Color"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Sp4_placeOfWork_D"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:background="@drawable/bg_edit_text"
+            android:layoutDirection="rtl"
+            android:maxLines="1"
+            android:textColorHint="#989696"
+            app:boxCornerRadiusBottomEnd="@dimen/_100sdp"
+            app:boxCornerRadiusBottomStart="@dimen/_100sdp"
+            app:boxCornerRadiusTopEnd="@dimen/_100sdp"
+            app:boxCornerRadiusTopStart="@dimen/_100sdp"
+            app:boxStrokeWidth="0dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/Sp4_placeOfWork_auto_D"
+                android:layout_width="@dimen/_220sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_weight="1"
+                android:background="@color/white_ghost"
+                android:completionHintView="@string/city"
+                android:focusable="false"
+                android:fontFamily="@font/cairo_bold"
+                android:inputType="none"
+                android:paddingTop="@dimen/_10sdp"
+                android:textColor="@color/Doctor_Color"
+                android:textSize="@dimen/_10sdp"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
 
     <Button
-        android:id="@+id/btn_Upload"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_80sdp"
-        android:background="@drawable/search_input_dark_style"
+        android:id="@+id/Sp4_bt_next_D"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/_50sdp"
+        android:background="@drawable/float_action_btn"
         android:backgroundTint="@color/Doctor_Color"
-        android:fontFamily="@font/cairo_bold"
-        android:text="اختيار الصورة"
-        android:textColor="@color/white_ghost"
-        android:textSize="@dimen/_15sdp"
+        android:drawableStart="@drawable/ic_float_action"
+        android:paddingHorizontal="@dimen/_20sdp"
+        app:borderWidth="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/Subject"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

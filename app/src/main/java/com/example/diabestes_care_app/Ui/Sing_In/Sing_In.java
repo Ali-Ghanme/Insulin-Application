@@ -27,12 +27,11 @@ public class Sing_In extends Basic_Activity {
         fullscreen();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
+
         tabLayout = findViewById(R.id.tab_layout);
         viewPager_subject = findViewById(R.id.viewpager_tab);
 
         adapter = new MainAdapter(getSupportFragmentManager());
-
-
         adapter.AddFragment(new Patient_Fragment(), "مريض");
         adapter.AddFragment(new Doctor_Fragment(), "طبيب");
 

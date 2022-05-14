@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Diabestes_Care_App">
         <activity
+            android:name=".Ui.Sing_up_pages.Doctor.Sing_up_5_D"
+            android:exported="false" />
+        <activity
             android:name=".Ui.Patient_all.Community.Space_Post"
             android:exported="false" />
         <activity
@@ -24,7 +27,6 @@
         <activity
             android:name=".Ui.Patient_all.Community.Instructions_Patient_P"
             android:exported="false" />
-
         <activity
             android:name=".Ui.Patient_all.Setting_P.Help"
             android:exported="false" />
@@ -67,18 +69,15 @@
         <activity
             android:name=".Ui.Doctor_all.Home_Doctor"
             android:exported="false" />
-
         <activity
             android:name=".Ui.MainActivity"
             android:exported="false" />
         <activity
             android:name=".Ui.Sing_In.Sing_In"
             android:exported="false" />
-
         <activity
             android:name=".Ui.Sing_up_pages.character_choice_screen"
             android:exported="false" />
-
         <activity
             android:name=".Ui.Splah_Screens.Splash_Screen_1"
             android:exported="true">

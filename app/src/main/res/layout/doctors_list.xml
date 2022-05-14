@@ -14,7 +14,7 @@
     android:focusable="true">
 
     <RelativeLayout
-        android:id="@+id/container"
+        android:id="@+id/Dl_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -36,38 +36,40 @@
             android:layout_marginStart="@dimen/_25sdp"
             android:layout_marginTop="@dimen/_45sdp"
             android:fontFamily="@font/cairo_bold"
+            android:text="4.5"
             android:textColor="@color/starts_color"
             android:textSize="@dimen/_11sdp" />
 
         <TextView
-            android:id="@+id/doctor_name"
+            android:id="@+id/Dl_doctor_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_140sdp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/cairo_semibold"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/_90sdp"
             android:lines="1"
             android:maxLines="1"
             android:singleLine="true"
-            android:text="د.احمد زويد"
             android:textColor="@color/black" />
 
         <TextView
-            android:id="@+id/sub_tiltel"
+            android:id="@+id/Dl_doctor_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/doctor_name"
-            android:layout_marginStart="@dimen/_120sdp"
+            android:layout_below="@+id/Dl_doctor_name"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/_90sdp"
             android:layout_marginTop="5dp"
             android:fontFamily="@font/cairo_semibold"
-            android:text="اختصاصي سكري"
             android:textColor="@color/gray" />
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/Doctor_image"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="@dimen/_100sdp"
-            android:layout_marginStart="@dimen/_193sdp" />
+            android:id="@+id/Dl_Doctor_image"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_210sdp" />
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,11 +1,22 @@
 package com.example.diabestes_care_app.Base_Activity;
 
 import android.Manifest;
+import android.content.ContentResolver;
+import android.content.Intent;
+import android.net.Uri;
+import android.text.Layout;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.view.View;
 import android.view.WindowManager;
+import android.webkit.MimeTypeMap;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
+import android.widget.ImageView;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.diabestes_care_app.R;
@@ -16,6 +27,11 @@ import com.karumi.dexter.listener.PermissionDeniedResponse;
 import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
+import com.squareup.picasso.Picasso;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 
 public class Basic_Activity extends AppCompatActivity {
     boolean password_is_visible;
@@ -41,7 +57,7 @@ public class Basic_Activity extends AppCompatActivity {
     }
 
     public boolean validPassword(String password) {
-        return password.length() < 8;
+        return password.length() > 8;
     }
 
     public boolean validCoPassword(String password, String CoPassword) {
@@ -68,5 +84,24 @@ public class Basic_Activity extends AppCompatActivity {
             password_is_visible = true;
         }
         password.setSelection(selection);
+    }
+
+    public String getFileExtension(Uri uri) {
+        ContentResolver cR = getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+        return mime.getExtensionFromMimeType(cR.getType(uri));
+    }
+
+    public void OpenFileChooser(int PICK_IMAGE_REQUEST) {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(intent, PICK_IMAGE_REQUEST);
+    }
+
+
+    public void updateLabel(EditText mData, Calendar myCalendar, String myFormat) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat(myFormat, Locale.UK);
+        mData.setText(dateFormat.format(myCalendar.getTime()));
     }
 }

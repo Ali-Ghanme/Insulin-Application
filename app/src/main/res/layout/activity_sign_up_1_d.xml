@@ -7,7 +7,7 @@
     tools:context=".Ui.Sing_up_pages.Doctor.Sing_Up_1_D">
 
     <RelativeLayout
-        android:id="@+id/Sing_up_1_header"
+        android:id="@+id/Sp1_header_D"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_70sdp"
         android:background="@drawable/bg_sing_up"
@@ -26,205 +26,168 @@
             android:textSize="@dimen/_20sdp" />
     </RelativeLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/Subject"
         android:layout_width="@dimen/_280sdp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_60sdp"
         android:layout_marginRight="@dimen/_10sdp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Sing_up_1_header">
+        app:layout_constraintTop_toBottomOf="@id/Sp1_header_D">
 
         <EditText
-            android:id="@+id/Sing_up_1_name_dr"
-            android:layout_width="@dimen/_250sdp"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_centerHorizontal="true"
+            android:id="@+id/Sp1_name_D"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_40sdp"
             android:autofillHints="name"
             android:background="@drawable/bg_edit_text"
             android:drawableStart="@drawable/ic_user_edit"
+            android:drawablePadding="@dimen/_13sdp"
             android:drawableTint="@color/Doctor_Color"
-            android:elevation="1.5dp"
             android:fontFamily="@font/cairo_bold"
             android:hint="الاسم باللغة العربية "
             android:inputType="textPersonName"
             android:maxLines="1"
-            android:paddingEnd="20dp"
             android:paddingStart="20dp"
-            android:textColor="@color/Patient_Color"
+            android:paddingEnd="20dp"
+            android:textColor="@color/Doctor_Color"
             android:textColorHint="#78909C"
             android:textSize="15sp"
             tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
-            android:id="@+id/Sing_up_en_name_dr"
-            android:layout_width="@dimen/_250sdp"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_below="@+id/Sing_up_1_name_dr"
-            android:layout_centerHorizontal="true"
+            android:id="@+id/Sp1_en_name_D"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:autofillHints="name"
             android:background="@drawable/bg_edit_text"
-            android:drawableStart="@drawable/ic_user_edit"
+            android:drawablePadding="@dimen/_13sdp"
             android:drawableTint="@color/Doctor_Color"
-
-            android:elevation="1.5dp"
-            android:layout_marginTop="@dimen/_20sdp"
             android:fontFamily="@font/cairo_bold"
             android:hint="الاسم باللغة الانجليزية  "
             android:inputType="textPersonName"
             android:maxLines="1"
-            android:paddingEnd="20dp"
             android:paddingStart="20dp"
-            android:textColor="@color/Patient_Color"
+            android:paddingEnd="20dp"
+            android:textColor="@color/Doctor_Color"
             android:textColorHint="#78909C"
             android:textSize="15sp"
             tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
-            android:id="@+id/Sing_up_1_date_dr"
-            android:layout_width="@dimen/_250sdp"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_below="@id/Sing_up_en_name_dr"
-            android:layout_centerHorizontal="true"
+            android:id="@+id/Sp1_username_D"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_40sdp"
             android:layout_marginTop="@dimen/_20sdp"
-            android:autofillHints="creditCardExpirationDate"
+            android:autofillHints="name"
             android:background="@drawable/bg_edit_text"
-            android:drawableStart="@drawable/ic_data"
+            android:drawablePadding="@dimen/_13sdp"
             android:drawableTint="@color/Doctor_Color"
-
-            android:elevation="2dp"
-            android:ems="1"
             android:fontFamily="@font/cairo_bold"
-            android:hint="تاريخ الميلاد"
-            android:inputType="date"
+            android:hint="اسم مستخدم مميز"
+            android:inputType="textPersonName"
             android:maxLines="1"
-            android:paddingEnd="20dp"
             android:paddingStart="20dp"
-            android:textColor="@color/Patient_Color"
+            android:paddingEnd="20dp"
+            android:scaleType="centerCrop"
+            android:textColor="@color/Doctor_Color"
             android:textColorHint="#78909C"
             android:textSize="15sp"
             tools:ignore="TouchTargetSizeCheck" />
 
+
         <RadioGroup
-            android:id="@+id/Sing_up_1_Gender_dr"
+            android:id="@+id/Sp1_Gender_D"
             android:layout_width="@dimen/_220sdp"
             android:layout_height="@dimen/_55sdp"
-            android:layout_below="@+id/Sing_up_1_date_dr"
-            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
             android:layout_marginTop="@dimen/_20sdp"
-            android:checkedButton="@id/male"
+            android:checkedButton="@id/Sp1_male_D"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <RadioButton
-                android:id="@+id/male"
-                android:layout_width="@dimen/_90sdp"
-                android:layout_height="@dimen/_45sdp"
-                android:background="@drawable/gender_background_selector"
+                android:id="@+id/Sp1_male_D"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/gender_background_selector_d"
                 android:button="@android:color/transparent"
                 android:drawableStart="@drawable/ic_male"
-                android:drawableTint="@color/Doctor_Color"
-                android:elevation="@dimen/_3sdp"
+                android:elevation="1dp"
                 android:fontFamily="@font/cairo_bold"
-                android:paddingLeft="@dimen/_15sdp"
+                android:paddingStart="@dimen/_15sdp"
+                android:scaleType="centerCrop"
                 android:text="ذكر"
                 android:textAlignment="center"
-                android:textColor="@drawable/gender_text_selector"
+                android:textColor="@drawable/gender_text_selector_d"
                 android:textSize="@dimen/_15sdp"
-                app:drawableTint="@drawable/gender_text_selector" />
+                app:drawableTint="@drawable/gender_text_selector_d" />
 
             <RadioButton
-                android:id="@+id/female"
-                android:layout_width="@dimen/_90sdp"
-                android:layout_height="@dimen/_45sdp"
-                android:layout_marginLeft="@dimen/_40sdp"
-                android:background="@drawable/gender_background_selector"
+                android:id="@+id/Sp1_female_D"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginStart="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/gender_background_selector_d"
                 android:button="@android:color/transparent"
                 android:drawableStart="@drawable/ic_female"
-                android:elevation="@dimen/_3sdp"
+                android:elevation="1dp"
                 android:fontFamily="@font/cairo_bold"
-                android:paddingLeft="@dimen/_15sdp"
+                android:paddingStart="@dimen/_15sdp"
+                android:scaleType="centerCrop"
                 android:text="أنثى"
                 android:textAlignment="center"
-                android:textColor="@drawable/gender_text_selector"
+                android:textColor="@drawable/gender_text_selector_d"
                 android:textSize="16sp"
-                app:drawableTint="@drawable/gender_text_selector" />
+                app:drawableTint="@drawable/gender_text_selector_d" />
         </RadioGroup>
 
-        <TextView
-            android:id="@+id/sing_up_2_tv_show"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/Sing_up_1_Gender_dr"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_13sdp"
-            android:fontFamily="@font/cairo_bold"
-            android:text="معلومات العمل  "
-            android:textAlignment="textStart"
-            android:textColor="@color/Doctor_Color"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
         <EditText
-            android:id="@+id/Sing_up_1rr_date_dr"
-            android:layout_width="@dimen/_250sdp"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_below="@id/sing_up_2_tv_show"
-            android:layout_centerHorizontal="true"
+            android:id="@+id/Sp1_date_D"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_40sdp"
             android:layout_marginTop="@dimen/_20sdp"
             android:autofillHints="creditCardExpirationDate"
             android:background="@drawable/bg_edit_text"
-
-            android:elevation="2dp"
+            android:cursorVisible="false"
+            android:drawableStart="@drawable/ic_data"
+            android:drawablePadding="@dimen/_13sdp"
+            android:drawableTint="@color/Doctor_Color"
             android:ems="1"
+            android:focusable="false"
             android:fontFamily="@font/cairo_bold"
-            android:hint="هل تعمل حاليا "
-            android:inputType="date"
+            android:hint="تاريخ الميلاد"
             android:maxLines="1"
-            android:paddingEnd="20dp"
-            android:paddingStart="20dp"
-            android:textColor="@color/Patient_Color"
+            android:paddingStart="@dimen/_20sdp"
+            android:paddingEnd="@dimen/_20sdp"
+            android:scaleType="centerCrop"
+            android:textColor="@color/Doctor_Color"
             android:textColorHint="#78909C"
             android:textSize="15sp"
             tools:ignore="TouchTargetSizeCheck" />
 
+    </LinearLayout>
 
-
-    </RelativeLayout>
-
-
-    <RelativeLayout
-        android:id="@+id/btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+    <Button
+        android:id="@+id/Sp1_bt_next_D"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:background="@drawable/bg_doctor_button"
+        android:drawableStart="@drawable/ic_float_action"
+        android:paddingHorizontal="@dimen/_20sdp"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:background="@drawable/ic_bg_btn_new"
-        >
-
-        <Button
-            android:id="@+id/btn_next_S_dr"
-            android:layout_width="@dimen/_50sdp"
-            android:layout_height="@dimen/_50sdp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="@dimen/_20sdp"
-            android:background="@drawable/bg_doctor_button"
-            android:drawableStart="@drawable/ic_float_action"
-            android:elevation="10dp"
-            android:paddingHorizontal="@dimen/_20sdp"
-            app:borderWidth="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-
-    </RelativeLayout>
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Subject"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

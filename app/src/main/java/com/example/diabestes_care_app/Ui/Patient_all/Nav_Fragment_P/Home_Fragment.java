@@ -1,6 +1,10 @@
 package com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,22 +19,28 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.diabestes_care_app.Adapters.DoctorListAdapter;
+import com.example.diabestes_care_app.Interface.Interface_Recycle;
 import com.example.diabestes_care_app.Models.DoctorListModel;
 import com.example.diabestes_care_app.R;
+import com.example.diabestes_care_app.Ui.Patient_all.Home_Patient;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class Home_Fragment extends Fragment {
-
+    // implements Interface_Recycle
     // Firebase
     DatabaseReference myRef;
     // Widget
@@ -43,35 +53,42 @@ public class Home_Fragment extends Fragment {
     EditText searchInput;
     CharSequence search = "";
     TextView username;
+    ImageView imageProfile;
+    // InterFace
+    Interface_Recycle interface_recycle;
+    // ShardPreference
+    public static final String MyPREFERENCES = "Username";
+    // Context
+    Context context;
 
+    String restoredText;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home_, container, false);
 
         //============================Defines=======================================================
-        searchInput = view.findViewById(R.id.search_input);
-        username = view.findViewById(R.id.Home_user_name);
-        recyclerView = view.findViewById(R.id.recyclerView_HP);
-
-        Intent intent_for_image = getActivity().getIntent();
-        String patient_userName = intent_for_image.getStringExtra("username5");
-        username.setText(patient_userName);
+        searchInput = view.findViewById(R.id.HP_search_input);
+        username = view.findViewById(R.id.HP_patient_name);
+        recyclerView = view.findViewById(R.id.HP_recyclerView);
+        imageProfile = view.findViewById(R.id.HP_profile_img);
+        //============================Defines=======================================================
+        SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES, MODE_PRIVATE);
+        restoredText = prefs.getString("TAG_NAME", null);
         //============================Configure Recyclerview========================================
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
-
         // Firebase
         myRef = FirebaseDatabase.getInstance().getReference();
         // ArrayList
         list = new ArrayList<>();
-
         //============================Put data in Recyclerview======================================
         // Clear ArrayList
         ClearAll();
         // Get Data Method
         GetDataFromFirebase();
+        // Get Patient Data Method
         //============================Search And Filter Function====================================
         searchInput.addTextChangedListener(new TextWatcher() {
             @Override
@@ -91,6 +108,7 @@ public class Home_Fragment extends Fragment {
         return view;
     }
 
+    //========================Get Doctor list Data From Firebase Function===========================
     private void GetDataFromFirebase() {
         Query query = myRef.child("doctor");
         query.addValueEventListener(new ValueEventListener() {
@@ -111,11 +129,12 @@ public class Home_Fragment extends Fragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("TAG", error.getMessage());
+
             }
         });
     }
 
+    //============================Clear Recycle Review Data Function================================
     private void ClearAll() {
         if (list != null) {
             list.clear();
@@ -124,6 +143,32 @@ public class Home_Fragment extends Fragment {
             doctorListAdapter.notifyDataSetChanged();
         }
         list = new ArrayList<>();
+    }
+
+//    @Override
+//    public void onItemClick(int position) {
+//        Toast.makeText(getContext(), "Hallow New Activity", Toast.LENGTH_SHORT).show();
+//    }
+
+    //============================Show The Patient name + image=====================================
+    @Override
+    public void onStart() {
+        super.onStart();
+        myRef = FirebaseDatabase.getInstance().getReference("patient");
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String image = snapshot.child(restoredText).child("personal_info").child("Image").child("mImageUrI").getValue(String.class);
+                String name = snapshot.child(restoredText).child("personal_info").child("name").getValue(String.class);
+                Glide.with(getActivity()).load(image).into(imageProfile);
+                Log.d("TAG", name + "/" + image);
+                username.setText(name);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("TAG", error.getMessage());
+            }
+        });
     }
 }
 

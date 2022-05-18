@@ -15,28 +15,32 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.diabestes_care_app.Interface.Interface_Recycle;
 import com.example.diabestes_care_app.Models.DoctorListModel;
 import com.example.diabestes_care_app.R;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.MyViewHolder> implements Filterable {
-
+    //    private final Interface_Recycle interface_recycle;
     Context context;
     ArrayList<DoctorListModel> list;
     ArrayList<DoctorListModel> mDataFiltered;
 
     public DoctorListAdapter(Context context, ArrayList<DoctorListModel> list) {
+//        this.interface_recycle = interface_recycle;
         this.context = context;
         this.list = list;
         this.mDataFiltered = list;
     }
 
+
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.doctors_list, parent, false);
-        return new MyViewHolder(view);
+        return new MyViewHolder(view); //interface_recycle
     }
 
     @Override
@@ -92,12 +96,24 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.My
         ImageView imageView;
         RelativeLayout container;
 
-        public MyViewHolder(@NonNull View itemView) {
+        public MyViewHolder(@NonNull View itemView) { // , Interface_Recycle interface_recycle
             super(itemView);
             name = itemView.findViewById(R.id.Dl_doctor_name);
             username = itemView.findViewById(R.id.Dl_doctor_username);
             imageView = itemView.findViewById(R.id.Dl_Doctor_image);
             container = itemView.findViewById(R.id.Dl_container);
+
+//            itemView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    if (interface_recycle  != null){
+//                        int pos = getAdapterPosition();
+//                        if (pos != RecyclerView.NO_POSITION){
+//                            interface_recycle.onItemClick(pos);
+//                        }
+//                    }
+//                }
+//            });
         }
     }
 }

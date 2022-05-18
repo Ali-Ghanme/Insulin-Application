@@ -33,37 +33,70 @@
             android:textSize="@dimen/_26sdp" />
 
     </RelativeLayout>
+    <!--    <com.google.android.material.tabs.TabLayout-->
+    <!--        android:id="@+id/tab_layout"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="@dimen/_10sdp"-->
+    <!--        android:splitMotionEvents="true"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"-->
+    <!--        app:tabGravity="center"-->
+    <!--        app:tabIndicator="@drawable/bg_log_in_tab"-->
+    <!--        app:tabIndicatorAnimationMode="elastic"-->
+    <!--        app:tabIndicatorColor="@color/Patient_Color"-->
+    <!--        app:tabIndicatorFullWidth="true"-->
+    <!--        app:tabIndicatorGravity="stretch"-->
+    <!--        app:tabMaxWidth="@dimen/_300sdp"-->
+    <!--        app:tabMode="auto"-->
+    <!--        app:tabSelectedTextColor="@color/white"-->
+    <!--        app:tabTextAppearance="@style/MyCustomTextAppearance"-->
+    <!--        tools:ignore="SpeakableTextPresentCheck"-->
+    <!--        >-->
+
+    <!--        <com.google.android.material.tabs.TabItem-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="المريض" />-->
+
+    <!--        <com.google.android.material.tabs.TabItem-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="الطبيب" />-->
+
+    <!--    </com.google.android.material.tabs.TabLayout>-->
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_10sdp"
+        android:splitMotionEvents="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
         app:tabGravity="center"
-        app:tabTextAppearance="@style/MyCustomTextAppearance"
         app:tabIndicator="@drawable/bg_log_in_tab"
         app:tabIndicatorAnimationMode="elastic"
         app:tabIndicatorColor="@color/Patient_Color"
         app:tabIndicatorFullWidth="true"
-        android:splitMotionEvents="true"
         app:tabIndicatorGravity="stretch"
         app:tabMaxWidth="@dimen/_300sdp"
         app:tabMode="auto"
         app:tabSelectedTextColor="@color/white"
-        tools:ignore="SpeakableTextPresentCheck"/>
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewpager_tab"
-        android:layout_width="@dimen/_300sdp"
-        android:layout_height="@dimen/_420sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tab_layout"
+        app:tabTextAppearance="@style/MyCustomTextAppearance"
         tools:ignore="SpeakableTextPresentCheck" />
 
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewpager_tab_2"
+            android:layout_width="@dimen/_300sdp"
+            android:layout_height="@dimen/_420sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tab_layout"
+            tools:ignore="SpeakableTextPresentCheck">
+        </androidx.viewpager.widget.ViewPager>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

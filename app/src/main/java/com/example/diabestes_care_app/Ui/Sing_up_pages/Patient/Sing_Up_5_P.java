@@ -95,10 +95,7 @@ public class Sing_Up_5_P extends Basic_Activity {
                                     @Override
                                     public void onSuccess(Uri uri) {
                                         Upload upload = new Upload(uri.toString());
-                                        String uploadId = DB_Ref.push().getKey();
-                                        assert uploadId != null;
-
-                                        DB_Ref.child(patient_userName).child("Image").child(uploadId).setValue(upload);
+                                        DB_Ref.child(patient_userName).child("personal_info").child("Image").setValue(upload);
                                         Toast.makeText(Sing_Up_5_P.this, "Upload Successfully", Toast.LENGTH_SHORT).show();
                                     }
                                 });

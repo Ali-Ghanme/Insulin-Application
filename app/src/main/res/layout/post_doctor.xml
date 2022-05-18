@@ -78,8 +78,7 @@
             android:id="@+id/Doctor_image"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_60sdp"
-            android:layout_marginStart="@dimen/_200sdp"
-            android:src="@drawable/doctor_photo" />
+            android:layout_marginStart="@dimen/_200sdp" />
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

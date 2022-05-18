@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Diabestes_Care_App">
         <activity
+            android:name=".Doctor_profile_from_patient_prespactive"
+            android:exported="false" />
+        <activity
             android:name=".Ui.Sing_up_pages.Doctor.Sing_up_5_D"
             android:exported="false" />
         <activity

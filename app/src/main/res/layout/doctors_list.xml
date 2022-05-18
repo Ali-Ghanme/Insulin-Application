@@ -44,10 +44,10 @@
             android:id="@+id/Dl_doctor_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/cairo_semibold"
             android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="@dimen/_90sdp"
+            android:fontFamily="@font/cairo_semibold"
             android:lines="1"
             android:maxLines="1"
             android:singleLine="true"
@@ -59,8 +59,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/Dl_doctor_name"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="@dimen/_90sdp"
             android:layout_marginTop="5dp"
+            android:layout_marginEnd="@dimen/_90sdp"
             android:fontFamily="@font/cairo_semibold"
             android:textColor="@color/gray" />
 
@@ -68,8 +68,8 @@
             android:id="@+id/Dl_Doctor_image"
             android:layout_width="@dimen/_70sdp"
             android:layout_height="@dimen/_60sdp"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginStart="@dimen/_210sdp" />
+            android:layout_marginStart="@dimen/_210sdp"
+            android:layout_marginTop="@dimen/_5sdp" />
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

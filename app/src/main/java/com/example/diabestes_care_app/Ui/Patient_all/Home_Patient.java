@@ -19,11 +19,10 @@ import com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P.Profile_Frag
 import nl.joery.animatedbottombar.AnimatedBottomBar;
 
 public class Home_Patient extends Basic_Activity {
-    private static final String TAG = Home_Patient.class.getSimpleName();
 
+    private static final String TAG = Home_Patient.class.getSimpleName();
     FragmentManager fragmentManager;
     AnimatedBottomBar animatedBottomBar;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,14 +30,18 @@ public class Home_Patient extends Basic_Activity {
         fullscreen();
         setContentView(R.layout.activity_home_p);
 
+        //============================Defines=======================================================
         animatedBottomBar = findViewById(R.id.animate_bottom);
+
+        //============================Animation=====================================================
         if (savedInstanceState == null) {
             animatedBottomBar.selectTabById(R.id.nav_menu_home, true);
             fragmentManager = getSupportFragmentManager();
             Home_Fragment home_fragment = new Home_Fragment();
-            fragmentManager.beginTransaction().replace(R.id.fragment_container,
-                    home_fragment).commit();
+//             Add Home Fragment as the default Fragment
+            fragmentManager.beginTransaction().replace(R.id.fragment_container, home_fragment).commit();
         }
+        //============================BottomNavigation Transaction==================================
         animatedBottomBar.setOnTabSelectListener(new AnimatedBottomBar.OnTabSelectListener() {
             @Override
             public void onTabSelected(int lastIndex, @Nullable AnimatedBottomBar.Tab lastTab, int newIndex, @NonNull AnimatedBottomBar.Tab newTab) {
@@ -64,7 +67,6 @@ public class Home_Patient extends Basic_Activity {
                     Log.e(TAG, "Error in Creating Fragment");
                 }
             }
-
             @Override
             public void onTabReselected(int i, @NonNull AnimatedBottomBar.Tab tab) {
                 Toast.makeText(Home_Patient.this, " أنت بلفعل في واجهة " + tab.getTitle(), Toast.LENGTH_SHORT).show();

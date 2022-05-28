@@ -3,7 +3,6 @@ package com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P;
 import static android.content.Context.MODE_PRIVATE;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -21,25 +20,21 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.diabestes_care_app.Adapters.DoctorListAdapter;
-import com.example.diabestes_care_app.Interface.Interface_Recycle;
 import com.example.diabestes_care_app.Models.DoctorListModel;
 import com.example.diabestes_care_app.R;
-import com.example.diabestes_care_app.Ui.Patient_all.Home_Patient;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class Home_Fragment extends Fragment {
+public class Home_Fragment extends Fragment{
     // implements Interface_Recycle
     // Firebase
     DatabaseReference myRef;
@@ -54,14 +49,11 @@ public class Home_Fragment extends Fragment {
     CharSequence search = "";
     TextView username;
     ImageView imageProfile;
-    // InterFace
-    Interface_Recycle interface_recycle;
     // ShardPreference
     public static final String MyPREFERENCES = "Username";
-    // Context
-    Context context;
-
+    // TextView
     String restoredText;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -122,7 +114,7 @@ public class Home_Fragment extends Fragment {
                     doctorListModel.setUsername(snapshot.child("personal_info").child("username").getValue().toString());
                     list.add(doctorListModel);
                 }
-                doctorListAdapter = new DoctorListAdapter(getContext(), list);
+                doctorListAdapter = new DoctorListAdapter(getContext(),list);
                 recyclerView.setAdapter(doctorListAdapter);
                 doctorListAdapter.notifyDataSetChanged();
             }
@@ -145,11 +137,6 @@ public class Home_Fragment extends Fragment {
         list = new ArrayList<>();
     }
 
-//    @Override
-//    public void onItemClick(int position) {
-//        Toast.makeText(getContext(), "Hallow New Activity", Toast.LENGTH_SHORT).show();
-//    }
-
     //============================Show The Patient name + image=====================================
     @Override
     public void onStart() {
@@ -164,6 +151,7 @@ public class Home_Fragment extends Fragment {
                 Log.d("TAG", name + "/" + image);
                 username.setText(name);
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Log.e("TAG", error.getMessage());

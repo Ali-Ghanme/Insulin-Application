@@ -12,79 +12,74 @@
     <RelativeLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_190sdp"
+        android:layout_height="@dimen/_150sdp"
         android:background="@drawable/bg_half_rounded"
         android:backgroundTint="@color/Patient_Color" />
 
     <TextView
-        android:id="@+id/HP_welcome_txt"
+        android:id="@+id/EP_title_p"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_200sdp"
-        android:layout_marginTop="@dimen/_70sdp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="@dimen/_90sdp"
+        android:layout_marginTop="@dimen/_20sdp"
         android:fontFamily="@font/cairo_bold"
-        android:text="@string/Welcome_text"
+        android:text="الرئيسية"
         android:textColor="@color/white"
-        android:textSize="@dimen/_20sdp" />
+        android:textSize="@dimen/_18sdp" />
 
     <View
-        android:id="@+id/view2"
-        android:layout_width="@dimen/_40sdp"
+        android:id="@+id/EP_view_p"
+        android:layout_width="30dp"
         android:layout_height="5dp"
-        android:layout_below="@id/HP_welcome_txt"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_below="@id/EP_title_p"
+        android:layout_centerHorizontal="true"
         android:background="@drawable/bg_search" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/HP_profile_img"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_70sdp"
+        android:contentDescription="@string/todo"
+        app:civ_border_color="@color/white"
+        app:civ_border_width="@dimen/_1sdp" />
 
     <TextView
         android:id="@+id/HP_patient_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="@dimen/_70sdp"
-        android:layout_marginEnd="@dimen/_112sdp"
+        android:layout_below="@id/HP_profile_img"
+        android:layout_centerHorizontal="true"
         android:fontFamily="@font/cairo_bold"
         android:lines="1"
         android:maxLines="1"
         android:singleLine="true"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_20sdp" />
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/HP_profile_img"
-        android:layout_width="@dimen/_70sdp"
-        android:layout_height="@dimen/_70sdp"
-        android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_60sdp"
-        android:contentDescription="@string/todo"
-        app:civ_border_color="@android:color/white"
-        app:civ_border_width="@dimen/_2sdp" />
+        android:textColor="@color/Patient_Color"
+        android:textSize="@dimen/_16sdp" />
 
     <ImageView
         android:id="@+id/HP_notification"
-        android:layout_width="@dimen/_30sdp"
-        android:layout_height="@dimen/_30sdp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_25sdp"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_25sdp"
         android:background="@drawable/ic_notification"
         android:backgroundTint="@color/white_ghost"
-        android:contentDescription="@string/todo"
-        android:elevation="3dp"
-        app:civ_border_width="3dp" />
+        android:contentDescription="@string/todo" />
 
     <EditText
         android:id="@+id/HP_search_input"
         android:layout_width="@dimen/_260sdp"
         android:layout_height="@dimen/_40sdp"
-        android:layout_below="@id/view2"
+        android:layout_below="@id/HP_patient_name"
         android:layout_marginStart="@dimen/_25sdp"
-        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:background="@drawable/search_input_style"
         android:drawableEnd="@drawable/ic_search"
-        android:drawablePadding="10dp"
-        android:elevation="@dimen/_2sdp"
+        android:drawablePadding="@dimen/_10sdp"
+        android:elevation="@dimen/_5sdp"
         android:fontFamily="@font/cairo_semibold"
         android:hint="|  أتبحث عن طبيب ؟"
         android:iconifiedByDefault="false"
@@ -94,13 +89,63 @@
         android:textDirection="rtl"
         android:textSize="@dimen/_10sdp" />
 
+    <RelativeLayout
+        android:id="@+id/head_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/HP_search_input"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true">
+
+        <TextView
+            android:id="@+id/group_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:lines="1"
+            android:text="الأطباء الأكثر رواجاً"
+            android:textColor="@color/Patient_Color"
+            android:textSize="@dimen/_12sdp" />
+
+        <View
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="5dp"
+            android:layout_below="@id/group_title"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:background="@drawable/bg_search"
+            android:backgroundTint="@color/Patient_Color" />
+
+        <Button
+            android:id="@+id/view_all"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_13sdp"
+            android:background="@drawable/bg_patient_button"
+            android:clickable="false"
+            android:focusable="false"
+            android:fontFamily="@font/cairo_bold"
+            android:maxLength="15"
+            android:text="عرض المزيد"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_9sdp"
+            android:textStyle="bold"
+            tools:ignore="SmallSp" />
+    </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/HP_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/HP_search_input"
-        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_below="@id/head_parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
 </RelativeLayout>

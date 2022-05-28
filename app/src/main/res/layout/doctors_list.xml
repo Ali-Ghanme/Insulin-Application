@@ -11,7 +11,8 @@
     android:background="@drawable/bg_doctors_list"
     android:clickable="true"
     android:elevation="1.5dp"
-    android:focusable="true">
+    android:focusable="true"
+    >
 
     <RelativeLayout
         android:id="@+id/Dl_container"

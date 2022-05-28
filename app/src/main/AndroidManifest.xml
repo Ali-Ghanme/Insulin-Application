@@ -55,7 +55,7 @@
             android:name=".Ui.Patient_all.Home_Patient"
             android:exported="false" />
         <activity
-            android:name=".Ui.Patient_all.Patient_Profile_D"
+            android:name=".Ui.Doctor_all.Patient_Profile_D"
             android:exported="false" />
         <activity
             android:name=".Ui.Sing_up_pages.Doctor.Sing_Up_1_D"

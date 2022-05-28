@@ -1,4 +1,4 @@
-package com.example.diabestes_care_app.Ui.Patient_all;
+package com.example.diabestes_care_app.Ui.Doctor_all;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;

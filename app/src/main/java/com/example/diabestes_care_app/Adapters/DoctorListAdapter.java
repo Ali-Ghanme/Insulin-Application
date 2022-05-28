@@ -15,26 +15,22 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.diabestes_care_app.Interface.Interface_Recycle;
 import com.example.diabestes_care_app.Models.DoctorListModel;
 import com.example.diabestes_care_app.R;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.MyViewHolder> implements Filterable {
-    //    private final Interface_Recycle interface_recycle;
+    //private final Interface_Recycle interface_recycle;
     Context context;
     ArrayList<DoctorListModel> list;
     ArrayList<DoctorListModel> mDataFiltered;
 
-    public DoctorListAdapter(Context context, ArrayList<DoctorListModel> list) {
-//        this.interface_recycle = interface_recycle;
+    public DoctorListAdapter(Context context, ArrayList<DoctorListModel> list ) {
         this.context = context;
         this.list = list;
         this.mDataFiltered = list;
     }
-
 
     @NonNull
     @Override
@@ -103,18 +99,8 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.My
             imageView = itemView.findViewById(R.id.Dl_Doctor_image);
             container = itemView.findViewById(R.id.Dl_container);
 
-//            itemView.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    if (interface_recycle  != null){
-//                        int pos = getAdapterPosition();
-//                        if (pos != RecyclerView.NO_POSITION){
-//                            interface_recycle.onItemClick(pos);
-//                        }
-//                    }
-//                }
-//            });
+
         }
     }
-}
 
+}

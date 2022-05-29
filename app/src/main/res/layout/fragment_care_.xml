@@ -1,263 +1,253 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Patient_Color"
     android:orientation="vertical"
     tools:context=".Ui.Patient_all.Nav_Fragment_P.Care_Fragment">
 
     <RelativeLayout
-        android:id="@+id/header_dr"
+        android:id="@+id/FC_header_p"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        tools:ignore="MissingConstraints">
+        android:layout_height="@dimen/_150sdp"
+        android:background="@drawable/bg_half_rounded"
+        android:backgroundTint="@color/Patient_Color" />
 
-        <TextView
-            android:id="@+id/home_txt_dr"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:fontFamily="@font/cairo_bold"
-            android:text="صحتى"
-            android:textColor="@color/white"
-            android:textSize="30sp" />
+    <TextView
+        android:id="@+id/FC_title_p"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="@dimen/_90sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:fontFamily="@font/cairo_bold"
+        android:text="صحتي"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_18sdp" />
 
-        <ImageView
-            android:id="@+id/profile_img_home_dr"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="15dp"
-            android:contentDescription="@string/todo"
-            android:elevation="3dp"
-            android:src="@drawable/ic_user_nav"
-            app:civ_border_color="@android:color/white"
-            app:civ_border_width="3dp" />
+    <View
+        android:id="@+id/FC_view_p"
+        android:layout_width="30dp"
+        android:layout_height="5dp"
+        android:layout_below="@id/FC_title_p"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/bg_search" />
 
-        <ImageView
-            android:id="@+id/notification_img_home_dr"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="false"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="15dp"
-            android:background="@drawable/ic_notification"
-            android:backgroundTint="@color/edit_text_color"
-            android:contentDescription="@string/todo"
-            android:elevation="3dp"
-            app:civ_border_color="@android:color/white"
-            app:civ_border_width="3dp" />
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/FC_profile_img"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_70sdp"
+        android:contentDescription="@string/todo"
+        app:civ_border_color="@android:color/white"
+        app:civ_border_width="3dp" />
 
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/FC_patient_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/FC_profile_img"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/cairo_bold"
+        android:lines="1"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:textColor="@color/Patient_Color"
+        android:textSize="@dimen/_16sdp" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:elevation="50dp"
-        android:ems="1">
+    <ImageView
+        android:id="@+id/FC_notification"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:background="@drawable/ic_notification"
+        android:backgroundTint="@color/white_ghost"
+        android:contentDescription="@string/todo" />
 
-        <TextView
-            android:id="@+id/Sing_up_1_date_dr"
-            android:layout_width="@dimen/_300sdp"
-            android:layout_height="@dimen/_140sdp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="@dimen/_40sdp"
-            android:layout_marginTop="@dimen/_30sdp"
-            android:autofillHints="creditCardExpirationDate"
-            android:background="@drawable/bg_text_dr"
-            android:elevation="@dimen/_10sdp"
-            android:fontFamily="@font/cairo_bold"
-            android:padding="@dimen/_30sdp"
-            android:text="@string/pargrah"
-            android:textAlignment="center"
-            android:textColor="@color/white_ghost"
-            android:textDirection="rtl"
-            android:textSize="@dimen/_14sdp"
-            tools:ignore="TouchTargetSizeCheck" />
+    <ImageView
+        android:id="@+id/FC_info"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/_100sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:background="@drawable/ic_info"
+        android:backgroundTint="@color/white_ghost"
+        android:contentDescription="@string/todo" />
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:contentDescription="@string/todo"
-            android:src="@drawable/rectangel_home" />
+    <GridLayout
+        android:id="@+id/FC_grid_1_p"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/FC_profile_img"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:orientation="vertical">
 
         <GridLayout
-            android:id="@+id/grid_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_190sdp"
-            android:orientation="vertical">
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_120sdp"
+            android:alignmentMode="alignMargins"
+            android:columnCount="2"
+            android:columnOrderPreserved="false"
+            android:rowCount="3">
 
-            <GridLayout
-                android:layout_width="@dimen/_240sdp"
-                android:layout_height="@dimen/_130sdp"
-                android:alignmentMode="alignMargins"
-                android:columnCount="2"
-                android:columnOrderPreserved="false"
-                android:rowCount="3">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/FC_instruction_box_p"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_3sdp">
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/instruction_box"
-                    android:layout_width="@dimen/_70sdp"
-                    android:layout_height="wrap_content"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="@dimen/_10sdp"
-                    app:cardCornerRadius="@dimen/_15sdp"
-                    app:cardElevation="1.5dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_10sdp">
 
-                    <LinearLayout
+                    <ImageView
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:background="@drawable/ic_book"
+                        android:backgroundTint="@color/Patient_Color" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="@font/cairo_bold"
+                        android:gravity="center_horizontal"
+                        android:text="تعليمات"
+                        android:textColor="@color/Patient_Color"
+                        android:textSize="@dimen/_13sdp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/FC_my_health_box_p"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_3sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_10sdp">
+
+                    <ImageView
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_45sdp"
+                        android:background="@drawable/ic_apple"
+                        android:backgroundTint="@color/Patient_Color" />
+
+                    <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/bg_text_dr"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="@dimen/_10sdp">
-
-                        <ImageView
-                            android:layout_width="@dimen/_60sdp"
-                            android:layout_height="@dimen/_45sdp"
-                            android:src="@drawable/ic_book" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
-                            android:fontFamily="@font/cairo_bold"
-                            android:gravity="center_horizontal"
-                            android:text="تعليمات"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_15sdp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/my_health_box"
-                    android:layout_width="@dimen/_70sdp"
-                    android:layout_height="wrap_content"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="@dimen/_10sdp"
-                    app:cardCornerRadius="@dimen/_15sdp"
-                    app:cardElevation="1.5dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/bg_text_dr"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="@dimen/_10sdp">
-
-                        <ImageView
-                            android:layout_width="@dimen/_60sdp"
-                            android:layout_height="@dimen/_45sdp"
-                            android:src="@drawable/ic_apple" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/_25sdp"
-                            android:layout_marginTop="12dp"
-                            android:fontFamily="@font/cairo_bold"
-                            android:gravity="center_horizontal"
-                            android:maxLines="1"
-                            android:text="أنظمتي "
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_15sdp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-            </GridLayout>
-
-            <GridLayout
-                android:layout_width="@dimen/_240sdp"
-                android:layout_height="@dimen/_130sdp"
-                android:alignmentMode="alignMargins"
-                android:columnCount="2"
-                android:columnOrderPreserved="false"
-                android:rowCount="3">
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/about_us"
-                    android:layout_width="@dimen/_70sdp"
-                    android:layout_height="wrap_content"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="@dimen/_10sdp"
-                    app:cardCornerRadius="@dimen/_15sdp"
-                    app:cardElevation="1.5dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/bg_text_dr"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="@dimen/_10sdp">
-
-                        <ImageView
-                            android:layout_width="@dimen/_60sdp"
-                            android:layout_height="@dimen/_45sdp"
-                            android:src="@drawable/ic_reports" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
-                            android:fontFamily="@font/cairo_bold"
-                            android:gravity="center_horizontal"
-                            android:text="تقارير"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_15sdp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/feedback"
-                    android:layout_width="@dimen/_70sdp"
-                    android:layout_height="wrap_content"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="@dimen/_10sdp"
-                    app:cardCornerRadius="@dimen/_15sdp"
-                    app:cardElevation="1.5dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/bg_text_dr"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="@dimen/_10sdp">
-
-                        <ImageView
-                            android:layout_width="@dimen/_60sdp"
-                            android:layout_height="@dimen/_45sdp"
-                            android:src="@drawable/ic_heart_beat" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
-                            android:fontFamily="@font/cairo_bold"
-                            android:gravity="center_horizontal"
-                            android:text="صحتي"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_15sdp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-            </GridLayout>
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="@font/cairo_bold"
+                        android:gravity="center_horizontal"
+                        android:maxLines="1"
+                        android:text="أنظمتي "
+                        android:textColor="@color/Patient_Color"
+                        android:textSize="@dimen/_13sdp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
         </GridLayout>
-    </RelativeLayout>
 
+        <GridLayout
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_120sdp"
+            android:alignmentMode="alignMargins"
+            android:columnCount="2"
+            android:columnOrderPreserved="false"
+            android:rowCount="3">
 
-</LinearLayout>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/FC_about_us_p"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_3sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_10sdp">
+
+                    <ImageView
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:background="@drawable/ic_reports"
+                        android:backgroundTint="@color/Patient_Color" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="@font/cairo_bold"
+                        android:gravity="center_horizontal"
+                        android:text="تقارير"
+                        android:textColor="@color/Patient_Color"
+                        android:textSize="@dimen/_13sdp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/FC_feedback_p"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_3sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_10sdp">
+
+                    <ImageView
+                        android:layout_width="@dimen/_45sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:background="@drawable/ic_heart_beat"
+                        android:backgroundTint="@color/Patient_Color" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="@font/cairo_bold"
+                        android:gravity="center_horizontal"
+                        android:text="صحتي"
+                        android:textColor="@color/Patient_Color"
+                        android:textSize="@dimen/_13sdp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </GridLayout>
+    </GridLayout>
+</RelativeLayout>

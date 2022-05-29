@@ -2,7 +2,6 @@ package com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P;
 
 import static android.content.Context.MODE_PRIVATE;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -34,7 +33,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class Home_Fragment extends Fragment{
+public class Home_Fragment extends Fragment   {
     // implements Interface_Recycle
     // Firebase
     DatabaseReference myRef;

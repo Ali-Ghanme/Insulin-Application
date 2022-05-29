@@ -1,6 +1,7 @@
 package com.example.diabestes_care_app.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,11 +11,13 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.diabestes_care_app.Ui.Patient_all.Doctor_Profile_P;
 import com.example.diabestes_care_app.Models.DoctorListModel;
 import com.example.diabestes_care_app.R;
 
@@ -26,7 +29,7 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.My
     ArrayList<DoctorListModel> list;
     ArrayList<DoctorListModel> mDataFiltered;
 
-    public DoctorListAdapter(Context context, ArrayList<DoctorListModel> list ) {
+    public DoctorListAdapter(Context context, ArrayList<DoctorListModel> list) {
         this.context = context;
         this.list = list;
         this.mDataFiltered = list;
@@ -50,6 +53,7 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.My
 
         // ImageView : Glide Library
         Glide.with(context).load(list.get(position).getImageUrl()).into(holder.imageView);
+
     }
 
     @Override
@@ -87,7 +91,7 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.My
         };
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView name, username;
         ImageView imageView;
         RelativeLayout container;
@@ -98,8 +102,15 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.My
             username = itemView.findViewById(R.id.Dl_doctor_username);
             imageView = itemView.findViewById(R.id.Dl_Doctor_image);
             container = itemView.findViewById(R.id.Dl_container);
+            itemView.setOnClickListener(this);
+        }
 
-
+        @Override
+        public void onClick(View v) {
+            int position = getBindingAdapterPosition();
+            Toast.makeText(context, "Position" + position, Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(context, Doctor_Profile_P.class);
+            context.startActivity(intent);
         }
     }
 

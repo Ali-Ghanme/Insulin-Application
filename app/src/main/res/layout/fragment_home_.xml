@@ -43,8 +43,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_70sdp"
         android:contentDescription="@string/todo"
-        app:civ_border_color="@color/white"
-        app:civ_border_width="@dimen/_1sdp" />
+        app:civ_border_color="@android:color/white"
+        app:civ_border_width="3dp"/>
 
     <TextView
         android:id="@+id/HP_patient_name"

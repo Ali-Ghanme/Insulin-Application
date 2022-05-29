@@ -35,7 +35,7 @@ public class Edit_Profile_P extends Basic_Activity {
     MainAdapter2 adapter;
     DatabaseReference myRef;
     String restoredText;
-    TextView name , username;
+    TextView name, username;
     ImageView imageView;
 
     @Override

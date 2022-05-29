@@ -77,7 +77,7 @@
             android:drawableStart="@drawable/ic_password_hide"
             android:drawablePadding="@dimen/_13sdp"
             android:fontFamily="@font/cairo_bold"
-            android:inputType="numberPassword"
+            android:inputType="textPassword"
             android:maxLines="1"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"

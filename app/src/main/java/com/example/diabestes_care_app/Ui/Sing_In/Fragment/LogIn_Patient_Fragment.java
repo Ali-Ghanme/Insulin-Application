@@ -44,7 +44,6 @@ public class LogIn_Patient_Fragment extends Fragment {
     Button login, SingUp;
     SharedPreferences sharedpreferences;
     public static final String MyPREFERENCES = "Username";
-    boolean password_is_visible;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -116,39 +115,6 @@ public class LogIn_Patient_Fragment extends Fragment {
             }
         });
 
-        //============================Show password and hid password================================
-        password2.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                final int Left = 2;
-                if (event.getAction() == MotionEvent.ACTION_UP) {
-                    if (event.getRawX() >= password2.getLeft() - password2.getCompoundDrawables()[Left].getBounds().width()) {
-                        showPass(password2);
-                        return true;
-                    }
-                }
-                return false;
-            }
-        });
-
         return view;
-    }
-
-    public void showPass(EditText password) {
-        int selection = password.getSelectionEnd();
-        if (password_is_visible) {
-            //set drawable image here
-            password.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_password_hide, 0);
-            //for hide password
-            password.setTransformationMethod(PasswordTransformationMethod.getInstance());
-            password_is_visible = false;
-        } else {
-            //set drawable image here
-            password.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_password_show, 0);
-            //for hide password
-            password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-            password_is_visible = true;
-        }
-        password.setSelection(selection);
     }
 }

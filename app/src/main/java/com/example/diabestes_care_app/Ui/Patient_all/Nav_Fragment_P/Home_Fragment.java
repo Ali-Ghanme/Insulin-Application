@@ -29,12 +29,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class Home_Fragment extends Fragment   {
+public class Home_Fragment extends Fragment {
     // implements Interface_Recycle
+    FirebaseDatabase db;
     // Firebase
     DatabaseReference myRef;
     // Widget
@@ -72,6 +74,12 @@ public class Home_Fragment extends Fragment   {
         recyclerView.setHasFixedSize(true);
         // Firebase
         myRef = FirebaseDatabase.getInstance().getReference();
+
+  // الفنكشن الخاصة بحالة المستخدم
+      //  db = FirebaseDatabase.getInstance();
+      //    manageConnections();
+
+
         // ArrayList
         list = new ArrayList<>();
         //============================Put data in Recyclerview======================================
@@ -113,7 +121,7 @@ public class Home_Fragment extends Fragment   {
                     doctorListModel.setUsername(snapshot.child("personal_info").child("username").getValue().toString());
                     list.add(doctorListModel);
                 }
-                doctorListAdapter = new DoctorListAdapter(getContext(),list);
+                doctorListAdapter = new DoctorListAdapter(getContext(), list);
                 recyclerView.setAdapter(doctorListAdapter);
                 doctorListAdapter.notifyDataSetChanged();
             }
@@ -157,5 +165,31 @@ public class Home_Fragment extends Fragment   {
             }
         });
     }
+
+/*
+    private void manageConnections() {
+        final DatabaseReference connectReference = db.getReference().child("connections");
+        final DatabaseReference lastConnected = db.getReference().child("lastConnected");
+        final DatabaseReference infoConnected = db.getReference(".info/connected");
+        infoConnected.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                boolean connected = snapshot.getValue(boolean.class);
+if (connected){
+    DatabaseReference con = connectReference.child("patient");
+    con.setValue(ServerValue.TIMESTAMP);
+    con.onDisconnect().setValue(false);
+    lastConnected.onDisconnect().setValue(ServerValue.TIMESTAMP) ;
+}
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                System.out.println("Error" + error);
+            }
+        });
+    }
+*/
+
 }
 

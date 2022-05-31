@@ -7,7 +7,7 @@
     tools:context=".Ui.Patient_all.Nav_Fragment_P.Profile_Fragment">
 
     <RelativeLayout
-        android:id="@+id/FP_header"
+        android:id="@+id/EP_header"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_70sdp"
         android:background="@drawable/bg_sing_up"
@@ -36,7 +36,7 @@
         app:layout_constraintHorizontal_bias="0.727"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/FP_header">
+        app:layout_constraintTop_toBottomOf="@id/EP_header">
 
         <ImageView
             android:id="@+id/FB_im_next_profile"

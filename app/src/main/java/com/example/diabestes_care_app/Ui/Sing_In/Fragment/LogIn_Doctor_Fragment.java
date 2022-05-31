@@ -1,6 +1,8 @@
 package com.example.diabestes_care_app.Ui.Sing_In.Fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -31,6 +33,8 @@ public class LogIn_Doctor_Fragment extends Fragment {
     EditText username, password;
     Button login, SingUp;
     TextView name;
+    SharedPreferences sharedpreferences;
+    public static final String MyPREFERENCES_D = "D_Username";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,6 +48,7 @@ public class LogIn_Doctor_Fragment extends Fragment {
         password = view.findViewById(R.id.FIS_et_pass_D);
         name = view.findViewById(R.id.FSI_tv3_show_P);
         SingUp = view.findViewById(R.id.FIS_bt_sing_up_D);
+        sharedpreferences = this.getActivity().getSharedPreferences(MyPREFERENCES_D, Context.MODE_PRIVATE);
 
         //==============================Login Button================================================
         login.setOnClickListener(new View.OnClickListener() {
@@ -77,6 +82,10 @@ public class LogIn_Doctor_Fragment extends Fragment {
                     // fit password to specific username
                     String passwordFromDB = snapshot.child(patientEnterUsername).child("Password").getValue(String.class);
                     if (passwordFromDB.equals(patientEnterPassword)) {
+                        SharedPreferences.Editor editor = sharedpreferences.edit();
+                        editor.putString("TAG_NAME", patientEnterUsername);
+                        editor.commit();
+
                         Intent intent = new Intent(getActivity(), Home_Doctor.class);
                         startActivity(intent);
 

@@ -2,22 +2,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/roo_Fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".Ui.Patient_all.Nav_Fragment_P.Home_Fragment">
-
+    tools:context=".Ui.Doctor_all.Nav_Fragment_D.Home_Fragment_D">
 
     <RelativeLayout
-        android:id="@+id/header"
+        android:id="@+id/HP_header_p"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_150sdp"
-        android:background="@drawable/bg_half_rounded"
-        android:backgroundTint="@color/Patient_Color" />
+        android:background="@drawable/bg_half_rounded" />
 
     <TextView
-        android:id="@+id/EP_title_p"
+        android:id="@+id/HP_title_d"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -29,15 +25,15 @@
         android:textSize="@dimen/_18sdp" />
 
     <View
-        android:id="@+id/EP_view_p"
+        android:id="@+id/HP_view_d"
         android:layout_width="30dp"
         android:layout_height="5dp"
-        android:layout_below="@id/EP_title_p"
+        android:layout_below="@id/HP_title_d"
         android:layout_centerHorizontal="true"
         android:background="@drawable/bg_search" />
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/HP_profile_img"
+        android:id="@+id/HP_profile_img_d"
         android:layout_width="@dimen/_100sdp"
         android:layout_height="@dimen/_100sdp"
         android:layout_centerHorizontal="true"
@@ -47,16 +43,16 @@
         app:civ_border_width="3dp" />
 
     <TextView
-        android:id="@+id/HP_patient_name"
+        android:id="@+id/HP_patient_name_d"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/HP_profile_img"
+        android:layout_below="@id/HP_profile_img_d"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/cairo_bold"
         android:lines="1"
         android:maxLines="1"
         android:singleLine="true"
-        android:textColor="@color/Patient_Color"
+        android:textColor="@color/Doctor_Color"
         android:textSize="@dimen/_16sdp" />
 
     <include
@@ -64,15 +60,16 @@
         layout="@layout/bell" />
 
     <EditText
-        android:id="@+id/HP_search_input"
+        android:id="@+id/HP_search_input_d"
         android:layout_width="@dimen/_260sdp"
         android:layout_height="@dimen/_40sdp"
-        android:layout_below="@id/HP_patient_name"
+        android:layout_below="@id/HP_patient_name_d"
         android:layout_marginStart="@dimen/_25sdp"
         android:layout_marginTop="@dimen/_10sdp"
         android:background="@drawable/search_input_style"
         android:drawableEnd="@drawable/ic_search"
         android:drawablePadding="@dimen/_10sdp"
+        android:drawableTint="@color/Doctor_Color"
         android:elevation="@dimen/_5sdp"
         android:fontFamily="@font/cairo_semibold"
         android:hint="|  أتبحث عن طبيب ؟"
@@ -84,17 +81,17 @@
         android:textSize="@dimen/_10sdp" />
 
     <RelativeLayout
-        android:id="@+id/head_parent"
+        android:id="@+id/HP_head_parent_d"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/HP_search_input"
+        android:layout_below="@id/HP_search_input_d"
         android:layout_marginTop="@dimen/_20sdp"
         android:background="?attr/selectableItemBackground"
         android:clickable="true"
         android:focusable="true">
 
         <TextView
-            android:id="@+id/group_title"
+            android:id="@+id/HP_group_title_d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -103,26 +100,27 @@
             android:fontFamily="@font/cairo_bold"
             android:lines="1"
             android:text="الأطباء الأكثر رواجاً"
-            android:textColor="@color/Patient_Color"
+            android:textColor="@color/Doctor_Color"
             android:textSize="@dimen/_12sdp" />
 
         <View
             android:layout_width="@dimen/_40sdp"
             android:layout_height="5dp"
-            android:layout_below="@id/group_title"
+            android:layout_below="@id/HP_group_title_d"
             android:layout_alignParentRight="true"
             android:layout_marginTop="@dimen/_20sdp"
             android:layout_marginEnd="@dimen/_20sdp"
             android:background="@drawable/bg_search"
-            android:backgroundTint="@color/Patient_Color" />
+            android:backgroundTint="@color/Doctor_Color" />
 
         <Button
-            android:id="@+id/view_all"
+            android:id="@+id/HP_view_all_d"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_30sdp"
             android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_13sdp"
             android:background="@drawable/bg_patient_button"
+            android:backgroundTint="@color/Doctor_Color"
             android:clickable="false"
             android:focusable="false"
             android:fontFamily="@font/cairo_bold"
@@ -136,10 +134,10 @@
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/HP_recyclerView"
+        android:id="@+id/HP_recyclerView_d"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/head_parent"
+        android:layout_below="@id/HP_head_parent_d"
         app:layout_constraintEnd_toEndOf="parent" />
 
 </RelativeLayout>

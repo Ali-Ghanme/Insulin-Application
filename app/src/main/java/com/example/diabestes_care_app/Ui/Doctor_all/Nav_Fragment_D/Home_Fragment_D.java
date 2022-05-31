@@ -1,8 +1,7 @@
-package com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P;
+package com.example.diabestes_care_app.Ui.Doctor_all.Nav_Fragment_D;
 
 import static android.content.Context.MODE_PRIVATE;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -37,7 +36,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class Home_Fragment extends Fragment {
+
+public class Home_Fragment_D extends Fragment {
     // implements Interface_Recycle
     FirebaseDatabase db;
     // Firebase
@@ -54,22 +54,23 @@ public class Home_Fragment extends Fragment {
     TextView username;
     ImageView imageProfile;
     // ShardPreference
-    public static final String MyPREFERENCES_P = "P_Username";
+    public static final String MyPREFERENCES_P = "D_Username";
     // Patient Username TextView
     String restoredText;
+
     // Notification Counter
     Notification_Number notification_number;
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home_, container, false);
-
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_home___d, container, false);
         //============================Defines=======================================================
-        searchInput = view.findViewById(R.id.HP_search_input);
-        username = view.findViewById(R.id.HP_patient_name);
-        recyclerView = view.findViewById(R.id.HP_recyclerView);
-        imageProfile = view.findViewById(R.id.HP_profile_img);
+        searchInput = view.findViewById(R.id.HP_search_input_d);
+        username = view.findViewById(R.id.HP_patient_name_d);
+        recyclerView = view.findViewById(R.id.HP_recyclerView_d);
+        imageProfile = view.findViewById(R.id.HP_profile_img_d);
         //============================Get Doctor Username===========================================
         SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         restoredText = prefs.getString("TAG_NAME", null);
@@ -123,7 +124,7 @@ public class Home_Fragment extends Fragment {
 
     //========================Get Doctor list Data From Firebase Function===========================
     private void GetDataFromFirebase() {
-        Query query = myRef.child("doctor");
+        Query query = myRef.child("patient");
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -131,8 +132,8 @@ public class Home_Fragment extends Fragment {
                 try {
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         DoctorListModel doctorListModel = new DoctorListModel();
-                        doctorListModel.setName(snapshot.child("personal_info").child("name_ar").getValue().toString());
-                        doctorListModel.setUsername(snapshot.child("personal_info").child("username").getValue().toString());
+                        doctorListModel.setName(snapshot.child("personal_info").child("name").getValue().toString());
+                        doctorListModel.setUsername(snapshot.child("username").getValue().toString());
                         doctorListModel.setImageUrl(snapshot.child("personal_info").child("Image").child("mImageUrI").getValue().toString());
                         list.add(doctorListModel);
                     }
@@ -162,16 +163,16 @@ public class Home_Fragment extends Fragment {
         list = new ArrayList<>();
     }
 
-    //============================Show The Patient name + image=====================================
+    //============================Show The doctor name + image=====================================
     @Override
     public void onStart() {
         super.onStart();
-        myRef = FirebaseDatabase.getInstance().getReference("patient");
+        myRef = FirebaseDatabase.getInstance().getReference("doctor");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String image = snapshot.child(restoredText).child("personal_info").child("Image").child("mImageUrI").getValue(String.class);
-                String name = snapshot.child(restoredText).child("personal_info").child("name").getValue(String.class);
+                String name = snapshot.child(restoredText).child("personal_info").child("name_ar").getValue(String.class);
                 Glide.with(getActivity()).load(image).into(imageProfile);
                 Log.d("TAG", name + "/" + image);
                 username.setText(name);
@@ -208,4 +209,3 @@ public class Home_Fragment extends Fragment {
         });
     }
 }
-

@@ -43,7 +43,7 @@ public class LogIn_Patient_Fragment extends Fragment {
     EditText username, password2;
     Button login, SingUp;
     SharedPreferences sharedpreferences;
-    public static final String MyPREFERENCES = "Username";
+    public static final String MyPREFERENCES_P = "P_Username";
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -56,7 +56,8 @@ public class LogIn_Patient_Fragment extends Fragment {
         username = view.findViewById(R.id.FSI_et_username_P);
         password2 = view.findViewById(R.id.FSI_et_pass_P);
         SingUp = view.findViewById(R.id.FSI_btn_Signup_P);
-        sharedpreferences = this.getActivity().getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+
+        sharedpreferences = this.getActivity().getSharedPreferences(MyPREFERENCES_P, Context.MODE_PRIVATE);
         //==============================Login Button================================================
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,21 +76,13 @@ public class LogIn_Patient_Fragment extends Fragment {
                             // fit password to specific username
                             String passwordFromDB = snapshot.child(patientEnterUsername).child("Password").getValue(String.class);
                             if (passwordFromDB.equals(patientEnterPassword)) {
-                                String nameFromDB = snapshot.child(patientEnterUsername).child("personal_info").child("name").getValue(String.class);
-                                String userNameFromDB = snapshot.child(patientEnterUsername).child("username").getValue(String.class);
-                                String phoneFromDB = snapshot.child(patientEnterUsername).child("personal_info").child("Phone").getValue(String.class);
-                                String ageFromDB = snapshot.child(patientEnterUsername).child("personal_info").child("Date").getValue(String.class);
-                                String emailFromDB = snapshot.child(patientEnterUsername).child("personal_info").child("Email").getValue(String.class);
-                                String NationalIDFromDB = snapshot.child(patientEnterUsername).child("personal_info").child("ID").getValue(String.class);
-                                Log.d("TAG", nameFromDB + "/" + userNameFromDB + "/" + phoneFromDB);
 
                                 SharedPreferences.Editor editor = sharedpreferences.edit();
                                 editor.putString("TAG_NAME", patientEnterUsername);
                                 editor.commit();
+
                                 Intent intent = new Intent(getContext(), Home_Patient.class);
                                 startActivity(intent);
-
-                                Toast.makeText(getActivity(), "Hallow", Toast.LENGTH_SHORT).show();
                             } else {
                                 password2.setError("Wrong Password");
                             }

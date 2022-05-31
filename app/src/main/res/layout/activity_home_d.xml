@@ -1,138 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#26B887"
     android:orientation="vertical"
     tools:context=".Ui.Doctor_all.Home_Doctor">
 
-    <RelativeLayout
-        android:id="@+id/header_dr"
+    <FrameLayout
+        android:id="@+id/fragment_container_d"
         android:layout_width="match_parent"
-        android:layout_height="110dp"
-        tools:ignore="MissingConstraints">
+        android:layout_height="@dimen/_550sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/home_txt_dr"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:fontFamily="@font/cairo_bold"
-            android:text="@string/Home"
-            android:textColor="@color/white"
-            android:textSize="30sp" />
-
-        <ImageView
-            android:id="@+id/profile_img_home_dr"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="30dp"
-            android:contentDescription="@string/todo"
-            android:elevation="3dp"
-            android:src="@drawable/ic_user_nav"
-            app:civ_border_color="@android:color/white"
-            app:civ_border_width="3dp" />
-
-        <ImageView
-            android:id="@+id/notification_img_home_dr"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="false"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="15dp"
-            android:contentDescription="@string/todo"
-            android:elevation="3dp"
-            android:src="@drawable/ic_notification"
-            app:civ_border_color="@android:color/white"
-            app:civ_border_width="3dp" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
+    <nl.joery.animatedbottombar.AnimatedBottomBar
+        android:id="@+id/animate_bottom_d"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:elevation="50dp"
-        android:ems="1">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:contentDescription="@string/todo"
-            android:src="@drawable/rectangel_home" />
-
-        <TextView
-            android:id="@+id/welcome_txt_dr"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="160dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="30dp"
-            android:fontFamily="@font/cairo_semibold"
-            android:text="@string/Welcome_text_dr"
-            android:textColor="@color/black"
-            android:textSize="25sp" />
-
-        <View
-            android:id="@+id/news"
-            android:layout_width="250dp"
-            android:layout_height="150dp"
-            android:layout_below="@+id/welcome_txt_dr"
-            android:layout_centerInParent="true"
-            android:background="@drawable/news_rectangel"
-            android:elevation="@dimen/_2sdp"
-            android:ems="1" />
-
-        <EditText
-            android:id="@+id/search_recipe_dr"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/news"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/search_input_style"
-            android:drawableEnd="@drawable/ic_search"
-            android:drawablePadding="10dp"
-            android:elevation="10dp"
-            android:ems="1"
-            android:fontFamily="@font/cairo_semibold"
-            android:hint="|  ألبحث عن مريض ؟"
-            android:iconifiedByDefault="false"
-            android:inputType="text"
-            android:queryBackground="@android:color/transparent"
-            android:textColor="@color/gray"
-            android:textDirection="rtl" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/search_recipe_dr"
-            android:layout_centerHorizontal="true" />
-
-        <nl.joery.animatedbottombar.AnimatedBottomBar
-            android:id="@+id/navigation_dr"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_50sdp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="-1dp"
-            android:background="@drawable/home_nav_bottom2"
-            android:elevation="@dimen/_50sdp"
-            app:abb_animationDuration="500"
-            app:abb_animationInterpolator="@android:anim/overshoot_interpolator"
-            app:abb_indicatorAppearance="round"
-            app:abb_indicatorColor="@color/white"
-            app:abb_indicatorHeight="@dimen/_8sdp"
-            app:abb_indicatorMargin="@dimen/_10sdp"
-            app:abb_selectedIndex="0"
-            app:abb_selectedTabType="text"
-            app:abb_tabAnimation="fade"
-            app:abb_tabColor="@color/white"
-            app:abb_tabColorSelected="@color/white"
-            app:abb_tabs="@menu/navgation"
-            app:abb_textAppearance="@style/CustomText" />
-    </RelativeLayout>
-</LinearLayout>
+        android:layout_height="@dimen/_50sdp"
+        android:background="@drawable/home_nav_bottom"
+        android:backgroundTint="@color/Doctor_Color"
+        android:elevation="@dimen/_100sdp"
+        app:abb_animationDuration="1000"
+        app:abb_animationInterpolator="@android:anim/overshoot_interpolator"
+        app:abb_indicatorAppearance="round"
+        app:abb_indicatorColor="@color/white"
+        app:abb_indicatorHeight="@dimen/_8sdp"
+        app:abb_indicatorMargin="@dimen/_10sdp"
+        app:abb_selectedIndex="0"
+        app:abb_selectedTabType="text"
+        app:abb_tabAnimation="fade"
+        app:abb_tabColor="@color/white"
+        app:abb_tabColorSelected="@color/white"
+        app:abb_tabs="@menu/navgation"
+        app:abb_textAppearance="@style/CustomText"
+        app:layout_constraintBottom_toBottomOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

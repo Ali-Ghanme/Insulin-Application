@@ -1,7 +1,9 @@
 package com.example.diabestes_care_app.Adapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,10 +26,10 @@ import com.example.diabestes_care_app.R;
 import java.util.ArrayList;
 
 public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.MyViewHolder> implements Filterable {
-    //private final Interface_Recycle interface_recycle;
     Context context;
     ArrayList<DoctorListModel> list;
     ArrayList<DoctorListModel> mDataFiltered;
+
 
     public DoctorListAdapter(Context context, ArrayList<DoctorListModel> list) {
         this.context = context;
@@ -39,7 +41,7 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.My
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.doctors_list, parent, false);
-        return new MyViewHolder(view); //interface_recycle
+        return new MyViewHolder(view);
     }
 
     @Override
@@ -52,7 +54,8 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.My
         holder.username.setText(list.get(position).getName());
 
         // ImageView : Glide Library
-        Glide.with(context).load(list.get(position).getImageUrl()).into(holder.imageView);
+        Glide.with(context).load(list.get(position).getImageUrl()).placeholder(R.drawable.ic_user).error(R.drawable.notifications).into(holder.imageView);
+
 
     }
 
@@ -96,13 +99,14 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.My
         ImageView imageView;
         RelativeLayout container;
 
-        public MyViewHolder(@NonNull View itemView) { // , Interface_Recycle interface_recycle
+        public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.Dl_doctor_name);
             username = itemView.findViewById(R.id.Dl_doctor_username);
             imageView = itemView.findViewById(R.id.Dl_Doctor_image);
             container = itemView.findViewById(R.id.Dl_container);
             itemView.setOnClickListener(this);
+
         }
 
         @Override

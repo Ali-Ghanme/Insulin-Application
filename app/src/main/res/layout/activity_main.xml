@@ -7,5 +7,4 @@
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".Ui.MainActivity">
-
 </androidx.constraintlayout.widget.ConstraintLayout>

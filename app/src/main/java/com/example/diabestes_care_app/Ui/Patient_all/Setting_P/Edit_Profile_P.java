@@ -1,6 +1,7 @@
 package com.example.diabestes_care_app.Ui.Patient_all.Setting_P;
 
-import static com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P.Home_Fragment.MyPREFERENCES;
+
+import static com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P.Home_Fragment.MyPREFERENCES_P;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -52,7 +53,7 @@ public class Edit_Profile_P extends Basic_Activity {
         imageView = findViewById(R.id.EP_Doctor_image_p);
 
         //============================username ShardPreference======================================
-        SharedPreferences prefs = Edit_Profile_P.this.getSharedPreferences(MyPREFERENCES, MODE_PRIVATE);
+        SharedPreferences prefs = Edit_Profile_P.this.getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         restoredText = prefs.getString("TAG_NAME", null);
 
         //====================Adapter Configuration=================================================

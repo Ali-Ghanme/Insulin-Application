@@ -208,4 +208,5 @@ public class Home_Fragment_D extends Fragment {
             }
         });
     }
+    // مشان يا الله يا غزة يلا
 }

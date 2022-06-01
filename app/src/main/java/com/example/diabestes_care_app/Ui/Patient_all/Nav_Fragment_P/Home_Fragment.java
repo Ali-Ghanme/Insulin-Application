@@ -184,7 +184,6 @@ public class Home_Fragment extends Fragment {
         });
     }
 
-
     private void manageConnections() {
         final DatabaseReference connectReference = db.getReference().child("connections");
         final DatabaseReference lastConnected = db.getReference().child("lastConnected");

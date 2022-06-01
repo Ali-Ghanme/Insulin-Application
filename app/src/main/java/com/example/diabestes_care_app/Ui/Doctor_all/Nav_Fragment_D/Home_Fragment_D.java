@@ -195,7 +195,7 @@ public class Home_Fragment_D extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 boolean connected = snapshot.getValue(boolean.class);
                 if (connected) {
-                    DatabaseReference con = connectReference.child("patient");
+                    DatabaseReference con = connectReference.child("doctor");
                     con.setValue(ServerValue.TIMESTAMP);
                     con.onDisconnect().setValue(false);
                     lastConnected.onDisconnect().setValue(ServerValue.TIMESTAMP);

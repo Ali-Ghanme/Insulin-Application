@@ -11,8 +11,7 @@
     android:background="@drawable/bg_doctors_list"
     android:clickable="true"
     android:elevation="1.5dp"
-    android:focusable="true"
-    >
+    android:focusable="true">
 
     <RelativeLayout
         android:id="@+id/Dl_container"
@@ -21,25 +20,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <ImageView
+        <Button
             android:id="@+id/starts"
-            android:layout_width="@dimen/_50sdp"
-            android:layout_height="@dimen/_10sdp"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_width="@dimen/_55sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@drawable/bg_patient_button"
             android:contentDescription="@string/todo"
-            android:src="@drawable/starts_icon" />
-
-        <TextView
-            android:id="@+id/starts_percent"
-            android:layout_width="@dimen/_20sdp"
-            android:layout_height="@dimen/_15sdp"
-            android:layout_marginStart="@dimen/_25sdp"
-            android:layout_marginTop="@dimen/_45sdp"
             android:fontFamily="@font/cairo_bold"
-            android:text="4.5"
-            android:textColor="@color/starts_color"
-            android:textSize="@dimen/_11sdp" />
+            android:text="متابعة"
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/Dl_doctor_name"

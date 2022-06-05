@@ -13,6 +13,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +29,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class LogIn_Doctor_Fragment extends Fragment {
 
     DatabaseReference DB_reference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://diabeticsproject-default-rtdb.firebaseio.com/");
@@ -34,6 +38,9 @@ public class LogIn_Doctor_Fragment extends Fragment {
     Button login, SingUp;
     TextView name;
     SharedPreferences sharedpreferences;
+    CheckBox remember;
+
+
     public static final String MyPREFERENCES_D = "D_Username";
 
     @Override
@@ -45,11 +52,21 @@ public class LogIn_Doctor_Fragment extends Fragment {
         //==============================Casting=====================================================
         login = view.findViewById(R.id.FIS_bt_D);
         username = view.findViewById(R.id.FIS_et_username_D);
+        remember = view.findViewById(R.id.rememberMy);
         password = view.findViewById(R.id.FIS_et_pass_D);
         name = view.findViewById(R.id.FSI_tv3_show_P);
         SingUp = view.findViewById(R.id.FIS_bt_sing_up_D);
-        sharedpreferences = this.getActivity().getSharedPreferences(MyPREFERENCES_D, Context.MODE_PRIVATE);
+        sharedpreferences = this.getActivity().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
+        SharedPreferences preferences = getActivity().getSharedPreferences("checkbox", MODE_PRIVATE);
+        String checkbox = preferences.getString("remember", "");
+        if (checkbox.equals("true")){
+            Intent intent = new Intent(getActivity(), Home_Doctor.class);
+            startActivity(intent);
+            Toast.makeText(getActivity(), "Un Checked", Toast.LENGTH_SHORT).show();
 
+        }else if (checkbox.equals("false")){
+            Toast.makeText(getActivity(), " Please Sign In", Toast.LENGTH_SHORT).show();
+        }
         //==============================Login Button================================================
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,5 +120,27 @@ public class LogIn_Doctor_Fragment extends Fragment {
                 Log.e("TAG", error.getMessage());
             }
         });
+
+
+        remember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (buttonView.isChecked()) {
+                    SharedPreferences preferences = getActivity().getSharedPreferences("checkbox", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("remember", "true");
+                    editor.apply();
+                    Toast.makeText(getActivity(), "Checked", Toast.LENGTH_SHORT).show();
+                } else if (!buttonView.isChecked()) {
+                    SharedPreferences preferences = getActivity().getSharedPreferences("checkbox", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("remember", "false");
+                    editor.apply();
+                    Toast.makeText(getActivity(), "Un Checked", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
     }
 }

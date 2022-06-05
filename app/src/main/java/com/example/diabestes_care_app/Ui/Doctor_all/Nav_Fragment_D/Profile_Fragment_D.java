@@ -86,6 +86,13 @@ public class Profile_Fragment_D extends Fragment {
         LogOut_cont.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                SharedPreferences preferences = getActivity().getSharedPreferences("checkbox", MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString("remember", "false");
+                editor.apply();
+              getActivity().finish();
+
                 Toast.makeText(getContext(), "Hallow LogOut is Unavailable right now 😉", Toast.LENGTH_SHORT).show();
             }
         });

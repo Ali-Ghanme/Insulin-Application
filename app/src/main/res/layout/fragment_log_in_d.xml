@@ -93,16 +93,16 @@
             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
         <CheckBox
-            android:id="@+id/FIS_ch_remember_D"
+            android:id="@+id/rememberMy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/FIS_et_pass_D"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_below="@id/FIS_et_pass_D"
             android:layout_marginEnd="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_8sdp"
             android:button="@drawable/bg_check_box_p"
             android:buttonTint="@color/Doctor_Color"
-            android:checked="true"
+
             android:fontFamily="@font/cairo_bold"
             android:layoutDirection="rtl"
             android:text="تذكرني"
@@ -114,7 +114,7 @@
             android:id="@+id/FIS_tv_show_D"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/FIS_ch_remember_D"
+            android:layout_below="@id/rememberMy"
             android:layout_alignParentEnd="true"
             android:layout_centerHorizontal="true"
             android:layout_marginRight="@dimen/_35sdp"

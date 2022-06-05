@@ -163,7 +163,7 @@ public class Home_Fragment_D extends Fragment {
         list = new ArrayList<>();
     }
 
-    //============================Show The doctor name + image=====================================
+    //============================Show The doctor name + image======================================
     @Override
     public void onStart() {
         super.onStart();
@@ -185,7 +185,7 @@ public class Home_Fragment_D extends Fragment {
         });
     }
 
-
+    //============================Show The doctor name + image======================================
     private void manageConnections() {
         final DatabaseReference connectReference = db.getReference().child("connections");
         final DatabaseReference lastConnected = db.getReference().child("lastConnected");

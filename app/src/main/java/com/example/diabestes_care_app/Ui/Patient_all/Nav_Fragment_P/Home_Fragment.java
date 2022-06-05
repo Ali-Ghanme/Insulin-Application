@@ -60,7 +60,6 @@ public class Home_Fragment extends Fragment {
     // Notification Counter
     Notification_Number notification_number;
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home_, container, false);
@@ -73,21 +72,19 @@ public class Home_Fragment extends Fragment {
         //============================Get Doctor Username===========================================
         SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         restoredText = prefs.getString("TAG_NAME", null);
-
         //============================Configure Recyclerview========================================
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
-        // Firebase
+        //============================Configure Firebase============================================
         myRef = FirebaseDatabase.getInstance().getReference();
-
-        // الفنكشن الخاصة بحالة المستخدم
+        //============================Get the status of User========================================
         db = FirebaseDatabase.getInstance();
         manageConnections();
 
-        // ArrayList
-        list = new ArrayList<>();
         //============================Put data in Recyclerview======================================
+        //ArrayList
+        list = new ArrayList<>();
         // Clear ArrayList
         ClearAll();
         // Get Data Method
@@ -98,20 +95,17 @@ public class Home_Fragment extends Fragment {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 doctorListAdapter.getFilter().filter(s);
                 search = s;
             }
-
             @Override
             public void afterTextChanged(Editable s) {
             }
         });
-
+        //============================Notification Counter by using it Function=====================
         notification_number = new Notification_Number(view.findViewById(R.id.bell));
-
         imageProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -184,6 +178,7 @@ public class Home_Fragment extends Fragment {
         });
     }
 
+    //============================Get the status of User============================================
     private void manageConnections() {
         final DatabaseReference connectReference = db.getReference().child("connections");
         final DatabaseReference lastConnected = db.getReference().child("lastConnected");
@@ -199,7 +194,6 @@ public class Home_Fragment extends Fragment {
                     lastConnected.onDisconnect().setValue(ServerValue.TIMESTAMP);
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Log.e("TAG", error.getMessage());

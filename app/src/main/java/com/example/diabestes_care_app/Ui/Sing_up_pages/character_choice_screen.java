@@ -74,4 +74,6 @@ public class character_choice_screen extends Basic_Activity {
             finish();
         }
     }
+    // Hallow this is update
+
 }

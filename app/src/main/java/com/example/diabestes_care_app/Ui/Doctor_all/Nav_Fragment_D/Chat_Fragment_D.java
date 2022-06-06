@@ -20,3 +20,4 @@ public class Chat_Fragment_D extends Fragment {
         return inflater.inflate(R.layout.fragment_chat___d, container, false);
     }
 }
+// Hallow this is update

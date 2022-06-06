@@ -1,5 +1,7 @@
 package com.example.diabestes_care_app.Ui.Sing_In.Fragment;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -19,6 +21,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,6 +40,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Objects;
+
 public class LogIn_Patient_Fragment extends Fragment {
 
     DatabaseReference DB_reference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://diabeticsproject-default-rtdb.firebaseio.com/");
@@ -44,6 +49,8 @@ public class LogIn_Patient_Fragment extends Fragment {
     Button login, SingUp;
     SharedPreferences sharedpreferences;
     public static final String MyPREFERENCES_P = "P_Username";
+    CheckBox rememberMe;
+    SharedPreferences preferences_P;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -56,8 +63,28 @@ public class LogIn_Patient_Fragment extends Fragment {
         username = view.findViewById(R.id.FSI_et_username_P);
         password2 = view.findViewById(R.id.FSI_et_pass_P);
         SingUp = view.findViewById(R.id.FSI_btn_Signup_P);
+        rememberMe = view.findViewById(R.id.FSI_remember_CB_P);
 
         sharedpreferences = this.getActivity().getSharedPreferences(MyPREFERENCES_P, Context.MODE_PRIVATE);
+
+        rememberMe.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (buttonView.isChecked()) {
+                    preferences_P = getActivity().getSharedPreferences("checkbox_P", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences_P.edit();
+                    editor.putString("remember_P", "true");
+                    editor.apply();
+                    Toast.makeText(getActivity(), "Checked", Toast.LENGTH_SHORT).show();
+                } else if (!buttonView.isChecked()) {
+                    preferences_P = getActivity().getSharedPreferences("checkbox_P", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences_P.edit();
+                    editor.putString("remember_P", "false");
+                    editor.apply();
+                    Toast.makeText(getActivity(), "Un Checked", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
         //==============================Login Button================================================
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +110,7 @@ public class LogIn_Patient_Fragment extends Fragment {
 
                                 Intent intent = new Intent(getContext(), Home_Patient.class);
                                 startActivity(intent);
+                                getActivity().finish();
                             } else {
                                 password2.setError("Wrong Password");
                             }

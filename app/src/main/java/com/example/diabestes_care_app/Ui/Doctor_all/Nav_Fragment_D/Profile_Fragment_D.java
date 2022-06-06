@@ -25,6 +25,8 @@ import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Patient_all.Setting_P.Edit_Profile_P;
 import com.example.diabestes_care_app.Ui.Patient_all.Setting_P.Help;
 import com.example.diabestes_care_app.Ui.Patient_all.Setting_P.notification;
+import com.example.diabestes_care_app.Ui.Sing_In.Sing_In;
+import com.example.diabestes_care_app.Ui.Sing_up_pages.character_choice_screen;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -86,14 +88,13 @@ public class Profile_Fragment_D extends Fragment {
         LogOut_cont.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                SharedPreferences preferences = getActivity().getSharedPreferences("checkbox", MODE_PRIVATE);
+                SharedPreferences preferences = getActivity().getSharedPreferences("checkbox_D", MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferences.edit();
-                editor.putString("remember", "false");
+                editor.putString("remember_D", "false");
                 editor.apply();
-              getActivity().finish();
-
-                Toast.makeText(getContext(), "Hallow LogOut is Unavailable right now 😉", Toast.LENGTH_SHORT).show();
+                Intent intent_d = new Intent(getActivity(), Sing_In.class);
+                startActivity(intent_d);
+                getActivity().finish();
             }
         });
         return view;

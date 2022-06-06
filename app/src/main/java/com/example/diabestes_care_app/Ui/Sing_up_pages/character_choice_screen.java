@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Doctor_all.Home_Doctor;
+import com.example.diabestes_care_app.Ui.Patient_all.Home_Patient;
 import com.example.diabestes_care_app.Ui.Sing_In.Sing_In;
 import com.example.diabestes_care_app.Ui.Sing_up_pages.Doctor.Sing_Up_1_D;
 import com.example.diabestes_care_app.Ui.Sing_up_pages.Patient.Sing_Up_1_P;
@@ -18,7 +19,7 @@ public class character_choice_screen extends Basic_Activity {
     Button btn_d;
     Button btn_p;
     Button log_in;
-    SharedPreferences preferences;
+    SharedPreferences preferences_D, preferences_P;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,14 +59,19 @@ public class character_choice_screen extends Basic_Activity {
     public void onStart() {
         super.onStart();
         //==============================Casting=====================================================
-        preferences = character_choice_screen.this.getSharedPreferences("checkbox", MODE_PRIVATE);
-        String checkbox = preferences.getString("remember", "");
-        if (checkbox.equals("true")) {
-            Intent intent = new Intent(character_choice_screen.this, Home_Doctor.class);
-            startActivity(intent);
-
-        } else if (checkbox.equals("false")) {
-            Toast.makeText(character_choice_screen.this, " Please Sign In", Toast.LENGTH_SHORT).show();
+        preferences_P = character_choice_screen.this.getSharedPreferences("checkbox_P", MODE_PRIVATE);
+        String checkbox_P = preferences_P.getString("remember_P", "");
+        if (checkbox_P.equals("true")) {
+            Intent intent_P = new Intent(character_choice_screen.this, Home_Patient.class);
+            startActivity(intent_P);
+            finish();
+        }
+        preferences_D = character_choice_screen.this.getSharedPreferences("checkbox_D", MODE_PRIVATE);
+        String checkbox_D = preferences_D.getString("remember_D", "");
+        if (checkbox_D.equals("true")) {
+            Intent intent_D = new Intent(character_choice_screen.this, Home_Doctor.class);
+            startActivity(intent_D);
+            finish();
         }
     }
 }

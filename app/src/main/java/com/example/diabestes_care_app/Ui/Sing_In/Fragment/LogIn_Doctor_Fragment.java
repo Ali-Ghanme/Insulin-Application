@@ -42,6 +42,7 @@ public class LogIn_Doctor_Fragment extends Fragment {
     SharedPreferences sharedpreferences;
     CheckBox remember;
     public static final String MyPREFERENCES_D = "D_Username";
+    SharedPreferences preferences_D;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -77,21 +78,20 @@ public class LogIn_Doctor_Fragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (buttonView.isChecked()) {
-                    SharedPreferences preferences = getActivity().getSharedPreferences("checkbox", MODE_PRIVATE);
-                    SharedPreferences.Editor editor = preferences.edit();
-                    editor.putString("remember", "true");
+                    preferences_D = getActivity().getSharedPreferences("checkbox_D", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences_D.edit();
+                    editor.putString("remember_D", "true");
                     editor.apply();
                     Toast.makeText(getActivity(), "Checked", Toast.LENGTH_SHORT).show();
                 } else if (!buttonView.isChecked()) {
-                    SharedPreferences preferences = getActivity().getSharedPreferences("checkbox", MODE_PRIVATE);
-                    SharedPreferences.Editor editor = preferences.edit();
-                    editor.putString("remember", "false");
+                     preferences_D = getActivity().getSharedPreferences("checkbox_D", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences_D.edit();
+                    editor.putString("remember_D", "false");
                     editor.apply();
                     Toast.makeText(getActivity(), "Un Checked", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
         return view;
     }
 
@@ -116,6 +116,7 @@ public class LogIn_Doctor_Fragment extends Fragment {
 
                         Intent intent = new Intent(getActivity(), Home_Doctor.class);
                         startActivity(intent);
+                        getActivity().finish();
 
                     } else {
                         password.setError("Wrong Password");

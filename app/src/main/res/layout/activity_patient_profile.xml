@@ -323,6 +323,5 @@
                 android:textColor="@color/gray"
                 android:textSize="15sp" />
         </RelativeLayout>
-
     </RelativeLayout>
 </LinearLayout>

@@ -66,8 +66,6 @@
             android:textStyle="bold" />
 
 
-
-
         <EditText
             android:id="@+id/FSI_et_pass_P"
             android:layout_width="@dimen/_230sdp"
@@ -77,13 +75,13 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:autofillHints="password"
             android:background="@drawable/bg_edit_text"
-            android:drawablePadding="@dimen/_13sdp"
             android:drawableStart="@drawable/ic_password_hide"
+            android:drawablePadding="@dimen/_13sdp"
             android:fontFamily="@font/cairo_bold"
             android:inputType="textPassword"
             android:maxLines="1"
-            android:paddingEnd="20dp"
             android:paddingStart="20dp"
+            android:paddingEnd="20dp"
             android:textColor="@color/Patient_Color"
             android:textColorHint="#78909C"
             android:textSize="15sp"

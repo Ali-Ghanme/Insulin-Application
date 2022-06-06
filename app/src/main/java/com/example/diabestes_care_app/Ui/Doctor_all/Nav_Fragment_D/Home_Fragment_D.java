@@ -57,7 +57,6 @@ public class Home_Fragment_D extends Fragment {
     public static final String MyPREFERENCES_P = "D_Username";
     // Patient Username TextView
     String restoredText;
-
     // Notification Counter
     Notification_Number notification_number;
 

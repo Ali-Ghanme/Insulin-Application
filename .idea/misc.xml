@@ -7,21 +7,17 @@
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/drawable/bg_doctor_button.xml" value="0.206" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/drawable/bg_doctors_list.xml" value="0.206" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/drawable/bg_edit_text.xml" value="0.206" />
-        <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/drawable/bg_log_in_header.xml" value="0.12" />
+        <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/drawable/bg_log_in_header.xml" value="0.206" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/drawable/bg_rectangel_splash_top.xml" value="0.206" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/drawable/bg_sing_up.xml" value="0.206" />
-        <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/drawable/ic_home.xml" value="0.1" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/drawable/list_task_back.xml" value="0.2625" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/drawable/list_task_back_cercel.xml" value="0.2535" />
-        <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/drawable/logout.xml" value="0.1395" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout-anydpi/activity_splash_screen_item.xml" value="0.22402736212056434" />
-        <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout-anydpi/patient_list.xml" value="0.1675929884566054" />
-        <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_about_app.xml" value="0.25" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_character_choice.xml" value="0.1" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_edit_profile_p.xml" value="0.25" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_food_system_patient_p.xml" value="0.18" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_help.xml" value="0.2" />
-        <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_home_d.xml" value="0.22" />
+        <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_home_d.xml" value="0.22119037568594344" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_home_p.xml" value="0.22119037568594344" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_instructions_patient_p.xml" value="0.2" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_log_in.xml" value="0.11584800741427248" />
@@ -35,19 +31,15 @@
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_sign_up_4_p.xml" value="0.1936978683966636" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_sign_up_5_p.xml" value="0.22" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/activity_space_post.xml" value="0.2" />
-        <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/custom_dilog.xml" value="0.1675929884566054" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/doctors_item.xml" value="0.2" />
-        <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/doctors_list.xml" value="0.1675929884566054" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/fragment_care_.xml" value="0.2" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/fragment_chat_.xml" value="0.22119037568594344" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/fragment_diabats__info.xml" value="0.33" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/fragment_home_.xml" value="0.22402736212056434" />
-        <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/fragment_home___d.xml" value="0.15433946130825138" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/fragment_log_in_d.xml" value="0.22402736212056434" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/fragment_log_in_p.xml" value="0.22402736212056434" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/fragment_personal__info.xml" value="0.25" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/fragment_profile_.xml" value="0.22" />
-        <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/fragment_profile___d.xml" value="0.2" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/post_doctor.xml" value="0.33" />
         <entry key="..\:/Android file/Diabestes_Care_App/app/src/main/res/layout/spinner_list_item.xml" value="0.22402736212056434" />
         <entry key="..\:/Diabestes_Care_App/app/src/main/res/layout/activity_patient_profile.xml" value="0.13043478260869565" />
@@ -66,6 +58,7 @@
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/drawable/bg_doctor_button.xml" value="0.211" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/drawable/bg_doctors_list.xml" value="0.2035" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/drawable/bg_edit_text.xml" value="0.202" />
+        <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/drawable/bg_half_rounded.xml" value="0.249" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/drawable/bg_log_in_header.xml" value="0.211" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/drawable/bg_log_in_tab.xml" value="0.177" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/drawable/bg_login.xml" value="0.2075" />
@@ -80,6 +73,7 @@
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/drawable/bg_rectangel_splash_bottom.xml" value="0.2375" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/drawable/bg_rectangel_splash_top.xml" value="0.211" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/drawable/bg_rectangel_top.xml" value="0.2375" />
+        <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/drawable/bg_search.xml" value="0.249" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/drawable/bg_sing_up.xml" value="0.241" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/drawable/bg_sing_up_bottom.xml" value="0.241" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/drawable/bt_log_in_doctor.xml" value="0.211" />
@@ -87,6 +81,7 @@
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/drawable/btn_gradient_style.xml" value="0.2035" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/drawable/btn_log_choice_screen.xml" value="0.2465" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/drawable/darkmode.xml" value="0.226" />
+        <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/drawable/dilog_background.xml" value="0.254" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/drawable/float_action_btn.xml" value="0.2" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/drawable/gender_background_selector.xml" value="0.1895" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/drawable/gender_background_selector_D.xml" value="0.2615" />
@@ -164,18 +159,20 @@
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout-mdpi/activity_patient_sing_up.xml" value="0.3111111111111111" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_character_choice.xml" value="0.32222222222222224" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_character_choice_screen.xml" value="0.34814814814814815" />
+        <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_doctor_profile_from_patient_prespactive.xml" value="0.32222222222222224" />
+        <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_doctor_profile_p.xml" value="0.32222222222222224" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_edit_profile_p.xml" value="0.3178082191780822" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_food_system_patient_p.xml" value="0.32222222222222224" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_help.xml" value="0.32222222222222224" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_home_activitey.xml" value="0.3194444444444444" />
-        <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_home_d.xml" value="0.2851851851851852" />
+        <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_home_d.xml" value="0.32222222222222224" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_home_dr.xml" value="0.34814814814814815" />
-        <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_home_p.xml" value="0.29814814814814816" />
+        <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_home_p.xml" value="0.32222222222222224" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_instructions_patient_p.xml" value="0.32222222222222224" />
-        <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_log_in.xml" value="0.2851851851851852" />
+        <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_log_in.xml" value="0.32222222222222224" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_main.xml" value="0.2975630611372381" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_notification.xml" value="0.3178082191780822" />
-        <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_patient_profile.xml" value="0.3178082191780822" />
+        <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_patient_profile.xml" value="0.32222222222222224" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_patient_sing_up.xml" value="0.3625" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_sign_up_1_d.xml" value="0.32222222222222224" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_sign_up_1_p.xml" value="0.32222222222222224" />
@@ -203,6 +200,8 @@
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_splash_screen1.xml" value="0.29379485014774165" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_splash_screen2.xml" value="0.2975630611372381" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_splash_screen3.xml" value="0.2975630611372381" />
+        <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/bell.xml" value="0.32222222222222224" />
+        <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/custom_dilog.xml" value="0.32222222222222224" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/doctors_item.xml" value="0.29814814814814816" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/doctors_list.xml" value="0.32222222222222224" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/fragment_care_.xml" value="0.32222222222222224" />
@@ -210,12 +209,14 @@
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/fragment_diabats__info.xml" value="0.3178082191780822" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/fragment_doctor_.xml" value="0.29743589743589743" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/fragment_health.xml" value="0.32222222222222224" />
-        <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/fragment_home_.xml" value="0.33" />
+        <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/fragment_home_.xml" value="0.32222222222222224" />
+        <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/fragment_home___d.xml" value="0.32222222222222224" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/fragment_log_in_d.xml" value="0.32222222222222224" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/fragment_log_in_p.xml" value="0.32222222222222224" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/fragment_patient.xml" value="0.29743589743589743" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/fragment_personal__info.xml" value="0.3178082191780822" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/fragment_profile_.xml" value="0.3178082191780822" />
+        <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/fragment_profile___d.xml" value="0.32222222222222224" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/home_patient.xml" value="0.33" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/patient_sing_up_1.xml" value="0.32222222222222224" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/post_doctor.xml" value="0.32222222222222224" />

@@ -19,11 +19,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Doctor_all.Home_Doctor;
 import com.example.diabestes_care_app.Ui.Patient_all.Home_Patient;
-import com.example.diabestes_care_app.Ui.Sing_up_pages.character_choice_screen;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -40,7 +38,11 @@ public class LogIn_Doctor_Fragment extends Fragment {
     Button login, SingUp;
     TextView name;
     SharedPreferences sharedpreferences;
+
+
     CheckBox remember;
+
+
     public static final String MyPREFERENCES_D = "D_Username";
     SharedPreferences preferences_D;
 
@@ -49,6 +51,7 @@ public class LogIn_Doctor_Fragment extends Fragment {
                              Bundle savedInstanceState) {
         //============================ Inflate the layout for this fragment=========================
         View view = inflater.inflate(R.layout.fragment_log_in_d, container, false);
+
         //==============================Casting=====================================================
         login = view.findViewById(R.id.FIS_bt_D);
         username = view.findViewById(R.id.FIS_et_username_D);
@@ -56,9 +59,19 @@ public class LogIn_Doctor_Fragment extends Fragment {
         password = view.findViewById(R.id.FIS_et_pass_D);
         name = view.findViewById(R.id.FSI_tv3_show_P);
         SingUp = view.findViewById(R.id.FIS_bt_sing_up_D);
-        //==============================Casting=====================================================
         sharedpreferences = this.getActivity().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
 
+        //==============================Remember Me Login Doctor================================================
+        SharedPreferences preferences = getActivity().getSharedPreferences("checkbox", MODE_PRIVATE);
+        String checkbox = preferences.getString("remember", "");
+        if (checkbox.equals("true")){
+            Intent intent = new Intent(getActivity(), Home_Doctor.class);
+            startActivity(intent);
+            Toast.makeText(getActivity(), "Un Checked", Toast.LENGTH_SHORT).show();
+
+        }else if (checkbox.equals("false")){
+            Toast.makeText(getActivity(), " Please Sign In", Toast.LENGTH_SHORT).show();
+        }
         //==============================Login Button================================================
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +86,8 @@ public class LogIn_Doctor_Fragment extends Fragment {
                 Toast.makeText(getActivity(), "Sing Up Success", Toast.LENGTH_SHORT).show();
             }
         });
+
+        //==============================Remember Me Login Doctor================================================
 
         remember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -92,6 +107,8 @@ public class LogIn_Doctor_Fragment extends Fragment {
                 }
             }
         });
+        //==============================END Remember Me Login Doctor ================================================
+
         return view;
     }
 
@@ -132,6 +149,9 @@ public class LogIn_Doctor_Fragment extends Fragment {
                 Log.e("TAG", error.getMessage());
             }
         });
+
+
+
     }
     // Hallow this is update
 

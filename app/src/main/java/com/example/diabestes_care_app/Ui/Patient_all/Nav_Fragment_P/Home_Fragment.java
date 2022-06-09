@@ -36,6 +36,7 @@ import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Home_Fragment extends Fragment {
     // implements Interface_Recycle
@@ -95,11 +96,13 @@ public class Home_Fragment extends Fragment {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 doctorListAdapter.getFilter().filter(s);
                 search = s;
             }
+
             @Override
             public void afterTextChanged(Editable s) {
             }
@@ -133,7 +136,7 @@ public class Home_Fragment extends Fragment {
                 } catch (Exception e) {
                     Toast.makeText(getContext(), "إنتظر قليلاً ", Toast.LENGTH_SHORT).show();
                 }
-                doctorListAdapter = new DoctorListAdapter(getContext(), list);
+                doctorListAdapter = new DoctorListAdapter(getContext(), list     );
                 recyclerView.setAdapter(doctorListAdapter);
                 doctorListAdapter.notifyDataSetChanged();
             }
@@ -194,6 +197,7 @@ public class Home_Fragment extends Fragment {
                     lastConnected.onDisconnect().setValue(ServerValue.TIMESTAMP);
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Log.e("TAG", error.getMessage());
@@ -201,5 +205,29 @@ public class Home_Fragment extends Fragment {
         });
     }
     // Hallow this is update
+
+
+
+
+    // User Status Mohammed Siam
+    private void status(String status) {
+        myRef = FirebaseDatabase.getInstance().getReference("doctor").child(restoredText);
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("status", status);
+        myRef.updateChildren(hashMap);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        status("online");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        status("offline");
+    }
+    // End User Status  Mohammed Siam
 }
 

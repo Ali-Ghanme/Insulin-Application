@@ -58,6 +58,8 @@ public class character_choice_screen extends Basic_Activity {
     @Override
     public void onStart() {
         super.onStart();
+        //============[عند عملية حفظ المستخدم بالتطبيق والرجوع يتم فتح التطبيق مباشرة ]==============
+
         //==============================Casting=====================================================
         preferences_P = character_choice_screen.this.getSharedPreferences("checkbox_P", MODE_PRIVATE);
         String checkbox_P = preferences_P.getString("remember_P", "");

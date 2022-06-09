@@ -120,7 +120,6 @@ public class Profile_Fragment_D extends Fragment {
             }
         });
     }
-    // مشان يا غزة غزة يلا
-    // Hallow this is update
+
 
 }

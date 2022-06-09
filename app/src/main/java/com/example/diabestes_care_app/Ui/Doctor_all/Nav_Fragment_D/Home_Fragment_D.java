@@ -139,7 +139,7 @@ public class Home_Fragment_D extends Fragment {
                 } catch (Exception e) {
                     Toast.makeText(getContext(), "إنتظر قليلاً ", Toast.LENGTH_SHORT).show();
                 }
-                doctorListAdapter = new DoctorListAdapter(getContext(), list);
+                doctorListAdapter = new DoctorListAdapter(getContext(), list );
                 recyclerView.setAdapter(doctorListAdapter);
                 doctorListAdapter.notifyDataSetChanged();
             }

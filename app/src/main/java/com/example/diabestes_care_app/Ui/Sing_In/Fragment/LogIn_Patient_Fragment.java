@@ -67,6 +67,7 @@ public class LogIn_Patient_Fragment extends Fragment {
 
         sharedpreferences = this.getActivity().getSharedPreferences(MyPREFERENCES_P, Context.MODE_PRIVATE);
 
+        //============================== Remember Me Login  Patient ================================================
         rememberMe.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -85,6 +86,8 @@ public class LogIn_Patient_Fragment extends Fragment {
                 }
             }
         });
+        //==============================End  Remember Me Login  Patient ================================================
+
         //==============================Login Button================================================
         login.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -62,6 +62,36 @@
             android:layout_height="@dimen/_60sdp"
             android:layout_marginStart="@dimen/_210sdp"
             android:layout_marginTop="@dimen/_5sdp" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_on"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="match_parent"
+
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_toLeftOf="@id/Dl_Doctor_image"
+            android:layout_toRightOf="@id/Dl_Doctor_image"
+            android:layout_toStartOf="@+id/Dl_Doctor_image"
+            android:src="@drawable/bg_doctor_button"
+            android:visibility="gone"
+            app:civ_border_color="@color/text_input_pa"
+            app:civ_border_width="@dimen/_10sdp" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_off"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="match_parent"
+            app:civ_border_width="@dimen/_10sdp"
+            app:civ_border_color="@color/gray"
+            android:src="@drawable/bg_patient_button"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_100sdp"
+            android:layout_toRightOf="@id/Dl_Doctor_image"
+            android:layout_toLeftOf="@id/Dl_Doctor_image"/>
+
+
+
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

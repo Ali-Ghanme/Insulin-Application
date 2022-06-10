@@ -164,4 +164,5 @@ public class Chat_Fragment extends Fragment {
             }
         });
     }
+    // Fix All Gradle Problem
 }

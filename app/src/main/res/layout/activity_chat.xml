@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,8 +7,12 @@
     tools:context=".chat.Chat">
 
     <RelativeLayout
+        android:id="@+id/chat_header"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498">
 
         <ImageView
             android:id="@+id/chat_back_btn"
@@ -24,21 +28,20 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/chat_profile_pic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
             android:layout_alignParentEnd="true"
             android:layout_centerInParent="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_20sdp"
             android:src="@drawable/ic_user" />
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/_5sdp"
-            android:layout_toStartOf="@id/chat_profile_pic"
-            android:orientation="vertical">
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_toStartOf="@id/chat_profile_pic">
 
             <TextView
                 android:id="@+id/chat_user_name"
@@ -46,32 +49,51 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/cairo_semibold"
                 android:maxLines="1"
-                android:text="اسم المستخدم"
                 android:textColor="#424242"
                 android:textSize="@dimen/_13sdp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/chat_user_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_55sdp"
-                android:layout_marginTop="@dimen/_3sdp"
                 android:fontFamily="@font/cairo_semibold"
                 android:text="نشط"
                 android:textColor="#00C853"
-                android:textSize="@dimen/_13sdp" />
-        </LinearLayout>
+                android:textSize="@dimen/_13sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/chat_user_name" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </RelativeLayout>
 
+    <View
+        style="@style/Divider.Horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/chat_header" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/Chat_RecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_above="@+id/send_box"
+        android:layout_below="@+id/chat_header"
+        app:layout_constraintBottom_toTopOf="@+id/send_box"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chat_header" />
+
     <RelativeLayout
+        android:id="@+id/send_box"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@drawable/chat_box"
         android:elevation="1dp"
         android:paddingTop="@dimen/_5sdp"
-        android:paddingBottom="@dimen/_5sdp">
+        android:paddingBottom="@dimen/_5sdp"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <EditText
             android:id="@+id/chat_message_box_EditText"
@@ -96,4 +118,4 @@
             android:src="@drawable/ic_icon_ionic_ios_send" />
 
     </RelativeLayout>
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

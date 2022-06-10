@@ -16,18 +16,13 @@ import androidx.annotation.NonNull;
 
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.R;
-import com.example.diabestes_care_app.Ui.Sing_up_pages.Patient.Sing_Up_1_P;
-import com.example.diabestes_care_app.Ui.Sing_up_pages.Patient.Sing_Up_2_P;
-import com.example.diabestes_care_app.Ui.Sing_up_pages.Patient.Sing_Up_4_P;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Locale;
 
 public class Sing_Up_1_D extends Basic_Activity {
 
@@ -63,6 +58,9 @@ public class Sing_Up_1_D extends Basic_Activity {
                 String doctorUsername = username.getText().toString();
                 String doctorDate = mDate.getText().toString();
 
+//                HashMap<String , String > hashMap = new HashMap<>();
+//                hashMap.put("username",doctorUsername);
+//                hashMap.put("status","offline");
                 //====================================Validation===============================
                 // cheek if user fill all data fields before sending data to firebase
                 if (validIsEmpty(doctorName_ar, doctorName_en, doctorUsername, doctorDate, doctorDate, doctorDate)) {

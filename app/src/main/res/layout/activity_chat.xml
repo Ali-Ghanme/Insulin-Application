@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".chat.Chat">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/chat_back_btn"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:background="@drawable/round_back_light"
+            android:paddingStart="@dimen/_12sdp"
+            android:paddingEnd="@dimen/_2sdp"
+            android:src="@drawable/ic_arrow_back" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/chat_profile_pic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:src="@drawable/ic_user" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_toStartOf="@id/chat_profile_pic"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/chat_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cairo_semibold"
+                android:maxLines="1"
+                android:text="اسم المستخدم"
+                android:textColor="#424242"
+                android:textSize="@dimen/_13sdp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/chat_user_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_55sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:fontFamily="@font/cairo_semibold"
+                android:text="نشط"
+                android:textColor="#00C853"
+                android:textSize="@dimen/_13sdp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/chat_box"
+        android:elevation="1dp"
+        android:paddingTop="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_5sdp">
+
+        <EditText
+            android:id="@+id/chat_message_box_EditText"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_toEndOf="@id/chat_send_message"
+            android:backgroundTint="@android:color/transparent"
+            android:fontFamily="@font/cairo_semibold"
+            android:hint="أكتب رسالتلك هنا "
+            android:textColorHint="@color/Patient_Color" />
+
+        <ImageView
+            android:id="@+id/chat_send_message"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:background="@drawable/bg_ic_background"
+            android:paddingTop="@dimen/_5sdp"
+            android:src="@drawable/ic_icon_ionic_ios_send" />
+
+    </RelativeLayout>
+</RelativeLayout>

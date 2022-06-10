@@ -34,14 +34,13 @@
                 android:textSize="15sp" />
 
             <TextView
-                android:id="@+id/weight"
+                android:id="@+id/FD_weight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/cairo_bold"
-                android:text="65"
                 android:textColor="@color/gray"
                 android:textSize="15sp" />
         </RelativeLayout>
@@ -68,14 +67,13 @@
                 android:textSize="15sp" />
 
             <TextView
-                android:id="@+id/length"
+                android:id="@+id/FD_length"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/cairo_bold"
-                android:text="157"
                 android:textColor="@color/gray"
                 android:textSize="15sp" />
 
@@ -89,8 +87,8 @@
             android:layout_below="@id/length_patient"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
-            android:paddingEnd="@dimen/_20sdp"
-            android:paddingStart="20dp">
+            android:paddingStart="20dp"
+            android:paddingEnd="@dimen/_20sdp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -104,14 +102,13 @@
                 android:textSize="15sp" />
 
             <TextView
-                android:id="@+id/age"
+                android:id="@+id/FD_age"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/cairo_bold"
-                android:text="22"
                 android:textColor="@color/gray"
                 android:textSize="15sp" />
 
@@ -126,8 +123,8 @@
             android:layout_below="@id/address_patient"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
-            android:paddingEnd="@dimen/_20sdp"
-            android:paddingStart="20dp">
+            android:paddingStart="20dp"
+            android:paddingEnd="@dimen/_20sdp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -141,16 +138,16 @@
                 android:textSize="15sp" />
 
             <TextView
-                android:id="@+id/date"
+                android:id="@+id/FD_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/cairo_bold"
-                android:text="05/01/2018"
                 android:textColor="@color/gray"
                 android:textSize="15sp" />
+
             <View style="@style/Divider.Horizontal" />
         </RelativeLayout>
         <RelativeLayout
@@ -175,14 +172,13 @@
                 android:textSize="15sp" />
 
             <TextView
-                android:id="@+id/number"
+                android:id="@+id/FD_Phone_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/cairo_bold"
-                android:text="0592149300"
                 android:textColor="@color/gray"
                 android:textSize="15sp" />
 
@@ -212,14 +208,13 @@
                 android:textSize="15sp" />
 
             <TextView
-                android:id="@+id/email"
+                android:id="@+id/FD_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/cairo_bold"
-                android:text="الايميل"
                 android:textColor="@color/gray"
                 android:textSize="15sp" />
 
@@ -236,6 +231,7 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:paddingEnd="20dp"
             android:paddingStart="20dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -248,14 +244,13 @@
                 android:textSize="15sp" />
 
             <TextView
-                android:id="@+id/address"
+                android:id="@+id/FD_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/cairo_bold"
-                android:text="قطاع غزة - دارنا"
                 android:textColor="@color/gray"
                 android:textSize="15sp" />
 

@@ -46,14 +46,14 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="20dp"
-            android:drawableEnd="@drawable/ic_arrwa"
             android:fontFamily="@font/cairo_regular"
             android:layoutDirection="rtl"
             android:paddingTop="@dimen/_20sdp"
             android:paddingBottom="@dimen/_20sdp"
             android:text="عن التطبيق  "
             android:textAlignment="textStart"
-            android:textSize="@dimen/_20sdp" />
+            android:textSize="@dimen/_13sdp"
+            app:drawableEndCompat="@drawable/ic_arrwa" />
 
     </RelativeLayout>
 
@@ -63,7 +63,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/help_app">
@@ -78,14 +77,14 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="20dp"
-            android:drawableEnd="@drawable/ic_arrwa"
+            android:fontFamily="@font/cairo_regular"
             android:layoutDirection="rtl"
             android:paddingTop="@dimen/_20sdp"
             android:paddingBottom="@dimen/_20sdp"
             android:text="عن التطبيق  "
             android:textAlignment="textStart"
-            android:textSize="@dimen/_20sdp" />
-
+            android:textSize="@dimen/_13sdp"
+            app:drawableEndCompat="@drawable/ic_arrwa" />
 
     </RelativeLayout>
 
@@ -95,7 +94,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/about_app">
@@ -109,15 +107,15 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginEnd="20dp"
-            android:drawableEnd="@drawable/ic_arrwa"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:fontFamily="@font/cairo_regular"
             android:layoutDirection="rtl"
             android:paddingTop="@dimen/_20sdp"
             android:paddingBottom="@dimen/_20sdp"
             android:text="اتفاقية الترخيص "
             android:textAlignment="textStart"
-            android:textSize="@dimen/_20sdp" />
-
+            android:textSize="@dimen/_13sdp"
+            app:drawableEndCompat="@drawable/ic_arrwa" />
 
     </RelativeLayout>
 
@@ -127,7 +125,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/agreement_app">
@@ -142,14 +139,14 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="20dp"
-            android:drawableEnd="@drawable/ic_arrwa"
+            android:fontFamily="@font/cairo_regular"
             android:layoutDirection="rtl"
             android:paddingTop="@dimen/_20sdp"
             android:paddingBottom="@dimen/_20sdp"
             android:text="شروط الخصوصية  "
             android:textAlignment="textStart"
-            android:textSize="@dimen/_20sdp" />
-
+            android:textSize="@dimen/_13sdp"
+            app:drawableEndCompat="@drawable/ic_arrwa" />
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -69,12 +69,12 @@
                 app:civ_border_color="@color/Doctor_Color"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
+
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/img_off"
                 android:layout_width="@dimen/_15sdp"
                 android:layout_height="@dimen/_15sdp"
                 android:backgroundTint="@color/gray"
-                android:visibility="gone"
                 android:background="@drawable/bg_patient_button"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>

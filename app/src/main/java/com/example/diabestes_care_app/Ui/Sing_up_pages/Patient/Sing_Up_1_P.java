@@ -22,9 +22,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Locale;
+
 
 public class Sing_Up_1_P extends Basic_Activity {
 
@@ -42,7 +41,7 @@ public class Sing_Up_1_P extends Basic_Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_1_p);
 
-        //====================================Next===============================
+        //====================================Define===============================
         btn_next_S = findViewById(R.id.Sp1_bt_next_P);
         mName = findViewById(R.id.Sp1_name_P);
         mUsername = findViewById(R.id.Sp1_username_P);
@@ -82,6 +81,9 @@ public class Sing_Up_1_P extends Basic_Activity {
                 String patientTall = mTall.getText().toString();
                 String PatientID = mID.getText().toString();
 
+//                HashMap<String , String > hashMap = new HashMap<>();
+//                hashMap.put("username",patientUsername);
+//                hashMap.put("status","offline");
                 //====================================Validation===============================
                 // cheek if user fill all data fields before sending data to firebase
                 if (validIsEmpty(patientName, patientUsername, patientWehigt, patientTall, PatientID, patientDate)) {

@@ -4,12 +4,6 @@ import static android.content.Context.MODE_PRIVATE;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -21,6 +15,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
 import com.example.diabestes_care_app.Adapters.DoctorListAdapter;
 import com.example.diabestes_care_app.Models.DoctorListModel;
@@ -31,11 +30,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 
 public class Home_Fragment_D extends Fragment {
@@ -84,7 +81,7 @@ public class Home_Fragment_D extends Fragment {
 
         // الفنكشن الخاصة بحالة المستخدم
         db = FirebaseDatabase.getInstance();
-        manageConnections();
+//        manageConnections();
 
         // ArrayList
         list = new ArrayList<>();
@@ -140,7 +137,7 @@ public class Home_Fragment_D extends Fragment {
                 } catch (Exception e) {
                     Toast.makeText(getContext(), "إنتظر قليلاً ", Toast.LENGTH_SHORT).show();
                 }
-                doctorListAdapter = new DoctorListAdapter(getContext(), list ,false );
+                doctorListAdapter = new DoctorListAdapter(getContext(), list, false);
                 recyclerView.setAdapter(doctorListAdapter);
                 doctorListAdapter.notifyDataSetChanged();
             }
@@ -185,49 +182,23 @@ public class Home_Fragment_D extends Fragment {
         });
     }
 
-    //============================Show The doctor name + image======================================
-    private void manageConnections() {
-        final DatabaseReference connectReference = db.getReference().child("connections");
-        final DatabaseReference lastConnected = db.getReference().child("lastConnected");
-        final DatabaseReference infoConnected = db.getReference(".info/connected");
-        infoConnected.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                boolean connected = snapshot.getValue(boolean.class);
-                if (connected) {
-                    DatabaseReference con = connectReference.child("doctor");
-                    con.setValue(ServerValue.TIMESTAMP);
-                    con.onDisconnect().setValue(false);
-                    lastConnected.onDisconnect().setValue(ServerValue.TIMESTAMP);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("TAG", error.getMessage());
-            }
-        });
-    }
-
-
-    // User Status Mohammed Siam
-    private void status(String status) {
-        myRef = FirebaseDatabase.getInstance().getReference("doctor").child(restoredText);
-        HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("status", status);
-        myRef.updateChildren(hashMap);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        status("online");
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        status("offline");
-    }
-    // End User Status  Mohammed Siam
+//    //============================Show The doctor name + image======================================
+//    private void status(String status) {
+//        myRef = FirebaseDatabase.getInstance().getReference("doctor").child(restoredText);
+//        HashMap<String, Object> hashMap = new HashMap<>();
+//        hashMap.put("status", status);
+//        myRef.updateChildren(hashMap);
+//    }
+//
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        status("online");
+//    }
+//
+//    @Override
+//    public void onPause() {
+//        super.onPause();
+//        status("offline");
+//    }
 }

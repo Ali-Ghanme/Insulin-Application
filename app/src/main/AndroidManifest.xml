@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.diabestes_care_app">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -12,31 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Diabestes_Care_App">
         <activity
-            android:name=".about"
-            android:exported="false" />
-        <activity
-            android:name=".Policy"
-            android:exported="false" />
-        <activity
-            android:name=".Privacy"
-            android:exported="false" />
-        <activity
-            android:name=".Syndrome"
-            android:exported="false" />
-        <activity
-            android:name=".Insulin_doses"
-            android:exported="false" />
-        <activity
-            android:name=".Coma"
-            android:exported="false" />
-        <activity
-            android:name=".Multiples"
-            android:exported="false" />
-        <activity
-            android:name=".Types"
-            android:exported="false" />
-        <activity
-            android:name=".about_app"
+            android:name=".chat.Chat"
             android:exported="false" />
         <activity
             android:name=".Ui.Patient_all.Doctor_Profile_P"

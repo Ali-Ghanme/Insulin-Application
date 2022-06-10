@@ -3,18 +3,18 @@ package com.example.diabestes_care_app.Ui.Patient_all.Setting_P;
 
 import static com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P.Home_Fragment.MyPREFERENCES_P;
 
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-
-import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
@@ -36,7 +36,7 @@ public class Edit_Profile_P extends Basic_Activity {
     MainAdapter2 adapter;
     DatabaseReference myRef;
     String restoredText;
-    TextView name, username;
+    TextView name;
     ImageView imageView;
 
     @Override
@@ -49,7 +49,6 @@ public class Edit_Profile_P extends Basic_Activity {
         tabLayout = findViewById(R.id.tab_layout_2);
         viewPager_subject = findViewById(R.id.viewpager_tab_2);
         name = findViewById(R.id.EP_doctor_name_p);
-        username = findViewById(R.id.EP_username_p);
         imageView = findViewById(R.id.EP_Doctor_image_p);
 
         //============================username ShardPreference======================================
@@ -110,10 +109,8 @@ public class Edit_Profile_P extends Basic_Activity {
                 String PatientName = snapshot.child(restoredText).child("personal_info").child("name").getValue(String.class);
                 Log.d("TAG", name + "/" + PatientImage);
                 Glide.with(Edit_Profile_P.this).load(PatientImage).into(imageView);
-                username.setText(restoredText);
                 name.setText(PatientName);
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
             }

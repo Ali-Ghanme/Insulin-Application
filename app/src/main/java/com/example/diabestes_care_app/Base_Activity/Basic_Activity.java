@@ -1,33 +1,17 @@
 package com.example.diabestes_care_app.Base_Activity;
 
-import android.Manifest;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
-import android.text.Layout;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
-import android.view.View;
 import android.view.WindowManager;
 import android.webkit.MimeTypeMap;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
-import android.widget.ImageView;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.diabestes_care_app.R;
-import com.example.diabestes_care_app.Ui.Sing_up_pages.Patient.Sing_Up_1_P;
-import com.karumi.dexter.Dexter;
-import com.karumi.dexter.PermissionToken;
-import com.karumi.dexter.listener.PermissionDeniedResponse;
-import com.karumi.dexter.listener.PermissionGrantedResponse;
-import com.karumi.dexter.listener.PermissionRequest;
-import com.karumi.dexter.listener.single.PermissionListener;
-import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -104,4 +88,5 @@ public class Basic_Activity extends AppCompatActivity {
         SimpleDateFormat dateFormat = new SimpleDateFormat(myFormat, Locale.UK);
         mData.setText(dateFormat.format(myCalendar.getTime()));
     }
+
 }

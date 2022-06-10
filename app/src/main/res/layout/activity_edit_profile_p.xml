@@ -44,8 +44,7 @@
             android:layout_width="@dimen/_100sdp"
             android:layout_height="@dimen/_100sdp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_75sdp"
-            android:layout_marginEnd="15dp"
+            android:layout_marginTop="@dimen/_65sdp"
             android:layout_marginBottom="10dp"
             android:elevation="3dp"
             app:civ_border_color="@android:color/white"
@@ -63,19 +62,6 @@
             android:singleLine="true"
             android:textColor="@color/Patient_Color"
             android:textSize="@dimen/_14sdp" />
-
-        <TextView
-            android:id="@+id/EP_username_p"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/EP_doctor_name_p"
-            android:layout_centerHorizontal="true"
-            android:fontFamily="@font/cairo_regular"
-            android:lines="1"
-            android:maxLines="1"
-            android:singleLine="true"
-            android:textColor="@color/gray"
-            android:textSize="@dimen/_13sdp" />
 
     </RelativeLayout>
 
@@ -102,6 +88,7 @@
         app:tabIndicator="@drawable/bg_log_in_tab"
         app:tabIndicatorAnimationMode="elastic"
         app:tabIndicatorColor="@color/Patient_Color"
+        android:layout_marginTop="@dimen/_10sdp"
         app:tabIndicatorFullWidth="true"
         app:tabIndicatorGravity="stretch"
         app:tabMaxWidth="@dimen/_300sdp"

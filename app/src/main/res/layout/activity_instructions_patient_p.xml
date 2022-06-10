@@ -62,11 +62,11 @@
 
         <ListView
             android:id="@+id/lv"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:layout_below="@id/Sing_up_1_date_dr"
             android:layout_width="match_parent"
-            android:textDirection="rtl"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Sing_up_1_date_dr"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:textDirection="rtl">
 
         </ListView>
     </RelativeLayout>

@@ -47,6 +47,7 @@ public class Chat_Fragment extends Fragment {
     private String chatKey = "";
     private boolean dataSet = false;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp">
+
+
+        <LinearLayout
+            android:id="@+id/oppoLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_50sdp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/oppoMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/opo_msg_back"
+                android:fontFamily="@font/cairo_bold"
+                android:padding="@dimen/_20sdp"
+                android:text="this is opponent message"
+                android:textColor="#424242" />
+
+            <TextView
+                android:id="@+id/oppoMsgTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:text="10-08-2021 05:12 PM"
+                android:textSize="@dimen/_9sdp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/myMsgLayout"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_50sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/myMsgMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/my_msg_back"
+                android:fontFamily="@font/cairo_bold"
+                android:padding="@dimen/_20sdp"
+                android:text="this is my message"
+                android:textColor="#424242" />
+
+            <TextView
+                android:id="@+id/myMSgTime"
+                android:layout_gravity="end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:text="10-08-2021 05:12 PM"
+                android:textSize="@dimen/_9sdp" />
+
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

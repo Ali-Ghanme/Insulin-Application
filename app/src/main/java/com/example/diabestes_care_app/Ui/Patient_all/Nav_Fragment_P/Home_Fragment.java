@@ -136,7 +136,7 @@ public class Home_Fragment extends Fragment {
                 } catch (Exception e) {
                     Toast.makeText(getContext(), "إنتظر قليلاً ", Toast.LENGTH_SHORT).show();
                 }
-                doctorListAdapter = new DoctorListAdapter(getContext(), list     );
+                doctorListAdapter = new DoctorListAdapter(getContext()  , list , false );
                 recyclerView.setAdapter(doctorListAdapter);
                 doctorListAdapter.notifyDataSetChanged();
             }
@@ -211,7 +211,7 @@ public class Home_Fragment extends Fragment {
 
     // User Status Mohammed Siam
     private void status(String status) {
-        myRef = FirebaseDatabase.getInstance().getReference("doctor").child(restoredText);
+        myRef = FirebaseDatabase.getInstance().getReference("patient").child(restoredText);
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("status", status);
         myRef.updateChildren(hashMap);

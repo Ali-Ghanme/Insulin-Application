@@ -2,6 +2,7 @@ package com.example.diabestes_care_app.Ui.Patient_all.Community;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -30,6 +31,9 @@ ListView lv;
         ArrayAdapter items = new ArrayAdapter(this, android.R.layout.simple_list_item_activated_1 ,Item );
         ListView list = (ListView) findViewById(R.id.lv);
         list.setAdapter(items);
+
+
+
 
     }
 }

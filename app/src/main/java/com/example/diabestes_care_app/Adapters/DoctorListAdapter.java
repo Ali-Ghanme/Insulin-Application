@@ -19,6 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.diabestes_care_app.Models.PatientListModel;
 import com.example.diabestes_care_app.Ui.Patient_all.Doctor_Profile_P;
 import com.example.diabestes_care_app.Models.DoctorListModel;
 import com.example.diabestes_care_app.R;
@@ -29,12 +30,13 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.My
     Context context;
     ArrayList<DoctorListModel> list;
     ArrayList<DoctorListModel> mDataFiltered;
+    boolean isChat;
 
-
-    public DoctorListAdapter(Context context, ArrayList<DoctorListModel> list) {
+    public DoctorListAdapter(Context context, ArrayList<DoctorListModel> list, boolean isChat) {
         this.context = context;
         this.list = list;
         this.mDataFiltered = list;
+        this.isChat = isChat;
     }
 
     @NonNull
@@ -48,7 +50,8 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.My
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.imageView.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition_animation));
         holder.container.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_scale_animation));
-
+        // instuns new Mohammed Siam
+        DoctorListModel Doctor = mDataFiltered.get(position);
         // TextView
         holder.name.setText(list.get(position).getName());
         holder.username.setText(list.get(position).getName());
@@ -56,6 +59,25 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.My
         // ImageView : Glide Library
         Glide.with(context).load(list.get(position).getImageUrl()).placeholder(R.drawable.ic_user).error(R.drawable.notifications).into(holder.imageView);
 
+        try {
+// Chek , visible & gone user status mohammed siam
+            if (isChat) {
+                if (Doctor.getStatus().equals("online")) {
+                    holder.img_on.setVisibility(View.VISIBLE);
+                    holder.img_off.setVisibility(View.GONE);
+                } else {
+                    holder.img_on.setVisibility(View.GONE);
+                    holder.img_off.setVisibility(View.VISIBLE);
+                }
+            }
+                else {
+                holder.img_on.setVisibility(View.GONE);
+               holder.img_off.setVisibility(View.GONE);
+         }
+// End Chek , visible & gone user status mohammed siam
+        } catch (Exception e) {
+            Toast.makeText(context.getApplicationContext(), " حالة المستخدم غير مستقرة ", Toast.LENGTH_SHORT).show();
+        }
 
     }
 
@@ -98,6 +120,7 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.My
         TextView name, username;
         ImageView imageView;
         RelativeLayout container;
+        private ImageView img_off, img_on;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -105,6 +128,8 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.My
             username = itemView.findViewById(R.id.Dl_doctor_username);
             imageView = itemView.findViewById(R.id.Dl_Doctor_image);
             container = itemView.findViewById(R.id.Dl_container);
+            img_off = itemView.findViewById(R.id.img_off);
+            img_on = itemView.findViewById(R.id.img_on);
             itemView.setOnClickListener(this);
 
         }

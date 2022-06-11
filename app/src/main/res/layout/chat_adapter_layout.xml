@@ -55,7 +55,7 @@
                 android:fontFamily="@font/cairo_bold"
                 android:padding="@dimen/_20sdp"
                 android:text="this is my message"
-                android:textColor="#424242" />
+                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/myMSgTime"

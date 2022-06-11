@@ -1,4 +1,4 @@
-package com.example.diabestes_care_app.chat.Adapter;
+package com.example.diabestes_care_app.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,19 +12,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.diabestes_care_app.MemoryData.MemoryData;
 import com.example.diabestes_care_app.R;
-import com.example.diabestes_care_app.chat.Model.ChatList;
+import com.example.diabestes_care_app.Models.ChatList;
 
 import java.util.List;
 
 public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MyViewHolder> {
     private List<ChatList> chatListList;
     final Context context;
-    private final String username;
+    private final String PatientUsername;
 
     public ChatAdapter(List<ChatList> chatListList, Context context) {
         this.chatListList = chatListList;
         this.context = context;
-        this.username = MemoryData.getData(context);
+        this.PatientUsername = MemoryData.getPatientData(context);
     }
 
     @NonNull
@@ -36,19 +36,20 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ChatAdapter.MyViewHolder holder, int position) {
         ChatList list = chatListList.get(position);
-        if (list.getUsername().equals(username)) {
+        if (list.getUsername().equals(PatientUsername)) {
+            holder.myMsgLayout.setVisibility(View.GONE);
+            holder.oppoLayout.setVisibility(View.VISIBLE);
+
+            holder.oppoMessage.setText(list.getMessage());
+            holder.oppoTime.setText(list.getDate() + "" + list.getTime());
+        } else {
+
             holder.myMsgLayout.setVisibility(View.VISIBLE);
             holder.oppoLayout.setVisibility(View.GONE);
 
             holder.myMessage.setText(list.getMessage());
             holder.myTime.setText(list.getDate() + "" + list.getTime());
 
-        } else {
-            holder.myMsgLayout.setVisibility(View.GONE);
-            holder.oppoLayout.setVisibility(View.VISIBLE);
-
-            holder.oppoMessage.setText(list.getMessage());
-            holder.oppoTime.setText(list.getDate() + "" + list.getTime());
         }
     }
 

@@ -35,7 +35,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Chat_Fragment extends Fragment {
     private RecyclerView messagesRecycleReview;
-    String restoredText;
+    String PatientUsername;
     DatabaseReference myRef;
     CircleImageView imageView;
     // Variables
@@ -66,7 +66,8 @@ public class Chat_Fragment extends Fragment {
         messagesRecycleReview.setAdapter(messagesAdapter);
         //============================Defines=======================================================
         SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
-        restoredText = prefs.getString("TAG_NAME", null);
+        PatientUsername = prefs.getString("TAG_NAME", null);
+        Toast.makeText(getContext(), PatientUsername, Toast.LENGTH_SHORT).show();
         return view;
     }
 
@@ -78,11 +79,11 @@ public class Chat_Fragment extends Fragment {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String PatientImage = snapshot.child(restoredText).child("personal_info").child("Image").child("mImageUrI").getValue(String.class);
+                String PatientImage = snapshot.child(PatientUsername).child("personal_info").child("Image").child("mImageUrI").getValue(String.class);
                 Glide.with(getContext()).load(PatientImage).into(imageView);
 
                 // Save Username to MemoryData
-                MemoryData.saveData(restoredText, getContext());
+                MemoryData.savePatientData(PatientUsername, getContext());
             }
 
             @Override
@@ -106,6 +107,7 @@ public class Chat_Fragment extends Fragment {
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         final String getName = snapshot.child("personal_info").child("name_ar").getValue().toString();
                         final String getUsername = snapshot.child("personal_info").child("username").getValue().toString();
+//                        Toast.makeText(getContext(), getUsername, Toast.LENGTH_SHORT).show();
                         dataSet = false;
                         final String getDoctorImage = snapshot.child("personal_info").child("Image").child("mImageUrI").getValue().toString();
 
@@ -124,7 +126,7 @@ public class Chat_Fragment extends Fragment {
                                             final String getUserOne = dataSnapshot1.child("patient_1").getValue(String.class);
                                             final String getUserTow = dataSnapshot1.child("doctor_2").getValue(String.class);
 
-                                            if ((getUserOne.equals(getUsername) && getUserTow.equals(restoredText)) || (getUserOne.equals(restoredText) && getUserTow.equals(getUsername))) {
+                                            if ((getUserOne.equals(getUsername) && getUserTow.equals(PatientUsername)) || (getUserOne.equals(PatientUsername) && getUserTow.equals(getUsername))) {
                                                 for (DataSnapshot chatDataSnapshot : dataSnapshot1.child("messages").getChildren()) {
                                                     final long getMessageKey = Long.parseLong(chatDataSnapshot.getKey());
                                                     final long getLastSeenMessage = Long.parseLong(MemoryData.getLastMsgTS(getContext(), getKey));

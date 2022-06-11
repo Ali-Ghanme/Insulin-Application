@@ -1,4 +1,4 @@
-package com.example.diabestes_care_app.chat.Model;
+package com.example.diabestes_care_app.Models;
 
 public class ChatList {
     private String username, name, message, date, time;

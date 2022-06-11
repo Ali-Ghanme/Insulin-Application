@@ -18,8 +18,8 @@ import com.bumptech.glide.Glide;
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.MemoryData.MemoryData;
 import com.example.diabestes_care_app.R;
-import com.example.diabestes_care_app.chat.Adapter.ChatAdapter;
-import com.example.diabestes_care_app.chat.Model.ChatList;
+import com.example.diabestes_care_app.Adapters.ChatAdapter;
+import com.example.diabestes_care_app.Models.ChatList;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -57,6 +57,7 @@ public class Chat extends Basic_Activity {
         fullscreen();
         setContentView(R.layout.activity_chat);
 
+        //============================Defines=======================================================
         backButton = findViewById(R.id.chat_back_btn);
         SendButton = findViewById(R.id.chat_send_message);
         profile_image = findViewById(R.id.chat_profile_pic);
@@ -64,16 +65,19 @@ public class Chat extends Basic_Activity {
         chatEditText = findViewById(R.id.chat_message_box_EditText);
         ChatRecyclerView = findViewById(R.id.Chat_RecyclerView);
 
+        //============================Defines SharedPreferences=====================================
         SharedPreferences prefs = Chat.this.getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         restoredText = prefs.getString("TAG_NAME", null);
 
+        //============================Defines SharedPreferences=====================================
         ChatRecyclerView.setHasFixedSize(true);
         ChatRecyclerView.setLayoutManager(new LinearLayoutManager(Chat.this));
 
+        //============================Defines SharedPreferences=====================================
         chatAdapter = new ChatAdapter(chatLists, Chat.this);
         ChatRecyclerView.setAdapter(chatAdapter);
 
-        // Get data from message adapter class
+        //============================Get data from message adapter class===========================
         String getName = getIntent().getStringExtra("name");
         String getProfilePic = getIntent().getStringExtra("profile_pic");
         String getUsername = getIntent().getStringExtra("username");

@@ -123,14 +123,17 @@ public class Chat_Fragment extends Fragment {
                                         chatKey = getKey;
 
                                         if (dataSnapshot1.hasChild("patient_1") && dataSnapshot1.hasChild("doctor_2") && dataSnapshot1.hasChild("messages")) {
+
                                             final String getUserOne = dataSnapshot1.child("patient_1").getValue(String.class);
                                             final String getUserTow = dataSnapshot1.child("doctor_2").getValue(String.class);
 
                                             if ((getUserOne.equals(getUsername) && getUserTow.equals(PatientUsername)) || (getUserOne.equals(PatientUsername) && getUserTow.equals(getUsername))) {
                                                 for (DataSnapshot chatDataSnapshot : dataSnapshot1.child("messages").getChildren()) {
+
                                                     final long getMessageKey = Long.parseLong(chatDataSnapshot.getKey());
                                                     final long getLastSeenMessage = Long.parseLong(MemoryData.getLastMsgTS(getContext(), getKey));
                                                     lastMessage = chatDataSnapshot.child("msg").getValue(String.class);
+
                                                     if (getMessageKey > getLastSeenMessage) {
                                                         unseenMessage++;
                                                     }
@@ -167,5 +170,4 @@ public class Chat_Fragment extends Fragment {
             }
         });
     }
-    // Fix All Gradle Problem
 }

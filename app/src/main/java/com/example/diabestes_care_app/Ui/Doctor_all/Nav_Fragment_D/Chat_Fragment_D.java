@@ -47,6 +47,7 @@ public class Chat_Fragment_D extends Fragment {
     private String chatKey = "";
     private boolean dataSet = false;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -58,7 +59,7 @@ public class Chat_Fragment_D extends Fragment {
         imageView = view.findViewById(R.id.FCH_profile_img_p);
 
         myRef = FirebaseDatabase.getInstance().getReference();
-
+        GetDataFromFirebase();
         messagesRecycleReview.setHasFixedSize(true);
         messagesRecycleReview.setLayoutManager(new LinearLayoutManager(getContext()));
         messagesAdapter = new MessagesAdapter(messagesLists, getContext());
@@ -66,8 +67,8 @@ public class Chat_Fragment_D extends Fragment {
         //============================Defines SharedPreferences=====================================
         SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
         DoctorUsername = prefs.getString("TAG_NAME", null);
-        GetDataFromFirebase();
-//        Toast.makeText(getContext(), DoctorUsername, Toast.LENGTH_SHORT).show();
+
+        Toast.makeText(getContext(), DoctorUsername, Toast.LENGTH_SHORT).show();
         return view;
     }
 
@@ -105,9 +106,9 @@ public class Chat_Fragment_D extends Fragment {
                 chatKey = "";
                 try {
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        String getName = snapshot.child("personal_info").child("name").getValue(String.class);
-                        String getUsername = snapshot.child("personal_info").child("username").getValue(String.class);
-                        Toast.makeText(getContext(), getUsername, Toast.LENGTH_SHORT).show();
+                        String getDoctorName = snapshot.child("personal_info").child("name").getValue(String.class);
+                        String getDoctorUsername = snapshot.child("username").getValue(String.class);
+//                        Toast.makeText(getContext(), getUsername, Toast.LENGTH_SHORT).show();
                         dataSet = false;
                         final String getDoctorImage = snapshot.child("personal_info").child("Image").child("mImageUrI").getValue(String.class);
 
@@ -127,7 +128,7 @@ public class Chat_Fragment_D extends Fragment {
                                             final String getUserOne = dataSnapshot1.child("patient_1").getValue(String.class);
                                             final String getUserTow = dataSnapshot1.child("doctor_2").getValue(String.class);
 
-                                            if ((getUserOne.equals(getUsername) && getUserTow.equals(DoctorUsername)) || (getUserOne.equals(DoctorUsername) && getUserTow.equals(getUsername))) {
+                                            if ((getUserOne.equals(DoctorUsername) && getUserTow.equals(getDoctorUsername)) || (getUserOne.equals(getDoctorUsername) && getUserTow.equals(DoctorUsername))) {
                                                 for (DataSnapshot chatDataSnapshot : dataSnapshot1.child("messages").getChildren()) {
 
                                                     final long getMessageKey = Long.parseLong(chatDataSnapshot.getKey());
@@ -144,7 +145,7 @@ public class Chat_Fragment_D extends Fragment {
                                 }
                                 if (!dataSet) {
                                     dataSet = true;
-                                    MessagesList messagesList = new MessagesList(getName, getUsername, lastMessage, getDoctorImage, chatKey, unseenMessage);
+                                    MessagesList messagesList = new MessagesList(getDoctorName, getDoctorUsername, lastMessage, getDoctorImage, chatKey, unseenMessage);
                                     messagesLists.add(messagesList);
                                     messagesAdapter.UpdateData(messagesLists);
                                     messagesAdapter.notifyDataSetChanged();

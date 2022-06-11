@@ -55,7 +55,7 @@
         app:civ_border_width="3dp" />
 
     <TextView
-        android:id="@+id/HP_patient_name"
+        android:id="@+id/HP_doctor_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/HP_profile_img"
@@ -71,7 +71,7 @@
         android:id="@+id/starts"
         android:layout_width="@dimen/_50sdp"
         android:layout_height="@dimen/_10sdp"
-        android:layout_below="@id/HP_patient_name"
+        android:layout_below="@id/HP_doctor_name"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_25sdp"

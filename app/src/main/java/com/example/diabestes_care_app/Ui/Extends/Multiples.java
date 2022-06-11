@@ -1,14 +1,16 @@
-package com.example.diabestes_care_app;
+package com.example.diabestes_care_app.Ui.Extends;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class Types extends AppCompatActivity {
+import com.example.diabestes_care_app.R;
+
+public class Multiples extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_types);
+        setContentView(R.layout.activity_multiples);
     }
 }

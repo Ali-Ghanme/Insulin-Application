@@ -17,7 +17,7 @@
         android:backgroundTint="@color/Patient_Color" />
 
     <TextView
-        android:id="@+id/EP_title_p"
+        android:id="@+id/HP_title_p"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -29,10 +29,10 @@
         android:textSize="@dimen/_18sdp" />
 
     <View
-        android:id="@+id/EP_view_p"
+        android:id="@+id/HP_view_p"
         android:layout_width="30dp"
         android:layout_height="5dp"
-        android:layout_below="@id/EP_title_p"
+        android:layout_below="@id/HP_title_p"
         android:layout_centerHorizontal="true"
         android:background="@drawable/bg_search" />
 

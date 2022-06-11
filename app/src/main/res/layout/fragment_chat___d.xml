@@ -1,14 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Ui.Doctor_all.Nav_Fragment_D.Chat_Fragment_D">
 
-    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:id="@+id/FCH_header_p"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp"
+        android:background="@drawable/bg_half_rounded" />
+
     <TextView
+        android:id="@+id/FCH_title_p"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="@dimen/_90sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:fontFamily="@font/cairo_bold"
+        android:text="المحادثات"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_18sdp" />
+
+    <View
+        android:id="@+id/FCH_view_p"
+        android:layout_width="30dp"
+        android:layout_height="5dp"
+        android:layout_below="@id/FCH_title_p"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/bg_search" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/FCH_profile_img_p"
+        app:civ_border_color="@android:color/white"
+        app:civ_border_width="2dp"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_marginStart="@dimen/_240sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:contentDescription="@string/todo" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/FCH_chat_search_p"
+        app:civ_border_color="@android:color/white"
+        app:civ_border_width="3dp"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:background="@drawable/ic_search"
+        android:backgroundTint="@color/white"
+        android:contentDescription="@string/todo" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/FCH_Chat_RecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_below="@+id/FCH_header_p" />
 
-</FrameLayout>
+</RelativeLayout>

@@ -23,5 +23,7 @@
     <color name="card_bg_dark_color">#0e0e0e</color>
     <color name="edit_text_color">#F4F6FF</color>
     <color name="starts_color">#FFEB3B</color>
+    <color name="light_1">#14000000</color>
+    <color name="light_2">#147167FF</color>
 
 </resources>

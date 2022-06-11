@@ -1,13 +1,13 @@
 package com.example.diabestes_care_app.Ui.Patient_all;
 
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
 
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.R;
@@ -32,7 +32,6 @@ public class Home_Patient extends Basic_Activity {
 
         //============================Defines=======================================================
         animatedBottomBar = findViewById(R.id.animate_bottom);
-
         //============================Animation=====================================================
         if (savedInstanceState == null) {
             animatedBottomBar.selectTabById(R.id.nav_menu_home, true);
@@ -73,5 +72,4 @@ public class Home_Patient extends Basic_Activity {
             }
         });
     }
-    // Hallow this is update
 }

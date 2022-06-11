@@ -1,9 +1,7 @@
 package com.example.diabestes_care_app.Adapters;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,10 +17,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.diabestes_care_app.Models.PatientListModel;
-import com.example.diabestes_care_app.Ui.Patient_all.Doctor_Profile_P;
 import com.example.diabestes_care_app.Models.DoctorListModel;
 import com.example.diabestes_care_app.R;
+import com.example.diabestes_care_app.Ui.Patient_all.Doctor_Profile_P;
 
 import java.util.ArrayList;
 
@@ -50,35 +47,35 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.My
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.imageView.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition_animation));
         holder.container.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_scale_animation));
-        // instuns new Mohammed Siam
-        DoctorListModel Doctor = mDataFiltered.get(position);
+
+        DoctorListModel list2 = mDataFiltered.get(position);
+        // Chek , visible & gone user status mohammed siam
+//        if (isChat) {
+//            if (list2.getStatus().equals("online")) {
+//                holder.img_on.setVisibility(View.VISIBLE);
+//                holder.img_off.setVisibility(View.GONE);
+//            } else {
+//                holder.img_on.setVisibility(View.GONE);
+//                holder.img_off.setVisibility(View.VISIBLE);
+//            }
+//        }
+
+        holder.container.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, Doctor_Profile_P.class);
+                intent.putExtra("Doctor name", list2.getName());
+                intent.putExtra("Doctor_Pic_Profile", list2.getImageUrl());
+                context.startActivity(intent);
+            }
+        });
+
         // TextView
         holder.name.setText(list.get(position).getName());
         holder.username.setText(list.get(position).getName());
 
         // ImageView : Glide Library
         Glide.with(context).load(list.get(position).getImageUrl()).placeholder(R.drawable.ic_user).error(R.drawable.notifications).into(holder.imageView);
-
-        try {
-// Chek , visible & gone user status mohammed siam
-            if (isChat) {
-                if (Doctor.getStatus().equals("online")) {
-                    holder.img_on.setVisibility(View.VISIBLE);
-                    holder.img_off.setVisibility(View.GONE);
-                } else {
-                    holder.img_on.setVisibility(View.GONE);
-                    holder.img_off.setVisibility(View.VISIBLE);
-                }
-            }
-                else {
-                holder.img_on.setVisibility(View.GONE);
-               holder.img_off.setVisibility(View.GONE);
-         }
-// End Chek , visible & gone user status mohammed siam
-        } catch (Exception e) {
-            Toast.makeText(context.getApplicationContext(), " حالة المستخدم غير مستقرة ", Toast.LENGTH_SHORT).show();
-        }
-
     }
 
     @Override
@@ -120,7 +117,7 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.My
         TextView name, username;
         ImageView imageView;
         RelativeLayout container;
-        private ImageView img_off, img_on;
+//        private ImageView img_off, img_on;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -128,8 +125,8 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.My
             username = itemView.findViewById(R.id.Dl_doctor_username);
             imageView = itemView.findViewById(R.id.Dl_Doctor_image);
             container = itemView.findViewById(R.id.Dl_container);
-            img_off = itemView.findViewById(R.id.img_off);
-            img_on = itemView.findViewById(R.id.img_on);
+//            img_off = itemView.findViewById(R.id.img_off);
+//            img_on = itemView.findViewById(R.id.img_on);
             itemView.setOnClickListener(this);
 
         }

@@ -5,11 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".Coma">
+    tools:context=".Ui.Extends.Coma">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".about_app">
+        tools:context=".Ui.Extends.about_app">
         <RelativeLayout
             android:id="@+id/about"
             android:layout_width="match_parent"

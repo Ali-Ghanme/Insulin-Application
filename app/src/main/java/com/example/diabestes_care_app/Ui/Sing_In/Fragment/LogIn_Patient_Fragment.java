@@ -7,31 +7,21 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-
-import android.os.Parcelable;
-import android.text.method.HideReturnsTransformationMethod;
-import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+
 import com.example.diabestes_care_app.R;
-import com.example.diabestes_care_app.Ui.MainActivity;
 import com.example.diabestes_care_app.Ui.Patient_all.Home_Patient;
-import com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P.Home_Fragment;
-import com.example.diabestes_care_app.Ui.Sing_up_pages.Patient.Sing_Up_5_P;
 import com.example.diabestes_care_app.Ui.Sing_up_pages.character_choice_screen;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -40,16 +30,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.Objects;
-
 public class LogIn_Patient_Fragment extends Fragment {
 
     DatabaseReference DB_reference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://diabeticsproject-default-rtdb.firebaseio.com/");
     EditText username, password2;
     Button login, SingUp;
+    CheckBox rememberMe;
     SharedPreferences sharedpreferences;
     public static final String MyPREFERENCES_P = "P_Username";
-    CheckBox rememberMe;
     SharedPreferences preferences_P;
 
     @SuppressLint("ClickableViewAccessibility")
@@ -86,7 +74,6 @@ public class LogIn_Patient_Fragment extends Fragment {
                 }
             }
         });
-        //==============================End  Remember Me Login  Patient ================================================
 
         //==============================Login Button================================================
         login.setOnClickListener(new View.OnClickListener() {

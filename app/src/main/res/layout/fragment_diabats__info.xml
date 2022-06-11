@@ -19,8 +19,8 @@
             android:layout_height="@dimen/_35sdp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
-            android:paddingEnd="20dp"
-            android:paddingStart="20dp">
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -34,27 +34,26 @@
                 android:textSize="15sp" />
 
             <TextView
-                android:id="@+id/weight"
+                android:id="@+id/FD_DiabetesType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/cairo_bold"
-                android:text="الاول"
                 android:textColor="@color/gray"
                 android:textSize="15sp" />
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/length_patient"
+            android:id="@+id/FD_DiabetesMedics_R"
             android:layout_width="@dimen/_250sdp"
             android:layout_height="@dimen/_35sdp"
             android:layout_below="@id/Weight_patient"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
-            android:paddingEnd="@dimen/_20sdp"
-            android:paddingStart="20dp">
+            android:paddingStart="20dp"
+            android:paddingEnd="@dimen/_20sdp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -68,14 +67,13 @@
                 android:textSize="15sp" />
 
             <TextView
-                android:id="@+id/length"
+                android:id="@+id/FD_DiabetesMedics"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/cairo_bold"
-                android:text="ابر انسولين"
                 android:textColor="@color/gray"
                 android:textSize="15sp" />
 
@@ -83,14 +81,14 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/address_patient"
+            android:id="@+id/FD_PatientCauses_R"
             android:layout_width="@dimen/_250sdp"
             android:layout_height="@dimen/_35sdp"
-            android:layout_below="@id/length_patient"
+            android:layout_below="@id/FD_DiabetesMedics_R"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
-            android:paddingEnd="@dimen/_20sdp"
-            android:paddingStart="20dp">
+            android:paddingStart="20dp"
+            android:paddingEnd="@dimen/_20sdp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -104,14 +102,13 @@
                 android:textSize="15sp" />
 
             <TextView
-                android:id="@+id/age"
+                android:id="@+id/FD_PatientCauses"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/cairo_bold"
-                android:text="وراثة"
                 android:textColor="@color/gray"
                 android:textSize="15sp" />
 
@@ -120,14 +117,14 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/age_patient"
+            android:id="@+id/FD_bloodGlucoseMeter_R"
             android:layout_width="@dimen/_250sdp"
             android:layout_height="@dimen/_35sdp"
-            android:layout_below="@id/address_patient"
+            android:layout_below="@id/FD_PatientCauses_R"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
-            android:paddingEnd="@dimen/_20sdp"
-            android:paddingStart="20dp">
+            android:paddingStart="20dp"
+            android:paddingEnd="@dimen/_20sdp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -141,27 +138,28 @@
                 android:textSize="15sp" />
 
             <TextView
-                android:id="@+id/date"
+                android:id="@+id/FD_bloodGlucoseMeter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/cairo_bold"
-                android:text="نعم"
                 android:textColor="@color/gray"
                 android:textSize="15sp" />
+
             <View style="@style/Divider.Horizontal" />
         </RelativeLayout>
+
         <RelativeLayout
-            android:id="@+id/phone_patient"
+            android:id="@+id/FD_HaveIssue_R"
             android:layout_width="@dimen/_250sdp"
             android:layout_height="@dimen/_35sdp"
-            android:layout_below="@id/age_patient"
+            android:layout_below="@id/FD_bloodGlucoseMeter_R"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
-            android:paddingEnd="@dimen/_20sdp"
-            android:paddingStart="20dp">
+            android:paddingStart="20dp"
+            android:paddingEnd="@dimen/_20sdp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -175,14 +173,13 @@
                 android:textSize="15sp" />
 
             <TextView
-                android:id="@+id/number"
+                android:id="@+id/FD_HaveIssue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/cairo_bold"
-                android:text="05/01/2018"
                 android:textColor="@color/gray"
                 android:textSize="15sp" />
 
@@ -190,15 +187,15 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/text5_patient"
+            android:id="@+id/FD_DateInjury_R"
             android:layout_width="@dimen/_250sdp"
             android:layout_height="@dimen/_35sdp"
-            android:layout_below="@id/phone_patient"
+            android:layout_below="@id/FD_HaveIssue_R"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:fontFamily="@font/cairo_bold"
-            android:paddingEnd="@dimen/_20sdp"
-            android:paddingStart="20dp">
+            android:paddingStart="20dp"
+            android:paddingEnd="@dimen/_20sdp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -212,23 +209,17 @@
                 android:textSize="15sp" />
 
             <TextView
-                android:id="@+id/email"
+                android:id="@+id/FD_DateInjury"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/cairo_bold"
-                android:text="لا"
                 android:textColor="@color/gray"
                 android:textSize="15sp" />
 
-
             <View style="@style/Divider.Horizontal" />
         </RelativeLayout>
-
-
-
     </RelativeLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

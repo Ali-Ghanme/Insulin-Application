@@ -6,7 +6,7 @@ public class DoctorListModel {
     String imageUrl;
     String status;
 
-    public DoctorListModel(String name, String username, String imageUrl  , String status) {
+    public DoctorListModel(String name, String username, String imageUrl, String status) {
         this.name = name;
         this.username = username;
         this.imageUrl = imageUrl;
@@ -39,7 +39,6 @@ public class DoctorListModel {
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
-
 
     public String getStatus() {
         return status;

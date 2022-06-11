@@ -1,14 +1,16 @@
-package com.example.diabestes_care_app;
+package com.example.diabestes_care_app.Ui.Extends;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class about_app extends AppCompatActivity {
+import com.example.diabestes_care_app.R;
+
+public class Privacy extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about_app);
+        setContentView(R.layout.activity_privacy);
     }
 }

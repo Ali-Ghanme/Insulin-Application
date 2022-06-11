@@ -4,6 +4,7 @@ import static com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P.Home_
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -28,6 +29,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -101,7 +103,7 @@ public class Chat extends Basic_Activity {
 
                             if (messagesSnapshot.hasChild("msg") && messagesSnapshot.hasChild("username")) {
 
-                                final String messageTimestamps = messagesSnapshot.getKey();
+                                String messageTimestamps = messagesSnapshot.getKey();
                                 final String getUsername = messagesSnapshot.child("username").getValue(String.class);
                                 final String getMsg = messagesSnapshot.child("msg").getValue(String.class);
 
@@ -111,11 +113,23 @@ public class Chat extends Basic_Activity {
                                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy" , Locale.getDefault());
                                 SimpleDateFormat simpleTimeFormat = new SimpleDateFormat("hh:mm:aa" , Locale.getDefault());
 
-                                ChatList chatList = new ChatList(getUsername,getName,getMsg,simpleDateFormat.format(date),simpleTimeFormat.format(date));
+                                Calendar cal = Calendar.getInstance(Locale.getDefault());
+                                cal.setTimeInMillis(Long.parseLong(messageTimestamps) * 1000);
+                                String date22 = DateFormat.format("dd-MM-yyyy", cal).toString();
+                                String timeee = DateFormat.format(" hh:mm:aa", cal).toString();
+
+                                ChatList chatList = new ChatList(getUsername,getName,getMsg,date22,timeee);
                                 chatLists.add(chatList);
 
-                                if (loadingFirstTime || Long.parseLong(messageTimestamps) > Long.parseLong(MemoryData.getLastMsgTS(Chat.this, chatKey))) {
+                                String datda = MemoryData.getLastMsgTS(Chat.this, chatKey);
+                                if(datda.isEmpty()){
+                                    datda = "0";
+                                }
 
+                                if(messageTimestamps.isEmpty()){
+                                    messageTimestamps = "0";
+                                }
+                                if (loadingFirstTime || Long.parseLong(messageTimestamps) > Long.parseLong(datda)) {
                                     loadingFirstTime = false;
 
                                     MemoryData.saveLastMsgTS(messageTimestamps, chatKey, Chat.this);
@@ -125,7 +139,6 @@ public class Chat extends Basic_Activity {
                                     ChatRecyclerView.scrollToPosition(chatLists.size() - 1 );
                                 }
                             }
-
                         }
                     }
                 }
@@ -148,6 +161,8 @@ public class Chat extends Basic_Activity {
                 myRef.child("chat").child(chatKey).child("doctor_2").setValue(getUsername);
                 myRef.child("chat").child(chatKey).child("messages").child(currentTimestamps).child("msg").setValue(geTextMessage);
                 myRef.child("chat").child(chatKey).child("messages").child(currentTimestamps).child("username").setValue(restoredText);
+                chatEditText.clearAnimation();
+                chatEditText.getText().clear();
             }
         });
         backButton.setOnClickListener(new View.OnClickListener() {

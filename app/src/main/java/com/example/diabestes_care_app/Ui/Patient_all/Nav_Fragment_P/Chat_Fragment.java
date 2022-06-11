@@ -154,7 +154,7 @@ public class Chat_Fragment extends Fragment {
                         });
                     }
                 } catch (Exception e) {
-                    Toast.makeText(getContext(), "إنتظر قليلاً ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "waite second catch error", Toast.LENGTH_SHORT).show();
                 }
 
             }

@@ -18,8 +18,8 @@ import java.util.List;
 
 public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MyViewHolder> {
     private List<ChatList> chatListList;
-    private final Context context;
-    private String username;
+    final Context context;
+    private final String username;
 
     public ChatAdapter(List<ChatList> chatListList, Context context) {
         this.chatListList = chatListList;
@@ -41,14 +41,14 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MyViewHolder> 
             holder.oppoLayout.setVisibility(View.GONE);
 
             holder.myMessage.setText(list.getMessage());
-            holder.myTime.setText(list.getDate() + " " + list.getTime());
+            holder.myTime.setText(list.getDate() + "" + list.getTime());
 
         } else {
             holder.myMsgLayout.setVisibility(View.GONE);
             holder.oppoLayout.setVisibility(View.VISIBLE);
 
             holder.oppoMessage.setText(list.getMessage());
-            holder.oppoTime.setText(list.getDate() + " " + list.getTime());
+            holder.oppoTime.setText(list.getDate() + "" + list.getTime());
         }
     }
 
@@ -57,11 +57,12 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MyViewHolder> 
         return chatListList.size();
     }
 
-    public void updateChatList(List<ChatList> chatListList){
+    public void updateChatList(List<ChatList> chatListList) {
         this.chatListList = chatListList;
+        notifyDataSetChanged();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
         private LinearLayout oppoLayout, myMsgLayout;
         private TextView oppoMessage, myMessage;
         private TextView oppoTime, myTime;

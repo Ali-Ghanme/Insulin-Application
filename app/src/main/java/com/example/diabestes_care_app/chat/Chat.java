@@ -16,10 +16,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.diabestes_care_app.Adapters.ChatAdapter;
+import com.example.diabestes_care_app.Adapters.Chat_Adapter;
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.MemoryData.MemoryData;
-import com.example.diabestes_care_app.Models.ChatList;
+import com.example.diabestes_care_app.Models.ChatList_Model;
 import com.example.diabestes_care_app.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -47,10 +47,9 @@ public class Chat extends Basic_Activity {
     String restoredText;
     String chatKey;
     RecyclerView ChatRecyclerView;
-    private final List<ChatList> chatLists = new ArrayList<>();
-    private ChatAdapter chatAdapter;
+    private final List<ChatList_Model> chatListModels = new ArrayList<>();
+    private Chat_Adapter chatAdapter;
     private boolean loadingFirstTime = true;
-    String getUserMobile = "";
 
 
     @Override
@@ -78,15 +77,14 @@ public class Chat extends Basic_Activity {
         ChatRecyclerView.setLayoutManager(new LinearLayoutManager(Chat.this));
 
         //============================Defines SharedPreferences=====================================
-        chatAdapter = new ChatAdapter(chatLists, Chat.this);
+        chatAdapter = new Chat_Adapter(chatListModels, Chat.this);
         ChatRecyclerView.setAdapter(chatAdapter);
 
         //============================Get data from message adapter class===========================
         String getName = getIntent().getStringExtra("name");
         String getProfilePic = getIntent().getStringExtra("profile_pic");
-//        String getUsername = getIntent().getStringExtra("username");
+        String getUsername = getIntent().getStringExtra("username");
 
-        String getUsername = "DMohammed";
         // getUsername is the patient username the account that i loge in by it
         Toast.makeText(this, getUsername, Toast.LENGTH_SHORT).show();
 
@@ -109,7 +107,7 @@ public class Chat extends Basic_Activity {
                 if (snapshot.hasChild("chat")) {
 
                     if (snapshot.child("chat").child(chatKey).hasChild("messages")) {
-                        chatLists.clear();
+                        chatListModels.clear();
 
                         for (DataSnapshot messagesSnapshot : snapshot.child("chat").child(chatKey).child("messages").getChildren()) {
 
@@ -131,8 +129,8 @@ public class Chat extends Basic_Activity {
                                 String date22 = DateFormat.format("dd-MM-yyyy", cal).toString();
                                 String timeee = DateFormat.format(" hh:mm:aa", cal).toString();
 
-                                ChatList chatList = new ChatList(getUsername, getName, getMsg, date22, timeee);
-                                chatLists.add(chatList);
+                                ChatList_Model chatListModel = new ChatList_Model(getUsername, getName, getMsg, date22, timeee);
+                                chatListModels.add(chatListModel);
 
                                 String datda = MemoryData.getLastMsgTS(Chat.this, chatKey);
                                 if (datda.isEmpty()) {
@@ -147,9 +145,9 @@ public class Chat extends Basic_Activity {
 
                                     MemoryData.saveLastMsgTS(messageTimestamps, chatKey, Chat.this);
 
-                                    chatAdapter.updateChatList(chatLists);
+                                    chatAdapter.updateChatList(chatListModels);
 
-                                    ChatRecyclerView.scrollToPosition(chatLists.size() - 1);
+                                    ChatRecyclerView.scrollToPosition(chatListModels.size() - 1);
                                 }
                             }
                         }

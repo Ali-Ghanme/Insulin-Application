@@ -88,137 +88,18 @@
         android:orientation="vertical">
 
         <GridLayout
-            android:layout_width="@dimen/_230sdp"
-            android:layout_height="@dimen/_120sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:alignmentMode="alignMargins"
-            android:columnCount="2"
+            android:columnCount="1"
             android:columnOrderPreserved="false"
-            android:rowCount="3">
+            android:rowCount="1">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/FC_instruction_box_p"
-                android:layout_width="@dimen/_70sdp"
-                android:layout_height="wrap_content"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="@dimen/_10sdp"
-                app:cardCornerRadius="@dimen/_10sdp"
-                app:cardElevation="@dimen/_3sdp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="@dimen/_10sdp">
-
-                    <ImageView
-                        android:layout_width="@dimen/_40sdp"
-                        android:layout_height="@dimen/_40sdp"
-                        android:background="@drawable/ic_book"
-                        android:backgroundTint="@color/Patient_Color" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:fontFamily="@font/cairo_bold"
-                        android:gravity="center_horizontal"
-                        android:text="تعليمات"
-                        android:textColor="@color/Patient_Color"
-                        android:textSize="@dimen/_13sdp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/FC_my_health_box_p"
-                android:layout_width="@dimen/_70sdp"
-                android:layout_height="wrap_content"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="@dimen/_10sdp"
-                app:cardCornerRadius="@dimen/_10sdp"
-                app:cardElevation="@dimen/_3sdp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="@dimen/_10sdp">
-
-                    <ImageView
-                        android:layout_width="@dimen/_40sdp"
-                        android:layout_height="@dimen/_45sdp"
-                        android:background="@drawable/ic_apple"
-                        android:backgroundTint="@color/Patient_Color" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_25sdp"
-                        android:layout_marginTop="12dp"
-                        android:fontFamily="@font/cairo_bold"
-                        android:gravity="center_horizontal"
-                        android:maxLines="1"
-                        android:text="أنظمتي "
-                        android:textColor="@color/Patient_Color"
-                        android:textSize="@dimen/_13sdp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-        </GridLayout>
-
-        <GridLayout
-            android:layout_width="@dimen/_230sdp"
-            android:layout_height="@dimen/_120sdp"
-            android:alignmentMode="alignMargins"
-            android:columnCount="2"
-            android:columnOrderPreserved="false"
-            android:rowCount="3">
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/FC_about_us_p"
-                android:layout_width="@dimen/_70sdp"
-                android:layout_height="wrap_content"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="@dimen/_10sdp"
-                app:cardCornerRadius="@dimen/_10sdp"
-                app:cardElevation="@dimen/_3sdp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="@dimen/_10sdp">
-
-                    <ImageView
-                        android:layout_width="@dimen/_40sdp"
-                        android:layout_height="@dimen/_40sdp"
-                        android:background="@drawable/ic_reports"
-                        android:backgroundTint="@color/Patient_Color" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:fontFamily="@font/cairo_bold"
-                        android:gravity="center_horizontal"
-                        android:text="تقارير"
-                        android:textColor="@color/Patient_Color"
-                        android:textSize="@dimen/_13sdp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/FC_feedback_p"
-                android:layout_width="@dimen/_70sdp"
-                android:layout_height="wrap_content"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
+                android:id="@+id/FC_SelfCare_box_p"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
                 android:layout_margin="@dimen/_10sdp"
                 app:cardCornerRadius="@dimen/_10sdp"
                 app:cardElevation="@dimen/_3sdp">
@@ -242,7 +123,91 @@
                         android:layout_marginTop="12dp"
                         android:fontFamily="@font/cairo_bold"
                         android:gravity="center_horizontal"
-                        android:text="صحتي"
+                        android:text="عناية ذاتية"
+                        android:textColor="@color/Patient_Color"
+                        android:textSize="@dimen/_13sdp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </GridLayout>
+
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:alignmentMode="alignMargins"
+            android:columnCount="2"
+            android:columnOrderPreserved="false"
+            android:rowCount="2">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/FC_Reports_p"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_3sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_10sdp">
+
+                    <ImageView
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/ic_reports"
+                        android:backgroundTint="@color/Patient_Color" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="@font/cairo_bold"
+                        android:gravity="center_horizontal"
+                        android:text="تقارير"
+                        android:textColor="@color/Patient_Color"
+                        android:textSize="@dimen/_13sdp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/FC_Doses_p"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_3sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_10sdp">
+
+                    <ImageView
+                        android:layout_width="@dimen/_45sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/ic_heart_beat"
+                        android:backgroundTint="@color/Patient_Color" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="@font/cairo_bold"
+                        android:gravity="center_horizontal"
+                        android:text="جرعات"
                         android:textColor="@color/Patient_Color"
                         android:textSize="@dimen/_13sdp"
                         android:textStyle="bold" />

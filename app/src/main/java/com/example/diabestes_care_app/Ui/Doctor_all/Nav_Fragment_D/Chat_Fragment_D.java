@@ -17,9 +17,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.diabestes_care_app.Adapters.MessagesAdapter;
+import com.example.diabestes_care_app.Adapters.Messages_Adapter;
 import com.example.diabestes_care_app.MemoryData.MemoryData;
-import com.example.diabestes_care_app.Models.MessagesList;
+import com.example.diabestes_care_app.Models.MessagesList_Model;
 import com.example.diabestes_care_app.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -34,14 +34,18 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class Chat_Fragment_D extends Fragment {
+    // Variables
     private RecyclerView messagesRecycleReview;
+    // Variables
     String DoctorUsername;
+    // Variables
     DatabaseReference myRef;
+    // Variables
     CircleImageView imageView;
     // Variables
-    ArrayList<MessagesList> messagesLists = new ArrayList<>();
+    ArrayList<MessagesList_Model> messagesListModels = new ArrayList<>();
     // Adapter
-    MessagesAdapter messagesAdapter;
+    Messages_Adapter messagesAdapter;
     private int unseenMessage = 0;
     private String lastMessage = "";
     private String chatKey = "";
@@ -55,14 +59,14 @@ public class Chat_Fragment_D extends Fragment {
         View view = inflater.inflate(R.layout.fragment_chat___d, container, false);
 
         //============================Defines=======================================================
-        messagesRecycleReview = view.findViewById(R.id.FCH_Chat_RecyclerView);
-        imageView = view.findViewById(R.id.FCH_profile_img_p);
+        messagesRecycleReview = view.findViewById(R.id.FCH_Chat_RecyclerView_d);
+        imageView = view.findViewById(R.id.FCH_profile_img_d);
 
         myRef = FirebaseDatabase.getInstance().getReference();
         GetDataFromFirebase();
         messagesRecycleReview.setHasFixedSize(true);
         messagesRecycleReview.setLayoutManager(new LinearLayoutManager(getContext()));
-        messagesAdapter = new MessagesAdapter(messagesLists, getContext());
+        messagesAdapter = new Messages_Adapter(messagesListModels, getContext());
         messagesRecycleReview.setAdapter(messagesAdapter);
         //============================Defines SharedPreferences=====================================
         SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
@@ -100,7 +104,7 @@ public class Chat_Fragment_D extends Fragment {
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                messagesLists.clear();
+                messagesListModels.clear();
                 unseenMessage = 0;
                 lastMessage = "";
                 chatKey = "";
@@ -145,11 +149,11 @@ public class Chat_Fragment_D extends Fragment {
                                 }
                                 if (!dataSet) {
                                     dataSet = true;
-                                    MessagesList messagesList = new MessagesList(getDoctorName, getDoctorUsername, lastMessage, getDoctorImage, chatKey, unseenMessage);
-                                    messagesLists.add(messagesList);
-                                    messagesAdapter.UpdateData(messagesLists);
+                                    MessagesList_Model messagesListModel = new MessagesList_Model(getDoctorName, getDoctorUsername, lastMessage, getDoctorImage, chatKey, unseenMessage);
+                                    messagesListModels.add(messagesListModel);
+                                    messagesAdapter.UpdateData(messagesListModels);
                                     messagesAdapter.notifyDataSetChanged();
-                                    messagesRecycleReview.setAdapter(new MessagesAdapter(messagesLists, getContext()));
+                                    messagesRecycleReview.setAdapter(new Messages_Adapter(messagesListModels, getContext()));
                                 }
                             }
 

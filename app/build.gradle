@@ -59,4 +59,5 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
     implementation "com.airbnb.android:lottie:5.0.3"
     implementation 'joda-time:joda-time:2.9.1'
+
 }

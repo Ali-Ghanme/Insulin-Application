@@ -13,6 +13,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Diabestes_Care_App">
         <activity
+            android:name=".Content"
+            android:exported="false" />
+        <activity
+            android:name=".Local_Notification"
+            android:exported="false" />
+        <activity
+            android:name=".Ui.Patient_all.Sections.Doses.Doses_Home"
+            android:exported="false" />
+        <activity
+            android:name=".Ui.Patient_all.Sections.Self_Care.Self_Care"
+            android:exported="false" />
+        <activity
             android:name=".chat.Chat"
             android:exported="false" />
         <activity
@@ -22,16 +34,7 @@
             android:name=".Ui.Sing_up_pages.Doctor.Sing_up_5_D"
             android:exported="false" />
         <activity
-            android:name=".Ui.Patient_all.Community.Space_Post"
-            android:exported="false" />
-        <activity
-            android:name=".Ui.Patient_all.Community.Food_System_Patient_P"
-            android:exported="false" />
-        <activity
             android:name=".Ui.Patient_all.Setting_P.Edit_Profile_P"
-            android:exported="false" />
-        <activity
-            android:name=".Ui.Patient_all.Community.Instructions_Patient_P"
             android:exported="false" />
         <activity
             android:name=".Ui.Patient_all.Setting_P.Help"
@@ -58,7 +61,7 @@
             android:name=".Ui.Patient_all.Home_Patient"
             android:exported="false" />
         <activity
-            android:name=".Ui.Doctor_all.Patient_Profile_D"
+            android:name=".Ui.Patient_all.Sections.Reports.Patient_Files"
             android:exported="false" />
         <activity
             android:name=".Ui.Sing_up_pages.Doctor.Sing_Up_1_D"
@@ -97,6 +100,8 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <receiver android:name=".Notification_Controller.LocalNotification.AlarmReceiver" />
     </application>
 
 </manifest>

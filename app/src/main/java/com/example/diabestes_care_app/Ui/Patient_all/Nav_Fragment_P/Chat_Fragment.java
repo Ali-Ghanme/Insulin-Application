@@ -17,9 +17,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.diabestes_care_app.Adapters.MessagesAdapter;
+import com.example.diabestes_care_app.Adapters.Messages_Adapter;
 import com.example.diabestes_care_app.MemoryData.MemoryData;
-import com.example.diabestes_care_app.Models.MessagesList;
+import com.example.diabestes_care_app.Models.MessagesList_Model;
 import com.example.diabestes_care_app.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -39,9 +39,9 @@ public class Chat_Fragment extends Fragment {
     DatabaseReference myRef;
     CircleImageView imageView;
     // Variables
-    ArrayList<MessagesList> messagesLists = new ArrayList<>();
+    ArrayList<MessagesList_Model> messagesListModels = new ArrayList<>();
     // Adapter
-    MessagesAdapter messagesAdapter;
+    Messages_Adapter messagesAdapter;
     private int unseenMessage = 0;
     private String lastMessage = "";
     private String chatKey = "";
@@ -62,7 +62,7 @@ public class Chat_Fragment extends Fragment {
         messagesRecycleReview.setHasFixedSize(true);
         messagesRecycleReview.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        messagesAdapter = new MessagesAdapter(messagesLists, getContext());
+        messagesAdapter = new Messages_Adapter(messagesListModels, getContext());
         messagesRecycleReview.setAdapter(messagesAdapter);
         //============================Defines=======================================================
         SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
@@ -99,7 +99,7 @@ public class Chat_Fragment extends Fragment {
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                messagesLists.clear();
+                messagesListModels.clear();
                 unseenMessage = 0;
                 lastMessage = "";
                 chatKey = "";
@@ -144,11 +144,11 @@ public class Chat_Fragment extends Fragment {
                                 }
                                 if (!dataSet) {
                                     dataSet = true;
-                                    MessagesList messagesList = new MessagesList(getName, getUsername, lastMessage, getDoctorImage, chatKey, unseenMessage);
-                                    messagesLists.add(messagesList);
-                                    messagesAdapter.UpdateData(messagesLists);
+                                    MessagesList_Model messagesListModel = new MessagesList_Model(getName, getUsername, lastMessage, getDoctorImage, chatKey, unseenMessage);
+                                    messagesListModels.add(messagesListModel);
+                                    messagesAdapter.UpdateData(messagesListModels);
                                     messagesAdapter.notifyDataSetChanged();
-                                    messagesRecycleReview.setAdapter(new MessagesAdapter(messagesLists, getContext()));
+                                    messagesRecycleReview.setAdapter(new Messages_Adapter(messagesListModels, getContext()));
                                 }
                             }
 

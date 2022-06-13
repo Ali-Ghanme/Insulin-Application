@@ -17,19 +17,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.diabestes_care_app.Models.DoctorListModel;
+import com.example.diabestes_care_app.Models.DoctorList_Model;
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Patient_all.Doctor_Profile_P;
 
 import java.util.ArrayList;
 
-public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.MyViewHolder> implements Filterable {
+public class DoctorList_Adapter extends RecyclerView.Adapter<DoctorList_Adapter.MyViewHolder> implements Filterable {
     Context context;
-    ArrayList<DoctorListModel> list;
-    ArrayList<DoctorListModel> mDataFiltered;
+    ArrayList<DoctorList_Model> list;
+    ArrayList<DoctorList_Model> mDataFiltered;
     boolean isChat;
 
-    public DoctorListAdapter(Context context, ArrayList<DoctorListModel> list, boolean isChat) {
+    public DoctorList_Adapter(Context context, ArrayList<DoctorList_Model> list, boolean isChat) {
         this.context = context;
         this.list = list;
         this.mDataFiltered = list;
@@ -48,7 +48,7 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.My
         holder.imageView.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition_animation));
         holder.container.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_scale_animation));
 
-        DoctorListModel list2 = mDataFiltered.get(position);
+        DoctorList_Model list2 = mDataFiltered.get(position);
         // Chek , visible & gone user status mohammed siam
 //        if (isChat) {
 //            if (list2.getStatus().equals("online")) {
@@ -91,8 +91,8 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.My
                 if (Key.isEmpty()) {
                     mDataFiltered = list;
                 } else {
-                    ArrayList<DoctorListModel> lstFiltered = new ArrayList<>();
-                    for (DoctorListModel row : list) {
+                    ArrayList<DoctorList_Model> lstFiltered = new ArrayList<>();
+                    for (DoctorList_Model row : list) {
 
                         if (row.getName().toLowerCase().contains(Key.toLowerCase())) {
                             lstFiltered.add(row);
@@ -107,7 +107,7 @@ public class DoctorListAdapter extends RecyclerView.Adapter<DoctorListAdapter.My
 
             @Override
             protected void publishResults(CharSequence constraint, FilterResults results) {
-                mDataFiltered = (ArrayList<DoctorListModel>) results.values;
+                mDataFiltered = (ArrayList<DoctorList_Model>) results.values;
                 notifyDataSetChanged();
             }
         };

@@ -97,7 +97,6 @@
         app:dotsSpacing="4dp"
         app:dotsWidthFactor="2.5"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_next_S"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:progressMode="true"

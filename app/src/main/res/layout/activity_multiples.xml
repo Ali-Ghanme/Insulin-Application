@@ -6,10 +6,12 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     tools:context=".Ui.Extends.Multiples">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:context=".Ui.Extends.about_app">
+
         <RelativeLayout
             android:id="@+id/about"
             android:layout_width="match_parent"
@@ -27,8 +29,8 @@
                 android:fontFamily="@font/cairo_bold"
                 android:text="  مضاعفات مرض السكري  "
                 android:textColor="#000"
-                android:textStyle="bold"
-                android:textSize="@dimen/_17sdp" />
+                android:textSize="@dimen/_17sdp"
+                android:textStyle="bold" />
 
             <Button
                 android:layout_width="@dimen/_35sdp"
@@ -54,8 +56,8 @@
                 android:id="@+id/imge"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_100sdp"
-                android:layout_alignParentEnd="true"
                 android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
                 android:src="@drawable/logout" />
 
             <TextView
@@ -63,14 +65,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/imge"
-                android:layout_marginEnd="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
                 android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="20dp"
                 android:fontFamily="@font/cairo_regular"
                 android:layoutDirection="rtl"
-                android:paddingBottom="@dimen/_20sdp"
                 android:paddingTop="@dimen/_20sdp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentStart="true"
+                android:paddingBottom="@dimen/_20sdp"
                 android:text=" هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام هنا يوجد محتوى نصي، هنا يوجد محتوى نصي فتجعلها تبدو (أي الأحرف) وكأنها نص مقروء. العديد من برامح النشر المكتبي وبرامح تحرير صفحات الويب تستخدم لوريم إيبسوم بشكل إفتراضي كنموذج عن النص، وإذا قمت بإدخال في أي محرك بحث ستظهر العديد من المواقع الحديثة العهد في نتائج البحث. على مدى السنين ظهرت نسخ جديدة ومختلفة من نص لوريم إيبسوم، أحياناً عن طريق الصدفة، وأحياناً عن عمد كإدخال بعض العبارات الفكاهية إليها.  "
                 android:textAlignment="textStart"
                 android:textSize="@dimen/_13sdp" />

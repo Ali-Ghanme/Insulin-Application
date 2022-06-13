@@ -1,9 +1,9 @@
 package com.example.diabestes_care_app.Models;
 
-public class ChatList {
+public class ChatList_Model {
     private String username, name, message, date, time;
 
-    public ChatList(String username, String name, String message, String date, String time) {
+    public ChatList_Model(String username, String name, String message, String date, String time) {
         this.username = username;
         this.name = name;
         this.message = message;
@@ -11,7 +11,7 @@ public class ChatList {
         this.time = time;
     }
 
-    public ChatList() {
+    public ChatList_Model() {
     }
 
     public String getUsername() {

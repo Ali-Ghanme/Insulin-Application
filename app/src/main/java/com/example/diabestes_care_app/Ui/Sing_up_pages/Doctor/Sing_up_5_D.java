@@ -2,7 +2,6 @@ package com.example.diabestes_care_app.Ui.Sing_up_pages.Doctor;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -16,10 +15,9 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
-import com.example.diabestes_care_app.Models.Upload;
+import com.example.diabestes_care_app.Models.Upload_Model;
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Sing_In.Sing_In;
-import com.example.diabestes_care_app.Ui.Sing_up_pages.Patient.Sing_Up_5_P;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
@@ -94,8 +92,8 @@ public class Sing_up_5_D extends Basic_Activity {
                                 fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                     @Override
                                     public void onSuccess(Uri uri) {
-                                        Upload upload = new Upload(uri.toString());
-                                        DB_Ref.child(patient_userName).child("personal_info").child("Image").setValue(upload);
+                                        Upload_Model uploadModel = new Upload_Model(uri.toString());
+                                        DB_Ref.child(patient_userName).child("personal_info").child("Image").setValue(uploadModel);
                                         Toast.makeText(Sing_up_5_D.this, "Upload Successfully", Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(Sing_up_5_D.this, Sing_In.class);
                                         startActivity(intent);

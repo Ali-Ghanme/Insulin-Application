@@ -2,32 +2,26 @@ package com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P;
 
 import static android.content.Context.MODE_PRIVATE;
 
-import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import com.bumptech.glide.Glide;
 import com.example.diabestes_care_app.R;
-import com.example.diabestes_care_app.Ui.Doctor_all.Patient_Profile_D;
-import com.example.diabestes_care_app.Ui.Patient_all.Community.Food_System_Patient_P;
-import com.example.diabestes_care_app.Ui.Patient_all.Community.Instructions_Patient_P;
-import com.example.diabestes_care_app.Ui.Patient_all.Community.Space_Post;
+import com.example.diabestes_care_app.Ui.Patient_all.Sections.Doses.Doses_Home;
+import com.example.diabestes_care_app.Ui.Patient_all.Sections.Reports.Patient_Files;
+import com.example.diabestes_care_app.Ui.Patient_all.Sections.Self_Care.Self_Care;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -48,9 +42,8 @@ public class Care_Fragment extends Fragment {
     // Patient Username TextView
     String restoredText;
     //Card View
-    CardView FC_Instruction, FC_my_System, FC_Report, FC_my_Health;
+    CardView FC_Instruction, FC_Report, FC_Doses_p;
 
-    @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -60,10 +53,9 @@ public class Care_Fragment extends Fragment {
         info = view.findViewById(R.id.FC_info);
         imageProfile = view.findViewById(R.id.FC_profile_img);
         username = view.findViewById(R.id.FC_patient_name);
-        FC_Instruction = view.findViewById(R.id.FC_instruction_box_p);
-        FC_my_System = view.findViewById(R.id.FC_my_health_box_p);
-        FC_Report = view.findViewById(R.id.FC_about_us_p);
-        FC_my_Health = view.findViewById(R.id.FC_feedback_p);
+        FC_Instruction = view.findViewById(R.id.FC_SelfCare_box_p);
+        FC_Report = view.findViewById(R.id.FC_Reports_p);
+        FC_Doses_p = view.findViewById(R.id.FC_Doses_p);
 
         //============================Get Doctor Username===========================================
         SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
@@ -73,28 +65,21 @@ public class Care_Fragment extends Fragment {
         FC_Instruction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Instructions_Patient_P.class);
-                startActivity(intent);
-            }
-        });
-        FC_my_System.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Food_System_Patient_P.class);
+                Intent intent = new Intent(getActivity(), Self_Care.class);
                 startActivity(intent);
             }
         });
         FC_Report.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Patient_Profile_D.class);
+                Intent intent = new Intent(getActivity(), Patient_Files.class);
                 startActivity(intent);
             }
         });
-        FC_my_Health.setOnClickListener(new View.OnClickListener() {
+        FC_Doses_p.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Space_Post.class);
+                Intent intent = new Intent(getActivity(), Doses_Home.class);
                 startActivity(intent);
             }
         });

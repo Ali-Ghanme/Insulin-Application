@@ -1,19 +1,19 @@
 package com.example.diabestes_care_app.Models;
 
-public class DoctorListModel {
+public class DoctorList_Model {
     String name;
     String username;
     String imageUrl;
     String status;
 
-    public DoctorListModel(String name, String username, String imageUrl, String status) {
+    public DoctorList_Model(String name, String username, String imageUrl, String status) {
         this.name = name;
         this.username = username;
         this.imageUrl = imageUrl;
         this.status = status;
     }
 
-    public DoctorListModel() {
+    public DoctorList_Model() {
     }
 
     public String getName() {

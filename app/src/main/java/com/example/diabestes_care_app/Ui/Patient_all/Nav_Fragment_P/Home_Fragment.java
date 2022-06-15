@@ -2,6 +2,7 @@ package com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
@@ -21,8 +22,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.diabestes_care_app.Adapters.DoctorListAdapter;
-import com.example.diabestes_care_app.Models.DoctorListModel;
+import com.example.diabestes_care_app.Adapters.DoctorList_Adapter;
+import com.example.diabestes_care_app.Models.DoctorList_Model;
 import com.example.diabestes_care_app.Notification_Controller.Notification_Number;
 import com.example.diabestes_care_app.R;
 import com.google.firebase.database.DataSnapshot;
@@ -42,9 +43,9 @@ public class Home_Fragment extends Fragment {
     // Widget
     RecyclerView recyclerView;
     // Variables
-    ArrayList<DoctorListModel> list;
+    ArrayList<DoctorList_Model> list;
     // Adapter
-    DoctorListAdapter doctorListAdapter;
+    DoctorList_Adapter doctorListAdapter;
     // Search Variables
     EditText searchInput;
     CharSequence search = "";
@@ -56,6 +57,7 @@ public class Home_Fragment extends Fragment {
     String restoredText;
     // Notification Counter
     Notification_Number notification_number;
+    ProgressDialog progressDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -66,6 +68,14 @@ public class Home_Fragment extends Fragment {
         username = view.findViewById(R.id.HP_patient_name);
         recyclerView = view.findViewById(R.id.HP_recyclerView);
         imageProfile = view.findViewById(R.id.HP_profile_img);
+
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.setMessage("إنتظر قليلاً يتم تحميل المحتوى..");
+        progressDialog.getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.dilog_background));
+        progressDialog.setCancelable(false);
+        progressDialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        progressDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        progressDialog.show();
         //============================Get Doctor Username===========================================
         SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         restoredText = prefs.getString("TAG_NAME", null);
@@ -122,16 +132,17 @@ public class Home_Fragment extends Fragment {
                 ClearAll();
                 try {
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        DoctorListModel doctorListModel = new DoctorListModel();
+                        DoctorList_Model doctorListModel = new DoctorList_Model();
                         doctorListModel.setName(snapshot.child("personal_info").child("name_ar").getValue().toString());
                         doctorListModel.setUsername(snapshot.child("personal_info").child("username").getValue().toString());
                         doctorListModel.setImageUrl(snapshot.child("personal_info").child("Image").child("mImageUrI").getValue().toString());
                         list.add(doctorListModel);
+                        progressDialog.dismiss();
                     }
                 } catch (Exception e) {
                     Toast.makeText(getContext(), "إنتظر قليلاً ", Toast.LENGTH_SHORT).show();
                 }
-                doctorListAdapter = new DoctorListAdapter(getContext(), list , false);
+                doctorListAdapter = new DoctorList_Adapter(getContext(), list, false);
                 recyclerView.setAdapter(doctorListAdapter);
                 doctorListAdapter.notifyDataSetChanged();
             }

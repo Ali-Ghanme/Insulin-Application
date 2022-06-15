@@ -6,10 +6,12 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     tools:context=".Ui.Extends.Insulin_doses">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:context=".Ui.Extends.about_app">
+
         <RelativeLayout
             android:id="@+id/about"
             android:layout_width="match_parent"
@@ -49,6 +51,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/about">
+
             <TextView
                 android:id="@+id/Insulin_text"
                 android:layout_width="match_parent"
@@ -110,12 +113,6 @@
                 android:text=" هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام هنا يوجد محتوى نصي، هنا يوجد محتوى نصي فتجعلها تبدو (أي الأحرف) وكأنها نص مقروء. العديد من برامح النشر المكتبي وبرامح تحرير صفحات الويب تستخدم لوريم إيبسوم بشكل إفتراضي كنموذج عن النص، وإذا قمت بإدخال في أي محرك بحث ستظهر العديد من المواقع الحديثة العهد في نتائج البحث. على مدى السنين ظهرت نسخ جديدة ومختلفة من نص لوريم إيبسوم، أحياناً عن طريق الصدفة، وأحياناً عن عمد كإدخال بعض العبارات الفكاهية إليها.  "
                 android:textAlignment="textStart"
                 android:textSize="@dimen/_13sdp" />
-
-
         </RelativeLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
 </ScrollView>

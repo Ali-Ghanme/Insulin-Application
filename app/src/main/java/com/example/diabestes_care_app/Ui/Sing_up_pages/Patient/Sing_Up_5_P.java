@@ -16,9 +16,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
-import com.example.diabestes_care_app.Models.Upload;
+import com.example.diabestes_care_app.Models.Upload_Model;
 import com.example.diabestes_care_app.R;
-import com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P.Home_Fragment;
 import com.example.diabestes_care_app.Ui.Sing_In.Sing_In;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -94,8 +93,8 @@ public class Sing_Up_5_P extends Basic_Activity {
                                 fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                     @Override
                                     public void onSuccess(Uri uri) {
-                                        Upload upload = new Upload(uri.toString());
-                                        DB_Ref.child(patient_userName).child("personal_info").child("Image").setValue(upload);
+                                        Upload_Model uploadModel = new Upload_Model(uri.toString());
+                                        DB_Ref.child(patient_userName).child("personal_info").child("Image").setValue(uploadModel);
                                         Toast.makeText(Sing_Up_5_P.this, "Upload Successfully", Toast.LENGTH_SHORT).show();
                                     }
                                 });

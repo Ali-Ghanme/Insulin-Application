@@ -12,30 +12,30 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.diabestes_care_app.MemoryData.MemoryData;
 import com.example.diabestes_care_app.R;
-import com.example.diabestes_care_app.Models.ChatList;
+import com.example.diabestes_care_app.Models.ChatList_Model;
 
 import java.util.List;
 
-public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MyViewHolder> {
-    private List<ChatList> chatListList;
+public class Chat_Adapter extends RecyclerView.Adapter<Chat_Adapter.MyViewHolder> {
+    private List<ChatList_Model> chatListListModel;
     final Context context;
     private final String PatientUsername;
 
-    public ChatAdapter(List<ChatList> chatListList, Context context) {
-        this.chatListList = chatListList;
+    public Chat_Adapter(List<ChatList_Model> chatListListModel, Context context) {
+        this.chatListListModel = chatListListModel;
         this.context = context;
         this.PatientUsername = MemoryData.getPatientData(context);
     }
 
     @NonNull
     @Override
-    public ChatAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public Chat_Adapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.chat_adapter_layout, null));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ChatAdapter.MyViewHolder holder, int position) {
-        ChatList list = chatListList.get(position);
+    public void onBindViewHolder(@NonNull Chat_Adapter.MyViewHolder holder, int position) {
+        ChatList_Model list = chatListListModel.get(position);
         if (list.getUsername().equals(PatientUsername)) {
             holder.myMsgLayout.setVisibility(View.GONE);
             holder.oppoLayout.setVisibility(View.VISIBLE);
@@ -55,11 +55,11 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MyViewHolder> 
 
     @Override
     public int getItemCount() {
-        return chatListList.size();
+        return chatListListModel.size();
     }
 
-    public void updateChatList(List<ChatList> chatListList) {
-        this.chatListList = chatListList;
+    public void updateChatList(List<ChatList_Model> chatListListModel) {
+        this.chatListListModel = chatListListModel;
         notifyDataSetChanged();
     }
 

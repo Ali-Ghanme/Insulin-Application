@@ -1,13 +1,13 @@
 package com.example.diabestes_care_app.Models;
 
-public class Upload {
+public class Upload_Model {
     String mImageUrI;
 
-    public Upload(String mImageUrI) {
+    public Upload_Model(String mImageUrI) {
         this.mImageUrI = mImageUrI;
     }
 
-    public Upload() {
+    public Upload_Model() {
     }
 
     public String getmImageUrI() {

@@ -1,19 +1,18 @@
 package com.example.diabestes_care_app.Ui.Splah_Screens;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.viewpager.widget.ViewPager;
+
 import com.example.diabestes_care_app.Adapters.ViewAdapter_Splash_Screen;
+import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.Models.Splash_Screen_Modal;
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Sing_up_pages.character_choice_screen;
@@ -23,8 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Splash_Screen_1 extends AppCompatActivity {
-
+public class Splash_Screen_1 extends Basic_Activity {
 
     Button btnNext;
     int position = 0;
@@ -35,13 +33,12 @@ public class Splash_Screen_1 extends AppCompatActivity {
     DotsIndicator dotsIndicator;
     ViewAdapter_Splash_Screen viewAdapterSplashScreen;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
         //========================make the activity on full screen==================================
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        fullscreen();
         //=======================check if its opened before or not==================================
         if (restorePrefData()) {
             Intent mainActivity = new Intent(getApplicationContext(), character_choice_screen.class);
@@ -53,6 +50,9 @@ public class Splash_Screen_1 extends AppCompatActivity {
         btnGetStarted = findViewById(R.id.btn_get_started);
         btnAnim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.animation_button);
         tvSkip = findViewById(R.id.tv_skip);
+        viewPager = findViewById(R.id.screen_view_pager_splash);
+        dotsIndicator = findViewById(R.id.Splash_indicator);
+
         //=================================fill list screen=========================================
         final List<Splash_Screen_Modal> mList = new ArrayList<>();
         mList.add(new Splash_Screen_Modal(" اصحاء", "تطبيق  هو تطبيق للرعاية" + " بمرضى السكري", R.drawable.ic_splash_1));
@@ -60,8 +60,6 @@ public class Splash_Screen_1 extends AppCompatActivity {
         mList.add(new Splash_Screen_Modal("نظم جرعاتك", "يمكنك وضع منبه للتذكير بجرعات\n" + " العلاج يمكنك اختيار نوع العلاج ", R.drawable.ic_splash_1));
 
         //=============================== setup viewpager===========================================
-        viewPager = findViewById(R.id.screen_view_pager_splash);
-        dotsIndicator = findViewById(R.id.Splash_indicator);
         viewAdapterSplashScreen = new ViewAdapter_Splash_Screen(this, mList);
         viewPager.setAdapter(viewAdapterSplashScreen);
         dotsIndicator.setViewPager(viewPager);

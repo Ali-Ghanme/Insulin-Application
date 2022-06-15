@@ -9,17 +9,18 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.diabestes_care_app.Adapters.Chat_Adapter;
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.MemoryData.MemoryData;
+import com.example.diabestes_care_app.Models.ChatList_Model;
 import com.example.diabestes_care_app.R;
-import com.example.diabestes_care_app.Adapters.ChatAdapter;
-import com.example.diabestes_care_app.Models.ChatList;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -46,8 +47,8 @@ public class Chat extends Basic_Activity {
     String restoredText;
     String chatKey;
     RecyclerView ChatRecyclerView;
-    private final List<ChatList> chatLists = new ArrayList<>();
-    private ChatAdapter chatAdapter;
+    private final List<ChatList_Model> chatListModels = new ArrayList<>();
+    private Chat_Adapter chatAdapter;
     private boolean loadingFirstTime = true;
 
 
@@ -69,23 +70,28 @@ public class Chat extends Basic_Activity {
         SharedPreferences prefs = Chat.this.getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         restoredText = prefs.getString("TAG_NAME", null);
 
+        //
+        Toast.makeText(this, restoredText, Toast.LENGTH_SHORT).show();
         //============================Defines SharedPreferences=====================================
         ChatRecyclerView.setHasFixedSize(true);
         ChatRecyclerView.setLayoutManager(new LinearLayoutManager(Chat.this));
 
         //============================Defines SharedPreferences=====================================
-        chatAdapter = new ChatAdapter(chatLists, Chat.this);
+        chatAdapter = new Chat_Adapter(chatListModels, Chat.this);
         ChatRecyclerView.setAdapter(chatAdapter);
 
         //============================Get data from message adapter class===========================
         String getName = getIntent().getStringExtra("name");
         String getProfilePic = getIntent().getStringExtra("profile_pic");
         String getUsername = getIntent().getStringExtra("username");
+
+        // getUsername is the patient username the account that i loge in by it
+        Toast.makeText(this, getUsername, Toast.LENGTH_SHORT).show();
+
         chatKey = getIntent().getStringExtra("chat_key");
 
         name.setText(getName);
         Glide.with(this).load(getProfilePic).into(profile_image);
-
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -101,7 +107,7 @@ public class Chat extends Basic_Activity {
                 if (snapshot.hasChild("chat")) {
 
                     if (snapshot.child("chat").child(chatKey).hasChild("messages")) {
-                        chatLists.clear();
+                        chatListModels.clear();
 
                         for (DataSnapshot messagesSnapshot : snapshot.child("chat").child(chatKey).child("messages").getChildren()) {
 
@@ -113,24 +119,25 @@ public class Chat extends Basic_Activity {
 
 
                                 Timestamp timestamp = new Timestamp(Long.parseLong(messageTimestamps));
+
                                 Date date = new Date(timestamp.getTime());
-                                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy" , Locale.getDefault());
-                                SimpleDateFormat simpleTimeFormat = new SimpleDateFormat("hh:mm:aa" , Locale.getDefault());
+                                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+                                SimpleDateFormat simpleTimeFormat = new SimpleDateFormat("hh:mm:aa", Locale.getDefault());
 
                                 Calendar cal = Calendar.getInstance(Locale.getDefault());
                                 cal.setTimeInMillis(Long.parseLong(messageTimestamps) * 1000);
                                 String date22 = DateFormat.format("dd-MM-yyyy", cal).toString();
                                 String timeee = DateFormat.format(" hh:mm:aa", cal).toString();
 
-                                ChatList chatList = new ChatList(getUsername,getName,getMsg,date22,timeee);
-                                chatLists.add(chatList);
+                                ChatList_Model chatListModel = new ChatList_Model(getUsername, getName, getMsg, date22, timeee);
+                                chatListModels.add(chatListModel);
 
                                 String datda = MemoryData.getLastMsgTS(Chat.this, chatKey);
-                                if(datda.isEmpty()){
+                                if (datda.isEmpty()) {
                                     datda = "0";
                                 }
 
-                                if(messageTimestamps.isEmpty()){
+                                if (messageTimestamps.isEmpty()) {
                                     messageTimestamps = "0";
                                 }
                                 if (loadingFirstTime || Long.parseLong(messageTimestamps) > Long.parseLong(datda)) {
@@ -138,9 +145,9 @@ public class Chat extends Basic_Activity {
 
                                     MemoryData.saveLastMsgTS(messageTimestamps, chatKey, Chat.this);
 
-                                    chatAdapter.updateChatList(chatLists);
+                                    chatAdapter.updateChatList(chatListModels);
 
-                                    ChatRecyclerView.scrollToPosition(chatLists.size() - 1 );
+                                    ChatRecyclerView.scrollToPosition(chatListModels.size() - 1);
                                 }
                             }
                         }

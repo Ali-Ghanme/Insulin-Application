@@ -1,10 +1,10 @@
 package com.example.diabestes_care_app.Models;
 
-public class MessagesList {
+public class MessagesList_Model {
     private String name, username, lastMessage, DoctorImage, ChatKey;
     private int unseenMessages;
 
-    public MessagesList(String name, String username, String lastMessage, String doctorImage, String ChatKey
+    public MessagesList_Model(String name, String username, String lastMessage, String doctorImage, String ChatKey
             , int unseenMessages) {
         this.name = name;
         this.username = username;

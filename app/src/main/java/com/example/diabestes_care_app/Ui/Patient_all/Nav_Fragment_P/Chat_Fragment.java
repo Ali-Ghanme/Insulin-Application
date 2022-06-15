@@ -34,10 +34,16 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class Chat_Fragment extends Fragment {
+    // RecyclerView
     private RecyclerView messagesRecycleReview;
+    // Shared Preference
+    SharedPreferences prefs;
+    // Patient Username from shared Preference
     String PatientUsername;
+    // Firebase
     DatabaseReference myRef;
-    CircleImageView imageView;
+    // Image View Patient Profile
+    CircleImageView imageView_Profile;
     // Variables
     ArrayList<MessagesList_Model> messagesListModels = new ArrayList<>();
     // Adapter
@@ -56,7 +62,7 @@ public class Chat_Fragment extends Fragment {
 
         //============================Defines=======================================================
         messagesRecycleReview = view.findViewById(R.id.FCH_Chat_RecyclerView);
-        imageView = view.findViewById(R.id.FCH_profile_img_p);
+        imageView_Profile = view.findViewById(R.id.FCH_profile_img_p);
         myRef = FirebaseDatabase.getInstance().getReference();
         GetDataFromFirebase();
         messagesRecycleReview.setHasFixedSize(true);
@@ -65,8 +71,8 @@ public class Chat_Fragment extends Fragment {
         messagesAdapter = new Messages_Adapter(messagesListModels, getContext());
         messagesRecycleReview.setAdapter(messagesAdapter);
         //============================Defines=======================================================
-        SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
-        PatientUsername = prefs.getString("TAG_NAME", null);
+        prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
+        PatientUsername = prefs.getString("TAG_Patient_Username", null);
         // Save Username to MemoryData
         MemoryData.savePatientData(PatientUsername, getContext());
 
@@ -83,7 +89,7 @@ public class Chat_Fragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String PatientImage = snapshot.child(PatientUsername).child("personal_info").child("Image").child("mImageUrI").getValue(String.class);
-                Glide.with(getContext()).load(PatientImage).into(imageView);
+                Glide.with(getContext()).load(PatientImage).into(imageView_Profile);
             }
 
             @Override

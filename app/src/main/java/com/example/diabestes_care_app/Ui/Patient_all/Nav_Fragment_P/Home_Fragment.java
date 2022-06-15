@@ -53,7 +53,7 @@ public class Home_Fragment extends Fragment {
     // ShardPreference
     public static final String MyPREFERENCES_P = "P_Username";
     // Patient Username TextView
-    String restoredText;
+    String PatientUsername;
     // Notification Counter
     Notification_Number notification_number;
     ProgressDialog progressDialog;
@@ -68,6 +68,9 @@ public class Home_Fragment extends Fragment {
         recyclerView = view.findViewById(R.id.HP_recyclerView);
         imageProfile = view.findViewById(R.id.HP_profile_img);
 
+        //============================Configure Firebase============================================
+        myRef = FirebaseDatabase.getInstance().getReference();
+
         //==============================Progress Dialog=============================================
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage("إنتظر قليلاً يتم تحميل المحتوى..");
@@ -77,17 +80,15 @@ public class Home_Fragment extends Fragment {
         progressDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         progressDialog.show();
 
-        //============================Get Doctor Username===========================================
+        //============================Get Patient Username===========================================
         SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
-        restoredText = prefs.getString("TAG_Patient_Username", null);
+        PatientUsername = prefs.getString("TAG_Patient_Username", null);
 
         //============================Configure Recyclerview========================================
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
 
-        //============================Configure Firebase============================================
-        myRef = FirebaseDatabase.getInstance().getReference();
         //============================Get the status of User========================================
 //        manageConnections();
         //============================Put data in Recyclerview======================================
@@ -103,13 +104,11 @@ public class Home_Fragment extends Fragment {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 doctorListAdapter.getFilter().filter(s);
                 search = s;
             }
-
             @Override
             public void afterTextChanged(Editable s) {
             }
@@ -175,8 +174,8 @@ public class Home_Fragment extends Fragment {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String image = snapshot.child(restoredText).child("personal_info").child("Image").child("mImageUrI").getValue(String.class);
-                String name = snapshot.child(restoredText).child("personal_info").child("name").getValue(String.class);
+                String image = snapshot.child(PatientUsername).child("personal_info").child("Image").child("mImageUrI").getValue(String.class);
+                String name = snapshot.child(PatientUsername).child("personal_info").child("name").getValue(String.class);
                 Glide.with(getActivity()).load(image).into(imageProfile);
                 Log.d("TAG", name + "/" + image);
                 username.setText(name);

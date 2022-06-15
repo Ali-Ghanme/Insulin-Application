@@ -63,7 +63,7 @@ public class Profile_Fragment extends Fragment {
         FB_help_contt = view.findViewById(R.id.FB_help_contt);
 
         prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
-        PatientUsername = prefs.getString("TAG_Patient_Username", null);
+        PatientUsername = prefs.getString("TAG_NAME", null);
 
         //============================Next Click Listener===========================================
         imageView2.setOnClickListener(new View.OnClickListener() {

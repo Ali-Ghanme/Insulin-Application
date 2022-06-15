@@ -1,6 +1,7 @@
 package com.example.diabestes_care_app.chat;
 
-import static com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P.Home_Fragment.MyPREFERENCES_P;
+
+import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;

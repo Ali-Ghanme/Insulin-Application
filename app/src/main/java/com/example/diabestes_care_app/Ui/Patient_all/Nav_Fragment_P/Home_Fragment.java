@@ -2,6 +2,8 @@ package com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
+
 import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -50,8 +52,6 @@ public class Home_Fragment extends Fragment {
     CharSequence search = "";
     TextView username;
     ImageView imageProfile;
-    // ShardPreference
-    public static final String MyPREFERENCES_P = "P_Username";
     // Patient Username TextView
     String PatientUsername;
     // Notification Counter
@@ -68,6 +68,10 @@ public class Home_Fragment extends Fragment {
         recyclerView = view.findViewById(R.id.HP_recyclerView);
         imageProfile = view.findViewById(R.id.HP_profile_img);
 
+        //============================Get Patient Username===========================================
+        SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
+        PatientUsername = prefs.getString("TAG_NAME", null);
+
         //============================Configure Firebase============================================
         myRef = FirebaseDatabase.getInstance().getReference();
 
@@ -79,10 +83,6 @@ public class Home_Fragment extends Fragment {
         progressDialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         progressDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         progressDialog.show();
-
-        //============================Get Patient Username===========================================
-        SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
-        PatientUsername = prefs.getString("TAG_Patient_Username", null);
 
         //============================Configure Recyclerview========================================
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());

@@ -44,15 +44,15 @@ public class Chat_Fragment extends Fragment {
     DatabaseReference myRef;
     // Image View Patient Profile
     CircleImageView imageView_Profile;
-    // Variables
+    // ArrayList
     ArrayList<MessagesList_Model> messagesListModels = new ArrayList<>();
     // Adapter
     Messages_Adapter messagesAdapter;
+    // Variables
     private int unseenMessage = 0;
     private String lastMessage = "";
     private String chatKey = "";
     private boolean dataSet = false;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -63,16 +63,17 @@ public class Chat_Fragment extends Fragment {
         //============================Defines=======================================================
         messagesRecycleReview = view.findViewById(R.id.FCH_Chat_RecyclerView);
         imageView_Profile = view.findViewById(R.id.FCH_profile_img_p);
-        myRef = FirebaseDatabase.getInstance().getReference();
         GetDataFromFirebase();
+        //============================Defines=======================================================
+        myRef = FirebaseDatabase.getInstance().getReference();
+        //============================Setup Recycle Review=======================================================
         messagesRecycleReview.setHasFixedSize(true);
         messagesRecycleReview.setLayoutManager(new LinearLayoutManager(getContext()));
-
         messagesAdapter = new Messages_Adapter(messagesListModels, getContext());
         messagesRecycleReview.setAdapter(messagesAdapter);
         //============================Defines=======================================================
         prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
-        PatientUsername = prefs.getString("TAG_Patient_Username", null);
+        PatientUsername = prefs.getString("TAG_NAME", null);
         // Save Username to MemoryData
         MemoryData.savePatientData(PatientUsername, getContext());
 

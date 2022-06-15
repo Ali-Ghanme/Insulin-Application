@@ -119,7 +119,7 @@ public class Home_Fragment_D extends Fragment {
         return view;
     }
 
-    //========================Get Doctor list Data From Firebase Function===========================
+    //========================Get Patient list Data From Firebase Function===========================
     private void GetDataFromFirebase() {
         Query query = myRef.child("patient");
         query.addValueEventListener(new ValueEventListener() {

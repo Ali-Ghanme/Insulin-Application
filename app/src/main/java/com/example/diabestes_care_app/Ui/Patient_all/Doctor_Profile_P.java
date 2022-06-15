@@ -63,7 +63,7 @@ public class Doctor_Profile_P extends Basic_Activity {
         oky.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+//
 
                 if (!et_titlee.getText().toString().isEmpty() && !et_subjectt.getText().toString().isEmpty()) {
                     FcmNotificationsSender notificationsSender = new FcmNotificationsSender("/topics/DMohammed", et_titlee.getText().toString(),

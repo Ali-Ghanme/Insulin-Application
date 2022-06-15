@@ -69,6 +69,7 @@ public class DoctorList_Adapter extends RecyclerView.Adapter<DoctorList_Adapter.
                 Intent intent = new Intent(context, Doctor_Profile_P.class);
                 intent.putExtra("Doctor name", list2.getName());
                 intent.putExtra("Doctor_Pic_Profile", list2.getImageUrl());
+                intent.putExtra("username",list2.getUsername());
                 context.startActivity(intent);
             }
         });

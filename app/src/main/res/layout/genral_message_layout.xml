@@ -12,7 +12,7 @@
     android:elevation="@dimen/_5sdp">
 
     <EditText
-        android:id="@+id/et_title"
+        android:id="@+id/et_titlee"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_5sdp"
@@ -22,7 +22,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/et_subject"
+        android:id="@+id/et_subjectt"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_120sdp"
         android:layout_margin="@dimen/_5sdp"
@@ -34,7 +34,7 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/notification_general"
+        android:id="@+id/okey"
         android:layout_width="@dimen/_140sdp"
         android:layout_height="@dimen/_40sdp"
         android:layout_gravity="center_vertical|center_horizontal"

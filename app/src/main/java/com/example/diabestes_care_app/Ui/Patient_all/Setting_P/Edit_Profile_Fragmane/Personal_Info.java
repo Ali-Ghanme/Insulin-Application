@@ -35,6 +35,7 @@ public class Personal_Info extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_personal__info, container, false);
 
+        //============================Defines=======================================================
         weight_t = view.findViewById(R.id.FD_weight);
         length_t = view.findViewById(R.id.FD_length);
         date_t = view.findViewById(R.id.FD_date);
@@ -43,6 +44,7 @@ public class Personal_Info extends Fragment {
         age_t = view.findViewById(R.id.FD_age);
         address_t = view.findViewById(R.id.FD_address);
 
+        //============================Defines=======================================================
         SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         restoredText = prefs.getString("TAG_NAME", null);
         return view;
@@ -68,7 +70,6 @@ public class Personal_Info extends Fragment {
                 Phone_number_t.setText(Phone_number);
                 email_t.setText(email);
                 address_t.setText(address);
-//                age_t.setText(getAge());
             }
 
             @Override
@@ -76,6 +77,7 @@ public class Personal_Info extends Fragment {
             }
         });
     }
+
     private String getAge(int year, int month, int day , String data ){
         Calendar dob = Calendar.getInstance();
         Calendar today = Calendar.getInstance();

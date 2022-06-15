@@ -56,6 +56,7 @@ public class Home_Fragment extends Fragment {
     String PatientUsername;
     // Notification Counter
     Notification_Number notification_number;
+    // Progress Dialog
     ProgressDialog progressDialog;
 
     @Override
@@ -89,8 +90,6 @@ public class Home_Fragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
 
-        //============================Get the status of User========================================
-//        manageConnections();
         //============================Put data in Recyclerview======================================
         //ArrayList
         list = new ArrayList<>();

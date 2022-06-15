@@ -40,7 +40,7 @@ public class Care_Fragment extends Fragment {
     // Firebase
     DatabaseReference myRef;
     // Patient Username TextView
-    String restoredText;
+    String PatientUsername;
     //Card View
     CardView FC_Instruction, FC_Report, FC_Doses_p;
 
@@ -59,7 +59,7 @@ public class Care_Fragment extends Fragment {
 
         //============================Get Doctor Username===========================================
         SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
-        restoredText = prefs.getString("TAG_NAME", null);
+        PatientUsername = prefs.getString("TAG_NAME", null);
 
         //============================Get Doctor Username===========================================
         FC_Instruction.setOnClickListener(new View.OnClickListener() {
@@ -119,8 +119,8 @@ public class Care_Fragment extends Fragment {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String image = snapshot.child(restoredText).child("personal_info").child("Image").child("mImageUrI").getValue(String.class);
-                String name = snapshot.child(restoredText).child("personal_info").child("name").getValue(String.class);
+                String image = snapshot.child(PatientUsername).child("personal_info").child("Image").child("mImageUrI").getValue(String.class);
+                String name = snapshot.child(PatientUsername).child("personal_info").child("name").getValue(String.class);
                 Glide.with(getActivity()).load(image).into(imageProfile);
                 Log.d("TAG", name + "/" + image);
                 username.setText(name);

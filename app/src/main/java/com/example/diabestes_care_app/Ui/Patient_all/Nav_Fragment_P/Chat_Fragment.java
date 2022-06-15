@@ -63,10 +63,10 @@ public class Chat_Fragment extends Fragment {
         //============================Defines=======================================================
         messagesRecycleReview = view.findViewById(R.id.FCH_Chat_RecyclerView);
         imageView_Profile = view.findViewById(R.id.FCH_profile_img_p);
-        GetDataFromFirebase();
+
         //============================Defines=======================================================
         myRef = FirebaseDatabase.getInstance().getReference();
-        //============================Setup Recycle Review=======================================================
+        //============================Setup Recycle Review==========================================
         messagesRecycleReview.setHasFixedSize(true);
         messagesRecycleReview.setLayoutManager(new LinearLayoutManager(getContext()));
         messagesAdapter = new Messages_Adapter(messagesListModels, getContext());
@@ -76,12 +76,13 @@ public class Chat_Fragment extends Fragment {
         PatientUsername = prefs.getString("TAG_NAME", null);
         // Save Username to MemoryData
         MemoryData.savePatientData(PatientUsername, getContext());
-
         Toast.makeText(getContext(), MemoryData.getPatientData(getContext()), Toast.LENGTH_SHORT).show();
+
+        GetDataFromFirebase();
         return view;
     }
 
-    //============================Get profile Image Profile from Firebase database=========================================
+    //============================Get profile Image Profile from Firebase database==================
     @Override
     public void onStart() {
         super.onStart();

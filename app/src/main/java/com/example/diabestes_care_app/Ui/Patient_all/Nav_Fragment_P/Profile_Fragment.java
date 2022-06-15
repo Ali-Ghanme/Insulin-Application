@@ -62,6 +62,7 @@ public class Profile_Fragment extends Fragment {
         imageView2 = view.findViewById(R.id.FB_Patient_edit);
         FB_help_contt = view.findViewById(R.id.FB_help_contt);
 
+        //============================Shared Preference=============================================
         prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         PatientUsername = prefs.getString("TAG_NAME", null);
 
@@ -102,7 +103,7 @@ public class Profile_Fragment extends Fragment {
             }
         });
 
-        //==============================Logout Patient================================================
+        //==============================Logout Patient==============================================
         LogOut_cont.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,7 +115,6 @@ public class Profile_Fragment extends Fragment {
                 Intent intent_p = new Intent(getActivity(), Sing_In.class);
                 startActivity(intent_p);
                 getActivity().finish();
-
             }
         });
         return view;

@@ -21,9 +21,11 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
 
      NotificationManager mNotificationManager;
 
+
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
+
 
 // playing audio and vibration when user se reques
         Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);

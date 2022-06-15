@@ -77,7 +77,7 @@ public class Home_Fragment_D extends Fragment {
 
         //============================Get Doctor Username===========================================
         SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
-        DoctorUsername = prefs.getString("TAG_Doctor_Username", null);
+        DoctorUsername = prefs.getString("TAG_NAME", null);
 
         //============================Configure Recyclerview========================================
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());

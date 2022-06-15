@@ -2,6 +2,8 @@ package com.example.diabestes_care_app.NotificationSender;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -52,12 +54,13 @@ public class FcmNotificationsSender {
             JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, postUrl, mainObj, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
-                    // code run is got response
+                    Toast.makeText(mContext, "Is Work and send data", Toast.LENGTH_SHORT).show();
                 }
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     // code run is got error
+                    Toast.makeText(mContext, "Error", Toast.LENGTH_SHORT).show();
                 }
             }) {
                 @Override
@@ -72,6 +75,7 @@ public class FcmNotificationsSender {
 
         } catch (JSONException e) {
             e.printStackTrace();
+            Log.e("TAG",e.getMessage());
         }
     }
 }

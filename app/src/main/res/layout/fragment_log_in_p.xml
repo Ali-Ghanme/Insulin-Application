@@ -11,7 +11,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/FSI_tv_show_P"
+            android:id="@+id/FSI_tv_P"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -109,7 +109,7 @@
             tools:ignore="TouchTargetSizeCheck" />
 
         <TextView
-            android:id="@+id/FSI_tv3_show_P"
+            android:id="@+id/FSI_tv3_restore_pass_P"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/FSI_remember_CB_P"

@@ -2,6 +2,8 @@ package com.example.diabestes_care_app.Ui.Doctor_all.Nav_Fragment_D;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Doctor_Fragment.MyPREFERENCES_D;
+
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
@@ -67,14 +69,16 @@ public class Home_Fragment_D extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home___d, container, false);
+
         //============================Defines=======================================================
         searchInput = view.findViewById(R.id.HP_search_input_d);
         username = view.findViewById(R.id.HP_patient_name_d);
         recyclerView = view.findViewById(R.id.HP_recyclerView_d);
         imageProfile = view.findViewById(R.id.HP_profile_img_d);
+
         //============================Get Doctor Username===========================================
-        SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
-        restoredText = prefs.getString("TAG_NAME", null);
+        SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
+        restoredText = prefs.getString("TAG_Doctor_Username", null);
 
         //============================Configure Recyclerview========================================
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());

@@ -32,13 +32,20 @@ import com.google.firebase.database.ValueEventListener;
 
 public class LogIn_Patient_Fragment extends Fragment {
 
+    // Firebase
     DatabaseReference DB_reference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://diabeticsproject-default-rtdb.firebaseio.com/");
+    // Username and Password
     EditText username, password2;
+    // Login and Sing up
     Button login, SingUp;
+    // Check Box rememberMe
     CheckBox rememberMe;
+    // Object From Shared Preference
     SharedPreferences sharedpreferences;
+    // Name of Preference to Patient Username
     public static final String MyPREFERENCES_P = "P_Username";
-    SharedPreferences preferences_P;
+    // Remember Check Box Shared Preference
+    SharedPreferences Check_Box_preferences_P;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -46,28 +53,29 @@ public class LogIn_Patient_Fragment extends Fragment {
                              Bundle savedInstanceState) {
         //============================ Inflate the layout for this fragment=========================
         View view = inflater.inflate(R.layout.fragment_log_in_p, container, false);
-        //==============================Casting=====================================================
+        //==============================Define======================================================
         login = view.findViewById(R.id.FSI_btn_login_P);
         username = view.findViewById(R.id.FSI_et_username_P);
         password2 = view.findViewById(R.id.FSI_et_pass_P);
         SingUp = view.findViewById(R.id.FSI_btn_Signup_P);
         rememberMe = view.findViewById(R.id.FSI_remember_CB_P);
 
+        //==============================Shared Preference===========================================
         sharedpreferences = this.getActivity().getSharedPreferences(MyPREFERENCES_P, Context.MODE_PRIVATE);
 
-        //============================== Remember Me Login  Patient ================================================
+        //============================== Remember Me Login  Patient ================================
         rememberMe.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (buttonView.isChecked()) {
-                    preferences_P = getActivity().getSharedPreferences("checkbox_P", MODE_PRIVATE);
-                    SharedPreferences.Editor editor = preferences_P.edit();
+                    Check_Box_preferences_P = getActivity().getSharedPreferences("checkbox_P", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = Check_Box_preferences_P.edit();
                     editor.putString("remember_P", "true");
                     editor.apply();
                     Toast.makeText(getActivity(), "Checked", Toast.LENGTH_SHORT).show();
                 } else if (!buttonView.isChecked()) {
-                    preferences_P = getActivity().getSharedPreferences("checkbox_P", MODE_PRIVATE);
-                    SharedPreferences.Editor editor = preferences_P.edit();
+                    Check_Box_preferences_P = getActivity().getSharedPreferences("checkbox_P", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = Check_Box_preferences_P.edit();
                     editor.putString("remember_P", "false");
                     editor.apply();
                     Toast.makeText(getActivity(), "Un Checked", Toast.LENGTH_SHORT).show();
@@ -118,6 +126,7 @@ public class LogIn_Patient_Fragment extends Fragment {
             }
         });
 
+        //==============================Login Button================================================
         SingUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

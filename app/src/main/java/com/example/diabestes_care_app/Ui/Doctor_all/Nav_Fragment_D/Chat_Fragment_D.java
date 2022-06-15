@@ -46,6 +46,7 @@ public class Chat_Fragment_D extends Fragment {
     ArrayList<MessagesList_Model> messagesListModels = new ArrayList<>();
     // Adapter
     Messages_Adapter messagesAdapter;
+    // Variables
     private int unseenMessage = 0;
     private String lastMessage = "";
     private String chatKey = "";
@@ -62,12 +63,16 @@ public class Chat_Fragment_D extends Fragment {
         messagesRecycleReview = view.findViewById(R.id.FCH_Chat_RecyclerView_d);
         imageView = view.findViewById(R.id.FCH_profile_img_d);
 
+        //============================Defines Firebase==============================================
         myRef = FirebaseDatabase.getInstance().getReference();
         GetDataFromFirebase();
+
+        //============================Recycle Review Setup==========================================
         messagesRecycleReview.setHasFixedSize(true);
         messagesRecycleReview.setLayoutManager(new LinearLayoutManager(getContext()));
         messagesAdapter = new Messages_Adapter(messagesListModels, getContext());
         messagesRecycleReview.setAdapter(messagesAdapter);
+
         //============================Defines SharedPreferences=====================================
         SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
         DoctorUsername = prefs.getString("TAG_NAME", null);
@@ -76,7 +81,7 @@ public class Chat_Fragment_D extends Fragment {
         return view;
     }
 
-    //============================Get profile Image Profile from Firebase database=========================================
+    //============================Get profile Image Profile from Firebase database==================
     @Override
     public void onStart() {
         super.onStart();

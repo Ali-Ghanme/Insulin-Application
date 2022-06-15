@@ -36,8 +36,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class Home_Fragment extends Fragment {
-    // implements Interface_Recycle
-    FirebaseDatabase db;
+
     // Firebase
     DatabaseReference myRef;
     // Widget
@@ -69,6 +68,7 @@ public class Home_Fragment extends Fragment {
         recyclerView = view.findViewById(R.id.HP_recyclerView);
         imageProfile = view.findViewById(R.id.HP_profile_img);
 
+        //==============================Progress Dialog=============================================
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage("إنتظر قليلاً يتم تحميل المحتوى..");
         progressDialog.getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.dilog_background));
@@ -76,17 +76,19 @@ public class Home_Fragment extends Fragment {
         progressDialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         progressDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         progressDialog.show();
+
         //============================Get Doctor Username===========================================
         SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
-        restoredText = prefs.getString("TAG_NAME", null);
+        restoredText = prefs.getString("TAG_Patient_Username", null);
+
         //============================Configure Recyclerview========================================
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
+
         //============================Configure Firebase============================================
         myRef = FirebaseDatabase.getInstance().getReference();
         //============================Get the status of User========================================
-        db = FirebaseDatabase.getInstance();
 //        manageConnections();
         //============================Put data in Recyclerview======================================
         //ArrayList

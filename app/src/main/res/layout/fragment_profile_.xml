@@ -227,7 +227,55 @@
                 android:contentDescription="@string/todo"
                 tools:ignore="ImageContrastCheck" />
         </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/FB_help_contt"
+            android:layout_width="@dimen/_280sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:paddingTop="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/FB_DarkMode_cont_d">
 
+            <View style="@style/Divider.Horizontal" />
+
+            <TextView
+                android:id="@+id/FB_help_textt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginEnd="@dimen/_60sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:layoutDirection="rtl"
+                android:text="اشعارات عامة  "
+                android:textAlignment="textStart"
+                android:textSize="@dimen/_13sdp" />
+
+            <ImageView
+                android:id="@+id/FB_Help_Sectionn"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_marginStart="@dimen/_240sdp"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:background="@drawable/ic_notification"
+                android:backgroundTint="@color/Patient_Color"
+                android:contentDescription="@string/todo"
+                tools:ignore="ImageContrastCheck" />
+
+            <ImageView
+                android:id="@+id/FB_btn_next_Helpp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:background="@drawable/ic_arrwa"
+                android:backgroundTint="@color/Patient_Color"
+                android:contentDescription="@string/todo"
+                tools:ignore="ImageContrastCheck" />
+        </RelativeLayout>
         <RelativeLayout
             android:id="@+id/FB_LogOut_cont"
             android:layout_width="@dimen/_280sdp"

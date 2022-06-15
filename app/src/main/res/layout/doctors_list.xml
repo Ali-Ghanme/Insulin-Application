@@ -20,7 +20,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-
         <TextView
             android:id="@+id/Dl_doctor_name"
             android:layout_width="wrap_content"
@@ -68,7 +67,7 @@
                 android:background="@drawable/bg_doctor_button"
                 app:civ_border_color="@color/Doctor_Color"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/img_off"
@@ -77,9 +76,18 @@
                 android:backgroundTint="@color/gray"
                 android:background="@drawable/bg_patient_button"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <ImageButton
+            android:id="@+id/follow_patient"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:background="@android:color/transparent"
+            android:padding="4dp"
+            android:src="@drawable/ic_turned_off" />
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

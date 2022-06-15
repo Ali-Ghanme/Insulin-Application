@@ -12,7 +12,7 @@ public final class MemoryData {
 
     public static void savePatientData(String data, Context context) {
         try {
-            FileOutputStream fileOutputStream = context.openFileOutput("data.txt", Context.MODE_PRIVATE);
+            FileOutputStream fileOutputStream = context.openFileOutput("patient.txt", Context.MODE_PRIVATE);
             fileOutputStream.write(data.getBytes());
             fileOutputStream.close();
         } catch (IOException e) {
@@ -23,7 +23,7 @@ public final class MemoryData {
     public static String getPatientData(Context context) {
         String data = "";
         try {
-            FileInputStream fis = context.openFileInput("data.text");
+            FileInputStream fis = context.openFileInput("patient.text");
             InputStreamReader isr = new InputStreamReader(fis);
             BufferedReader bufferedReader = new BufferedReader(isr);
             StringBuilder sb = new StringBuilder();
@@ -41,7 +41,7 @@ public final class MemoryData {
 
     public static void saveDoctorData(String data, Context context) {
         try {
-            FileOutputStream fileOutputStream = context.openFileOutput("data.txt", Context.MODE_PRIVATE);
+            FileOutputStream fileOutputStream = context.openFileOutput("Doctor.txt", Context.MODE_PRIVATE);
             fileOutputStream.write(data.getBytes());
             fileOutputStream.close();
         } catch (IOException e) {
@@ -52,7 +52,7 @@ public final class MemoryData {
     public static String getDoctorData(Context context) {
         String data = "";
         try {
-            FileInputStream fis = context.openFileInput("data.text");
+            FileInputStream fis = context.openFileInput("Doctor.text");
             InputStreamReader isr = new InputStreamReader(fis);
             BufferedReader bufferedReader = new BufferedReader(isr);
             StringBuilder sb = new StringBuilder();
@@ -96,6 +96,4 @@ public final class MemoryData {
         }
         return data;
     }
-
-
 }

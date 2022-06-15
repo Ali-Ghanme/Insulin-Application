@@ -67,7 +67,10 @@ public class Chat_Fragment extends Fragment {
         //============================Defines=======================================================
         SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         PatientUsername = prefs.getString("TAG_NAME", null);
-        Toast.makeText(getContext(), PatientUsername, Toast.LENGTH_SHORT).show();
+        // Save Username to MemoryData
+        MemoryData.savePatientData(PatientUsername, getContext());
+
+        Toast.makeText(getContext(), MemoryData.getPatientData(getContext()), Toast.LENGTH_SHORT).show();
         return view;
     }
 
@@ -81,9 +84,6 @@ public class Chat_Fragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String PatientImage = snapshot.child(PatientUsername).child("personal_info").child("Image").child("mImageUrI").getValue(String.class);
                 Glide.with(getContext()).load(PatientImage).into(imageView);
-
-                // Save Username to MemoryData
-                MemoryData.savePatientData(PatientUsername, getContext());
             }
 
             @Override

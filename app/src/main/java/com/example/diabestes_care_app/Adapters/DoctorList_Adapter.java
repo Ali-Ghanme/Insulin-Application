@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -20,6 +21,8 @@ import com.bumptech.glide.Glide;
 import com.example.diabestes_care_app.Models.DoctorList_Model;
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Patient_all.Doctor_Profile_P;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -118,6 +121,9 @@ public class DoctorList_Adapter extends RecyclerView.Adapter<DoctorList_Adapter.
         ImageView imageView;
         RelativeLayout container;
 //        private ImageView img_off, img_on;
+        ImageButton follow_btn;
+        DatabaseReference followRef;
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -128,7 +134,6 @@ public class DoctorList_Adapter extends RecyclerView.Adapter<DoctorList_Adapter.
 //            img_off = itemView.findViewById(R.id.img_off);
 //            img_on = itemView.findViewById(R.id.img_on);
             itemView.setOnClickListener(this);
-
         }
 
         @Override
@@ -139,5 +144,4 @@ public class DoctorList_Adapter extends RecyclerView.Adapter<DoctorList_Adapter.
             context.startActivity(intent);
         }
     }
-
 }

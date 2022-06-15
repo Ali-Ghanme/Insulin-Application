@@ -1,6 +1,9 @@
 package com.example.diabestes_care_app.Ui.Patient_all;
 
+import android.app.Dialog;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -16,6 +19,8 @@ public class Doctor_Profile_P extends Basic_Activity {
     DatabaseReference myRef;
     CircleImageView Doctor_Profile;
     TextView DoctorName;
+    // Dialog
+    Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +30,7 @@ public class Doctor_Profile_P extends Basic_Activity {
 
         DoctorName = findViewById(R.id.HP_doctor_name);
         Doctor_Profile = findViewById(R.id.HP_profile_img);
+        request = findViewById(R.id.request_for);
 
         // Get data from message adapter class
         final String getName = getIntent().getStringExtra("Doctor name");
@@ -32,5 +38,30 @@ public class Doctor_Profile_P extends Basic_Activity {
 
         DoctorName.setText(getName);
         Glide.with(this).load(getProfilePic).into(Doctor_Profile);
+
+        //============================Create + Configure the Dialog here============================
+        dialog = new Dialog(Doctor_Profile_P.this);
+        dialog.setContentView(R.layout.custom_dilog);
+        dialog.getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.dilog_background));
+        //Setting the animations to dialog
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.setCancelable(true); //Optional
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+
+//        Okay.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                Toast.makeText(getContext(), "Okay", Toast.LENGTH_SHORT).show();
+//                dialog.dismiss();
+//            }
+//        });
+
+        request.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.show(); // Showing the dialog here
+            }
+        });
     }
 }

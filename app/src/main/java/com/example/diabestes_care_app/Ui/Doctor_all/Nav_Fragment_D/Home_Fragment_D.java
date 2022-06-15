@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.diabestes_care_app.Adapters.DoctorList_Adapter;
+import com.example.diabestes_care_app.MemoryData.MemoryData;
 import com.example.diabestes_care_app.Models.DoctorList_Model;
 import com.example.diabestes_care_app.Notification_Controller.Notification_Number;
 import com.example.diabestes_care_app.R;
@@ -36,10 +37,11 @@ import java.util.ArrayList;
 
 
 public class Home_Fragment_D extends Fragment {
+
     // implements Interface_Recycle
     FirebaseDatabase db;
     // Firebase
-    DatabaseReference myRef;
+    DatabaseReference myRef, followRef, followList, Ref;
     // Widget
     RecyclerView recyclerView;
     // Variables
@@ -57,6 +59,8 @@ public class Home_Fragment_D extends Fragment {
     String restoredText;
     // Notification Counter
     Notification_Number notification_number;
+    // Follow Checker
+    Boolean followChecker = false;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -173,6 +177,7 @@ public class Home_Fragment_D extends Fragment {
                 Glide.with(getActivity()).load(image).into(imageProfile);
                 Log.d("TAG", name + "/" + image);
                 username.setText(name);
+                MemoryData.saveDoctorData(restoredText,getContext());
             }
 
             @Override

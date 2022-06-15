@@ -4,44 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center"
+    android:orientation="vertical"
     tools:context=".NotificationSender.SendNotification">
 
-
-
-
     <EditText
+        android:id="@+id/et_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/_10sdp"
-        android:hint="Title"
-         android:textStyle="bold"
-        android:background="@drawable/bg_edit_text"
         android:layout_margin="@dimen/_5sdp"
+        android:background="@drawable/bg_edit_text"
+        android:hint="Title"
+        android:padding="@dimen/_10sdp"
+        android:textStyle="bold" />
 
-        android:id="@+id/et_title"/>
     <EditText
+        android:id="@+id/et_subject"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_120sdp"
-        android:padding="@dimen/_10sdp"
-        android:hint="Subject"
-        android:inputType="text"
-        android:textStyle="bold"
         android:layout_margin="@dimen/_5sdp"
         android:layout_marginBottom="@dimen/_15sdp"
         android:background="@drawable/bg_edit_text"
-        android:id="@+id/et_subject"/>
-<!--    <EditText-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:padding="@dimen/_10sdp"-->
-<!--        android:hint="Token"-->
-<!--        android:textStyle="bold"-->
-<!--        android:background="@drawable/bg_edit_text"-->
-<!--        android:layout_margin="@dimen/_5sdp"-->
+        android:hint="Subject"
+        android:inputType="text"
+        android:padding="@dimen/_10sdp"
+        android:textStyle="bold" />
+    <!--    <EditText-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:padding="@dimen/_10sdp"-->
+    <!--        android:hint="Token"-->
+    <!--        android:textStyle="bold"-->
+    <!--        android:background="@drawable/bg_edit_text"-->
+    <!--        android:layout_margin="@dimen/_5sdp"-->
 
-<!--        android:id="@+id/token"/>-->
+    <!--        android:id="@+id/token"/>-->
     <Button
         android:id="@+id/notification_general"
         android:layout_width="@dimen/_140sdp"
@@ -49,12 +46,13 @@
         android:layout_gravity="center_vertical|center_horizontal"
         android:background="@drawable/bg_text_dr"
         android:text="Send  Notification All" />
+
     <Button
         android:id="@+id/notification_user"
         android:layout_width="@dimen/_140sdp"
         android:layout_height="@dimen/_40sdp"
-        android:layout_marginTop="@dimen/_5sdp"
         android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_marginTop="@dimen/_5sdp"
         android:background="@drawable/ic_launcher_background"
         android:text=" Notification user" />
 </LinearLayout>

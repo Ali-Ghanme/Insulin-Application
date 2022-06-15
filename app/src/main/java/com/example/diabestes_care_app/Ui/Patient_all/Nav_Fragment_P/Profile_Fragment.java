@@ -19,6 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
+import com.example.diabestes_care_app.NotificationSender.SendNotification;
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Patient_all.Setting_P.Edit_Profile_P;
 import com.example.diabestes_care_app.Ui.Patient_all.Setting_P.Help;
@@ -32,7 +33,7 @@ import com.google.firebase.database.ValueEventListener;
 
 
 public class Profile_Fragment extends Fragment {
-    RelativeLayout notification_cont, DarkMode_cont, help_cont, LogOut_cont;
+    RelativeLayout notification_cont, DarkMode_cont, help_cont, LogOut_cont , FB_help_contt;
     ImageView imageView, imageView2;
     TextView name;
     DatabaseReference myRef;
@@ -52,6 +53,7 @@ public class Profile_Fragment extends Fragment {
         name = view.findViewById(R.id.FB_tv_Patient_name);
         imageView = view.findViewById(R.id.FB_Patient_image);
         imageView2 = view.findViewById(R.id.FB_Patient_edit);
+        FB_help_contt = view.findViewById(R.id.FB_help_contt);
 
         SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         restoredText = prefs.getString("TAG_NAME", null);
@@ -64,6 +66,14 @@ public class Profile_Fragment extends Fragment {
                 startActivity(intent);
             }
         });
+        FB_help_contt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), SendNotification.class);
+                startActivity(intent);
+            }
+        });
+
         notification_cont.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -184,24 +184,4 @@ Context context;
                 }
             });
     }
-
-//    //============================Show The doctor name + image======================================
-//    private void status(String status) {
-//        myRef = FirebaseDatabase.getInstance().getReference("doctor").child(DoctorUsername);
-//        HashMap<String, Object> hashMap = new HashMap<>();
-//        hashMap.put("status", status);
-//        myRef.updateChildren(hashMap);
-//    }
-//
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//        status("online");
-//    }
-//
-//    @Override
-//    public void onPause() {
-//        super.onPause();
-//        status("offline");
-//    }
 }

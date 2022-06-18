@@ -28,11 +28,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -118,13 +115,6 @@ public class Chat extends Basic_Activity {
                                 final String getUsername = messagesSnapshot.child("username").getValue(String.class);
                                 final String getMsg = messagesSnapshot.child("msg").getValue(String.class);
 
-
-                                Timestamp timestamp = new Timestamp(Long.parseLong(messageTimestamps));
-
-                                Date date = new Date(timestamp.getTime());
-                                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
-                                SimpleDateFormat simpleTimeFormat = new SimpleDateFormat("hh:mm:aa", Locale.getDefault());
-
                                 Calendar cal = Calendar.getInstance(Locale.getDefault());
                                 cal.setTimeInMillis(Long.parseLong(messageTimestamps) * 1000);
                                 String date22 = DateFormat.format("dd-MM-yyyy", cal).toString();
@@ -148,19 +138,19 @@ public class Chat extends Basic_Activity {
 
                                     chatAdapter.updateChatList(chatListModels);
 
-                                    ChatRecyclerView.scrollToPosition(chatListModels.size() - 1);
+                                    ChatRecyclerView.scrollToPosition(chatListModels.size() + 1);
                                 }
                             }
                         }
                     }
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
+
 
         SendButton.setOnClickListener(new View.OnClickListener() {
             @Override

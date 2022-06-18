@@ -30,13 +30,11 @@ public class DoctorList_Adapter extends RecyclerView.Adapter<DoctorList_Adapter.
     Context context;
     ArrayList<DoctorList_Model> list;
     ArrayList<DoctorList_Model> mDataFiltered;
-    private boolean isStatus;
 
     public DoctorList_Adapter(Context context, ArrayList<DoctorList_Model> list, boolean isStatus) {
         this.context = context;
         this.list = list;
         this.mDataFiltered = list;
-        this.isStatus = isStatus;
     }
 
     @NonNull
@@ -52,19 +50,6 @@ public class DoctorList_Adapter extends RecyclerView.Adapter<DoctorList_Adapter.
         holder.container.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_scale_animation));
 
         DoctorList_Model list2 = mDataFiltered.get(position);
-        // Chek , visible & gone user status mohammed siam
-//        if (isStatus) {
-//            if (    list2 != null && list2.getStatus().equals("offline")) {
-//                holder.img_on.setVisibility(View.VISIBLE);
-//                holder.img_off.setVisibility(View.GONE);
-//            } else {
-//                holder.img_on.setVisibility(View.GONE);
-//                holder.img_off.setVisibility(View.VISIBLE);
-//            }
-//        } else {
-//            holder.img_on.setVisibility(View.GONE);
-//            holder.img_off.setVisibility(View.GONE);
-//        }
 
         holder.container.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,7 +107,7 @@ public class DoctorList_Adapter extends RecyclerView.Adapter<DoctorList_Adapter.
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView name, username;
-        ImageView imageView , img_off, img_on;
+        ImageView imageView;
         RelativeLayout container;
 
         ImageButton follow_btn;
@@ -135,8 +120,6 @@ public class DoctorList_Adapter extends RecyclerView.Adapter<DoctorList_Adapter.
             username = itemView.findViewById(R.id.Dl_doctor_username);
             imageView = itemView.findViewById(R.id.Dl_Doctor_image);
             container = itemView.findViewById(R.id.Dl_container);
-//            img_off = itemView.findViewById(R.id.img_off);
-//            img_on = itemView.findViewById(R.id.img_on);
             itemView.setOnClickListener(this);
         }
 

@@ -51,7 +51,6 @@ public class Chat_Fragment_D extends Fragment {
     private String lastMessage = "";
     private String chatKey = "";
     private boolean dataSet = false;
-    private static final String FILE_NAME = "example.txt";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -149,7 +148,6 @@ public class Chat_Fragment_D extends Fragment {
                                     }
                                 }
                                 if (!dataSet) {
-                                    dataSet = true;
                                     MessagesList_Model messagesListModel = new MessagesList_Model(getPatientName, getPatientUsername,
                                             lastMessage, getPatientImage, chatKey, unseenMessage);
                                     messagesListModels.add(messagesListModel);

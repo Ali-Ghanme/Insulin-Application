@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    tools:context=".chat.Chat">
+    tools:context=".chat.Chat_D">
 
     <RelativeLayout
-        android:id="@+id/chat_header"
+        android:id="@+id/chat_header_d"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_10sdp"
@@ -17,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/chat_back_btn"
+            android:id="@+id/chat_back_btn_d"
             android:layout_width="@dimen/_35sdp"
             android:layout_height="@dimen/_35sdp"
             android:layout_centerVertical="true"
@@ -29,24 +28,25 @@
             android:src="@drawable/ic_arrow_back" />
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/chat_profile_pic"
+            android:id="@+id/chat_profile_pic_d"
             android:layout_width="@dimen/_50sdp"
             android:layout_height="@dimen/_50sdp"
             android:layout_alignParentEnd="true"
             android:layout_centerInParent="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_20sdp"
-            android:src="@drawable/ic_user" />
+            android:background="@drawable/ic_user"
+            android:backgroundTint="@color/Doctor_Color" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginEnd="@dimen/_10sdp"
-            android:layout_toStartOf="@id/chat_profile_pic">
+            android:layout_toStartOf="@id/chat_profile_pic_d">
 
             <TextView
-                android:id="@+id/chat_user_name"
+                android:id="@+id/chat_user_name_d"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/cairo_semibold"
@@ -58,7 +58,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/chat_user_status"
+                android:id="@+id/chat_user_status_d"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/cairo_semibold"
@@ -67,30 +67,30 @@
                 android:textSize="@dimen/_13sdp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/chat_user_name" />
+                app:layout_constraintTop_toBottomOf="@+id/chat_user_name_d" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </RelativeLayout>
 
     <View
         style="@style/Divider.Horizontal"
-        app:layout_constraintBottom_toBottomOf="@+id/chat_header"
+        app:layout_constraintBottom_toBottomOf="@+id/chat_header_d"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chat_header" />
+        app:layout_constraintTop_toBottomOf="@+id/chat_header_d" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/Chat_RecyclerView"
+        android:id="@+id/Chat_RecyclerView_d"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_above="@+id/send_box"
-        android:layout_below="@+id/chat_header"
-        app:layout_constraintBottom_toTopOf="@+id/send_box"
+        android:layout_above="@+id/send_box_d"
+        android:layout_below="@+id/chat_header_d"
+        app:layout_constraintBottom_toTopOf="@+id/send_box_d"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chat_header" />
+        app:layout_constraintTop_toBottomOf="@+id/chat_header_d" />
 
     <RelativeLayout
-        android:id="@+id/send_box"
+        android:id="@+id/send_box_d"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -101,24 +101,25 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <EditText
-            android:id="@+id/chat_message_box_EditText"
+            android:id="@+id/chat_message_box_EditText_d"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_50sdp"
             android:layout_centerVertical="true"
             android:layout_marginEnd="@dimen/_20sdp"
-            android:layout_toEndOf="@id/chat_send_message"
+            android:layout_toEndOf="@id/chat_send_message_d"
             android:backgroundTint="@android:color/transparent"
             android:fontFamily="@font/cairo_semibold"
             android:hint="أكتب رسالتلك هنا "
-            android:textColorHint="@color/Patient_Color" />
+            android:textColorHint="@color/Doctor_Color" />
 
         <ImageView
-            android:id="@+id/chat_send_message"
+            android:id="@+id/chat_send_message_d"
             android:layout_width="@dimen/_35sdp"
             android:layout_height="@dimen/_35sdp"
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/_20sdp"
             android:background="@drawable/bg_ic_background"
+            android:backgroundTint="@color/Doctor_Color"
             android:paddingTop="@dimen/_5sdp"
             android:src="@drawable/ic_icon_ionic_ios_send" />
     </RelativeLayout>

@@ -1,12 +1,10 @@
 package com.example.diabestes_care_app.Ui.Doctor_all.Nav_Fragment_D;
 
 import static android.content.Context.MODE_PRIVATE;
-import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.Preference;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -25,11 +23,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.diabestes_care_app.Adapters.DoctorList_Adapter;
-import com.example.diabestes_care_app.MemoryData.MemoryData;
 import com.example.diabestes_care_app.Models.DoctorList_Model;
 import com.example.diabestes_care_app.Notification_Controller.Notification_Number;
 import com.example.diabestes_care_app.R;
-import com.example.diabestes_care_app.chat.Chat;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -37,9 +33,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.lang.ref.Reference;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 
 public class Home_Fragment_D extends Fragment {
@@ -143,6 +137,7 @@ Context context;
                     }
                 } catch (Exception e) {
                     Toast.makeText(getContext(), "إنتظر قليلاً ", Toast.LENGTH_SHORT).show();
+
                 }
                 doctorListAdapter = new DoctorList_Adapter(getContext(), list, true);
                 recyclerView.setAdapter(doctorListAdapter);
@@ -171,42 +166,42 @@ Context context;
     @Override
     public void onStart() {
         super.onStart();
-        myRef = FirebaseDatabase.getInstance().getReference("doctor");
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String image = snapshot.child(DoctorUsername).child("personal_info").child("Image").child("mImageUrI").getValue(String.class);
-                String name = snapshot.child(DoctorUsername).child("personal_info").child("name_ar").getValue(String.class);
-                Glide.with(getActivity()).load(image).into(imageProfile);
-                Log.d("TAG", name + "/" + image);
-                username.setText(name);
-                MemoryData.saveDoctorData(DoctorUsername, getContext());
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("TAG", error.getMessage());
-            }
-        });
+            myRef = FirebaseDatabase.getInstance().getReference("doctor");
+            myRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    String image = snapshot.child(DoctorUsername).child("personal_info").child("Image").child("mImageUrI").getValue(String.class);
+                    String name = snapshot.child(DoctorUsername).child("personal_info").child("name_ar").getValue(String.class);
+                    Glide.with(getActivity()).load(image).into(imageProfile);
+                    Log.d("TAG", name + "/" + image);
+                    username.setText(name);
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Log.e("TAG", error.getMessage());
+                }
+            });
     }
 
-    //    //============================Show The doctor name + image======================================
-    private void status(String status) {
-        myRef = FirebaseDatabase.getInstance().getReference("doctor").child(DoctorUsername);
-        HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("status", status);
-        myRef.updateChildren(hashMap);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        status("online");
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        status("offline");
-    }
+//    //============================Show The doctor name + image======================================
+//    private void status(String status) {
+//        myRef = FirebaseDatabase.getInstance().getReference("doctor").child(DoctorUsername);
+//        HashMap<String, Object> hashMap = new HashMap<>();
+//        hashMap.put("status", status);
+//        myRef.updateChildren(hashMap);
+//    }
+//
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        status("online");
+//    }
+//
+//    @Override
+//    public void onPause() {
+//        super.onPause();
+//        status("offline");
+//    }
 }

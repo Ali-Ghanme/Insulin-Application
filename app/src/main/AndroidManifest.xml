@@ -4,8 +4,8 @@
     package="com.example.diabestes_care_app">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.VIBRATE" />
+
 
     <application
         android:allowBackup="true"
@@ -15,6 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Diabestes_Care_App">
+        <activity
+            android:name=".chat.Chat_D"
+            android:exported="false" />
         <activity
             android:name=".Content"
             android:exported="false" />
@@ -98,18 +101,21 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <service
             android:name=".NotificationSender.FirebaseMessagingService"
+            android:exported="true"
             android:permission="TODO"
-            tools:ignore="ExportedService"
-            android:exported="true">
+            tools:ignore="ExportedService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

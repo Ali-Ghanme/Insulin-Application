@@ -2,7 +2,6 @@ package com.example.diabestes_care_app.Ui.Patient_all;
 
 import android.app.Dialog;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -14,15 +13,9 @@ import com.bumptech.glide.Glide;
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.NotificationSender.FcmNotificationsSender;
 import com.example.diabestes_care_app.R;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.messaging.FirebaseMessaging;
-import com.google.firebase.messaging.RemoteMessage;
 
-import androidx.annotation.NonNull;
 import de.hdodenhof.circleimageview.CircleImageView;
-
-import static android.content.ContentValues.TAG;
 
 public class Doctor_Profile_P extends Basic_Activity {
     Button request;
@@ -42,7 +35,7 @@ public class Doctor_Profile_P extends Basic_Activity {
         Doctor_Profile = findViewById(R.id.HP_profile_img);
         request = findViewById(R.id.request_for);
 
-        // FirebaseMessaging.getInstance().subscribeToTopic("all");
+
         // Get data from message adapter class
         final String getName = getIntent().getStringExtra("Doctor name");
         final String getProfilePic = getIntent().getStringExtra("Doctor_Pic_Profile");
@@ -50,7 +43,8 @@ public class Doctor_Profile_P extends Basic_Activity {
         DoctorName.setText(getName);
         Glide.with(this).load(getProfilePic).into(Doctor_Profile);
 
-
+          FirebaseMessaging.getInstance().subscribeToTopic("DMohammed");
+        Toast.makeText(this, getUsername, Toast.LENGTH_SHORT).show();
         //============================Create + Configure the Dialog here============================
         FirebaseMessaging.getInstance().subscribeToTopic(getUsername);
 
@@ -69,22 +63,23 @@ public class Doctor_Profile_P extends Basic_Activity {
         oky.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//
+
                 if (!et_titlee.getText().toString().isEmpty() && !et_subjectt.getText().toString().isEmpty()) {
-                    FcmNotificationsSender notificationsSender = new FcmNotificationsSender("/topics/" + getUsername, et_titlee.getText().toString(),
+                    FcmNotificationsSender notificationsSender = new FcmNotificationsSender("/topics/DMohammed", et_titlee.getText().toString(),
                             et_subjectt.getText().toString(), getApplicationContext(), Doctor_Profile_P.this);
                     notificationsSender.SendNotifications();
 
 
+//##### Send User
+//                    if (!et_titlee.getText().toString().isEmpty() && !et_subjectt.getText().toString().isEmpty()) {
+//                        FcmNotificationsSender notificationsSender = new FcmNotificationsSender("/topics/all", et_titlee.getText().toString(),
+//                                et_subjectt.getText().toString(), getApplicationContext(), Doctor_Profile_P.this);
+//                        notificationsSender.SendNotifications();
 
-                    //##### Send Notification All  User
-              /*
-      if (!et_titlee.getText().toString().isEmpty() && !et_subjectt.getText().toString().isEmpty()) {
-     FcmNotificationsSender notificationsSender = new FcmNotificationsSender("/topics/all", et_titlee.getText().toString(),
-         et_subjectt.getText().toString(), getApplicationContext(), Doctor_Profile_P.this);
-      notificationsSender.SendNotifications();
-         Toast.makeText(getApplicationContext(), "Yes , text && Title required", Toast.LENGTH_LONG).show();
-               */
-                    dialog.dismiss();  // اخفاء الدايلوج
+                    //     Toast.makeText(getApplicationContext(), "Yes , text && Title required", Toast.LENGTH_LONG).show();
+
+                    dialog.dismiss();
                 } else {
                     //   Toast.makeText(getApplicationContext(), "No , text && Title required", Toast.LENGTH_LONG).show();
                 }
@@ -99,6 +94,7 @@ public class Doctor_Profile_P extends Basic_Activity {
                 dialog.show(); // Showing the dialog here
             }
         });
+
 
     }
 }

@@ -25,7 +25,6 @@
                 android:background="@drawable/opo_msg_back"
                 android:fontFamily="@font/cairo_bold"
                 android:padding="@dimen/_20sdp"
-                android:text="this is opponent message"
                 android:textColor="#424242" />
 
             <TextView
@@ -33,7 +32,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_2sdp"
-                android:text="10-08-2021 05:12 PM"
                 android:textSize="@dimen/_9sdp" />
 
         </LinearLayout>
@@ -54,7 +52,6 @@
                 android:background="@drawable/my_msg_back"
                 android:fontFamily="@font/cairo_bold"
                 android:padding="@dimen/_20sdp"
-                android:text="this is my message"
                 android:textColor="@color/white" />
 
             <TextView
@@ -63,7 +60,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_2sdp"
-                android:text="10-08-2021 05:12 PM"
                 android:textSize="@dimen/_9sdp" />
 
         </LinearLayout>

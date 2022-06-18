@@ -1,7 +1,6 @@
 package com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P;
 
 import static android.content.Context.MODE_PRIVATE;
-
 import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
 
 import android.app.ProgressDialog;
@@ -37,7 +36,6 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Home_Fragment extends Fragment {
 
@@ -171,43 +169,43 @@ Context context;
     @Override
     public void onStart() {
         super.onStart();
-        myRef = FirebaseDatabase.getInstance().getReference("patient");
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String image = snapshot.child(PatientUsername).child("personal_info").child("Image").child("mImageUrI").getValue(String.class);
-                String name = snapshot.child(PatientUsername).child("personal_info").child("name").getValue(String.class);
-                Glide.with(getActivity()).load(image).into(imageProfile);
-                Log.d("TAG", name + "/" + image);
-                username.setText(name);
-            }
-            // Mohammed SIam
+            myRef = FirebaseDatabase.getInstance().getReference("patient");
+            myRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    String image = snapshot.child(PatientUsername).child("personal_info").child("Image").child("mImageUrI").getValue(String.class);
+                    String name = snapshot.child(PatientUsername).child("personal_info").child("name").getValue(String.class);
+                    Glide.with(getActivity()).load(image).into(imageProfile);
+                    Log.d("TAG", name + "/" + image);
+                    username.setText(name);
+                }
+                // Mohammed SIam
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("TAG", error.getMessage());
-            }
-        });
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Log.e("TAG", error.getMessage());
+                }
+            });
     }
 
-    //============================Get the status of User============================================
-    private void status(String status) {
-        myRef = FirebaseDatabase.getInstance().getReference("patient").child(PatientUsername);
-        HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("status", status);
-        myRef.updateChildren(hashMap);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        status("online");
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        status("offline");
-    }
+//    //============================Get the status of User============================================
+//    private void status(String status) {
+//        myRef = FirebaseDatabase.getInstance().getReference("patient").child(PatientUsername);
+//        HashMap<String, Object> hashMap = new HashMap<>();
+//        hashMap.put("status", status);
+//        myRef.updateChildren(hashMap);
+//    }
+//
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        status("online");
+//    }
+//
+//    @Override
+//    public void onPause() {
+//        super.onPause();
+//        status("offline");
+//    }
 }
 

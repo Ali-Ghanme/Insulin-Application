@@ -135,8 +135,8 @@ public class DoctorList_Adapter extends RecyclerView.Adapter<DoctorList_Adapter.
             username = itemView.findViewById(R.id.Dl_doctor_username);
             imageView = itemView.findViewById(R.id.Dl_Doctor_image);
             container = itemView.findViewById(R.id.Dl_container);
-            img_off = itemView.findViewById(R.id.img_off);
-            img_on = itemView.findViewById(R.id.img_on);
+//            img_off = itemView.findViewById(R.id.img_off);
+//            img_on = itemView.findViewById(R.id.img_on);
             itemView.setOnClickListener(this);
         }
 

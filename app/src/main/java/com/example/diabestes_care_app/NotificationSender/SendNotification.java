@@ -8,7 +8,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.diabestes_care_app.MemoryData.MemoryData;
 import com.example.diabestes_care_app.R;
 import com.google.firebase.messaging.FirebaseMessaging;
 
@@ -45,7 +44,7 @@ public class SendNotification extends AppCompatActivity {
         notification_user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(SendNotification.this,MemoryData.getDoctorData(getApplicationContext()), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(SendNotification.this,MemoryData.getDoctorData(getApplicationContext()), Toast.LENGTH_SHORT).show();
             }
         });
 

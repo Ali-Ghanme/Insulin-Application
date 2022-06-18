@@ -3,22 +3,16 @@ package com.example.diabestes_care_app.Ui.Doctor_all;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Doctor_all.Nav_Fragment_D.Chat_Fragment_D;
 import com.example.diabestes_care_app.Ui.Doctor_all.Nav_Fragment_D.Home_Fragment_D;
 import com.example.diabestes_care_app.Ui.Doctor_all.Nav_Fragment_D.Profile_Fragment_D;
 import com.example.diabestes_care_app.Ui.Patient_all.Home_Patient;
-import com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P.Care_Fragment;
-import com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P.Chat_Fragment;
-import com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P.Home_Fragment;
-import com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P.Profile_Fragment;
 
 import nl.joery.animatedbottombar.AnimatedBottomBar;
 

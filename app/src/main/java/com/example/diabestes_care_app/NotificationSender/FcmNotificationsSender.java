@@ -12,6 +12,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.diabestes_care_app.Ui.Patient_all.Doctor_Profile_P;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -31,10 +32,11 @@ public class FcmNotificationsSender {
     private final String postUrl = "https://fcm.googleapis.com/fcm/send";
     private final String fcmServerKey = "AAAAVpUEzVo:APA91bFsjeSoQmspqE1ehZh6fI6uN9KWbvKB4gM31D_YTiT7ddps1b-L7dHBKsry6UUm2vf8T7peZj7WTni4mJKvfIspw6E5z5oqyYxHRPfJJjsncl_ig-vcxR0w2DbsqxcCV2SZKtsA";
 
-    public FcmNotificationsSender(String userFcmToken, String title, String body, Context mContext, Activity mActivity) {
+    public FcmNotificationsSender(String userFcmToken, String title, String body,  Context mContext, Activity mActivity) {
         this.userFcmToken = userFcmToken;
         this.title = title;
         this.body = body;
+
         this.mContext = mContext;
         this.mActivity = mActivity;
     }
@@ -48,13 +50,17 @@ public class FcmNotificationsSender {
             JSONObject notiObject = new JSONObject();
             notiObject.put("title", title);
             notiObject.put("body", body);
+
             notiObject.put("icon", "R.drawable.icon"); // enter icon that exists in drawable only
             mainObj.put("notification", notiObject);
 
             JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, postUrl, mainObj, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
-                    Toast.makeText(mContext, "Is Work and send data", Toast.LENGTH_SHORT).show();
+
+
+
+                    Toast.makeText(mContext, "Is Work and send "+ userFcmToken, Toast.LENGTH_SHORT).show();
                 }
             }, new Response.ErrorListener() {
                 @Override
@@ -77,5 +83,11 @@ public class FcmNotificationsSender {
             e.printStackTrace();
             Log.e("TAG",e.getMessage());
         }
+
+
     }
 }
+
+
+
+

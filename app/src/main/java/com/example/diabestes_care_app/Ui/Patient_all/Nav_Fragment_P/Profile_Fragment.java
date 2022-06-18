@@ -112,9 +112,9 @@ public class Profile_Fragment extends Fragment {
                 editor.putString("remember_P", "false");
                 editor.apply();
                 editor.clear();
-                Intent intent_p = new Intent(getActivity(), Sing_In.class);
+                Intent intent_p = new Intent(getActivity(), Sing_In.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent_p);
-                getActivity().finish();
+              //  getActivity().finish();
             }
         });
         return view;

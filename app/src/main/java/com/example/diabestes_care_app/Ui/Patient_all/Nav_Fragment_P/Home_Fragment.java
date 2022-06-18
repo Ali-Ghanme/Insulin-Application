@@ -5,6 +5,7 @@ import static android.content.Context.MODE_PRIVATE;
 import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
@@ -36,6 +37,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Home_Fragment extends Fragment {
 
@@ -58,7 +60,7 @@ public class Home_Fragment extends Fragment {
     Notification_Number notification_number;
     // Progress Dialog
     ProgressDialog progressDialog;
-
+Context context;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home_, container, false);
@@ -188,23 +190,23 @@ public class Home_Fragment extends Fragment {
     }
 
     //============================Get the status of User============================================
-//    private void status(String status) {
-//        myRef = FirebaseDatabase.getInstance().getReference("patient").child(restoredText);
-//        HashMap<String, Object> hashMap = new HashMap<>();
-//        hashMap.put("status", status);
-//        myRef.updateChildren(hashMap);
-//    }
-//
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//        status("online");
-//    }
-//
-//    @Override
-//    public void onPause() {
-//        super.onPause();
-//        status("offline");
-//    }
+    private void status(String status) {
+        myRef = FirebaseDatabase.getInstance().getReference("patient").child(PatientUsername);
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("status", status);
+        myRef.updateChildren(hashMap);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        status("online");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        status("offline");
+    }
 }
 

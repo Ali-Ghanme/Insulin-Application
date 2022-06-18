@@ -1,9 +1,12 @@
 package com.example.diabestes_care_app.Ui.Doctor_all.Nav_Fragment_D;
 
 import static android.content.Context.MODE_PRIVATE;
+import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.Preference;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -26,6 +29,7 @@ import com.example.diabestes_care_app.MemoryData.MemoryData;
 import com.example.diabestes_care_app.Models.DoctorList_Model;
 import com.example.diabestes_care_app.Notification_Controller.Notification_Number;
 import com.example.diabestes_care_app.R;
+import com.example.diabestes_care_app.chat.Chat;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,7 +37,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.lang.ref.Reference;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class Home_Fragment_D extends Fragment {
@@ -53,6 +59,7 @@ public class Home_Fragment_D extends Fragment {
     ImageView imageProfile;
     // ShardPreference
     public static final String MyPREFERENCES_D = "D_Username";
+Context context;
     // Patient Username TextView
     String DoctorUsername;
     // Notification Counter
@@ -137,7 +144,7 @@ public class Home_Fragment_D extends Fragment {
                 } catch (Exception e) {
                     Toast.makeText(getContext(), "إنتظر قليلاً ", Toast.LENGTH_SHORT).show();
                 }
-                doctorListAdapter = new DoctorList_Adapter(getContext(), list, false);
+                doctorListAdapter = new DoctorList_Adapter(getContext(), list, true);
                 recyclerView.setAdapter(doctorListAdapter);
                 doctorListAdapter.notifyDataSetChanged();
             }
@@ -183,23 +190,23 @@ public class Home_Fragment_D extends Fragment {
         });
     }
 
-//    //============================Show The doctor name + image======================================
-//    private void status(String status) {
-//        myRef = FirebaseDatabase.getInstance().getReference("doctor").child(restoredText);
-//        HashMap<String, Object> hashMap = new HashMap<>();
-//        hashMap.put("status", status);
-//        myRef.updateChildren(hashMap);
-//    }
-//
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//        status("online");
-//    }
-//
-//    @Override
-//    public void onPause() {
-//        super.onPause();
-//        status("offline");
-//    }
+    //    //============================Show The doctor name + image======================================
+    private void status(String status) {
+        myRef = FirebaseDatabase.getInstance().getReference("doctor").child(DoctorUsername);
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("status", status);
+        myRef.updateChildren(hashMap);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        status("online");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        status("offline");
+    }
 }

@@ -13,6 +13,7 @@
     <string name="phone_numper">Phone Numper</string>
     <string name="registration">  Registration </string>
     <string name="regist">  تسجيل جديد  </string>
+    <string name="msg_token_fmt">   توكين للتجريب   </string>
 
     <string name="password">  تسجيل جديد  </string>
     <string name="ar"> طبيب </string>

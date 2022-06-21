@@ -74,7 +74,7 @@
                 android:layout_width="@dimen/_15sdp"
                 android:layout_height="@dimen/_15sdp"
                 android:backgroundTint="@color/gray"
-                android:visibility="gone"
+                android:visibility="visible"
                 android:background="@drawable/bg_patient_button"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />

@@ -34,6 +34,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class Home_Fragment_D extends Fragment {
@@ -139,7 +140,7 @@ Context context;
                     Toast.makeText(getContext(), "إنتظر قليلاً ", Toast.LENGTH_SHORT).show();
 
                 }
-                doctorListAdapter = new DoctorList_Adapter(getContext(), list, true);
+                doctorListAdapter = new DoctorList_Adapter(getContext(), list);
                 recyclerView.setAdapter(doctorListAdapter);
                 doctorListAdapter.notifyDataSetChanged();
             }

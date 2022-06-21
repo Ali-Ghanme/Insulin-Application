@@ -35,6 +35,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Home_Fragment extends Fragment {
 
@@ -141,7 +142,7 @@ public class Home_Fragment extends Fragment {
                 } catch (Exception e) {
                     Toast.makeText(getContext(), "إنتظر قليلاً ", Toast.LENGTH_SHORT).show();
                 }
-                doctorListAdapter = new DoctorList_Adapter(getContext(), list, false);
+                doctorListAdapter = new DoctorList_Adapter(getContext(), list );
                 recyclerView.setAdapter(doctorListAdapter);
                 doctorListAdapter.notifyDataSetChanged();
             }
@@ -174,7 +175,7 @@ public class Home_Fragment extends Fragment {
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     String image = snapshot.child(PatientUsername).child("personal_info").child("Image").child("mImageUrI").getValue(String.class);
                     String name = snapshot.child(PatientUsername).child("personal_info").child("name").getValue(String.class);
-                    Glide.with(getActivity()).load(image).into(imageProfile);
+                Glide.with(getActivity()).load(image).into(imageProfile);
                     Log.d("TAG", name + "/" + image);
                     username.setText(name);
                 }

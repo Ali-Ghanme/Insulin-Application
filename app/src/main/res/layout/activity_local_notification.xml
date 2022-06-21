@@ -2,15 +2,158 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/_16sdp"
-    android:paddingTop="@dimen/_16sdp"
-    android:paddingRight="@dimen/_16sdp"
     android:paddingBottom="@dimen/_16sdp"
+    android:paddingLeft="@dimen/_16sdp"
+    android:paddingRight="@dimen/_16sdp"
+    android:paddingTop="@dimen/_16sdp"
     tools:context=".Local_Notification">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/Subject"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Show Notification Details Here..." />
+        android:layout_below="@+id/tvnoti"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+
+        android:layout_marginTop="@dimen/_10sdp"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/_15sdp">
+
+
+
+
+        <EditText
+            android:id="@+id/n"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@+id/Sp1_Gender_D"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:autofillHints="phone"
+            android:background="@drawable/bg_edit_text"
+            android:drawablePadding="@dimen/_13sdp"
+            android:drawableTint="@color/Doctor_Color"
+            android:fontFamily="@font/cairo_bold"
+            android:hint="نسبة السكري "
+            android:inputType="number"
+            android:maxLines="1"
+            android:paddingEnd="@dimen/_10sdp"
+            android:paddingStart="@dimen/_10sdp"
+            android:textColor="@color/Doctor_Color"
+            android:textColorHint="#78909C"
+            android:textSize="15sp"
+            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+        <EditText
+            android:id="@+id/bl"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:autofillHints="password"
+            android:background="@drawable/bg_edit_text"
+            android:drawableTint="@color/Doctor_Color"
+            android:fontFamily="@font/cairo_bold"
+            android:hint=" اي اشي "
+            android:inputType="number"
+            android:longClickable="false"
+            android:maxLines="1"
+            android:paddingEnd="@dimen/_10sdp"
+            android:paddingStart="@dimen/_20sdp"
+            android:textColor="@color/Doctor_Color"
+            android:textColorHint="#78909C"
+            android:textSize="15sp"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <EditText
+            android:id="@+id/blbl"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:autofillHints="password"
+            android:background="@drawable/bg_edit_text"
+            android:drawablePadding="@dimen/_20sdp"
+            android:drawableTint="@color/Doctor_Color"
+            android:fontFamily="@font/cairo_bold"
+            android:hint="اي اشي "
+            android:inputType="number"
+            android:maxLines="1"
+            android:paddingEnd="@dimen/_10sdp"
+            android:paddingStart="@dimen/_20sdp"
+            android:textColor="@color/Doctor_Color"
+            android:textColorHint="#78909C"
+            android:textSize="15sp"
+            tools:ignore="TouchTargetSizeCheck" />
+
+
+        <EditText
+            android:id="@+id/w"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:autofillHints="emailAddress#"
+            android:background="@drawable/bg_edit_text"
+            android:drawablePadding="@dimen/_13sdp"
+            android:drawableTint="@color/Doctor_Color"
+            android:fontFamily="@font/cairo_bold"
+            android:hint="وزن"
+            android:inputType="number"
+            android:maxLines="1"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:textColor="@color/Doctor_Color"
+            android:textColorHint="#78909C"
+            android:textSize="15sp"
+            tools:ignore="TouchTargetSizeCheck" />
+
+
+        <EditText
+            android:id="@+id/t"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:autofillHints="emailAddress#"
+            android:background="@drawable/bg_edit_text"
+            android:drawablePadding="@dimen/_13sdp"
+
+            android:fontFamily="@font/cairo_bold"
+            android:hint="طول"
+            android:inputType="number"
+            android:maxLines="1"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:textColor="@color/Doctor_Color"
+            android:textColorHint="#78909C"
+            android:textSize="15sp"
+            tools:ignore="TouchTargetSizeCheck" />
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:text="Save And show Details" />
+
+        <TextView
+            android:id="@+id/tvs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvnoti"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp"
+        android:textSize="@dimen/_16sdp"
+        android:text="  Notification Details  "
+        android:textAlignment="center" />
+
 
 </RelativeLayout>

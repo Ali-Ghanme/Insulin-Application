@@ -1,5 +1,6 @@
 package com.example.diabestes_care_app.Ui.Doctor_all;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -13,6 +14,13 @@ import com.example.diabestes_care_app.Ui.Doctor_all.Nav_Fragment_D.Chat_Fragment
 import com.example.diabestes_care_app.Ui.Doctor_all.Nav_Fragment_D.Home_Fragment_D;
 import com.example.diabestes_care_app.Ui.Doctor_all.Nav_Fragment_D.Profile_Fragment_D;
 import com.example.diabestes_care_app.Ui.Patient_all.Home_Patient;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
 
 import nl.joery.animatedbottombar.AnimatedBottomBar;
 
@@ -21,7 +29,8 @@ public class Home_Doctor extends Basic_Activity {
     private static final String TAG = Home_Patient.class.getSimpleName();
     FragmentManager fragmentManager;
     AnimatedBottomBar animatedBottomBar;
-
+    String DoctorUsername; DatabaseReference myRef;
+    public static final String MyPREFERENCES_D = "D_Username";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +47,43 @@ public class Home_Doctor extends Basic_Activity {
 //             Add Home Fragment as the default Fragment
             fragmentManager.beginTransaction().replace(R.id.fragment_container_d, home_fragment).commit();
         }
+
+
+        //============================Firebase======================================================
+        myRef = FirebaseDatabase.getInstance().getReference();
+
+        //============================Get Doctor Username===========================================
+        SharedPreferences prefs = getApplicationContext().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
+        DoctorUsername = prefs.getString("TAG_NAME", null);
+//say your realtime database has the child `online_statuses`
+        DatabaseReference online_status_all_users = FirebaseDatabase.getInstance().getReference().child("online_statuses");
+
+        //on each user's device when connected they should indicate e.g. `linker` should tell everyone he's snooping around
+        online_status_all_users.child(DoctorUsername).setValue("online");
+        //also when he's not doing any snooping or if snooping goes bad he should also tell
+        online_status_all_users.child(DoctorUsername).onDisconnect().setValue("offline");
+
+        //    DatabaseReference online_status_all_users = FirebaseDatabase.getInstance().getReference().child("online_statuses");
+
+        online_status_all_users.child(DoctorUsername ).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String snooping_status = dataSnapshot.getValue(String.class);
+                //mario should decide what to do with linker's snooping status here e.g.
+                if(snooping_status.contentEquals("online")){
+
+
+                    //tell linker to stop doing sh*t
+                }else{
+                    //tell linker to do a lot of sh****t
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
         //============================BottomNavigation Transaction==================================
         animatedBottomBar.setOnTabSelectListener(new AnimatedBottomBar.OnTabSelectListener() {
             @Override
@@ -68,5 +114,25 @@ public class Home_Doctor extends Basic_Activity {
             }
         });
     }
+
+    //    //============================Show The doctor name + image======================================
+//    private void status(String status) {
+//        myRef = FirebaseDatabase.getInstance().getReference("doctor").child(DoctorUsername);
+//        HashMap<String, Object> hashMap = new HashMap<>();
+//        hashMap.put("status", status);
+//        myRef.updateChildren(hashMap);
+//    }
+//
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        status("online");
+//    }
+//
+//    @Override
+//    public void onPause() {
+//        super.onPause();
+//        status("offline");
+//    }
 }
 // Hallow this is update

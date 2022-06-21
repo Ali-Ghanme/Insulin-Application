@@ -16,7 +16,7 @@ import com.google.android.material.tabs.TabLayout;
 import java.util.ArrayList;
 
 public class Patient_Files extends Basic_Activity {
-
+// الرئيسة
     TabLayout tabLayout;
     ViewPager viewPager_subject;
     Patient_Files.MainAdapter adapter;

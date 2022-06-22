@@ -18,7 +18,6 @@ import java.util.Calendar;
 
 public class My_Exams_Fragment extends Fragment {
 
-
     // فحوصاتي
     Button Notefy;
 

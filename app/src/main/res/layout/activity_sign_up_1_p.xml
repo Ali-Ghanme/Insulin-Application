@@ -18,7 +18,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_90sdp"
+            android:layout_marginLeft="@dimen/_90sdp"
             android:layout_marginTop="@dimen/_15sdp"
             android:fontFamily="@font/cairo_bold"
             android:scaleType="centerCrop"
@@ -47,7 +47,7 @@
             android:layout_marginTop="@dimen/_4sdp"
             android:autofillHints="name"
             android:background="@drawable/bg_edit_text"
-            android:drawableStart="@drawable/ic_user_edit"
+            android:drawableLeft="@drawable/ic_user_edit"
             android:fontFamily="@font/cairo_bold"
             android:hint="الاسم"
             android:inputType="textPersonName"
@@ -57,7 +57,7 @@
             android:scaleType="centerCrop"
             android:textColor="@color/Patient_Color"
             android:textColorHint="#78909C"
-            android:textSize="15sp"
+            android:textSize="@dimen/_12sdp"
             tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
@@ -69,7 +69,7 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:autofillHints="name"
             android:background="@drawable/bg_edit_text"
-            android:drawableStart="@drawable/ic_user_edit"
+            android:drawableLeft="@drawable/ic_user_edit"
             android:fontFamily="@font/cairo_bold"
             android:hint="اسم مستخدم مميز"
             android:inputType="textPersonName"
@@ -79,7 +79,7 @@
             android:scaleType="centerCrop"
             android:textColor="@color/Patient_Color"
             android:textColorHint="#78909C"
-            android:textSize="15sp"
+            android:textSize="@dimen/_12sdp"
             tools:ignore="TouchTargetSizeCheck" />
 
         <RadioGroup
@@ -89,12 +89,8 @@
             android:layout_below="@+id/Sp1_username_P"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
-            android:checkedButton="@id/Sp1_male_P"
             android:orientation="horizontal"
-            android:scaleType="centerCrop"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:scaleType="centerCrop">
 
             <RadioButton
                 android:id="@+id/Sp1_male_P"
@@ -103,15 +99,15 @@
                 android:layout_marginTop="@dimen/_5sdp"
                 android:background="@drawable/gender_background_selector"
                 android:button="@android:color/transparent"
-                android:drawableStart="@drawable/ic_male"
+                android:drawableLeft="@drawable/ic_male"
                 android:elevation="1.5dp"
                 android:fontFamily="@font/cairo_bold"
-                android:paddingStart="@dimen/_15sdp"
-                android:scaleType="centerCrop"
+                android:paddingLeft="@dimen/_15sdp"
+
                 android:text="ذكر"
                 android:textAlignment="center"
                 android:textColor="@drawable/gender_text_selector"
-                android:textSize="@dimen/_15sdp"
+                android:textSize="@dimen/_12sdp"
                 app:drawableTint="@drawable/gender_text_selector" />
 
             <RadioButton
@@ -122,15 +118,15 @@
                 android:layout_marginTop="@dimen/_5sdp"
                 android:background="@drawable/gender_background_selector"
                 android:button="@android:color/transparent"
-                android:drawableStart="@drawable/ic_female"
+                android:drawableLeft="@drawable/ic_female"
                 android:elevation="1.5dp"
                 android:fontFamily="@font/cairo_bold"
-                android:paddingStart="@dimen/_15sdp"
+                android:paddingLeft="@dimen/_15sdp"
                 android:scaleType="centerCrop"
                 android:text="أنثى"
                 android:textAlignment="center"
                 android:textColor="@drawable/gender_text_selector"
-                android:textSize="16sp"
+                android:textSize="@dimen/_12sdp"
                 app:drawableTint="@drawable/gender_text_selector" />
         </RadioGroup>
 
@@ -145,7 +141,7 @@
             android:background="@drawable/bg_edit_text"
             android:clickable="false"
             android:cursorVisible="false"
-            android:drawableStart="@drawable/ic_data"
+            android:drawableLeft="@drawable/ic_data"
             android:ems="1"
             android:focusable="false"
             android:focusableInTouchMode="false"
@@ -157,7 +153,7 @@
             android:scaleType="centerCrop"
             android:textColor="@color/Patient_Color"
             android:textColorHint="#78909C"
-            android:textSize="15sp"
+            android:textSize="@dimen/_12sdp"
             tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
@@ -179,7 +175,7 @@
             android:scaleType="centerCrop"
             android:textColor="@color/Patient_Color"
             android:textColorHint="#78909C"
-            android:textSize="15sp"
+            android:textSize="@dimen/_12sdp"
             tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
@@ -201,7 +197,7 @@
             android:scaleType="centerCrop"
             android:textColor="@color/Patient_Color"
             android:textColorHint="#78909C"
-            android:textSize="15sp"
+            android:textSize="@dimen/_12sdp"
             tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
@@ -222,7 +218,7 @@
             android:scaleType="centerCrop"
             android:textColor="@color/Patient_Color"
             android:textColorHint="#78909C"
-            android:textSize="15sp"
+            android:textSize="@dimen/_12sdp"
             tools:ignore="TouchTargetSizeCheck" />
     </RelativeLayout>
 

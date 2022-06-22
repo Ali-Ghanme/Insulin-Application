@@ -19,7 +19,7 @@
             android:name=".chat.Chat_D"
             android:exported="false" />
         <activity
-            android:name=".Content"
+            android:name=".Ui.Patient_all.Sections.Self_Care.Content.Content"
             android:exported="false" />
         <activity
             android:name=".Local_Notification"

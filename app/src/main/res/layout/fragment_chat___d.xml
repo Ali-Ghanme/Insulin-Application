@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Ui.Doctor_all.Nav_Fragment_D.Chat_Fragment_D">
 
     <RelativeLayout
@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="@dimen/_90sdp"
+        android:layout_marginLeft="@dimen/_90sdp"
         android:layout_marginTop="@dimen/_20sdp"
         android:fontFamily="@font/cairo_bold"
         android:text="المحادثات"
@@ -37,23 +37,12 @@
         android:id="@+id/FCH_profile_img_d"
         android:layout_width="@dimen/_50sdp"
         android:layout_height="@dimen/_50sdp"
-        android:layout_marginStart="@dimen/_240sdp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/_240sdp"
         android:layout_marginTop="@dimen/_15sdp"
         android:contentDescription="@string/todo"
         app:civ_border_color="@android:color/white"
         app:civ_border_width="2dp" />
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/FCH_chat_search_d"
-        app:civ_border_color="@android:color/white"
-        app:civ_border_width="3dp"
-        android:layout_width="@dimen/_25sdp"
-        android:layout_height="@dimen/_25sdp"
-        android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_15sdp"
-        android:background="@drawable/ic_search"
-        android:backgroundTint="@color/white"
-        android:contentDescription="@string/todo" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/FCH_Chat_RecyclerView_d"

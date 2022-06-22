@@ -11,8 +11,8 @@
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_550sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <nl.joery.animatedbottombar.AnimatedBottomBar
@@ -21,6 +21,7 @@
         android:layout_height="@dimen/_50sdp"
         android:background="@drawable/home_nav_bottom"
         android:elevation="@dimen/_100sdp"
+        android:layoutDirection="ltr"
         app:abb_animationDuration="500"
         app:abb_animationInterpolator="@android:anim/accelerate_decelerate_interpolator"
         app:abb_indicatorAppearance="round"

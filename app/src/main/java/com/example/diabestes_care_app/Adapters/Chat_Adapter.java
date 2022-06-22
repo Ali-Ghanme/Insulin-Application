@@ -22,14 +22,12 @@ import java.util.List;
 public class Chat_Adapter extends RecyclerView.Adapter<Chat_Adapter.MyViewHolder> {
     private List<ChatList_Model> chatListListModel;
     final Context context;
-    private String PatientUsername;
     SharedPreferences prefs;
 
 
     public Chat_Adapter(List<ChatList_Model> chatListListModel, Context context) {
         this.chatListListModel = chatListListModel;
         this.context = context;
-
     }
 
     @NonNull
@@ -43,9 +41,9 @@ public class Chat_Adapter extends RecyclerView.Adapter<Chat_Adapter.MyViewHolder
         ChatList_Model list = chatListListModel.get(position);
 
         prefs = context.getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
-        PatientUsername = prefs.getString("TAG_NAME", null);
+        String patientUsername = prefs.getString("TAG_NAME", null);
 
-        if (list.getUsername().equals(PatientUsername)) {
+        if (list.getUsername().equals(patientUsername)) {
             holder.myMsgLayout.setVisibility(View.GONE);
             holder.oppoLayout.setVisibility(View.VISIBLE);
 

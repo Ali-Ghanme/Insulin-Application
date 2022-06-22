@@ -114,7 +114,7 @@ public class Profile_Fragment extends Fragment {
                 editor.clear();
                 Intent intent_p = new Intent(getActivity(), Sing_In.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent_p);
-              //  getActivity().finish();
+                getActivity().finish();
             }
         });
         return view;
@@ -128,11 +128,11 @@ public class Profile_Fragment extends Fragment {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String PatientImage = snapshot.child(PatientUsername).child("personal_info").child("Image").child("mImageUrI").getValue(String.class);
+                String PatientImage = snapshot.child(PatientUsername).child("User_Profile_Image").child("Image").child("mImageUrI").getValue(String.class);
                 String PatientName = snapshot.child(PatientUsername).child("personal_info").child("name").getValue(String.class);
                 Log.d("TAG", name + "/" + PatientImage);
-                Glide.with(getActivity()).load(PatientImage).into(imageView);
                 name.setText(PatientName);
+                Glide.with((Profile_Fragment.this)).load(PatientImage).into(imageView);
             }
 
             @Override

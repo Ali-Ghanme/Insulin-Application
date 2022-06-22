@@ -1,5 +1,7 @@
 package com.example.diabestes_care_app.Ui.Patient_all;
 
+import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
+
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,18 +18,13 @@ import com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P.Care_Fragmen
 import com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P.Chat_Fragment;
 import com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P.Home_Fragment;
 import com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P.Profile_Fragment;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.HashMap;
-
 import nl.joery.animatedbottombar.AnimatedBottomBar;
-
-import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
 
 public class Home_Patient extends Basic_Activity {
     DatabaseReference myRef;
@@ -35,7 +32,7 @@ public class Home_Patient extends Basic_Activity {
     FragmentManager fragmentManager;
     AnimatedBottomBar animatedBottomBar;
     // Patient Username TextView
-    String PatientUsername  ;
+    String PatientUsername;
 
 
     @Override
@@ -96,7 +93,7 @@ public class Home_Patient extends Basic_Activity {
             }
         });
 
-
+        //============================Get User Status ==============================================
         //say your realtime database has the child `online_statuses`
         DatabaseReference online_status_all_users = FirebaseDatabase.getInstance().getReference().child("online_statuses");
 
@@ -106,47 +103,23 @@ public class Home_Patient extends Basic_Activity {
         //also when he's not doing any snooping or if snooping goes bad he should also tell
         online_status_all_users.child(PatientUsername).onDisconnect().setValue("offline");
 
-
-        //    DatabaseReference online_status_all_users = FirebaseDatabase.getInstance().getReference().child("online_statuses");
-
-    online_status_all_users.child(PatientUsername ).addValueEventListener(new ValueEventListener() {
+        online_status_all_users.child(PatientUsername).addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String snooping_status = dataSnapshot.getValue(String.class);
                 //mario should decide what to do with linker's snooping status here e.g.
-                if(snooping_status.contentEquals("online")){
-
-
+                if (snooping_status.contentEquals("online")) {
                     //tell linker to stop doing sh*t
-                }else{
+                    Toast.makeText(Home_Patient.this, snooping_status, Toast.LENGTH_SHORT).show();
+                    Log.e("TAG", snooping_status);
+                } else {
                     //tell linker to do a lot of sh****t
                 }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
             }
         });
     }
-    //============================Show The patient name + image======================================
-
-//    private void status(String status) {
-  //    myRef = FirebaseDatabase.getInstance().getReference("patient").child(PatientUsername);
-//        HashMap<String, Object> hashMap = new HashMap<>();
-//        hashMap.put("status", status);
-//        myRef.updateChildren(hashMap);
-//    }
-//
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//        status("online");
-//    }
-//
-//    @Override
-//    public void onPause() {
-//        super.onPause();
-//        status("offline");
-//    }
 }

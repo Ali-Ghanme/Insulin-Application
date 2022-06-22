@@ -2,6 +2,7 @@ package com.example.diabestes_care_app.Ui.Doctor_all.Nav_Fragment_D;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -34,7 +35,6 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 
 public class Home_Fragment_D extends Fragment {
@@ -54,13 +54,15 @@ public class Home_Fragment_D extends Fragment {
     ImageView imageProfile;
     // ShardPreference
     public static final String MyPREFERENCES_D = "D_Username";
-Context context;
+    Context context;
     // Patient Username TextView
     String DoctorUsername;
     // Notification Counter
     Notification_Number notification_number;
     // Follow Checker
     Boolean followChecker = false;
+
+    ProgressDialog progressDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -73,6 +75,14 @@ Context context;
         username = view.findViewById(R.id.HP_patient_name_d);
         recyclerView = view.findViewById(R.id.HP_recyclerView_d);
         imageProfile = view.findViewById(R.id.HP_profile_img_d);
+
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.setMessage("إنتظر قليلاً يتم تحميل المحتوى..");
+        progressDialog.getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.dilog_background));
+        progressDialog.setCancelable(false);
+        progressDialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        progressDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        progressDialog.show();
 
         //============================Firebase======================================================
         myRef = FirebaseDatabase.getInstance().getReference();
@@ -135,14 +145,17 @@ Context context;
                         doctorListModel.setUsername(snapshot.child("username").getValue().toString());
                         doctorListModel.setImageUrl(snapshot.child("personal_info").child("Image").child("mImageUrI").getValue().toString());
                         list.add(doctorListModel);
+                        progressDialog.dismiss();
+
                     }
+
                 } catch (Exception e) {
                     Toast.makeText(getContext(), "إنتظر قليلاً ", Toast.LENGTH_SHORT).show();
 
                 }
                 doctorListAdapter = new DoctorList_Adapter(getContext(), list);
                 recyclerView.setAdapter(doctorListAdapter);
-                doctorListAdapter.notifyDataSetChanged();
+                doctorListAdapter.updateUsersList(list);
             }
 
             @Override
@@ -168,21 +181,21 @@ Context context;
     public void onStart() {
         super.onStart();
 
-            myRef = FirebaseDatabase.getInstance().getReference("doctor");
-            myRef.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    String image = snapshot.child(DoctorUsername).child("personal_info").child("Image").child("mImageUrI").getValue(String.class);
-                    String name = snapshot.child(DoctorUsername).child("personal_info").child("name_ar").getValue(String.class);
-                    Glide.with(getActivity()).load(image).into(imageProfile);
-                    Log.d("TAG", name + "/" + image);
-                    username.setText(name);
-                }
+        myRef = FirebaseDatabase.getInstance().getReference("doctor");
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String image = snapshot.child(DoctorUsername).child("personal_info").child("Image").child("mImageUrI").getValue(String.class);
+                String name = snapshot.child(DoctorUsername).child("personal_info").child("name_ar").getValue(String.class);
+                Glide.with(getActivity()).load(image).into(imageProfile);
+                Log.d("TAG", name + "/" + image);
+                username.setText(name);
+            }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-                    Log.e("TAG", error.getMessage());
-                }
-            });
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("TAG", error.getMessage());
+            }
+        });
     }
 }

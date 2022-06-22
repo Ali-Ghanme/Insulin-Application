@@ -1,8 +1,7 @@
-package com.example.diabestes_care_app;
+package com.example.diabestes_care_app.Ui.Patient_all.Sections.Self_Care.Content;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.viewpager.widget.ViewPager;
@@ -10,6 +9,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.diabestes_care_app.Adapters.ViewAdapter_Content;
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.Models.SelfCare_Model;
+import com.example.diabestes_care_app.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,12 +30,15 @@ public class Content extends Basic_Activity {
         //==================================define views===============================================
         viewPager = findViewById(R.id.view_pager_content);
         btnNext = findViewById(R.id.content_next_btn);
+
         //=================================fill list screen=========================================
         final List<SelfCare_Model> mList = new ArrayList<>();
-        mList.add(new SelfCare_Model("مرحبا راح يكون المحتوى هان ممكن نحطو في ملفات خارجية ونستدعي استدعاء بدل ما نكتبو هان راح الاقي الطريقة ان شاء الله D:1", R.drawable.ic_splash_1));
-        mList.add(new SelfCare_Model("مرحبا راح يكون المحتوى هان ممكن نحطو في ملفات خارجية ونستدعي استدعاء بدل ما نكتبو هان راح الاقي الطريقة ان شاء الله D:2", R.drawable.ic_splash_1));
-        mList.add(new SelfCare_Model("مرحبا راح يكون المحتوى هان ممكن نحطو في ملفات خارجية ونستدعي استدعاء بدل ما نكتبو هان راح الاقي الطريقة ان شاء الله D:3", R.drawable.ic_splash_1));
-        mList.add(new SelfCare_Model("مرحبا راح يكون المحتوى هان ممكن نحطو في ملفات خارجية ونستدعي استدعاء بدل ما نكتبو هان راح الاقي الطريقة ان شاء الله D:4", R.drawable.ic_splash_1));
+//        mList.add(new SelfCare_Model("مرحبا راح يكون المحتوى هان ممكن نحطو في ملفات خارجية ونستدعي استدعاء بدل ما نكتبو هان راح الاقي الطريقة ان شاء الله D:1", R.drawable.ic_splash_1));
+//        mList.add(new SelfCare_Model("مرحبا راح يكون المحتوى هان ممكن نحطو في ملفات خارجية ونستدعي استدعاء بدل ما نكتبو هان راح الاقي الطريقة ان شاء الله D:2", R.drawable.ic_splash_1));
+//        mList.add(new SelfCare_Model("مرحبا راح يكون المحتوى هان ممكن نحطو في ملفات خارجية ونستدعي استدعاء بدل ما نكتبو هان راح الاقي الطريقة ان شاء الله D:3", R.drawable.ic_splash_1));
+//        mList.add(new SelfCare_Model("مرحبا راح يكون المحتوى هان ممكن نحطو في ملفات خارجية ونستدعي استدعاء بدل ما نكتبو هان راح الاقي الطريقة ان شاء الله D:4", R.drawable.ic_splash_1));
+        mList.add(new SelfCare_Model(R.string.Gabobet_sokar, R.drawable.ic_splash_1 , "غيبوبة السكري"));
+
 
         //=============================== setup viewpager===========================================
         viewAdapter_content = new ViewAdapter_Content(this, mList);

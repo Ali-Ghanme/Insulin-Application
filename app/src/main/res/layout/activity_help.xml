@@ -11,15 +11,15 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_70sdp"
         android:background="@drawable/bg_sing_up"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_marginStart="@dimen/_90sdp"
+            android:layout_marginLeft="@dimen/_90sdp"
             android:layout_marginTop="@dimen/_15sdp"
             android:fontFamily="@font/cairo_bold"
             android:text=" المساعدة "
@@ -34,26 +34,27 @@
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_10sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/help">
 
         <TextView
             android:id="@+id/help_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
             android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
             android:fontFamily="@font/cairo_regular"
-            android:layoutDirection="rtl"
             android:paddingTop="@dimen/_20sdp"
             android:paddingBottom="@dimen/_20sdp"
             android:text="عن التطبيق  "
             android:textAlignment="textStart"
             android:textSize="@dimen/_13sdp"
-            app:drawableEndCompat="@drawable/ic_arrwa" />
+            app:drawableEndCompat="@drawable/ic_arrwa"
+
+            />
 
     </RelativeLayout>
 
@@ -63,8 +64,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/help_app">
 
         <View style="@style/Divider.Horizontal" />
@@ -73,19 +74,17 @@
             android:id="@+id/about_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
             android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
             android:fontFamily="@font/cairo_regular"
-            android:layoutDirection="rtl"
             android:paddingTop="@dimen/_20sdp"
             android:paddingBottom="@dimen/_20sdp"
             android:text="عن التطبيق  "
             android:textAlignment="textStart"
             android:textSize="@dimen/_13sdp"
             app:drawableEndCompat="@drawable/ic_arrwa" />
-
     </RelativeLayout>
 
     <RelativeLayout
@@ -94,8 +93,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/about_app">
 
         <View style="@style/Divider.Horizontal" />
@@ -104,12 +103,11 @@
             android:id="@+id/contract_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
             android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
             android:fontFamily="@font/cairo_regular"
-            android:layoutDirection="rtl"
             android:paddingTop="@dimen/_20sdp"
             android:paddingBottom="@dimen/_20sdp"
             android:text="اتفاقية الترخيص "
@@ -125,8 +123,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/agreement_app">
 
         <View style="@style/Divider.Horizontal" />
@@ -135,18 +133,16 @@
             android:id="@+id/notification_sound_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
             android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
             android:fontFamily="@font/cairo_regular"
-            android:layoutDirection="rtl"
             android:paddingTop="@dimen/_20sdp"
             android:paddingBottom="@dimen/_20sdp"
             android:text="شروط الخصوصية  "
             android:textAlignment="textStart"
             android:textSize="@dimen/_13sdp"
             app:drawableEndCompat="@drawable/ic_arrwa" />
-
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -35,7 +35,6 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Home_Fragment extends Fragment {
 
@@ -173,7 +172,7 @@ public class Home_Fragment extends Fragment {
             myRef.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    String image = snapshot.child(PatientUsername).child("personal_info").child("Image").child("mImageUrI").getValue(String.class);
+                    String image = snapshot.child(PatientUsername).child("User_Profile_Image").child("Image").child("mImageUrI").getValue(String.class);
                     String name = snapshot.child(PatientUsername).child("personal_info").child("name").getValue(String.class);
                 Glide.with(getActivity()).load(image).into(imageProfile);
                     Log.d("TAG", name + "/" + image);

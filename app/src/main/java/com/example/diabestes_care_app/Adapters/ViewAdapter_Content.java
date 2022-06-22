@@ -38,6 +38,8 @@ public class ViewAdapter_Content extends PagerAdapter {
         TextView description = view.findViewById(R.id.Text_Content);
         description.setText(mListScreen.get(position).getContent());
 
+        TextView title = view.findViewById(R.id.Content_title);
+        title.setText(mListScreen.get(position).getTitle());
         container.addView(view);
         return view;
 

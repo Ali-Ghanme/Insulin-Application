@@ -11,30 +11,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_10sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/chat_back_btn_d"
             android:layout_width="@dimen/_35sdp"
             android:layout_height="@dimen/_35sdp"
+            android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_40sdp"
             android:background="@drawable/round_back_light"
-            android:paddingStart="@dimen/_12sdp"
-            android:paddingEnd="@dimen/_2sdp"
+            android:layoutDirection="ltr"
+            android:paddingLeft="@dimen/_12sdp"
+            android:paddingRight="@dimen/_5sdp"
             android:src="@drawable/ic_arrow_back" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/chat_profile_pic_d"
             android:layout_width="@dimen/_50sdp"
             android:layout_height="@dimen/_50sdp"
-            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:layout_centerInParent="true"
             android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
             android:background="@drawable/ic_user"
             android:backgroundTint="@color/Doctor_Color" />
 
@@ -42,8 +44,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:layout_toStartOf="@id/chat_profile_pic_d">
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_toLeftOf="@id/chat_profile_pic_d">
 
             <TextView
                 android:id="@+id/chat_user_name_d"
@@ -54,7 +56,7 @@
                 android:textColor="#424242"
                 android:textSize="@dimen/_13sdp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -66,7 +68,7 @@
                 android:textColor="#00C853"
                 android:textSize="@dimen/_13sdp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/chat_user_name_d" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </RelativeLayout>
@@ -74,8 +76,8 @@
     <View
         style="@style/Divider.Horizontal"
         app:layout_constraintBottom_toBottomOf="@+id/chat_header_d"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chat_header_d" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -85,8 +87,8 @@
         android:layout_above="@+id/send_box_d"
         android:layout_below="@+id/chat_header_d"
         app:layout_constraintBottom_toTopOf="@+id/send_box_d"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chat_header_d" />
 
     <RelativeLayout
@@ -105,8 +107,8 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_50sdp"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="@dimen/_20sdp"
-            android:layout_toEndOf="@id/chat_send_message_d"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_toRightOf="@id/chat_send_message_d"
             android:backgroundTint="@android:color/transparent"
             android:fontFamily="@font/cairo_semibold"
             android:hint="أكتب رسالتلك هنا "
@@ -116,8 +118,9 @@
             android:id="@+id/chat_send_message_d"
             android:layout_width="@dimen/_35sdp"
             android:layout_height="@dimen/_35sdp"
+            android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
             android:background="@drawable/bg_ic_background"
             android:backgroundTint="@color/Doctor_Color"
             android:paddingTop="@dimen/_5sdp"

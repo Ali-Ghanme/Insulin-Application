@@ -18,7 +18,6 @@ import androidx.annotation.Nullable;
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.Models.Upload_Model;
 import com.example.diabestes_care_app.R;
-import com.example.diabestes_care_app.Ui.Sing_In.Sing_In;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
@@ -94,7 +93,7 @@ public class Sing_Up_5_P extends Basic_Activity {
                                     @Override
                                     public void onSuccess(Uri uri) {
                                         Upload_Model uploadModel = new Upload_Model(uri.toString());
-                                        DB_Ref.child(patient_userName).child("personal_info").child("Image").setValue(uploadModel);
+                                        DB_Ref.child(patient_userName).child("User_Profile_Image").child("Image").setValue(uploadModel);
                                         Toast.makeText(Sing_Up_5_P.this, "Upload Successfully", Toast.LENGTH_SHORT).show();
                                     }
                                 });
@@ -112,16 +111,12 @@ public class Sing_Up_5_P extends Basic_Activity {
                                     public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
                                         double progress = (100.0 * snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
                                         mProgressBa.setProgress((int) progress);
-
-                                        Intent intent = new Intent(Sing_Up_5_P.this, Sing_In.class);
-                                        startActivity(intent);
                                     }
                                 });
                     } else {
                         Toast.makeText(Sing_Up_5_P.this, "No File Selected", Toast.LENGTH_SHORT).show();
                     }
                 }
-
             }
         });
     }

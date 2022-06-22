@@ -1,7 +1,6 @@
 package com.example.diabestes_care_app.Ui.Patient_all.Setting_P;
 
 
-
 import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
 
 import android.content.SharedPreferences;
@@ -106,12 +105,13 @@ public class Edit_Profile_P extends Basic_Activity {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String PatientImage = snapshot.child(restoredText).child("personal_info").child("Image").child("mImageUrI").getValue(String.class);
-                String PatientName = snapshot.child(restoredText).child("personal_info").child("name").getValue(String.class);
+                String PatientImage = snapshot.child(restoredText).child("User_Profile_Image").child("Image").child("mImageUrI").getValue(String.class);
+                String PatientName = snapshot.child(restoredText).child("User_Profile_Image").child("name").getValue(String.class);
                 Log.d("TAG", name + "/" + PatientImage);
-                Glide.with(Edit_Profile_P.this).load(PatientImage).into(imageView);
+                Glide.with(getApplicationContext()).load(PatientImage).into(imageView);
                 name.setText(PatientName);
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
             }

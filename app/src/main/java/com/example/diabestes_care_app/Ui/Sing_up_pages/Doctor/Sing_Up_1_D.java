@@ -84,11 +84,10 @@ public class Sing_Up_1_D extends Basic_Activity {
                                 databaseReference.child("doctor").child(doctorUsername).child("username").setValue(doctorUsername);
                                 databaseReference.child("doctor").child(doctorUsername).child("personal_info").child("username").setValue(doctorUsername);
                                 Toast.makeText(Sing_Up_1_D.this, "User have registered successfully ", Toast.LENGTH_SHORT).show();
-                                finish();
-
                                 Intent intent2 = new Intent(Sing_Up_1_D.this, Sing_Up_2_D.class);
                                 intent2.putExtra("username", doctorUsername);
                                 startActivity(intent2);
+                                finish();
                             }
                         }
 

@@ -23,6 +23,7 @@ public class Doctor_Profile_P extends Basic_Activity {
     TextView DoctorName;
     // Dialog
     Dialog dialog;
+    // Hallow
 
 
     @Override

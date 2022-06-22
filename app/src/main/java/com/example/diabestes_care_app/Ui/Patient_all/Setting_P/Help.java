@@ -13,4 +13,4 @@ public class Help extends Basic_Activity {
         fullscreen();
         setContentView(R.layout.activity_help);
     }
-}
+}    // Hallow

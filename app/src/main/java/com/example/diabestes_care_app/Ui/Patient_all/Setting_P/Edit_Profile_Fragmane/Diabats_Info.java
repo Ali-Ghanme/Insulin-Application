@@ -29,6 +29,7 @@ public class Diabats_Info extends Fragment {
     String PatientUsername;
     // Data Patient
     TextView DiabetesType_t, DiabetesMedics_t, PatientCauses_t, bloodGlucoseMeter_t, HaveIssue_t, DateInjury_t;
+    // Hallow
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

@@ -6,99 +6,111 @@
     android:layout_height="match_parent"
     tools:context=".Ui.Splah_Screens.Splash_Screen_1">
 
-    <ImageView
-        android:id="@+id/header"
-        android:layout_width="@dimen/_120sdp"
-        android:layout_height="@dimen/_120sdp"
-        android:contentDescription="back"
-        android:src="@drawable/bg_rectangel_splash_top"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="ImageContrastCheck" />
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/screen_view_pager_splash"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_image"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/btn_next_Sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="22dp"
-        android:background="@drawable/bg_doctors_list"
-        android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
-        android:drawableTint="@color/Patient_Color"
-        android:elevation="2dp"
-        android:fontFamily="@font/cairo_bold"
-        android:text="@string/next"
-        android:textColor="@color/Patient_Color"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="TextContrastCheck"
-        tools:targetApi="m" />
+        <ImageView
+            android:id="@+id/header"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_120sdp"
+            android:layout_alignParentRight="true"
+            android:contentDescription="back"
+            android:src="@drawable/bg_rectangel_splash_top"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ImageContrastCheck" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/screen_view_pager_splash"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_375sdp"
+            android:layout_centerInParent="true"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <Button
+            android:id="@+id/btn_next_Sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="32dp"
+            android:layout_marginBottom="22dp"
+            android:background="@drawable/bg_doctors_list"
+            android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+            android:drawableTint="@color/Patient_Color"
+            android:elevation="2dp"
+            android:fontFamily="@font/cairo_bold"
+            android:text="@string/next"
+            android:textColor="@color/Patient_Color"
+            tools:ignore="TextContrastCheck"
+            tools:targetApi="m" />
 
 
-    <Button
-        android:id="@+id/btn_get_started"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="64dp"
-        android:background="@drawable/bt_log_in_patient"
-        android:fontFamily="@font/cairo_bold"
-        android:text="أبدأ"
-        android:textColor="@color/white"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <Button
+            android:id="@+id/btn_get_started"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="64dp"
+            android:background="@drawable/bt_log_in_patient"
+            android:fontFamily="@font/cairo_bold"
+            android:text="أبدأ"
+            android:textColor="@color/white"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_skip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:fontFamily="@font/cairo_bold"
-        android:text="تخطي"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_15sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tv_skip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginBottom="24dp"
+            android:fontFamily="@font/cairo_bold"
+            android:text="تخطي"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15sdp" />
 
-    <ImageView
-        android:id="@+id/bottom_image"
-        android:layout_width="@dimen/_120sdp"
-        android:layout_height="@dimen/_120sdp"
-        android:contentDescription="back"
-        android:src="@drawable/bg_rectangel_splash_bottom"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="ImageContrastCheck" />
+        <ImageView
+            android:id="@+id/bottom_image"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_120sdp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:contentDescription="back"
+            android:src="@drawable/bg_rectangel_splash_bottom"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="ImageContrastCheck" />
 
-    <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
-        android:id="@+id/Splash_indicator"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="@dimen/_25sdp"
-        app:dotsColor="@color/Patient_Color"
-        app:dotsCornerRadius="8dp"
-        app:dotsElevation="2dp"
-        app:dotsSize="16dp"
-        app:dotsSpacing="4dp"
-        app:dotsWidthFactor="2.5"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:progressMode="true"
-        app:selectedDotColor="@color/white" />
+        <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+            android:id="@+id/Splash_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/_8sdp"
+            app:dotsColor="@color/Patient_Color"
+            app:dotsCornerRadius="8dp"
+            app:dotsElevation="2dp"
+            app:dotsSize="16dp"
+            app:dotsSpacing="4dp"
+            app:dotsWidthFactor="2.5"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:progressMode="true"
+            app:selectedDotColor="@color/white" />
+
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

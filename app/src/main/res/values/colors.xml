@@ -18,6 +18,7 @@
     <color name="black_soft">#740C0C0C</color>
     <color name="gray">#707070</color>
     <color name="light_gray">#DBEEE8</color>
+    <color name="dark_gray">#80000000</color>
     <color name="light_gray2">#D3D3D3</color>
     <color name="card_bg_color">#FFFFFF</color>
     <color name="card_bg_dark_color">#0e0e0e</color>
@@ -25,5 +26,5 @@
     <color name="starts_color">#FFEB3B</color>
     <color name="light_1">#14000000</color>
     <color name="light_2">#147167FF</color>
-
+    <color name="subtitle">#c4c2c9</color>
 </resources>

@@ -9,9 +9,10 @@
     <RelativeLayout
         android:id="@+id/content_info"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:elevation="50dp"
-        android:ems="1">
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
             android:id="@+id/Weight_patient"
@@ -19,30 +20,30 @@
             android:layout_height="@dimen/_35sdp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp">
+            android:paddingLeft="@dimen/_20sdp"
+            android:paddingRight="@dimen/_20sdp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:fontFamily="@font/cairo_bold"
                 android:text="نوع المرض"
                 android:textColor="@color/Patient_Color"
-                android:textSize="15sp" />
+                android:textSize="@dimen/_12sdp" />
 
             <TextView
                 android:id="@+id/FD_DiabetesType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:fontFamily="@font/cairo_bold"
                 android:textColor="@color/gray"
-                android:textSize="15sp" />
+                android:textSize="@dimen/_12sdp" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -51,31 +52,30 @@
             android:layout_height="@dimen/_35sdp"
             android:layout_below="@id/Weight_patient"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:paddingStart="20dp"
-            android:paddingEnd="@dimen/_20sdp">
+            android:paddingLeft="20dp"
+            android:paddingRight="@dimen/_20sdp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:fontFamily="@font/cairo_bold"
                 android:text="نوع العلاج"
                 android:textColor="@color/Patient_Color"
-                android:textSize="15sp" />
+                android:textSize="@dimen/_12sdp" />
 
             <TextView
                 android:id="@+id/FD_DiabetesMedics"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:fontFamily="@font/cairo_bold"
                 android:textColor="@color/gray"
-                android:textSize="15sp" />
+                android:textSize="@dimen/_12sdp" />
 
             <View style="@style/Divider.Horizontal" />
         </RelativeLayout>
@@ -86,31 +86,30 @@
             android:layout_height="@dimen/_35sdp"
             android:layout_below="@id/FD_DiabetesMedics_R"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:paddingStart="20dp"
-            android:paddingEnd="@dimen/_20sdp">
+            android:paddingLeft="20dp"
+            android:paddingRight="@dimen/_20sdp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:fontFamily="@font/cairo_bold"
                 android:text="عامل الإصابة"
                 android:textColor="@color/Patient_Color"
-                android:textSize="15sp" />
+                android:textSize="@dimen/_12sdp" />
 
             <TextView
                 android:id="@+id/FD_PatientCauses"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:fontFamily="@font/cairo_bold"
                 android:textColor="@color/gray"
-                android:textSize="15sp" />
+                android:textSize="@dimen/_12sdp" />
 
             <View style="@style/Divider.Horizontal" />
 
@@ -122,31 +121,30 @@
             android:layout_height="@dimen/_35sdp"
             android:layout_below="@id/FD_PatientCauses_R"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:paddingStart="20dp"
-            android:paddingEnd="@dimen/_20sdp">
+            android:paddingLeft="20dp"
+            android:paddingRight="@dimen/_20sdp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:fontFamily="@font/cairo_bold"
                 android:text="هل تملك جهاز فحص السكر"
                 android:textColor="@color/Patient_Color"
-                android:textSize="15sp" />
+                android:textSize="@dimen/_12sdp" />
 
             <TextView
                 android:id="@+id/FD_bloodGlucoseMeter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:fontFamily="@font/cairo_bold"
                 android:textColor="@color/gray"
-                android:textSize="15sp" />
+                android:textSize="@dimen/_12sdp" />
 
             <View style="@style/Divider.Horizontal" />
         </RelativeLayout>
@@ -157,31 +155,30 @@
             android:layout_height="@dimen/_35sdp"
             android:layout_below="@id/FD_bloodGlucoseMeter_R"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:paddingStart="20dp"
-            android:paddingEnd="@dimen/_20sdp">
+            android:paddingLeft="20dp"
+            android:paddingRight="@dimen/_20sdp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:fontFamily="@font/cairo_bold"
                 android:text=" تاريخ الاصابة"
                 android:textColor="@color/Patient_Color"
-                android:textSize="15sp" />
+                android:textSize="@dimen/_12sdp" />
 
             <TextView
                 android:id="@+id/FD_HaveIssue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:fontFamily="@font/cairo_bold"
                 android:textColor="@color/gray"
-                android:textSize="15sp" />
+                android:textSize="@dimen/_12sdp" />
 
             <View style="@style/Divider.Horizontal" />
         </RelativeLayout>
@@ -192,34 +189,47 @@
             android:layout_height="@dimen/_35sdp"
             android:layout_below="@id/FD_HaveIssue_R"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_10sdp"
             android:fontFamily="@font/cairo_bold"
-            android:paddingStart="20dp"
-            android:paddingEnd="@dimen/_20sdp">
+            android:paddingLeft="20dp"
+            android:paddingRight="@dimen/_20sdp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:fontFamily="@font/cairo_bold"
                 android:text="أمراض اخرى "
                 android:textColor="@color/Patient_Color"
-                android:textSize="15sp" />
+                android:textSize="@dimen/_12sdp" />
 
             <TextView
                 android:id="@+id/FD_DateInjury"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:fontFamily="@font/cairo_bold"
                 android:textColor="@color/gray"
-                android:textSize="15sp" />
+                android:textSize="@dimen/_12sdp" />
 
             <View style="@style/Divider.Horizontal" />
         </RelativeLayout>
     </RelativeLayout>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/bg_ic_background"
+        android:fontFamily="@font/cairo_bold"
+        android:text="تحديث البيانات"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_11sdp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/content_info" />
 </androidx.constraintlayout.widget.ConstraintLayout>

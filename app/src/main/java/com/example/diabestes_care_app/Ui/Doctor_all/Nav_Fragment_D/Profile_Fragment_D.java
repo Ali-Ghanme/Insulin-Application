@@ -92,9 +92,9 @@ public class Profile_Fragment_D extends Fragment {
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putString("remember_D", "false");
                 editor.apply();
-                Intent intent_d = new Intent(getActivity(), Sing_In.class);
+                Intent intent_d = new Intent(getActivity(), Sing_In.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent_d);
-                getActivity().finish();
+               // getActivity().finish();
             }
         });
         return view;

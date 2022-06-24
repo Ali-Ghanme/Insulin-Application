@@ -46,11 +46,11 @@ public class Chat_Fragment_D extends Fragment {
     ArrayList<MessagesList_Model> messagesListModels = new ArrayList<>();
     // Adapter
     Messages_Adapter messagesAdapter;
+    // Variables
     private int unseenMessage = 0;
     private String lastMessage = "";
     private String chatKey = "";
     private boolean dataSet = false;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -62,12 +62,16 @@ public class Chat_Fragment_D extends Fragment {
         messagesRecycleReview = view.findViewById(R.id.FCH_Chat_RecyclerView_d);
         imageView = view.findViewById(R.id.FCH_profile_img_d);
 
+        //============================Defines Firebase==============================================
         myRef = FirebaseDatabase.getInstance().getReference();
         GetDataFromFirebase();
+
+        //============================Recycle Review Setup==========================================
         messagesRecycleReview.setHasFixedSize(true);
         messagesRecycleReview.setLayoutManager(new LinearLayoutManager(getContext()));
         messagesAdapter = new Messages_Adapter(messagesListModels, getContext());
         messagesRecycleReview.setAdapter(messagesAdapter);
+
         //============================Defines SharedPreferences=====================================
         SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
         DoctorUsername = prefs.getString("TAG_NAME", null);
@@ -76,7 +80,7 @@ public class Chat_Fragment_D extends Fragment {
         return view;
     }
 
-    //============================Get profile Image Profile from Firebase database=========================================
+    //============================Get profile Image Profile from Firebase database==================
     @Override
     public void onStart() {
         super.onStart();
@@ -87,8 +91,6 @@ public class Chat_Fragment_D extends Fragment {
                 String PatientImage = snapshot.child(DoctorUsername).child("personal_info").child("Image").child("mImageUrI").getValue(String.class);
                 Glide.with(getContext()).load(PatientImage).into(imageView);
 
-                // Save Patient Username to MemoryData
-                MemoryData.saveDoctorData(DoctorUsername, getContext());
             }
 
             @Override
@@ -110,12 +112,10 @@ public class Chat_Fragment_D extends Fragment {
                 chatKey = "";
                 try {
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        String getDoctorName = snapshot.child("personal_info").child("name").getValue(String.class);
-                        String getDoctorUsername = snapshot.child("username").getValue(String.class);
-//                        Toast.makeText(getContext(), getUsername, Toast.LENGTH_SHORT).show();
+                        String getPatientName = snapshot.child("personal_info").child("name").getValue(String.class);
+                        String getPatientUsername = snapshot.child("username").getValue(String.class);
+                        final String getPatientImage = snapshot.child("personal_info").child("Image").child("mImageUrI").getValue(String.class);
                         dataSet = false;
-                        final String getDoctorImage = snapshot.child("personal_info").child("Image").child("mImageUrI").getValue(String.class);
-
 
                         myRef.child("chat").addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
@@ -124,19 +124,19 @@ public class Chat_Fragment_D extends Fragment {
 
                                 if (getChatCounts > 0) {
                                     for (DataSnapshot dataSnapshot1 : snapshot.getChildren()) {
-                                        final String getKey = dataSnapshot1.getKey();
-                                        chatKey = getKey;
+                                        chatKey = dataSnapshot1.getKey();
 
                                         if (dataSnapshot1.hasChild("patient_1") && dataSnapshot1.hasChild("doctor_2") && dataSnapshot1.hasChild("messages")) {
 
                                             final String getUserOne = dataSnapshot1.child("patient_1").getValue(String.class);
                                             final String getUserTow = dataSnapshot1.child("doctor_2").getValue(String.class);
 
-                                            if ((getUserOne.equals(DoctorUsername) && getUserTow.equals(getDoctorUsername)) || (getUserOne.equals(getDoctorUsername) && getUserTow.equals(DoctorUsername))) {
+                                            if ((getUserOne.equals(DoctorUsername) && getUserTow.equals(getPatientUsername)) || (getUserOne.equals(getPatientUsername) && getUserTow.equals(DoctorUsername))) {
                                                 for (DataSnapshot chatDataSnapshot : dataSnapshot1.child("messages").getChildren()) {
 
                                                     final long getMessageKey = Long.parseLong(chatDataSnapshot.getKey());
-                                                    final long getLastSeenMessage = Long.parseLong(MemoryData.getLastMsgTS(getContext(), getKey));
+                                                    final long getLastSeenMessage = Long.parseLong(MemoryData.getLastMsgTS(getContext(),chatKey));
+
                                                     lastMessage = chatDataSnapshot.child("msg").getValue(String.class);
 
                                                     if (getMessageKey > getLastSeenMessage) {
@@ -148,8 +148,8 @@ public class Chat_Fragment_D extends Fragment {
                                     }
                                 }
                                 if (!dataSet) {
-                                    dataSet = true;
-                                    MessagesList_Model messagesListModel = new MessagesList_Model(getDoctorName, getDoctorUsername, lastMessage, getDoctorImage, chatKey, unseenMessage);
+                                    MessagesList_Model messagesListModel = new MessagesList_Model(getPatientName, getPatientUsername,
+                                            lastMessage, getPatientImage, chatKey, unseenMessage);
                                     messagesListModels.add(messagesListModel);
                                     messagesAdapter.UpdateData(messagesListModels);
                                     messagesAdapter.notifyDataSetChanged();

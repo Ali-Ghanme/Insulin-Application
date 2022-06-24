@@ -4,13 +4,13 @@ public class DoctorList_Model {
     String name;
     String username;
     String imageUrl;
-    String status;
 
-    public DoctorList_Model(String name, String username, String imageUrl, String status) {
+
+    public DoctorList_Model(String name, String username, String imageUrl) {
         this.name = name;
         this.username = username;
         this.imageUrl = imageUrl;
-        this.status = status;
+
     }
 
     public DoctorList_Model() {
@@ -40,11 +40,4 @@ public class DoctorList_Model {
         this.imageUrl = imageUrl;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
 }

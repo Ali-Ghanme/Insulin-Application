@@ -9,8 +9,84 @@
     tools:context=".Local_Notification">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/tvnoti"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Show Notification Details Here..." />
+        android:padding="@dimen/_10sdp"
+        android:text="  Notification Details  "
+        android:textAlignment="center"
+        android:textSize="@dimen/_16sdp" />
 
+    <LinearLayout
+        android:id="@+id/Subject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvnoti"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/_15sdp">
+
+        <EditText
+            android:id="@+id/Sugare"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@+id/Sp1_Gender_D"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:autofillHints="phone"
+            android:background="@drawable/bg_edit_text"
+            android:drawablePadding="@dimen/_13sdp"
+            android:elevation="@dimen/_1sdp"
+            android:layout_gravity="center_horizontal"
+            android:drawableTint="@color/Doctor_Color"
+            android:fontFamily="@font/cairo_bold"
+            android:hint="نسبة السكري "
+            android:inputType="number"
+            android:maxLines="1"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:textColor="@color/Doctor_Color"
+            android:textColorHint="#78909C"
+            android:textSize="15sp"
+            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+        <EditText
+            android:id="@+id/When_take_it"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@+id/Sp1_Gender_D"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:autofillHints="phone"
+            android:background="@drawable/bg_edit_text"
+            android:elevation="@dimen/_1sdp"
+            android:drawablePadding="@dimen/_13sdp"
+            android:layout_gravity="center_horizontal"
+            android:drawableTint="@color/Doctor_Color"
+            android:fontFamily="@font/cairo_bold"
+            android:hint="نسبة السكري "
+            android:inputType="number"
+            android:maxLines="1"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:textColor="@color/Doctor_Color"
+            android:textColorHint="#78909C"
+            android:textSize="15sp"
+            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:text="Save And show Details" />
+
+        <TextView
+            android:id="@+id/tvs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 </RelativeLayout>

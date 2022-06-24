@@ -22,9 +22,14 @@ import com.google.firebase.database.ValueEventListener;
 
 
 public class Diabats_Info extends Fragment {
+
+    // Firebase
     DatabaseReference myRef;
-    String restoredText;
+    // Patient Username
+    String PatientUsername;
+    // Data Patient
     TextView DiabetesType_t, DiabetesMedics_t, PatientCauses_t, bloodGlucoseMeter_t, HaveIssue_t, DateInjury_t;
+    // Hallow
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,6 +37,7 @@ public class Diabats_Info extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_diabats__info, container, false);
 
+        //============================Defines=======================================================
         DiabetesType_t = view.findViewById(R.id.FD_DiabetesType);
         DiabetesMedics_t = view.findViewById(R.id.FD_DiabetesMedics);
         PatientCauses_t = view.findViewById(R.id.FD_PatientCauses);
@@ -39,12 +45,12 @@ public class Diabats_Info extends Fragment {
         HaveIssue_t = view.findViewById(R.id.FD_HaveIssue);
         DateInjury_t = view.findViewById(R.id.FD_DateInjury);
 
+        //============================Shared Preference=============================================
         SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
-        restoredText = prefs.getString("TAG_NAME", null);
+        PatientUsername = prefs.getString("TAG_NAME", null);
 
         return view;
     }
-
 
     @Override
     public void onStart() {
@@ -53,13 +59,12 @@ public class Diabats_Info extends Fragment {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                String DiabetesType = snapshot.child(restoredText).child("disease_info").child("Diabetes Type").getValue(String.class);
-                String DiabetesMedics = snapshot.child(restoredText).child("disease_info").child("Diabetes Medics Type").getValue(String.class);
-                String PatientCauses = snapshot.child(restoredText).child("disease_info").child("Patient Causes").getValue(String.class);
-                String bloodGlucoseMeter = snapshot.child(restoredText).child("disease_info").child("Does the patient have a blood glucose meter?").getValue(String.class);
-                String HaveIssue = snapshot.child(restoredText).child("disease_info").child("Have issue").getValue(String.class);
-                String DateInjury = snapshot.child(restoredText).child("disease_info").child("Patient Date Injury").getValue(String.class);
+                String DiabetesType = snapshot.child(PatientUsername).child("disease_info").child("Diabetes Type").getValue(String.class);
+                String DiabetesMedics = snapshot.child(PatientUsername).child("disease_info").child("Diabetes Medics Type").getValue(String.class);
+                String PatientCauses = snapshot.child(PatientUsername).child("disease_info").child("Patient Causes").getValue(String.class);
+                String bloodGlucoseMeter = snapshot.child(PatientUsername).child("disease_info").child("Does the patient have a blood glucose meter?").getValue(String.class);
+                String HaveIssue = snapshot.child(PatientUsername).child("disease_info").child("Have issue").getValue(String.class);
+                String DateInjury = snapshot.child(PatientUsername).child("disease_info").child("Patient Date Injury").getValue(String.class);
                 DiabetesType_t.setText(DiabetesType);
                 DiabetesMedics_t.setText(DiabetesMedics);
                 PatientCauses_t.setText(PatientCauses);

@@ -1,8 +1,5 @@
 package com.example.diabestes_care_app.Ui.Sing_up_pages.Doctor;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,6 +10,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.Models.Upload_Model;
@@ -93,7 +93,7 @@ public class Sing_up_5_D extends Basic_Activity {
                                     @Override
                                     public void onSuccess(Uri uri) {
                                         Upload_Model uploadModel = new Upload_Model(uri.toString());
-                                        DB_Ref.child(patient_userName).child("personal_info").child("Image").setValue(uploadModel);
+                                        DB_Ref.child(patient_userName).child("User_Profile_Image").child("Image").setValue(uploadModel);
                                         Toast.makeText(Sing_up_5_D.this, "Upload Successfully", Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(Sing_up_5_D.this, Sing_In.class);
                                         startActivity(intent);

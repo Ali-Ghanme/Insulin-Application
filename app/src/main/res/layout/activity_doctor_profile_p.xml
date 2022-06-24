@@ -1,264 +1,378 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#faf8ff"
     android:orientation="vertical"
     tools:context=".Ui.Patient_all.Doctor_Profile_P">
 
     <RelativeLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_150sdp"
-        android:background="@drawable/bg_half_rounded"
-        android:backgroundTint="@color/Patient_Color" />
+        android:layout_height="@dimen/_80sdp"
+        android:backgroundTint="@color/Doctor_Color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/HP_notification"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_15sdp"
-        android:layout_marginTop="@dimen/_25sdp"
-        android:background="@drawable/ic_arrwa"
-        android:backgroundTint="@color/white_ghost"
-        android:contentDescription="@string/todo" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/EP_title_p"
-        android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/DPP_btn_back"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@drawable/round_back_light"
+            android:contentDescription="@string/todo"
+            android:layoutDirection="ltr"
+            android:paddingLeft="@dimen/_12sdp"
+            android:paddingRight="@dimen/_5sdp"
+            android:src="@drawable/ic_arrow_back" />
+
+        <TextView
+            android:id="@+id/DPP_tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="@dimen/_90sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:text="ملف الطبيب "
+            android:textColor="#282935"
+            android:textSize="@dimen/_18sdp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/DPP_tv_title"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/cairo_bold"
+            android:text="وقت المرضى 8:00 ص _ 5:00 م"
+            android:textColor="@color/Doctor_Color" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="@dimen/_270sdp"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="@dimen/_90sdp"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:fontFamily="@font/cairo_bold"
-        android:text="ملف الطبيب "
-        android:textColor="@color/white"
-        android:textSize="@dimen/_18sdp" />
+        android:layout_marginTop="@dimen/_15sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header">
 
-    <View
-        android:id="@+id/EP_view_p"
-        android:layout_width="30dp"
-        android:layout_height="5dp"
-        android:layout_below="@id/EP_title_p"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/bg_search" />
+        <TextView
+            android:id="@+id/DPP_tv_doctor_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:fontFamily="@font/cairo_bold"
+            android:textColor="#282935"
+            android:textSize="@dimen/_18sdp" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/HP_profile_img"
-        android:layout_width="@dimen/_100sdp"
-        android:layout_height="@dimen/_100sdp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/_70sdp"
-        android:contentDescription="@string/todo"
-        app:civ_border_color="@android:color/white"
-        app:civ_border_width="3dp" />
+        <TextView
+            android:id="@+id/DPP_tv_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/DPP_tv_doctor_name"
+            android:layout_alignParentRight="true"
+            android:fontFamily="@font/cairo_bold"
+            android:text="طب عام"
+            android:textColor="#c4c2c9"
+            android:textSize="@dimen/_11sdp" />
 
-    <TextView
-        android:id="@+id/HP_doctor_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/HP_profile_img"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/cairo_bold"
-        android:lines="1"
-        android:maxLines="1"
-        android:singleLine="true"
-        android:textColor="@color/Patient_Color"
-        android:textSize="@dimen/_16sdp" />
-
-    <ImageView
-        android:id="@+id/starts"
-        android:layout_width="@dimen/_50sdp"
-        android:layout_height="@dimen/_10sdp"
-        android:layout_below="@id/HP_doctor_name"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_25sdp"
-        android:contentDescription="@string/todo"
-        android:src="@drawable/starts_icon" />
-
-    <View
-        android:id="@+id/EP_view2_p"
-        android:layout_width="@dimen/_250sdp"
-        android:layout_height="@dimen/_1sdp"
-        android:layout_below="@id/starts"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:background="#CFCFCF" />
-
-    <TextView
-        android:id="@+id/HP_rate1"
-        android:layout_width="@dimen/_65sdp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/EP_view2_p"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="@dimen/_30sdp"
-        android:layout_marginTop="@dimen/_2sdp"
-        android:fontFamily="@font/cairo_bold"
-        android:lines="1"
-        android:maxLines="1"
-        android:paddingHorizontal="@dimen/_13sdp"
-        android:singleLine="true"
-        android:text="تقييم"
-        android:textColor="@color/Patient_Color"
-        android:textSize="@dimen/_14sdp" />
-
-    <TextView
-        android:id="@+id/HP_result"
-        android:layout_width="@dimen/_65sdp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/EP_view2_p"
-        android:layout_marginStart="@dimen/_30sdp"
-        android:layout_marginTop="@dimen/_30sdp"
-        android:fontFamily="@font/cairo_bold"
-        android:lines="1"
-        android:maxLines="1"
-        android:paddingHorizontal="@dimen/_20sdp"
-        android:singleLine="true"
-        android:textColor="@color/Patient_Color"
-        android:textSize="@dimen/_16sdp" />
-
-    <TextView
-        android:id="@+id/HP_rate2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/EP_view2_p"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="@dimen/_120sdp"
-        android:layout_marginTop="@dimen/_2sdp"
-        android:fontFamily="@font/cairo_bold"
-        android:lines="1"
-        android:maxLines="1"
-        android:singleLine="true"
-        android:text="سنين الخبرة"
-        android:textColor="@color/Patient_Color"
-        android:textSize="@dimen/_14sdp" />
-
-    <TextView
-        android:id="@+id/HP_result2"
-        android:layout_width="@dimen/_65sdp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/EP_view2_p"
-        android:layout_marginStart="@dimen/_120sdp"
-        android:layout_marginTop="@dimen/_30sdp"
-        android:fontFamily="@font/cairo_bold"
-        android:lines="1"
-        android:maxLines="1"
-        android:paddingHorizontal="@dimen/_20sdp"
-        android:singleLine="true"
-        android:textColor="@color/Patient_Color"
-        android:textSize="@dimen/_16sdp" />
-
-    <TextView
-        android:id="@+id/HP_rate3"
-        android:layout_width="@dimen/_65sdp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/EP_view2_p"
-        android:layout_marginStart="@dimen/_210sdp"
-        android:layout_marginTop="@dimen/_2sdp"
-        android:fontFamily="@font/cairo_bold"
-        android:lines="1"
-        android:maxLines="1"
-        android:singleLine="true"
-        android:text="التوصيات"
-        android:textColor="@color/Patient_Color"
-        android:textSize="@dimen/_14sdp" />
-
-    <TextView
-        android:id="@+id/HP_result3"
-        android:layout_width="@dimen/_65sdp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/EP_view2_p"
-        android:layout_marginStart="@dimen/_210sdp"
-        android:layout_marginTop="@dimen/_30sdp"
-        android:fontFamily="@font/cairo_bold"
-        android:lines="1"
-        android:maxLines="1"
-        android:paddingHorizontal="@dimen/_20sdp"
-        android:singleLine="true"
-        android:textColor="@color/Patient_Color"
-        android:textSize="@dimen/_16sdp" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/DPP_img_Profile"
+            android:layout_width="@dimen/_65sdp"
+            android:layout_height="@dimen/_65sdp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            app:civ_border_color="@color/Doctor_Color"
+            app:civ_border_width="@dimen/_2sdp" />
+    </RelativeLayout>
 
     <View
         android:id="@+id/EP_view3_p"
         android:layout_width="@dimen/_250sdp"
         android:layout_height="@dimen/_1sdp"
-        android:layout_below="@id/EP_view2_p"
+        android:layout_below="@id/relativeLayout2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/_60sdp"
-        android:background="#CFCFCF" />
-
+        android:background="#CFCFCF"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
 
     <RelativeLayout
-        android:id="@+id/head_parent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/EP_view3_p"
-        android:background="?attr/selectableItemBackground"
-        android:clickable="true"
-        android:focusable="true">
-
-        <TextView
-            android:id="@+id/group_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="@dimen/_20sdp"
-            android:fontFamily="@font/cairo_bold"
-            android:lines="1"
-            android:text="آراء"
-            android:textColor="@color/Patient_Color"
-            android:textSize="@dimen/_15sdp" />
-
-        <View
-            android:layout_width="@dimen/_30sdp"
-            android:layout_height="5dp"
-            android:layout_below="@id/group_title"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginEnd="@dimen/_20sdp"
-            android:background="@drawable/bg_search"
-            android:backgroundTint="@color/Patient_Color" />
-
-        <Button
-            android:id="@+id/view_all"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/_30sdp"
-            android:layout_marginStart="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_13sdp"
-            android:background="@drawable/bg_patient_button"
-            android:clickable="false"
-            android:focusable="false"
-            android:fontFamily="@font/cairo_bold"
-            android:maxLength="15"
-            android:text="عرض المزيد"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_9sdp"
-            android:textStyle="bold"
-            tools:ignore="SmallSp" />
-    </RelativeLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/feedback_p"
+        android:id="@+id/relativeLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/head_parent" />
+        android:layout_marginTop="@dimen/_30sdp"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
+
+        <ImageView
+            android:id="@+id/DPP_img_starts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/starts_icon" />
+
+        <TextView
+            android:id="@+id/DPP_tv_rate_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/DPP_img_starts"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:text="4.8 من 5.0"
+            android:textColor="#282935"
+            android:textSize="@dimen/_13sdp" />
+
+        <TextView
+            android:id="@+id/DPP_tv_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/DPP_tv_rate_start"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:text="340 مراجعة من المرضى" />
+
+
+    </RelativeLayout>
+
+    <GridLayout
+        android:id="@+id/FC_grid_1_p"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout3">
+
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:alignmentMode="alignMargins"
+            android:columnCount="2"
+            android:columnOrderPreserved="false"
+            android:rowCount="2">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/FC_SelfCare_box_p"
+                android:layout_width="@dimen/_105sdp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_30sdp"
+                app:cardElevation="0.5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#fefffc"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_10sdp">
+
+                    <ImageView
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:background="@drawable/ic_disabled_svgrepo_com"
+                        android:backgroundTint="@color/Doctor_Color" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/cairo_bold"
+                        android:gravity="center_horizontal"
+                        android:text="500+"
+                        android:textColor="#282935"
+                        android:textSize="@dimen/_13sdp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/cairo_bold"
+                        android:gravity="center_horizontal"
+                        android:text="استشارة ناجحة"
+                        android:textColor="@color/subtitle"
+                        android:textSize="@dimen/_10sdp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/FC_SelfCare_box_p2"
+                android:layout_width="@dimen/_105sdp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_30sdp"
+                app:cardElevation="0.5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#fefffc"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_10sdp">
+
+                    <ImageView
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:background="@drawable/ic_microscope_svgrepo_com"
+                        android:backgroundTint="#6c5dd2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/cairo_bold"
+                        android:gravity="center_horizontal"
+                        android:text="10+"
+                        android:textColor="#282935"
+                        android:textSize="@dimen/_13sdp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/cairo_bold"
+                        android:gravity="center_horizontal"
+                        android:text="خبرة"
+                        android:textColor="@color/subtitle"
+                        android:textSize="@dimen/_10sdp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </GridLayout>
+
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:alignmentMode="alignMargins"
+            android:columnCount="2"
+            android:columnOrderPreserved="false"
+            android:rowCount="2">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/FC_Reports_p"
+                android:layout_width="@dimen/_105sdp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_30sdp"
+                app:cardElevation="0.5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#fefffc"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_10sdp">
+
+                    <ImageView
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:background="@drawable/ic_dose"
+                        android:backgroundTint="#438dfe" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/cairo_bold"
+                        android:gravity="center_horizontal"
+                        android:text="100+"
+                        android:textColor="#282935"
+                        android:textSize="@dimen/_13sdp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/cairo_bold"
+                        android:gravity="center_horizontal"
+                        android:text=" مراجعة جرعات"
+                        android:textColor="@color/subtitle"
+                        android:textSize="@dimen/_10sdp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/FC_Doses_p"
+                android:layout_width="@dimen/_105sdp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_30sdp"
+                app:cardElevation="0.5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#fefffc"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_10sdp">
+
+                    <ImageView
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:background="@drawable/ic_certificate"
+                        android:backgroundTint="#f0cb88" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/cairo_bold"
+                        android:gravity="center_horizontal"
+                        android:text="8+"
+                        android:textColor="#282935"
+                        android:textSize="@dimen/_13sdp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/cairo_bold"
+                        android:gravity="center_horizontal"
+                        android:text="الشهادات الموثقة"
+                        android:textColor="@color/subtitle"
+                        android:textSize="@dimen/_10sdp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </GridLayout>
+    </GridLayout>
 
     <Button
         android:id="@+id/request_for"
-        android:layout_width="@dimen/_180sdp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/feedback_p"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="12dp"
         android:background="@drawable/news_rectangel"
-        android:backgroundTint="@color/Patient_Color"
+        android:backgroundTint="@color/Doctor_Color"
         android:fontFamily="@font/cairo_bold"
         android:text="إرسال طلب استشارة"
         android:textColor="@color/white"
-        android:textSize="@dimen/_14sdp" />
-
-</RelativeLayout>
+        android:textSize="@dimen/_14sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FC_grid_1_p" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,7 +11,7 @@ import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.diabestes_care_app.Content;
+import com.example.diabestes_care_app.Ui.Patient_all.Sections.Self_Care.Content.Content;
 import com.example.diabestes_care_app.R;
 
 

@@ -81,9 +81,7 @@ public class Sing_Up_1_P extends Basic_Activity {
                 String patientTall = mTall.getText().toString();
                 String PatientID = mID.getText().toString();
 
-//                HashMap<String , String > hashMap = new HashMap<>();
-//                hashMap.put("username",patientUsername);
-//                hashMap.put("status","offline");
+
                 //====================================Validation===============================
                 // cheek if user fill all data fields before sending data to firebase
                 if (validIsEmpty(patientName, patientUsername, patientWehigt, patientTall, PatientID, patientDate)) {
@@ -102,17 +100,16 @@ public class Sing_Up_1_P extends Basic_Activity {
                                 // we are using a phone number as unique identity of every user
                                 databaseReference.child("patient").child(patientUsername).child("personal_info").child("name").setValue(patientName);
                                 databaseReference.child("patient").child(patientUsername).child("username").setValue(patientUsername);
-                                databaseReference.child("patient").child(patientUsername).child("personal_info").child("Date").setValue(patientDate);
-                                databaseReference.child("patient").child(patientUsername).child("personal_info").child("Gender").setValue(strGender);
+                                databaseReference.child("patient").child(patientUsername).child("personal_info").child("date").setValue(patientDate);
+                                databaseReference.child("patient").child(patientUsername).child("personal_info").child("gender").setValue(strGender);
                                 databaseReference.child("patient").child(patientUsername).child("personal_info").child("wehigt").setValue(patientWehigt);
                                 databaseReference.child("patient").child(patientUsername).child("personal_info").child("tall").setValue(patientTall);
-                                databaseReference.child("patient").child(patientUsername).child("personal_info").child("ID").setValue(PatientID);
+                                databaseReference.child("patient").child(patientUsername).child("personal_info").child("iD").setValue(PatientID);
                                 Toast.makeText(Sing_Up_1_P.this, "User have registered successfully ", Toast.LENGTH_SHORT).show();
-                                finish();
-
                                 Intent intent2 = new Intent(Sing_Up_1_P.this, Sing_Up_2_P.class);
                                 intent2.putExtra("username", patientUsername);
                                 startActivity(intent2);
+                                finish();
                             }
                         }
 

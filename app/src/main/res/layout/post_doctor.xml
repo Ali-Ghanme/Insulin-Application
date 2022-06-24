@@ -27,7 +27,7 @@
             android:id="@+id/Doctor_iemage"
             android:layout_width="@dimen/_30sdp"
             android:layout_height="@dimen/_50sdp"
-            android:src="@drawable/ic_arrwa" />
+            android:src="@drawable/ic_checked_box" />
 
         <TextView
             android:id="@+id/doctor_name"

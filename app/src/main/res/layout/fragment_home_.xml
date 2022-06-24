@@ -5,9 +5,9 @@
     android:id="@+id/roo_Fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layoutDirection="locale"
     android:orientation="vertical"
     tools:context=".Ui.Patient_all.Nav_Fragment_P.Home_Fragment">
-
 
     <RelativeLayout
         android:id="@+id/header"
@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="@dimen/_90sdp"
+        android:layout_marginLeft="@dimen/_90sdp"
         android:layout_marginTop="@dimen/_20sdp"
         android:fontFamily="@font/cairo_bold"
         android:text="الرئيسية"
@@ -68,10 +68,11 @@
         android:layout_width="@dimen/_260sdp"
         android:layout_height="@dimen/_40sdp"
         android:layout_below="@id/HP_patient_name"
-        android:layout_marginStart="@dimen/_25sdp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/_25sdp"
         android:layout_marginTop="@dimen/_10sdp"
         android:background="@drawable/search_input_style"
-        android:drawableEnd="@drawable/ic_search"
+        android:drawableRight="@drawable/ic_search"
         android:drawablePadding="@dimen/_10sdp"
         android:elevation="@dimen/_5sdp"
         android:fontFamily="@font/cairo_semibold"
@@ -80,7 +81,6 @@
         android:inputType="textPersonName"
         android:queryBackground="@android:color/transparent"
         android:textColor="@color/gray"
-        android:textDirection="rtl"
         android:textSize="@dimen/_10sdp" />
 
     <RelativeLayout
@@ -99,7 +99,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
             android:fontFamily="@font/cairo_bold"
             android:lines="1"
             android:text="الأطباء الأكثر رواجاً"
@@ -112,7 +112,7 @@
             android:layout_below="@id/group_title"
             android:layout_alignParentRight="true"
             android:layout_marginTop="@dimen/_20sdp"
-            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
             android:background="@drawable/bg_search"
             android:backgroundTint="@color/Patient_Color" />
 
@@ -120,7 +120,8 @@
             android:id="@+id/view_all"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_30sdp"
-            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_13sdp"
             android:background="@drawable/bg_patient_button"
             android:clickable="false"

@@ -1,6 +1,7 @@
 package com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P;
 
 import static android.content.Context.MODE_PRIVATE;
+import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
 
 import android.app.ProgressDialog;
 import android.content.SharedPreferences;
@@ -36,8 +37,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class Home_Fragment extends Fragment {
-    // implements Interface_Recycle
-    FirebaseDatabase db;
+
     // Firebase
     DatabaseReference myRef;
     // Widget
@@ -51,12 +51,11 @@ public class Home_Fragment extends Fragment {
     CharSequence search = "";
     TextView username;
     ImageView imageProfile;
-    // ShardPreference
-    public static final String MyPREFERENCES_P = "P_Username";
     // Patient Username TextView
-    String restoredText;
+    String PatientUsername;
     // Notification Counter
     Notification_Number notification_number;
+    // Progress Dialog
     ProgressDialog progressDialog;
 
     @Override
@@ -69,6 +68,14 @@ public class Home_Fragment extends Fragment {
         recyclerView = view.findViewById(R.id.HP_recyclerView);
         imageProfile = view.findViewById(R.id.HP_profile_img);
 
+        //============================Get Patient Username===========================================
+        SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
+        PatientUsername = prefs.getString("TAG_NAME", null);
+
+        //============================Configure Firebase============================================
+        myRef = FirebaseDatabase.getInstance().getReference();
+
+        //==============================Progress Dialog=============================================
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage("إنتظر قليلاً يتم تحميل المحتوى..");
         progressDialog.getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.dilog_background));
@@ -76,18 +83,12 @@ public class Home_Fragment extends Fragment {
         progressDialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         progressDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         progressDialog.show();
-        //============================Get Doctor Username===========================================
-        SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
-        restoredText = prefs.getString("TAG_NAME", null);
+
         //============================Configure Recyclerview========================================
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
-        //============================Configure Firebase============================================
-        myRef = FirebaseDatabase.getInstance().getReference();
-        //============================Get the status of User========================================
-        db = FirebaseDatabase.getInstance();
-//        manageConnections();
+
         //============================Put data in Recyclerview======================================
         //ArrayList
         list = new ArrayList<>();
@@ -101,13 +102,11 @@ public class Home_Fragment extends Fragment {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 doctorListAdapter.getFilter().filter(s);
                 search = s;
             }
-
             @Override
             public void afterTextChanged(Editable s) {
             }
@@ -142,7 +141,7 @@ public class Home_Fragment extends Fragment {
                 } catch (Exception e) {
                     Toast.makeText(getContext(), "إنتظر قليلاً ", Toast.LENGTH_SHORT).show();
                 }
-                doctorListAdapter = new DoctorList_Adapter(getContext(), list, false);
+                doctorListAdapter = new DoctorList_Adapter(getContext(), list );
                 recyclerView.setAdapter(doctorListAdapter);
                 doctorListAdapter.notifyDataSetChanged();
             }
@@ -170,41 +169,23 @@ public class Home_Fragment extends Fragment {
     public void onStart() {
         super.onStart();
         myRef = FirebaseDatabase.getInstance().getReference("patient");
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String image = snapshot.child(restoredText).child("personal_info").child("Image").child("mImageUrI").getValue(String.class);
-                String name = snapshot.child(restoredText).child("personal_info").child("name").getValue(String.class);
+            myRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    String image = snapshot.child(PatientUsername).child("User_Profile_Image").child("Image").child("mImageUrI").getValue(String.class);
+                    String name = snapshot.child(PatientUsername).child("personal_info").child("name").getValue(String.class);
                 Glide.with(getActivity()).load(image).into(imageProfile);
-                Log.d("TAG", name + "/" + image);
-                username.setText(name);
-            }
+                    Log.d("TAG", name + "/" + image);
+                    username.setText(name);
+                }
+                // Mohammed SIam
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("TAG", error.getMessage());
-            }
-        });
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Log.e("TAG", error.getMessage());
+                }
+            });
     }
 
-    //============================Get the status of User============================================
-//    private void status(String status) {
-//        myRef = FirebaseDatabase.getInstance().getReference("patient").child(restoredText);
-//        HashMap<String, Object> hashMap = new HashMap<>();
-//        hashMap.put("status", status);
-//        myRef.updateChildren(hashMap);
-//    }
-//
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//        status("online");
-//    }
-//
-//    @Override
-//    public void onPause() {
-//        super.onPause();
-//        status("offline");
-//    }
 }
 

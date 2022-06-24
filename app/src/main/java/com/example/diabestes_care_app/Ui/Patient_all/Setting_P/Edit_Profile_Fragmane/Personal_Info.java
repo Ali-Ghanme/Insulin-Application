@@ -3,12 +3,16 @@ package com.example.diabestes_care_app.Ui.Patient_all.Setting_P.Edit_Profile_Fra
 import static android.content.Context.MODE_PRIVATE;
 import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
 
+import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -20,21 +24,23 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.Calendar;
-
 
 public class Personal_Info extends Fragment {
 
-    DatabaseReference myRef;
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://diabeticsproject-default-rtdb.firebaseio.com/");
+
     String restoredText;
-    TextView weight_t, length_t, age_t, date_t, Phone_number_t, email_t, address_t;
+    EditText weight_t, length_t, age_t, date_t, Phone_number_t, email_t, address_t;
+    Button update_btn;
+    SharedPreferences prefs;
+    ProgressDialog progressDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_personal__info, container, false);
-
+        //============================Defines=======================================================
         weight_t = view.findViewById(R.id.FD_weight);
         length_t = view.findViewById(R.id.FD_length);
         date_t = view.findViewById(R.id.FD_date);
@@ -42,17 +48,69 @@ public class Personal_Info extends Fragment {
         email_t = view.findViewById(R.id.FD_email);
         age_t = view.findViewById(R.id.FD_age);
         address_t = view.findViewById(R.id.FD_address);
+        update_btn = view.findViewById(R.id.Update_btn);
+//                        databaseReference.child(restoredText).child("personal_info").child("wehigt").setValue(wehigt);
+//                        databaseReference.child(restoredText).child("personal_info").child("wehigt").setValue(wehigt);
+//                        databaseReference.child(restoredText).child("personal_info").child("wehigt").setValue(wehigt);
+//                        databaseReference.child(restoredText).child("personal_info").child("wehigt").setValue(wehigt);
+//                        databaseReference.child(restoredText).child("personal_info").child("wehigt").setValue(wehigt);
+//                        databaseReference.child(restoredText).child("personal_info").child("wehigt").setValue(wehigt);
 
-        SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
+        String tall = length_t.getText().toString();
+        String date = date_t.getText().toString();
+        String phone = Phone_number_t.getText().toString();
+        String email = email_t.getText().toString();
+        String age = age_t.getText().toString();
+        String adders = address_t.getText().toString();
+
+
+        prefs = view.getContext().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         restoredText = prefs.getString("TAG_NAME", null);
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("patient");
+        //============================Defines=======================================================
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.setMessage("إنتظر قليلاً يتم تحديث البيانات..");
+        progressDialog.getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.dilog_background));
+        progressDialog.setCancelable(true);
+        progressDialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        progressDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+
+        update_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                progressDialog.show();
+                String wehigt = weight_t.getText().toString();
+
+
+                databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        try {
+                            databaseReference.child(restoredText).child("personal_info").child("wehigt").setValue(wehigt);
+
+                            Toast.makeText(getContext(), "Data is Updated", Toast.LENGTH_SHORT).show();
+                            progressDialog.dismiss();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            Log.e("TAG",e.getMessage());
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+            }
+        });
         return view;
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        myRef = FirebaseDatabase.getInstance().getReference("patient");
-        myRef.addValueEventListener(new ValueEventListener() {
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String weight = snapshot.child(restoredText).child("personal_info").child("wehigt").getValue(String.class);
@@ -68,7 +126,6 @@ public class Personal_Info extends Fragment {
                 Phone_number_t.setText(Phone_number);
                 email_t.setText(email);
                 address_t.setText(address);
-//                age_t.setText(getAge());
             }
 
             @Override
@@ -76,21 +133,15 @@ public class Personal_Info extends Fragment {
             }
         });
     }
-    private String getAge(int year, int month, int day , String data ){
-        Calendar dob = Calendar.getInstance();
-        Calendar today = Calendar.getInstance();
 
-        dob.set(year, month, day);
+//    private void updateUser(String name, String email) {
+//        // updating the user via child nodes
+//        if (!TextUtils.isEmpty(name))
+//            databaseReference.child(restoredText).child("name").setValue(name);
+//
+//        if (!TextUtils.isEmpty(email))
+//            databaseReference.child(restoredText).child("email").setValue(email);
+//    }
 
-        int age = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
-
-        if (today.get(Calendar.DAY_OF_YEAR) < dob.get(Calendar.DAY_OF_YEAR)){
-            age--;
-        }
-
-        Integer ageInt = new Integer(age);
-        String ageS = ageInt.toString();
-
-        return ageS;
-    }
+    // Hallow world this is update
 }

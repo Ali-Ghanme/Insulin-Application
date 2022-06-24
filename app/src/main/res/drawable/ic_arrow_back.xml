@@ -2,12 +2,12 @@
     android:width="24dp"
     android:height="24dp"
     android:autoMirrored="true"
-    android:tint="#474747"
+    android:tint="@color/Doctor_Color"
     android:viewportWidth="24"
     android:viewportHeight="24">
-    
+
     <path
-        android:fillColor="#80000000"
+        android:fillColor="@color/Patient_Color"
         android:pathData="M11.67,3.87L9.9,2.1 0,12l9.9,9.9 1.77,-1.77L3.54,12z" />
 
 </vector>

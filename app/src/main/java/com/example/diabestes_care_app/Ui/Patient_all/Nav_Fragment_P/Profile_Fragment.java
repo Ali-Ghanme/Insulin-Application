@@ -33,11 +33,18 @@ import com.google.firebase.database.ValueEventListener;
 
 
 public class Profile_Fragment extends Fragment {
-    RelativeLayout notification_cont, DarkMode_cont, help_cont, LogOut_cont , FB_help_contt;
+    // Section
+    RelativeLayout notification_cont, DarkMode_cont, help_cont, LogOut_cont, FB_help_contt;
+    // Image Patient Profile , Edit Icon
     ImageView imageView, imageView2;
+    // Patient Name
     TextView name;
+    // Firebase
     DatabaseReference myRef;
-    String restoredText;
+    // Patient Username
+    String PatientUsername;
+    // Shared Preference
+    SharedPreferences prefs;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,8 +62,9 @@ public class Profile_Fragment extends Fragment {
         imageView2 = view.findViewById(R.id.FB_Patient_edit);
         FB_help_contt = view.findViewById(R.id.FB_help_contt);
 
-        SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
-        restoredText = prefs.getString("TAG_NAME", null);
+        //============================Shared Preference=============================================
+        prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
+        PatientUsername = prefs.getString("TAG_NAME", null);
 
         //============================Next Click Listener===========================================
         imageView2.setOnClickListener(new View.OnClickListener() {
@@ -94,8 +102,8 @@ public class Profile_Fragment extends Fragment {
                 startActivity(intent);
             }
         });
-        //==============================Logout Patient================================================
 
+        //==============================Logout Patient==============================================
         LogOut_cont.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,13 +111,12 @@ public class Profile_Fragment extends Fragment {
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putString("remember_P", "false");
                 editor.apply();
-                Intent intent_p = new Intent(getActivity(), Sing_In.class);
+                editor.clear();
+                Intent intent_p = new Intent(getActivity(), Sing_In.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent_p);
                 getActivity().finish();
-
             }
         });
-        //==============================End Logout Patient================================================
         return view;
     }
 
@@ -121,11 +128,11 @@ public class Profile_Fragment extends Fragment {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String PatientImage = snapshot.child(restoredText).child("personal_info").child("Image").child("mImageUrI").getValue(String.class);
-                String PatientName = snapshot.child(restoredText).child("personal_info").child("name").getValue(String.class);
+                String PatientImage = snapshot.child(PatientUsername).child("User_Profile_Image").child("Image").child("mImageUrI").getValue(String.class);
+                String PatientName = snapshot.child(PatientUsername).child("personal_info").child("name").getValue(String.class);
                 Log.d("TAG", name + "/" + PatientImage);
-                Glide.with(getActivity()).load(PatientImage).into(imageView);
                 name.setText(PatientName);
+                Glide.with((Profile_Fragment.this)).load(PatientImage).into(imageView);
             }
 
             @Override
@@ -133,6 +140,4 @@ public class Profile_Fragment extends Fragment {
             }
         });
     }
-    // Hallow this is update
-
 }

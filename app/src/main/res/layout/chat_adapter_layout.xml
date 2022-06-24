@@ -9,7 +9,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_10sdp">
 
-
         <LinearLayout
             android:id="@+id/oppoLayout"
             android:layout_width="wrap_content"
@@ -25,7 +24,6 @@
                 android:background="@drawable/opo_msg_back"
                 android:fontFamily="@font/cairo_bold"
                 android:padding="@dimen/_20sdp"
-                android:text="this is opponent message"
                 android:textColor="#424242" />
 
             <TextView
@@ -33,18 +31,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_2sdp"
-                android:text="10-08-2021 05:12 PM"
                 android:textSize="@dimen/_9sdp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/myMsgLayout"
-            android:layout_alignParentEnd="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_50sdp"
-            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="@dimen/_50sdp"
+            android:layout_marginRight="@dimen/_20sdp"
             android:orientation="vertical">
 
             <TextView
@@ -54,16 +51,14 @@
                 android:background="@drawable/my_msg_back"
                 android:fontFamily="@font/cairo_bold"
                 android:padding="@dimen/_20sdp"
-                android:text="this is my message"
                 android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/myMSgTime"
-                android:layout_gravity="end"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="end"
                 android:layout_marginTop="@dimen/_2sdp"
-                android:text="10-08-2021 05:12 PM"
                 android:textSize="@dimen/_9sdp" />
 
         </LinearLayout>

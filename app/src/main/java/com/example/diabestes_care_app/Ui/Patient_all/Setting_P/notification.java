@@ -1,8 +1,8 @@
 package com.example.diabestes_care_app.Ui.Patient_all.Setting_P;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.diabestes_care_app.R;
 
@@ -13,4 +13,4 @@ public class notification extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
     }
-}
+}    // Hallow

@@ -1,6 +1,10 @@
 package com.example.diabestes_care_app.Adapters;
 
+import static android.content.Context.MODE_PRIVATE;
+import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
+
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,21 +14,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.diabestes_care_app.MemoryData.MemoryData;
-import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Models.ChatList_Model;
+import com.example.diabestes_care_app.R;
 
 import java.util.List;
 
 public class Chat_Adapter extends RecyclerView.Adapter<Chat_Adapter.MyViewHolder> {
     private List<ChatList_Model> chatListListModel;
     final Context context;
-    private final String PatientUsername;
+    SharedPreferences prefs;
+
 
     public Chat_Adapter(List<ChatList_Model> chatListListModel, Context context) {
         this.chatListListModel = chatListListModel;
         this.context = context;
-        this.PatientUsername = MemoryData.getPatientData(context);
     }
 
     @NonNull
@@ -36,7 +39,11 @@ public class Chat_Adapter extends RecyclerView.Adapter<Chat_Adapter.MyViewHolder
     @Override
     public void onBindViewHolder(@NonNull Chat_Adapter.MyViewHolder holder, int position) {
         ChatList_Model list = chatListListModel.get(position);
-        if (list.getUsername().equals(PatientUsername)) {
+
+        prefs = context.getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
+        String patientUsername = prefs.getString("TAG_NAME", null);
+
+        if (list.getUsername().equals(patientUsername)) {
             holder.myMsgLayout.setVisibility(View.GONE);
             holder.oppoLayout.setVisibility(View.VISIBLE);
 
@@ -76,7 +83,6 @@ public class Chat_Adapter extends RecyclerView.Adapter<Chat_Adapter.MyViewHolder
             myMessage = itemView.findViewById(R.id.myMsgMessage);
             oppoTime = itemView.findViewById(R.id.oppoMsgTime);
             myTime = itemView.findViewById(R.id.myMSgTime);
-
         }
     }
 }

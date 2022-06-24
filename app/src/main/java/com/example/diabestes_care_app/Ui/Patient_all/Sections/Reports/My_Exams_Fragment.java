@@ -17,6 +17,8 @@ import com.example.diabestes_care_app.R;
 import java.util.Calendar;
 
 public class My_Exams_Fragment extends Fragment {
+
+    // فحوصاتي
     Button Notefy;
 
     @Override

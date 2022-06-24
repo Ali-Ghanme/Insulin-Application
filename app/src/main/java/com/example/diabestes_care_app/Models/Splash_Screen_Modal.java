@@ -1,13 +1,14 @@
 package com.example.diabestes_care_app.Models;
 
 public class Splash_Screen_Modal {
-    String Title, Description;
+    String Title, Description   ;
     int ScreenImg;
 
-    public Splash_Screen_Modal(String title, String description, int screenImg) {
+    public Splash_Screen_Modal(String title, String description,  int screenImg) {
         Title = title;
         Description = description;
         ScreenImg = screenImg;
+
     }
 
     public Splash_Screen_Modal() {
@@ -36,4 +37,7 @@ public class Splash_Screen_Modal {
     public void setScreenImg(int screenImg) {
         ScreenImg = screenImg;
     }
+
+
+
 }

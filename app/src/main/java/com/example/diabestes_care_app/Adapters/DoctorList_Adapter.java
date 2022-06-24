@@ -2,6 +2,7 @@ package com.example.diabestes_care_app.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,8 +22,11 @@ import com.bumptech.glide.Glide;
 import com.example.diabestes_care_app.Models.DoctorList_Model;
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Patient_all.Doctor_Profile_P;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -52,7 +56,10 @@ public class DoctorList_Adapter extends RecyclerView.Adapter<DoctorList_Adapter.
 
         DoctorList_Model list2 = mDataFiltered.get(position);
 
+
 //        DatabaseReference online_status_all_users = FirebaseDatabase.getInstance().getReference().child("online_statuses");
+//
+//
 //        online_status_all_users.child("online_statuses").addValueEventListener(new ValueEventListener() {
 //            @Override
 //            public void onDataChange(DataSnapshot dataSnapshot) {
@@ -71,16 +78,16 @@ public class DoctorList_Adapter extends RecyclerView.Adapter<DoctorList_Adapter.
 //
 //            @Override
 //            public void onCancelled(DatabaseError databaseError) {
+//
 //            }
 //        });
-
         holder.container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, Doctor_Profile_P.class);
                 intent.putExtra("Doctor name", list2.getName());
                 intent.putExtra("Doctor_Pic_Profile", list2.getImageUrl());
-                intent.putExtra("username", list2.getUsername());
+                intent.putExtra("username",list2.getUsername());
                 context.startActivity(intent);
             }
         });
@@ -97,12 +104,10 @@ public class DoctorList_Adapter extends RecyclerView.Adapter<DoctorList_Adapter.
     public int getItemCount() {
         return mDataFiltered.size();
     }
-
     public void updateUsersList(ArrayList<DoctorList_Model> DoctorList_Model) {
         this.list = DoctorList_Model;
         notifyDataSetChanged();
     }
-
     public Filter getFilter() {
         return new Filter() {
             @Override
@@ -129,10 +134,10 @@ public class DoctorList_Adapter extends RecyclerView.Adapter<DoctorList_Adapter.
             protected void publishResults(CharSequence constraint, FilterResults results) {
                 mDataFiltered = (ArrayList<DoctorList_Model>) results.values;
                 notifyDataSetChanged();
-
             }
         };
     }
+
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView name, username;
@@ -162,5 +167,8 @@ public class DoctorList_Adapter extends RecyclerView.Adapter<DoctorList_Adapter.
             Intent intent = new Intent(context, Doctor_Profile_P.class);
             context.startActivity(intent);
         }
+
+
+
     }
 }

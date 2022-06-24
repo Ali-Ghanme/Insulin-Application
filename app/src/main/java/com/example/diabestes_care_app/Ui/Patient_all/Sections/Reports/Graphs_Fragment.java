@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -32,8 +33,9 @@ public class Graphs_Fragment extends Fragment {
         Bold = prefs.getString("TAG_DATA_1", null);
         Time = prefs.getString("TAG_DATA_2", null);
 
-        Log.e("TAG", Bold + Time);
 
+        Log.e("TAG", Bold + Time);
+        Toast.makeText(getContext(), "Test 11 : "+Bold + Time, Toast.LENGTH_SHORT).show();
         return view;
     }
 }

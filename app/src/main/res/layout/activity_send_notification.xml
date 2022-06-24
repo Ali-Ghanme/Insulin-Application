@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_5sdp"
         android:background="@drawable/bg_edit_text"
+        android:elevation="@dimen/_1sdp"
         android:hint="Title"
         android:padding="@dimen/_10sdp"
         android:textStyle="bold" />
@@ -26,6 +27,7 @@
         android:layout_marginBottom="@dimen/_15sdp"
         android:background="@drawable/bg_edit_text"
         android:hint="Subject"
+        android:elevation="@dimen/_1sdp"
         android:inputType="text"
         android:padding="@dimen/_10sdp"
         android:textStyle="bold" />

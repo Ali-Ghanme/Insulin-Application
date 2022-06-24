@@ -1,45 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="@dimen/_260sdp"
-    android:layout_height="@dimen/_260sdp"
-    android:layout_marginTop="@dimen/_20sdp"
-    android:background="@android:color/white"
-    android:gravity="center"
+    android:layout_width="@dimen/_270sdp"
+    android:layout_height="@dimen/_340sdp"
     android:layout_gravity="center_horizontal"
+    android:elevation="@dimen/_10sdp"
     android:orientation="vertical"
-    android:elevation="@dimen/_5sdp">
+    android:gravity="center_horizontal">
+
+
+    <ImageView
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_100sdp"
+        android:background="@drawable/ic_send" />
 
     <EditText
         android:id="@+id/et_titlee"
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/_240sdp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_5sdp"
-        android:background="@drawable/bg_edit_text"
+        android:background="@drawable/news_rectangel"
+        android:elevation="@dimen/_1sdp"
+        android:fontFamily="@font/cairo_bold"
         android:hint="العنوان"
+        android:inputType="text"
         android:padding="@dimen/_10sdp"
+        android:textColor="@color/Patient_Color"
+        android:textColorHint="@color/subtitle"
+        android:textSize="@dimen/_10sdp"
         android:textStyle="bold" />
 
     <EditText
         android:id="@+id/et_subjectt"
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/_240sdp"
         android:layout_height="@dimen/_120sdp"
         android:layout_margin="@dimen/_5sdp"
         android:layout_marginBottom="@dimen/_15sdp"
-        android:background="@drawable/bg_edit_text"
-        android:hint="Subject"
-        android:inputType="text"
+        android:background="@drawable/news_rectangel"
+        android:elevation="@dimen/_1sdp"
+        android:fontFamily="@font/cairo_bold"
+        android:gravity="top"
+        android:hint="موضوع الاستشارة "
+        android:inputType="textMultiLine"
+        android:maxLines="50"
         android:padding="@dimen/_10sdp"
+        android:textColor="@color/Patient_Color"
+        android:textColorHint="@color/subtitle"
+        android:textSize="@dimen/_10sdp"
         android:textStyle="bold" />
 
     <Button
         android:id="@+id/okey"
-        android:layout_width="@dimen/_140sdp"
+        android:layout_width="@dimen/_100sdp"
         android:layout_height="@dimen/_40sdp"
-        android:layout_gravity="center_vertical|center_horizontal"
-        android:background="@drawable/bg_text_dr"
-        android:text="Send  Notification All" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/news_rectangel"
+        android:backgroundTint="@color/Doctor_Color"
+        android:fontFamily="@font/cairo_bold"
+        android:text="إرسال "
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_11sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FC_grid_1_p" />
 
     <View
         android:id="@+id/divider"

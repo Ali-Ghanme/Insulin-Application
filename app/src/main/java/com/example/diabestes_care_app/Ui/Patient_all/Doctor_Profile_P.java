@@ -1,11 +1,13 @@
 package com.example.diabestes_care_app.Ui.Patient_all;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,13 +20,12 @@ import com.google.firebase.messaging.FirebaseMessaging;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Doctor_Profile_P extends Basic_Activity {
-    Button request;
+    Button request ;
+    ImageView back;
     CircleImageView Doctor_Profile;
     TextView DoctorName;
     // Dialog
     Dialog dialog;
-    // Hallow
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +33,18 @@ public class Doctor_Profile_P extends Basic_Activity {
         fullscreen();
         setContentView(R.layout.activity_doctor_profile_p);
 
-        DoctorName = findViewById(R.id.HP_doctor_name);
-        Doctor_Profile = findViewById(R.id.HP_profile_img);
+        DoctorName = findViewById(R.id.DPP_tv_doctor_name);
+        Doctor_Profile = findViewById(R.id.DPP_img_Profile);
         request = findViewById(R.id.request_for);
+        back = findViewById(R.id.DPP_btn_back);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Doctor_Profile_P.this,Home_Patient.class);
+                startActivity(intent);
+            }
+        });
 
 
         // Get data from message adapter class

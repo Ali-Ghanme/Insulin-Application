@@ -33,12 +33,8 @@ public class Content extends Basic_Activity {
 
         //=================================fill list screen=========================================
         final List<SelfCare_Model> mList = new ArrayList<>();
-//        mList.add(new SelfCare_Model("مرحبا راح يكون المحتوى هان ممكن نحطو في ملفات خارجية ونستدعي استدعاء بدل ما نكتبو هان راح الاقي الطريقة ان شاء الله D:1", R.drawable.ic_splash_1));
-//        mList.add(new SelfCare_Model("مرحبا راح يكون المحتوى هان ممكن نحطو في ملفات خارجية ونستدعي استدعاء بدل ما نكتبو هان راح الاقي الطريقة ان شاء الله D:2", R.drawable.ic_splash_1));
-//        mList.add(new SelfCare_Model("مرحبا راح يكون المحتوى هان ممكن نحطو في ملفات خارجية ونستدعي استدعاء بدل ما نكتبو هان راح الاقي الطريقة ان شاء الله D:3", R.drawable.ic_splash_1));
-//        mList.add(new SelfCare_Model("مرحبا راح يكون المحتوى هان ممكن نحطو في ملفات خارجية ونستدعي استدعاء بدل ما نكتبو هان راح الاقي الطريقة ان شاء الله D:4", R.drawable.ic_splash_1));
-        mList.add(new SelfCare_Model(R.string.Gabobet_sokar, R.drawable.ic_splash_1 , "غيبوبة السكري"));
 
+        mList.add(new SelfCare_Model(R.string.Gabobet_sokar, R.drawable.ic_splash_1 , "غيبوبة السكري"));
 
         //=============================== setup viewpager===========================================
         viewAdapter_content = new ViewAdapter_Content(this, mList);

@@ -77,16 +77,6 @@
             android:textColor="#282935"
             android:textSize="@dimen/_18sdp" />
 
-        <TextView
-            android:id="@+id/PPD_tv_subtitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/PPD_tv_doctor_name"
-            android:layout_alignParentRight="true"
-            android:fontFamily="@font/cairo_bold"
-            android:text="طب عام"
-            android:textColor="#c4c2c9"
-            android:textSize="@dimen/_11sdp" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/PPD_img_Profile"

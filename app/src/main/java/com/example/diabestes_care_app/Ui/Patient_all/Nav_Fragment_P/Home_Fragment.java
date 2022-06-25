@@ -134,7 +134,7 @@ public class Home_Fragment extends Fragment {
                         DoctorList_Model doctorListModel = new DoctorList_Model();
                         doctorListModel.setName(snapshot.child("personal_info").child("name_ar").getValue().toString());
                         doctorListModel.setUsername(snapshot.child("personal_info").child("username").getValue().toString());
-                        doctorListModel.setImageUrl(snapshot.child("personal_info").child("Image").child("mImageUrI").getValue().toString());
+                        doctorListModel.setImageUrl(snapshot.child("User_Profile_Image").child("Image").child("mImageUrI").getValue().toString());
                         list.add(doctorListModel);
                         progressDialog.dismiss();
                     }

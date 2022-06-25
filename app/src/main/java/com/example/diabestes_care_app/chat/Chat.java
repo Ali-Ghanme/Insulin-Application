@@ -98,7 +98,7 @@ public class Chat extends Basic_Activity {
                 if (chatKey.isEmpty()) {
                     chatKey = "1";
                     if (snapshot.hasChild("chat")) {
-                        chatKey = String.valueOf(snapshot.child("chat").getChildrenCount() + 1);
+                        chatKey = String.valueOf(snapshot.child("chat").getChildrenCount());
                     }
                 }
 

@@ -28,7 +28,7 @@ public class Sing_Up_3_D extends Basic_Activity {
     EditText auto_UnName, auto_certificate, auto_Grad_Country;
     EditText mDate;
     final Calendar myCalendar = Calendar.getInstance();
-    String[] university = {" اخرى ", "  الازهر", " فلسطين ", " الاسلامية"};
+    String[] university = {" اخرى ", "  الازهر", " فلسطين ", "الاسلامية", "الإسراء"};
     String[] city = {"الضفة الغربية ", "جنين  ", "نابلس  ", "قطاع غزة"};
     String[] certificate = {" دكتورا ", "ماجستير  ", "بكالوريس  ", " دبلوم"};
     String UnameS;
@@ -171,7 +171,7 @@ public class Sing_Up_3_D extends Basic_Activity {
             public void onClick(View view) {
                 new DatePickerDialog(Sing_Up_3_D.this, date, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show();
                 String DoctorMData = mDate.getText().toString();
-                databaseReference.child("doctor").child(patient_userName).child("doctor_info").child("الشهادة الجامعية").setValue(DoctorMData);
+                databaseReference.child("doctor").child(patient_userName).child("doctor_info").child("تاريخ التخرج").setValue(DoctorMData);
             }
         });
     }

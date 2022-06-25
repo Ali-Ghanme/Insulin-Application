@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottomSheetContier"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Ui.Patient_all.Sections.Self_Care.Life_Style_Fragment">
+    android:layout_gravity="center_horizontal"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/ic_city_" />
 
     <RelativeLayout
-        android:id="@+id/help_app"
         android:layout_width="@dimen/_280sdp"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
@@ -18,12 +25,12 @@
         app:layout_constraintTop_toBottomOf="@+id/help">
 
         <ListView
-            android:id="@+id/listView_lifeStyle"
+            android:id="@+id/City_bottom_listView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_20sdp"
             android:textDirection="rtl">
-
         </ListView>
     </RelativeLayout>
-</FrameLayout>
+
+</LinearLayout>

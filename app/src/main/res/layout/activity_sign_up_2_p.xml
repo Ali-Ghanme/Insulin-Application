@@ -118,6 +118,7 @@
             android:layout_below="@id/Sp2_tv_secure_P"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
+            android:autofillHints="password"
             android:background="@drawable/bg_edit_text"
             android:drawableRight="@drawable/ic_password_hide"
             android:elevation="@dimen/_1sdp"
@@ -182,9 +183,8 @@
             android:textSize="15sp"
             android:textStyle="bold" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/Sp2_et_menu_P"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
+        <EditText
+            android:id="@+id/Sp2_et_city_P"
             android:layout_width="@dimen/_230sdp"
             android:layout_height="@dimen/_40sdp"
             android:layout_below="@id/Sp2_tv_city_P"
@@ -192,31 +192,19 @@
             android:layout_marginLeft="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_5sdp"
             android:background="@drawable/bg_edit_text"
+            android:drawableLeft="@drawable/ic_location"
+            android:drawableTint="@color/Patient_Color"
+            android:editable="false"
             android:elevation="@dimen/_1sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:hint="اختر مدينتك"
             android:maxLines="1"
-            android:textColorHint="#989696"
-            app:boxCornerRadiusBottomEnd="@dimen/_100sdp"
-            app:boxCornerRadiusBottomStart="@dimen/_100sdp"
-            app:boxCornerRadiusTopEnd="@dimen/_100sdp"
-            app:boxCornerRadiusTopStart="@dimen/_100sdp"
-            app:boxStrokeWidth="0dp">
+            android:paddingLeft="@dimen/_20sdp"
+            android:paddingRight="@dimen/_10sdp"
+            android:textColor="@color/Patient_Color"
+            android:textColorHint="#78909C"
+            android:textSize="15sp" />
 
-            <AutoCompleteTextView
-                android:id="@+id/Sp2_autoComplete_textview_1"
-                android:layout_width="@dimen/_230sdp"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_weight="1"
-                android:background="@drawable/bg_edit_text"
-                android:completionHintView="@string/city"
-                android:elevation="@dimen/_1sdp"
-                android:focusable="false"
-                android:fontFamily="@font/cairo_bold"
-                android:inputType="none"
-                android:paddingTop="@dimen/_10sdp"
-                android:textColor="@color/Patient_Color"
-                android:textSize="@dimen/_12sdp"
-                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
     </RelativeLayout>
 
     <Button

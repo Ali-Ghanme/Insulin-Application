@@ -4,37 +4,31 @@ package com.example.diabestes_care_app.Ui.Sing_up_pages.Patient;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.method.HideReturnsTransformationMethod;
-import android.text.method.PasswordTransformationMethod;
-import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.Toast;
-
-import androidx.annotation.NonNull;
 
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.R;
-import com.google.android.material.textfield.TextInputLayout;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 
 public class Sing_Up_2_P extends Basic_Activity {
 
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://diabeticsproject-default-rtdb.firebaseio.com/");
-    TextInputLayout textInputLayout;
-    AutoCompleteTextView auto_1;
     Button btn_next;
-    EditText phoneNumber, email, password, confirm_Password;
+    EditText phoneNumber, email, password, confirm_Password, city;
+    ListView listView;
+    String[] items = {"غزة", "رفح", "خانيونس", "ديرالبلح", "الوسطى", "الشمال"};
 
 
     @SuppressLint("ClickableViewAccessibility")
@@ -45,9 +39,7 @@ public class Sing_Up_2_P extends Basic_Activity {
         setContentView(R.layout.activity_sign_up_2_p);
 
         //============================Defines==================================
-        textInputLayout = findViewById(R.id.Sp2_et_menu_P);
-        auto_1 = (AutoCompleteTextView) findViewById(R.id.Sp2_autoComplete_textview_1);
-
+        city = findViewById(R.id.Sp2_et_city_P);
         btn_next = findViewById(R.id.Sp2_bt_next_P);
         phoneNumber = findViewById(R.id.Sp2_et_phone_P);
         email = findViewById(R.id.Sp2_et_email_P);
@@ -58,12 +50,31 @@ public class Sing_Up_2_P extends Basic_Activity {
         String patient_userName = intentUsername.getStringExtra("username");
 
         //============================Spinner Function==============================================
-        String[] country = {"الضفة الغربية ", "جنين  ", "نابلس  ", "قطاع غزة"};
-        ArrayAdapter<String> itemAdapter = new ArrayAdapter<>(Sing_Up_2_P.this, R.layout.spinner_list_item, country);
-        auto_1.setAdapter(itemAdapter);
-        auto_1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        city.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onClick(View v) {
+                final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(
+                        Sing_Up_2_P.this, R.style.BottomSheetDialogTheme);
+                View bottomSheetView = LayoutInflater.from(getApplicationContext())
+                        .inflate(
+                                R.layout.layout_bottom_sheet, (LinearLayout) findViewById(R.id.bottomSheetContier)
+                        );
+                listView = bottomSheetView.findViewById(R.id.City_bottom_listView);
+
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(Sing_Up_2_P.this, R.layout.activity_listview, items);
+                listView.setAdapter(adapter);
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
+                        String cityS = listView.getAdapter().getItem(position).toString();
+                        city.setText(cityS);
+                        bottomSheetDialog.dismiss();
+                    }
+                });
+
+                bottomSheetView.findViewById(R.id.City_bottom_listView);
+                bottomSheetDialog.setContentView(bottomSheetView);
+                bottomSheetDialog.show();
             }
         });
 
@@ -107,7 +118,8 @@ public class Sing_Up_2_P extends Basic_Activity {
                 String patientEmail = email.getText().toString();
                 String patientPass = password.getText().toString();
                 String patientCoPass = confirm_Password.getText().toString();
-                String patientCity = auto_1.getText().toString();
+                String patientCity = city.getText().toString();
+
 
                 //====================================Validation===============================
                 // cheek if user fill all data fields before sending data to firebase

@@ -34,6 +34,8 @@ public class Sing_Up_1_P extends Basic_Activity {
     RadioGroup mGender;
     RadioButton mGenderOption;
     String strGender;
+    String patientName, patientUsername, patientDate, patientWehigt, patientTall, PatientID, PatientAge;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,25 @@ public class Sing_Up_1_P extends Basic_Activity {
         mWehigt = findViewById(R.id.Sp1_wehigt_P);
         mTall = findViewById(R.id.Sp1_tall_P);
         mID = findViewById(R.id.Sp1_ID_P);
+
+        //====================================DataPicker===============================
+        DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int day) {
+                myCalendar.set(Calendar.YEAR, year);
+                myCalendar.set(Calendar.MONTH, month);
+                myCalendar.set(Calendar.DAY_OF_MONTH, day);
+                updateLabel(mDate, myCalendar, "dd/MM/yyyy");
+                PatientAge = getAge(year, month, day);
+            }
+        };
+        mDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new DatePickerDialog(Sing_Up_1_P.this, date, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+
+            }
+        });
 
         //====================================Gender Radio Group to get Data And set into Firebase===============================
         mGender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -72,14 +93,13 @@ public class Sing_Up_1_P extends Basic_Activity {
         btn_next_S.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 // get data form edit text into string variables
-                String patientName = mName.getText().toString();
-                String patientUsername = mUsername.getText().toString();
-                String patientDate = mDate.getText().toString();
-                String patientWehigt = mWehigt.getText().toString();
-                String patientTall = mTall.getText().toString();
-                String PatientID = mID.getText().toString();
+                patientName = mName.getText().toString();
+                patientUsername = mUsername.getText().toString();
+                patientDate = mDate.getText().toString();
+                patientWehigt = mWehigt.getText().toString();
+                patientTall = mTall.getText().toString();
+                PatientID = mID.getText().toString();
 
 
                 //====================================Validation===============================
@@ -105,7 +125,9 @@ public class Sing_Up_1_P extends Basic_Activity {
                                 databaseReference.child("patient").child(patientUsername).child("personal_info").child("wehigt").setValue(patientWehigt);
                                 databaseReference.child("patient").child(patientUsername).child("personal_info").child("tall").setValue(patientTall);
                                 databaseReference.child("patient").child(patientUsername).child("personal_info").child("iD").setValue(PatientID);
-                                Toast.makeText(Sing_Up_1_P.this, "User have registered successfully ", Toast.LENGTH_SHORT).show();
+                                databaseReference.child("patient").child(patientUsername).child("personal_info").child("Age").setValue(PatientAge);
+                                Toast.makeText(Sing_Up_1_P.this, PatientAge, Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(Sing_Up_1_P.this, "User have registered successfully ", Toast.LENGTH_SHORT).show();
                                 Intent intent2 = new Intent(Sing_Up_1_P.this, Sing_Up_2_P.class);
                                 intent2.putExtra("username", patientUsername);
                                 startActivity(intent2);
@@ -122,21 +144,22 @@ public class Sing_Up_1_P extends Basic_Activity {
             }
         });
 
-        //====================================DataPicker===============================
-        DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int day) {
-                myCalendar.set(Calendar.YEAR, year);
-                myCalendar.set(Calendar.MONTH, month);
-                myCalendar.set(Calendar.DAY_OF_MONTH, day);
-                updateLabel(mDate, myCalendar, "dd/MM/yyyy");
-            }
-        };
-        mDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new DatePickerDialog(Sing_Up_1_P.this, date, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show();
-            }
-        });
+    }
+
+    private String getAge(int year, int month, int day) {
+        Calendar dob = Calendar.getInstance();
+        Calendar today = Calendar.getInstance();
+
+        dob.set(year, month, day);
+
+        int age = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
+
+        if (today.get(Calendar.DAY_OF_YEAR) < dob.get(Calendar.DAY_OF_YEAR)) {
+            age--;
+        }
+        Integer ageInt = new Integer(age);
+        String ageS = ageInt.toString();
+        Log.e("TAG", ageS);
+        return ageS;
     }
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/btn_get_started">
+        <shape
+            android:shape="ring"
+            android:thickness="10dp"
+            android:useLevel="false">
+            <solid android:color="#62C6F8" />
+        </shape>
+    </item>
+    <item android:id="@+id/progress">
+        <shape
+            android:shape="ring"
+            android:thickness="10dp"
+            android:useLevel="true">
+            <solid android:color="#06A6FD" />
+        </shape>
+    </item>
+</layer-list>

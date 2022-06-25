@@ -22,7 +22,7 @@ public class Life_Style_Fragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_life_style_tab, container, false);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), R.layout.activity_listview, items);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), R.layout.activity_listview, items);
         listView = view.findViewById(R.id.listView_lifeStyle);
         listView.setAdapter(adapter);
 

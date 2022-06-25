@@ -68,5 +68,8 @@ dependencies {
 // اسكال ثانية
    // implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 
+    // Rounder Image
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+
     implementation 'com.jjoe64:graphview:4.2.2'
 }

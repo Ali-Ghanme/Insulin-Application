@@ -98,6 +98,7 @@
             android:layout_centerInParent="true"
             app:civ_border_color="@color/Doctor_Color"
             app:civ_border_width="@dimen/_2sdp" />
+
     </RelativeLayout>
 
     <View

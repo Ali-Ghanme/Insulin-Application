@@ -18,6 +18,7 @@ import androidx.annotation.Nullable;
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.Models.Upload_Model;
 import com.example.diabestes_care_app.R;
+import com.example.diabestes_care_app.Ui.Sing_In.Sing_In;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
@@ -46,6 +47,7 @@ public class Sing_Up_5_P extends Basic_Activity {
         super.onCreate(savedInstanceState);
         fullscreen();
         setContentView(R.layout.activity_sign_up_5_p);
+
         //====================================Define===============================
         btn_Upload = findViewById(R.id.Sp5_bt_Upload_P);
         mImageView = findViewById(R.id.Sp5_img_Select_P);
@@ -95,6 +97,9 @@ public class Sing_Up_5_P extends Basic_Activity {
                                         Upload_Model uploadModel = new Upload_Model(uri.toString());
                                         DB_Ref.child(patient_userName).child("User_Profile_Image").child("Image").setValue(uploadModel);
                                         Toast.makeText(Sing_Up_5_P.this, "Upload Successfully", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(Sing_Up_5_P.this, Sing_In.class);
+                                        startActivity(intent);
+                                        finish();
                                     }
                                 });
                             }

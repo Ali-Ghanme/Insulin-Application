@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Ui.Doctor_all.Patient_Profile_D">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_80sdp"
+        android:backgroundTint="@color/Doctor_Color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/PPD_btn_back"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@drawable/round_back_light"
+            android:contentDescription="@string/todo"
+            android:layoutDirection="ltr"
+            android:paddingLeft="@dimen/_12sdp"
+            android:paddingRight="@dimen/_5sdp"
+            android:src="@drawable/ic_arrow_back" />
+
+        <TextView
+            android:id="@+id/PPD_tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="@dimen/_90sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:text="ملف المريض "
+            android:textColor="#282935"
+            android:textSize="@dimen/_18sdp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/PPD_tv_title"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/cairo_bold"
+            android:text="متصل"
+            android:textColor="@color/Doctor_Color" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="@dimen/_270sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_15sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header">
+
+        <TextView
+            android:id="@+id/PPD_tv_doctor_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:fontFamily="@font/cairo_bold"
+            android:textColor="#282935"
+            android:textSize="@dimen/_18sdp" />
+
+        <TextView
+            android:id="@+id/PPD_tv_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/PPD_tv_doctor_name"
+            android:layout_alignParentRight="true"
+            android:fontFamily="@font/cairo_bold"
+            android:text="طب عام"
+            android:textColor="#c4c2c9"
+            android:textSize="@dimen/_11sdp" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/PPD_img_Profile"
+            android:layout_width="@dimen/_65sdp"
+            android:layout_height="@dimen/_65sdp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            app:civ_border_color="@color/Doctor_Color"
+            app:civ_border_width="@dimen/_2sdp" />
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/PPD_view3_p"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_below="@id/relativeLayout2"
+        android:layout_centerHorizontal="true"
+        android:background="#CFCFCF"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_30sdp"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:text="تفاصيل أكثر"
+            android:textColor="#282935"
+            android:textSize="@dimen/_18sdp" />
+
+        <ImageView
+            android:id="@+id/PPD_img_starts"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:src="@drawable/ic_folder_details" />
+
+    </RelativeLayout>
+
+    <GridLayout
+        android:id="@+id/PPD_grid_1_p"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout3">
+
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:alignmentMode="alignMargins"
+            android:columnCount="2"
+            android:columnOrderPreserved="false"
+            android:rowCount="2">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/PPD_SelfCare_box_p"
+                android:layout_width="@dimen/_105sdp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_30sdp"
+                app:cardElevation="0.5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#fefffc"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_10sdp">
+
+                    <ImageView
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:background="@drawable/ic_disabled_svgrepo_com"
+                        android:backgroundTint="@color/Doctor_Color" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/cairo_bold"
+                        android:gravity="center_horizontal"
+                        android:text="نوع المرض "
+                        android:textColor="#282935"
+                        android:textSize="@dimen/_13sdp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/cairo_bold"
+                        android:gravity="center_horizontal"
+                        android:text="النوع الأول"
+                        android:textColor="@color/subtitle"
+                        android:textSize="@dimen/_10sdp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/PPD_SelfCare_box_p2"
+                android:layout_width="@dimen/_105sdp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_30sdp"
+                app:cardElevation="0.5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#fefffc"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_10sdp">
+
+                    <ImageView
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:background="@drawable/ic_microscope_svgrepo_com"
+                        android:backgroundTint="#6c5dd2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/cairo_bold"
+                        android:gravity="center_horizontal"
+                        android:text="عامل الاصابة"
+                        android:textColor="#282935"
+                        android:textSize="@dimen/_13sdp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/cairo_bold"
+                        android:gravity="center_horizontal"
+                        android:text="تاريخ عائلي"
+                        android:textColor="@color/subtitle"
+                        android:textSize="@dimen/_10sdp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </GridLayout>
+
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:alignmentMode="alignMargins"
+            android:columnCount="2"
+            android:columnOrderPreserved="false"
+            android:rowCount="2">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/PPD_Reports_p"
+                android:layout_width="@dimen/_105sdp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_30sdp"
+                app:cardElevation="0.5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#fefffc"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_10sdp">
+
+                    <ImageView
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:background="@drawable/ic_dose"
+                        android:backgroundTint="#438dfe" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/cairo_bold"
+                        android:gravity="center_horizontal"
+                        android:text="طريقة العلاج"
+                        android:textColor="#282935"
+                        android:textSize="@dimen/_13sdp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/cairo_bold"
+                        android:gravity="center_horizontal"
+                        android:text="جرعات أنسولين"
+                        android:textColor="@color/subtitle"
+                        android:textSize="@dimen/_10sdp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/PPD_Doses_p"
+                android:layout_width="@dimen/_105sdp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_30sdp"
+                app:cardElevation="0.5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#fefffc"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_10sdp">
+
+                    <ImageView
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:background="@drawable/ic_certificate"
+                        android:backgroundTint="#f0cb88" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/cairo_bold"
+                        android:gravity="center_horizontal"
+                        android:text="أمراض أخرى"
+                        android:textColor="#282935"
+                        android:textSize="@dimen/_13sdp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/cairo_bold"
+                        android:gravity="center_horizontal"
+                        android:text="لا يوجد"
+                        android:textColor="@color/subtitle"
+                        android:textSize="@dimen/_10sdp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </GridLayout>
+    </GridLayout>
+
+    <Button
+        android:id="@+id/PPD_request_for"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/news_rectangel"
+        android:backgroundTint="@color/Doctor_Color"
+        android:fontFamily="@font/cairo_bold"
+        android:text="متابعة"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PPD_grid_1_p" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

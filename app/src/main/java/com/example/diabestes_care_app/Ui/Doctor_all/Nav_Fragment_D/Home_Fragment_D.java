@@ -23,7 +23,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.diabestes_care_app.Adapters.DoctorList_Adapter;
+import com.example.diabestes_care_app.Adapters.PatientList_Adapter;
 import com.example.diabestes_care_app.Models.DoctorList_Model;
 import com.example.diabestes_care_app.Notification_Controller.Notification_Number;
 import com.example.diabestes_care_app.R;
@@ -46,7 +46,7 @@ public class Home_Fragment_D extends Fragment {
     // Variables
     ArrayList<DoctorList_Model> list;
     // Adapter
-    DoctorList_Adapter doctorListAdapter;
+    PatientList_Adapter patientList_adapter;
     // Search Variables
     EditText searchInput;
     CharSequence search = "";
@@ -110,7 +110,7 @@ public class Home_Fragment_D extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                doctorListAdapter.getFilter().filter(s);
+                patientList_adapter.getFilter().filter(s);
                 search = s;
             }
 
@@ -153,9 +153,9 @@ public class Home_Fragment_D extends Fragment {
                     Toast.makeText(getContext(), "إنتظر قليلاً ", Toast.LENGTH_SHORT).show();
 
                 }
-                doctorListAdapter = new DoctorList_Adapter(getContext(), list);
-                recyclerView.setAdapter(doctorListAdapter);
-                doctorListAdapter.updateUsersList(list);
+                patientList_adapter = new PatientList_Adapter(getContext(), list);
+                recyclerView.setAdapter(patientList_adapter);
+                patientList_adapter.updateUsersList(list);
             }
 
             @Override
@@ -170,8 +170,8 @@ public class Home_Fragment_D extends Fragment {
         if (list != null) {
             list.clear();
         }
-        if (doctorListAdapter != null) {
-            doctorListAdapter.notifyDataSetChanged();
+        if (patientList_adapter != null) {
+            patientList_adapter.notifyDataSetChanged();
         }
         list = new ArrayList<>();
     }

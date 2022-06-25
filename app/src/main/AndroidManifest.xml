@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,6 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Diabestes_Care_App">
+        <activity
+            android:name=".Ui.Doctor_all.Patient_Profile_D"
+            android:exported="false" />
         <activity
             android:name=".chat.Chat_D"
             android:exported="false" />

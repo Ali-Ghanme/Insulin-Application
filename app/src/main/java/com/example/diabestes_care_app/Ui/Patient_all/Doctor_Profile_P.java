@@ -56,9 +56,9 @@ public class Doctor_Profile_P extends Basic_Activity {
 
           FirebaseMessaging.getInstance().subscribeToTopic("DMohammed");
         Toast.makeText(this, getUsername, Toast.LENGTH_SHORT).show();
+
         //============================Create + Configure the Dialog here============================
         FirebaseMessaging.getInstance().subscribeToTopic(getUsername);
-
         dialog = new Dialog(Doctor_Profile_P.this);
         dialog.setContentView(R.layout.genral_message_layout);
         dialog.getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.dilog_background));
@@ -74,8 +74,6 @@ public class Doctor_Profile_P extends Basic_Activity {
         oky.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//
-
                 if (!et_titlee.getText().toString().isEmpty() && !et_subjectt.getText().toString().isEmpty()) {
                     FcmNotificationsSender notificationsSender = new FcmNotificationsSender("/topics/DMohammed", et_titlee.getText().toString(),
                             et_subjectt.getText().toString(), getApplicationContext(), Doctor_Profile_P.this);

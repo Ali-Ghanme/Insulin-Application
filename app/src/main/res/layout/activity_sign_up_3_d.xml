@@ -28,7 +28,7 @@
     <RelativeLayout
         android:id="@+id/Subject"
         android:layout_width="@dimen/_280sdp"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_300sdp"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_25sdp"
         android:layout_marginRight="@dimen/_10sdp"
@@ -49,41 +49,24 @@
             android:textSize="@dimen/_12sdp"
             android:textStyle="bold" />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
             android:id="@+id/Sp3_UnName_D"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
             android:layout_width="@dimen/_230sdp"
             android:layout_height="@dimen/_40sdp"
             android:layout_below="@+id/Sp3_tv_UnName_D"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_5sdp"
             android:background="@drawable/bg_edit_text"
-            android:layoutDirection="rtl"
+            android:editable="false"
             android:elevation="@dimen/_1sdp"
+            android:layoutDirection="rtl"
             android:maxLines="1"
             android:textColorHint="#989696"
             app:boxCornerRadiusBottomEnd="@dimen/_100sdp"
             app:boxCornerRadiusBottomStart="@dimen/_100sdp"
             app:boxCornerRadiusTopEnd="@dimen/_100sdp"
             app:boxCornerRadiusTopStart="@dimen/_100sdp"
-            app:boxStrokeWidth="0dp">
-
-            <AutoCompleteTextView
-                android:id="@+id/Sp3_UnName_auto_D"
-                android:layout_width="@dimen/_220sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:layout_weight="1"
-                android:background="@color/white_ghost"
-                android:completionHintView="@string/city"
-                android:focusable="false"
-                android:fontFamily="@font/cairo_bold"
-                android:inputType="none"
-                android:paddingTop="@dimen/_10sdp"
-                android:textColor="@color/Doctor_Color"
-                android:textSize="@dimen/_10sdp"
-                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
+            app:boxStrokeWidth="0dp" />
 
         <TextView
             android:id="@+id/Sp3_tv_certificate_D"
@@ -99,41 +82,24 @@
             android:textSize="@dimen/_12sdp"
             android:textStyle="bold" />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
             android:id="@+id/Sp3_certificate_D"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
             android:layout_width="@dimen/_230sdp"
             android:layout_height="@dimen/_40sdp"
             android:layout_below="@id/Sp3_tv_certificate_D"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_5sdp"
             android:background="@drawable/bg_edit_text"
+            android:editable="false"
+            android:elevation="@dimen/_1sdp"
             android:layoutDirection="rtl"
             android:maxLines="1"
-            android:elevation="@dimen/_1sdp"
             android:textColorHint="#989696"
             app:boxCornerRadiusBottomEnd="@dimen/_100sdp"
             app:boxCornerRadiusBottomStart="@dimen/_100sdp"
             app:boxCornerRadiusTopEnd="@dimen/_100sdp"
             app:boxCornerRadiusTopStart="@dimen/_100sdp"
-            app:boxStrokeWidth="0dp">
-
-            <AutoCompleteTextView
-                android:id="@+id/Sp3_certificate_auto_D"
-                android:layout_width="@dimen/_220sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:layout_weight="1"
-                android:background="@color/white_ghost"
-                android:completionHintView="@string/city"
-                android:focusable="false"
-                android:fontFamily="@font/cairo_bold"
-                android:inputType="none"
-                android:paddingTop="@dimen/_10sdp"
-                android:textColor="@color/Doctor_Color"
-                android:textSize="@dimen/_10sdp"
-                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
+            app:boxStrokeWidth="0dp" />
 
 
         <EditText
@@ -146,10 +112,10 @@
             android:autofillHints="creditCardExpirationDate"
             android:background="@drawable/bg_edit_text"
             android:cursorVisible="false"
-            android:elevation="@dimen/_1sdp"
             android:drawableStart="@drawable/ic_data"
             android:drawablePadding="@dimen/_13sdp"
             android:drawableTint="@color/Doctor_Color"
+            android:elevation="@dimen/_1sdp"
             android:ems="1"
             android:focusable="false"
             android:fontFamily="@font/cairo_bold"
@@ -177,63 +143,46 @@
             android:textSize="@dimen/_12sdp"
             android:textStyle="bold" />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
             android:id="@+id/Sp3_Grad_Country_D"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
             android:layout_width="@dimen/_230sdp"
             android:layout_height="@dimen/_40sdp"
             android:layout_below="@id/Sp3_tv_Grad_Country_D"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_5sdp"
             android:background="@drawable/bg_edit_text"
+            android:editable="false"
+            android:elevation="@dimen/_1sdp"
             android:layoutDirection="rtl"
             android:maxLines="1"
-            android:elevation="@dimen/_1sdp"
             android:textColorHint="#989696"
             app:boxCornerRadiusBottomEnd="@dimen/_100sdp"
             app:boxCornerRadiusBottomStart="@dimen/_100sdp"
             app:boxCornerRadiusTopEnd="@dimen/_100sdp"
             app:boxCornerRadiusTopStart="@dimen/_100sdp"
-            app:boxStrokeWidth="0dp">
+            app:boxStrokeWidth="0dp" />
 
-            <AutoCompleteTextView
-                android:id="@+id/Sp3_Grad_Country_auto_D"
-                android:layout_width="@dimen/_220sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:layout_weight="1"
-                android:background="@color/white_ghost"
-                android:completionHintView="@string/city"
-                android:focusable="false"
-                android:fontFamily="@font/cairo_bold"
-                android:inputType="none"
-                android:paddingTop="@dimen/_10sdp"
-                android:textColor="@color/Doctor_Color"
-                android:textSize="@dimen/_10sdp"
-                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <EditText
-            android:id="@+id/S2_et_name"
-            android:layout_width="@dimen/_230sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_below="@id/Sp3_Grad_Country_D"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_25sdp"
-            android:autofillHints="phone"
-            android:background="@drawable/bg_edit_text"
-            android:drawablePadding="@dimen/_13sdp"
-            android:elevation="@dimen/_1sdp"
-            android:fontFamily="@font/cairo_bold"
-            android:hint=" اختيار المرفقات "
-            android:inputType="number"
-            android:maxLines="1"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:textColor="@color/Doctor_Color"
-            android:textColorHint="#78909C"
-            android:textSize="15sp"
-            tools:ignore="TouchTargetSizeCheck" />
+        <!--        <EditText-->
+        <!--            android:id="@+id/S2_et_name"-->
+        <!--            android:layout_width="@dimen/_230sdp"-->
+        <!--            android:layout_height="@dimen/_40sdp"-->
+        <!--            android:layout_below="@id/Sp3_Grad_Country_D"-->
+        <!--            android:layout_centerHorizontal="true"-->
+        <!--            android:layout_marginTop="@dimen/_25sdp"-->
+        <!--            android:autofillHints="phone"-->
+        <!--            android:background="@drawable/bg_edit_text"-->
+        <!--            android:drawablePadding="@dimen/_13sdp"-->
+        <!--            android:elevation="@dimen/_1sdp"-->
+        <!--            android:fontFamily="@font/cairo_bold"-->
+        <!--            android:hint=" اختيار المرفقات "-->
+        <!--            android:inputType="number"-->
+        <!--            android:maxLines="1"-->
+        <!--            android:paddingStart="20dp"-->
+        <!--            android:paddingEnd="20dp"-->
+        <!--            android:textColor="@color/Doctor_Color"-->
+        <!--            android:textColorHint="#78909C"-->
+        <!--            android:textSize="15sp"-->
+        <!--            tools:ignore="TouchTargetSizeCheck" />-->
     </RelativeLayout>
 
     <Button

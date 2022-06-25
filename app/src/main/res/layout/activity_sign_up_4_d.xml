@@ -30,7 +30,7 @@
     <LinearLayout
         android:id="@+id/Subject"
         android:layout_width="@dimen/_280sdp"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_300sdp"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_25sdp"
         android:layout_marginRight="@dimen/_10sdp"
@@ -52,14 +52,14 @@
             android:textSize="@dimen/_12sdp"
             android:textStyle="bold" />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
             android:id="@+id/Sp4_City_D"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
             android:layout_width="@dimen/_230sdp"
             android:layout_height="@dimen/_40sdp"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginEnd="@dimen/_30sdp"
             android:background="@drawable/bg_edit_text"
+            android:editable="false"
             android:elevation="@dimen/_1sdp"
             android:layoutDirection="rtl"
             android:maxLines="1"
@@ -68,24 +68,7 @@
             app:boxCornerRadiusBottomStart="@dimen/_100sdp"
             app:boxCornerRadiusTopEnd="@dimen/_100sdp"
             app:boxCornerRadiusTopStart="@dimen/_100sdp"
-            app:boxStrokeWidth="0dp">
-
-            <AutoCompleteTextView
-                android:id="@+id/Sp4_City_auto_D"
-                android:layout_width="@dimen/_220sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:layout_weight="1"
-                android:background="@color/white_ghost"
-                android:completionHintView="@string/city"
-                android:focusable="false"
-                android:fontFamily="@font/cairo_bold"
-                android:inputType="none"
-                android:paddingTop="@dimen/_10sdp"
-                android:textColor="@color/Doctor_Color"
-                android:textSize="@dimen/_10sdp"
-                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
+            app:boxStrokeWidth="0dp" />
 
         <TextView
             android:id="@+id/Sp4_tv_SubCity_D"
@@ -100,14 +83,14 @@
             android:textSize="@dimen/_12sdp"
             android:textStyle="bold" />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
             android:id="@+id/Sp4_subCity_D"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
             android:layout_width="@dimen/_230sdp"
             android:layout_height="@dimen/_40sdp"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginEnd="@dimen/_30sdp"
             android:background="@drawable/bg_edit_text"
+            android:editable="false"
             android:elevation="@dimen/_1sdp"
             android:layoutDirection="rtl"
             android:maxLines="1"
@@ -116,24 +99,7 @@
             app:boxCornerRadiusBottomStart="@dimen/_100sdp"
             app:boxCornerRadiusTopEnd="@dimen/_100sdp"
             app:boxCornerRadiusTopStart="@dimen/_100sdp"
-            app:boxStrokeWidth="0dp">
-
-            <AutoCompleteTextView
-                android:id="@+id/Sp4_subCity_auto_D"
-                android:layout_width="@dimen/_220sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:layout_weight="1"
-                android:background="@color/white_ghost"
-                android:completionHintView="@string/city"
-                android:focusable="false"
-                android:fontFamily="@font/cairo_bold"
-                android:inputType="none"
-                android:paddingTop="@dimen/_10sdp"
-                android:textColor="@color/Doctor_Color"
-                android:textSize="@dimen/_10sdp"
-                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
+            app:boxStrokeWidth="0dp" />
 
         <TextView
             android:id="@+id/Sp4_tv_haveWork_D"
@@ -148,15 +114,15 @@
             android:textSize="@dimen/_12sdp"
             android:textStyle="bold" />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
             android:id="@+id/Sp4_have_work_D"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
             android:layout_width="@dimen/_230sdp"
             android:layout_height="@dimen/_40sdp"
             android:layout_below="@+id/Sp2_textview_D"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginEnd="@dimen/_30sdp"
             android:background="@drawable/bg_edit_text"
+            android:editable="false"
             android:elevation="@dimen/_1sdp"
             android:layoutDirection="rtl"
             android:maxLines="1"
@@ -165,24 +131,7 @@
             app:boxCornerRadiusBottomStart="@dimen/_100sdp"
             app:boxCornerRadiusTopEnd="@dimen/_100sdp"
             app:boxCornerRadiusTopStart="@dimen/_100sdp"
-            app:boxStrokeWidth="0dp">
-
-            <AutoCompleteTextView
-                android:id="@+id/Sp4_have_work_auto_D"
-                android:layout_width="@dimen/_220sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:layout_weight="1"
-                android:background="@color/white_ghost"
-                android:completionHintView="@string/city"
-                android:focusable="false"
-                android:fontFamily="@font/cairo_bold"
-                android:inputType="none"
-                android:paddingTop="@dimen/_10sdp"
-                android:textColor="@color/Doctor_Color"
-                android:textSize="@dimen/_10sdp"
-                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
+            app:boxStrokeWidth="0dp" />
 
         <TextView
             android:id="@+id/Sp4_tv_whatWork_D"
@@ -197,9 +146,8 @@
             android:textSize="@dimen/_12sdp"
             android:textStyle="bold" />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
             android:id="@+id/Sp4_placeOfWork_D"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
             android:layout_width="@dimen/_230sdp"
             android:layout_height="@dimen/_40sdp"
             android:layout_marginTop="@dimen/_5sdp"
@@ -213,24 +161,7 @@
             app:boxCornerRadiusBottomStart="@dimen/_100sdp"
             app:boxCornerRadiusTopEnd="@dimen/_100sdp"
             app:boxCornerRadiusTopStart="@dimen/_100sdp"
-            app:boxStrokeWidth="0dp">
-
-            <AutoCompleteTextView
-                android:id="@+id/Sp4_placeOfWork_auto_D"
-                android:layout_width="@dimen/_220sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:layout_weight="1"
-                android:background="@color/white_ghost"
-                android:completionHintView="@string/city"
-                android:focusable="false"
-                android:fontFamily="@font/cairo_bold"
-                android:inputType="none"
-                android:paddingTop="@dimen/_10sdp"
-                android:textColor="@color/Doctor_Color"
-                android:textSize="@dimen/_10sdp"
-                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
+            app:boxStrokeWidth="0dp" />
     </LinearLayout>
 
     <Button

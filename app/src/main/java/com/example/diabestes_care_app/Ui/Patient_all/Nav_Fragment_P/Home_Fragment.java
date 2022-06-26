@@ -102,11 +102,13 @@ public class Home_Fragment extends Fragment {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 doctorListAdapter.getFilter().filter(s);
                 search = s;
             }
+
             @Override
             public void afterTextChanged(Editable s) {
             }
@@ -137,13 +139,15 @@ public class Home_Fragment extends Fragment {
                         doctorListModel.setImageUrl(snapshot.child("User_Profile_Image").child("Image").child("mImageUrI").getValue().toString());
                         list.add(doctorListModel);
                         progressDialog.dismiss();
+
                     }
                 } catch (Exception e) {
                     Toast.makeText(getContext(), "إنتظر قليلاً ", Toast.LENGTH_SHORT).show();
                 }
-                doctorListAdapter = new Doctor_List_Adapter(getContext(), list );
+                doctorListAdapter = new Doctor_List_Adapter(getContext(), list);
                 recyclerView.setAdapter(doctorListAdapter);
                 doctorListAdapter.notifyDataSetChanged();
+                doctorListAdapter.updateUsersList(list);
             }
 
             @Override
@@ -169,23 +173,22 @@ public class Home_Fragment extends Fragment {
     public void onStart() {
         super.onStart();
         myRef = FirebaseDatabase.getInstance().getReference("patient");
-            myRef.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    String image = snapshot.child(PatientUsername).child("User_Profile_Image").child("Image").child("mImageUrI").getValue(String.class);
-                    String name = snapshot.child(PatientUsername).child("personal_info").child("name").getValue(String.class);
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String image = snapshot.child(PatientUsername).child("User_Profile_Image").child("Image").child("mImageUrI").getValue(String.class);
+                String name = snapshot.child(PatientUsername).child("personal_info").child("name").getValue(String.class);
                 Glide.with(getActivity()).load(image).into(imageProfile);
-                    Log.d("TAG", name + "/" + image);
-                    username.setText(name);
-                }
-                // Mohammed SIam
+                Log.d("TAG", name + "/" + image);
+                username.setText(name);
+            }
+            // Mohammed SIam
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-                    Log.e("TAG", error.getMessage());
-                }
-            });
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("TAG", error.getMessage());
+            }
+        });
     }
-
 }
 

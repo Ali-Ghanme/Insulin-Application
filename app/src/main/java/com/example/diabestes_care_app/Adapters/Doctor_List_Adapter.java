@@ -30,6 +30,8 @@ public class Doctor_List_Adapter extends RecyclerView.Adapter<Doctor_List_Adapte
     Context context;
     ArrayList<DoctorList_Model> list;
     ArrayList<DoctorList_Model> mDataFiltered;
+    String DoctorUsername;
+    DatabaseReference myRef;
 
 
     public Doctor_List_Adapter(Context context, ArrayList<DoctorList_Model> list) {
@@ -77,13 +79,15 @@ public class Doctor_List_Adapter extends RecyclerView.Adapter<Doctor_List_Adapte
 //
 //            }
 //        });
+
+
         holder.container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, Doctor_Profile_P.class);
                 intent.putExtra("Doctor name", list2.getName());
                 intent.putExtra("Doctor_Pic_Profile", list2.getImageUrl());
-                intent.putExtra("username",list2.getUsername());
+                intent.putExtra("username", list2.getUsername());
                 context.startActivity(intent);
             }
         });
@@ -100,10 +104,12 @@ public class Doctor_List_Adapter extends RecyclerView.Adapter<Doctor_List_Adapte
     public int getItemCount() {
         return mDataFiltered.size();
     }
+
     public void updateUsersList(ArrayList<DoctorList_Model> DoctorList_Model) {
         this.list = DoctorList_Model;
         notifyDataSetChanged();
     }
+
     public Filter getFilter() {
         return new Filter() {
             @Override
@@ -138,7 +144,7 @@ public class Doctor_List_Adapter extends RecyclerView.Adapter<Doctor_List_Adapte
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView name, username;
         ImageView imageView;
-        ImageView img_off , img_on;
+        ImageView img_off, img_on;
         RelativeLayout container;
 
         ImageButton follow_btn;
@@ -163,7 +169,6 @@ public class Doctor_List_Adapter extends RecyclerView.Adapter<Doctor_List_Adapte
             Intent intent = new Intent(context, Doctor_Profile_P.class);
             context.startActivity(intent);
         }
-
 
 
     }

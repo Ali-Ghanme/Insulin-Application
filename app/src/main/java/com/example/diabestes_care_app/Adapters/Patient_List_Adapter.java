@@ -55,8 +55,6 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
 
 
 //        DatabaseReference online_status_all_users = FirebaseDatabase.getInstance().getReference().child("online_statuses");
-//
-//
 //        online_status_all_users.child("online_statuses").addValueEventListener(new ValueEventListener() {
 //            @Override
 //            public void onDataChange(DataSnapshot dataSnapshot) {

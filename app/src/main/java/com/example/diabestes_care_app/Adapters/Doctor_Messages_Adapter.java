@@ -34,6 +34,7 @@ public class Doctor_Messages_Adapter extends RecyclerView.Adapter<Doctor_Message
     // Context
     private final Context context;
     SharedPreferences prefs;
+
     // Constructor
     public Doctor_Messages_Adapter(ArrayList<MessagesList_Model> messagesListModels, Context context) {
         this.messagesListModels = messagesListModels;

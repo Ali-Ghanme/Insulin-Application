@@ -27,15 +27,16 @@ import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class Messages_Adapter extends RecyclerView.Adapter<Messages_Adapter.MyViewHolder> {
+public class Patient_Messages_Adapter extends RecyclerView.Adapter<Patient_Messages_Adapter.MyViewHolder> {
 
     // MessageList_Model Object
     private ArrayList<MessagesList_Model> messagesListModels;
     // Context
     private final Context context;
     SharedPreferences prefs;
+
     // Constructor
-    public Messages_Adapter(ArrayList<MessagesList_Model> messagesListModels, Context context) {
+    public Patient_Messages_Adapter(ArrayList<MessagesList_Model> messagesListModels, Context context) {
         this.messagesListModels = messagesListModels;
         this.context = context;
     }
@@ -45,7 +46,7 @@ public class Messages_Adapter extends RecyclerView.Adapter<Messages_Adapter.MyVi
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.messaged_adapter_layout, parent, false);
-        return new Messages_Adapter.MyViewHolder(view);
+        return new Patient_Messages_Adapter.MyViewHolder(view);
     }
 
     //==============================================================================================

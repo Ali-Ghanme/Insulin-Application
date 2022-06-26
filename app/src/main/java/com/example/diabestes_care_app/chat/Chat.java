@@ -151,7 +151,6 @@ public class Chat extends Basic_Activity {
             }
         });
 
-
         SendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -167,6 +166,7 @@ public class Chat extends Basic_Activity {
                 chatEditText.getText().clear();
             }
         });
+
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

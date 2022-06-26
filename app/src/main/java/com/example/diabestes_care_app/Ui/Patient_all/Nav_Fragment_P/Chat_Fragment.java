@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.diabestes_care_app.Adapters.Messages_Adapter;
+import com.example.diabestes_care_app.Adapters.Patient_Messages_Adapter;
 import com.example.diabestes_care_app.MemoryData.MemoryData;
 import com.example.diabestes_care_app.Models.MessagesList_Model;
 import com.example.diabestes_care_app.R;
@@ -47,13 +47,12 @@ public class Chat_Fragment extends Fragment {
     // ArrayList
     ArrayList<MessagesList_Model> messagesListModels = new ArrayList<>();
     // Adapter
-    Messages_Adapter messagesAdapter;
+    Patient_Messages_Adapter messagesAdapter;
     // Variables
     private int unseenMessage = 0;
     private String lastMessage = "";
     private String chatKey = "";
     boolean dataSet = false;
-    private static final String FILE_NAME = "example.txt";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -77,7 +76,7 @@ public class Chat_Fragment extends Fragment {
         //============================Setup Recycle Review==========================================
         messagesRecycleReview.setHasFixedSize(true);
         messagesRecycleReview.setLayoutManager(new LinearLayoutManager(getContext()));
-        messagesAdapter = new Messages_Adapter(messagesListModels, getContext());
+        messagesAdapter = new Patient_Messages_Adapter(messagesListModels, getContext());
         messagesRecycleReview.setAdapter(messagesAdapter);
         return view;
     }
@@ -154,7 +153,7 @@ public class Chat_Fragment extends Fragment {
                                 if (!dataSet) {
                                     MessagesList_Model messagesListModel = new MessagesList_Model(getName, getUsername, lastMessage, getDoctorImage, chatKey, unseenMessage);
                                     messagesListModels.add(messagesListModel);
-                                    messagesRecycleReview.setAdapter(new Messages_Adapter(messagesListModels, getContext()));
+                                    messagesRecycleReview.setAdapter(new Patient_Messages_Adapter(messagesListModels, getContext()));
                                     messagesAdapter.UpdateData(messagesListModels);
                                     messagesAdapter.notifyDataSetChanged();
 
@@ -179,55 +178,4 @@ public class Chat_Fragment extends Fragment {
             }
         });
     }
-
-//    public void save(String data, String chatId, Context context) {
-//        FileOutputStream fos = null;
-//
-//        try {
-//            fos = context.openFileOutput(chatId + FILE_NAME, MODE_PRIVATE);
-//            fos.write(data.getBytes());
-//
-//            Toast.makeText(context, "Saved to " + context.getFilesDir() + "/" + FILE_NAME, Toast.LENGTH_LONG).show();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } finally {
-//            if (fos != null) {
-//                try {
-//                    fos.close();
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                    Log.e("TAG", e.getMessage());
-//                }
-//            }
-//        }
-//    }
-
-//    public String load(String chatId) {
-//        FileInputStream fis = null;
-//        String data = "0";
-//
-//        try {
-//            fis = getActivity().openFileInput(chatId + FILE_NAME);
-//            InputStreamReader isr = new InputStreamReader(fis);
-//            BufferedReader br = new BufferedReader(isr);
-//            StringBuilder sb = new StringBuilder();
-//            String text;
-//
-//            while ((text = br.readLine()) != null) {
-//                sb.append(text).append("\n");
-//            }
-//            data = sb.toString();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } finally {
-//            if (fis != null) {
-//                try {
-//                    fis.close();
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        }
-//        return data;
-//    }
 }

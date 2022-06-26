@@ -23,7 +23,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.diabestes_care_app.Adapters.DoctorList_Adapter;
+import com.example.diabestes_care_app.Adapters.Doctor_List_Adapter;
 import com.example.diabestes_care_app.Models.DoctorList_Model;
 import com.example.diabestes_care_app.Notification_Controller.Notification_Number;
 import com.example.diabestes_care_app.R;
@@ -45,7 +45,7 @@ public class Home_Fragment extends Fragment {
     // Variables
     ArrayList<DoctorList_Model> list;
     // Adapter
-    DoctorList_Adapter doctorListAdapter;
+    Doctor_List_Adapter doctorListAdapter;
     // Search Variables
     EditText searchInput;
     CharSequence search = "";
@@ -141,7 +141,7 @@ public class Home_Fragment extends Fragment {
                 } catch (Exception e) {
                     Toast.makeText(getContext(), "إنتظر قليلاً ", Toast.LENGTH_SHORT).show();
                 }
-                doctorListAdapter = new DoctorList_Adapter(getContext(), list );
+                doctorListAdapter = new Doctor_List_Adapter(getContext(), list );
                 recyclerView.setAdapter(doctorListAdapter);
                 doctorListAdapter.notifyDataSetChanged();
             }

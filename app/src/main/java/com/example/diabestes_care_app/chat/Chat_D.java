@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.diabestes_care_app.Adapters.Chat_Adapter;
+import com.example.diabestes_care_app.Adapters.Doctor_Chat_Adapter;
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.MemoryData.MemoryData;
 import com.example.diabestes_care_app.Models.ChatList_Model;
@@ -47,7 +47,7 @@ public class Chat_D extends Basic_Activity {
     String chatKey;
     RecyclerView ChatRecyclerView;
     private final List<ChatList_Model> chatListModels = new ArrayList<>();
-    private Chat_Adapter chatAdapter;
+    private Doctor_Chat_Adapter chatAdapter;
     private boolean loadingFirstTime = true;
 
     @Override
@@ -72,7 +72,7 @@ public class Chat_D extends Basic_Activity {
         ChatRecyclerView.setLayoutManager(new LinearLayoutManager(Chat_D.this));
 
         //============================Defines SharedPreferences=====================================
-        chatAdapter = new Chat_Adapter(chatListModels, Chat_D.this);
+        chatAdapter = new Doctor_Chat_Adapter(chatListModels, Chat_D.this);
         ChatRecyclerView.setAdapter(chatAdapter);
 
         //============================Get data from message adapter class===========================

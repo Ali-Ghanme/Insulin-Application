@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.diabestes_care_app.Adapters.Messages_Adapter;
+import com.example.diabestes_care_app.Adapters.Doctor_Messages_Adapter;
 import com.example.diabestes_care_app.MemoryData.MemoryData;
 import com.example.diabestes_care_app.Models.MessagesList_Model;
 import com.example.diabestes_care_app.R;
@@ -45,7 +45,7 @@ public class Chat_Fragment_D extends Fragment {
     // Variables
     ArrayList<MessagesList_Model> messagesListModels = new ArrayList<>();
     // Adapter
-    Messages_Adapter messagesAdapter;
+    Doctor_Messages_Adapter messagesAdapter;
     // Variables
     private int unseenMessage = 0;
     private String lastMessage = "";
@@ -69,7 +69,7 @@ public class Chat_Fragment_D extends Fragment {
         //============================Recycle Review Setup==========================================
         messagesRecycleReview.setHasFixedSize(true);
         messagesRecycleReview.setLayoutManager(new LinearLayoutManager(getContext()));
-        messagesAdapter = new Messages_Adapter(messagesListModels, getContext());
+        messagesAdapter = new Doctor_Messages_Adapter(messagesListModels, getContext());
         messagesRecycleReview.setAdapter(messagesAdapter);
 
         //============================Defines SharedPreferences=====================================
@@ -114,7 +114,7 @@ public class Chat_Fragment_D extends Fragment {
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         String getPatientName = snapshot.child("personal_info").child("name").getValue(String.class);
                         String getPatientUsername = snapshot.child("username").getValue(String.class);
-                        final String getPatientImage = snapshot.child("personal_info").child("Image").child("mImageUrI").getValue(String.class);
+                        final String getPatientImage = snapshot.child("User_Profile_Image").child("Image").child("mImageUrI").getValue(String.class);
                         dataSet = false;
 
                         myRef.child("chat").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -153,7 +153,7 @@ public class Chat_Fragment_D extends Fragment {
                                     messagesListModels.add(messagesListModel);
                                     messagesAdapter.UpdateData(messagesListModels);
                                     messagesAdapter.notifyDataSetChanged();
-                                    messagesRecycleReview.setAdapter(new Messages_Adapter(messagesListModels, getContext()));
+                                    messagesRecycleReview.setAdapter(new Doctor_Messages_Adapter(messagesListModels, getContext()));
                                 }
                             }
 

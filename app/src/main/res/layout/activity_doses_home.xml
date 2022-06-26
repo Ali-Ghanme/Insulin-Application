@@ -99,6 +99,7 @@
         android:layout_marginRight="@dimen/_20sdp"
         android:layout_marginBottom="@dimen/_70sdp"
         android:backgroundTint="@color/Patient_Color"
+        android:src="@drawable/ic_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

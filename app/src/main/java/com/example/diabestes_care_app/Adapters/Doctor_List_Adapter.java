@@ -2,7 +2,6 @@ package com.example.diabestes_care_app.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,21 +21,18 @@ import com.bumptech.glide.Glide;
 import com.example.diabestes_care_app.Models.DoctorList_Model;
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Patient_all.Doctor_Profile_P;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class DoctorList_Adapter extends RecyclerView.Adapter<DoctorList_Adapter.MyViewHolder> implements Filterable {
+public class Doctor_List_Adapter extends RecyclerView.Adapter<Doctor_List_Adapter.MyViewHolder> implements Filterable {
     Context context;
     ArrayList<DoctorList_Model> list;
     ArrayList<DoctorList_Model> mDataFiltered;
 
 
-    public DoctorList_Adapter(Context context, ArrayList<DoctorList_Model> list) {
+    public Doctor_List_Adapter(Context context, ArrayList<DoctorList_Model> list) {
         this.context = context;
         this.list = list;
         this.mDataFiltered = list;

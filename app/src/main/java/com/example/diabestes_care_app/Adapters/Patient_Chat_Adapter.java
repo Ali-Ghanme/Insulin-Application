@@ -1,7 +1,7 @@
 package com.example.diabestes_care_app.Adapters;
 
 import static android.content.Context.MODE_PRIVATE;
-import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
+import static com.example.diabestes_care_app.Ui.Doctor_all.Nav_Fragment_D.Home_Fragment_D.MyPREFERENCES_D;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -19,31 +19,31 @@ import com.example.diabestes_care_app.R;
 
 import java.util.List;
 
-public class Chat_Adapter extends RecyclerView.Adapter<Chat_Adapter.MyViewHolder> {
+public class Patient_Chat_Adapter extends RecyclerView.Adapter<Patient_Chat_Adapter.MyViewHolder> {
     private List<ChatList_Model> chatListListModel;
     final Context context;
     SharedPreferences prefs;
 
 
-    public Chat_Adapter(List<ChatList_Model> chatListListModel, Context context) {
+    public Patient_Chat_Adapter(List<ChatList_Model> chatListListModel, Context context) {
         this.chatListListModel = chatListListModel;
         this.context = context;
     }
 
     @NonNull
     @Override
-    public Chat_Adapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public Patient_Chat_Adapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.chat_adapter_layout, null));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Chat_Adapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull Patient_Chat_Adapter.MyViewHolder holder, int position) {
         ChatList_Model list = chatListListModel.get(position);
 
-        prefs = context.getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
-        String patientUsername = prefs.getString("TAG_NAME", null);
+        prefs = context.getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
+        String DoctorUsername = prefs.getString("TAG_NAME", null);
 
-        if (list.getUsername().equals(patientUsername)) {
+        if (list.getUsername().equals(DoctorUsername)) {
             holder.myMsgLayout.setVisibility(View.GONE);
             holder.oppoLayout.setVisibility(View.VISIBLE);
 
@@ -51,8 +51,8 @@ public class Chat_Adapter extends RecyclerView.Adapter<Chat_Adapter.MyViewHolder
             holder.oppoTime.setText(list.getDate() + "" + list.getTime());
 
         } else {
-            holder.myMsgLayout.setVisibility(View.GONE);
-            holder.oppoLayout.setVisibility(View.VISIBLE);
+            holder.myMsgLayout.setVisibility(View.VISIBLE);
+            holder.oppoLayout.setVisibility(View.GONE);
 
             holder.myMessage.setText(list.getMessage());
             holder.myTime.setText(list.getDate() + "" + list.getTime());

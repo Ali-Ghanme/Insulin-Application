@@ -27,13 +27,13 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
-public class PatientList_Adapter extends RecyclerView.Adapter<PatientList_Adapter.MyViewHolder> implements Filterable {
+public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adapter.MyViewHolder> implements Filterable {
     Context context;
     ArrayList<DoctorList_Model> list;
     ArrayList<DoctorList_Model> mDataFiltered;
 
 
-    public PatientList_Adapter(Context context, ArrayList<DoctorList_Model> list) {
+    public Patient_List_Adapter(Context context, ArrayList<DoctorList_Model> list) {
         this.context = context;
         this.list = list;
         this.mDataFiltered = list;
@@ -78,6 +78,7 @@ public class PatientList_Adapter extends RecyclerView.Adapter<PatientList_Adapte
 //
 //            }
 //        });
+
         holder.container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

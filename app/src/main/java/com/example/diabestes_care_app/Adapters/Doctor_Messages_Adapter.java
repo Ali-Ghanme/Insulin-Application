@@ -1,7 +1,7 @@
 package com.example.diabestes_care_app.Adapters;
 
 import static android.content.Context.MODE_PRIVATE;
-import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
+import static com.example.diabestes_care_app.Ui.Doctor_all.Nav_Fragment_D.Home_Fragment_D.MyPREFERENCES_D;
 
 import android.content.Context;
 import android.content.Intent;
@@ -27,7 +27,7 @@ import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class Messages_Adapter extends RecyclerView.Adapter<Messages_Adapter.MyViewHolder> {
+public class Doctor_Messages_Adapter extends RecyclerView.Adapter<Doctor_Messages_Adapter.MyViewHolder> {
 
     // MessageList_Model Object
     private ArrayList<MessagesList_Model> messagesListModels;
@@ -35,7 +35,7 @@ public class Messages_Adapter extends RecyclerView.Adapter<Messages_Adapter.MyVi
     private final Context context;
     SharedPreferences prefs;
     // Constructor
-    public Messages_Adapter(ArrayList<MessagesList_Model> messagesListModels, Context context) {
+    public Doctor_Messages_Adapter(ArrayList<MessagesList_Model> messagesListModels, Context context) {
         this.messagesListModels = messagesListModels;
         this.context = context;
     }
@@ -45,15 +45,15 @@ public class Messages_Adapter extends RecyclerView.Adapter<Messages_Adapter.MyVi
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.messaged_adapter_layout, parent, false);
-        return new Messages_Adapter.MyViewHolder(view);
+        return new Doctor_Messages_Adapter.MyViewHolder(view);
     }
 
     //==============================================================================================
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        prefs = context.getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
-        String patientUsername = prefs.getString("TAG_NAME", null);
+        prefs = context.getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
+        String DoctorUsername = prefs.getString("TAG_NAME", null);
 
         // Object from MessageList_Model
         MessagesList_Model list2 = messagesListModels.get(position);
@@ -85,15 +85,15 @@ public class Messages_Adapter extends RecyclerView.Adapter<Messages_Adapter.MyVi
             public void onClick(View v) {
                 // I need the User username that is login now to specified what is the message layout will show to him
                 // What is the getUsername hold is hold the User username that patient click on recycle review
-                if (list2.getUsername().equals(patientUsername)) {
-                    Intent intent = new Intent(context, Chat_D.class);
+                if (list2.getUsername().equals(DoctorUsername)) {
+                    Intent intent = new Intent(context, Chat.class);
                     intent.putExtra("username", list2.getUsername());
                     intent.putExtra("name", list2.getName());
                     intent.putExtra("profile_pic", list2.getDoctorImage());
                     intent.putExtra("chat_key", list2.getChatKey());
                     context.startActivity(intent);
                 } else {
-                    Intent intent = new Intent(context, Chat.class);
+                    Intent intent = new Intent(context, Chat_D.class);
                     intent.putExtra("username", list2.getUsername());
                     intent.putExtra("name", list2.getName());
                     intent.putExtra("profile_pic", list2.getDoctorImage());

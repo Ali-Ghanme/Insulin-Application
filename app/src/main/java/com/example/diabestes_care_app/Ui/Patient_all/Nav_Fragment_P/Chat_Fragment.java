@@ -117,7 +117,7 @@ public class Chat_Fragment extends Fragment {
                         final String getName = snapshot.child("personal_info").child("name_ar").getValue().toString();
                         final String getUsername = snapshot.child("personal_info").child("username").getValue().toString();
                         dataSet = false;
-                        final String getDoctorImage = snapshot.child("personal_info").child("Image").child("mImageUrI").getValue().toString();
+                        final String getDoctorImage = snapshot.child("User_Profile_Image").child("Image").child("mImageUrI").getValue().toString();
 
                         myRef.child("chat").addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override

@@ -165,7 +165,5 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
             Intent intent = new Intent(context, Doctor_Profile_P.class);
             context.startActivity(intent);
         }
-
-
     }
 }

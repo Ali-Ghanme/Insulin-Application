@@ -5,12 +5,10 @@ public class DoctorList_Model {
     String username;
     String imageUrl;
 
-
     public DoctorList_Model(String name, String username, String imageUrl) {
         this.name = name;
         this.username = username;
         this.imageUrl = imageUrl;
-
     }
 
     public DoctorList_Model() {

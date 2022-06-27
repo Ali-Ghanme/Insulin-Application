@@ -34,6 +34,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class Chat_Fragment extends Fragment {
+
     // RecyclerView
     private RecyclerView messagesRecycleReview;
     // Shared Preference
@@ -81,7 +82,7 @@ public class Chat_Fragment extends Fragment {
         return view;
     }
 
-    //============================Get profile Image Profile from Firebase database==================
+    //============================Get Patient Image Profile from Firebase database==================
     @Override
     public void onStart() {
         super.onStart();
@@ -95,7 +96,6 @@ public class Chat_Fragment extends Fragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
     }
@@ -132,15 +132,17 @@ public class Chat_Fragment extends Fragment {
 
                                             final String getUserOne = dataSnapshot1.child("patient_1").getValue(String.class);
                                             final String getUserTow = dataSnapshot1.child("doctor_2").getValue(String.class);
-
+                                            // getUsername is username of doctor that i click on it
                                             if ((getUserOne.equals(getUsername) && getUserTow.equals(PatientUsername)) || (getUserOne.equals(PatientUsername)
                                                     && getUserTow.equals(getUsername))) {
                                                 for (DataSnapshot chatDataSnapshot : dataSnapshot1.child("messages").getChildren()) {
 
                                                     final long getMessageKey = Long.parseLong(chatDataSnapshot.getKey());
-                                                    final long getLastSeenMessage = Long.parseLong(MemoryData.getLastMsgTS(getContext(),getKey));
+                                                    // 142 line This is the problem that cant be seen the last message that the UserOne user is sent to UserTow the problem related to Memory data get LastSeen Message
+                                                    final long getLastSeenMessage = Long.parseLong(MemoryData.getLastMsgTS(getContext(), getKey));
 
-                                                    lastMessage = chatDataSnapshot.child("msg").getValue(String.class);
+                                                    // Get the last msg from Firebase
+                                                    final String lastMessage = chatDataSnapshot.child("msg").getValue(String.class);
 
                                                     if (getMessageKey > getLastSeenMessage) {
                                                         unseenMessage++;
@@ -151,6 +153,7 @@ public class Chat_Fragment extends Fragment {
                                     }
                                 }
                                 if (!dataSet) {
+                                    // getName,getUsername,getDoctorImage,chatKey is stored successfully other is not stored
                                     MessagesList_Model messagesListModel = new MessagesList_Model(getName, getUsername, lastMessage, getDoctorImage, chatKey, unseenMessage);
                                     messagesListModels.add(messagesListModel);
                                     messagesRecycleReview.setAdapter(new Patient_Messages_Adapter(messagesListModels, getContext()));
@@ -159,19 +162,15 @@ public class Chat_Fragment extends Fragment {
 
                                 }
                             }
-
                             @Override
                             public void onCancelled(@NonNull DatabaseError error) {
-
                             }
                         });
                     }
                 } catch (Exception e) {
                     Toast.makeText(getContext(), "waite second catch error", Toast.LENGTH_SHORT).show();
                 }
-
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Log.e("TAG", error.getMessage());

@@ -16,7 +16,6 @@ public final class MemoryData {
 
     private static final String FILE_NAME = "example.txt";
 
-
     public static void saveLastMsgTS(String data, String chatId, Context context) {
         try {
             FileOutputStream fileOutputStream = context.openFileOutput(chatId + "LastMsgTS.txt", Context.MODE_PRIVATE);

@@ -135,7 +135,7 @@ public class Chat_D extends Basic_Activity {
 
                                     chatAdapter.updateChatList(chatListModels);
 
-                                    ChatRecyclerView.scrollToPosition(chatListModels.size() + 100);
+                                    ChatRecyclerView.scrollToPosition(chatListModels.size() + 1);
                                 }
                             }
                         }

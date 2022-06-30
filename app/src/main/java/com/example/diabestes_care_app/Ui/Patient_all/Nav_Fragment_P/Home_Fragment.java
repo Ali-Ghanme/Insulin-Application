@@ -83,6 +83,10 @@ public class Home_Fragment extends Fragment {
         progressDialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         progressDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         progressDialog.show();
+        if (list == null){
+            progressDialog.dismiss();
+        }
+
 
         //============================Configure Recyclerview========================================
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
@@ -137,9 +141,9 @@ public class Home_Fragment extends Fragment {
                         doctorListModel.setName(snapshot.child("personal_info").child("name_ar").getValue().toString());
                         doctorListModel.setUsername(snapshot.child("personal_info").child("username").getValue().toString());
                         doctorListModel.setImageUrl(snapshot.child("User_Profile_Image").child("Image").child("mImageUrI").getValue().toString());
+                        doctorListModel.setToken(snapshot.child("Token").child("Doctor_Token").getValue().toString());
                         list.add(doctorListModel);
                         progressDialog.dismiss();
-
                     }
                 } catch (Exception e) {
                     Toast.makeText(getContext(), "إنتظر قليلاً ", Toast.LENGTH_SHORT).show();

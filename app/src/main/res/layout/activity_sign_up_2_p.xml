@@ -45,7 +45,6 @@
             android:layout_marginLeft="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_13sdp"
             android:fontFamily="@font/cairo_bold"
-            android:layoutDirection="rtl"
             android:text="معلومات الاتصال "
             android:textAlignment="textStart"
             android:textColor="@color/Patient_Color"

@@ -11,7 +11,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -57,7 +56,7 @@ public class Sing_Up_2_P extends Basic_Activity {
                         Sing_Up_2_P.this, R.style.BottomSheetDialogTheme);
                 View bottomSheetView = LayoutInflater.from(getApplicationContext())
                         .inflate(
-                                R.layout.layout_bottom_sheet, (LinearLayout) findViewById(R.id.bottomSheetContier)
+                                R.layout.layout_bottom_sheet, findViewById(R.id.bottomSheetContier)
                         );
                 listView = bottomSheetView.findViewById(R.id.City_bottom_listView);
 

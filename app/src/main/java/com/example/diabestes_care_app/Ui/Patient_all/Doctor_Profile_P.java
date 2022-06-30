@@ -1,9 +1,12 @@
 package com.example.diabestes_care_app.Ui.Patient_all;
 
+import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
+
 import android.app.Dialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -12,12 +15,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
 import com.bumptech.glide.Glide;
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
+import com.example.diabestes_care_app.NotificationSender.FcmNotificationsSender;
 import com.example.diabestes_care_app.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -33,8 +38,9 @@ public class Doctor_Profile_P extends Basic_Activity {
     // Dialog
     Dialog dialog;
     EditText et_title, et_subject;
-    String Consultation_title, Consultation_subject, getName, getProfilePic, getUsername;
+    String Consultation_title, Consultation_subject, getName, getProfilePic, getUsername, getToken, PatientUsername;
     DatabaseReference myReference;
+    String chatKey;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +53,9 @@ public class Doctor_Profile_P extends Basic_Activity {
         Doctor_Profile = findViewById(R.id.DPP_img_Profile);
         request = findViewById(R.id.request_for);
         back = findViewById(R.id.DPP_btn_back);
+
+        SharedPreferences prefs = Doctor_Profile_P.this.getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
+        PatientUsername = prefs.getString("TAG_NAME", null);
 
         //============================Define Database Ref===========================================
         myReference = FirebaseDatabase.getInstance().getReference("Consultation request");
@@ -61,13 +70,14 @@ public class Doctor_Profile_P extends Basic_Activity {
         });
 
         //============================Get data from message adapter class===========================
-          getName = getIntent().getStringExtra("Doctor name");
-          getProfilePic = getIntent().getStringExtra("Doctor_Pic_Profile");
-          getUsername = getIntent().getStringExtra("username");
+        getName = getIntent().getStringExtra("Doctor name");
+        getProfilePic = getIntent().getStringExtra("Doctor_Pic_Profile");
+        getUsername = getIntent().getStringExtra("Doctor_username");
+        getToken = getIntent().getStringExtra("Doctor_token");
+//        chatKey = getIntent().getStringExtra("chat_key");
         //============================load data from message adapter class==========================
         DoctorName.setText(getName);
         Glide.with(this).load(getProfilePic).into(Doctor_Profile);
-//        FirebaseMessaging.getInstance().subscribeToTopic("DMohammed");
 
         //============================Create + Configure the Dialog here============================
         FirebaseMessaging.getInstance().subscribeToTopic(getUsername);
@@ -84,7 +94,23 @@ public class Doctor_Profile_P extends Basic_Activity {
         et_title = dialog.findViewById(R.id.et_titlee);
         et_subject = dialog.findViewById(R.id.et_subjectt);
 
-
+//        myReference.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                // Generate chat key by default key is 1
+//                if (chatKey.isEmpty()) {
+//                    chatKey = "1";
+//                    if (snapshot.hasChild("MSG")) {
+//                        chatKey = String.valueOf(snapshot.child("MSG").getChildrenCount());
+//                    }
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
         //============================load data from message adapter class==========================
         oky.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,10 +118,17 @@ public class Doctor_Profile_P extends Basic_Activity {
 
                 Consultation_title = et_title.getText().toString();
                 Consultation_subject = et_subject.getText().toString();
-
-                myReference.child("MSG").child("Title").setValue(Consultation_title);
-                myReference.child("MSG").child("Subject").setValue(Consultation_subject);
-                notification();
+                if (!Consultation_title.isEmpty() && !Consultation_subject.isEmpty() && !getToken.isEmpty()) {
+                    FcmNotificationsSender notificationsSender = new FcmNotificationsSender(getToken, Consultation_title, Consultation_subject, getApplicationContext(),
+                            Doctor_Profile_P.this);
+                    notificationsSender.SendNotifications();
+                    myReference.child("MSG").child("from").setValue(PatientUsername);
+                    myReference.child("MSG").child("Title").setValue(Consultation_title);
+                    myReference.child("MSG").child("Subject").setValue(Consultation_subject);
+                    myReference.child("MSG").child("to").setValue(getUsername);
+                } else {
+                    Toast.makeText(Doctor_Profile_P.this, "Enter Token", Toast.LENGTH_SHORT).show();
+                }
                 dialog.dismiss();
             }
         });

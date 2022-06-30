@@ -16,11 +16,14 @@ import androidx.annotation.NonNull;
 
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.Calendar;
 
@@ -34,7 +37,7 @@ public class Sing_Up_1_P extends Basic_Activity {
     RadioGroup mGender;
     RadioButton mGenderOption;
     String strGender;
-    String patientName, patientUsername, patientDate, patientWehigt, patientTall, PatientID, PatientAge;
+    String patientName, patientUsername, patientDate, patientWehigt, patientTall, PatientID, PatientAge, PatientToken;
 
 
     @Override
@@ -53,6 +56,19 @@ public class Sing_Up_1_P extends Basic_Activity {
         mTall = findViewById(R.id.Sp1_tall_P);
         mID = findViewById(R.id.Sp1_ID_P);
 
+
+        // Generate Token for Patient
+        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
+            @Override
+            public void onComplete(@NonNull Task<String> task) {
+                if (!task.isSuccessful()) {
+                    return;
+                }
+                // Get new FCM registration token
+                PatientToken = task.getResult();
+                System.out.println("TOKEN" + PatientToken);
+            }
+        });
         //====================================DataPicker===============================
         DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -126,6 +142,7 @@ public class Sing_Up_1_P extends Basic_Activity {
                                 databaseReference.child("patient").child(patientUsername).child("personal_info").child("tall").setValue(patientTall);
                                 databaseReference.child("patient").child(patientUsername).child("personal_info").child("iD").setValue(PatientID);
                                 databaseReference.child("patient").child(patientUsername).child("personal_info").child("Age").setValue(PatientAge);
+                                databaseReference.child("patient").child(patientUsername).child("Token").child("Patient_Token").setValue(PatientToken);
                                 Toast.makeText(Sing_Up_1_P.this, PatientAge, Toast.LENGTH_SHORT).show();
 //                                Toast.makeText(Sing_Up_1_P.this, "User have registered successfully ", Toast.LENGTH_SHORT).show();
                                 Intent intent2 = new Intent(Sing_Up_1_P.this, Sing_Up_2_P.class);

@@ -14,6 +14,7 @@ import com.google.firebase.messaging.FirebaseMessaging;
 public class SendNotification extends AppCompatActivity {
     private EditText et_title, et_subject;
     private Button notification_general, notification_user;
+    String token = "TOKENcmFFwB6TRJavKcwD5WdNsh:APA91bHtTDNxIstASOgGw_chSuAmYZ-WUvZPn53cer6ClUkgg7lxc-e6nsJmJndQY7-Nsnl2dKYLWXxtQDRktFy1LT8A4mmdL7G430fh125E3tx5pTrzC8ZbjlEXmF45N-PW3r0rTsBs";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,13 +26,18 @@ public class SendNotification extends AppCompatActivity {
 
         et_title = findViewById(R.id.et_title);
         et_subject = findViewById(R.id.et_subject);
-        notification_general = findViewById(R.id.notification_general);
-        notification_user = findViewById(R.id.notification_user);
+
+        notification_general = findViewById(R.id.notification_general_1);
+        notification_user = findViewById(R.id.notification_user_1);
+
 
         notification_general.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!et_title.getText().toString().isEmpty() && !et_subject.getText().toString().isEmpty()) {
+                String t_title = et_title.getText().toString();
+                String t_subject = et_subject.getText().toString();
+
+                if (!t_title.isEmpty() && !t_subject.isEmpty()) {
                     FcmNotificationsSender notificationsSender = new FcmNotificationsSender("/topics/all", et_title.getText().toString(),
                             et_subject.getText().toString(), getApplicationContext(), SendNotification.this);
                     notificationsSender.SendNotifications();
@@ -44,9 +50,15 @@ public class SendNotification extends AppCompatActivity {
         notification_user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Toast.makeText(SendNotification.this,MemoryData.getDoctorData(getApplicationContext()), Toast.LENGTH_SHORT).show();
+                String t_title = et_title.getText().toString();
+                String t_subject = et_subject.getText().toString();
+                if (!t_title.isEmpty() && !t_subject.isEmpty() && !token.isEmpty()) {
+                    FcmNotificationsSender notificationsSender = new FcmNotificationsSender(token, t_title, t_subject, getApplicationContext(), SendNotification.this);
+                    notificationsSender.SendNotifications();
+                } else {
+                    Toast.makeText(SendNotification.this, "Enter Token", Toast.LENGTH_SHORT).show();
+                }
             }
         });
-
     }
 }

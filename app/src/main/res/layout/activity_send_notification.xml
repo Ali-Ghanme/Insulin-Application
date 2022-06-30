@@ -42,7 +42,7 @@
 
     <!--        android:id="@+id/token"/>-->
     <Button
-        android:id="@+id/notification_general"
+        android:id="@+id/notification_general_1"
         android:layout_width="@dimen/_140sdp"
         android:layout_height="@dimen/_40sdp"
         android:layout_gravity="center_vertical|center_horizontal"
@@ -50,7 +50,7 @@
         android:text="Send  Notification All" />
 
     <Button
-        android:id="@+id/notification_user"
+        android:id="@+id/notification_user_1"
         android:layout_width="@dimen/_140sdp"
         android:layout_height="@dimen/_40sdp"
         android:layout_gravity="center_vertical|center_horizontal"

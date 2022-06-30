@@ -40,7 +40,7 @@
             android:id="@+id/Sp3_tv_UnName_D"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_180sdp"
+            android:layout_alignParentRight="true"
             android:layout_marginTop="@dimen/_8sdp"
             android:fontFamily="@font/cairo_bold"
             android:text="اسم الجامعة"
@@ -57,23 +57,24 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_5sdp"
             android:background="@drawable/bg_edit_text"
+            android:drawableLeft="@drawable/ic_collage"
+            android:drawableTint="@color/Doctor_Color"
             android:editable="false"
             android:elevation="@dimen/_1sdp"
-            android:layoutDirection="rtl"
+            android:fontFamily="@font/cairo_bold"
+            android:hint="اختر جامعتك"
             android:maxLines="1"
-            android:textColorHint="#989696"
-            app:boxCornerRadiusBottomEnd="@dimen/_100sdp"
-            app:boxCornerRadiusBottomStart="@dimen/_100sdp"
-            app:boxCornerRadiusTopEnd="@dimen/_100sdp"
-            app:boxCornerRadiusTopStart="@dimen/_100sdp"
-            app:boxStrokeWidth="0dp" />
+            android:paddingLeft="@dimen/_20sdp"
+            android:paddingRight="@dimen/_10sdp"
+            android:textColor="@color/Doctor_Color"
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/Sp3_tv_certificate_D"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/Sp3_UnName_D"
-            android:layout_marginStart="@dimen/_155sdp"
+            android:layout_alignParentRight="true"
             android:layout_marginTop="@dimen/_8sdp"
             android:fontFamily="@font/cairo_bold"
             android:text="الشهادة الجامعية"
@@ -90,16 +91,17 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_5sdp"
             android:background="@drawable/bg_edit_text"
+            android:drawableLeft="@drawable/ic_collage"
+            android:drawableTint="@color/Doctor_Color"
             android:editable="false"
             android:elevation="@dimen/_1sdp"
-            android:layoutDirection="rtl"
+            android:fontFamily="@font/cairo_bold"
+            android:hint="نوع الشهادة الجامعية"
             android:maxLines="1"
-            android:textColorHint="#989696"
-            app:boxCornerRadiusBottomEnd="@dimen/_100sdp"
-            app:boxCornerRadiusBottomStart="@dimen/_100sdp"
-            app:boxCornerRadiusTopEnd="@dimen/_100sdp"
-            app:boxCornerRadiusTopStart="@dimen/_100sdp"
-            app:boxStrokeWidth="0dp" />
+            android:paddingLeft="@dimen/_20sdp"
+            android:paddingRight="@dimen/_10sdp"
+            android:textColor="@color/Doctor_Color"
+            android:textSize="15sp" />
 
 
         <EditText
@@ -112,7 +114,7 @@
             android:autofillHints="creditCardExpirationDate"
             android:background="@drawable/bg_edit_text"
             android:cursorVisible="false"
-            android:drawableStart="@drawable/ic_data"
+            android:drawableLeft="@drawable/ic_data"
             android:drawablePadding="@dimen/_13sdp"
             android:drawableTint="@color/Doctor_Color"
             android:elevation="@dimen/_1sdp"
@@ -121,8 +123,8 @@
             android:fontFamily="@font/cairo_bold"
             android:hint="سنة التخرج"
             android:maxLines="1"
-            android:paddingStart="@dimen/_20sdp"
-            android:paddingEnd="@dimen/_20sdp"
+            android:paddingLeft="@dimen/_20sdp"
+            android:paddingRight="@dimen/_20sdp"
             android:scaleType="centerCrop"
             android:textColor="@color/Doctor_Color"
             android:textColorHint="#78909C"
@@ -134,7 +136,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/Sp3_et_year_Grade_D"
-            android:layout_marginStart="@dimen/_200sdp"
+            android:layout_alignParentRight="true"
             android:layout_marginTop="@dimen/_8sdp"
             android:fontFamily="@font/cairo_bold"
             android:text="بلد التخرج"
@@ -151,38 +153,17 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_5sdp"
             android:background="@drawable/bg_edit_text"
+            android:drawableLeft="@drawable/ic_location"
+            android:drawableTint="@color/Doctor_Color"
             android:editable="false"
             android:elevation="@dimen/_1sdp"
-            android:layoutDirection="rtl"
+            android:fontFamily="@font/cairo_bold"
+            android:hint="بلد التخرج"
             android:maxLines="1"
-            android:textColorHint="#989696"
-            app:boxCornerRadiusBottomEnd="@dimen/_100sdp"
-            app:boxCornerRadiusBottomStart="@dimen/_100sdp"
-            app:boxCornerRadiusTopEnd="@dimen/_100sdp"
-            app:boxCornerRadiusTopStart="@dimen/_100sdp"
-            app:boxStrokeWidth="0dp" />
-
-        <!--        <EditText-->
-        <!--            android:id="@+id/S2_et_name"-->
-        <!--            android:layout_width="@dimen/_230sdp"-->
-        <!--            android:layout_height="@dimen/_40sdp"-->
-        <!--            android:layout_below="@id/Sp3_Grad_Country_D"-->
-        <!--            android:layout_centerHorizontal="true"-->
-        <!--            android:layout_marginTop="@dimen/_25sdp"-->
-        <!--            android:autofillHints="phone"-->
-        <!--            android:background="@drawable/bg_edit_text"-->
-        <!--            android:drawablePadding="@dimen/_13sdp"-->
-        <!--            android:elevation="@dimen/_1sdp"-->
-        <!--            android:fontFamily="@font/cairo_bold"-->
-        <!--            android:hint=" اختيار المرفقات "-->
-        <!--            android:inputType="number"-->
-        <!--            android:maxLines="1"-->
-        <!--            android:paddingStart="20dp"-->
-        <!--            android:paddingEnd="20dp"-->
-        <!--            android:textColor="@color/Doctor_Color"-->
-        <!--            android:textColorHint="#78909C"-->
-        <!--            android:textSize="15sp"-->
-        <!--            tools:ignore="TouchTargetSizeCheck" />-->
+            android:paddingLeft="@dimen/_20sdp"
+            android:paddingRight="@dimen/_10sdp"
+            android:textColor="@color/Doctor_Color"
+            android:textSize="15sp" />
     </RelativeLayout>
 
     <Button

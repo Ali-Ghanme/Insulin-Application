@@ -16,11 +16,14 @@ import androidx.annotation.NonNull;
 
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.Calendar;
 
@@ -33,6 +36,7 @@ public class Sing_Up_1_D extends Basic_Activity {
     String strGender;
     Button btn_next_S;
     EditText name_ar, name_en, username, mDate;
+    String DoctorName_ar, DoctorName_en, DoctorUsername, DoctorDate, DoctorToken;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,44 +52,56 @@ public class Sing_Up_1_D extends Basic_Activity {
         mGender = findViewById(R.id.Sp1_Gender_D);
         btn_next_S = findViewById(R.id.Sp1_bt_next_D);
 
+
+        // Generate Token for Patient
+        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
+            @Override
+            public void onComplete(@NonNull Task<String> task) {
+                if (!task.isSuccessful()) {
+                    return;
+                }
+                // Get new FCM registration token
+                DoctorToken = task.getResult();
+                System.out.println("TOKEN" + DoctorToken);
+            }
+        });
+
         //====================================Next Button===============================
         btn_next_S.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // get data form edit text into string variables
-                String doctorName_ar = name_ar.getText().toString();
-                String doctorName_en = name_en.getText().toString();
-                String doctorUsername = username.getText().toString();
-                String doctorDate = mDate.getText().toString();
+                DoctorName_ar = name_ar.getText().toString();
+                DoctorName_en = name_en.getText().toString();
+                DoctorUsername = username.getText().toString();
+                DoctorDate = mDate.getText().toString();
 
-//                HashMap<String , String > hashMap = new HashMap<>();
-//                hashMap.put("username",doctorUsername);
-//                hashMap.put("status","offline");
                 //====================================Validation===============================
                 // cheek if user fill all data fields before sending data to firebase
-                if (validIsEmpty(doctorName_ar, doctorName_en, doctorUsername, doctorDate, doctorDate, doctorDate)) {
+                if (validIsEmpty(DoctorName_ar, DoctorName_en, DoctorUsername, DoctorDate, DoctorDate, DoctorDate)) {
                     Toast.makeText(Sing_Up_1_D.this, "Fill all fields", Toast.LENGTH_SHORT).show();
-                } else if (!doctorUsername.startsWith("D")) {
+                } else if (!DoctorUsername.startsWith("D")) {
                     Toast.makeText(Sing_Up_1_D.this, "User Name Must Start With D", Toast.LENGTH_SHORT).show();
                 } else {
                     databaseReference.child("doctor").addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             // check if username is not registered before
-                            if (snapshot.hasChild(doctorUsername)) {
+                            if (snapshot.hasChild(DoctorUsername)) {
                                 Toast.makeText(Sing_Up_1_D.this, "ID is already registered", Toast.LENGTH_SHORT).show();
                             } else {
                                 // sending data to firebase real time
                                 // we are using a phone number as unique identity of every user
-                                databaseReference.child("doctor").child(doctorUsername).child("personal_info").child("name_ar").setValue(doctorName_ar);
-                                databaseReference.child("doctor").child(doctorUsername).child("personal_info").child("name_en").setValue(doctorName_en);
-                                databaseReference.child("doctor").child(doctorUsername).child("personal_info").child("Gender").setValue(strGender);
-                                databaseReference.child("doctor").child(doctorUsername).child("personal_info").child("date").setValue(doctorDate);
-                                databaseReference.child("doctor").child(doctorUsername).child("username").setValue(doctorUsername);
-                                databaseReference.child("doctor").child(doctorUsername).child("personal_info").child("username").setValue(doctorUsername);
+                                databaseReference.child("doctor").child(DoctorUsername).child("personal_info").child("name_ar").setValue(DoctorName_ar);
+                                databaseReference.child("doctor").child(DoctorUsername).child("personal_info").child("name_en").setValue(DoctorName_en);
+                                databaseReference.child("doctor").child(DoctorUsername).child("personal_info").child("Gender").setValue(strGender);
+                                databaseReference.child("doctor").child(DoctorUsername).child("personal_info").child("date").setValue(DoctorDate);
+                                databaseReference.child("doctor").child(DoctorUsername).child("username").setValue(DoctorUsername);
+                                databaseReference.child("doctor").child(DoctorUsername).child("personal_info").child("username").setValue(DoctorUsername);
+                                databaseReference.child("doctor").child(DoctorUsername).child("Token").child("Doctor_Token").setValue(DoctorToken);
                                 Toast.makeText(Sing_Up_1_D.this, "User have registered successfully ", Toast.LENGTH_SHORT).show();
                                 Intent intent2 = new Intent(Sing_Up_1_D.this, Sing_Up_2_D.class);
-                                intent2.putExtra("username", doctorUsername);
+                                intent2.putExtra("username", DoctorUsername);
                                 startActivity(intent2);
                                 finish();
                             }

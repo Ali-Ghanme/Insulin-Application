@@ -20,7 +20,7 @@ import com.google.firebase.messaging.RemoteMessage;
 
 public class FirebaseMessagingService extends com.google.firebase.messaging.FirebaseMessagingService {
 
-     NotificationManager mNotificationManager;
+    NotificationManager mNotificationManager;
 
 
     @Override
@@ -65,8 +65,7 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
         mNotificationManager =
                 (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-        {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             String channelId = "Your_channel_id";
             NotificationChannel channel = new NotificationChannel(
                     channelId,

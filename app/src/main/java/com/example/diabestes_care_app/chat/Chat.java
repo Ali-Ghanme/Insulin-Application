@@ -101,17 +101,14 @@ public class Chat extends Basic_Activity {
                         chatKey = String.valueOf(snapshot.child("chat").getChildrenCount());
                     }
                 }
-
                 if (snapshot.hasChild("chat")) {
-
                     if (snapshot.child("chat").child(chatKey).hasChild("messages")) {
+
                         chatListModels.clear();
-
                         for (DataSnapshot messagesSnapshot : snapshot.child("chat").child(chatKey).child("messages").getChildren()) {
-
                             if (messagesSnapshot.hasChild("msg") && messagesSnapshot.hasChild("username")) {
-
                                 String messageTimestamps = messagesSnapshot.getKey();
+
                                 final String getUsername = messagesSnapshot.child("username").getValue(String.class);
                                 final String getMsg = messagesSnapshot.child("msg").getValue(String.class);
 
@@ -122,7 +119,6 @@ public class Chat extends Basic_Activity {
 
                                 ChatList_Model chatListModel = new ChatList_Model(getUsername, getName, getMsg, date22, timeee);
                                 chatListModels.add(chatListModel);
-
                                 String datda = MemoryData.getLastMsgTS(Chat.this, chatKey);
                                 if (datda.isEmpty()) {
                                     datda = "0";
@@ -145,6 +141,7 @@ public class Chat extends Basic_Activity {
                     }
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 

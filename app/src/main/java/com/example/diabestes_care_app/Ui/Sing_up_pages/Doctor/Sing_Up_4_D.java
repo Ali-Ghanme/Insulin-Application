@@ -46,16 +46,13 @@ public class Sing_Up_4_D extends Basic_Activity {
 
         //============================Spinner Function==============================================
 
-
         auto_City.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(
                         Sing_Up_4_D.this, R.style.BottomSheetDialogTheme);
-                View bottomSheetView = LayoutInflater.from(getApplicationContext())
-                        .inflate(
-                                R.layout.layout_bottom_sheet, (LinearLayout) findViewById(R.id.bottomSheetContier)
-                        );
+                View bottomSheetView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.layout_bottom_sheet, findViewById(R.id.bottomSheetContier));
+
                 listView = bottomSheetView.findViewById(R.id.City_bottom_listView);
 
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(Sing_Up_4_D.this, R.layout.activity_listview, city);
@@ -144,7 +141,7 @@ public class Sing_Up_4_D extends Basic_Activity {
                         Sing_Up_4_D.this, R.style.BottomSheetDialogTheme);
                 View bottomSheetView = LayoutInflater.from(getApplicationContext())
                         .inflate(
-                                R.layout.layout_bottom_sheet, (LinearLayout) findViewById(R.id.bottomSheetContier)
+                                R.layout.layout_bottom_sheet, findViewById(R.id.bottomSheetContier)
                         );
                 listView = bottomSheetView.findViewById(R.id.City_bottom_listView);
 

@@ -22,8 +22,11 @@ import com.example.diabestes_care_app.Models.DoctorList_Model;
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Doctor_all.Patient_Profile_D;
 import com.example.diabestes_care_app.Ui.Patient_all.Doctor_Profile_P;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -53,14 +56,17 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
 
         DoctorList_Model list2 = mDataFiltered.get(position);
 
-
+//
 //        DatabaseReference online_status_all_users = FirebaseDatabase.getInstance().getReference().child("online_statuses");
-//        online_status_all_users.child("online_statuses").addValueEventListener(new ValueEventListener() {
+//        online_status_all_users.child(list2.getUsername()).addValueEventListener(new ValueEventListener() {
 //            @Override
 //            public void onDataChange(DataSnapshot dataSnapshot) {
 //                String snooping_status = dataSnapshot.getValue(String.class);
 //                //mario should decide what to do with linker's snooping status here e.g.
 //                 if(snooping_status.contentEquals("online")){
+//
+//                     Toast.makeText(context, "list2 "+list2.getUsername(), Toast.LENGTH_SHORT).show();
+//
 //                     holder.img_off.setVisibility(View.GONE);
 //                     holder.img_on.setVisibility(View.VISIBLE);
 //                     //tell linker to stop doing sh*t

@@ -48,7 +48,7 @@
         android:id="@+id/FCH_Chat_RecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/FCH_header_p"
-        android:layout_alignParentRight="true" />
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/FCH_header_p" />
 
 </RelativeLayout>

@@ -54,12 +54,17 @@ public class Splash_Screen_1 extends Basic_Activity {
 
         //=================================fill list screen=========================================
         final List<Splash_Screen_Modal> mList = new ArrayList<>();
-        mList.add(new Splash_Screen_Modal(" أنسولين", "هو تطبيق للرعاية ومتابعة" + " مرضى السكري", R.drawable.ic_splash_1));
-        mList.add(new Splash_Screen_Modal("نخبة من الاطباء", "يمكنك استشارة نخبة من الأطباء\n" + " المختصين بمرض السكري", R.drawable.ic_splash_2));
-        mList.add(new Splash_Screen_Modal("نظم جرعاتك", "يمكنك وضع منبه للتذكير بجرعات\n" + " العلاج", R.drawable.ic_splash_4));
-        mList.add(new Splash_Screen_Modal("عناية ذاتية", "قسم كامل للتعليمات والانظمة الصحية \n" + " الخاصة بمرضى السكري\n", R.drawable.ic_splash_4));
-        mList.add(new Splash_Screen_Modal("تقارير", "متابعة حالة المريض وتسجيل تقارير ورسوم بيانية", R.drawable.ic_report));
-        mList.add(new Splash_Screen_Modal("تقارير", "التذكير بالفحوصات الدورية لمريض السكري", R.drawable.ic_splash_instraction));
+        mList.add(new Splash_Screen_Modal(" أنسولين", "هو تطبيق للرعاية ومتابعة" + " مرضى السكري",  R.drawable.ic_splash_1));
+        mList.add(new Splash_Screen_Modal("نخبة من الاطباء", "يمكنك استشارة نخبة من الأطباء\n" + " المختصين بمرض السكري",   R.drawable.ic_splash_2));
+        mList.add(new Splash_Screen_Modal("المحادثات الخاصة    ","التواصل المستمر ومتابعة\n" +
+                " حالة المرض مع الأطباء المختصين " ,  R.drawable.ic_splash_chat));
+        mList.add(new Splash_Screen_Modal("قسم صحى "," استشارات عامة , تفعيل التنبيهات  \n" +
+                " ومتابعة التقارير ( الأسبوع , الشهري )\n"
+                ,  R.drawable.ic_spalsh_report));
+        mList.add(new Splash_Screen_Modal("نظم جرعاتك", "يمكنك وضع منبه للتذكير بجرعات\n" + " العلاج",  R.drawable.ic_splash_4));
+        mList.add(new Splash_Screen_Modal("تقارير","" + "التذكير بالفحوصات الدورية لمريض السكري" ,  R.drawable.ic_report));
+        mList.add(new Splash_Screen_Modal("عناية ذاتية", "قسم كامل للتعليمات والانظمة الصحية \n" + " الخاصة بمرضى السكري\n"  ,  R.drawable.ic_splash_instraction));
+        mList.add(new Splash_Screen_Modal("تقارير","" + "متابعة حالة المريض وتسجيل تقارير ورسوم بيانية" , R.drawable.ic_report));
         //=============================== setup viewpager===========================================
         viewAdapterSplashScreen = new ViewAdapter_Splash_Screen(this, mList);
         viewPager.setAdapter(viewAdapterSplashScreen);

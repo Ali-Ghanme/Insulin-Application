@@ -35,7 +35,7 @@
             android:background="@drawable/btnext"
             android:backgroundTint="@color/Patient_Color"
             android:fontFamily="@font/cairo_bold"
-            android:text=" فحص السكر العشوائي   "
+            android:text=" فحص السكر العشوائي "
             android:textColor="@color/white"
             android:textSize="@dimen/_9sdp" />
     </LinearLayout>
@@ -52,13 +52,13 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/bg_edit_text"
             android:backgroundTint="@color/white"
-            android:elevation="@dimen/_4sdp"
-            android:padding="@dimen/_15sdp"
+            android:elevation="@dimen/_2sdp"
+            android:padding="@dimen/_10sdp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
 
@@ -67,7 +67,7 @@
             <EditText
                 android:id="@+id/et_number_suger"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="43dp"
                 android:layout_below="@+id/tv_text"
                 android:background="@drawable/bg_edit_text"
                 android:drawableLeft="@drawable/ic_add"
@@ -99,22 +99,22 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_15sdp"
             android:background="@drawable/bg_edit_text"
             android:backgroundTint="@color/white"
-            android:elevation="@dimen/_4sdp"
-            android:padding="@dimen/_15sdp"
+            android:elevation="@dimen/_2sdp"
+            android:padding="@dimen/_10sdp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
 
             app:layout_constraintTop_toBottomOf="@+id/help">
 
             <EditText
-                android:id="@+id/btn_sheet"
+                android:id="@+id/btn_sheet_time_day_suger"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="43dp"
                 android:layout_below="@+id/tv_clock"
                 android:layout_centerHorizontal="true"
                 android:background="@drawable/bg_edit_text"
@@ -144,13 +144,13 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_15sdp"
             android:background="@drawable/bg_edit_text"
             android:backgroundTint="@color/white"
-            android:elevation="@dimen/_4sdp"
-            android:padding="@dimen/_15sdp"
+            android:elevation="@dimen/_2sdp"
+            android:padding="@dimen/_10sdp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/help">
@@ -165,7 +165,7 @@
                 android:textSize="@dimen/_10sdp" />
 
             <TextView
-                android:id="@+id/date"
+                android:id="@+id/tv_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_period"
@@ -185,7 +185,20 @@
 
 
         </RelativeLayout>
-
+        <Button
+            android:id="@+id/btn_checked_save_suger"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginEnd="@dimen/_50sdp"
+            android:layout_marginStart="@dimen/_50sdp"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:background="@drawable/btnext"
+            android:backgroundTint="@color/Doctor_Color"
+            android:fontFamily="@font/cairo_bold"
+            android:text=" فحص و حفظ "
+            android:elevation="@dimen/_2sdp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_9sdp" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -199,19 +212,19 @@
             android:fontFamily="@font/cairo_bold"
             android:text="@string/information_sugar" />
 
-    </LinearLayout>
+  </LinearLayout>
 
     <LinearLayout
         android:id="@+id/liner_show_tow"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:visibility="gone">
 
         <RelativeLayout
             android:id="@+id/Subject"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginBottom="@dimen/_25sdp"
             android:layout_marginLeft="@dimen/_10sdp"
             android:layout_marginRight="@dimen/_10sdp"
@@ -229,11 +242,10 @@
                 android:layout_below="@id/examine_show"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:autofillHints="emailAddress"
                 android:background="@drawable/bg_edit_text"
                 android:drawablePadding="@dimen/_13sdp"
                 android:editable="false"
-                android:elevation="@dimen/_1sdp"
+                android:elevation="@dimen/_5sdp"
                 android:fontFamily="@font/cairo_bold"
                 android:hint="فحص وظائف الكلية "
                 android:maxLines="1"
@@ -243,8 +255,7 @@
                 android:textColor="@color/Patient_Color"
                 android:textColorHint="#78909C"
                 android:textSize="12sp"
-                android:textStyle="bold"
-                tools:ignore="TouchTargetSizeCheck" />
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/examine_fats"
@@ -253,11 +264,11 @@
                 android:layout_below="@id/examine_college"
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_13sdp"
+                android:layout_marginTop="@dimen/_16sdp"
                 android:background="@drawable/bg_edit_text"
                 android:drawableTint="@color/Patient_Color"
                 android:editable="false"
-                android:elevation="@dimen/_1sdp"
+                android:elevation="@dimen/_5sdp"
                 android:fontFamily="@font/cairo_bold"
                 android:hint="فحص الدهون"
                 android:maxLines="1"
@@ -277,13 +288,36 @@
                 android:layout_below="@id/examine_fats"
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_13sdp"
+                android:layout_marginTop="@dimen/_16sdp"
                 android:background="@drawable/bg_edit_text"
                 android:drawableTint="@color/Patient_Color"
                 android:editable="false"
-                android:elevation="@dimen/_1sdp"
+                android:elevation="@dimen/_5sdp"
                 android:fontFamily="@font/cairo_bold"
                 android:hint="  فحص ضغط الدم"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/_20sdp"
+                android:paddingRight="@dimen/_10sdp"
+                android:textAlignment="textStart"
+                android:textColor="@color/Patient_Color"
+                android:textColorHint="#78909C"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/examine_bmi"
+                android:layout_width="@dimen/_230sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_below="@id/examine_blood"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:background="@drawable/bg_edit_text"
+                android:drawableTint="@color/Patient_Color"
+                android:editable="false"
+                android:elevation="@dimen/_5sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:hint="حساب مؤشر كتلة الجسم "
                 android:maxLines="1"
                 android:paddingLeft="@dimen/_20sdp"
                 android:paddingRight="@dimen/_10sdp"
@@ -297,14 +331,14 @@
                 android:id="@+id/examine_show"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_20sdp"
                 android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_17sdp"
                 android:fontFamily="@font/cairo_bold"
                 android:layoutDirection="rtl"
                 android:text="فحوصات دورية "
                 android:textAlignment="textStart"
                 android:textColor="@color/Patient_Color"
-                android:textSize="16sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
 

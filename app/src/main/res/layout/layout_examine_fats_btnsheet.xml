@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottomSheetContier"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:background="#1BA1A1A1"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/_15sdp">
+
+        <Button
+            android:id="@+id/checked_save_cholesterol"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:background="@drawable/btnext"
+            android:backgroundTint="@color/Patient_Color"
+            android:fontFamily="@font/cairo_bold"
+            android:text="  فحص و حفظ  "
+            android:textColor="@color/white"
+            android:textSize="@dimen/_9sdp" />
+
+        <TextView
+            android:id="@+id/tv_title_college"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/cairo_bold"
+            android:paddingBottom="@dimen/_4sdp"
+            android:text="فحص الدهون "
+            android:textAlignment="center"
+            android:textSize="@dimen/_15sdp" />
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/bg_edit_text"
+        android:backgroundTint="@color/white"
+        android:elevation="@dimen/_2sdp"
+        android:padding="@dimen/_15sdp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help">
+
+
+        <EditText
+            android:id="@+id/et_cholesterol"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_below="@+id/tv_cholesterol"
+            android:background="@drawable/bg_edit_text"
+            android:drawableLeft="@drawable/ic_add"
+            android:drawablePadding="@dimen/_5sdp"
+            android:drawableTint="@color/gray"
+            android:elevation="@dimen/_1sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:hint=" قم بإدخال نسبة الكوليستيرول "
+            android:inputType="number"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
+            android:textColor="@color/Doctor_Color"
+            android:textColorHint="#78909C"
+            android:textSize="13sp"
+            tools:ignore="TextFields" />
+
+        <TextView
+            android:id="@+id/tv_cholesterol"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/cairo_bold"
+            android:paddingBottom="@dimen/_4sdp"
+            android:text="Total cholesterol الكوليستيرول  "
+            android:textDirection="rtl"
+            android:textSize="@dimen/_10sdp" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:background="@drawable/bg_edit_text"
+        android:backgroundTint="@color/white"
+        android:elevation="@dimen/_2sdp"
+        android:padding="@dimen/_15sdp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help">
+
+        <EditText
+            android:id="@+id/et_triglycerid"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_below="@+id/tv_triglycerid"
+            android:background="@drawable/bg_edit_text"
+            android:drawableLeft="@drawable/ic_add"
+            android:drawablePadding="@dimen/_5sdp"
+            android:drawableTint="@color/gray"
+            android:elevation="@dimen/_1sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:hint="قم بإدخال نسبة الدهون  "
+            android:inputType="number"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
+            android:textColor="@color/Doctor_Color"
+            android:textColorHint="#78909C"
+            android:textSize="13sp"
+            tools:ignore="TextFields" />
+
+        <TextView
+            android:id="@+id/tv_triglycerid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/cairo_bold"
+            android:paddingBottom="@dimen/_4sdp"
+            android:text="	Triglycerid الدهون الثلاثية "
+            android:textDirection="rtl"
+            android:textSize="@dimen/_10sdp" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:background="@drawable/bg_edit_text"
+        android:backgroundTint="@color/white"
+        android:elevation="@dimen/_2sdp"
+        android:padding="@dimen/_15sdp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help">
+
+        <EditText
+            android:id="@+id/et_ldl"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_below="@+id/tv_ldl"
+            android:background="@drawable/bg_edit_text"
+            android:drawableLeft="@drawable/ic_add"
+            android:drawablePadding="@dimen/_5sdp"
+            android:drawableTint="@color/gray"
+            android:elevation="@dimen/_1sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:hint="قم بإدخال نسبة الكوليستيرول الضار  	"
+            android:inputType="number"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
+            android:textColor="@color/Doctor_Color"
+            android:textColorHint="#78909C"
+            android:textSize="13sp"
+            tools:ignore="TextFields" />
+
+        <TextView
+            android:id="@+id/tv_ldl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/cairo_bold"
+            android:paddingBottom="@dimen/_4sdp"
+            android:text=" 	LDL الكوليستيرول الضار "
+            android:textDirection="rtl"
+            android:textSize="@dimen/_10sdp" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:background="@drawable/bg_edit_text"
+        android:backgroundTint="@color/white"
+        android:elevation="@dimen/_2sdp"
+        android:padding="@dimen/_15sdp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help">
+
+        <EditText
+            android:id="@+id/et_hdl"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_below="@+id/tv_hdl"
+            android:background="@drawable/bg_edit_text"
+            android:drawableLeft="@drawable/ic_add"
+            android:drawablePadding="@dimen/_5sdp"
+            android:drawableTint="@color/gray"
+            android:elevation="@dimen/_1sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:hint="قم بإدخال نسبة الكوليستيرول النافع   	"
+            android:inputType="number"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
+            android:textColor="@color/Doctor_Color"
+            android:textColorHint="#78909C"
+            android:textSize="13sp"
+            tools:ignore="TextFields" />
+
+        <TextView
+            android:id="@+id/tv_hdl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/cairo_bold"
+            android:paddingBottom="@dimen/_4sdp"
+            android:text=" 	HDLالكوليستيرول النافع "
+            android:textDirection="rtl"
+            android:textSize="@dimen/_10sdp" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:elevation="@dimen/_2sdp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help">
+
+        <TextView
+            android:id="@+id/tv_information"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/cairo_bold"
+            android:padding="@dimen/_15sdp"
+            android:text="@string/indormation_fats"
+            android:textDirection="rtl"
+            android:textSize="@dimen/_10sdp" />
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

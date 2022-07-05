@@ -5,12 +5,14 @@ public class DoctorList_Model {
     String username;
     String imageUrl;
     String token;
+    String requestKey;
 
-    public DoctorList_Model(String name, String username, String imageUrl, String token) {
+    public DoctorList_Model(String name, String username, String imageUrl, String token, String requestKey) {
         this.name = name;
         this.username = username;
         this.imageUrl = imageUrl;
         this.token = token;
+        this.requestKey = requestKey;
     }
 
 
@@ -47,6 +49,14 @@ public class DoctorList_Model {
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public String getRequestKey() {
+        return requestKey;
+    }
+
+    public void setRequestKey(String requestKey) {
+        this.requestKey = requestKey;
     }
 
 }

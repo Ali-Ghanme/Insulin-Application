@@ -92,13 +92,15 @@
 
         <ImageView
             android:id="@+id/btn_next_notification"
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_30sdp"
-            android:contentDescription="@string/todo"
-            android:src="@drawable/ic_arrwa" />
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@drawable/round_back_light"
+            android:paddingLeft="@dimen/_12sdp"
+            android:paddingRight="@dimen/_5sdp"
+            android:src="@drawable/ic_arrow_back_p" />
     </RelativeLayout>
 
     <RelativeLayout

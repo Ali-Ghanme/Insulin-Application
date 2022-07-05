@@ -18,11 +18,8 @@ import com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P.Care_Fragmen
 import com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P.Chat_Fragment;
 import com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P.Home_Fragment;
 import com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P.Profile_Fragment;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import nl.joery.animatedbottombar.AnimatedBottomBar;
 
@@ -90,35 +87,6 @@ public class Home_Patient extends Basic_Activity {
             @Override
             public void onTabReselected(int i, @NonNull AnimatedBottomBar.Tab tab) {
                 Toast.makeText(Home_Patient.this, " أنت بلفعل في واجهة " + tab.getTitle(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        //============================Get User Status ==============================================
-        //say your realtime database has the child `online_statuses`
-        DatabaseReference online_status_all_users = FirebaseDatabase.getInstance().getReference().child("online_statuses");
-
-        //on each user's device when connected they should indicate e.g. `linker` should tell everyone he's snooping around
-        online_status_all_users.child(PatientUsername).setValue("online");
-
-        //also when he's not doing any snooping or if snooping goes bad he should also tell
-        online_status_all_users.child(PatientUsername).onDisconnect().setValue("offline");
-
-        online_status_all_users.child(PatientUsername).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String snooping_status = dataSnapshot.getValue(String.class);
-                //mario should decide what to do with linker's snooping status here e.g.
-                if (snooping_status.contentEquals("online")) {
-                    //tell linker to stop doing sh*t
-                    Toast.makeText(Home_Patient.this, snooping_status, Toast.LENGTH_SHORT).show();
-                    Log.e("TAG", snooping_status);
-                } else {
-                    //tell linker to do a lot of sh****t
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
             }
         });
     }

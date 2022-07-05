@@ -179,7 +179,6 @@
             android:textSize="15sp"
             tools:ignore="TouchTargetSizeCheck" />
 
-
     </LinearLayout>
 
     <Button

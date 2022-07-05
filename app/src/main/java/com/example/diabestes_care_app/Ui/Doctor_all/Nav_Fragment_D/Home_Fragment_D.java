@@ -146,7 +146,6 @@ public class Home_Fragment_D extends Fragment {
                         doctorListModel.setImageUrl(snapshot.child("User_Profile_Image").child("Image").child("mImageUrI").getValue().toString());
                         list.add(doctorListModel);
                         progressDialog.dismiss();
-
                     }
 
                 } catch (Exception e) {

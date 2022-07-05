@@ -33,11 +33,9 @@
             android:layout_marginLeft="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_15sdp"
             android:background="@drawable/round_back_light"
-            android:contentDescription="@string/todo"
-            android:layoutDirection="ltr"
             android:paddingLeft="@dimen/_12sdp"
             android:paddingRight="@dimen/_5sdp"
-            android:src="@drawable/ic_arrow_back" />
+            android:src="@drawable/ic_arrow_back_d" />
 
         <TextView
             android:id="@+id/DPP_tv_title"

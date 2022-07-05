@@ -22,8 +22,11 @@ import com.example.diabestes_care_app.Models.DoctorList_Model;
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Doctor_all.Patient_Profile_D;
 import com.example.diabestes_care_app.Ui.Patient_all.Doctor_Profile_P;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -42,7 +45,7 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.doctors_list, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.patient_list, parent, false);
         return new MyViewHolder(view);
     }
 
@@ -53,30 +56,61 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
 
         DoctorList_Model list2 = mDataFiltered.get(position);
 
+        DatabaseReference online_status_all_users = FirebaseDatabase.getInstance().getReference().child("online_statuses").child(list2.getUsername());
 
+        online_status_all_users.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String snooping_status = dataSnapshot.getValue(String.class);
+                //mario should decide what to do with linkers snooping status here e.g.
+                if(snooping_status.contentEquals("online")){
+                    holder.img_off.setVisibility(View.GONE);
+                    holder.img_on.setVisibility(View.VISIBLE);
+                    //tell linker to stop doing sh*t
+                }else{
+                    //tell linker to do a lot of sh****t
+                    holder.img_off.setVisibility(View.VISIBLE);
+                    holder.img_on.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+//        //============================Get User Status ==============================================
+//        //say your realtime database has the child `online_statuses`
 //        DatabaseReference online_status_all_users = FirebaseDatabase.getInstance().getReference().child("online_statuses");
-//        online_status_all_users.child("online_statuses").addValueEventListener(new ValueEventListener() {
+//
+//        //on each user's device when connected they should indicate e.g. `linker` should tell everyone he's snooping around
+//        online_status_all_users.child(list2.getUsername()).setValue("online");
+//
+//        //also when he's not doing any snooping or if snooping goes bad he should also tell
+//        online_status_all_users.child(list2.getUsername()).onDisconnect().setValue("offline");
+//
+//        online_status_all_users.child(list2.getUsername()).addValueEventListener(new ValueEventListener() {
 //            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 //                String snooping_status = dataSnapshot.getValue(String.class);
 //                //mario should decide what to do with linker's snooping status here e.g.
-//                 if(snooping_status.contentEquals("online")){
-//                     holder.img_off.setVisibility(View.GONE);
-//                     holder.img_on.setVisibility(View.VISIBLE);
-//                     //tell linker to stop doing sh*t
-//               }else{
-//                   //tell linker to do a lot of sh****t
-//                     holder.img_off.setVisibility(View.GONE);
-//                    holder.img_on.setVisibility(View.GONE);
+//                if (snooping_status.contentEquals("online")) {
+//                    //tell linker to stop doing sh*t
+//                    Toast.makeText(context, snooping_status, Toast.LENGTH_SHORT).show();
+//                    Log.e("TAG", snooping_status);
+//                } else {
+//                    //tell linker to do a lot of sh****t
+//                    Toast.makeText(context, "All Doctors Offline", Toast.LENGTH_SHORT).show();
+//                    Log.e("TAG", snooping_status);
 //                }
 //            }
 //
 //            @Override
 //            public void onCancelled(DatabaseError databaseError) {
-//
 //            }
 //        });
-
         holder.container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -149,12 +183,12 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            name = itemView.findViewById(R.id.Dl_doctor_name);
-            username = itemView.findViewById(R.id.Dl_doctor_username);
-            imageView = itemView.findViewById(R.id.Dl_Doctor_image);
-            container = itemView.findViewById(R.id.Dl_container);
-            img_off = itemView.findViewById(R.id.img_off);
-            img_on = itemView.findViewById(R.id.img_on);
+            name = itemView.findViewById(R.id.Pl_doctor_name);
+            username = itemView.findViewById(R.id.Pl_doctor_username);
+            imageView = itemView.findViewById(R.id.Pl_Doctor_image);
+            container = itemView.findViewById(R.id.Pl_container);
+            img_off = itemView.findViewById(R.id.Pl_img_off);
+            img_on = itemView.findViewById(R.id.Pl_img_on);
             itemView.setOnClickListener(this);
         }
 

@@ -83,10 +83,6 @@ public class Home_Fragment extends Fragment {
         progressDialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         progressDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         progressDialog.show();
-        if (list == null){
-            progressDialog.dismiss();
-        }
-
 
         //============================Configure Recyclerview========================================
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());

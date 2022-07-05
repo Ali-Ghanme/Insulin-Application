@@ -162,6 +162,7 @@ public class Chat_Fragment extends Fragment {
 
                                 }
                             }
+
                             @Override
                             public void onCancelled(@NonNull DatabaseError error) {
                             }
@@ -171,6 +172,7 @@ public class Chat_Fragment extends Fragment {
                     Toast.makeText(getContext(), "waite second catch error", Toast.LENGTH_SHORT).show();
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Log.e("TAG", error.getMessage());

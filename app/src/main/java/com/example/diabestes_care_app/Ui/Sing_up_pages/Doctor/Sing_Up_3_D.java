@@ -25,13 +25,12 @@ public class Sing_Up_3_D extends Basic_Activity {
 
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://diabeticsproject-default-rtdb.firebaseio.com/");
     Button Button_Next;
-    EditText auto_UnName, auto_certificate, auto_Grad_Country;
-    EditText mDate;
+    EditText UnName, Certificate, Grad_Country, mDate;
     final Calendar myCalendar = Calendar.getInstance();
     String[] university = {" اخرى ", "  الازهر", " فلسطين ", "الاسلامية", "الإسراء"};
     String[] city = {"الضفة الغربية ", "جنين  ", "نابلس  ", "قطاع غزة"};
     String[] certificate = {" دكتورا ", "ماجستير  ", "بكالوريس  ", " دبلوم"};
-    String UnameS;
+    String DoctorMData, DoctorUname, DoctorCertificate, DoctorGradeCountry;
     ListView listView;
 
 
@@ -42,17 +41,17 @@ public class Sing_Up_3_D extends Basic_Activity {
         setContentView(R.layout.activity_sign_up_3_d);
         //====================================Define variables===============================
         Button_Next = findViewById(R.id.Sp3_bt321_next_D);
-        auto_UnName = findViewById(R.id.Sp3_UnName_D);
-        auto_certificate = findViewById(R.id.Sp3_certificate_D);
-        auto_Grad_Country = findViewById(R.id.Sp3_Grad_Country_D);
+        UnName = findViewById(R.id.Sp3_UnName_D);
+        Certificate = findViewById(R.id.Sp3_certificate_D);
+        Grad_Country = findViewById(R.id.Sp3_Grad_Country_D);
         mDate = findViewById(R.id.Sp3_et_year_Grade_D);
 
         Intent intentUsername = getIntent();
-        String patient_userName = intentUsername.getStringExtra("username2");
+        String doctor_userName = intentUsername.getStringExtra("username2");
         //====================================Spinner===============================
 
 
-        auto_UnName.setOnClickListener(new View.OnClickListener() {
+        UnName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(
@@ -68,8 +67,8 @@ public class Sing_Up_3_D extends Basic_Activity {
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
-                        UnameS = listView.getAdapter().getItem(position).toString();
-                        auto_UnName.setText(UnameS);
+                        String UnameS = listView.getAdapter().getItem(position).toString();
+                        UnName.setText(UnameS);
                         bottomSheetDialog.dismiss();
                     }
                 });
@@ -83,7 +82,7 @@ public class Sing_Up_3_D extends Basic_Activity {
 
         //====================================Spinner===============================
 
-        auto_UnName.setOnClickListener(new View.OnClickListener() {
+        Certificate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(
@@ -94,13 +93,13 @@ public class Sing_Up_3_D extends Basic_Activity {
                         );
                 listView = bottomSheetView.findViewById(R.id.City_bottom_listView);
 
-                ArrayAdapter<String> adapter = new ArrayAdapter<>(Sing_Up_3_D.this, R.layout.activity_listview, university);
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(Sing_Up_3_D.this, R.layout.activity_listview, city);
                 listView.setAdapter(adapter);
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
                         String UCertificate = listView.getAdapter().getItem(position).toString();
-                        auto_certificate.setText(UCertificate);
+                        Certificate.setText(UCertificate);
                         bottomSheetDialog.dismiss();
                     }
                 });
@@ -113,7 +112,7 @@ public class Sing_Up_3_D extends Basic_Activity {
 
         //====================================Spinner===============================
 
-        auto_UnName.setOnClickListener(new View.OnClickListener() {
+        Grad_Country.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(
@@ -124,13 +123,13 @@ public class Sing_Up_3_D extends Basic_Activity {
                         );
                 listView = bottomSheetView.findViewById(R.id.City_bottom_listView);
 
-                ArrayAdapter<String> adapter = new ArrayAdapter<>(Sing_Up_3_D.this, R.layout.activity_listview, university);
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(Sing_Up_3_D.this, R.layout.activity_listview, certificate);
                 listView.setAdapter(adapter);
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
-                        String Grade_Country = listView.getAdapter().getItem(position).toString();
-                        auto_Grad_Country.setText(Grade_Country);
+                        String UGrade_Country = listView.getAdapter().getItem(position).toString();
+                        Grad_Country.setText(UGrade_Country);
                         bottomSheetDialog.dismiss();
                     }
                 });
@@ -144,16 +143,16 @@ public class Sing_Up_3_D extends Basic_Activity {
         Button_Next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String DoctorUname = auto_certificate.getText().toString();
-                String DoctorCertificate = auto_certificate.getText().toString();
-                String DoctorGradeCountry = auto_Grad_Country.getText().toString();
+                DoctorUname = UnName.getText().toString();
+                DoctorCertificate = Certificate.getText().toString();
+                DoctorGradeCountry = Grad_Country.getText().toString();
 
 
-                databaseReference.child("doctor").child(patient_userName).child("doctor_info").child("اسم الجامعة").setValue(DoctorUname);
-                databaseReference.child("doctor").child(patient_userName).child("doctor_info").child("بلد التخرج").setValue(DoctorCertificate);
-                databaseReference.child("doctor").child(patient_userName).child("doctor_info").child("الشهادة الجامعية").setValue(DoctorGradeCountry);
+                databaseReference.child("doctor").child(doctor_userName).child("doctor_info").child("اسم الجامعة").setValue(DoctorUname);
+                databaseReference.child("doctor").child(doctor_userName).child("doctor_info").child("بلد التخرج").setValue(DoctorCertificate);
+                databaseReference.child("doctor").child(doctor_userName).child("doctor_info").child("الشهادة الجامعية").setValue(DoctorGradeCountry);
                 Intent intent3 = new Intent(Sing_Up_3_D.this, Sing_Up_4_D.class);
-                intent3.putExtra("username3", patient_userName);
+                intent3.putExtra("username3", doctor_userName);
                 startActivity(intent3);
                 finish();
             }
@@ -166,12 +165,13 @@ public class Sing_Up_3_D extends Basic_Activity {
                 updateLabel(mDate, myCalendar, "dd/MM/yyyy");
             }
         };
+
         mDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 new DatePickerDialog(Sing_Up_3_D.this, date, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show();
-                String DoctorMData = mDate.getText().toString();
-                databaseReference.child("doctor").child(patient_userName).child("doctor_info").child("تاريخ التخرج").setValue(DoctorMData);
+                DoctorMData = mDate.getText().toString();
+                databaseReference.child("doctor").child(doctor_userName).child("doctor_info").child("تاريخ التخرج").setValue(DoctorMData);
             }
         });
     }

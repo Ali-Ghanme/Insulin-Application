@@ -1,9 +1,11 @@
 package com.example.diabestes_care_app.chat;
 
-
 import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.view.View;
@@ -13,6 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -36,6 +40,7 @@ import java.util.Locale;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Chat extends Basic_Activity {
+
     ImageView backButton, SendButton;
     CircleImageView profile_image;
     TextView name;
@@ -49,11 +54,10 @@ public class Chat extends Basic_Activity {
     private Patient_Chat_Adapter chatAdapter;
     private boolean loadingFirstTime = true;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         fullscreen();
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
         //============================Defines=======================================================
@@ -67,14 +71,13 @@ public class Chat extends Basic_Activity {
         //============================Defines SharedPreferences=====================================
         SharedPreferences prefs = Chat.this.getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         restoredText = prefs.getString("TAG_NAME", null);
-
-        //
         Toast.makeText(this, restoredText, Toast.LENGTH_SHORT).show();
-        //============================Defines SharedPreferences=====================================
+
+        //============================Defines Recyclerview Configuration============================
         ChatRecyclerView.setHasFixedSize(true);
         ChatRecyclerView.setLayoutManager(new LinearLayoutManager(Chat.this));
 
-        //============================Defines SharedPreferences=====================================
+        //============================Defines Adapter Configuration=================================
         chatAdapter = new Patient_Chat_Adapter(chatListModels, Chat.this);
         ChatRecyclerView.setAdapter(chatAdapter);
 
@@ -82,11 +85,11 @@ public class Chat extends Basic_Activity {
         String getName = getIntent().getStringExtra("name");
         String getProfilePic = getIntent().getStringExtra("profile_pic");
         String getUsername = getIntent().getStringExtra("username");
-
+        chatKey = getIntent().getStringExtra("chat_key");
         // getUsername is the patient username the account that i loge in by it
         Toast.makeText(this, getUsername, Toast.LENGTH_SHORT).show();
 
-        chatKey = getIntent().getStringExtra("chat_key");
+
 
         name.setText(getName);
         Glide.with(this).load(getProfilePic).into(profile_image);
@@ -159,6 +162,7 @@ public class Chat extends Basic_Activity {
                 myRef.child("chat").child(chatKey).child("doctor_2").setValue(getUsername);
                 myRef.child("chat").child(chatKey).child("messages").child(currentTimestamps).child("msg").setValue(geTextMessage);
                 myRef.child("chat").child(chatKey).child("messages").child(currentTimestamps).child("username").setValue(restoredText);
+                notification(geTextMessage);
                 chatEditText.clearAnimation();
                 chatEditText.getText().clear();
             }
@@ -170,5 +174,20 @@ public class Chat extends Basic_Activity {
                 finish();
             }
         });
+    }
+
+    private void notification(String message) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel("n", "n", NotificationManager.IMPORTANCE_HIGH);
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+        }
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "n")
+                .setContentTitle("Message From" + restoredText)
+                .setSmallIcon(R.drawable.ic_notification)
+                .setAutoCancel(true)
+                .setContentText(message);
+        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
+        notificationManagerCompat.notify(999, builder.build());
     }
 }

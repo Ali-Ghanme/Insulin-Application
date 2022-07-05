@@ -47,7 +47,6 @@ public class Doctor_Chat_Adapter extends RecyclerView.Adapter<Doctor_Chat_Adapte
             holder.myMsgLayout.setVisibility(View.GONE);
             holder.oppoLayout.setVisibility(View.VISIBLE);
 
-
             holder.oppoMessage.setText(list.getMessage());
             holder.oppoTime.setText(list.getDate() + "" + list.getTime());
 

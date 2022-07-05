@@ -30,7 +30,7 @@
             android:layoutDirection="ltr"
             android:paddingLeft="@dimen/_12sdp"
             android:paddingRight="@dimen/_5sdp"
-            android:src="@drawable/ic_arrow_back" />
+            android:src="@drawable/ic_arrow_back_d" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/chat_profile_pic"

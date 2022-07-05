@@ -38,9 +38,8 @@ public class Doctor_Profile_P extends Basic_Activity {
     // Dialog
     Dialog dialog;
     EditText et_title, et_subject;
-    String Consultation_title, Consultation_subject, getName, getProfilePic, getUsername, getToken, PatientUsername;
+    String Consultation_title, Consultation_subject, getName, getProfilePic, getUsername, getToken, getRequestKey, PatientUsername;
     DatabaseReference myReference;
-    String chatKey;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +73,8 @@ public class Doctor_Profile_P extends Basic_Activity {
         getProfilePic = getIntent().getStringExtra("Doctor_Pic_Profile");
         getUsername = getIntent().getStringExtra("Doctor_username");
         getToken = getIntent().getStringExtra("Doctor_token");
-//        chatKey = getIntent().getStringExtra("chat_key");
+        getRequestKey = getIntent().getStringExtra("request_key");
+
         //============================load data from message adapter class==========================
         DoctorName.setText(getName);
         Glide.with(this).load(getProfilePic).into(Doctor_Profile);
@@ -98,10 +98,10 @@ public class Doctor_Profile_P extends Basic_Activity {
 //            @Override
 //            public void onDataChange(@NonNull DataSnapshot snapshot) {
 //                // Generate chat key by default key is 1
-//                if (chatKey.isEmpty()) {
-//                    chatKey = "1";
+//                if (getRequestKey.isEmpty()) {
+//                    getRequestKey = "1";
 //                    if (snapshot.hasChild("MSG")) {
-//                        chatKey = String.valueOf(snapshot.child("MSG").getChildrenCount());
+//                        getRequestKey = String.valueOf(snapshot.child("MSG").getChildrenCount());
 //                    }
 //                }
 //            }
@@ -111,21 +111,23 @@ public class Doctor_Profile_P extends Basic_Activity {
 //
 //            }
 //        });
+
         //============================load data from message adapter class==========================
         oky.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Consultation_title = et_title.getText().toString();
                 Consultation_subject = et_subject.getText().toString();
                 if (!Consultation_title.isEmpty() && !Consultation_subject.isEmpty() && !getToken.isEmpty()) {
                     FcmNotificationsSender notificationsSender = new FcmNotificationsSender(getToken, Consultation_title, Consultation_subject, getApplicationContext(),
                             Doctor_Profile_P.this);
                     notificationsSender.SendNotifications();
+
                     myReference.child("MSG").child("from").setValue(PatientUsername);
                     myReference.child("MSG").child("Title").setValue(Consultation_title);
                     myReference.child("MSG").child("Subject").setValue(Consultation_subject);
                     myReference.child("MSG").child("to").setValue(getUsername);
+
                 } else {
                     Toast.makeText(Doctor_Profile_P.this, "Enter Token", Toast.LENGTH_SHORT).show();
                 }

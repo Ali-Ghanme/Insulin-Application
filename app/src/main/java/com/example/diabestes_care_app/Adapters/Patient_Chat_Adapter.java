@@ -70,6 +70,7 @@ public class Patient_Chat_Adapter extends RecyclerView.Adapter<Patient_Chat_Adap
         notifyDataSetChanged();
     }
 
+
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         private LinearLayout oppoLayout, myMsgLayout;
         private TextView oppoMessage, myMessage;

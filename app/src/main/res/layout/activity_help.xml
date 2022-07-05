@@ -31,6 +31,7 @@
         android:id="@+id/help_app"
         android:layout_width="@dimen/_280sdp"
         android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_10sdp"
@@ -44,17 +45,29 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginRight="20dp"
-            android:fontFamily="@font/cairo_regular"
+            android:fontFamily="@font/cairo_bold"
             android:paddingTop="@dimen/_20sdp"
             android:paddingBottom="@dimen/_20sdp"
             android:text="عن التطبيق  "
             android:textAlignment="textStart"
-            android:textSize="@dimen/_13sdp"
-            app:drawableEndCompat="@drawable/ic_arrwa"
+            android:textSize="@dimen/_13sdp" />
 
-            />
+        <ImageView
+            android:id="@+id/help_btn_back"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@drawable/round_back_light"
+            android:elevation="@dimen/_1sdp"
+            android:paddingLeft="@dimen/_12sdp"
+            android:paddingRight="@dimen/_5sdp"
+            android:src="@drawable/ic_arrow_back_p" />
 
     </RelativeLayout>
 
@@ -62,6 +75,7 @@
         android:id="@+id/about_app"
         android:layout_width="@dimen/_280sdp"
         android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -76,15 +90,30 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginRight="20dp"
-            android:fontFamily="@font/cairo_regular"
+            android:fontFamily="@font/cairo_bold"
             android:paddingTop="@dimen/_20sdp"
             android:paddingBottom="@dimen/_20sdp"
             android:text="عن التطبيق  "
             android:textAlignment="textStart"
-            android:textSize="@dimen/_13sdp"
-            app:drawableEndCompat="@drawable/ic_arrwa" />
+            android:textSize="@dimen/_13sdp" />
+
+        <ImageView
+            android:id="@+id/about_btn_back"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@drawable/round_back_light"
+            android:elevation="@dimen/_1sdp"
+            android:paddingLeft="@dimen/_12sdp"
+            android:paddingRight="@dimen/_5sdp"
+            android:src="@drawable/ic_arrow_back_p" />
+
     </RelativeLayout>
 
     <RelativeLayout
@@ -107,14 +136,26 @@
             android:layout_alignParentRight="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginRight="@dimen/_10sdp"
-            android:fontFamily="@font/cairo_regular"
+            android:fontFamily="@font/cairo_bold"
             android:paddingTop="@dimen/_20sdp"
             android:paddingBottom="@dimen/_20sdp"
             android:text="اتفاقية الترخيص "
             android:textAlignment="textStart"
-            android:textSize="@dimen/_13sdp"
-            app:drawableEndCompat="@drawable/ic_arrwa" />
+            android:textSize="@dimen/_13sdp" />
 
+        <ImageView
+            android:id="@+id/contract_btn_back"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@drawable/round_back_light"
+            android:elevation="@dimen/_1sdp"
+            android:paddingLeft="@dimen/_12sdp"
+            android:paddingRight="@dimen/_5sdp"
+            android:src="@drawable/ic_arrow_back_p" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -137,12 +178,25 @@
             android:layout_alignParentRight="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginRight="20dp"
-            android:fontFamily="@font/cairo_regular"
+            android:fontFamily="@font/cairo_bold"
             android:paddingTop="@dimen/_20sdp"
             android:paddingBottom="@dimen/_20sdp"
             android:text="شروط الخصوصية  "
             android:textAlignment="textStart"
-            android:textSize="@dimen/_13sdp"
-            app:drawableEndCompat="@drawable/ic_arrwa" />
+            android:textSize="@dimen/_13sdp" />
+
+        <ImageView
+            android:id="@+id/notification_btn_back"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@drawable/round_back_light"
+            android:elevation="@dimen/_1sdp"
+            android:paddingLeft="@dimen/_12sdp"
+            android:paddingRight="@dimen/_5sdp"
+            android:src="@drawable/ic_arrow_back_p" />
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

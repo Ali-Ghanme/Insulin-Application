@@ -63,13 +63,14 @@ dependencies {
     implementation 'joda-time:joda-time:2.9.1'
 
     // دائرة
-   // implementation 'com.github.AnyChart:AnyChart-Android:1.1.2'
+    // implementation 'com.github.AnyChart:AnyChart-Android:1.1.2'
     implementation 'androidx.multidex:multidex:2.0.1'
 // اسكال ثانية
-   // implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    // implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 
     // Rounder Image
     implementation 'com.makeramen:roundedimageview:2.3.0'
 
     implementation 'com.jjoe64:graphview:4.2.2'
+
 }

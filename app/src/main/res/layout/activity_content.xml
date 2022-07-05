@@ -15,7 +15,7 @@
         android:background="@drawable/round_back_light"
         android:paddingStart="@dimen/_12sdp"
         android:paddingEnd="@dimen/_2sdp"
-        android:src="@drawable/ic_arrow_back"
+        android:src="@drawable/ic_arrow_back_d"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

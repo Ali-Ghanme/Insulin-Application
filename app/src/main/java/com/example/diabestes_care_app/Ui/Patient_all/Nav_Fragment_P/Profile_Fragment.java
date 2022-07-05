@@ -34,7 +34,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Profile_Fragment extends Fragment {
     // Section
-    RelativeLayout notification_cont, DarkMode_cont, help_cont, LogOut_cont, FB_help_contt;
+    RelativeLayout notification_cont, DarkMode_cont, help_cont, LogOut_cont, FB_help_cont;
     // Image Patient Profile , Edit Icon
     ImageView imageView, imageView2;
     // Patient Name
@@ -60,7 +60,7 @@ public class Profile_Fragment extends Fragment {
         name = view.findViewById(R.id.FB_tv_Patient_name);
         imageView = view.findViewById(R.id.FB_Patient_image);
         imageView2 = view.findViewById(R.id.FB_Patient_edit);
-        FB_help_contt = view.findViewById(R.id.FB_help_contt);
+        FB_help_cont = view.findViewById(R.id.FB_help_contt);
 
         //============================Shared Preference=============================================
         prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
@@ -74,7 +74,7 @@ public class Profile_Fragment extends Fragment {
                 startActivity(intent);
             }
         });
-        FB_help_contt.setOnClickListener(new View.OnClickListener() {
+        FB_help_cont.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), SendNotification.class);
@@ -114,7 +114,7 @@ public class Profile_Fragment extends Fragment {
                 editor.clear();
                 Intent intent_p = new Intent(getActivity(), Sing_In.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent_p);
-                getActivity().finish();
+                getActivity().finishAffinity();
             }
         });
         return view;

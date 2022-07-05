@@ -93,14 +93,16 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:alignmentMode="alignMargins"
-            android:columnCount="1"
+            android:columnCount="2"
             android:columnOrderPreserved="false"
-            android:rowCount="1">
+            android:rowCount="2">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/FC_SelfCare_box_p"
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="@dimen/_100sdp"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
                 android:layout_margin="@dimen/_10sdp"
                 app:cardCornerRadius="@dimen/_10sdp"
                 app:cardElevation="@dimen/_3sdp">
@@ -125,6 +127,43 @@
                         android:fontFamily="@font/cairo_bold"
                         android:gravity="center_horizontal"
                         android:text="عناية ذاتية"
+                        android:textColor="@color/Patient_Color"
+                        android:textSize="@dimen/_13sdp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/FC_ex_Consultation_p"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_3sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_10sdp">
+
+                    <ImageView
+                        android:layout_width="@dimen/_45sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/ic_heart_beat"
+                        android:backgroundTint="@color/Patient_Color" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="@font/cairo_bold"
+                        android:gravity="center_horizontal"
+                        android:text="إستشارات"
                         android:textColor="@color/Patient_Color"
                         android:textSize="@dimen/_13sdp"
                         android:textStyle="bold" />

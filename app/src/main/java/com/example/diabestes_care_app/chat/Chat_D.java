@@ -55,6 +55,7 @@ public class Chat_D extends Basic_Activity {
         fullscreen();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_d);
+
         //============================Defines=======================================================
         backButton = findViewById(R.id.chat_back_btn_d);
         SendButton = findViewById(R.id.chat_send_message_d);
@@ -79,12 +80,13 @@ public class Chat_D extends Basic_Activity {
         String getName = getIntent().getStringExtra("name");
         String getProfilePic = getIntent().getStringExtra("profile_pic");
         String getUsername = getIntent().getStringExtra("username");
+        chatKey = getIntent().getStringExtra("chat_key");
         Log.e("TAG", getUsername);
 
         // getUsername is the patient username the account that i loge in by it
         Toast.makeText(this, getUsername, Toast.LENGTH_SHORT).show();
 
-        chatKey = getIntent().getStringExtra("chat_key");
+
 
         name.setText(getName);
         Glide.with(this).load(getProfilePic).into(profile_image);

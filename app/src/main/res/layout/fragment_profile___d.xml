@@ -29,20 +29,20 @@
         android:textSize="@dimen/_18sdp"
         tools:ignore="TextContrastCheck" />
 
-    <View
-        android:id="@+id/HP_view_d"
-        android:layout_width="30dp"
-        android:layout_height="5dp"
-        android:layout_below="@+id/tiltel"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/bg_search" />
-
+    <ImageView
+        android:id="@+id/FB_Patient_edit_d"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:src="@drawable/ic_edit" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/FB_Doctor_image_d"
         android:layout_width="@dimen/_100sdp"
         android:layout_height="@dimen/_100sdp"
-        android:layout_below="@id/HP_view_d"
+        android:layout_below="@id/FB_Patient_edit_d"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/_10sdp"
@@ -64,216 +64,242 @@
         android:textColor="@color/Doctor_Color"
         android:textSize="@dimen/_15sdp" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/FB_tv_doctor_name_d"
-        android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/FB_tv_doctor_name_d">
 
-        <RelativeLayout
-            android:id="@+id/FB_notification_cont_d"
-            android:layout_width="@dimen/_280sdp"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_10sdp">
+            android:layout_below="@+id/FB_tv_doctor_name_d"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical">
 
-            <View style="@style/Divider.Horizontal" />
-
-            <TextView
-                android:id="@+id/FB_notification_text_d"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:id="@+id/FB_notification_cont_d"
+                android:layout_width="@dimen/_280sdp"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="@dimen/_25sdp"
-                android:layout_marginEnd="@dimen/_60sdp"
-                android:fontFamily="@font/cairo_bold"
-                android:layoutDirection="rtl"
-                android:text="الإشعارات "
-                android:textAlignment="textStart"
-                android:textSize="@dimen/_13sdp" />
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_10sdp">
 
-            <ImageView
-                android:id="@+id/FB_notification_d"
-                android:layout_width="@dimen/_30sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_marginStart="@dimen/_240sdp"
-                android:layout_marginTop="@dimen/_25sdp"
-                android:background="@drawable/ic_notification"
-                android:backgroundTint="@color/Doctor_Color"
-                android:contentDescription="@string/todo"
-                tools:ignore="ImageContrastCheck" />
+                <TextView
+                    android:id="@+id/FB_notification_text_d"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/_60sdp"
+                    android:fontFamily="@font/cairo_bold"
+                    android:text="الإشعارات "
+                    android:textAlignment="textStart"
+                    android:textSize="@dimen/_13sdp" />
 
-            <ImageView
-                android:id="@+id/FB_btn_next_notification_d"
-                android:layout_width="wrap_content"
+                <ImageView
+                    android:id="@+id/FB_notification_d"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/_240sdp"
+                    android:background="@drawable/ic_notification"
+                    android:backgroundTint="@color/Doctor_Color"
+                    android:contentDescription="@string/todo"
+                    tools:ignore="ImageContrastCheck" />
+
+                <ImageView
+                    android:id="@+id/FB_btn_next_notification_d"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@drawable/round_back_light"
+                    android:contentDescription="@string/todo"
+                    android:elevation="@dimen/_1sdp"
+                    android:paddingLeft="@dimen/_12sdp"
+                    android:paddingRight="@dimen/_5sdp"
+                    android:src="@drawable/ic_arrow_back_d"
+                    tools:ignore="ImageContrastCheck" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/FB_DarkMode_cont_d"
+                android:layout_width="@dimen/_280sdp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_30sdp"
-                android:background="@drawable/ic_arrwa"
-                android:backgroundTint="@color/Doctor_Color"
-                android:contentDescription="@string/todo"
-                tools:ignore="ImageContrastCheck" />
+                android:layout_below="@+id/FB_header"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/FB_notification_cont_d">
 
-        </RelativeLayout>
+                <View style="@style/Divider.Horizontal" />
 
-        <RelativeLayout
-            android:id="@+id/FB_DarkMode_cont_d"
-            android:layout_width="@dimen/_280sdp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/FB_header_d"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_10sdp"
-            android:paddingTop="@dimen/_10sdp"
-            android:paddingBottom="@dimen/_10sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/FB_notification_cont_d">
+                <TextView
+                    android:id="@+id/FB_DarkMode_text_d"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/_60sdp"
+                    android:fontFamily="@font/cairo_bold"
+                    android:layoutDirection="rtl"
+                    android:text="الوضع المظلم "
+                    android:textAlignment="textStart"
+                    android:textSize="@dimen/_13sdp" />
 
-            <View style="@style/Divider.Horizontal" />
+                <ImageView
+                    android:id="@+id/FB_DarkMode_d"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/_240sdp"
+                    android:background="@drawable/darkmode"
+                    android:backgroundTint="@color/Doctor_Color"
+                    android:contentDescription="@string/todo"
+                    tools:ignore="ImageContrastCheck" />
 
-            <TextView
-                android:id="@+id/FB_DarkMode_text_d"
-                android:layout_width="wrap_content"
+                <com.bitvale.switcher.SwitcherX
+                    android:id="@+id/FB_switcher_d"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:checked="false"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
+                    app:elevation="@dimen/_5sdp"
+                    app:switcher_icon_color="@color/switcher_icon_color"
+                    app:switcher_off_color="@color/Red"
+                    app:switcher_on_color="@color/Patient_Color"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/FB_help_cont_d"
+                android:layout_width="@dimen/_280sdp"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="@dimen/_25sdp"
-                android:layout_marginEnd="@dimen/_60sdp"
-                android:fontFamily="@font/cairo_bold"
-                android:layoutDirection="rtl"
-                android:text="الوضع المظلم "
-                android:textAlignment="textStart"
-                android:textSize="@dimen/_13sdp" />
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/FB_DarkMode_cont_d">
 
-            <ImageView
-                android:id="@+id/FB_DarkMode_d"
-                android:layout_width="@dimen/_30sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_marginStart="@dimen/_240sdp"
-                android:layout_marginTop="@dimen/_25sdp"
-                android:background="@drawable/darkmode"
-                android:backgroundTint="@color/Doctor_Color"
-                android:contentDescription="@string/todo"
-                tools:ignore="ImageContrastCheck" />
+                <View style="@style/Divider.Horizontal" />
 
-            <com.bitvale.switcher.SwitcherX
-                android:id="@+id/FB_switcher_d"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/FB_help_text_d"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/_60sdp"
+                    android:fontFamily="@font/cairo_bold"
+                    android:layoutDirection="rtl"
+                    android:text="مساعدة "
+                    android:textAlignment="textStart"
+                    android:textSize="@dimen/_13sdp"/>
+
+                <ImageView
+                    android:id="@+id/FB_Help_Section_d"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/_240sdp"
+                    android:background="@drawable/help"
+                    android:backgroundTint="@color/Doctor_Color"
+                    android:contentDescription="@string/todo"
+                    tools:ignore="ImageContrastCheck"  />
+
+                <ImageView
+                    android:id="@+id/FB_btn_next_Help_d"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@drawable/round_back_light"
+                    android:contentDescription="@string/todo"
+                    android:elevation="@dimen/_1sdp"
+                    android:paddingLeft="@dimen/_12sdp"
+                    android:paddingRight="@dimen/_5sdp"
+                    android:src="@drawable/ic_arrow_back_d"
+                    tools:ignore="ImageContrastCheck" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/FB_LogOut_cont_d"
+                android:layout_width="@dimen/_280sdp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_30sdp"
-                android:checked="false"
-                android:minWidth="48dp"
-                android:minHeight="48dp"
-                app:elevation="@dimen/_5sdp"
-                app:switcher_icon_color="@color/switcher_icon_color"
-                app:switcher_off_color="@color/Red"
-                app:switcher_on_color="@color/Patient_Color"
-                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+                android:layout_below="@+id/FB_header_d"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/FB_help_cont_d">
 
-        </RelativeLayout>
+                <View style="@style/Divider.Horizontal" />
 
-        <RelativeLayout
-            android:id="@+id/FB_help_cont_d"
-            android:layout_width="@dimen/_280sdp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/FB_header_d"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_10sdp"
-            android:paddingTop="@dimen/_10sdp"
-            android:paddingBottom="@dimen/_10sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/FB_DarkMode_cont_d">
+                <TextView
+                    android:id="@+id/FB_logout_text_d"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:layout_marginEnd="@dimen/_60sdp"
+                    android:fontFamily="@font/cairo_bold"
+                    android:layoutDirection="rtl"
+                    android:text="تسجيل الخروج "
+                    android:textAlignment="textStart"
+                    android:textSize="@dimen/_13sdp" />
 
-            <View style="@style/Divider.Horizontal" />
+                <ImageView
+                    android:id="@+id/FB_ic_logout_d"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_240sdp"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:background="@drawable/logout"
+                    android:backgroundTint="@color/Doctor_Color"
+                    android:contentDescription="@string/todo"
+                    tools:ignore="ImageContrastCheck" />
 
-            <TextView
-                android:id="@+id/FB_help_text_d"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="@dimen/_25sdp"
-                android:layout_marginEnd="@dimen/_60sdp"
-                android:fontFamily="@font/cairo_bold"
-                android:layoutDirection="rtl"
-                android:text="مساعدة "
-                android:textAlignment="textStart"
-                android:textSize="@dimen/_13sdp" />
+                <ImageView
+                    android:id="@+id/FB_btn_next_logout_d"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@drawable/round_back_light"
+                    android:contentDescription="@string/todo"
+                    android:elevation="@dimen/_1sdp"
+                    android:paddingLeft="@dimen/_12sdp"
+                    android:paddingRight="@dimen/_5sdp"
+                    android:src="@drawable/ic_arrow_back_d"
+                    tools:ignore="ImageContrastCheck" />
 
-            <ImageView
-                android:id="@+id/FB_Help_Section_d"
-                android:layout_width="@dimen/_30sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_marginStart="@dimen/_240sdp"
-                android:layout_marginTop="@dimen/_25sdp"
-                android:background="@drawable/help"
-                android:backgroundTint="@color/Doctor_Color"
-                android:contentDescription="@string/todo"
-                tools:ignore="ImageContrastCheck" />
-
-            <ImageView
-                android:id="@+id/FB_btn_next_Help_d"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_30sdp"
-                android:background="@drawable/ic_arrwa"
-                android:backgroundTint="@color/Doctor_Color"
-                android:contentDescription="@string/todo"
-
-                tools:ignore="ImageContrastCheck" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/FB_LogOut_cont_d"
-            android:layout_width="@dimen/_280sdp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/FB_header_d"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_10sdp"
-            android:paddingTop="@dimen/_10sdp"
-            android:paddingBottom="@dimen/_10sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/FB_help_cont_d">
-
-            <View style="@style/Divider.Horizontal" />
-
-            <TextView
-                android:id="@+id/FB_logout_text_d"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="@dimen/_25sdp"
-                android:layout_marginEnd="@dimen/_60sdp"
-                android:fontFamily="@font/cairo_bold"
-                android:layoutDirection="rtl"
-                android:text="تسجيل الخروج "
-                android:textAlignment="textStart"
-                android:textSize="@dimen/_13sdp" />
-
-            <ImageView
-                android:id="@+id/FB_ic_logout_d"
-                android:layout_width="@dimen/_30sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_marginStart="@dimen/_240sdp"
-                android:layout_marginTop="@dimen/_25sdp"
-                android:background="@drawable/logout"
-                android:backgroundTint="@color/Doctor_Color"
-                android:contentDescription="@string/todo"
-                tools:ignore="ImageContrastCheck" />
-
-            <ImageView
-                android:id="@+id/FB_btn_next_logout_d"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_30sdp"
-                android:background="@drawable/ic_arrwa"
-                android:backgroundTint="@color/Doctor_Color"
-                android:contentDescription="@string/todo"
-                tools:ignore="ImageContrastCheck" />
-
-        </RelativeLayout>
-    </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>

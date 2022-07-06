@@ -30,6 +30,7 @@
         app:abb_indicatorMargin="@dimen/_10sdp"
         app:abb_selectedIndex="0"
         app:abb_selectedTabType="text"
+        android:layoutDirection="ltr"
         app:abb_tabAnimation="fade"
         app:abb_tabColor="@color/white"
         app:abb_tabColorSelected="@color/white"

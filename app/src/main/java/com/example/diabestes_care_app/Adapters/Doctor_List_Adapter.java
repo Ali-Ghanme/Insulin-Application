@@ -61,7 +61,7 @@ public class Doctor_List_Adapter extends RecyclerView.Adapter<Doctor_List_Adapte
 
         online_status_all_users.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String snooping_status = dataSnapshot.getValue(String.class);
                 //mario should decide what to do with linkers snooping status here e.g.
                  if(snooping_status.contentEquals("online")){

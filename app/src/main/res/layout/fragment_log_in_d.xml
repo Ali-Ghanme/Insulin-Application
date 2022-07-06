@@ -16,6 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="@dimen/_30sdp"
+            android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/_30sdp"
             android:fontFamily="@font/cairo_bold"
             android:text=" البريد الالكتروني/رقم الهاتف "

@@ -81,36 +81,7 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
         });
 
 
-//        //============================Get User Status ==============================================
-//        //say your realtime database has the child `online_statuses`
-//        DatabaseReference online_status_all_users = FirebaseDatabase.getInstance().getReference().child("online_statuses");
-//
-//        //on each user's device when connected they should indicate e.g. `linker` should tell everyone he's snooping around
-//        online_status_all_users.child(list2.getUsername()).setValue("online");
-//
-//        //also when he's not doing any snooping or if snooping goes bad he should also tell
-//        online_status_all_users.child(list2.getUsername()).onDisconnect().setValue("offline");
-//
-//        online_status_all_users.child(list2.getUsername()).addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                String snooping_status = dataSnapshot.getValue(String.class);
-//                //mario should decide what to do with linker's snooping status here e.g.
-//                if (snooping_status.contentEquals("online")) {
-//                    //tell linker to stop doing sh*t
-//                    Toast.makeText(context, snooping_status, Toast.LENGTH_SHORT).show();
-//                    Log.e("TAG", snooping_status);
-//                } else {
-//                    //tell linker to do a lot of sh****t
-//                    Toast.makeText(context, "All Doctors Offline", Toast.LENGTH_SHORT).show();
-//                    Log.e("TAG", snooping_status);
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//            }
-//        });
+
         holder.container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -15,7 +15,7 @@
         android:background="@drawable/round_back_light"
         android:paddingStart="@dimen/_12sdp"
         android:paddingEnd="@dimen/_2sdp"
-        android:src="@drawable/ic_arrow_back_d"
+        android:src="@drawable/ic_arrow_back_p"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,5 +41,18 @@
         android:src="@drawable/ic_arrow_next"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_the_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_20sdp"
+        android:background="@drawable/bt_log_in_patient"
+        android:fontFamily="@font/cairo_bold"
+        android:text="إنهاء"
+        android:textColor="@color/white"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

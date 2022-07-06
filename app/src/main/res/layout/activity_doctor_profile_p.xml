@@ -33,8 +33,9 @@
             android:layout_marginLeft="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_15sdp"
             android:background="@drawable/round_back_light"
-            android:paddingLeft="@dimen/_12sdp"
-            android:paddingRight="@dimen/_5sdp"
+            android:paddingStart="@dimen/_12sdp"
+            android:paddingEnd="@dimen/_5sdp"
+            android:layoutDirection="ltr"
             android:src="@drawable/ic_arrow_back_d" />
 
         <TextView
@@ -157,6 +158,7 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
         android:orientation="vertical"
+        android:layoutDirection="ltr"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout3">

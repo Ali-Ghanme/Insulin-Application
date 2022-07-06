@@ -72,8 +72,8 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/FB_tv_doctor_name_d"
-            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layoutDirection="ltr"
             android:orientation="vertical">
 
             <RelativeLayout
@@ -120,6 +120,7 @@
                     android:background="@drawable/round_back_light"
                     android:contentDescription="@string/todo"
                     android:elevation="@dimen/_1sdp"
+                    android:layoutDirection="ltr"
                     android:paddingLeft="@dimen/_12sdp"
                     android:paddingRight="@dimen/_5sdp"
                     android:src="@drawable/ic_arrow_back_d"
@@ -211,7 +212,7 @@
                     android:layoutDirection="rtl"
                     android:text="مساعدة "
                     android:textAlignment="textStart"
-                    android:textSize="@dimen/_13sdp"/>
+                    android:textSize="@dimen/_13sdp" />
 
                 <ImageView
                     android:id="@+id/FB_Help_Section_d"
@@ -223,7 +224,7 @@
                     android:background="@drawable/help"
                     android:backgroundTint="@color/Doctor_Color"
                     android:contentDescription="@string/todo"
-                    tools:ignore="ImageContrastCheck"  />
+                    tools:ignore="ImageContrastCheck" />
 
                 <ImageView
                     android:id="@+id/FB_btn_next_Help_d"
@@ -261,10 +262,10 @@
                     android:id="@+id/FB_logout_text_d"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginTop="@dimen/_25sdp"
-                    android:layout_marginEnd="@dimen/_60sdp"
+                    android:layout_marginRight="@dimen/_60sdp"
                     android:fontFamily="@font/cairo_bold"
                     android:layoutDirection="rtl"
                     android:text="تسجيل الخروج "
@@ -276,7 +277,7 @@
                     android:layout_width="@dimen/_30sdp"
                     android:layout_height="@dimen/_30sdp"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="@dimen/_240sdp"
+                    android:layout_marginLeft="@dimen/_240sdp"
                     android:layout_marginTop="@dimen/_25sdp"
                     android:background="@drawable/logout"
                     android:backgroundTint="@color/Doctor_Color"

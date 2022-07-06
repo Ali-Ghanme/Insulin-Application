@@ -11,12 +11,22 @@
         android:id="@+id/help_app"
         android:layout_width="@dimen/_280sdp"
         android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/help">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/cairo_bold"
+            android:text="المحتوى"
+            android:textColor="@color/Patient_Color"
+            android:textSize="@dimen/_15sdp" />
 
         <ListView
             android:id="@+id/listView_Instruction"

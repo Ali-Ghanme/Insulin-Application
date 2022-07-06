@@ -22,13 +22,16 @@ import androidx.fragment.app.Fragment;
 
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Patient_all.Home_Patient;
-import com.example.diabestes_care_app.Ui.Sing_up_pages.character_choice_screen;
+import com.example.diabestes_care_app.Ui.Sing_up_pages.Patient.Sing_Up_1_P;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class LogIn_Patient_Fragment extends Fragment {
 
@@ -46,6 +49,8 @@ public class LogIn_Patient_Fragment extends Fragment {
     public static final String MyPREFERENCES_P = "P_Username";
     // Remember Check Box Shared Preference
     SharedPreferences Check_Box_preferences_P;
+    // String
+    String PatientToken;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -95,6 +100,7 @@ public class LogIn_Patient_Fragment extends Fragment {
                 checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        DB_reference.child("doctor").child(patientEnterUsername).child("Token").child("Patient_Token").setValue(PatientToken);
                         // check if data exist
                         if (snapshot.exists()) {
                             username.setError(null);
@@ -130,12 +136,29 @@ public class LogIn_Patient_Fragment extends Fragment {
         SingUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentS = new Intent(getContext(), character_choice_screen.class);
+                Intent intentS = new Intent(getContext(), Sing_Up_1_P.class);
                 startActivity(intentS);
             }
         });
 
         return view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Generate Token for Patient
+        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
+            @Override
+            public void onComplete(@NonNull Task<String> task) {
+                if (!task.isSuccessful()) {
+                    return;
+                }
+                // Get new FCM registration token
+                PatientToken = task.getResult();
+                System.out.println("TOKEN" + PatientToken);
+            }
+        });
     }
 }
 // Hallow this is update

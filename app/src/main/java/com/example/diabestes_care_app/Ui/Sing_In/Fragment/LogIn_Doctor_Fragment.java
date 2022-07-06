@@ -20,12 +20,16 @@ import androidx.fragment.app.Fragment;
 
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Doctor_all.Home_Doctor;
+import com.example.diabestes_care_app.Ui.Sing_up_pages.Doctor.Sing_Up_1_D;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class LogIn_Doctor_Fragment extends Fragment {
 
@@ -43,6 +47,8 @@ public class LogIn_Doctor_Fragment extends Fragment {
     public static final String MyPREFERENCES_D = "D_Username";
     // Shared Preference For Remember me Check Box
     SharedPreferences Check_Box_preferences_D;
+    // Token
+    String DoctorToken;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -72,12 +78,12 @@ public class LogIn_Doctor_Fragment extends Fragment {
         SingUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "Sing Up Success", Toast.LENGTH_SHORT).show();
+                Intent intentS = new Intent(getContext(), Sing_Up_1_D.class);
+                startActivity(intentS);
             }
         });
 
         //==============================Remember Me Login Doctor================================================
-
         remember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -102,22 +108,23 @@ public class LogIn_Doctor_Fragment extends Fragment {
     }
 
     private void isUser() {
-        String patientEnterUsername = username.getText().toString();
-        String patientEnterPassword = password.getText().toString();
+        String doctorEnterUsername = username.getText().toString();
+        String doctorEnterPassword = password.getText().toString();
 
         DB_reference = FirebaseDatabase.getInstance().getReference("doctor");
-        Query checkUser = DB_reference.orderByChild("username").equalTo(patientEnterUsername);
+        Query checkUser = DB_reference.orderByChild("username").equalTo(doctorEnterUsername);
         checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                DB_reference.child("doctor").child(doctorEnterUsername).child("Token").child("Doctor_Token").setValue(DoctorToken);
                 // check if data exist
                 if (snapshot.exists()) {
                     username.setError(null);
                     // fit password to specific username
-                    String passwordFromDB = snapshot.child(patientEnterUsername).child("Password").getValue(String.class);
-                    if (passwordFromDB.equals(patientEnterPassword)) {
+                    String passwordFromDB = snapshot.child(doctorEnterUsername).child("Password").getValue(String.class);
+                    if (passwordFromDB.equals(doctorEnterPassword)) {
                         SharedPreferences.Editor editor = sharedpreferences.edit();
-                        editor.putString("TAG_NAME", patientEnterUsername);
+                        editor.putString("TAG_NAME", doctorEnterUsername);
                         editor.commit();
 
                         Intent intent = new Intent(getActivity(), Home_Doctor.class);
@@ -136,6 +143,23 @@ public class LogIn_Doctor_Fragment extends Fragment {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Log.e("TAG", error.getMessage());
+            }
+        });
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Generate Token for Patient
+        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
+            @Override
+            public void onComplete(@NonNull Task<String> task) {
+                if (!task.isSuccessful()) {
+                    return;
+                }
+                // Get new FCM registration token
+                DoctorToken = task.getResult();
+                System.out.println("TOKEN" + DoctorToken);
             }
         });
     }

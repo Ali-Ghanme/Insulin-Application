@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_background"
-    >
+    tools:context="com.example.diabestes_care_app.Alarms.Alarm">
 
 <!--    <androidx.appcompat.widget.Toolbar-->
 <!--        android:id="@+id/my_toolbar"-->

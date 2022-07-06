@@ -1,4 +1,4 @@
-# Hi there, I'm Ali - Ghanem [CyberPro][youtube] 👋 
+# Hi there, I'm Ali - Ghanem [CyberPro][youtube] 👋
 
 [![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/UCDCHcqyeQgJ-jVSd6VJkbCw?logo=youtube&logoColor=red&style=for-the-badge)][youtube]
 
@@ -9,6 +9,7 @@
 - ⚡ Fun fact: I love to draw and play football / Table tennis
 
 ### Connect with me:
+
 <img align="left" alt="vscode" width="26px" src="https://github.com/devicons/devicon/blob/master/icons/facebook/facebook-original.svg" style="padding-right:10px;" />
 <img align="left" alt="vscode" width="26px" src="https://github.com/devicons/devicon/blob/master/icons/linkedin/linkedin-original.svg" style="padding-right:10px;" />
 <br />
@@ -42,7 +43,6 @@
 
 <img align="left" alt="codeSTACKr's GitHub Stats" src="https://github-readme-stats.vercel.app/api?username=CyberPro99&show_icons=true&hide_border=false&title_color=ff652f&icon_color=FFE400&bg_color=09131B&text_color=ffffff&border_color=0c1a25" />
 
-</details>
-
 [youtube]: https://www.youtube.com/channel/UCc_4jqklAGFNvsDrGTNQAgQ
+
 [linkedin]: https://www.linkedin.com/in/ali-ghanem-a88b70221/

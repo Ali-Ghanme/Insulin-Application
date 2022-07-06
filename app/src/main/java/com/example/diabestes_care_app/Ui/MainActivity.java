@@ -9,7 +9,7 @@ public class MainActivity extends Basic_Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        fullscreen();
+//        fullscreen();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }

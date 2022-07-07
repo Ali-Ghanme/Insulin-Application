@@ -44,7 +44,7 @@ public class Sing_Up_1_D extends Basic_Activity {
         fullscreen();
         setContentView(R.layout.activity_sign_up_1_d);
 
-        //====================================Define variables===============================
+        //=============================Define variables=============================================
         name_ar = findViewById(R.id.Sp1_name_D);
         name_en = findViewById(R.id.Sp1_en_name_D);
         mDate = findViewById(R.id.Sp1_date_D);
@@ -66,7 +66,7 @@ public class Sing_Up_1_D extends Basic_Activity {
             }
         });
 
-        //====================================Next Button===============================
+        //======================================Next Button=========================================
         btn_next_S.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,7 +76,7 @@ public class Sing_Up_1_D extends Basic_Activity {
                 DoctorUsername = username.getText().toString();
                 DoctorDate = mDate.getText().toString();
 
-                //====================================Validation===============================
+                //====================================Validation====================================
                 // cheek if user fill all data fields before sending data to firebase
                 if (validIsEmpty(DoctorName_ar, DoctorName_en, DoctorUsername, DoctorDate, DoctorDate, DoctorDate)) {
                     Toast.makeText(Sing_Up_1_D.this, "Fill all fields", Toast.LENGTH_SHORT).show();
@@ -116,7 +116,7 @@ public class Sing_Up_1_D extends Basic_Activity {
             }
         });
 
-        //====================================Gender Radio Group to get Data And set into Firebase===============================
+        //=====================Gender Radio Group to get Data And set into Firebase=================
         mGender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -133,7 +133,7 @@ public class Sing_Up_1_D extends Basic_Activity {
             }
         });
 
-        //====================================DataPicker===============================
+        //====================================DataPicker============================================
         DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int day) {

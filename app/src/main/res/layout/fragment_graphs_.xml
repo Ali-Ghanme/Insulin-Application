@@ -45,7 +45,6 @@
                 android:background="@drawable/btnext"
                 android:backgroundTint="@color/Patient_Color"
                 android:fontFamily="@font/cairo_bold"
-
                 android:text=" فحص يومي  "
                 android:textColor="@color/white"
                 android:textSize="@dimen/_9sdp" />
@@ -59,7 +58,6 @@
             android:visibility="visible"
             android:layout_marginBottom="20dp"
             android:layout_marginTop="5dp" />
-
 
         <TextView
             android:id="@+id/mohammed"
@@ -75,9 +73,6 @@
             android:textSize="12sp"
             android:textStyle="normal"
             android:visibility="gone" />
-
     </RelativeLayout>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

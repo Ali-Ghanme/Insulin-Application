@@ -118,6 +118,9 @@ public class Care_Fragment extends Fragment {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (getActivity() == null) {
+                    return;
+                }
                 String image = snapshot.child(PatientUsername).child("User_Profile_Image").child("Image").child("mImageUrI").getValue(String.class);
                 String name = snapshot.child(PatientUsername).child("personal_info").child("name").getValue(String.class);
                 Glide.with(getActivity()).load(image).into(imageProfile);

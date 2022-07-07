@@ -129,8 +129,6 @@
             android:textColor="@color/Patient_Color"
             android:textSize="@dimen/_13sdp" />
 
-
-
     </RelativeLayout>
 
     <RelativeLayout

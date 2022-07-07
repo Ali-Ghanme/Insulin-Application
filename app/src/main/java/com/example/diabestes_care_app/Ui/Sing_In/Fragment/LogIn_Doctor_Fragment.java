@@ -116,7 +116,7 @@ public class LogIn_Doctor_Fragment extends Fragment {
         checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                DB_reference.child("doctor").child(doctorEnterUsername).child("Token").child("Doctor_Token").setValue(DoctorToken);
+                DB_reference.child(doctorEnterUsername).child("Token").child("Doctor_Token").setValue(DoctorToken);
                 // check if data exist
                 if (snapshot.exists()) {
                     username.setError(null);

@@ -4,6 +4,7 @@ import static android.content.Context.MODE_PRIVATE;
 import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
@@ -97,6 +98,7 @@ public class Home_Fragment extends Fragment {
         // Get Data Method
         GetDataFromFirebase();
         // Get Patient Data Method
+
         //============================Search And Filter Function====================================
         searchInput.addTextChangedListener(new TextWatcher() {
             @Override
@@ -170,19 +172,22 @@ public class Home_Fragment extends Fragment {
 
     //============================Show The Patient name + image=====================================
     @Override
-    public void onStart() {
-        super.onStart();
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
         myRef = FirebaseDatabase.getInstance().getReference("patient");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (getActivity() == null) {
+                    return;
+                }
                 String image = snapshot.child(PatientUsername).child("User_Profile_Image").child("Image").child("mImageUrI").getValue(String.class);
                 String name = snapshot.child(PatientUsername).child("personal_info").child("name").getValue(String.class);
                 Glide.with(getActivity()).load(image).into(imageProfile);
+
                 Log.d("TAG", name + "/" + image);
                 username.setText(name);
             }
-            // Mohammed SIam
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {

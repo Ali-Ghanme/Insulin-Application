@@ -1,24 +1,16 @@
 package com.example.diabestes_care_app.Ui.Patient_all.Sections.Reports;
 
-import static android.content.Context.MODE_PRIVATE;
-import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
-
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
 import com.example.diabestes_care_app.R;
 import com.jjoe64.graphview.GraphView;
-import com.jjoe64.graphview.series.DataPoint;
-import com.jjoe64.graphview.series.LineGraphSeries;
 
 
 public class Graphs_Fragment extends Fragment {
@@ -34,6 +26,7 @@ public class Graphs_Fragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_graphs_, container, false);
+
         graphView = view.findViewById(R.id.graphview);
         day = view.findViewById(R.id.btn_day);
         week = view.findViewById(R.id.btn_week);

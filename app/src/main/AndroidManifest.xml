@@ -15,6 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Diabestes_Care_App">
         <activity
+            android:name=".Users_Notification"
+            android:exported="false" />
+        <activity
+            android:name=".Ui.Patient_all.Sections.Consultation_Request"
+            android:exported="false" />
+        <activity
             android:name=".Ui.Doctor_all.Patient_Profile_D"
             android:exported="false" />
         <activity
@@ -108,27 +114,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.diabestes_care_app.Alarms.Alarm"
-            android:exported="true">
-
-        </activity>
+            android:name=".Alarms.Alarm"
+            android:exported="true" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
         <activity
-            android:name="com.example.diabestes_care_app.Alarms.alarmChooserActivity"
-            android:parentActivityName="com.example.diabestes_care_app.Alarms.Alarm">
+            android:name=".Alarms.alarmChooserActivity"
+            android:parentActivityName=".Alarms.Alarm" />
 
-        </activity>
+        <receiver android:name=".Alarms.AlarmReceiver" />
 
-
-        <receiver android:name="com.example.diabestes_care_app.Alarms.AlarmReceiver" />
         <service
-            android:name="com.example.diabestes_care_app.Alarms.ringtonePlayingService"
+            android:name=".Alarms.ringtonePlayingService"
             android:enabled="true" />
-
-
         <service
             android:name=".NotificationSender.FirebaseMessagingService"
             android:exported="true"

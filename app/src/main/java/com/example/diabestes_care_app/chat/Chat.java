@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -82,14 +83,12 @@ public class Chat extends Basic_Activity {
         ChatRecyclerView.setAdapter(chatAdapter);
 
         //============================Get data from message adapter class===========================
+        String getUsername = getIntent().getStringExtra("username");
         String getName = getIntent().getStringExtra("name");
         String getProfilePic = getIntent().getStringExtra("profile_pic");
-        String getUsername = getIntent().getStringExtra("username");
         chatKey = getIntent().getStringExtra("chat_key");
         // getUsername is the patient username the account that i loge in by it
         Toast.makeText(this, getUsername, Toast.LENGTH_SHORT).show();
-
-
 
         name.setText(getName);
         Glide.with(this).load(getProfilePic).into(profile_image);
@@ -102,14 +101,19 @@ public class Chat extends Basic_Activity {
                     chatKey = "1";
                     if (snapshot.hasChild("chat")) {
                         chatKey = String.valueOf(snapshot.child("chat").getChildrenCount());
+                        Log.e("TAG",chatKey);
                     }
                 }
                 if (snapshot.hasChild("chat")) {
+
                     if (snapshot.child("chat").child(chatKey).hasChild("messages")) {
 
                         chatListModels.clear();
+
                         for (DataSnapshot messagesSnapshot : snapshot.child("chat").child(chatKey).child("messages").getChildren()) {
+
                             if (messagesSnapshot.hasChild("msg") && messagesSnapshot.hasChild("username")) {
+
                                 String messageTimestamps = messagesSnapshot.getKey();
 
                                 final String getUsername = messagesSnapshot.child("username").getValue(String.class);
@@ -122,6 +126,7 @@ public class Chat extends Basic_Activity {
 
                                 ChatList_Model chatListModel = new ChatList_Model(getUsername, getName, getMsg, date22, timeee);
                                 chatListModels.add(chatListModel);
+
                                 String datda = MemoryData.getLastMsgTS(Chat.this, chatKey);
                                 if (datda.isEmpty()) {
                                     datda = "0";

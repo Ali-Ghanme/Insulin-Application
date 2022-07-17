@@ -77,25 +77,24 @@
                 android:background="@drawable/bg_patient_button"
                 android:backgroundTint="@color/gray"
                 android:visibility="visible"
+                app:civ_border_color="@color/white"
+                app:civ_border_width="@dimen/_3sdp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <ImageButton
+        <Button
             android:id="@+id/Pl_follow_patient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:background="@android:color/transparent"
-            android:padding="4dp"
-            android:src="@drawable/ic_turned_off" />
-
-
+            android:background="@drawable/bg_doctor_button"
+            android:backgroundTint="@color/Patient_Color"
+            android:fontFamily="@font/cairo_bold"
+            android:text="متابعة"
+            android:textColor="@color/white" />
     </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

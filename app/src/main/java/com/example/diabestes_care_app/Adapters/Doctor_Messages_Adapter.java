@@ -109,6 +109,7 @@ public class Doctor_Messages_Adapter extends RecyclerView.Adapter<Doctor_Message
     public void UpdateData(ArrayList<MessagesList_Model> messagesListModels) {
         this.messagesListModels = messagesListModels;
         notifyDataSetChanged();
+
     }
 
     //==============================================================================================

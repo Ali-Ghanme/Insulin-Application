@@ -6,9 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.Filter;
 import android.widget.Filterable;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -18,7 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.diabestes_care_app.Models.DoctorList_Model;
+import com.example.diabestes_care_app.Models.PatientList_Model;
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Doctor_all.Patient_Profile_D;
 import com.example.diabestes_care_app.Ui.Patient_all.Doctor_Profile_P;
@@ -32,11 +32,11 @@ import java.util.ArrayList;
 
 public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adapter.MyViewHolder> implements Filterable {
     Context context;
-    ArrayList<DoctorList_Model> list;
-    ArrayList<DoctorList_Model> mDataFiltered;
+    ArrayList<PatientList_Model> list;
+    ArrayList<PatientList_Model> mDataFiltered;
 
 
-    public Patient_List_Adapter(Context context, ArrayList<DoctorList_Model> list) {
+    public Patient_List_Adapter(Context context, ArrayList<PatientList_Model> list) {
         this.context = context;
         this.list = list;
         this.mDataFiltered = list;
@@ -54,7 +54,7 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
         holder.imageView.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition_animation));
         holder.container.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_scale_animation));
 
-        DoctorList_Model list2 = mDataFiltered.get(position);
+        PatientList_Model list2 = mDataFiltered.get(position);
 
         DatabaseReference online_status_all_users = FirebaseDatabase.getInstance().getReference().child("online_statuses").child(list2.getUsername());
 
@@ -63,11 +63,11 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String snooping_status = dataSnapshot.getValue(String.class);
                 //mario should decide what to do with linkers snooping status here e.g.
-                if(snooping_status.contentEquals("online")){
+                if (snooping_status.contentEquals("online")) {
                     holder.img_off.setVisibility(View.GONE);
                     holder.img_on.setVisibility(View.VISIBLE);
                     //tell linker to stop doing sh*t
-                }else{
+                } else {
                     //tell linker to do a lot of sh****t
                     holder.img_off.setVisibility(View.VISIBLE);
                     holder.img_on.setVisibility(View.GONE);
@@ -76,11 +76,20 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
             }
         });
 
 
+        holder.follow_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (holder.follow_btn.getText().equals("أتابع") ) {
+                    holder.follow_btn.setText("متابعة");
+                } else {
+                    holder.follow_btn.setText("أتابع");
+                }
+            }
+        });
 
         holder.container.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,8 +115,8 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
         return mDataFiltered.size();
     }
 
-    public void updateUsersList(ArrayList<DoctorList_Model> DoctorList_Model) {
-        this.list = DoctorList_Model;
+    public void updateUsersList(ArrayList<PatientList_Model> PatientList_Model) {
+        this.list = PatientList_Model;
         notifyDataSetChanged();
     }
 
@@ -119,8 +128,8 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
                 if (Key.isEmpty()) {
                     mDataFiltered = list;
                 } else {
-                    ArrayList<DoctorList_Model> lstFiltered = new ArrayList<>();
-                    for (DoctorList_Model row : list) {
+                    ArrayList<PatientList_Model> lstFiltered = new ArrayList<>();
+                    for (PatientList_Model row : list) {
 
                         if (row.getName().toLowerCase().contains(Key.toLowerCase())) {
                             lstFiltered.add(row);
@@ -135,7 +144,7 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
 
             @Override
             protected void publishResults(CharSequence constraint, FilterResults results) {
-                mDataFiltered = (ArrayList<DoctorList_Model>) results.values;
+                mDataFiltered = (ArrayList<PatientList_Model>) results.values;
                 notifyDataSetChanged();
             }
         };
@@ -148,7 +157,7 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
         ImageView img_off, img_on;
         RelativeLayout container;
 
-        ImageButton follow_btn;
+        Button follow_btn;
         DatabaseReference followRef;
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
@@ -160,6 +169,7 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
             container = itemView.findViewById(R.id.Pl_container);
             img_off = itemView.findViewById(R.id.Pl_img_off);
             img_on = itemView.findViewById(R.id.Pl_img_on);
+            follow_btn = itemView.findViewById(R.id.Pl_follow_patient);
             itemView.setOnClickListener(this);
         }
 

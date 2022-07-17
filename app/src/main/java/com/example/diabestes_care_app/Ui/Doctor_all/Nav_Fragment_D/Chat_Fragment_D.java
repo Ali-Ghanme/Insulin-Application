@@ -90,7 +90,6 @@ public class Chat_Fragment_D extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String PatientImage = snapshot.child(DoctorUsername).child("personal_info").child("Image").child("mImageUrI").getValue(String.class);
                 Glide.with(getContext()).load(PatientImage).into(imageView);
-
             }
 
             @Override
@@ -112,10 +111,11 @@ public class Chat_Fragment_D extends Fragment {
                 chatKey = "";
                 try {
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        String getPatientName = snapshot.child("personal_info").child("name").getValue(String.class);
-                        String getPatientUsername = snapshot.child("username").getValue(String.class);
-                        final String getPatientImage = snapshot.child("User_Profile_Image").child("Image").child("mImageUrI").getValue(String.class);
+                        final String getPatientName = snapshot.child("personal_info").child("name").getValue(String.class);
+                        final String getPatientUsername = snapshot.child("username").getValue(String.class);
                         dataSet = false;
+                        final String getPatientImage = snapshot.child("User_Profile_Image").child("Image").child("mImageUrI").getValue(String.class);
+
 
                         myRef.child("chat").addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
@@ -124,7 +124,8 @@ public class Chat_Fragment_D extends Fragment {
 
                                 if (getChatCounts > 0) {
                                     for (DataSnapshot dataSnapshot1 : snapshot.getChildren()) {
-                                        chatKey = dataSnapshot1.getKey();
+                                        final String getKey = dataSnapshot1.getKey();
+                                        chatKey = getKey;
 
                                         if (dataSnapshot1.hasChild("patient_1") && dataSnapshot1.hasChild("doctor_2") && dataSnapshot1.hasChild("messages")) {
 
@@ -151,9 +152,9 @@ public class Chat_Fragment_D extends Fragment {
                                     MessagesList_Model messagesListModel = new MessagesList_Model(getPatientName, getPatientUsername,
                                             lastMessage, getPatientImage, chatKey, unseenMessage);
                                     messagesListModels.add(messagesListModel);
+                                    messagesRecycleReview.setAdapter(new Doctor_Messages_Adapter(messagesListModels, getContext()));
                                     messagesAdapter.UpdateData(messagesListModels);
                                     messagesAdapter.notifyDataSetChanged();
-                                    messagesRecycleReview.setAdapter(new Doctor_Messages_Adapter(messagesListModels, getContext()));
                                 }
                             }
 

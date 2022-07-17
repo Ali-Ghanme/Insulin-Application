@@ -39,5 +39,6 @@
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="@dimen/_8sdp" />
+
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,31 +10,44 @@ import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.Vibrator;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.core.app.NotificationCompat;
 
-import com.example.diabestes_care_app.Local_Notification;
+import com.example.diabestes_care_app.Notification_Controller.Notification_Number;
 import com.example.diabestes_care_app.R;
+import com.example.diabestes_care_app.Users_Notification;
 import com.google.firebase.messaging.RemoteMessage;
 
 public class FirebaseMessagingService extends com.google.firebase.messaging.FirebaseMessagingService {
 
     NotificationManager mNotificationManager;
+    Notification_Number notification_number;
 
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_home___d, container, false);
+        notification_number = new Notification_Number(view.findViewById(R.id.bell));
+        notification_number.incrementNumber();
+    return view;
+    }
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
-
-
-// playing audio and vibration when user se reques
+        // playing audio and vibration when user se reques
         Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
         r.play();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             r.setLooping(false);
         }
+
+//        notification_number = new Notification_Number(view.findViewById(R.id.bell));
+//        notification_number.incrementNumber();
 
         // vibration
         Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
@@ -52,7 +65,7 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
             builder.setSmallIcon(R.drawable.icon);
         }
 
-        Intent resultIntent = new Intent(this, Local_Notification.class);
+        Intent resultIntent = new Intent(this, Users_Notification.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 1, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         builder.setContentTitle(remoteMessage.getNotification().getTitle());
@@ -62,8 +75,7 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
         builder.setAutoCancel(true);
         builder.setPriority(Notification.PRIORITY_MAX);
 
-        mNotificationManager =
-                (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
+        mNotificationManager = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             String channelId = "Your_channel_id";
@@ -78,7 +90,6 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
 // notificationId is a unique int for each notification that you must define
         mNotificationManager.notify(100, builder.build());
     }
-
 }
 
 

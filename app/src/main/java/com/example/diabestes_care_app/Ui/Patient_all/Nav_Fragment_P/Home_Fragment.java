@@ -5,6 +5,7 @@ import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_F
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
@@ -26,6 +27,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.diabestes_care_app.Adapters.Doctor_List_Adapter;
 import com.example.diabestes_care_app.Models.DoctorList_Model;
+import com.example.diabestes_care_app.Users_Notification;
 import com.example.diabestes_care_app.Notification_Controller.Notification_Number;
 import com.example.diabestes_care_app.R;
 import com.google.firebase.database.DataSnapshot;
@@ -58,6 +60,7 @@ public class Home_Fragment extends Fragment {
     Notification_Number notification_number;
     // Progress Dialog
     ProgressDialog progressDialog;
+    View bell;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -68,6 +71,16 @@ public class Home_Fragment extends Fragment {
         username = view.findViewById(R.id.HP_patient_name);
         recyclerView = view.findViewById(R.id.HP_recyclerView);
         imageProfile = view.findViewById(R.id.HP_profile_img);
+
+        bell = view.findViewById(R.id.bell);
+
+        bell.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), Users_Notification.class);
+                startActivity(intent);
+            }
+        });
 
         //============================Get Patient Username===========================================
         SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
@@ -97,7 +110,6 @@ public class Home_Fragment extends Fragment {
         ClearAll();
         // Get Data Method
         GetDataFromFirebase();
-        // Get Patient Data Method
 
         //============================Search And Filter Function====================================
         searchInput.addTextChangedListener(new TextWatcher() {
@@ -117,6 +129,7 @@ public class Home_Fragment extends Fragment {
         });
         //============================Notification Counter by using it Function=====================
         notification_number = new Notification_Number(view.findViewById(R.id.bell));
+
         imageProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

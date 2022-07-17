@@ -24,7 +24,9 @@ public class AlarmReceiver extends BroadcastReceiver {
         Intent notificationIntent = new Intent(context, Local_Notification.class);
 
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
+
         stackBuilder.addParentStack(Local_Notification.class);
+
         stackBuilder.addNextIntent(notificationIntent);
 
         PendingIntent pendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -51,7 +53,6 @@ public class AlarmReceiver extends BroadcastReceiver {
             );
             notificationManager.createNotificationChannel(channel);
         }
-
         notificationManager.notify(0, notification);
     }
 }

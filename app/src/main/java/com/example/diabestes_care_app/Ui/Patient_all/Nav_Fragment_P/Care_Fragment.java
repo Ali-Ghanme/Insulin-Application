@@ -19,6 +19,7 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
+import com.example.diabestes_care_app.Ui.Patient_all.Sections.Consultation_Request;
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Patient_all.Sections.Doses.Doses_Home;
 import com.example.diabestes_care_app.Ui.Patient_all.Sections.Reports.Patient_Files;
@@ -41,7 +42,7 @@ public class Care_Fragment extends Fragment {
     // Patient Username TextView
     String PatientUsername;
     //Card View
-    CardView FC_Instruction, FC_Report, FC_Doses_p;
+    CardView FC_Instruction, FC_Report, FC_Doses_p,FC_Consu;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,12 +56,13 @@ public class Care_Fragment extends Fragment {
         FC_Instruction = view.findViewById(R.id.FC_SelfCare_box_p);
         FC_Report = view.findViewById(R.id.FC_Reports_p);
         FC_Doses_p = view.findViewById(R.id.FC_Doses_p);
+        FC_Consu = view.findViewById(R.id.FC_ex_Consultation_p);
 
         //============================Get Doctor Username===========================================
         SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         PatientUsername = prefs.getString("TAG_NAME", null);
 
-        //============================Get Doctor Username===========================================
+        //=================================Blocks===================================================
         FC_Instruction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,6 +81,13 @@ public class Care_Fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), Doses_Home.class);
+                startActivity(intent);
+            }
+        });
+        FC_Consu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Consultation_Request.class);
                 startActivity(intent);
             }
         });

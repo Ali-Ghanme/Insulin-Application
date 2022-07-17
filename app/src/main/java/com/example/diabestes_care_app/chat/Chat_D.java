@@ -77,9 +77,9 @@ public class Chat_D extends Basic_Activity {
         ChatRecyclerView.setAdapter(chatAdapter);
 
         //============================Get data from message adapter class===========================
+        String getUsername = getIntent().getStringExtra("username");
         String getName = getIntent().getStringExtra("name");
         String getProfilePic = getIntent().getStringExtra("profile_pic");
-        String getUsername = getIntent().getStringExtra("username");
         chatKey = getIntent().getStringExtra("chat_key");
         Log.e("TAG", getUsername);
 
@@ -104,6 +104,7 @@ public class Chat_D extends Basic_Activity {
                 if (snapshot.hasChild("chat")) {
 
                     if (snapshot.child("chat").child(chatKey).hasChild("messages")) {
+
                         chatListModels.clear();
 
                         for (DataSnapshot messagesSnapshot : snapshot.child("chat").child(chatKey).child("messages").getChildren()) {
@@ -111,6 +112,7 @@ public class Chat_D extends Basic_Activity {
                             if (messagesSnapshot.hasChild("msg") && messagesSnapshot.hasChild("username")) {
 
                                 String messageTimestamps = messagesSnapshot.getKey();
+
                                 final String getUsername = messagesSnapshot.child("username").getValue(String.class);
                                 final String getMsg = messagesSnapshot.child("msg").getValue(String.class);
 

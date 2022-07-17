@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/_10sdp"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:layout_marginRight="10dp"
+    android:background="@drawable/bg_doctors_list"
+    android:clickable="true"
+    android:elevation="1.5dp"
+    android:focusable="true">
+
+    <RelativeLayout
+        android:id="@+id/Pl_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/Consu_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="@dimen/_60sdp"
+            android:fontFamily="@font/cairo_semibold"
+            android:lines="1"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/Consu_title_s"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:fontFamily="@font/cairo_semibold"
+            android:lines="1"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="العنوان:"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/Consu_Que"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Consu_title"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="@dimen/_60sdp"
+            android:fontFamily="@font/cairo_semibold"
+            android:textColor="@color/gray" />
+
+        <TextView
+            android:id="@+id/Consu_Que_s"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Consu_title"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:fontFamily="@font/cairo_semibold"
+            android:text="السؤال :"
+            android:textColor="@color/gray" />
+
+        <ImageButton
+            android:id="@+id/Consu_btn_show_answer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:background="@drawable/ic_arrow_next"
+            android:rotation="90" />
+
+        <View
+            android:layout_width="@dimen/_250sdp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/light_gray"
+            android:layout_marginTop="@dimen/_60sdp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/Consu_cont_show_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Pl_container">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_20sdp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/Consu_Doc_Image"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/Consu_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_65sdp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/tab_selector"
+            android:fontFamily="@font/cairo_bold"
+            android:textSize="@dimen/_10sdp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Consu_name"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:text="الاجابة :"
+            android:textSize="@dimen/_10sdp" />
+
+        <TextView
+            android:id="@+id/Consu_answer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Consu_name"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginRight="@dimen/_60sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:textSize="@dimen/_10sdp" />
+
+        <Button
+            android:id="@+id/Pl_follow_patient"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:background="@drawable/bg_doctor_button"
+            android:backgroundTint="@color/Patient_Color"
+            android:fontFamily="@font/cairo_bold"
+            android:text="متابعة"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

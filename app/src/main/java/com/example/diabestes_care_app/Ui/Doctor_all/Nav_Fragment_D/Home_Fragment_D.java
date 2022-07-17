@@ -4,6 +4,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
@@ -24,9 +25,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.diabestes_care_app.Adapters.Patient_List_Adapter;
-import com.example.diabestes_care_app.Models.DoctorList_Model;
+import com.example.diabestes_care_app.Models.PatientList_Model;
 import com.example.diabestes_care_app.Notification_Controller.Notification_Number;
 import com.example.diabestes_care_app.R;
+import com.example.diabestes_care_app.Users_Notification;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -44,7 +46,7 @@ public class Home_Fragment_D extends Fragment {
     // Widget
     RecyclerView recyclerView;
     // Variables
-    ArrayList<DoctorList_Model> list;
+    ArrayList<PatientList_Model> list;
     // Adapter
     Patient_List_Adapter patientList_adapter;
     // Search Variables
@@ -61,7 +63,7 @@ public class Home_Fragment_D extends Fragment {
     Notification_Number notification_number;
     // Follow Checker
     Boolean followChecker = false;
-
+    View bell;
     ProgressDialog progressDialog;
 
     @Override
@@ -84,6 +86,15 @@ public class Home_Fragment_D extends Fragment {
         progressDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         progressDialog.show();
 
+        bell = view.findViewById(R.id.bell);
+
+        bell.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), Users_Notification.class);
+                startActivity(intent);
+            }
+        });
         //============================Firebase======================================================
         myRef = FirebaseDatabase.getInstance().getReference();
 
@@ -118,16 +129,6 @@ public class Home_Fragment_D extends Fragment {
             public void afterTextChanged(Editable s) {
             }
         });
-
-        //============================Notification_Number Counter===================================
-        notification_number = new Notification_Number(view.findViewById(R.id.bell));
-
-        imageProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                notification_number.incrementNumber();
-            }
-        });
         return view;
     }
 
@@ -140,16 +141,17 @@ public class Home_Fragment_D extends Fragment {
                 ClearAll();
                 try {
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        DoctorList_Model doctorListModel = new DoctorList_Model();
-                        doctorListModel.setName(snapshot.child("personal_info").child("name").getValue().toString());
-                        doctorListModel.setUsername(snapshot.child("username").getValue().toString());
-                        doctorListModel.setImageUrl(snapshot.child("User_Profile_Image").child("Image").child("mImageUrI").getValue().toString());
-                        list.add(doctorListModel);
+                        PatientList_Model patientListModel = new PatientList_Model();
+                        patientListModel.setName(snapshot.child("personal_info").child("name").getValue().toString());
+                        patientListModel.setUsername(snapshot.child("username").getValue().toString());
+                        patientListModel.setImageUrl(snapshot.child("User_Profile_Image").child("Image").child("mImageUrI").getValue().toString());
+                        list.add(patientListModel);
                         progressDialog.dismiss();
                     }
 
                 } catch (Exception e) {
-                    Toast.makeText(getContext(), "إنتظر قليلاً ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "خطأ في الرئيسيةً ", Toast.LENGTH_SHORT).show();
+                    Log.e("TAG",e.getMessage());
 
                 }
                 patientList_adapter = new Patient_List_Adapter(getContext(), list);
@@ -184,6 +186,9 @@ public class Home_Fragment_D extends Fragment {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (getActivity() == null) {
+                    return;
+                }
                 String image = snapshot.child(DoctorUsername).child("User_Profile_Image").child("Image").child("mImageUrI").getValue(String.class);
                 String name = snapshot.child(DoctorUsername).child("personal_info").child("name_ar").getValue(String.class);
                 Glide.with(getActivity()).load(image).into(imageProfile);

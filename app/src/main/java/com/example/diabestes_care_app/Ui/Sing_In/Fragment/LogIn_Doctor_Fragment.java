@@ -123,6 +123,7 @@ public class LogIn_Doctor_Fragment extends Fragment {
                     // fit password to specific username
                     String passwordFromDB = snapshot.child(doctorEnterUsername).child("Password").getValue(String.class);
                     if (passwordFromDB.equals(doctorEnterPassword)) {
+
                         SharedPreferences.Editor editor = sharedpreferences.edit();
                         editor.putString("TAG_NAME", doctorEnterUsername);
                         editor.commit();
@@ -130,7 +131,6 @@ public class LogIn_Doctor_Fragment extends Fragment {
                         Intent intent = new Intent(getActivity(), Home_Doctor.class);
                         startActivity(intent);
                         getActivity().finish();
-
                     } else {
                         password.setError("Wrong Password");
                     }

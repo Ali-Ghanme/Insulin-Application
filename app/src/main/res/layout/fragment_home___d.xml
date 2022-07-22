@@ -56,7 +56,7 @@
         android:textSize="@dimen/_16sdp" />
 
     <include
-        android:id="@+id/bell"
+        android:id="@+id/bell_D"
         layout="@layout/bell" />
 
     <EditText

@@ -1,5 +1,7 @@
 package com.example.diabestes_care_app.Ui.Patient_all.Sections.Doses;
 
+import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
+
 import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -16,6 +18,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -24,6 +27,7 @@ import android.widget.TimePicker;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.ViewPager;
 
+import com.bumptech.glide.Glide;
 import com.example.diabestes_care_app.Alarms.AlarmReceiver;
 import com.example.diabestes_care_app.Alarms.SliderAdapter;
 import com.example.diabestes_care_app.Alarms.alarmChooserActivity;
@@ -31,6 +35,11 @@ import com.example.diabestes_care_app.Alarms.ringtonePlayingService;
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -38,14 +47,12 @@ import java.util.Locale;
 
 public class Doses_Home extends Basic_Activity {
 
-//    private Button button1 , button2;
-//    Context context;
-com.example.diabestes_care_app.Alarms.AlarmSound sound = new com.example.diabestes_care_app.Alarms.AlarmSound(this);
+
+    com.example.diabestes_care_app.Alarms.AlarmSound sound = new com.example.diabestes_care_app.Alarms.AlarmSound(this);
 
     //Alarm variables
     long snoozeTime;
     AlarmManager alarmManager;
-    TimePicker alarmTimePicker;
     Context context;
     Calendar calendar;
     FloatingActionButton alarmOn;
@@ -57,22 +64,12 @@ com.example.diabestes_care_app.Alarms.AlarmSound sound = new com.example.diabest
     TextView alarm_textView;
     Switch alarm_switch;
     RelativeLayout alarm_relativeLayout;
-
-    //ui
-    private TextView[] mdots;
-    private Button button;
-
-    //countdown timer
-//    private static long START_TIME_IN_MILLIS = 60000; //1 minute
-//    private TextView mTextViewCountDown;
-//    private FloatingActionButton mButtonStartPause;
-//    private FloatingActionButton mButtonReset;
-//    private FloatingActionButton mButtonStartPause2;
-//    private CountDownTimer mCountDownTimer;
-//    private boolean mTimerRunning;
-//    private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
+    TextView patient_name;
+    ImageView profile_img;
+    DatabaseReference myRef;
+    String PatientUsername;
+    View view1, view2;
     MediaPlayer timer_song;
-
     //binder
     ringtonePlayingService mService;
     boolean mBound = false;
@@ -87,10 +84,14 @@ com.example.diabestes_care_app.Alarms.AlarmSound sound = new com.example.diabest
         alarmOn = findViewById(R.id.alarm_button);
         alarmOff = findViewById(R.id.off_button);
         alarmSnooze = findViewById(R.id.snooze_button);
-//        button = findViewById(R.id.btn);
+        profile_img = findViewById(R.id.FD_profile_img);
+        patient_name = findViewById(R.id.Patient_Username);  // text is null
+        view1 = findViewById(R.id.EP_view3_pC);
+        view2 = findViewById(R.id.EP_view4_pC);
 
-
-
+        //============================Get Patient Username===========================================
+        SharedPreferences prefs = Doses_Home.this.getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
+        PatientUsername = prefs.getString("TAG_NAME", null);
         //==========================================================================================
         //initialize our alarm manager
         alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
@@ -139,21 +140,6 @@ com.example.diabestes_care_app.Alarms.AlarmSound sound = new com.example.diabest
                 }
             });
         }
-
-        //==========================================================================================
-        //Ui: dots layout  . . .
-//        LinearLayout mDotLayout = (LinearLayout) findViewById(R.id.mDotLayout);
-//        mdots = new TextView[2];
-//        for (int i = 0; i < mdots.length; i++) {
-//            mdots[i] = new TextView(this);
-//            mdots[i].setText(Html.fromHtml("&#8226;"));
-//            mdots[i].setTextSize(35);
-//            mdots[i].setTextColor(getResources().getColor(R.color.white_smoke));
-//
-////            mDotLayout.addView(mdots[i]);
-//        }
-//        addDotsIndicator(1);
-//        mSlideViewPager.addOnPageChangeListener(viewListener);
 
         //==========================================================================================
         //new thread to update clock The Welcome Screen show the time and date and (Good Morning or Good Evening)
@@ -239,12 +225,6 @@ com.example.diabestes_care_app.Alarms.AlarmSound sound = new com.example.diabest
         t2.start();
 
         //==============================Timer Code==================================================
-        //countdown timer
-//        mTextViewCountDown = findViewById(R.id.text_view_countdown);
-//        mButtonStartPause = findViewById(R.id.button_start_pause);
-//        mButtonStartPause2 = findViewById(R.id.button_start_pause2);
-//        mButtonReset = findViewById(R.id.button_reset);
-
         // set shared preferences again and put time song in a try block in cases where preferences
         // were not properly set before
         preferences = getSharedPreferences("alarm_tune", Context.MODE_PRIVATE);
@@ -268,11 +248,6 @@ com.example.diabestes_care_app.Alarms.AlarmSound sound = new com.example.diabest
         } catch (Exception e) {
             timer_song = MediaPlayer.create(this, R.raw.down_stream);
         }
-
-        //timer buttons
-//        mButtonStartPause = findViewById(R.id.button_start_pause);
-//        mButtonStartPause2 = findViewById(R.id.button_start_pause2);
-//        mButtonReset = findViewById(R.id.button_reset);
     }
 
     //============================Store Alarm data on life cycle ==================================================================
@@ -282,6 +257,30 @@ com.example.diabestes_care_app.Alarms.AlarmSound sound = new com.example.diabest
         // Bind to ringtonePlayingService
         Intent binder_intent = new Intent(this, ringtonePlayingService.class);
         bindService(binder_intent, mConnection, Context.BIND_AUTO_CREATE);
+        //============================Show The Patient name + image=====================================
+        myRef = FirebaseDatabase.getInstance().getReference("patient").child(PatientUsername);
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (Doses_Home.this == null) {
+                    return;
+                }
+                try {
+                    String image = snapshot.child("User_Profile_Image").child("Image").child("mImageUrI").getValue(String.class);
+                    String name = snapshot.child("personal_info").child("name").getValue(String.class);
+                    Glide.with(Doses_Home.this).load(image).into(profile_img);
+                    patient_name.setText(name);
+                    Log.d("TAG", name + "/" + image);
+                } catch (Exception e) {
+                    Log.e("TAG", e.getMessage());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("TAG", error.getMessage());
+            }
+        });
     }
 
     @Override
@@ -304,10 +303,6 @@ com.example.diabestes_care_app.Alarms.AlarmSound sound = new com.example.diabest
     @Override
     protected void onResume() {
         super.onResume();
-
-//        mButtonStartPause = findViewById(R.id.button_start_pause);
-//        mButtonStartPause2 = findViewById(R.id.button_start_pause2);
-//        mButtonReset = findViewById(R.id.button_reset);
 
         Log.e("inside resume method", "resetting button visibility");
 
@@ -469,7 +464,7 @@ com.example.diabestes_care_app.Alarms.AlarmSound sound = new com.example.diabest
         //put in extra string to say that you stopped the alarm
         alarmReceiverIntent.putExtra("extra", "alarm on");
 
-        pendingIntent = PendingIntent.getBroadcast(Doses_Home.this, 0, alarmReceiverIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        pendingIntent = PendingIntent.getBroadcast(Doses_Home.this, 0, alarmReceiverIntent, PendingIntent.FLAG_MUTABLE);
 
         //get snooze length
         SharedPreferences preferences = getSharedPreferences("alarm_tune", Context.MODE_PRIVATE);
@@ -488,26 +483,5 @@ com.example.diabestes_care_app.Alarms.AlarmSound sound = new com.example.diabest
             snoozeTime += (long) prefValue * 60 * 1000;    //minutes*60seconds*1000milliseconds
         }
         alarmManager.set(AlarmManager.RTC_WAKEUP, snoozeTime, pendingIntent);
-
     }
-//
-//        button1 = findViewById(R.id.btn1_doses);
-//        button2 = findViewById(R.id.btn2_doses);
-//
-//        button1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(Doses_Home.this, Alarm.class);
-//                startActivity(intent);
-//            }
-//        });
-//        button2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent gotoAlarmChooserActivity = new Intent();
-//                gotoAlarmChooserActivity.setClass(Doses_Home.this, alarmChooserActivity.class);
-//                startActivity(gotoAlarmChooserActivity);
-//
-//            }
-//        });
-    }
+}

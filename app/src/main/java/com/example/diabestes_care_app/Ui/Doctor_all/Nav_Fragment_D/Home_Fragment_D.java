@@ -86,7 +86,7 @@ public class Home_Fragment_D extends Fragment {
         progressDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         progressDialog.show();
 
-        bell = view.findViewById(R.id.bell);
+        bell = view.findViewById(R.id.bell_D);
 
         bell.setOnClickListener(new View.OnClickListener() {
             @Override

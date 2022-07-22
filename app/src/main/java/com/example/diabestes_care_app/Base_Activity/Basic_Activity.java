@@ -83,11 +83,8 @@ public class Basic_Activity extends AppCompatActivity {
         startActivityForResult(intent, PICK_IMAGE_REQUEST);
     }
 
-
     public void updateLabel(EditText mData, Calendar myCalendar, String myFormat) {
         SimpleDateFormat dateFormat = new SimpleDateFormat(myFormat, Locale.UK);
         mData.setText(dateFormat.format(myCalendar.getTime()));
     }
-
-
 }

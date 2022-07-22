@@ -1,261 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    >
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    android:fillViewport="true">
 
     <RelativeLayout
-        android:id="@+id/FC_header_p"
+        android:id="@+id/Rela1"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:background="@drawable/bg_half_rounded"
-        android:backgroundTint="@color/Patient_Color"
-        android:layout_marginBottom="80dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/FC_title_p"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="60dp"
-        android:text="جرعاتي"
-        android:textColor="@color/white"
-        android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="@+id/FC_header_p"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/FC_header_p" />
-    <!--    android:fontFamily="@font/cairo_bold"-->
-
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/FC_profile_img"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_centerHorizontal="true"
-        android:contentDescription="@string/todo"
-        app:civ_border_color="@android:color/white"
-        app:civ_border_width="3dp"
-        app:layout_constraintBottom_toBottomOf="@+id/FC_header_p"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/FC_view_p" />
-
-    <ImageView
-        android:id="@+id/FC_info"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/ic_info"
-        android:backgroundTint="@color/white_ghost"
-        android:contentDescription="@string/todo"
-        app:layout_constraintBottom_toBottomOf="@+id/FC_header_p"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        android:id="@+id/FC_view_p"
-        android:layout_width="30dp"
-        android:layout_height="5dp"
-        android:layout_below="@id/FC_title_p"
         android:layout_centerHorizontal="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/FC_title_p" />
-    <!--    android:background="@drawable/bg_search"-->
-
-
-
-        <RelativeLayout
-            android:id="@+id/Rela1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <!--            <TextView-->
-            <!--                android:id="@+id/time"-->
-            <!--                android:layout_width="221dp"-->
-            <!--                android:layout_height="60dp"-->
-            <!--                android:layout_alignParentTop="true"-->
-            <!--                android:layout_centerHorizontal="true"-->
-            <!--                android:layout_marginTop="83dp"-->
-            <!--                android:fontFamily="sans-serif"-->
-            <!--                android:gravity="center"-->
-            <!--                android:text="@string/space"-->
-            <!--                android:textAllCaps="false"-->
-            <!--                android:textColor="@android:color/background_dark"-->
-            <!--                android:textSize="36sp"-->
-            <!--                android:textStyle="bold" />-->
-
-            <!--            <TextView-->
-            <!--                android:id="@+id/ampm"-->
-            <!--                android:layout_width="77dp"-->
-            <!--                android:layout_height="57dp"-->
-            <!--                android:layout_alignTop="@+id/time"-->
-            <!--                android:layout_marginStart="-46dp"-->
-            <!--                android:layout_marginTop="17dp"-->
-            <!--                android:layout_toEndOf="@+id/time"-->
-            <!--                android:gravity="left"-->
-            <!--                android:text=""-->
-            <!--                android:textColor="#000000"-->
-            <!--                android:textSize="24sp" />-->
-
-            <!--            <TextView-->
-            <!--                android:id="@+id/date"-->
-            <!--                android:layout_width="131dp"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_below="@+id/time"-->
-            <!--                android:layout_centerHorizontal="true"-->
-            <!--                android:gravity="center"-->
-            <!--                android:text="@string/space"-->
-            <!--                android:textColor="@android:color/background_dark" />-->
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
             <TextView
                 android:id="@+id/greeting"
-                android:layout_width="253dp"
-                android:layout_height="190dp"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="154dp"
-                android:gravity="center"
-                android:layout_centerHorizontal="true"
-                android:text=""
-                android:textColor="#000000"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/off_button"
-                android:layout_width="138dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/alarm_relativeLayout"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="38dp"
-                android:layout_marginBottom="12dp"
-                android:background="@color/Patient_Color"
-                android:fontFamily="sans-serif"
-                android:onClick="alarmToggleOff"
-                android:text="أطفئ المنبه"
-                android:visibility="invisible" />
-
-            <Button
-                android:id="@+id/snooze_button"
-                android:layout_width="137dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/alarm_relativeLayout"
-                android:layout_alignParentStart="true"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_alignParentLeft="true"
-                android:layout_marginStart="40dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="30dp"
-                android:background="@color/Patient_Color"
-                android:fontFamily="sans-serif"
-                android:onClick="alarmSnooze"
-                android:text="غفوة"
-                android:visibility="invisible" />
-            <!--        <TextView-->
-            <!--            android:id="@+id/alarmset_textView"-->
-            <!--            android:layout_width="167dp"-->
-            <!--            android:layout_height="wrap_content"-->
-            <!--            android:layout_alignParentStart="true"-->
-            <!--            android:layout_alignParentLeft="true"-->
-            <!--            android:layout_alignParentTop="true"-->
-            <!--            android:layout_marginStart="30dp"-->
-            <!--            android:layout_marginLeft="30dp"-->
-            <!--            android:layout_marginTop="46dp"-->
-            <!--            android:text="Alarms Set"-->
-            <!--            android:textAllCaps="true"-->
-            <!--            android:textColor="#FFFFFF"-->
-            <!--            android:textSize="24sp"-->
-            <!--            android:textStyle="bold" />-->
+                android:layout_marginLeft="@dimen/_150sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:textColor="@color/Patient_Color"
+                android:textSize="@dimen/_18sdp" />
 
-            <RelativeLayout
-                android:id="@+id/alarm_relativeLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="79dp"
-                android:layout_below="@+id/greeting"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
-                android:background="@color/Patient_Color"
-                android:visibility="invisible">
+            <TextView
+                android:id="@+id/Patient_Username"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="@dimen/_100sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:textColor="@color/Patient_Color"
+                android:textSize="@dimen/_18sdp" />
 
-                <TextView
-                    android:id="@+id/alarm_textView"
-                    android:layout_width="172dp"
-                    android:layout_height="31dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginLeft="30dp"
-                    android:gravity="start"
-                    android:text=" "
-                    android:textAlignment="viewStart"
-                    android:textColor="#FFFFFF"
-                    android:textSize="18sp" />
+        <View
+            android:id="@+id/EP_view3_pC"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/Patient_Username"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="#CFCFCF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-                <Switch
-                    android:id="@+id/alarm_switch"
-                    android:layout_width="55dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="70dp"
-                    android:layout_marginRight="70dp"
-                    android:checked="true"
-                    android:visibility="invisible"
-                    tools:checked="true"
-                    tools:ignore="UseSwitchCompatOrMaterialXml" />
+        <RelativeLayout
+            android:id="@+id/alarm_relativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="79dp"
+            android:layout_below="@+id/EP_view3_pC"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:backgroundTint="@color/white"
+            android:visibility="visible">
 
-            </RelativeLayout>
+            <TextView
+                android:id="@+id/alarm_textView"
+                android:layout_width="172dp"
+                android:layout_height="31dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30dp"
+                android:fontFamily="@font/cairo_bold"
+                android:textColor="@color/Patient_Color"
+                android:textSize="18sp" />
 
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/alarm_button"
+            <Switch
+                android:id="@+id/alarm_switch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/alarm_relativeLayout"
-                android:layout_alignRight="@+id/alarm_relativeLayout"
-                android:layout_alignParentBottom="true"
-                android:layout_gravity="bottom"
-                android:layout_marginEnd="0dp"
-                android:layout_marginRight="0dp"
-                android:layout_marginBottom="97dp"
-                android:backgroundTint="@color/Patient_Color"
-                android:clickable="true"
-                android:onClick="alarmToggle"
-                app:srcCompat="@drawable/ic_add_black" />
-
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:checked="true"
+                android:thumb="@drawable/switcher_selector"
+                android:visibility="invisible"
+                tools:checked="true"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
         </RelativeLayout>
-        <Button
-            android:id="@+id/request_for"
+
+        <View
+            android:id="@+id/EP_view4_pC"
             android:layout_width="@dimen/_250sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="12dp"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/alarm_relativeLayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="#CFCFCF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/off_button"
+            android:layout_width="138dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/alarm_relativeLayout"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="38dp"
             android:background="@drawable/news_rectangel"
             android:backgroundTint="@color/Patient_Color"
             android:fontFamily="@font/cairo_bold"
-            android:text="إرسال طلب استشارة"
+            android:onClick="alarmToggleOff"
+            android:text="أطفئ المنبه"
             android:textColor="@color/white"
-            android:textSize="@dimen/_14sdp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_margin="@dimen/_10sdp"
-            />
+            android:visibility="invisible" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/snooze_button"
+            android:layout_width="138dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/alarm_relativeLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/news_rectangel"
+            android:backgroundTint="@color/Patient_Color"
+            android:fontFamily="@font/cairo_bold"
+            android:onClick="alarmSnooze"
+            android:text="غفوة"
+            android:textColor="@color/white"
+            android:visibility="invisible" />
 
-    </ScrollView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/alarm_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/alarm_relativeLayout"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="@dimen/_100sdp"
+            android:backgroundTint="@color/Patient_Color"
+            android:clickable="true"
+            android:onClick="alarmToggle"
+            app:srcCompat="@drawable/ic_add_black" />
+
+        <Button
+            android:id="@+id/request_for"
+            android:layout_width="@dimen/_160sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:background="@drawable/news_rectangel"
+            android:backgroundTint="@color/Patient_Color"
+            android:fontFamily="@font/cairo_bold"
+            android:text=" طلب مراجعة جرعات"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp" />
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

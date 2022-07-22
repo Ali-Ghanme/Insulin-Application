@@ -25,6 +25,7 @@ import androidx.core.app.NotificationManagerCompat;
 import com.bumptech.glide.Glide;
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.NotificationSender.FcmNotificationsSender;
+import com.example.diabestes_care_app.Notification_Controller.Notification_Number;
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Patient_all.Sections.Consultation_Request;
 import com.google.firebase.database.DataSnapshot;
@@ -42,12 +43,12 @@ public class Doctor_Profile_P extends Basic_Activity {
     CircleImageView Doctor_Profile;
     TextView DoctorName;
     // Dialog
-
     Dialog dialog;
     EditText et_title, et_subject;
     String Consultation_title, Consultation_subject, getName, getProfilePic, getUsername, getToken, getRequestKey, PatientUsername;
     DatabaseReference myReference;
     String chatKey;
+    Notification_Number notification_number;
     SharedPreferences sharedpreferences;
     public static final String MyPREFERENCES_MSGKey = "MSG_KEY";
 
@@ -142,6 +143,7 @@ public class Doctor_Profile_P extends Basic_Activity {
                     editor.putString("TAG_NAME2", chatKey);
                     editor.commit();
                     Log.e("TAG", chatKey);
+
                 } else {
                     Toast.makeText(Doctor_Profile_P.this, "Enter Token", Toast.LENGTH_SHORT).show();
                 }

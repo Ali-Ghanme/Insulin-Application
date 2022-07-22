@@ -14,6 +14,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Diabestes_Care_App">
+
+        <activity
+            android:name=".Users_Notification"
+            android:exported="false" />
+        <activity
+            android:name=".Ui.Patient_all.Sections.Consultation_Request"
+            android:exported="false" />
+
         <activity
             android:name=".Ui.Doctor_all.Patient_Profile_D"
             android:exported="false" />
@@ -107,18 +115,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.example.diabestes_care_app.Alarms.Alarm"
-            android:exported="true">
-
-        </activity>
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
         <activity
             android:name="com.example.diabestes_care_app.Alarms.alarmChooserActivity"
-            android:parentActivityName="com.example.diabestes_care_app.Alarms.Alarm">
+            android:parentActivityName="com.example.diabestes_care_app.Alarms.alarmChooserActivity">
 
         </activity>
 

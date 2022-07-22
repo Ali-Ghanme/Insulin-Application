@@ -38,7 +38,7 @@ public class My_Exams_Fragment extends Fragment {
     // Btn_sheet sheet كلية  // Btn_sheet دهون  // Btn_sheet دم
     EditText examine_bmi, examine_college, examine_fats, examine_blood, et_number_sugar, btn_sheet_time_day_sugar;
     TextView tv_date, tv_date_time;
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://diabeticsproject-default-rtdb.firebaseio.com/");
+    DatabaseReference databaseReference, databaseReference_daily;
     ListView listView;
     String PatientUsername, number_sugar, sugar, currentDataTime, creatine, uric, urea, hdl, ldl, triglyceride, cholesterol, date_time, Blood_Pressure;
     String[] time_day_suger = {"قبل النوم", "بعد العشاء", "قبل العشاء", "بعد الغداء ", "قبل الغداء", "بعد الإفطار", "قبل الإفطار"};
@@ -75,7 +75,8 @@ public class My_Exams_Fragment extends Fragment {
         //============================Get Patient Username===========================================
         SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         PatientUsername = prefs.getString("TAG_NAME", null);
-
+        databaseReference_daily = FirebaseDatabase.getInstance().getReference("patient").child(PatientUsername).child("Reports_info").child("فحص يومي").push();
+        databaseReference = FirebaseDatabase.getInstance().getReference();
         //=================================Start Visible And Gone===================================
         sugar_one.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -148,9 +149,9 @@ public class My_Exams_Fragment extends Fragment {
                 } else {
                     Toast.makeText(getActivity(), " قيمة السكر : " + number_sugar, Toast.LENGTH_SHORT).show();
                     // Upload Data on Firebase
-                    databaseReference.child("patient").child(PatientUsername).child("Reports_info").child("فحص يومي").child("نسبة السكر في الدم").setValue(number_sugar);
-                    databaseReference.child("patient").child(PatientUsername).child("Reports_info").child("فحص يومي").child("فترة القياس").setValue(sugar);
-                    databaseReference.child("patient").child(PatientUsername).child("Reports_info").child("فحص يومي").child("وقت القياس").setValue(currentDataTime);
+                    databaseReference_daily.child("نسبة السكر في الدم").setValue(number_sugar);
+                    databaseReference_daily.child("فترة القياس").setValue(sugar);
+                    databaseReference_daily.child("وقت القياس").setValue(currentDataTime);
                 }
             }
         });

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Ui.Doctor_all.Nav_Fragment_D.My_Patient_Fragment_D">
+
+    <RelativeLayout
+        android:id="@+id/FDP_header_d"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp"
+        android:background="@drawable/bg_half_rounded" />
+
+    <TextView
+        android:id="@+id/FDP_title_d"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/_90sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:fontFamily="@font/cairo_bold"
+        android:text="أتابع"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_18sdp" />
+
+    <View
+        android:id="@+id/FDP_view_d"
+        android:layout_width="30dp"
+        android:layout_height="5dp"
+        android:layout_below="@id/FDP_title_d"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/bg_search" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/FDP_profile_img_d"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/_240sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:contentDescription="@string/todo"
+        app:civ_border_color="@android:color/white"
+        app:civ_border_width="2dp" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/FDP_Chat_RecyclerView_d"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/FDP_header_d" />
+</RelativeLayout>

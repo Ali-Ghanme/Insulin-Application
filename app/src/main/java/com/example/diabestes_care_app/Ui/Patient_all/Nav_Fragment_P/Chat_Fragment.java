@@ -89,6 +89,9 @@ public class Chat_Fragment extends Fragment {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (getActivity() == null) {
+                    return;
+                }
                 String PatientImage = snapshot.child(PatientUsername).child("User_Profile_Image").child("Image").child("mImageUrI").getValue(String.class);
                 Glide.with(getContext()).load(PatientImage).into(imageView_Profile);
             }
@@ -138,7 +141,7 @@ public class Chat_Fragment extends Fragment {
                                                 for (DataSnapshot chatDataSnapshot : dataSnapshot1.child("messages").getChildren()) {
 
                                                     final long getMessageKey = Long.parseLong(chatDataSnapshot.getKey());
-                                                    final long getLastSeenMessage = Long.parseLong(MemoryData.getLastMsgTS(getContext(),getKey));
+                                                    final long getLastSeenMessage = Long.parseLong(MemoryData.getLastMsgTS(getContext(), getKey));
 
                                                     lastMessage = chatDataSnapshot.child("msg").getValue(String.class);
 

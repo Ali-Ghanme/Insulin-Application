@@ -74,6 +74,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
             android:layout_marginLeft="@dimen/_20sdp"
             android:background="@drawable/ic_arrow_next"
             android:rotation="90" />
@@ -159,5 +160,8 @@
             android:fontFamily="@font/cairo_bold"
             android:text="متابعة"
             android:textColor="@color/white" />
+
+
+
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

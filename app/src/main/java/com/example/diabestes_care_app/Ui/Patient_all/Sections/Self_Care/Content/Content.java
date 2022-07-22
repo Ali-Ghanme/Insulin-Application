@@ -44,13 +44,12 @@ public class Content extends Basic_Activity {
         btnNext = findViewById(R.id.content_next_btn);
         btnBack = findViewById(R.id.content_back_btn);
         end = findViewById(R.id.btn_the_end);
-
         //=================================fill list screen=========================================
         final List<SelfCare_Model> mList = new ArrayList<>();
 
-        mList.add(new SelfCare_Model(R.string.Gabobet_sokar, R.drawable.ic_splash_1, items[0]));
-        mList.add(new SelfCare_Model(R.string.Gabobet_sokar, R.drawable.ic_splash_1, items[1]));
-        mList.add(new SelfCare_Model(R.string.Gabobet_sokar, R.drawable.ic_splash_1, items[2]));
+        mList.add(new SelfCare_Model(R.string.عن_المرض, R.drawable.ic_splash_1, items[0]));
+        mList.add(new SelfCare_Model(R.string.أنواع_المرض, R.drawable.ic_splash_1, items[1]));
+        mList.add(new SelfCare_Model(R.string.مضاعفات_المرض, R.drawable.ic_splash_1, items[2]));
         mList.add(new SelfCare_Model(R.string.Gabobet_sokar, R.drawable.ic_splash_1, items[3]));
         mList.add(new SelfCare_Model(R.string.Gabobet_sokar, R.drawable.ic_splash_1, items[4]));
         mList.add(new SelfCare_Model(R.string.Gabobet_sokar, R.drawable.ic_splash_1, items[5]));

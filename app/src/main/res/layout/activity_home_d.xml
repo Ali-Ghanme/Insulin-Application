@@ -34,7 +34,7 @@
         app:abb_tabAnimation="fade"
         app:abb_tabColor="@color/white"
         app:abb_tabColorSelected="@color/white"
-        app:abb_tabs="@menu/navgation"
+        app:abb_tabs="@menu/navgation_d"
         app:abb_textAppearance="@style/CustomText"
         app:layout_constraintBottom_toBottomOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

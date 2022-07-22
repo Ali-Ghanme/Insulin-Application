@@ -14,6 +14,7 @@ import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Doctor_all.Nav_Fragment_D.Chat_Fragment_D;
 import com.example.diabestes_care_app.Ui.Doctor_all.Nav_Fragment_D.Home_Fragment_D;
+import com.example.diabestes_care_app.Ui.Doctor_all.Nav_Fragment_D.My_Patient_Fragment_D;
 import com.example.diabestes_care_app.Ui.Doctor_all.Nav_Fragment_D.Profile_Fragment_D;
 import com.example.diabestes_care_app.Ui.Patient_all.Home_Patient;
 import com.google.firebase.database.DataSnapshot;
@@ -43,7 +44,7 @@ public class Home_Doctor extends Basic_Activity {
 
         //============================Animation=====================================================
         if (savedInstanceState == null) {
-            animatedBottomBar.selectTabById(R.id.nav_menu_home, true);
+            animatedBottomBar.selectTabById(R.id.nav_menu_home_D, true);
             fragmentManager = getSupportFragmentManager();
             Home_Fragment_D home_fragment = new Home_Fragment_D();
 //             Add Home Fragment as the default Fragment
@@ -74,7 +75,7 @@ public class Home_Doctor extends Basic_Activity {
                 String snooping_status = dataSnapshot.getValue(String.class);
                 //mario should decide what to do with linker's snooping status here e.g.
                 if (snooping_status.contentEquals("online")) {
-                    Log.e("TAG",DoctorUsername + snooping_status);
+                    Log.e("TAG", DoctorUsername + snooping_status);
                 } else {
                     Toast.makeText(Home_Doctor.this, "User Offline", Toast.LENGTH_SHORT).show();
                 }
@@ -90,13 +91,16 @@ public class Home_Doctor extends Basic_Activity {
             public void onTabSelected(int lastIndex, @Nullable AnimatedBottomBar.Tab lastTab, int newIndex, @NonNull AnimatedBottomBar.Tab newTab) {
                 Fragment fragment = null;
                 switch (newTab.getId()) {
-                    case R.id.nav_menu_home:
+                    case R.id.nav_menu_home_D:
                         fragment = new Home_Fragment_D();
                         break;
-                    case R.id.nav_menu_chat_:
+                    case R.id.nav_menu_Following_D:
+                        fragment = new My_Patient_Fragment_D();
+                        break;
+                    case R.id.nav_menu_chat_D:
                         fragment = new Chat_Fragment_D();
                         break;
-                    case R.id.nav_menu_user_profile:
+                    case R.id.nav_menu_user_profile_D:
                         fragment = new Profile_Fragment_D();
                         break;
                 }

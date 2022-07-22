@@ -70,6 +70,8 @@
         <entry key="..\:/Users/01/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/drawable/bg_half_rounded.xml" value="0.1085" />
         <entry key="..\:/Users/01/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/drawable/bg_log_in_tab.xml" value="0.1085" />
         <entry key="..\:/Users/01/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/drawable/ic_info.xml" value="0.1085" />
+        <entry key="..\:/Users/01/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_about.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/01/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_about_app.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/01/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_alarm.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/01/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_alarm_chooser.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/01/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/activity_alarm_receiver.xml" value="0.17074275362318841" />
@@ -111,6 +113,7 @@
         <entry key="..\:/Users/01/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/custom_dilog.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/01/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/doctors_list.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/01/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/fragment_care_.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/01/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/fragment_personal__info.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/01/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/layout/item_layout.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/drawable-v24/arrwdr.xml" value="0.226" />
         <entry key="..\:/Users/NO_BODY/AndroidStudioProjects/Diabestes_Care_App/app/src/main/res/drawable-v24/bg_text_dr.xml" value="0.26" />

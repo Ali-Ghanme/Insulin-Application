@@ -2,6 +2,7 @@
     <string name="app_name">Diabestes_Care_App</string>
     <string name="Home">الرئيسة</string>
     <string name="todo">TODO</string>
+    <string name="good_mor">Good Morning</string>
     <string name="Welcome_text">صباح الخير</string>
     <string name="Welcome_text_dr">صباح الخير د.أحمد</string>
     <string name="number_of_Aviliable_doctor">17/40</string>
@@ -13,9 +14,8 @@
     <string name="space" />
     <string name="alarm_chooser_toolbar_title">Alarm\u0020Sounds</string>
     <string name="settings_toolbar_title">Settings</string>
-    <string name="good_mor">Good Morning</string>
-    <string name="good_aft">Good Afternoon</string>
-    <string name="good_ev">Good Evening</string>
+    <string name="good_aft">طاب مساؤك</string>
+    <string name="good_ev">مساء الخير</string>
     <string name="am">AM</string>
     <string name="pm">PM</string>
     <string name="login">تسجيل الدخول  </string>

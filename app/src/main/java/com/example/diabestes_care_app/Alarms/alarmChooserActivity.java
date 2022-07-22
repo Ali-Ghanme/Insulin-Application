@@ -67,7 +67,7 @@ public class alarmChooserActivity extends AppCompatActivity {
 
 
         //Intent callee = getIntent();
-        GridAdapter adapter = new GridAdapter(alarmChooserActivity.this, web, imageId);
+        com.example.diabestes_care_app.Alarms.GridAdapter adapter = new com.example.diabestes_care_app.Alarms.GridAdapter(alarmChooserActivity.this, web, imageId);
         grid = (GridView) findViewById(R.id.grid);
         grid.setAdapter(adapter);
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {

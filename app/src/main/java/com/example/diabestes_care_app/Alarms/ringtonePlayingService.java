@@ -28,7 +28,7 @@ public class ringtonePlayingService extends Service {
     private final IBinder mBinder = new LocalBinder();
 
     public class LocalBinder extends Binder {
-        ringtonePlayingService getService() {
+        public ringtonePlayingService getService() {
             // Return this instance of ringtonePlayingService so clients can call public methods
             return ringtonePlayingService.this;
         }
@@ -53,8 +53,8 @@ public class ringtonePlayingService extends Service {
         builder.setAutoCancel(true);
         builder.setDefaults(Notification.DEFAULT_LIGHTS | Notification.DEFAULT_VIBRATE);
 
-        Intent targetIntent = new Intent(this, com.example.diabestes_care_app.Alarms.Alarm.class);
-        @SuppressLint("UnspecifiedImmutableFlag") PendingIntent contentIntent = PendingIntent.getActivity(this, 0, targetIntent, PendingIntent.FLAG_IMMUTABLE);
+        Intent targetIntent = new Intent(this, com.example.diabestes_care_app.Ui.Patient_all.Sections.Doses.Doses_Home.class);
+        @SuppressLint("UnspecifiedImmutableFlag") PendingIntent contentIntent = PendingIntent.getActivity(this, 0, targetIntent, PendingIntent.FLAG_MUTABLE);
         builder.setContentIntent(contentIntent);
 
         Notification notification = builder.build();

@@ -24,7 +24,7 @@ public class SliderAdapter extends PagerAdapter {
     @Override
     public int getCount() {
 
-        return 2;
+        return 1;
     }
 
     @Override
@@ -43,8 +43,8 @@ public class SliderAdapter extends PagerAdapter {
         //additional layouts must be (RelativeLayout)
         switch (position) {
             //view = layoutInflater.inflate(R.layout.slide_layout, container, false);
-            case 1:
-                resId = R.layout.alarm_layout;
+            case 0:
+                resId = R.layout.clock_layout;
                 //view = layoutInflater.inflate(R.layout.clock_layout, container, false);
                 break;
             default:

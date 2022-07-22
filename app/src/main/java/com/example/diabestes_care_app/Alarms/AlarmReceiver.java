@@ -16,7 +16,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         //need to send the extra to the ringtonePlayingService
         String getExtra = intent.getExtras().getString("extra");
 
-        Intent serviceIntent = new Intent(context, ringtonePlayingService.class);
+        Intent serviceIntent = new Intent(context, com.example.diabestes_care_app.Alarms.ringtonePlayingService.class);
 
         serviceIntent.putExtra("extra", getExtra);
 

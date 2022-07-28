@@ -1,4 +1,4 @@
-package com.example.diabestes_care_app.Ui.Patient_all.Sections;
+package com.example.diabestes_care_app.Ui.Patient_all.Sections.Consulation;
 
 import static com.example.diabestes_care_app.Ui.Doctor_all.Home_Doctor.MyPREFERENCES_D;
 
@@ -37,7 +37,6 @@ public class Consultation_Request extends Basic_Activity {
     // Doctor Username TextView
     String DoctorUsername, MSGKey;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         fullscreen();
@@ -51,8 +50,6 @@ public class Consultation_Request extends Basic_Activity {
         SharedPreferences prefs = Consultation_Request.this.getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
         DoctorUsername = prefs.getString("TAG_NAME", null);
 
-//        SharedPreferences prefs_MSGKEY = Consultation_Request.this.getSharedPreferences(MyPREFERENCES_MSGKey, MODE_PRIVATE);
-//        MSGKey = prefs_MSGKEY.getString("TAG_NAME2", null);
         MSGKey = "0";
         //============================Configure Firebase============================================
         myRef = FirebaseDatabase.getInstance().getReference("Consultation request").child("MSG");

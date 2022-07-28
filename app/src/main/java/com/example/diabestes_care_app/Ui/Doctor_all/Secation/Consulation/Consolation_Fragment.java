@@ -1,4 +1,4 @@
-package com.example.diabestes_care_app.Ui.Doctor_all.Nav_Fragment_D;
+package com.example.diabestes_care_app.Ui.Doctor_all.Secation.Consulation;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,20 +7,21 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.diabestes_care_app.R;
-import com.example.diabestes_care_app.Ui.Doctor_all.Secation.Consulation.Consolation_Fragment;
-import com.example.diabestes_care_app.Ui.Doctor_all.Secation.Follow.Follow_Fragment;
+import com.example.diabestes_care_app.Ui.Doctor_all.Nav_Fragment_D.My_Patient_Fragment_D;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
+public class Consolation_Fragment extends Fragment {
 
-public class My_Patient_Fragment_D extends Fragment {
+    CardView cardView1, cardView2;
     TabLayout tabLayout;
     ViewPager viewPager_subject;
     My_Patient_Fragment_D.MainAdapter adapter;
@@ -29,15 +30,14 @@ public class My_Patient_Fragment_D extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_my__patient___d, container, false);
-
+        View view = inflater.inflate(R.layout.fragment_consulation, container, false);
         tabLayout = view.findViewById(R.id.SEC_tab_layout_SR);
         viewPager_subject = view.findViewById(R.id.SEC_viewpager_tab_SR);
 
         //====================Adapter Configuration=================================================
         adapter = new My_Patient_Fragment_D.MainAdapter(getChildFragmentManager());
-        adapter.AddFragment(new Follow_Fragment(), "أتابع");
-        adapter.AddFragment(new Consolation_Fragment(), "الاستشارات ");
+        adapter.AddFragment(new General_Fragment(), "استشارات عامة");
+        adapter.AddFragment(new Privet_Cons(), "استشاراتي");
 
         //========================Set Adapter for the viewpager Configuration=======================
         viewPager_subject.setAdapter(adapter);

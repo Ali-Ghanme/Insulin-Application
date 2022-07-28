@@ -41,7 +41,7 @@ public class Profile_Fragment_D extends Fragment {
     //Firebase
     DatabaseReference myRef;
     //Username for SharedPreference
-    String restoredText;
+    String DoctorUsername;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -58,7 +58,7 @@ public class Profile_Fragment_D extends Fragment {
         imageView = view.findViewById(R.id.FB_Doctor_image_d);
 
         SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
-        restoredText = prefs.getString("TAG_NAME", null);
+        DoctorUsername = prefs.getString("TAG_NAME", null);
 
         //============================Next Click Listener===========================================
         notification_cont.setOnClickListener(new View.OnClickListener() {
@@ -90,7 +90,7 @@ public class Profile_Fragment_D extends Fragment {
                 editor.apply();
                 Intent intent_d = new Intent(getActivity(), Sing_In.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent_d);
-               // getActivity().finish();
+                // getActivity().finish();
             }
         });
         return view;
@@ -104,11 +104,15 @@ public class Profile_Fragment_D extends Fragment {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String PatientImage = snapshot.child(restoredText).child("User_Profile_Image").child("Image").child("mImageUrI").getValue(String.class);
-                String PatientName = snapshot.child(restoredText).child("personal_info").child("name_ar").getValue(String.class);
-                Log.d("TAG", name + "/" + PatientImage);
-                Glide.with(getActivity()).load(PatientImage).into(imageView);
-                name.setText(PatientName);
+                if (getActivity() == null) {
+                    return;
+                } else {
+                    String PatientImage = snapshot.child(DoctorUsername).child("User_Profile_Image").child("Image").child("mImageUrI").getValue(String.class);
+                    String PatientName = snapshot.child(DoctorUsername).child("personal_info").child("name_ar").getValue(String.class);
+                    Log.d("TAG", name + "/" + PatientImage);
+                    Glide.with(getActivity()).load(PatientImage).into(imageView);
+                    name.setText(PatientName);
+                }
             }
 
             @Override

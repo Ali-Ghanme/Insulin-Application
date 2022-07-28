@@ -61,8 +61,6 @@ public class Home_Fragment_D extends Fragment {
     String DoctorUsername;
     // Notification Counter
     Notification_Number notification_number;
-    // Follow Checker
-    Boolean followChecker = false;
     View bell;
     ProgressDialog progressDialog;
 
@@ -81,10 +79,10 @@ public class Home_Fragment_D extends Fragment {
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage("إنتظر قليلاً يتم تحميل المحتوى..");
         progressDialog.getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.dilog_background));
-        progressDialog.setCancelable(false);
+        progressDialog.setCancelable(true);
         progressDialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         progressDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
-        progressDialog.show();
+//        progressDialog.show();
 
         bell = view.findViewById(R.id.bell_D);
 
@@ -113,6 +111,7 @@ public class Home_Fragment_D extends Fragment {
         ClearAll();
         // Get Patient Data Method
         GetDataFromFirebase();
+
         //============================Search And Filter Function====================================
         searchInput.addTextChangedListener(new TextWatcher() {
             @Override
@@ -144,6 +143,7 @@ public class Home_Fragment_D extends Fragment {
                         PatientList_Model patientListModel = new PatientList_Model();
                         patientListModel.setName(snapshot.child("personal_info").child("name").getValue().toString());
                         patientListModel.setUsername(snapshot.child("username").getValue().toString());
+                        patientListModel.setPatientType(snapshot.child("disease_info").child("Diabetes Type").getValue().toString());
                         patientListModel.setImageUrl(snapshot.child("User_Profile_Image").child("Image").child("mImageUrI").getValue().toString());
                         list.add(patientListModel);
                         progressDialog.dismiss();
@@ -151,7 +151,7 @@ public class Home_Fragment_D extends Fragment {
 
                 } catch (Exception e) {
                     Toast.makeText(getContext(), "خطأ في الرئيسيةً ", Toast.LENGTH_SHORT).show();
-                    Log.e("TAG",e.getMessage());
+                    Log.e("TAG", e.getMessage());
 
                 }
                 patientList_adapter = new Patient_List_Adapter(getContext(), list);

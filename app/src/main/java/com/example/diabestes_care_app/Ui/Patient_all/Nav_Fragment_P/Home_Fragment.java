@@ -27,9 +27,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.diabestes_care_app.Adapters.Doctor_List_Adapter;
 import com.example.diabestes_care_app.Models.DoctorList_Model;
-import com.example.diabestes_care_app.Users_Notification;
 import com.example.diabestes_care_app.Notification_Controller.Notification_Number;
 import com.example.diabestes_care_app.R;
+import com.example.diabestes_care_app.Users_Notification;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -38,6 +38,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Home_Fragment extends Fragment {
 
@@ -46,7 +47,7 @@ public class Home_Fragment extends Fragment {
     // Widget
     RecyclerView recyclerView;
     // Variables
-    ArrayList<DoctorList_Model> list;
+    List<DoctorList_Model> list;
     // Adapter
     Doctor_List_Adapter doctorListAdapter;
     // Search Variables
@@ -96,7 +97,7 @@ public class Home_Fragment extends Fragment {
         progressDialog.setCancelable(false);
         progressDialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         progressDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
-        progressDialog.show();
+//        progressDialog.show();
 
         //============================Configure Recyclerview========================================
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
@@ -106,11 +107,10 @@ public class Home_Fragment extends Fragment {
         //============================Put data in Recyclerview======================================
         //ArrayList
         list = new ArrayList<>();
-        // Clear ArrayList
-        ClearAll();
         // Get Data Method
         GetDataFromFirebase();
-
+        // Clear ArrayList
+        ClearAll();
         //============================Search And Filter Function====================================
         searchInput.addTextChangedListener(new TextWatcher() {
             @Override
@@ -161,7 +161,6 @@ public class Home_Fragment extends Fragment {
                 }
                 doctorListAdapter = new Doctor_List_Adapter(getContext(), list);
                 recyclerView.setAdapter(doctorListAdapter);
-                doctorListAdapter.notifyDataSetChanged();
                 doctorListAdapter.updateUsersList(list);
             }
 

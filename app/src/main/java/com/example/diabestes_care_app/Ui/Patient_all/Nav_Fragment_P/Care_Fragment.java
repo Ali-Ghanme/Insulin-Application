@@ -11,16 +11,18 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
-import com.example.diabestes_care_app.Ui.Patient_all.Sections.Consultation_Request;
 import com.example.diabestes_care_app.R;
+import com.example.diabestes_care_app.Ui.Patient_all.Sections.Consulation.Consultation_Request;
 import com.example.diabestes_care_app.Ui.Patient_all.Sections.Doses.Doses_Home;
 import com.example.diabestes_care_app.Ui.Patient_all.Sections.Reports.Patient_Files;
 import com.example.diabestes_care_app.Ui.Patient_all.Sections.Self_Care.Self_Care;
@@ -42,7 +44,7 @@ public class Care_Fragment extends Fragment {
     // Patient Username TextView
     String PatientUsername;
     //Card View
-    CardView FC_Instruction, FC_Report, FC_Doses_p,FC_Consu;
+    CardView FC_Instruction, FC_Report, FC_Doses_p, FC_Consu;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -91,6 +93,7 @@ public class Care_Fragment extends Fragment {
                 startActivity(intent);
             }
         });
+
         //============================Create + Configure the Dialog here============================
         dialog = new Dialog(getContext());
         dialog.setContentView(R.layout.custom_dilog);
@@ -99,16 +102,16 @@ public class Care_Fragment extends Fragment {
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         dialog.setCancelable(true); //Optional
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        Button Okay = dialog.findViewById(R.id.btn_okay);
 
-//        Okay.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                Toast.makeText(getContext(), "Okay", Toast.LENGTH_SHORT).show();
-//                dialog.dismiss();
-//            }
-//        });
+        Okay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                Toast.makeText(getContext(), "Okay", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+        });
         info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

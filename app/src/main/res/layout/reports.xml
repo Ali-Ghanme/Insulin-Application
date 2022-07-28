@@ -15,17 +15,48 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/Re_title"
+            android:id="@+id/tvsuger"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="@dimen/_90sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:fontFamily="@font/cairo_semibold"
+            android:text="نسبة السكر : "
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp"
+
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/Re_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_toStartOf="@+id/tvsuger"
             android:fontFamily="@font/cairo_semibold"
             android:lines="1"
             android:maxLines="1"
             android:singleLine="true"
-            android:textColor="@color/black" />
+            android:textColor="@color/gray"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/timesuger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/cairo_semibold"
+            android:lines="1"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="فترة القياس"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/Re_content"
@@ -33,10 +64,28 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/Re_title"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="@dimen/_90sdp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="@dimen/_10sdp"
             android:fontFamily="@font/cairo_semibold"
-            android:textColor="@color/gray" />
+            android:text="وقت القياس :"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Re_title"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_toStartOf="@+id/tvsuger"
+            android:fontFamily="@font/cairo_semibold"
+            android:lines="1"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold" />
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

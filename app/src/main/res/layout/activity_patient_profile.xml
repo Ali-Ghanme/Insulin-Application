@@ -42,6 +42,7 @@
             app:tabSelectedTextColor="@color/Patient_Color"
             app:tabTextAppearance="@style/CustomText"
             app:tabTextColor="@color/white" />
+
     </RelativeLayout>
 
     <androidx.viewpager.widget.ViewPager

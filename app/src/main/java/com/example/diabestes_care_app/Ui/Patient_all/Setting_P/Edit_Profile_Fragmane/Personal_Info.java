@@ -76,24 +76,22 @@ public class Personal_Info extends Fragment {
         progressDialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         progressDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
 
+
         update_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                progressDialog.show();
                 String wehigt = weight_t.getText().toString();
-
-
+                progressDialog.show();
                 databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         try {
                             databaseReference.child(restoredText).child("personal_info").child("wehigt").setValue(wehigt);
-
                             Toast.makeText(getContext(), "Data is Updated", Toast.LENGTH_SHORT).show();
                             progressDialog.dismiss();
                         } catch (Exception e) {
                             e.printStackTrace();
-                            Log.e("TAG",e.getMessage());
+                            Log.e("TAG", e.getMessage());
                         }
                     }
 
@@ -133,15 +131,4 @@ public class Personal_Info extends Fragment {
             }
         });
     }
-
-//    private void updateUser(String name, String email) {
-//        // updating the user via child nodes
-//        if (!TextUtils.isEmpty(name))
-//            databaseReference.child(restoredText).child("name").setValue(name);
-//
-//        if (!TextUtils.isEmpty(email))
-//            databaseReference.child(restoredText).child("email").setValue(email);
-//    }
-
-    // Hallow world this is update
 }

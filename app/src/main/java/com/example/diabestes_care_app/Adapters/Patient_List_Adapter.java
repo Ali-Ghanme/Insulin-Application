@@ -1,8 +1,17 @@
 package com.example.diabestes_care_app.Adapters;
 
+import static android.content.Context.MODE_PRIVATE;
+import static com.example.diabestes_care_app.Ui.Doctor_all.Nav_Fragment_D.Home_Fragment_D.MyPREFERENCES_D;
+
+import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.util.Log;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
@@ -34,7 +43,10 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
     Context context;
     ArrayList<PatientList_Model> list;
     ArrayList<PatientList_Model> mDataFiltered;
-
+    DatabaseReference myRef;
+    String DoctorUsername;
+    Dialog dialog;
+    String snooping_status;
 
     public Patient_List_Adapter(Context context, ArrayList<PatientList_Model> list) {
         this.context = context;
@@ -54,43 +66,89 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
         holder.imageView.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition_animation));
         holder.container.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_scale_animation));
 
+        SharedPreferences prefs = context.getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
+        DoctorUsername = prefs.getString("TAG_NAME", null);
+
+        //============================Create + Configure the Dialog here============================
+        dialog = new Dialog(context);
+        dialog.setContentView(R.layout.custom_dilog);
+        dialog.getWindow().setBackgroundDrawable(context.getResources().getDrawable(R.drawable.dilog_background));
+        //Setting the animations to dialog
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.setCancelable(true); //Optional
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+
+        //====================Initialize object from model & database reference=====================
         PatientList_Model list2 = mDataFiltered.get(position);
-
+        myRef = FirebaseDatabase.getInstance().getReference("doctor");
         DatabaseReference online_status_all_users = FirebaseDatabase.getInstance().getReference().child("online_statuses").child(list2.getUsername());
+        DatabaseReference follow = FirebaseDatabase.getInstance().getReference().child("doctor").child(DoctorUsername).child("Follow").child(list2.getUsername());
 
+        //============================Online/Offline read Status ===================================
         online_status_all_users.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String snooping_status = dataSnapshot.getValue(String.class);
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                snooping_status = dataSnapshot.getValue(String.class);
                 //mario should decide what to do with linkers snooping status here e.g.
-                if (snooping_status.contentEquals("online")) {
-                    holder.img_off.setVisibility(View.GONE);
-                    holder.img_on.setVisibility(View.VISIBLE);
-                    //tell linker to stop doing sh*t
+                if (snooping_status == null) {
+                    return;
                 } else {
-                    //tell linker to do a lot of sh****t
-                    holder.img_off.setVisibility(View.VISIBLE);
-                    holder.img_on.setVisibility(View.GONE);
+                    try {
+                        if (snooping_status.contentEquals("online")) {
+                            holder.img_off.setVisibility(View.GONE);
+                            holder.img_on.setVisibility(View.VISIBLE);
+                            //tell linker to stop doing sh*t
+                        } else {
+                            //tell linker to do a lot of sh****t
+                            holder.img_off.setVisibility(View.VISIBLE);
+                            holder.img_on.setVisibility(View.GONE);
+                        }
+                    } catch (Exception e) {
+                        Log.e("TAG_Patient_List", e.getMessage());
+                    }
+
                 }
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
+            public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
 
+        //============================Follow/Unfollow read Status ==================================
+        holder.follow_btn.setOnTouchListener(new View.OnTouchListener() {
 
-        holder.follow_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (holder.follow_btn.getText().equals("أتابع") ) {
-                    holder.follow_btn.setText("متابعة");
-                } else {
+            GestureDetector gestureDetector = new GestureDetector(context.getApplicationContext(), new GestureDetector.SimpleOnGestureListener() {
+                @Override
+                public boolean onSingleTapConfirmed(MotionEvent e) {
+                    Toast.makeText(context, "This is normal Press", Toast.LENGTH_SHORT).show();
+                    follow.setValue("Following");
+                    if (holder.follow_btn.getText().equals("متابعة")) {
+                        dialog.show();
+                    }
                     holder.follow_btn.setText("أتابع");
+                    return super.onSingleTapConfirmed(e);
                 }
+
+                @Override
+                public boolean onDoubleTap(MotionEvent e) {
+                    Toast.makeText(context, "Hallow this is Double Tap", Toast.LENGTH_SHORT).show();
+                    follow.removeValue();
+                    holder.follow_btn.setText("متابعة");
+                    return super.onDoubleTap(e);
+                }
+            });
+
+            @SuppressLint("ClickableViewAccessibility")
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                gestureDetector.onTouchEvent(event);
+                return false;
             }
         });
+        follow_status(holder, follow);
 
+        //============================Pass Data Patient ============================================
         holder.container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,12 +160,13 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
             }
         });
 
+        //============================Recycle Item data ============================================
         // TextView
         holder.name.setText(list.get(position).getName());
-        holder.username.setText(list.get(position).getName());
-
+        holder.type.setText(list.get(position).getPatientType());
         // ImageView : Glide Library
         Glide.with(context).load(list.get(position).getImageUrl()).placeholder(R.drawable.ic_user).error(R.drawable.notifications).into(holder.imageView);
+
     }
 
     @Override
@@ -118,6 +177,33 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
     public void updateUsersList(ArrayList<PatientList_Model> PatientList_Model) {
         this.list = PatientList_Model;
         notifyDataSetChanged();
+    }
+
+    public void follow_status(MyViewHolder holder, DatabaseReference follow) {
+        follow.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String snooping_status1 = snapshot.getValue(String.class);
+                if (snooping_status1 == null) {
+                    return;
+                } else {
+                    //mario should decide what to do with linkers snooping status here e.g.
+                    if (snooping_status1.contentEquals("Following")) {
+                        holder.follow_btn.setText("أتابع");
+                        //tell linker to stop doing sh*t
+                    } else {
+                        holder.follow_btn.setText("المتابعة");
+                        //tell linker to do a lot of sh****t
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
 
     public Filter getFilter() {
@@ -150,26 +236,22 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
         };
     }
 
-
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView name, username;
-        ImageView imageView;
-        ImageView img_off, img_on;
+        TextView name, type;
+        ImageView imageView, img_off, img_on;
         RelativeLayout container;
-
         Button follow_btn;
-        DatabaseReference followRef;
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.Pl_doctor_name);
-            username = itemView.findViewById(R.id.Pl_doctor_username);
+            type = itemView.findViewById(R.id.Pl_doctor_username);
             imageView = itemView.findViewById(R.id.Pl_Doctor_image);
             container = itemView.findViewById(R.id.Pl_container);
             img_off = itemView.findViewById(R.id.Pl_img_off);
             img_on = itemView.findViewById(R.id.Pl_img_on);
-            follow_btn = itemView.findViewById(R.id.Pl_follow_patient);
+            follow_btn = itemView.findViewById(R.id.Pl_follow_patient_d);
+
             itemView.setOnClickListener(this);
         }
 

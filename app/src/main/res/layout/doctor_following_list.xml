@@ -83,17 +83,18 @@
                 app:layout_constraintLeft_toLeftOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <Button
+
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/Pl_follow_patient_d"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
             android:background="@drawable/bg_doctor_button"
+            android:backgroundTint="@color/Red"
             android:fontFamily="@font/cairo_bold"
-            android:text="متابعة"
-            android:textColor="@color/white" />
+            android:text="متابعة" />
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

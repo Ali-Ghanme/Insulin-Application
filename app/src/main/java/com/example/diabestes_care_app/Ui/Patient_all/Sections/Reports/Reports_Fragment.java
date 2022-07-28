@@ -1,5 +1,9 @@
 package com.example.diabestes_care_app.Ui.Patient_all.Sections.Reports;
 
+import static android.content.Context.MODE_PRIVATE;
+import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
+
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -27,8 +31,11 @@ import java.util.ArrayList;
 public class Reports_Fragment extends Fragment {
     Reports_Adapter reports_adapter;
     RecyclerView recyclerView;
-    DatabaseReference databaseReference ;
+    DatabaseReference databaseReference;
     ArrayList<Reports_Model> list;
+    String PatientUsername;
+    //  DatabaseReference myRef;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -37,12 +44,17 @@ public class Reports_Fragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_reports_, container, false);
 
         recyclerView = view.findViewById(R.id.recycle_view_re);
+        //============================Get Patient Username===========================================
+        SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
+        PatientUsername = prefs.getString("TAG_NAME", null);
+
+        //============================Configure Firebase============================================
+        databaseReference = FirebaseDatabase.getInstance().getReference("patient").child(PatientUsername).child("Reports_info").child("فحص يومي");
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         list = new ArrayList<>();
-        databaseReference = FirebaseDatabase.getInstance().getReference("Consultation request").child("MSG");
 
         Query query = databaseReference.orderByKey();
         query.addValueEventListener(new ValueEventListener() {
@@ -51,9 +63,10 @@ public class Reports_Fragment extends Fragment {
                 try {
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         Reports_Model reportsModel = new Reports_Model();
-                        reportsModel.setData1(snapshot.child("Title").getValue().toString());
-                        reportsModel.setData2(snapshot.child("to").getValue().toString());
+                        reportsModel.setData2(snapshot.child("فترة القياس").getValue().toString());
+                        reportsModel.setData1(snapshot.child("وقت القياس").getValue().toString());
                         list.add(reportsModel);
+                        Log.e("d", String.valueOf(reportsModel));
                     }
                 } catch (Exception e) {
                     Toast.makeText(getContext(), "إنتظر قليلاً ", Toast.LENGTH_SHORT).show();

@@ -2,67 +2,77 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="@dimen/_260sdp"
-    android:layout_height="@dimen/_230sdp"
+    android:layout_width="@dimen/_240sdp"
+    android:layout_height="@dimen/_180sdp"
     android:layout_gravity="center_horizontal"
-    android:background="@android:color/white"
+    android:background="@drawable/dilog_background"
     android:elevation="@dimen/_5sdp">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="@dimen/_50sdp"
-        android:layout_height="@dimen/_50sdp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="8dp"
-        android:background="@drawable/ic_info"
-        android:backgroundTint="@color/Patient_Color"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="8dp"
-        android:fontFamily="@font/cairo_bold"
-        android:text="الخيارات"
-        android:textColor="@color/Patient_Color"
-        android:textSize="@dimen/_15sdp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_50sdp"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:fontFamily="@font/cairo_regular"
-        android:text="التعليمات : تلعيمات بخصوص مرض السكري"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/ic_info"
+            android:backgroundTint="@color/Patient_Color"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="8dp"
+            android:fontFamily="@font/cairo_bold"
+            android:text="الخيارات"
+            android:textColor="@color/Patient_Color"
+            android:textSize="@dimen/_15sdp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/cairo_regular"
+            android:text="التعليمات : تلعيمات بخصوص مرض السكري"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/btn_okay"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
-        android:background="@android:color/transparent"
+        android:background="@drawable/btnext"
+        android:elevation="@dimen/_1sdp"
         android:stateListAnimator="@null"
-        android:text="Okay"
+        android:text="حسناً"
+        android:fontFamily="@font/cairo_bold"
         android:textAllCaps="false"
         android:textColor="@android:color/holo_blue_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

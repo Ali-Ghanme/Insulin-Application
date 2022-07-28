@@ -76,7 +76,7 @@ public class Chat_Fragment_D extends Fragment {
         SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
         DoctorUsername = prefs.getString("TAG_NAME", null);
 
-        Toast.makeText(getContext(), DoctorUsername, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getContext(), DoctorUsername, Toast.LENGTH_SHORT).show();
         return view;
     }
 

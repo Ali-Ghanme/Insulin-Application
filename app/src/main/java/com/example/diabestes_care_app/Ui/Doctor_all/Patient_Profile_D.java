@@ -49,10 +49,10 @@ public class Patient_Profile_D extends Basic_Activity {
         final String getName = getIntent().getStringExtra("Patient name");
         final String getProfilePic = getIntent().getStringExtra("Patient_Pic_Profile");
         final String getUsername = getIntent().getStringExtra("username");
+        final String getType = getIntent().getStringExtra("type");
+
         DoctorName.setText(getName);
         Glide.with(this).load(getProfilePic).into(Doctor_Profile);
-
-//        FirebaseMessaging.getInstance().subscribeToTopic("DMohammed");
         Toast.makeText(this, getUsername, Toast.LENGTH_SHORT).show();
 
         //============================Create + Configure the Dialog here============================
@@ -66,7 +66,7 @@ public class Patient_Profile_D extends Basic_Activity {
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
 
         Button oky = dialog.findViewById(R.id.okey);
-        EditText et_titlee = dialog.findViewById(R.id.et_titlee);
-        EditText et_subjectt = dialog.findViewById(R.id.et_subjectt);
+        EditText et_title = dialog.findViewById(R.id.et_titlee);
+        EditText et_subject = dialog.findViewById(R.id.et_subjectt);
     }
 }

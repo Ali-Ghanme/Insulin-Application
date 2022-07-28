@@ -77,6 +77,7 @@ public class My_Exams_Fragment extends Fragment {
         PatientUsername = prefs.getString("TAG_NAME", null);
         databaseReference_daily = FirebaseDatabase.getInstance().getReference("patient").child(PatientUsername).child("Reports_info").child("فحص يومي").push();
         databaseReference = FirebaseDatabase.getInstance().getReference();
+
         //=================================Start Visible And Gone===================================
         sugar_one.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -59,15 +59,10 @@ public class Home_Doctor extends Basic_Activity {
         SharedPreferences prefs = getApplicationContext().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
         DoctorUsername = prefs.getString("TAG_NAME", null);
 
-        //say your realtime database has the child `online_statuses`
         DatabaseReference online_status_all_users = FirebaseDatabase.getInstance().getReference().child("online_statuses");
 
-        //on each user's device when connected they should indicate e.g. `linker` should tell everyone he's snooping around
         online_status_all_users.child(DoctorUsername).setValue("online");
-        //also when he's not doing any snooping or if snooping goes bad he should also tell
         online_status_all_users.child(DoctorUsername).onDisconnect().setValue("offline");
-
-        //    DatabaseReference online_status_all_users = FirebaseDatabase.getInstance().getReference().child("online_statuses");
 
         online_status_all_users.child(DoctorUsername).addValueEventListener(new ValueEventListener() {
             @Override

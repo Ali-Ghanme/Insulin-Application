@@ -117,6 +117,7 @@
         <item>بعد العشاء</item>
         <item>قبل النوم</item>
     </string-array>
+    <string name="title_activity_genral_cons">Genral_Cons</string>
 
 
 </resources>

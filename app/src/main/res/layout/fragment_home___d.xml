@@ -99,7 +99,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
             android:fontFamily="@font/cairo_bold"
             android:lines="1"
             android:text="الأطباء الأكثر رواجاً"
@@ -112,7 +112,7 @@
             android:layout_below="@id/HP_group_title_d"
             android:layout_alignParentRight="true"
             android:layout_marginTop="@dimen/_20sdp"
-            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
             android:background="@drawable/bg_search"
             android:backgroundTint="@color/Doctor_Color" />
 
@@ -142,6 +142,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/HP_head_parent_d"
+        android:layoutDirection="rtl"
         app:layout_constraintEnd_toEndOf="parent" />
 
 </RelativeLayout>

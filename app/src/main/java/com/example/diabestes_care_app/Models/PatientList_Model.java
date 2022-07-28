@@ -1,18 +1,15 @@
 package com.example.diabestes_care_app.Models;
 
 public class PatientList_Model {
-    String name;
-    String username;
-    String imageUrl;
-    String token;
-    String requestKey;
+    String name, username, imageUrl, token, requestKey, patientType;
 
-    public PatientList_Model(String name, String username, String imageUrl, String token, String requestKey) {
+    public PatientList_Model(String name, String username, String imageUrl, String token, String requestKey, String patientType) {
         this.name = name;
         this.username = username;
         this.imageUrl = imageUrl;
         this.token = token;
         this.requestKey = requestKey;
+        this.patientType = patientType;
     }
 
 
@@ -59,4 +56,11 @@ public class PatientList_Model {
         this.requestKey = requestKey;
     }
 
+    public String getPatientType() {
+        return patientType;
+    }
+
+    public void setPatientType(String patientType) {
+        this.patientType = patientType;
+    }
 }

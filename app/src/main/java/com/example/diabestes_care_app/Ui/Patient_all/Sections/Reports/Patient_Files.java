@@ -11,6 +11,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.R;
+import com.example.diabestes_care_app.Ui.Patient_all.Sections.Reports.Repo.Reports_Fragment;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;

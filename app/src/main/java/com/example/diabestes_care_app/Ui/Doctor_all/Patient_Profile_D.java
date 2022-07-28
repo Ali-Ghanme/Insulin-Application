@@ -56,7 +56,6 @@ public class Patient_Profile_D extends Basic_Activity {
         Toast.makeText(this, getUsername, Toast.LENGTH_SHORT).show();
 
         //============================Create + Configure the Dialog here============================
-//        FirebaseMessaging.getInstance().subscribeToTopic(getUsername);
         dialog = new Dialog(Patient_Profile_D.this);
         dialog.setContentView(R.layout.genral_message_layout);
         dialog.getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.dilog_background));

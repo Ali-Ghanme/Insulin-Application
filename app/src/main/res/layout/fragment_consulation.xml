@@ -7,7 +7,7 @@
     tools:context=".Ui.Doctor_all.Secation.Consulation.Consolation_Fragment">
 
     <RelativeLayout
-        android:id="@+id/relativeLayout4"
+        android:id="@+id/Consu_relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_50sdp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.tabs.TabLayout
-            android:id="@+id/SEC_tab_layout_SR"
+            android:id="@+id/Consu_tab_layout_SR"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_30sdp"
             android:layout_centerVertical="true"
@@ -37,12 +37,13 @@
     </RelativeLayout>
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/SEC_viewpager_tab_SR"
+        android:id="@+id/Consu_viewpager_tab_SR"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout4"
+        app:layout_constraintTop_toBottomOf="@+id/Consu_relativeLayout"
         tools:ignore="SpeakableTextPresentCheck" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

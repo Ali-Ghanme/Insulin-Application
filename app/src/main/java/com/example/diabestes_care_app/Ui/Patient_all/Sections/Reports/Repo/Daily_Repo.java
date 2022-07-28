@@ -1,4 +1,4 @@
-package com.example.diabestes_care_app.Ui.Patient_all.Sections.Reports;
+package com.example.diabestes_care_app.Ui.Patient_all.Sections.Reports.Repo;
 
 import static android.content.Context.MODE_PRIVATE;
 import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
@@ -28,20 +28,20 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class Reports_Fragment extends Fragment {
+
+public class Daily_Repo extends Fragment {
+
     Reports_Adapter reports_adapter;
     RecyclerView recyclerView;
     DatabaseReference databaseReference;
     ArrayList<Reports_Model> list;
     String PatientUsername;
-    //  DatabaseReference myRef;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_reports_, container, false);
+        View view = inflater.inflate(R.layout.fragment_daily__repo, container, false);
 
         recyclerView = view.findViewById(R.id.recycle_view_re);
         //============================Get Patient Username===========================================

@@ -31,8 +31,8 @@ public class My_Patient_Fragment_D extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_my__patient___d, container, false);
 
-        tabLayout = view.findViewById(R.id.SEC_tab_layout_SR);
-        viewPager_subject = view.findViewById(R.id.SEC_viewpager_tab_SR);
+        tabLayout = view.findViewById(R.id.My_patient_tab_layout_SR);
+        viewPager_subject = view.findViewById(R.id.My_patient_viewpager_tab_SR);
 
         //====================Adapter Configuration=================================================
         adapter = new My_Patient_Fragment_D.MainAdapter(getChildFragmentManager());

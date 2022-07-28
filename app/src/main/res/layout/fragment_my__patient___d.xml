@@ -24,7 +24,7 @@
         android:background="@color/Doctor_Color">
 
         <com.google.android.material.tabs.TabLayout
-            android:id="@+id/SEC_tab_layout_SR"
+            android:id="@+id/My_patient_tab_layout_SR"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_30sdp"
             android:layout_centerVertical="true"
@@ -47,7 +47,7 @@
     </RelativeLayout>
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/SEC_viewpager_tab_SR"
+        android:id="@+id/My_patient_viewpager_tab_SR"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:ignore="SpeakableTextPresentCheck" />

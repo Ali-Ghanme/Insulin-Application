@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Ui.Patient_all.Sections.Reports.Repo.Dwree_Repo">
+
+    <LinearLayout
+        android:id="@+id/liner_show_tow"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <RelativeLayout
+            android:id="@+id/Subject"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_25sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+
+         >
+            <LinearLayout
+                android:id="@+id/container_fats"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/container_college"
+                android:orientation="vertical"
+             >
+
+
+                <EditText
+                    android:id="@+id/examine_fats"
+                    android:layout_width="@dimen/_230sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_below="@id/container_college"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:background="@drawable/bg_edit_text"
+                    android:drawableTint="@color/Patient_Color"
+                    android:editable="false"
+                    android:textAlignment="center"
+                    android:elevation="@dimen/_3sdp"
+                    android:fontFamily="@font/cairo_bold"
+                    android:hint="فحص الدهون"
+                    android:maxLines="1"
+                    android:paddingLeft="@dimen/_20sdp"
+                    android:paddingRight="@dimen/_20sdp"
+                    android:textColor="@color/Patient_Color"
+                    android:textColorHint="#1C1C1C"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:id="@+id/fats"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/examine_show"
+                    android:visibility="gone"
+                    >
+                    <EditText
+                        android:id="@+id/examine_fats_cholesterol"
+                        android:layout_width="@dimen/_230sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/bg_edit_text"
+                        android:backgroundTint="@color/Patient_Color"
+                        android:drawablePadding="@dimen/_13sdp"
+                        android:editable="false"
+                        android:elevation="@dimen/_3sdp"
+                        android:fontFamily="@font/cairo_bold"
+                        android:hint=" الكوليستيرول  cholesterol  "
+                        android:maxLines="1"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:textAlignment="textStart"
+                        android:textColorHint="#FFFFFF"
+                        android:textDirection="rtl"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/examine_fats_triglycerid"
+                        android:layout_width="@dimen/_230sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_below="@id/examine_fats_cholesterol"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/bg_edit_text"
+                        android:backgroundTint="@color/Patient_Color"
+                        android:drawablePadding="@dimen/_13sdp"
+                        android:editable="false"
+                        android:elevation="@dimen/_3sdp"
+                        android:fontFamily="@font/cairo_bold"
+                        android:hint=" الدهون الثالثية Triglycerid"
+                        android:maxLines="1"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:textAlignment="textStart"
+                        android:textColorHint="#FFFFFF"
+                        android:textDirection="rtl"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/examine_fats_ldl"
+                        android:layout_width="@dimen/_230sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_below="@id/examine_fats_triglycerid"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/bg_edit_text"
+                        android:backgroundTint="@color/Patient_Color"
+                        android:drawablePadding="@dimen/_13sdp"
+                        android:editable="false"
+                        android:elevation="@dimen/_3sdp"
+                        android:fontFamily="@font/cairo_bold"
+                        android:hint=" الكوليستيرول الضار LDL "
+                        android:maxLines="1"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:textAlignment="textStart"
+                        android:textColorHint="#FFFFFF"
+                        android:textDirection="rtl"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/examine_fats_hdl"
+                        android:layout_width="@dimen/_230sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_below="@id/examine_fats_ldl"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/bg_edit_text"
+                        android:backgroundTint="@color/Patient_Color"
+                        android:drawablePadding="@dimen/_13sdp"
+                        android:editable="false"
+                        android:elevation="@dimen/_3sdp"
+                        android:fontFamily="@font/cairo_bold"
+                        android:hint=" الكوليستيرول النافع HDL "
+                        android:maxLines="1"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:textAlignment="textStart"
+                        android:textColorHint="#FFFFFF"
+                        android:textDirection="rtl"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/container_college"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/examine_college"
+                    android:layout_width="@dimen/_230sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:background="@drawable/bg_edit_text"
+                    android:drawablePadding="@dimen/_13sdp"
+                    android:editable="false"
+                    android:layout_marginTop="3dp"
+                    android:elevation="@dimen/_3sdp"
+                    android:fontFamily="@font/cairo_bold"
+                    android:hint="فحص وظائف الكلية "
+                    android:maxLines="1"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/Patient_Color"
+                    android:textColorHint="#1C1C1C"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:id="@+id/college"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/examine_college"
+                    android:visibility="gone">
+
+                    <EditText
+                        android:id="@+id/examine_college_creatinine"
+                        android:layout_width="@dimen/_230sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/bg_edit_text"
+                        android:backgroundTint="@color/Patient_Color"
+                        android:drawablePadding="@dimen/_13sdp"
+                        android:editable="false"
+                        android:elevation="@dimen/_3sdp"
+                        android:fontFamily="@font/cairo_bold"
+                        android:hint="   الكرياتينين creatinine "
+                        android:maxLines="1"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:textAlignment="textStart"
+                        android:textColorHint="#FFFFFF"
+                        android:textDirection="rtl"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/examine_college_urea"
+                        android:layout_width="@dimen/_230sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_below="@id/examine_college_creatinine"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/bg_edit_text"
+                        android:backgroundTint="@color/Patient_Color"
+                        android:drawablePadding="@dimen/_13sdp"
+                        android:editable="false"
+                        android:elevation="@dimen/_3sdp"
+                        android:fontFamily="@font/cairo_bold"
+                        android:hint="   يوريا  Urea (BUN) "
+                        android:maxLines="1"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:textAlignment="textStart"
+                        android:textColorHint="#FFFFFF"
+                        android:textDirection="rtl"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/examine_college_uric"
+                        android:layout_width="@dimen/_230sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_below="@id/examine_college_urea"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/bg_edit_text"
+                        android:backgroundTint="@color/Patient_Color"
+                        android:drawablePadding="@dimen/_13sdp"
+                        android:editable="false"
+                        android:elevation="@dimen/_3sdp"
+                        android:fontFamily="@font/cairo_bold"
+                        android:hint=" Uric acid "
+                        android:maxLines="1"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:textAlignment="textStart"
+                        android:textColorHint="#FFFFFF"
+                        android:textDirection="rtl"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/examine_blood"
+                android:layout_width="@dimen/_230sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_below="@id/container_fats"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:background="@drawable/bg_edit_text"
+                android:drawableTint="@color/Patient_Color"
+                android:editable="false"
+                android:elevation="@dimen/_3sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:hint="  فحص ضغط الدم"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/_20sdp"
+                android:paddingRight="@dimen/_10sdp"
+                android:textAlignment="center"
+                android:textColor="@color/Patient_Color"
+                android:textColorHint="#1C1C1C"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/examine_bmi"
+                android:layout_width="@dimen/_230sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_below="@id/examine_blood"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:background="@drawable/bg_edit_text"
+                android:drawableTint="@color/Patient_Color"
+                android:editable="false"
+                android:elevation="@dimen/_3sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:hint="حساب مؤشر كتلة الجسم "
+                android:maxLines="1"
+                android:paddingLeft="@dimen/_20sdp"
+                android:paddingRight="@dimen/_10sdp"
+                android:textAlignment="center"
+                android:textColor="@color/Patient_Color"
+                android:textColorHint="#1C1C1C"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

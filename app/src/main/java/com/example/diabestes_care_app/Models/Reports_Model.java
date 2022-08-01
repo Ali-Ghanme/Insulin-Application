@@ -1,29 +1,44 @@
 package com.example.diabestes_care_app.Models;
 
 public class Reports_Model {
-    String data1,data2;
+    String timesuger,time ,title  ;
 
-    public Reports_Model(String data1, String data2) {
-        this.data1 = data1;
-        this.data2 = data2;
+    public Reports_Model(String timesuger, String time, String title ) {
+        this.timesuger = timesuger;
+        this.time = time;
+        this.title = title;
+
+
+    }
+
+    public String getTimesuger() {
+        return timesuger;
+    }
+
+    public void setTimesuger(String timesuger) {
+        this.timesuger = timesuger;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public Reports_Model() {
+
     }
 
-    public String getData1() {
-        return data1;
-    }
 
-    public void setData1(String data1) {
-        this.data1 = data1;
-    }
-
-    public String getData2() {
-        return data2;
-    }
-
-    public void setData2(String data2) {
-        this.data2 = data2;
-    }
 }
+

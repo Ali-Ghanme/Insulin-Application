@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Ui.Patient_all.Sections.Reports.Repo.Daily_Repo">
+    android:orientation="vertical"
+    tools:context=".Ui.Patient_all.Sections.Reports.Repo.Reports_Fragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycle_view_re"
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-</FrameLayout>
+        android:layout_height="match_parent"/>
+</LinearLayout>

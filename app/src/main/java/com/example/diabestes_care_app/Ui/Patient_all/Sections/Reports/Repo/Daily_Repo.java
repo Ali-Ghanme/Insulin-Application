@@ -1,5 +1,14 @@
 package com.example.diabestes_care_app.Ui.Patient_all.Sections.Reports.Repo;
 
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.example.diabestes_care_app.R;
+import com.example.diabestes_care_app.Adapters.Reports_Adapter;
+import com.example.diabestes_care_app.Models.Reports_Model;
+import com.google.firebase.database.DatabaseReference;
+
 import static android.content.Context.MODE_PRIVATE;
 import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
 
@@ -28,6 +37,20 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+import static android.content.Context.MODE_PRIVATE;
+import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
+
+
+
+import static android.content.Context.MODE_PRIVATE;
+import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
+
+
+import java.util.ArrayList;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
+
 
 public class Daily_Repo extends Fragment {
 
@@ -43,19 +66,16 @@ public class Daily_Repo extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_daily__repo, container, false);
 
-        recyclerView = view.findViewById(R.id.recycle_view_re);
+        recyclerView = view.findViewById(R.id.recyclerView);
         //============================Get Patient Username===========================================
         SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         PatientUsername = prefs.getString("TAG_NAME", null);
-
         //============================Configure Firebase============================================
         databaseReference = FirebaseDatabase.getInstance().getReference("patient").child(PatientUsername).child("Reports_info").child("فحص يومي");
-
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         list = new ArrayList<>();
-
         Query query = databaseReference.orderByKey();
         query.addValueEventListener(new ValueEventListener() {
             @Override
@@ -63,20 +83,20 @@ public class Daily_Repo extends Fragment {
                 try {
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         Reports_Model reportsModel = new Reports_Model();
-                        reportsModel.setData2(snapshot.child("فترة القياس").getValue().toString());
-                        reportsModel.setData1(snapshot.child("وقت القياس").getValue().toString());
+                        reportsModel.setTimesuger(snapshot.child("فترة القياس").getValue().toString());
+                        reportsModel.setTime(snapshot.child("وقت القياس").getValue().toString());
+                            reportsModel.setTitle(snapshot.child("نسبة السكر في الدم").getValue().toString());
                         list.add(reportsModel);
                         Log.e("d", String.valueOf(reportsModel));
                     }
                 } catch (Exception e) {
-                    Toast.makeText(getContext(), "إنتظر قليلاً ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "يتم تحميل التقارير", Toast.LENGTH_SHORT).show();
                     Log.e("TAG", e.getMessage());
                 }
                 reports_adapter = new Reports_Adapter(getContext(), list);
                 recyclerView.setAdapter(reports_adapter);
                 reports_adapter.updateUsersList(list);
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Log.e("TAG", error.getMessage());

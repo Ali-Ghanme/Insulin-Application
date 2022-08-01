@@ -10,10 +10,14 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.diabestes_care_app.Adapters.Reports_Adapter;
+import com.example.diabestes_care_app.Models.Reports_Model;
 import com.example.diabestes_care_app.R;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.database.DatabaseReference;
 
 import java.util.ArrayList;
 
@@ -22,7 +26,11 @@ public class Reports_Fragment extends Fragment {
     TabLayout tabLayout;
     ViewPager viewPager_subject;
     Reports_Fragment.MainAdapter adapter;
-
+    Reports_Adapter reports_adapter;
+    RecyclerView recyclerView;
+    DatabaseReference databaseReference;
+    ArrayList<Reports_Model> list;
+    String PatientUsername;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -34,12 +42,14 @@ public class Reports_Fragment extends Fragment {
 
         //====================Adapter Configuration=================================================
         adapter = new Reports_Fragment.MainAdapter(getChildFragmentManager());
-        adapter.AddFragment(new Dwree_Repo(), "فحوصات دورية");
-        adapter.AddFragment(new Daily_Repo(), "فحوصات يومية");
-
+        adapter.AddFragment(new Daily_Repo(), "تقارير يومية");
+        adapter.AddFragment(new Dwree_Repo(), "تقارير دورية");
         //========================Set Adapter for the viewpager Configuration=======================
         viewPager_subject.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager_subject);
+
+        //********************************************************************
+
         return view;
     }
     //=====================================Adapter method===========================================

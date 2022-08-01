@@ -2,15 +2,17 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="@dimen/_70sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginLeft="@dimen/_10sdp"
-    android:layout_marginTop="@dimen/_10sdp"
     android:layout_marginRight="10dp"
+    android:layout_marginTop="@dimen/_10sdp"
     android:background="@drawable/bg_doctors_list"
     android:clickable="true"
     android:elevation="1.5dp"
     android:focusable="true">
 
     <RelativeLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -19,21 +21,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="10dp"
             android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/cairo_semibold"
-            android:text="نسبة السكر : "
+            android:text="نسبة السكر  :"
             android:textColor="@color/black"
             android:textSize="@dimen/_12sdp"
-
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/Re_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginTop="10dp"
             android:layout_toStartOf="@+id/tvsuger"
             android:fontFamily="@font/cairo_semibold"
             android:lines="1"
@@ -44,41 +45,58 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/timesuger"
+            android:id="@+id/tvcontent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="20dp"
             android:layout_marginTop="10dp"
+            android:layout_toStartOf="@+id/Re_title"
             android:fontFamily="@font/cairo_semibold"
             android:lines="1"
             android:maxLines="1"
             android:singleLine="true"
-            android:text="فترة القياس"
+            android:text="فترة  القياس :"
             android:textColor="@color/black"
             android:textSize="@dimen/_12sdp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/Re_content"
+            android:id="@+id/Re_timesuger"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/Re_title"
-            android:layout_alignParentRight="true"
+            android:layout_marginLeft="@dimen/_20sdp"
             android:layout_marginTop="10dp"
+            android:layout_toStartOf="@+id/tvcontent"
+            android:fontFamily="@font/cairo_semibold"
+            android:lines="1"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvtimesuger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/Re_title"
             android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/cairo_semibold"
             android:text="وقت القياس :"
             android:textColor="@color/black"
             android:textSize="@dimen/_12sdp" />
 
         <TextView
-            android:id="@+id/time"
+            android:id="@+id/Re_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/Re_title"
-            android:layout_marginTop="10dp"
+            android:layout_below="@+id/tvcontent"
             android:layout_marginRight="@dimen/_10sdp"
-            android:layout_toStartOf="@+id/tvsuger"
+            android:layout_marginTop="10dp"
+            android:layout_toStartOf="@+id/tvtimesuger"
             android:fontFamily="@font/cairo_semibold"
             android:lines="1"
             android:maxLines="1"
@@ -86,6 +104,43 @@
             android:textColor="@color/gray"
             android:textSize="@dimen/_12sdp"
             android:textStyle="bold" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/error"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:background="@drawable/error"
+                android:visibility="visible"
+                app:civ_border_color="@color/colorError"
+                app:layout_constraintBottom_toBottomOf="container"
+                app:layout_constraintLeft_toLeftOf="parent" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/worning"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:background="@drawable/worning"
+                android:backgroundTint="@color/yellow"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/success"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:background="@drawable/succsess"
+                android:backgroundTint="@color/green"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

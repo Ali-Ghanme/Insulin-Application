@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Ui.Patient_all.Sections.Reports.Repo.Reports_Fragment">
+
+    <LinearLayout
+        android:id="@+id/liner_show_one"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingEnd="@dimen/_10sdp"
+        android:paddingStart="@dimen/_10sdp"
+        android:visibility="visible">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@drawable/bg_edit_text"
+            android:backgroundTint="@color/white"
+            android:elevation="@dimen/_2sdp"
+            android:padding="@dimen/_10sdp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@+id/help">
+
+            <EditText
+                android:id="@+id/et_number_suger"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_below="@+id/tv_text"
+                android:background="@drawable/bg_edit_text"
+                android:drawableLeft="@drawable/ic_add"
+                android:drawablePadding="@dimen/_5sdp"
+                android:drawableTint="@color/gray"
+                android:elevation="@dimen/_1sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:hint="قم بإدخال نسبة السكر "
+                android:inputType="number"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:textColor="@color/Doctor_Color"
+                android:textColorHint="#78909C"
+                android:textSize="13sp"
+                tools:ignore="TextFields" />
+
+            <TextView
+                android:id="@+id/tv_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cairo_bold"
+                android:paddingBottom="@dimen/_4sdp"
+                android:text="فحص السكر العشوائي"
+                android:textSize="@dimen/_10sdp" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@drawable/bg_edit_text"
+            android:backgroundTint="@color/white"
+            android:elevation="@dimen/_2sdp"
+            android:padding="@dimen/_10sdp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/help">
+
+            <EditText
+                android:id="@+id/btn_sheet_time_day_suger"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_below="@+id/tv_clock"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/bg_edit_text"
+                android:drawableLeft="@drawable/ic_calendar"
+                android:drawableTint="@color/gray"
+                android:editable="false"
+                android:elevation="@dimen/_1sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:hint="إختر فترة القياس  "
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:textColor="@color/Doctor_Color"
+                android:textColorHint="#78909C"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tv_clock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cairo_bold"
+                android:paddingBottom="@dimen/_4sdp"
+                android:text="فترة  القياس"
+                android:textSize="@dimen/_10sdp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@drawable/bg_edit_text"
+            android:backgroundTint="@color/white"
+            android:elevation="@dimen/_2sdp"
+            android:padding="@dimen/_10sdp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/help">
+
+            <TextView
+                android:id="@+id/tv_period"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cairo_bold"
+                android:paddingBottom="@dimen/_4sdp"
+                android:text="وقت القياس"
+                android:textSize="@dimen/_10sdp" />
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_period"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/bg_edit_text"
+                android:drawableLeft="@drawable/ic_time"
+                android:drawablePadding="@dimen/_5sdp"
+                android:drawableTint="@color/gray"
+                android:padding="@dimen/_5sdp"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="@dimen/_5sdp"
+                android:textAlignment="center"
+                android:textColor="@color/Patient_Color"
+                android:textSize="@dimen/_13sdp" />
+
+        </RelativeLayout>
+
+
+        <Button
+            android:id="@+id/btn_checked_save_suger"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:background="@drawable/btnext"
+            android:backgroundTint="@color/Patient_Color"
+            android:elevation="@dimen/_2sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:text="حفظ"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_9sdp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:drawablePadding="@dimen/_5sdp"
+            android:drawableRight="@drawable/ic_info"
+            android:drawableTint="@color/gray"
+            android:fontFamily="@font/cairo_bold"
+            android:text="@string/information_sugar"
+            android:textSize="@dimen/_9sdp" />
+
+    </LinearLayout>
+</LinearLayout>

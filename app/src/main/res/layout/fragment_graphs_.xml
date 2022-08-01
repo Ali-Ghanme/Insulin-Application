@@ -6,65 +6,62 @@
     android:layout_height="match_parent"
     tools:context=".Ui.Patient_all.Sections.Reports.Graphs_Fragment">
 
-    <RelativeLayout
-        android:id="@+id/Subject"
-        android:layout_width="@dimen/_280sdp"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/_25sdp"
-        android:layout_marginLeft="@dimen/_10sdp"
-        android:layout_marginRight="@dimen/_10sdp"
-        android:paddingTop="@dimen/_5sdp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+    <LinearLayout
+        android:id="@+id/liner"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:background="@color/white"
+        android:elevation="@dimen/_1sdp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:id="@+id/liner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal"
-            android:padding="@dimen/_4sdp">
+        <Button
+            android:id="@+id/btn_week"
+            android:layout_width="140dp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/btnext"
+            android:backgroundTint="@color/Patient_Color"
+            android:fontFamily="@font/cairo_bold"
+            android:text="  فحص اسبوعي  "
+            android:textColor="@color/white"
+            android:textSize="@dimen/_9sdp" />
 
-            <Button
-                android:id="@+id/btn_week"
-                android:layout_width="140dp"
-                android:layout_height="match_parent"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/btnext"
-                android:backgroundTint="@color/Patient_Color"
-                android:fontFamily="@font/cairo_bold"
-                android:text="  فحص اسبوعي  "
-                android:textColor="@color/white"
-                android:textSize="@dimen/_9sdp" />
 
-            <Button
-                android:id="@+id/btn_day"
-                android:layout_width="140dp"
-                android:layout_height="match_parent"
-                android:background="@drawable/btnext"
-                android:backgroundTint="@color/Patient_Color"
-                android:fontFamily="@font/cairo_bold"
-                android:text=" فحص يومي  "
-                android:textColor="@color/white"
-                android:textSize="@dimen/_9sdp" />
-        </LinearLayout>
+        <Button
+            android:id="@+id/btn_day"
+            android:layout_width="140dp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/btnext"
+            android:backgroundTint="@color/Patient_Color"
+            android:fontFamily="@font/cairo_bold"
+            android:text=" فحص يومي  "
+            android:textColor="@color/white"
+            android:textSize="@dimen/_9sdp" />
+    </LinearLayout>
 
-        <com.jjoe64.graphview.GraphView
-            android:id="@+id/graphview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/liner"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="20dp"
-            android:visibility="visible" />
+    <RelativeLayout
+        android:id="@+id/Subject"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:paddingTop="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_55sdp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/liner">
 
         <TextView
             android:id="@+id/mohammed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_50sdp"
             android:fontFamily="@font/cairo_bold"
             android:layoutDirection="rtl"
             android:text="@string/information_examine"
@@ -73,6 +70,20 @@
             android:textSize="12sp"
             android:textStyle="normal"
             android:visibility="gone" />
+
+        <com.jjoe64.graphview.GraphView
+            android:id="@+id/graphview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"
+            android:visibility="visible" />
+<!--        <com.anychart.AnyChartView-->
+<!--            android:id="@+id/any_chart_view"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:visibility="gone"-->
+<!--            tools:ignore="MissingClass" />-->
+
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

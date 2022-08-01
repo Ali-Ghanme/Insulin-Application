@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -37,7 +38,9 @@ public class Follow_Fragment extends Fragment {
     // Adapter
     Doctor_Follow_Adapter doctor_follow_adapter;
     // String
-    String DoctorUsername,PatientUsername;
+    String DoctorUsername, PatientUsername;
+
+    Follow_Model follow_model;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -53,9 +56,10 @@ public class Follow_Fragment extends Fragment {
         SharedPreferences prefs2 = getContext().getSharedPreferences(MyPREFERENCES_P_List, MODE_PRIVATE);
         PatientUsername = prefs2.getString("TAG_NAME", null);
 
+        Toast.makeText(getContext(), PatientUsername, Toast.LENGTH_SHORT).show();
         SharedPreferences prefs = getContext().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
         DoctorUsername = prefs.getString("TAG_NAME", null);
-
+        follow_model = new Follow_Model();
         //============================Configure Recyclerview========================================
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
@@ -65,14 +69,16 @@ public class Follow_Fragment extends Fragment {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    Follow_Model follow_model = new Follow_Model();
-                    follow_model.setName(snapshot.child(DoctorUsername).child("Follow").child(PatientUsername).child("Following").getValue().toString());
-                    follow_model.setType(snapshot.child(DoctorUsername).child("Follow").child(PatientUsername).child("Following").getValue().toString());
+                ClearAll();
+                for (DataSnapshot sn : snapshot.getChildren()) {
+                    follow_model.setName(sn.child(DoctorUsername).child("Follow").getKey());
+//                    follow_model.setType(sn.child(PatientUsername).child("personal_info").child("Age").getValue().toString());
+//                    follow_model.setType(sn.getKey());
                     list.add(follow_model);
-
-                    doctor_follow_adapter = new Doctor_Follow_Adapter(getContext(), list);
-                    recyclerView.setAdapter(doctor_follow_adapter);
-                    doctor_follow_adapter.updateUsersList(list);
+                }
+                doctor_follow_adapter = new Doctor_Follow_Adapter(getContext(), list);
+                recyclerView.setAdapter(doctor_follow_adapter);
+                doctor_follow_adapter.updateUsersList(list);
             }
 
             @Override
@@ -80,27 +86,23 @@ public class Follow_Fragment extends Fragment {
 
             }
         });
+
 //        ============================Put data in Recyclerview======================================
 
         //========================Get Doctor list Data From Firebase Function=======================
-//        myRef.addValueEventListener(new ValueEventListener() {
+//        myRef2.addValueEventListener(new ValueEventListener() {
 //            @Override
 //            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 //                ClearAll();
 //                try {
 //                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-//                        Follow_Model follow_model = new Follow_Model();
-//                        Log.e("TAG_K", follower);
-//                        follow_model.setName(snapshot.child("DAbood").child("Follow").child("Following").getValue().toString());
-//                        follow_model.setType(snapshot.child("DAbood").child("Follow").child("Following").getValue().toString());
+//                        follow_model.setType(snapshot.child(patientUsername).child("personal_info").child("Age").getValue().toString());
 //                        list.add(follow_model);
-//
 //                    }
 //
 //                } catch (Exception e) {
 //                    Log.e("TAG", e.getMessage());
 //                }
-//
 //                doctor_follow_adapter = new Doctor_Follow_Adapter(getContext(), list);
 //                recyclerView.setAdapter(doctor_follow_adapter);
 //                doctor_follow_adapter.updateUsersList(list);
@@ -113,7 +115,7 @@ public class Follow_Fragment extends Fragment {
         return view;
     }
 
-//    Function================================
+//    =====================================Function=================================================
 
     private void ClearAll() {
         if (list != null) {

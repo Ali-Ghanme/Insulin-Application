@@ -1,11 +1,13 @@
 package com.example.diabestes_care_app.Ui.Patient_all.Sections.Reports.Exams;
 
+import static android.content.Context.MODE_PRIVATE;
+import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,45 +22,32 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.diabestes_care_app.Adapters.Reports_Adapter;
-import com.example.diabestes_care_app.Models.Reports_Model;
-import com.example.diabestes_care_app.R;
-import com.example.diabestes_care_app.Ui.Patient_all.Sections.Self_Care.Content.Content;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
-
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import static android.content.Context.MODE_PRIVATE;
-import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
+import com.example.diabestes_care_app.R;
+import com.example.diabestes_care_app.Ui.Patient_all.Sections.Self_Care.Content.Content;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class Daily_Sugar extends Fragment {
     LinearLayout liner_show_one;
-    DatabaseReference  databaseReference_daily;
-    TableLayout tableLayout ;
-    Button   btn_checked_save_sugar;
+    DatabaseReference databaseReference_daily;
+    TableLayout tableLayout;
+    Button btn_checked_save_sugar;
     TextView tv_date;
-    EditText   et_number_sugar, btn_sheet_time_day_sugar;
+    EditText et_number_sugar, btn_sheet_time_day_sugar;
     ListView listView;
-    String  PatientUsername , number_sugar, daysugar, currentDataTime ;
+    String PatientUsername, number_sugar, daysugar, currentDataTime;
     String[] time_day_suger = {"قبل النوم", "بعد العشاء", "قبل العشاء", "بعد الغداء ", "قبل الغداء", "بعد الإفطار", "قبل الإفطار"};
-    int  sugarValue;
-   String success = "success"  , error= "error" , warning = "warning";
+    int sugarValue;
+    String success = "success", error = "error", warning = "warning";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -83,7 +72,7 @@ public class Daily_Sugar extends Fragment {
         //============================  View Time Zone by Text View in page My_Exams================
         @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd G 'at' HH:mm:ss");
         currentDataTime = sdf.format(new Date());
-        tv_date.setText(currentDataTime) ;
+        tv_date.setText(currentDataTime);
         //=============================== Check and save data from sugar Edit Text==================
         btn_checked_save_sugar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,8 +81,8 @@ public class Daily_Sugar extends Fragment {
 
                 if (number_sugar.isEmpty()) {
                     Toast.makeText(getActivity(), "لا توجد نتيجة", Toast.LENGTH_SHORT).show();
-                } else if ((sugarValue = Integer.parseInt(number_sugar)) <= 69  || (sugarValue = Integer.parseInt(number_sugar)) >= 200) {
-                    Toast.makeText(getActivity(), " السكر منخفظ  ", Toast.LENGTH_SHORT).show();
+                } else if ((sugarValue = Integer.parseInt(number_sugar)) < 69 || (sugarValue = Integer.parseInt(number_sugar)) > 200) {
+                    Toast.makeText(getActivity(), " السكر منخفض  ", Toast.LENGTH_SHORT).show();
                     showErrorDialog("تحذير", " برجى استشارة طبيب على الفور او التوجه لاقرب مستشفى ");
                     // Upload Data on Firebase
                     databaseReference_daily.child("نسبة السكر في الدم").setValue(number_sugar);
@@ -103,7 +92,7 @@ public class Daily_Sugar extends Fragment {
 
                 } else if ((sugarValue = Integer.parseInt(number_sugar)) >= 70 && (sugarValue = Integer.parseInt(number_sugar)) <= 120) {
                     Toast.makeText(getActivity(), " قيمة السكر  طبيعية  : " + number_sugar, Toast.LENGTH_SHORT).show();
-                    showSuccessDialog("أنت بصحة جيدة ", "استمر على هذا النحو من المحافظة على صحتك " );
+                    showSuccessDialog("أنت بصحة جيدة ", "استمر على هذا النحو من المحافظة على صحتك " + sugarValue);
                     // Upload Data on Firebase
                     databaseReference_daily.child("نسبة السكر في الدم").setValue(number_sugar);
                     databaseReference_daily.child("فترة القياس").setValue(daysugar);
@@ -112,14 +101,14 @@ public class Daily_Sugar extends Fragment {
 
                 } else if ((sugarValue = Integer.parseInt(number_sugar)) > 120 && (sugarValue = Integer.parseInt(number_sugar)) < 200) {
                     Toast.makeText(getActivity(), " معرض للاصابة بالسكري   : " + number_sugar, Toast.LENGTH_SHORT).show();
-                    showWarningDialog("لا بأس استمر على الارشادات ", "هذا المؤشر ينبهك بالمحافظة على الصحة واتباع الإرشادات" );
+                    showWarningDialog("لا بأس استمر على الارشادات ", "هذا المؤشر ينبهك بالمحافظة على الصحة واتباع الإرشادات" + sugarValue);
                     // Upload Data on Firebase
                     databaseReference_daily.child("نسبة السكر في الدم").setValue(number_sugar);
                     databaseReference_daily.child("فترة القياس").setValue(daysugar);
                     databaseReference_daily.child("وقت القياس").setValue(currentDataTime);
                     databaseReference_daily.child("حالة القياس").setValue(warning);
 
-                }  else {
+                } else {
                     Toast.makeText(getActivity(), " خطا في البيانات المدخلة ", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -152,7 +141,8 @@ public class Daily_Sugar extends Fragment {
         });
         return view;
     }
-    //=================  Custom Dialog  ===============
+
+    //======================================  Custom Dialog  =======================================
     private void showSuccessDialog(String title, String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.AlertDialogTheme);
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.layout_success_dialog, (ConstraintLayout) getActivity().findViewById(R.id.layoutDialogContainer));

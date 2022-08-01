@@ -1,30 +1,33 @@
 package com.example.diabestes_care_app.Models;
 
 public class Reports_Model {
-    String timesuger,time ,title  , statessuger  ;
+    String time_sugar, time, title, status_sugar;
 
-    public Reports_Model(String timesuger, String time, String title ,String statessuger ) {
-        this.timesuger = timesuger;
+    public Reports_Model(String time_sugar, String time, String title, String status_sugar) {
+        this.time_sugar = time_sugar;
         this.time = time;
         this.title = title;
 
- /// mohammed
     }
 
-    public String getStatessuger() {
-        return statessuger;
+    public Reports_Model() {
+
     }
 
-    public void setStatessuger(String statessuger) {
-        this.statessuger = statessuger;
+    public String get_status_sugar() {
+        return status_sugar;
     }
 
-    public String getTimesuger() {
-        return timesuger;
+    public void set_status_sugar(String status_sugar) {
+        this.status_sugar = status_sugar;
     }
 
-    public void setTimesuger(String timesuger) {
-        this.timesuger = timesuger;
+    public String get_time_sugar() {
+        return time_sugar;
+    }
+
+    public void set_time_sugar(String time_sugar) {
+        this.time_sugar = time_sugar;
     }
 
     public String getTime() {
@@ -42,11 +45,6 @@ public class Reports_Model {
     public void setTitle(String title) {
         this.title = title;
     }
-
-    public Reports_Model() {
-
-    }
-
 
 }
 

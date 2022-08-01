@@ -79,7 +79,7 @@ public class Splash_Screen_1 extends Basic_Activity {
                     position++;
                     viewPager.setCurrentItem(position);
                 }
-                if (position > mList.size() - 1) { // when we rech to the last screen
+                if (position > mList.size() - 1) { // when we reach to the last screen
                     // TODO : show the Get Started Button and hide the indicator and the next button
                     loadLastScreen();
                 }

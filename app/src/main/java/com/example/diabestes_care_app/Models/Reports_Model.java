@@ -1,17 +1,22 @@
 package com.example.diabestes_care_app.Models;
 
 public class Reports_Model {
-    String timesuger, time, title, status_Suger;
+    String timesuger,time ,title  , statessuger  ;
 
-    public Reports_Model(String timesuger, String time, String title, String status_Suger) {
+    public Reports_Model(String timesuger, String time, String title ,String statessuger ) {
         this.timesuger = timesuger;
         this.time = time;
         this.title = title;
-        this.status_Suger = status_Suger;
+
+
     }
 
-    public Reports_Model() {
+    public String getStatessuger() {
+        return statessuger;
+    }
 
+    public void setStatessuger(String statessuger) {
+        this.statessuger = statessuger;
     }
 
     public String getTimesuger() {
@@ -38,12 +43,10 @@ public class Reports_Model {
         this.title = title;
     }
 
-    public String getStatus_Suger() {
-        return status_Suger;
+    public Reports_Model() {
+
     }
 
-    public void setStatus_Suger(String status_Suger) {
-        this.status_Suger = status_Suger;
-    }
+
 }
 

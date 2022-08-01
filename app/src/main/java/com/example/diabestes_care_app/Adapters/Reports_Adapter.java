@@ -54,7 +54,7 @@ public class Reports_Adapter extends RecyclerView.Adapter<Reports_Adapter.MyView
         //====================Initialize object from model & database reference=====================
         SharedPreferences prefs = this.context.getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         PatientUsername = prefs.getString("TAG_NAME", null);
-        DatabaseReference statuses_suger = FirebaseDatabase.getInstance().getReference("patient").child(PatientUsername).child("Reports_info").child("فترة القياس");
+        DatabaseReference statuses_suger = FirebaseDatabase.getInstance().getReference("patient").child(PatientUsername).child("Reports_info").child("حالة القياس");
 
         //============================Online/Offline read Status ===================================
         statuses_suger.addValueEventListener(new ValueEventListener() {
@@ -66,18 +66,15 @@ public class Reports_Adapter extends RecyclerView.Adapter<Reports_Adapter.MyView
                     return;
                 } else {
                     try {
-                        if (status_suger.contentEquals("قبل الإفطار")) {
+                        if (status_suger.contentEquals("warning")) {
                             holder.success.setVisibility(View.VISIBLE);
                             holder.error.setVisibility(View.GONE);
                             holder.worning.setVisibility(View.GONE);
-                            //tell linker to stop doing sh*t
-                        } else if (status_suger.contentEquals("بعد الغداء ")) {
-                            //tell linker to do a lot of sh****t
+                        } else if (status_suger.contentEquals("success")) {
                             holder.success.setVisibility(View.GONE);
                             holder.error.setVisibility(View.GONE);
                             holder.worning.setVisibility(View.VISIBLE);
-                        } else if (status_suger.contentEquals("2")) {
-                            //tell linker to do a lot of sh****t
+                        } else if (status_suger.contentEquals("error")) {
                             holder.success.setVisibility(View.GONE);
                             holder.error.setVisibility(View.VISIBLE);
                             holder.worning.setVisibility(View.GONE);

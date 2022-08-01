@@ -1,5 +1,8 @@
 package com.example.diabestes_care_app.Adapters;
 
+import static android.content.Context.MODE_PRIVATE;
+import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
@@ -13,7 +16,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.diabestes_care_app.Models.DoctorList_Model;
 import com.example.diabestes_care_app.Models.Reports_Model;
 import com.example.diabestes_care_app.R;
 import com.google.firebase.database.DataSnapshot;
@@ -23,9 +25,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-
-import static android.content.Context.MODE_PRIVATE;
-import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
 
 public class Reports_Adapter extends RecyclerView.Adapter<Reports_Adapter.MyViewHolder> {
     Context context;
@@ -134,7 +133,5 @@ public class Reports_Adapter extends RecyclerView.Adapter<Reports_Adapter.MyView
             error = itemView.findViewById(R.id.error);
             success = itemView.findViewById(R.id.success);
         }
-
-
     }
 }

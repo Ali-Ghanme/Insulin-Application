@@ -1,13 +1,4 @@
-package com.example.diabestes_care_app.Ui.Patient_all.Sections.Reports.Repo;
-
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.example.diabestes_care_app.R;
-import com.example.diabestes_care_app.Adapters.Reports_Adapter;
-import com.example.diabestes_care_app.Models.Reports_Model;
-import com.google.firebase.database.DatabaseReference;
+package com.example.diabestes_care_app.Ui.Patient_all.Sections.Reports.Repo_View;
 
 import static android.content.Context.MODE_PRIVATE;
 import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
@@ -36,20 +27,6 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-
-import static android.content.Context.MODE_PRIVATE;
-import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
-
-
-
-import static android.content.Context.MODE_PRIVATE;
-import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
-
-
-import java.util.ArrayList;
-
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
 
 
 public class Daily_Repo extends Fragment {
@@ -87,6 +64,7 @@ public class Daily_Repo extends Fragment {
                         reportsModel.setTime(snapshot.child("وقت القياس").getValue().toString());
                             reportsModel.setTitle(snapshot.child("نسبة السكر في الدم").getValue().toString());
                         list.add(reportsModel);
+
                         Log.e("d", String.valueOf(reportsModel));
                     }
                 } catch (Exception e) {
@@ -102,6 +80,7 @@ public class Daily_Repo extends Fragment {
                 Log.e("TAG", error.getMessage());
             }
         });
+
         return view;
     }
 }

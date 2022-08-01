@@ -88,8 +88,11 @@ public class Chat_Fragment_D extends Fragment {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (getActivity() == null) {
+                    return;
+                }
                 String PatientImage = snapshot.child(DoctorUsername).child("User_Profile_Image").child("Image").child("mImageUrI").getValue(String.class);
-                Glide.with(getContext()).load(PatientImage).into(imageView);
+                Glide.with(getActivity()).load(PatientImage).into(imageView);
             }
 
             @Override

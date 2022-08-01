@@ -14,14 +14,14 @@
     android:focusable="true">
 
     <RelativeLayout
-        android:id="@+id/Pl_container"
+        android:id="@+id/Dl_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent">
 
         <TextView
-            android:id="@+id/Pl_doctor_name"
+            android:id="@+id/Dl_doctor_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -31,18 +31,18 @@
             android:lines="1"
             android:maxLines="1"
             android:singleLine="true"
-            android:textColor="@color/black" />
+            android:textColor="@color/Doctor_Color" />
 
         <TextView
-            android:id="@+id/Pl_doctor_username"
+            android:id="@+id/Dl_doctor_patient_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/Pl_doctor_name"
+            android:layout_below="@+id/Dl_doctor_name"
             android:layout_alignParentRight="true"
             android:layout_marginTop="5dp"
             android:layout_marginRight="@dimen/_90sdp"
             android:fontFamily="@font/cairo_semibold"
-            android:textColor="@color/gray" />
+            android:textColor="@color/Doctor_Color" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
@@ -52,7 +52,7 @@
             android:layout_marginTop="@dimen/_10sdp">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/Pl_Doctor_image"
+                android:id="@+id/Dl_Doctor_image"
                 android:layout_width="@dimen/_50sdp"
                 android:layout_height="@dimen/_50sdp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -61,7 +61,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/Pl_img_on"
+                android:id="@+id/Dl_img_on"
                 android:layout_width="@dimen/_15sdp"
                 android:layout_height="@dimen/_15sdp"
                 android:background="@drawable/bg_doctor_button"
@@ -71,7 +71,7 @@
                 app:layout_constraintLeft_toLeftOf="parent" />
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/Pl_img_off"
+                android:id="@+id/Dl_img_off"
                 android:layout_width="@dimen/_15sdp"
                 android:layout_height="@dimen/_15sdp"
                 android:background="@drawable/bg_patient_button"
@@ -84,8 +84,8 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/Pl_follow_patient_d"
+        <TextView
+            android:id="@+id/Dl_follow_patient_d"
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_25sdp"
             android:layout_alignParentLeft="true"
@@ -93,8 +93,7 @@
             android:layout_marginLeft="@dimen/_20sdp"
             android:background="@drawable/bg_doctor_button"
             android:backgroundTint="@color/Red"
-            android:fontFamily="@font/cairo_bold"
-            android:text="متابعة" />
+            android:fontFamily="@font/cairo_bold" />
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

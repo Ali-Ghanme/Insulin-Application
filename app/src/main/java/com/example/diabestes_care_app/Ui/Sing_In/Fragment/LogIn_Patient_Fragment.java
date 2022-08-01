@@ -75,13 +75,13 @@ public class LogIn_Patient_Fragment extends Fragment {
                 if (buttonView.isChecked()) {
                     Check_Box_preferences_P = getActivity().getSharedPreferences("checkbox_P", MODE_PRIVATE);
                     SharedPreferences.Editor editor = Check_Box_preferences_P.edit();
-                    editor.putString("remember_P", "true");
+                    editor.putString("remember_P", "false");
                     editor.apply();
                     Toast.makeText(getActivity(), "Checked", Toast.LENGTH_SHORT).show();
                 } else if (!buttonView.isChecked()) {
                     Check_Box_preferences_P = getActivity().getSharedPreferences("checkbox_P", MODE_PRIVATE);
                     SharedPreferences.Editor editor = Check_Box_preferences_P.edit();
-                    editor.putString("remember_P", "false");
+                    editor.putString("remember_P", "true");
                     editor.apply();
                     Toast.makeText(getActivity(), "Un Checked", Toast.LENGTH_SHORT).show();
                 }

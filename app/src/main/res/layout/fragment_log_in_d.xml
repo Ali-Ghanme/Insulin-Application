@@ -102,7 +102,7 @@
             android:layout_marginRight="@dimen/_30sdp"
             android:button="@drawable/bg_check_box_p"
             android:buttonTint="@color/Doctor_Color"
-            android:checked="false"
+            android:checked="true"
             android:fontFamily="@font/cairo_bold"
             android:layoutDirection="ltr"
             android:text="تذكرني"

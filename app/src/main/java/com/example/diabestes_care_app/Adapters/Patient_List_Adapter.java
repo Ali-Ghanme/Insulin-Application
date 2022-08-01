@@ -1,7 +1,7 @@
 package com.example.diabestes_care_app.Adapters;
 
 import static android.content.Context.MODE_PRIVATE;
-import static com.example.diabestes_care_app.Ui.Doctor_all.Nav_Fragment_D.Home_Fragment_D.MyPREFERENCES_D;
+import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Doctor_Fragment.MyPREFERENCES_D;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -47,6 +47,8 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
     String DoctorUsername;
     Dialog dialog;
     String snooping_status;
+    public static final String MyPREFERENCES_P_List = "D_P_Username";
+    SharedPreferences sharedpreferences;
 
     public Patient_List_Adapter(Context context, ArrayList<PatientList_Model> list) {
         this.context = context;
@@ -61,10 +63,13 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
         return new MyViewHolder(view);
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.imageView.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition_animation));
         holder.container.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_scale_animation));
+
+        sharedpreferences = context.getSharedPreferences(MyPREFERENCES_P_List, MODE_PRIVATE);
 
         SharedPreferences prefs = context.getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
         DoctorUsername = prefs.getString("TAG_NAME", null);
@@ -82,7 +87,7 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
         PatientList_Model list2 = mDataFiltered.get(position);
         myRef = FirebaseDatabase.getInstance().getReference("doctor");
         DatabaseReference online_status_all_users = FirebaseDatabase.getInstance().getReference().child("online_statuses").child(list2.getUsername());
-        DatabaseReference follow = FirebaseDatabase.getInstance().getReference().child("doctor").child(DoctorUsername).child("Follow").child(list2.getUsername());
+        DatabaseReference follow = FirebaseDatabase.getInstance().getReference().child("doctor").child(DoctorUsername).child("Follow").child(list2.getUsername()).child("Following");
 
         //============================Online/Offline read Status ===================================
         online_status_all_users.addValueEventListener(new ValueEventListener() {
@@ -119,14 +124,21 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
         holder.follow_btn.setOnTouchListener(new View.OnTouchListener() {
 
             GestureDetector gestureDetector = new GestureDetector(context.getApplicationContext(), new GestureDetector.SimpleOnGestureListener() {
+                @SuppressLint("ClickableViewAccessibility")
                 @Override
                 public boolean onSingleTapConfirmed(MotionEvent e) {
-                    Toast.makeText(context, "This is normal Press", Toast.LENGTH_SHORT).show();
-                    follow.setValue("Following");
+                    follow.setValue(list2.getUsername());
                     if (holder.follow_btn.getText().equals("متابعة")) {
                         dialog.show();
                     }
                     holder.follow_btn.setText("أتابع");
+
+                    SharedPreferences.Editor editor = sharedpreferences.edit();
+                    editor.putString("TAG_NAME", list2.getUsername());
+                    editor.apply();
+
+                    Toast.makeText(context, list2.getUsername(), Toast.LENGTH_SHORT).show();
+
                     return super.onSingleTapConfirmed(e);
                 }
 
@@ -146,7 +158,7 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
                 return false;
             }
         });
-        follow_status(holder, follow);
+        follow_status(holder, follow, list2);
 
         //============================Pass Data Patient ============================================
         holder.container.setOnClickListener(new View.OnClickListener() {
@@ -179,7 +191,7 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
         notifyDataSetChanged();
     }
 
-    public void follow_status(MyViewHolder holder, DatabaseReference follow) {
+    public void follow_status(MyViewHolder holder, DatabaseReference follow, PatientList_Model list) {
         follow.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -188,7 +200,7 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
                     return;
                 } else {
                     //mario should decide what to do with linkers snooping status here e.g.
-                    if (snooping_status1.contentEquals("Following")) {
+                    if (snooping_status1.contentEquals(list.getUsername())) {
                         holder.follow_btn.setText("أتابع");
                         //tell linker to stop doing sh*t
                     } else {
@@ -263,4 +275,5 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
             context.startActivity(intent);
         }
     }
+
 }

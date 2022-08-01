@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Ui.Patient_all.Sections.Reports.Repo.Reports_Fragment">
+    tools:context=".Ui.Patient_all.Sections.Reports.Repo_View.Reports_Fragment">
 
     <RelativeLayout
         android:id="@+id/Repo_relativeLayout"

@@ -36,7 +36,7 @@ public class Reports_Adapter extends RecyclerView.Adapter<Reports_Adapter.MyView
         this.context = context;
         this.list = list;
     }
-
+// mohammed
     @NonNull
     @Override
 

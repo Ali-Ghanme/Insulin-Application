@@ -121,7 +121,7 @@
                 app:civ_border_color="@color/colorError"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent" />
-
+<!--mohammed-->
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/worning"
                 android:layout_width="@dimen/_15sdp"

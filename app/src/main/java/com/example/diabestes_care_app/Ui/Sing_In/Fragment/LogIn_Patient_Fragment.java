@@ -161,4 +161,3 @@ public class LogIn_Patient_Fragment extends Fragment {
         });
     }
 }
-// Hallow this is update

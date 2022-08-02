@@ -40,7 +40,6 @@ public class Follow_Fragment extends Fragment {
     // String
     String DoctorUsername, PatientUsername;
 
-    Follow_Model follow_model;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -59,7 +58,6 @@ public class Follow_Fragment extends Fragment {
         Toast.makeText(getContext(), PatientUsername, Toast.LENGTH_SHORT).show();
         SharedPreferences prefs = getContext().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
         DoctorUsername = prefs.getString("TAG_NAME", null);
-        follow_model = new Follow_Model();
         //============================Configure Recyclerview========================================
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
@@ -70,10 +68,11 @@ public class Follow_Fragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ClearAll();
-                for (DataSnapshot sn : snapshot.getChildren()) {
-                    follow_model.setName(sn.child(DoctorUsername).child("Follow").getKey());
-//                    follow_model.setType(sn.child(PatientUsername).child("personal_info").child("Age").getValue().toString());
-//                    follow_model.setType(sn.getKey());
+                Follow_Model follow_model;
+                for (DataSnapshot sn : snapshot.child(DoctorUsername).child("Follow").getChildren()) {
+                    follow_model = new Follow_Model();
+                    follow_model.setName(sn.getKey());
+                    follow_model.setType(sn.getKey());
                     list.add(follow_model);
                 }
                 doctor_follow_adapter = new Doctor_Follow_Adapter(getContext(), list);

@@ -121,4 +121,6 @@ public class Reports_Adapter extends RecyclerView.Adapter<Reports_Adapter.MyView
 
         }
     }
+
+    // This is new update
 }

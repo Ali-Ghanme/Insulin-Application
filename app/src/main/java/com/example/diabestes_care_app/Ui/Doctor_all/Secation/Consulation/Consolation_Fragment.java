@@ -22,7 +22,7 @@ public class Consolation_Fragment extends Fragment {
 
     TabLayout tabLayout;
     ViewPager viewPager_subject;
-    My_Patient_Fragment_D.MainAdapter adapter;
+    Consolation_Fragment.MainAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,7 +34,7 @@ public class Consolation_Fragment extends Fragment {
         viewPager_subject = view.findViewById(R.id.Consu_viewpager_tab_SR);
 
         //====================Adapter Configuration=================================================
-        adapter = new My_Patient_Fragment_D.MainAdapter(getChildFragmentManager());
+        adapter = new Consolation_Fragment.MainAdapter(getChildFragmentManager());
         adapter.AddFragment(new General_Fragment(), "استشارات عامة");
         adapter.AddFragment(new Privet_Cons(), "استشاراتي");
 

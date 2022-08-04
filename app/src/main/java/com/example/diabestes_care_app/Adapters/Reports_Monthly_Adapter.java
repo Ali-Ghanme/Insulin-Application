@@ -38,7 +38,7 @@ public class Reports_Monthly_Adapter extends RecyclerView.Adapter<Reports_Monthl
     @Override
     public void onBindViewHolder(@NonNull Reports_Monthly_Adapter.MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Reports_Monthly_Model list3 = list.get(position);
-
+// Hallow
         // فحوصات الدهون
         holder.result_cholesterol.setText(list3.getResult_cholesterol());
         holder.result_triglycerid.setText(list3.getResult_triglycerid());

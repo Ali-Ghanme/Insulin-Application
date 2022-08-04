@@ -88,7 +88,7 @@ public class Daily_Sugar extends Fragment {
                     databaseReference_daily.child("فترة القياس").setValue(daysugar);
                     databaseReference_daily.child("وقت القياس").setValue(currentDataTime);
                     databaseReference_daily.child("حالة القياس").setValue(error);
-
+                    // Mohammed Siam
                 } else if ((sugarValue = Integer.parseInt(number_sugar)) >= 70 && (sugarValue = Integer.parseInt(number_sugar)) <= 120) {
                     Toast.makeText(getActivity(), " قيمة السكر  طبيعية  : " + number_sugar, Toast.LENGTH_SHORT).show();
                     showSuccessDialog("أنت بصحة جيدة ", "استمر على هذا النحو من المحافظة على صحتك " + sugarValue);

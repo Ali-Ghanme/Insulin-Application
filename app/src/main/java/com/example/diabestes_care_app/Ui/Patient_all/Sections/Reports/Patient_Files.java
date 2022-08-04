@@ -22,7 +22,7 @@ public class Patient_Files extends Basic_Activity {
     TabLayout tabLayout;
     ViewPager viewPager_subject;
     Patient_Files.MainAdapter adapter;
-
+    // Mohammed Siam
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         fullscreen();

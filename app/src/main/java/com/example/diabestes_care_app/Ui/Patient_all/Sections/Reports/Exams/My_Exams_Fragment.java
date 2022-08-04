@@ -31,7 +31,7 @@ public class My_Exams_Fragment extends Fragment {
     TabLayout tabLayout_exams;
     ViewPager viewPager;
     My_Exams_Fragment.MainAdapter adapter;
-
+    // Mohammed Siam
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

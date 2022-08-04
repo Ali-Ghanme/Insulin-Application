@@ -41,7 +41,7 @@ public class Daily_Repo extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_daily__repo, container, false);
-
+        // Mohammed Siam
         recyclerView = view.findViewById(R.id.recyclerView);
         //============================Get Patient Username===========================================
         SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);

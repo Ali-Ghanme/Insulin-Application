@@ -51,7 +51,7 @@ public class Dmonthly_Sugar extends Fragment {
     ListView listView;
     String PatientUsername, bmi_PressureValue, bmi_weight, bmi_height, number_sugar, daysugar, currentDataTimeblood, currentDataBloodTime, creatine, uric, urea, hdl, ldl, triglyceride, cholesterol, date_time, Blood_Pressure, Blood_Pressure2;
     String[] time_day_suger = {"قبل النوم", "بعد العشاء", "قبل العشاء", "بعد الغداء ", "قبل الغداء", "بعد الإفطار", "قبل الإفطار"};
-
+    // Mohammed Siam
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

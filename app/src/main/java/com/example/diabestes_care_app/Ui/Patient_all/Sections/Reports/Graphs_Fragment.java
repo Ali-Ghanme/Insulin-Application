@@ -37,6 +37,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import static android.content.Context.MODE_PRIVATE;
 import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
@@ -68,23 +69,23 @@ public class Graphs_Fragment extends Fragment {
         PatientUsername = prefs.getString("TAG_NAME", null);
         //============================Configure Firebase============================================
         databaseReference = FirebaseDatabase.getInstance().getReference("patient").child(PatientUsername).child("Reports_info").child("فحص يومي");
-
+        List<String> friends = new ArrayList<>();
         Query query = databaseReference.orderByKey();
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 try {
+
+
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
 
-                        //  220   88    230
-                        suger = snapshot.child("نسبة السكر في الدم").getValue().toString();
+                        String friend = snapshot.child("نسبة السكر في الدم").getValue().toString();
+                        friends.add(friend);
 
-
-
+ // Mohammed Siam
                     }
                 } catch (Exception e) {
                     Toast.makeText(getContext(), ".00.", Toast.LENGTH_SHORT).show();
-
                 }
 //                sugarInt = Integer.parseInt(suger);
 //                sugerindex0 = Integer.parseInt(suger);
@@ -93,15 +94,21 @@ public class Graphs_Fragment extends Fragment {
 //                sugerindex0 = suger.indexOf(0);
 //                sugerindex1 = suger.indexOf(1);
 //                sugerindex2 = suger.indexOf(2,0);
+                String listindexone =  friends.get(0);
+                String listindextow =  friends.get(1);
+                String listindexthree =  friends.get(2);
+                sugerindex0 = Integer.parseInt(listindexone);
+                sugerindex1 = Integer.parseInt(listindextow);
+                sugerindex2 = Integer.parseInt(listindexthree);
                 LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>();
 
                 if (suger != null) {
 
 
                         series.appendData(new DataPoint(1, 50), true, 5);
-                        series.appendData(new DataPoint(2, sugarInt), true, 5);
-                        series.appendData(new DataPoint(3, sugarInt), true, 5);
-                        series.appendData(new DataPoint(4, sugarInt), true, 5);
+                        series.appendData(new DataPoint(2, sugerindex0), true, 5);
+                        series.appendData(new DataPoint(3, sugerindex1), true, 5);
+                        series.appendData(new DataPoint(4, sugerindex2), true, 5);
                         series.appendData(new DataPoint(5, 80), true, 5);
 
 //                    series.appendData(new DataPoint(2, sugerindex0), false, 5);

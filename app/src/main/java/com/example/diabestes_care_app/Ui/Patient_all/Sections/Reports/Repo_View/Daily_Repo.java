@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -53,6 +52,7 @@ public class Daily_Repo extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         list = new ArrayList<>();
+
         Query query = databaseReference.orderByKey();
         query.addValueEventListener(new ValueEventListener() {
             @Override
@@ -60,21 +60,23 @@ public class Daily_Repo extends Fragment {
                 try {
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         Reports_Model reportsModel = new Reports_Model();
-                        reportsModel.setTimesuger(snapshot.child("فترة القياس").getValue().toString());
-                        reportsModel.setTime(snapshot.child("وقت القياس").getValue().toString());
-                            reportsModel.setTitle(snapshot.child("نسبة السكر في الدم").getValue().toString());
-                        list.add(reportsModel);
 
-                        Log.e("d", String.valueOf(reportsModel));
+                        reportsModel.setTimeSugar(snapshot.child("فترة القياس").getValue().toString());
+                        reportsModel.setTime(snapshot.child("وقت القياس").getValue().toString());
+                        reportsModel.setBloodSugar(snapshot.child("نسبة السكر في الدم").getValue().toString());
+                        reportsModel.setStatusSugar(snapshot.child("حالة القياس").getValue().toString());
+
+                        list.add(reportsModel);
+                        reports_adapter = new Reports_Adapter(getContext(), list);
+                        recyclerView.setAdapter(reports_adapter);
+                        reports_adapter.updateUsersList(list);
                     }
                 } catch (Exception e) {
-                    Toast.makeText(getContext(), "تأكد من وجود الإنترنت أو قم بإدخال فحوصات", Toast.LENGTH_SHORT).show();
                     Log.e("TAG", e.getMessage());
                 }
-                reports_adapter = new Reports_Adapter(getContext(), list);
-                recyclerView.setAdapter(reports_adapter);
-                reports_adapter.updateUsersList(list);
             }
+
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Log.e("TAG", error.getMessage());

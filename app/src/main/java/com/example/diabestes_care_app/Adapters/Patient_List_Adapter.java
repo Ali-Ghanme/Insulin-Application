@@ -134,10 +134,10 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
                     holder.follow_btn.setText("أتابع");
 
                     SharedPreferences.Editor editor = sharedpreferences.edit();
-                    editor.putString("TAG_NAME", list2.getUsername());
+                    editor.putString("TAG_NAME", list2.getImageUrl());
                     editor.apply();
 
-                    Toast.makeText(context, list2.getUsername(), Toast.LENGTH_SHORT).show();
+                    Log.e("TAG" , list2.getUsername());
 
                     return super.onSingleTapConfirmed(e);
                 }

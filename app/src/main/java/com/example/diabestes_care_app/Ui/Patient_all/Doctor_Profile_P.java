@@ -18,7 +18,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
@@ -28,11 +27,8 @@ import com.example.diabestes_care_app.NotificationSender.FcmNotificationsSender;
 import com.example.diabestes_care_app.Notification_Controller.Notification_Number;
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Patient_all.Sections.Consulation.Consultation_Request;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -45,8 +41,8 @@ public class Doctor_Profile_P extends Basic_Activity {
     // Dialog
     Dialog dialog;
     EditText et_title, et_subject;
-    String Consultation_title, Consultation_subject, getName, getProfilePic, getUsername, getToken, PatientUsername;
-    DatabaseReference myReference;
+    String Consultation_title, Consultation_subject, getName, getProfilePic, getUsername, getToken, PatientUsername,getPatientPic;
+    DatabaseReference myReference,myRef;
     String chatKey;
     Notification_Number notification_number;
     SharedPreferences sharedpreferences;
@@ -63,13 +59,21 @@ public class Doctor_Profile_P extends Basic_Activity {
         Doctor_Profile = findViewById(R.id.DPP_img_Profile);
         request = findViewById(R.id.request_for);
         back = findViewById(R.id.DPP_btn_back);
+
+        //============================Get data from message adapter class===========================
+        getName = getIntent().getStringExtra("Doctor_name");
+        getProfilePic = getIntent().getStringExtra("Doctor_Pic_Profile");
+        getUsername = getIntent().getStringExtra("Doctor_username");
+        getToken = getIntent().getStringExtra("Doctor_token");
+
         sharedpreferences = this.getSharedPreferences(MyPREFERENCES_MSGKey, MODE_PRIVATE);
+
         SharedPreferences prefs = Doctor_Profile_P.this.getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         PatientUsername = prefs.getString("TAG_NAME", null);
 
         //============================Define Database Ref===========================================
-        myReference = FirebaseDatabase.getInstance().getReference("Consultation request").child("MSG").push();
-
+        myReference = FirebaseDatabase.getInstance().getReference("doctor").child(getUsername).child("Consultation request").child("MSG").push();
+        myRef = FirebaseDatabase.getInstance().getReference("patient");
         //============================Back Button Action============================================
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,13 +82,6 @@ public class Doctor_Profile_P extends Basic_Activity {
                 startActivity(intent);
             }
         });
-
-        //============================Get data from message adapter class===========================
-        getName = getIntent().getStringExtra("Doctor_name");
-        getProfilePic = getIntent().getStringExtra("Doctor_Pic_Profile");
-        getUsername = getIntent().getStringExtra("Doctor_username");
-        getToken = getIntent().getStringExtra("Doctor_token");
-
 
         //============================load data from message adapter class==========================
         DoctorName.setText(getName);
@@ -106,21 +103,6 @@ public class Doctor_Profile_P extends Basic_Activity {
         et_title = dialog.findViewById(R.id.et_titlee);
         et_subject = dialog.findViewById(R.id.et_subjectt);
         chatKey = "";
-        myReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                // Generate chat key by default key is 1
-//                if (chatKey.isEmpty()) {
-//                    chatKey = "";
-//                        chatKey = String.valueOf(snapshot.getChildrenCount()+1);
-//                    }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
 
         //============================load data from message adapter class==========================
         oky.setOnClickListener(new View.OnClickListener() {

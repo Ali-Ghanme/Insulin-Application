@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/_10sdp"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:layout_marginRight="10dp"
+    android:background="@drawable/bg_doctors_list"
+    android:clickable="true"
+    android:elevation="1.5dp"
+    android:focusable="true">
+
+    <RelativeLayout
+        android:id="@+id/Consu_container_response"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/Consu_Patient_Image_response"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:src="@drawable/ic_user_edit" />
+
+        <TextView
+            android:id="@+id/Consu_patient_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_toLeftOf="@id/Consu_Patient_Image_response"
+            android:fontFamily="@font/cairo_semibold"
+            android:lines="1"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="سلوى أحمد"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10sdp" />
+
+
+        <RelativeLayout
+            android:id="@+id/Consu_chose_action_response"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/Consu_Accept_response"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="@dimen/_75sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/bg_doctor_button"
+                android:backgroundTint="@color/Doctor_Color"
+                android:fontFamily="@font/cairo_bold"
+                android:text="رد"
+                android:textColor="@color/white" />
+            <Button
+                android:id="@+id/Consu_Reject_response"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/bg_doctor_button"
+                android:backgroundTint="@color/Red"
+                android:fontFamily="@font/cairo_bold"
+                android:text="رفض"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_below="@+id/Consu_Patient_Image_response">
+
+            <TextView
+                android:id="@+id/Consu_title_response"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="@dimen/_65sdp"
+                android:fontFamily="@font/cairo_semibold"
+                android:lines="1"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="الحوامل"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/_10sdp" />
+
+            <TextView
+                android:id="@+id/Consu_title_s_response"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:fontFamily="@font/cairo_semibold"
+                android:lines="1"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="العنوان:"
+                android:textColor="@color/Patient_Color"
+                android:textSize="@dimen/_10sdp" />
+
+            <TextView
+                android:id="@+id/Consu_Que_response"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Consu_title_response"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="@dimen/_65sdp"
+                android:fontFamily="@font/cairo_semibold"
+                android:text="هل يمكن ان يولد الطفل بمرض السكري ام لا وهل يمكن الحد من هذه الاعراض ارجو الاجابة على قدر السؤال ولكم منا كل التقدير والاحترام"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/_10sdp" />
+
+            <TextView
+                android:id="@+id/Consu_Que_s_response"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Consu_title_response"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:fontFamily="@font/cairo_semibold"
+                android:text="السؤال :"
+                android:textColor="@color/Patient_Color"
+                android:textSize="@dimen/_10sdp" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

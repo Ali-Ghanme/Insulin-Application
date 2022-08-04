@@ -6,6 +6,7 @@
     tools:context=".Ui.Doctor_all.Secation.Consulation.Privet_Cons">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/response_recycleView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layoutDirection="rtl" />

@@ -64,7 +64,6 @@ public class Splash_Screen_1 extends Basic_Activity {
         mList.add(new Splash_Screen_Modal("نظم جرعاتك", "يمكنك وضع منبه للتذكير بجرعات\n" + " العلاج",  R.drawable.ic_splash_4));
         mList.add(new Splash_Screen_Modal("تقارير","" + "التذكير بالفحوصات الدورية لمريض السكري" ,  R.drawable.ic_report));
         mList.add(new Splash_Screen_Modal("عناية ذاتية", "قسم كامل للتعليمات والانظمة الصحية \n" + " الخاصة بمرضى السكري\n"  ,  R.drawable.ic_splash_instraction));
-        mList.add(new Splash_Screen_Modal("تقارير","" + "متابعة حالة المريض وتسجيل تقارير ورسوم بيانية" , R.drawable.ic_report));
         //=============================== setup viewpager===========================================
         viewAdapterSplashScreen = new ViewAdapter_Splash_Screen(this, mList);
         viewPager.setAdapter(viewAdapterSplashScreen);

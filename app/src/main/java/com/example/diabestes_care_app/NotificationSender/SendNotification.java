@@ -1,10 +1,8 @@
 package com.example.diabestes_care_app.NotificationSender;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -31,34 +29,34 @@ public class SendNotification extends AppCompatActivity {
         notification_user = findViewById(R.id.notification_user_1);
 
 
-        notification_general.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String t_title = et_title.getText().toString();
-                String t_subject = et_subject.getText().toString();
-
-                if (!t_title.isEmpty() && !t_subject.isEmpty()) {
-                    FcmNotificationsSender notificationsSender = new FcmNotificationsSender("/topics/all", et_title.getText().toString(),
-                            et_subject.getText().toString(), getApplicationContext(), SendNotification.this);
-                    notificationsSender.SendNotifications();
-
-                } else {
-                    Toast.makeText(getApplicationContext(), "Hi , text && Title required", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-        notification_user.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String t_title = et_title.getText().toString();
-                String t_subject = et_subject.getText().toString();
-                if (!t_title.isEmpty() && !t_subject.isEmpty() && !token.isEmpty()) {
-                    FcmNotificationsSender notificationsSender = new FcmNotificationsSender(token, t_title, t_subject, getApplicationContext(), SendNotification.this);
-                    notificationsSender.SendNotifications();
-                } else {
-                    Toast.makeText(SendNotification.this, "Enter Token", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+//        notification_general.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String t_title = et_title.getText().toString();
+//                String t_subject = et_subject.getText().toString();
+//
+//                if (!t_title.isEmpty() && !t_subject.isEmpty()) {
+//                    FcmNotificationsSender notificationsSender = new FcmNotificationsSender("/topics/all", et_title.getText().toString(),
+//                            et_subject.getText().toString(), getApplicationContext(), SendNotification.this);
+//                    notificationsSender.SendNotifications();
+//
+//                } else {
+//                    Toast.makeText(getApplicationContext(), "Hi , text && Title required", Toast.LENGTH_LONG).show();
+//                }
+//            }
+//        });
+//        notification_user.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String t_title = et_title.getText().toString();
+//                String t_subject = et_subject.getText().toString();
+//                if (!t_title.isEmpty() && !t_subject.isEmpty() && !token.isEmpty()) {
+//                    FcmNotificationsSender notificationsSender = new FcmNotificationsSender(token, t_title, t_subject, getApplicationContext(), SendNotification.this);
+//                    notificationsSender.SendNotifications();
+//                } else {
+//                    Toast.makeText(SendNotification.this, "Enter Token", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
     }
 }

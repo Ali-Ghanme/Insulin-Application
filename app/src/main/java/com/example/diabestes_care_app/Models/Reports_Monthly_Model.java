@@ -1,8 +1,8 @@
 package com.example.diabestes_care_app.Models;
 
 public class Reports_Monthly_Model {
-    String result_creatinine  , result_urea  , result_uric  ,  result_cholesterol ,result_triglycerid   ,
-            result_ldl  , result_hdl  , result_pressuer   , result_bmi_height  , result_bmi_weight    ;
+    String result_creatinine, result_urea, result_uric, result_cholesterol, result_triglycerid,
+            result_ldl, result_hdl, result_presser, result_bmi_height, result_bmi_weight;
 
 
     public Reports_Monthly_Model(String result_creatinine, String result_urea, String result_uric, String result_cholesterol, String result_triglycerid, String result_ldl, String result_hdl, String result_pressuer, String result_bmi_height, String result_bmi_weight) {
@@ -13,7 +13,7 @@ public class Reports_Monthly_Model {
         this.result_triglycerid = result_triglycerid;
         this.result_ldl = result_ldl;
         this.result_hdl = result_hdl;
-        this.result_pressuer = result_pressuer;
+        this.result_presser = result_pressuer;
         this.result_bmi_height = result_bmi_height;
         this.result_bmi_weight = result_bmi_weight;
     }
@@ -79,12 +79,12 @@ public class Reports_Monthly_Model {
         this.result_hdl = result_hdl;
     }
 
-    public String getResult_pressuer() {
-        return result_pressuer;
+    public String getResult_presser() {
+        return result_presser;
     }
 
-    public void setResult_pressuer(String result_pressuer) {
-        this.result_pressuer = result_pressuer;
+    public void setResult_presser(String result_presser) {
+        this.result_presser = result_presser;
     }
 
     public String getResult_bmi_height() {

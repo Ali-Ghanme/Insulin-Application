@@ -27,13 +27,12 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.zip.Inflater;
 
 public class Reports_Adapter extends RecyclerView.Adapter<Reports_Adapter.MyViewHolder> {
     Context context;
     ArrayList<Reports_Model> list;
     // private final int limit = 7;
-    String status_suger, PatientUsername ,statuses_monthly;
+    String status_sugar, PatientUsername, statuses_monthly;
 
     public Reports_Adapter(Context context, ArrayList<Reports_Model> list) {
         this.context = context;
@@ -53,31 +52,32 @@ public class Reports_Adapter extends RecyclerView.Adapter<Reports_Adapter.MyView
     @Override
     public void onBindViewHolder(@NonNull Reports_Adapter.MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Reports_Model list2 = list.get(position);
-        holder.title.setText(list2.getTitle());
+
+        holder.title.setText(list2.getBloodSugar());
         holder.time.setText(list2.getTime());
-        holder.time_sugar.setText(list2.getTimesuger());
+        holder.time_sugar.setText(list2.getTimeSugar());
+
         //====================Initialize object from model & database reference=====================
         SharedPreferences prefs = this.context.getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         PatientUsername = prefs.getString("TAG_NAME", null);
-        DatabaseReference statuses_suger = FirebaseDatabase.getInstance().getReference("patient").child(PatientUsername).child("Reports_info");
+        DatabaseReference statuses_sugar = FirebaseDatabase.getInstance().getReference("patient").child(PatientUsername).child("Reports_info").child("فحص يومي");
 
         //============================Online/Offline read Status ===================================
-        Query query = statuses_suger.child("فحص يومي").orderByKey();
-        query.addValueEventListener(new ValueEventListener() {
+        Query query = statuses_sugar.orderByKey();
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                status_suger = dataSnapshot.child("نسبة السكر في الدم").getValue(String.class);
-
+                status_sugar = dataSnapshot.child("حالة القياس").getValue(String.class);
                 //mario should decide what to do with linkers snooping status here e.g.
-                if (list2.getStatessuger() == null) {
+                if (list2.getStatusSugar() == null) {
                     return;
                 } else {
                     try {
-                        if (list2.getStatessuger().contentEquals("success")) {
+                        if (list2.getStatusSugar().contentEquals("success")) {
                             holder.status.setBackgroundResource(R.color.green);
-                        } else if (list2.getStatessuger().contentEquals("warning")) {
+                        } else if (list2.getStatusSugar().contentEquals("warning")) {
                             holder.status.setBackgroundResource(R.color.yellow);
-                        } else if (list2.getStatessuger().contentEquals("error")) {
+                        } else if (list2.getStatusSugar().contentEquals("error")) {
                             holder.status.setBackgroundResource(R.color.Red);
                         } else {
                             Toast.makeText(context, "لا يوجد حالات جديدة  ..", Toast.LENGTH_SHORT).show();

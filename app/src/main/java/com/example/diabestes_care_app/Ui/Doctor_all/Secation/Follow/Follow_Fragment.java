@@ -6,10 +6,10 @@ import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Doctor_Fr
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -55,15 +55,17 @@ public class Follow_Fragment extends Fragment {
         SharedPreferences prefs2 = getContext().getSharedPreferences(MyPREFERENCES_P_List, MODE_PRIVATE);
         PatientUsername = prefs2.getString("TAG_NAME", null);
 
-        Toast.makeText(getContext(), PatientUsername, Toast.LENGTH_SHORT).show();
+        Log.e("TAG", PatientUsername);
+
         SharedPreferences prefs = getContext().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
         DoctorUsername = prefs.getString("TAG_NAME", null);
+
         //============================Configure Recyclerview========================================
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         list = new ArrayList<>();
-
+        //============================Get Following from Doctor account=============================
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -71,8 +73,8 @@ public class Follow_Fragment extends Fragment {
                 Follow_Model follow_model;
                 for (DataSnapshot sn : snapshot.child(DoctorUsername).child("Follow").getChildren()) {
                     follow_model = new Follow_Model();
-                    follow_model.setName(sn.getKey());
-                    follow_model.setType(sn.getKey());
+                    follow_model.setImageUrl(PatientUsername);
+//                    follow_model.setType(sn.getKey());
                     list.add(follow_model);
                 }
                 doctor_follow_adapter = new Doctor_Follow_Adapter(getContext(), list);
@@ -86,18 +88,17 @@ public class Follow_Fragment extends Fragment {
             }
         });
 
-//        ============================Put data in Recyclerview======================================
-
-        //========================Get Doctor list Data From Firebase Function=======================
+////        ========================Get Patient  Data From Firebase Function==========================
 //        myRef2.addValueEventListener(new ValueEventListener() {
 //            @Override
 //            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                ClearAll();
+////                ClearAll();
+//                Follow_Model follow_model2;
 //                try {
-//                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-//                        follow_model.setType(snapshot.child(patientUsername).child("personal_info").child("Age").getValue().toString());
-//                        list.add(follow_model);
-//                    }
+//                    follow_model2 = new Follow_Model();
+////                        follow_model2.setImageUrl(dataSnapshot.child(PatientUsername).child("User_Profile_Image").child("Image").child("mImageUrI").getValue().toString());
+////                        follow_model2.setType(dataSnapshot.child(PatientUsername).child("disease_info").child("Diabetes Type").getValue().toString());
+////                        list.add(follow_model2);
 //
 //                } catch (Exception e) {
 //                    Log.e("TAG", e.getMessage());
@@ -114,8 +115,7 @@ public class Follow_Fragment extends Fragment {
         return view;
     }
 
-//    =====================================Function=================================================
-
+    //    =====================================Function=================================================
     private void ClearAll() {
         if (list != null) {
             list.clear();

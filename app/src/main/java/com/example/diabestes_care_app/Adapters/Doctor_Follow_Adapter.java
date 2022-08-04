@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.diabestes_care_app.Models.Follow_Model;
 import com.example.diabestes_care_app.R;
 
@@ -37,6 +38,7 @@ public class Doctor_Follow_Adapter extends RecyclerView.Adapter<Doctor_Follow_Ad
     public void onBindViewHolder(@NonNull Doctor_Follow_Adapter.MyViewHolder holder, int position) {
         holder.name.setText(list.get(position).getName());
         holder.type.setText(list.get(position).getType());
+        Glide.with(context).load(list.get(position).getImageUrl()).placeholder(R.drawable.ic_user).error(R.drawable.notifications).into(holder.imageView);
     }
 
     @Override

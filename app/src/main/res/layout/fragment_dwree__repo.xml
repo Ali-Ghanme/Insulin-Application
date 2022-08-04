@@ -5,8 +5,8 @@
     android:layout_height="match_parent"
     tools:context=".Ui.Patient_all.Sections.Reports.Repo_View.Dwree_Repo">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hallow World "/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewMonthly"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </FrameLayout>

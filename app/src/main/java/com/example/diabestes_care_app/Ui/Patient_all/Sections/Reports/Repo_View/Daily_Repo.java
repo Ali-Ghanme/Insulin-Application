@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -46,7 +47,6 @@ public class Daily_Repo extends Fragment {
         //============================Get Patient Username===========================================
         SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         PatientUsername = prefs.getString("TAG_NAME", null);
-
         //============================Configure Firebase============================================
         databaseReference = FirebaseDatabase.getInstance().getReference("patient").child(PatientUsername).child("Reports_info").child("فحص يومي");
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
@@ -60,22 +60,21 @@ public class Daily_Repo extends Fragment {
                 try {
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         Reports_Model reportsModel = new Reports_Model();
-                        reportsModel.set_time_sugar(snapshot.child("فترة القياس").getValue().toString());
+                        reportsModel.setTimesuger(snapshot.child("فترة القياس").getValue().toString());
                         reportsModel.setTime(snapshot.child("وقت القياس").getValue().toString());
-                        reportsModel.setTitle(snapshot.child("نسبة السكر في الدم").getValue().toString());
-                        reportsModel.set_status_sugar(snapshot.child("حالة القياس").getValue().toString());
+                            reportsModel.setTitle(snapshot.child("نسبة السكر في الدم").getValue().toString());
                         list.add(reportsModel);
 
                         Log.e("d", String.valueOf(reportsModel));
                     }
                 } catch (Exception e) {
+                    Toast.makeText(getContext(), "تأكد من وجود الإنترنت أو قم بإدخال فحوصات", Toast.LENGTH_SHORT).show();
                     Log.e("TAG", e.getMessage());
                 }
                 reports_adapter = new Reports_Adapter(getContext(), list);
                 recyclerView.setAdapter(reports_adapter);
                 reports_adapter.updateUsersList(list);
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Log.e("TAG", error.getMessage());

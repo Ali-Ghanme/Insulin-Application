@@ -27,34 +27,35 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.zip.Inflater;
 
 public class Reports_Adapter extends RecyclerView.Adapter<Reports_Adapter.MyViewHolder> {
     Context context;
     ArrayList<Reports_Model> list;
     // private final int limit = 7;
-    String status_suger, PatientUsername;
+    String status_suger, PatientUsername ,statuses_monthly;
 
     public Reports_Adapter(Context context, ArrayList<Reports_Model> list) {
         this.context = context;
         this.list = list;
     }
 
-    // mohammed
+
     @NonNull
     @Override
 
     public Reports_Adapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.reports, parent, false);
         return new Reports_Adapter.MyViewHolder(view);
+
     }
 
     @Override
     public void onBindViewHolder(@NonNull Reports_Adapter.MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Reports_Model list2 = list.get(position);
-
         holder.title.setText(list2.getTitle());
         holder.time.setText(list2.getTime());
-        holder.time_sugar.setText(list2.get_time_sugar());
+        holder.time_sugar.setText(list2.getTimesuger());
         //====================Initialize object from model & database reference=====================
         SharedPreferences prefs = this.context.getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         PatientUsername = prefs.getString("TAG_NAME", null);
@@ -65,21 +66,21 @@ public class Reports_Adapter extends RecyclerView.Adapter<Reports_Adapter.MyView
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                status_suger = dataSnapshot.child("حالة القياس").getValue(String.class);
+                status_suger = dataSnapshot.child("نسبة السكر في الدم").getValue(String.class);
 
                 //mario should decide what to do with linkers snooping status here e.g.
-                if (list2.get_status_sugar() == null) {
+                if (list2.getStatessuger() == null) {
                     return;
                 } else {
                     try {
-                        if (list2.get_status_sugar().contentEquals("success")) {
+                        if (list2.getStatessuger().contentEquals("success")) {
                             holder.status.setBackgroundResource(R.color.green);
-                        } else if (list2.get_status_sugar().contentEquals("warning")) {
+                        } else if (list2.getStatessuger().contentEquals("warning")) {
                             holder.status.setBackgroundResource(R.color.yellow);
-                        } else if (list2.get_status_sugar().contentEquals("error")) {
+                        } else if (list2.getStatessuger().contentEquals("error")) {
                             holder.status.setBackgroundResource(R.color.Red);
                         } else {
-                            Toast.makeText(context, "لا يوجد حالة ..", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "لا يوجد حالات جديدة  ..", Toast.LENGTH_SHORT).show();
                         }
                     } catch (Exception e) {
                         Log.e("TAG", e.getMessage());
@@ -121,6 +122,4 @@ public class Reports_Adapter extends RecyclerView.Adapter<Reports_Adapter.MyView
 
         }
     }
-
-    // This is new update
 }

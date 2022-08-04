@@ -78,10 +78,9 @@ public class Daily_Sugar extends Fragment {
             @Override
             public void onClick(View v) {
                 number_sugar = et_number_sugar.getText().toString();
-
                 if (number_sugar.isEmpty()) {
                     Toast.makeText(getActivity(), "لا توجد نتيجة", Toast.LENGTH_SHORT).show();
-                } else if ((sugarValue = Integer.parseInt(number_sugar)) < 69 || (sugarValue = Integer.parseInt(number_sugar)) > 200) {
+                } else if ((sugarValue = Integer.parseInt(number_sugar)) < 69 || (sugarValue = Integer.parseInt(number_sugar)) >= 200) {
                     Toast.makeText(getActivity(), " السكر منخفض  ", Toast.LENGTH_SHORT).show();
                     showErrorDialog("تحذير", " برجى استشارة طبيب على الفور او التوجه لاقرب مستشفى ");
                     // Upload Data on Firebase
@@ -107,7 +106,6 @@ public class Daily_Sugar extends Fragment {
                     databaseReference_daily.child("فترة القياس").setValue(daysugar);
                     databaseReference_daily.child("وقت القياس").setValue(currentDataTime);
                     databaseReference_daily.child("حالة القياس").setValue(warning);
-
                 } else {
                     Toast.makeText(getActivity(), " خطا في البيانات المدخلة ", Toast.LENGTH_SHORT).show();
                 }

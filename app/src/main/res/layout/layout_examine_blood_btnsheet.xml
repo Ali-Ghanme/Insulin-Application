@@ -81,59 +81,59 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/cairo_bold"
             android:paddingBottom="@dimen/_4sdp"
-            android:text="	Blood pressuer  ضغط الدم الانبساطي  "
+            android:text="	Blood pressuer  ضغط الدم    "
             android:textDirection="rtl"
             android:textSize="@dimen/_10sdp" />
 
 
     </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_10sdp"
-        android:layout_marginRight="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:background="@drawable/bg_edit_text"
-        android:backgroundTint="@color/white"
-        android:elevation="@dimen/_2sdp"
-        android:padding="@dimen/_15sdp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/help">
+<!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="@dimen/_10sdp"-->
+<!--        android:layout_marginRight="@dimen/_10sdp"-->
+<!--        android:layout_marginTop="@dimen/_10sdp"-->
+<!--        android:background="@drawable/bg_edit_text"-->
+<!--        android:backgroundTint="@color/white"-->
+<!--        android:elevation="@dimen/_2sdp"-->
+<!--        android:padding="@dimen/_15sdp"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/help">-->
 
 
-        <EditText
-            android:id="@+id/et_Creatinine2"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_below="@+id/tv_text2"
-            android:background="@drawable/bg_edit_text"
-            android:drawableLeft="@drawable/ic_add"
-            android:drawablePadding="@dimen/_5sdp"
-            android:drawableTint="@color/gray"
-            android:elevation="@dimen/_1sdp"
-            android:fontFamily="@font/cairo_bold"
-            android:hint="قم بإدخال نسبة ضغط الدم  "
-            android:inputType="number"
-            android:paddingEnd="10dp"
-            android:paddingStart="10dp"
-            android:textColor="@color/Doctor_Color"
-            android:textColorHint="#78909C"
-            android:textSize="13sp"
-            tools:ignore="TextFields" />
+<!--        <EditText-->
+<!--            android:id="@+id/et_Creatinine2"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="48dp"-->
+<!--            android:layout_below="@+id/tv_text2"-->
+<!--            android:background="@drawable/bg_edit_text"-->
+<!--            android:drawableLeft="@drawable/ic_add"-->
+<!--            android:drawablePadding="@dimen/_5sdp"-->
+<!--            android:drawableTint="@color/gray"-->
+<!--            android:elevation="@dimen/_1sdp"-->
+<!--            android:fontFamily="@font/cairo_bold"-->
+<!--            android:hint="قم بإدخال نسبة ضغط الدم  "-->
+<!--            android:inputType="number"-->
+<!--            android:paddingEnd="10dp"-->
+<!--            android:paddingStart="10dp"-->
+<!--            android:textColor="@color/Doctor_Color"-->
+<!--            android:textColorHint="#78909C"-->
+<!--            android:textSize="13sp"-->
+<!--            tools:ignore="TextFields" />-->
 
-        <TextView
-            android:id="@+id/tv_text2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/cairo_bold"
-            android:paddingBottom="@dimen/_4sdp"
-            android:text="	Blood pressuer ضغط الدم الانقباضي "
-            android:textDirection="rtl"
-            android:textSize="@dimen/_10sdp" />
+<!--        <TextView-->
+<!--            android:id="@+id/tv_text2"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:fontFamily="@font/cairo_bold"-->
+<!--            android:paddingBottom="@dimen/_4sdp"-->
+<!--            android:text="	Blood pressuer ضغط الدم الانقباضي "-->
+<!--            android:textDirection="rtl"-->
+<!--            android:textSize="@dimen/_10sdp" />-->
 
 
-    </RelativeLayout>
+<!--    </RelativeLayout>-->
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -159,7 +159,7 @@
             android:textSize="@dimen/_10sdp" />
 
         <TextView
-            android:id="@+id/tv_date_time"
+            android:id="@+id/tv_date_blood"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_time"

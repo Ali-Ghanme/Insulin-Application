@@ -1,5 +1,6 @@
 package com.example.diabestes_care_app.Ui.Patient_all.Sections.Reports.Exams;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +30,9 @@ import com.example.diabestes_care_app.Ui.Patient_all.Sections.Self_Care.Content.
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import static android.content.Context.MODE_PRIVATE;
 import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
 
@@ -38,7 +42,7 @@ public class Dmonthly_Sugar extends Fragment {
     LinearLayout liner_show_tow;
     RelativeLayout fats, college;
     // Btn sheet
-    Button btn_checked_save, btn, checked_save_height_weight, checked_save_blood, checked_save_cholesterol, btn_checked_save_sugar;
+    Button btn_checked_save, btn, checked_save_height_weight, checked_save_blood, checked_save_cholesterol, checked_save_triglycerid;
     // Btn_sheet sheet كلية  // Btn_sheet دهون  // Btn_sheet دم
     EditText examine_bmi, examine_college, examine_college_creatinine, examine_fats_hdl, examine_fats_ldl, examine_fats_triglycerid, examine_fats_cholesterol, examine_college_uric, examine_college_urea, examine_fats, examine_blood, et_number_sugar, btn_sheet_time_day_sugar;
     TextView   tv_date_time;
@@ -54,7 +58,7 @@ public class Dmonthly_Sugar extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_dmonthly_suger, container, false);
         // time blood
-        tv_date_time = view.findViewById(R.id.tv_date_time);
+      //  tv_date_time = view.findViewById(R.id.tv_date_time);
 
 
         liner_show_tow = view.findViewById(R.id.liner_show_tow);
@@ -83,46 +87,8 @@ public class Dmonthly_Sugar extends Fragment {
         PatientUsername = prefs.getString("TAG_NAME", null);
         databaseReference = FirebaseDatabase.getInstance().getReference("patient").child(PatientUsername).child("Reports_info").child("فحوصات دورية");
 
-     /*   //=================================Start Visible And Gone===================================
-        sugar_one.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int x = 5;
-                int y = 5;
-                if (y == x) {
-                    sugar_one.getBackground().setTint(Color.parseColor("#707070"));
-                    liner_show_one.setVisibility(View.VISIBLE);
-                    liner_show_tow.setVisibility(View.GONE);
-                } else {
 
-                    liner_show_one.setVisibility(View.GONE);
-                    liner_show_tow.setVisibility(View.GONE);
-                }
-            }
-        });
-        sugar_tow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int w = 5;
-                int e = 5;
-                if (w == e) {
-                    sugar_tow.getBackground().setTint(Color.parseColor("#212121"));
 
-                    liner_show_tow.setVisibility(View.VISIBLE);
-                    liner_show_one.setVisibility(View.GONE);
-                } else {
-                    liner_show_tow.setVisibility(View.GONE);
-                    liner_show_one.setVisibility(View.GONE);
-                }
-            }
-        });
-*/
-        //============================  View Time Zone by Text View in page My_Exams================
-   /*     @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd G 'at' HH:mm:ss");
-        currentDataTime = sdf.format(new Date());
-        tv_date.setText(currentDataTime);
-
-*/
         //================================= Visible And Gone For fats And college =========
         examine_college.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -262,7 +228,6 @@ public class Dmonthly_Sugar extends Fragment {
             }
         });
 
-
         //========== Button Sheet view data Fats , Chek And Save  Data ==========================
         //==== Fats cholesterol
         examine_fats_cholesterol.setOnClickListener(new View.OnClickListener() {
@@ -309,13 +274,13 @@ public class Dmonthly_Sugar extends Fragment {
                 View bottomSheetView = LayoutInflater.from(getActivity())
                         .inflate(R.layout.layout_fats_triglycerid_btnsheet, (LinearLayout) getActivity().findViewById(R.id.bottomSheetContier));
                 final EditText et_triglycerid = bottomSheetView.findViewById(R.id.et_triglycerid);
-                checked_save_cholesterol = bottomSheetView.findViewById(R.id.checked_save_cholesterol);
-                checked_save_cholesterol.setOnClickListener(new View.OnClickListener() {
+                checked_save_triglycerid = bottomSheetView.findViewById(R.id.checked_save_triglycerid);
+                checked_save_triglycerid.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 
                         triglyceride = et_triglycerid.getText().toString();
-                        if (cholesterol.isEmpty()) {
+                        if (triglyceride.isEmpty()) {
                             Toast.makeText(getActivity(), "لا توجد نتيجة", Toast.LENGTH_SHORT).show();
                         } else if ((triglycerideValue = Integer.parseInt(triglyceride)) < 150) {
                             databaseReference.child("فحوصات الدهون").child("Triglyceride").setValue(triglyceride);
@@ -429,10 +394,12 @@ public class Dmonthly_Sugar extends Fragment {
                 bottomSheetDialog.show();
             }
         });
+
+
         //============================  View Time Zone by Text View in page My_Exams================
-      /*  @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd G 'at' HH:mm:ss");
-        currentDataTimeblood = sdf.format(new Date());
-        tv_date_time.setText(currentDataTimeblood);*/
+//        @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd G 'at' HH:mm:ss");
+//        currentDataTime = sdf.format(new Date());
+//        tv_date.setText(currentDataTime);
         //================ Button Sheet view data Blood and Chek,Save  Data====================
         examine_blood.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -443,7 +410,7 @@ public class Dmonthly_Sugar extends Fragment {
                         .inflate(R.layout.layout_examine_blood_btnsheet, (LinearLayout) getActivity().findViewById(R.id.bottomSheetContier));
 
                 final EditText et_Creatinine = bottomSheetView.findViewById(R.id.et_Creatinine);
-                final EditText et_Creatinine2 = bottomSheetView.findViewById(R.id.et_Creatinine2);
+
              //   final TextView tv_date_time = bottomSheetView.findViewById(R.id.tv_date_time);
 
                 checked_save_blood = bottomSheetView.findViewById(R.id.checked_save_blood);
@@ -454,19 +421,20 @@ public class Dmonthly_Sugar extends Fragment {
                     public void onClick(View v) {
 
                         Blood_Pressure = et_Creatinine.getText().toString();
-                        Blood_Pressure2 = et_Creatinine2.getText().toString();
-
-                    //    date_time = tv_date_time.getText().toString();
 
 
-                        if (Blood_Pressure.isEmpty() && Blood_Pressure2.isEmpty()  ) {
+                        if (Blood_Pressure.isEmpty()   ) {
                             Toast.makeText(getActivity(), " توجد نتيجة غير مدخلة", Toast.LENGTH_SHORT).show();
-                        } else if ((Blood_PressureValue = Integer.parseInt(Blood_Pressure)) <= 60 && (Blood_PressureValue2 = Integer.parseInt(Blood_Pressure2)) <= 90) {
-                        } else if ((Blood_PressureValue = Integer.parseInt(Blood_Pressure)) <= 80 && (Blood_PressureValue2 = Integer.parseInt(Blood_Pressure2)) <= 120) {
+                        } else if ((Blood_PressureValue = Integer.parseInt(Blood_Pressure)) <= 50 || (Blood_PressureValue = Integer.parseInt(Blood_Pressure)) >= 150 ) {
                             // Upload Data on Firebase
                             showErrorDialog("تحذير للمتابعة", " برجى استشارة طبيب على الفور او التوجه لاقرب مستشفى");
-                            databaseReference.child("فحوصات الدهون").child("Cholesterol").setValue(Blood_Pressure);
-                            databaseReference.child("فحوصات الدهون").child("Cholesterol").setValue(Blood_Pressure2);
+                            databaseReference.child("فحص ضغط الدم").child("Pressure").setValue(Blood_Pressure);
+                            bottomSheetDialog.dismiss();
+                        }
+                        else if ((Blood_PressureValue = Integer.parseInt(Blood_Pressure)) > 50 && (Blood_PressureValue = Integer.parseInt(Blood_Pressure)) < 150 ) {
+                            // Upload Data on Firebase
+                            showErrorDialog(" انت بصحة جيددة", " برجى استشارة طبيب على الفور او التوجه لاقرب مستشفى");
+                            databaseReference.child("فحص ضغط الدم").child("Pressure").setValue(Blood_Pressure);
                             bottomSheetDialog.dismiss();
                         }
                     }

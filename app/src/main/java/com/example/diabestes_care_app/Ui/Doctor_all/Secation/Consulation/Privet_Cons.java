@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -46,6 +45,7 @@ public class Privet_Cons extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_privet__cons, container, false);
+
         recyclerView = view.findViewById(R.id.response_recycleView);
         //============================Configure Recyclerview========================================
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
@@ -53,24 +53,25 @@ public class Privet_Cons extends Fragment {
         recyclerView.setHasFixedSize(true);
 
         SharedPreferences prefs = getActivity().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
-        DoctorUsername = prefs.getString("TAG_NAME", null);
-        Toast.makeText(getContext(), DoctorUsername, Toast.LENGTH_SHORT).show();
+        DoctorUsername  = prefs.getString("TAG_NAME", null);
+
 
         //============================ArrayList=====================================================
         list = new ArrayList<>();
-
         myRef = FirebaseDatabase.getInstance().getReference("doctor").child(DoctorUsername).child("Consultation request").child("MSG");
 
         Query query = myRef.orderByKey();
-
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot sn : snapshot.getChildren()) {
                     Private_Consu_Model private_consu_model = new Private_Consu_Model();
+
                     private_consu_model.setPatientName(sn.child("from").getValue().toString());
                     private_consu_model.setConsuTitle(sn.child("Title").getValue().toString());
                     private_consu_model.setConsuSubject(sn.child("Subject").getValue().toString());
+                    private_consu_model.setPatientImage(sn.child("Patient_Profile").getValue().toString());
+
                     list.add(private_consu_model);
                     response_consu_adapter = new Response_Consu_Adapter(getContext(), list);
                     recyclerView.setAdapter(response_consu_adapter);
@@ -83,6 +84,7 @@ public class Privet_Cons extends Fragment {
                 Log.e("TAG", error.getMessage());
             }
         });
+
         return view;
     }
 }

@@ -1,5 +1,6 @@
 package com.example.diabestes_care_app.Ui.Patient_all;
 
+import static com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P.Home_Fragment.MyPREFERENCES_Patient_Profile;
 import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
 
 import android.app.Dialog;
@@ -60,16 +61,22 @@ public class Doctor_Profile_P extends Basic_Activity {
         request = findViewById(R.id.request_for);
         back = findViewById(R.id.DPP_btn_back);
 
+        //============================Get Patient Username===========================================
+        SharedPreferences prefs =Doctor_Profile_P.this.getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
+        PatientUsername = prefs.getString("TAG_NAME", null);
+
+        sharedpreferences = this.getSharedPreferences(MyPREFERENCES_MSGKey, MODE_PRIVATE);
+
+        SharedPreferences prefs2 = Doctor_Profile_P.this.getSharedPreferences(MyPREFERENCES_Patient_Profile, MODE_PRIVATE);
+        getPatientPic = prefs2.getString("TAG_Image_P", null);
+
+        System.out.println(getPatientPic);
+
         //============================Get data from message adapter class===========================
         getName = getIntent().getStringExtra("Doctor_name");
         getProfilePic = getIntent().getStringExtra("Doctor_Pic_Profile");
         getUsername = getIntent().getStringExtra("Doctor_username");
         getToken = getIntent().getStringExtra("Doctor_token");
-
-        sharedpreferences = this.getSharedPreferences(MyPREFERENCES_MSGKey, MODE_PRIVATE);
-
-        SharedPreferences prefs = Doctor_Profile_P.this.getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
-        PatientUsername = prefs.getString("TAG_NAME", null);
 
         //============================Define Database Ref===========================================
         myReference = FirebaseDatabase.getInstance().getReference("doctor").child(getUsername).child("Consultation request").child("MSG").push();
@@ -121,9 +128,12 @@ public class Doctor_Profile_P extends Basic_Activity {
                     myReference.child("Subject").setValue(Consultation_subject);
                     myReference.child("to").setValue(getUsername);
                     myReference.child("Doctor_Profile").setValue(getProfilePic);
+                    myReference.child("Patient_Profile").setValue(getPatientPic);
+
                     SharedPreferences.Editor editor = sharedpreferences.edit();
                     editor.putString("TAG_NAME2", chatKey);
                     editor.commit();
+
                     Log.e("TAG", chatKey);
 
                 } else {

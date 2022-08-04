@@ -62,6 +62,8 @@ public class Home_Fragment extends Fragment {
     // Progress Dialog
     ProgressDialog progressDialog;
     View bell;
+    SharedPreferences sharedpreferences;
+    public static final String MyPREFERENCES_Patient_Profile = "Patient Profile";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -73,6 +75,7 @@ public class Home_Fragment extends Fragment {
         recyclerView = view.findViewById(R.id.HP_recyclerView);
         imageProfile = view.findViewById(R.id.HP_profile_img);
 
+        sharedpreferences = getContext().getSharedPreferences(MyPREFERENCES_Patient_Profile, MODE_PRIVATE);
         bell = view.findViewById(R.id.bell);
 
         bell.setOnClickListener(new View.OnClickListener() {
@@ -199,6 +202,10 @@ public class Home_Fragment extends Fragment {
 
                 Log.d("TAG", name + "/" + image);
                 username.setText(name);
+
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                editor.putString("TAG_Image_P", image);
+                editor.commit();
             }
 
             @Override

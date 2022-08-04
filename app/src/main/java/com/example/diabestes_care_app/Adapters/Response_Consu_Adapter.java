@@ -52,6 +52,8 @@ public class Response_Consu_Adapter extends RecyclerView.Adapter<Response_Consu_
 
         Private_Consu_Model list2 = list.get(position);
         DatabaseReference Consu_Response = FirebaseDatabase.getInstance().getReference().child("doctor").child(DoctorUsername).child("Consultation request").child("MSG");
+        Query query = Consu_Response.orderByKey();
+
         holder.response.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,7 +68,7 @@ public class Response_Consu_Adapter extends RecyclerView.Adapter<Response_Consu_
             }
         });
 
-        Query query = Consu_Response.orderByKey();
+
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

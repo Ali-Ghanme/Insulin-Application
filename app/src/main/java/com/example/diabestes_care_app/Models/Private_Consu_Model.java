@@ -26,8 +26,9 @@ public class Private_Consu_Model {
         return patientName;
     }
 
-    public void setPatientName(String patientName) {
+    public String setPatientName(String patientName) {
         this.patientName = patientName;
+        return patientName;
     }
 
     public String getConsuTitle() {

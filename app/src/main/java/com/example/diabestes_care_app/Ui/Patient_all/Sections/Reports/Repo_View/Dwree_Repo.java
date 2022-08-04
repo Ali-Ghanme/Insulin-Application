@@ -87,7 +87,7 @@ public class Dwree_Repo extends Fragment {
                     reports_monthly_model.setResult_presser(dataSnapshot.child("فحص ضغط الدم").child("Pressure").getValue().toString());
 
                     list2.add(reports_monthly_model);
-// Hallow
+
                 } catch (Exception e) {
                     Log.e("TAG", e.getMessage());
                 }

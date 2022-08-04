@@ -69,6 +69,7 @@ public class Reports_Monthly_Adapter extends RecyclerView.Adapter<Reports_Monthl
         notifyDataSetChanged();
     }
 
+
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView result_creatinine, result_urea, result_uric, result_cholesterol, result_triglycerid,
                 result_ldl, result_hdl, result_pressures, result_bmi_height, result_bmi_weight;
@@ -76,7 +77,6 @@ public class Reports_Monthly_Adapter extends RecyclerView.Adapter<Reports_Monthl
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-
             result_creatinine = itemView.findViewById(R.id.result_creatinine);
             result_urea = itemView.findViewById(R.id.result_urea);
             result_uric = itemView.findViewById(R.id.result_uric);

@@ -74,11 +74,12 @@ public class Reports_Adapter extends RecyclerView.Adapter<Reports_Adapter.MyView
                 } else {
                     try {
                         if (list2.getStatusSugar().contentEquals("success")) {
-                            holder.status.setBackgroundResource(R.color.green);
+
+                            holder.status.setBackgroundResource(R.drawable.succsess);
                         } else if (list2.getStatusSugar().contentEquals("warning")) {
-                            holder.status.setBackgroundResource(R.color.yellow);
+                            holder.status.setBackgroundResource(R.drawable.worning);
                         } else if (list2.getStatusSugar().contentEquals("error")) {
-                            holder.status.setBackgroundResource(R.color.Red);
+                            holder.status.setBackgroundResource(R.drawable.error);
                         } else {
                             Toast.makeText(context, "لا يوجد حالات جديدة  ..", Toast.LENGTH_SHORT).show();
                         }

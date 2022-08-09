@@ -9,8 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="text_input_pa">#23B1FE</color>
     <color name="text_input_title">#26B887</color>
-
-
     <color name="Patient_Color">#23B1FE</color>
     <color name="Doctor_Color">#0c9869</color>
     <color name="Red">#ff4651</color>
@@ -165,8 +163,6 @@
     <color name="navy">#000080</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorPrimary">#3F51B5</color>
-
-
     <color name="colorAccent">#D81B60</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorSuccess">#4BB543</color>
@@ -174,5 +170,13 @@
     <color name="colorNeutral">#434343</color>
     <color name="colorError">#CC0000</color>
     <color name="colorTextPrimary">#212121</color>
+    <color name="pink_300">#F065B8</color>
+    <color name="pink_50">#FCD6EC</color>
+    <color name="teal_a200">#63EEDA</color>
+    <color name="cyan_50">#D8FBF5</color>
+    <color name="deep_purple_300">#9B5CE5</color>
+    <color name="deep_purple_50">#E6D5F8</color>
+    <color name="light_blue_a400">#03BBF8</color>
+    <color name="light_blue_100">#BDEEFE</color>
 
 </resources>

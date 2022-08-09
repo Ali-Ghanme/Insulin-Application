@@ -53,7 +53,7 @@ public class Privet_Cons extends Fragment {
         recyclerView.setHasFixedSize(true);
 
         SharedPreferences prefs = getActivity().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
-        DoctorUsername  = prefs.getString("TAG_NAME", null);
+        DoctorUsername = prefs.getString("TAG_NAME", null);
 
 
         //============================ArrayList=====================================================
@@ -64,19 +64,24 @@ public class Privet_Cons extends Fragment {
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot sn : snapshot.getChildren()) {
-                    Private_Consu_Model private_consu_model = new Private_Consu_Model();
+                try {
+                    for (DataSnapshot sn : snapshot.getChildren()) {
+                        Private_Consu_Model private_consu_model = new Private_Consu_Model();
 
-                    private_consu_model.setPatientName(sn.child("from").getValue().toString());
-                    private_consu_model.setConsuTitle(sn.child("Title").getValue().toString());
-                    private_consu_model.setConsuSubject(sn.child("Subject").getValue().toString());
-                    private_consu_model.setPatientImage(sn.child("Patient_Profile").getValue().toString());
+                        private_consu_model.setPatientName(sn.child("from").getValue().toString());
+                        private_consu_model.setConsuSubject(sn.child("Subject").getValue().toString());
+                        private_consu_model.setPatientImage(sn.child("Patient_Profile").getValue().toString());
+                        private_consu_model.setConsuTitle(sn.child("Title").getValue().toString());
 
-                    list.add(private_consu_model);
-                    response_consu_adapter = new Response_Consu_Adapter(getContext(), list);
-                    recyclerView.setAdapter(response_consu_adapter);
-                    response_consu_adapter.updateUsersList(list);
+                        list.add(private_consu_model);
+                        response_consu_adapter = new Response_Consu_Adapter(getContext(), list);
+                        recyclerView.setAdapter(response_consu_adapter);
+                        response_consu_adapter.updateUsersList(list);
+                    }
+                }catch (Exception e){
+                    Log.e("TAG",e.getMessage());
                 }
+
             }
 
             @Override

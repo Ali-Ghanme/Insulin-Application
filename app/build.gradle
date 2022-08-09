@@ -1,8 +1,10 @@
 plugins {
     id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
 }
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
+
 android {
     compileSdk 31
 
@@ -71,11 +73,6 @@ dependencies {
 
     // GSON to add arraylist to SharedPreference
     implementation 'com.google.code.gson:gson:2.8.9'
-
-
-
-
-
     implementation 'com.jjoe64:graphview:4.2.2'
 
 }

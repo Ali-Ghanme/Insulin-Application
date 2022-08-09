@@ -27,7 +27,6 @@ import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.NotificationSender.FcmNotificationsSender;
 import com.example.diabestes_care_app.Notification_Controller.Notification_Number;
 import com.example.diabestes_care_app.R;
-import com.example.diabestes_care_app.Ui.Patient_all.Sections.Consulation.Consultation_Request;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessaging;
@@ -42,12 +41,13 @@ public class Doctor_Profile_P extends Basic_Activity {
     // Dialog
     Dialog dialog;
     EditText et_title, et_subject;
-    String Consultation_title, Consultation_subject, getName, getProfilePic, getUsername, getToken, PatientUsername,getPatientPic;
-    DatabaseReference myReference,myRef;
+    String Consultation_title, Consultation_subject, getName, getProfilePic, getUsername, getToken, PatientUsername, getPatientPic;
+    DatabaseReference myReference, myRef;
     String chatKey;
     Notification_Number notification_number;
-    SharedPreferences sharedpreferences;
+    SharedPreferences sharedpreferences,sharedpreferences2;
     public static final String MyPREFERENCES_MSGKey = "MSG_KEY";
+    public static final String MyPREFERENCES_PushKey = "Push_Key";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,15 +62,14 @@ public class Doctor_Profile_P extends Basic_Activity {
         back = findViewById(R.id.DPP_btn_back);
 
         //============================Get Patient Username===========================================
-        SharedPreferences prefs =Doctor_Profile_P.this.getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
+        SharedPreferences prefs = Doctor_Profile_P.this.getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         PatientUsername = prefs.getString("TAG_NAME", null);
 
         sharedpreferences = this.getSharedPreferences(MyPREFERENCES_MSGKey, MODE_PRIVATE);
+        sharedpreferences2 = this.getSharedPreferences(MyPREFERENCES_PushKey, MODE_PRIVATE);
 
         SharedPreferences prefs2 = Doctor_Profile_P.this.getSharedPreferences(MyPREFERENCES_Patient_Profile, MODE_PRIVATE);
         getPatientPic = prefs2.getString("TAG_Image_P", null);
-
-        System.out.println(getPatientPic);
 
         //============================Get data from message adapter class===========================
         getName = getIntent().getStringExtra("Doctor_name");
@@ -80,7 +79,13 @@ public class Doctor_Profile_P extends Basic_Activity {
 
         //============================Define Database Ref===========================================
         myReference = FirebaseDatabase.getInstance().getReference("doctor").child(getUsername).child("Consultation request").child("MSG").push();
-        myRef = FirebaseDatabase.getInstance().getReference("patient");
+        FirebaseMessaging.getInstance().subscribeToTopic(getUsername);
+        String removeQuery = myReference.getKey();
+        Log.e("TAG",removeQuery);
+
+        SharedPreferences.Editor editor = sharedpreferences2.edit();
+        editor.putString("TAG_Push_Key", removeQuery);
+        editor.commit();
         //============================Back Button Action============================================
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,7 +100,6 @@ public class Doctor_Profile_P extends Basic_Activity {
         Glide.with(this).load(getProfilePic).into(Doctor_Profile);
 
         //============================Create + Configure the Dialog here============================
-        FirebaseMessaging.getInstance().subscribeToTopic(getUsername);
         dialog = new Dialog(Doctor_Profile_P.this);
         dialog.setContentView(R.layout.genral_message_layout);
         dialog.getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.dilog_background));
@@ -104,7 +108,6 @@ public class Doctor_Profile_P extends Basic_Activity {
         dialog.setCancelable(true); //Optional
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
 
-        Intent intent = new Intent(this, Consultation_Request.class);
         //============================Define Data Entry for request=================================
         Button oky = dialog.findViewById(R.id.okey);
         et_title = dialog.findViewById(R.id.et_titlee);
@@ -123,12 +126,14 @@ public class Doctor_Profile_P extends Basic_Activity {
                             Doctor_Profile_P.this);
                     notificationsSender.SendNotifications();
 
-                    myReference.child("from").setValue(PatientUsername);
                     myReference.child("Title").setValue(Consultation_title);
                     myReference.child("Subject").setValue(Consultation_subject);
+                    myReference.child("from").setValue(PatientUsername);
                     myReference.child("to").setValue(getUsername);
                     myReference.child("Doctor_Profile").setValue(getProfilePic);
                     myReference.child("Patient_Profile").setValue(getPatientPic);
+                    myReference.child("PushKey").setValue(removeQuery);
+                    myReference.child("Doctor_Answer").setValue("null");
 
                     SharedPreferences.Editor editor = sharedpreferences.edit();
                     editor.putString("TAG_NAME2", chatKey);

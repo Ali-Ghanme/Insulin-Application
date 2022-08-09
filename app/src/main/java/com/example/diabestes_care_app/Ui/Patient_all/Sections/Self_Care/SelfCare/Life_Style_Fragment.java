@@ -1,6 +1,9 @@
-package com.example.diabestes_care_app.Ui.Patient_all.Sections.Self_Care;
+package com.example.diabestes_care_app.Ui.Patient_all.Sections.Self_Care.SelfCare;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -9,36 +12,38 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.R;
-import com.example.diabestes_care_app.Ui.Patient_all.Sections.Self_Care.SelfCare.Life_Style_Fragment;
+import com.example.diabestes_care_app.Ui.Patient_all.Sections.Self_Care.SelfCare.Fragment.Food_Alarm;
+import com.example.diabestes_care_app.Ui.Patient_all.Sections.Self_Care.SelfCare.Fragment.StepCounterK;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
-public class Self_Care extends Basic_Activity {
+public class Life_Style_Fragment extends Fragment {
 
     TabLayout tabLayout;
     ViewPager viewPager_subject;
-    Self_Care.MainAdapter adapter;
+    Life_Style_Fragment.MainAdapter adapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        fullscreen();
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_self_care);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_life_style_tab, container, false);
 
-        tabLayout = findViewById(R.id.tab_layout_SS);
-        viewPager_subject = findViewById(R.id.viewpager_tab_SS);
+        tabLayout = view.findViewById(R.id.tab_layout_SSS);
+        viewPager_subject = view.findViewById(R.id.viewpager_tab_SSS);
 
         //====================Adapter Configuration=================================================
-        adapter = new Self_Care.MainAdapter(getSupportFragmentManager());
-        adapter.AddFragment(new Instruction_Fragment(), "التعليمات");
-        adapter.AddFragment(new Life_Style_Fragment(), "حياة صحية");
+        adapter = new Life_Style_Fragment.MainAdapter(getChildFragmentManager());
+        adapter.AddFragment(new StepCounterK(), "حاسب الخطوات");
+        adapter.AddFragment(new Food_Alarm(), "الطعام");
 
         //========================Set Adapter for the viewpager Configuration=======================
         viewPager_subject.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager_subject);
+        return view;
+
     }
 
     //=====================================Adapter method===========================================
@@ -74,7 +79,3 @@ public class Self_Care extends Basic_Activity {
         }
     }
 }
-
-
-
-

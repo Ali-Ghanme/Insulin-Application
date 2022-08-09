@@ -1,6 +1,7 @@
 package com.example.diabestes_care_app.Adapters;
 
 import static android.content.Context.MODE_PRIVATE;
+import static com.example.diabestes_care_app.Ui.Patient_all.Doctor_Profile_P.MyPREFERENCES_PushKey;
 import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Doctor_Fragment.MyPREFERENCES_D;
 
 import android.app.Dialog;
@@ -20,12 +21,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.diabestes_care_app.Models.Private_Consu_Model;
 import com.example.diabestes_care_app.R;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -33,7 +30,7 @@ public class Response_Consu_Adapter extends RecyclerView.Adapter<Response_Consu_
     Context context;
     ArrayList<Private_Consu_Model> list;
     Dialog dialog;
-    String DoctorUsername;
+    String DoctorUsername, removeQuery;
 
     public Response_Consu_Adapter(Context context, ArrayList<Private_Consu_Model> list) {
         this.context = context;
@@ -47,12 +44,14 @@ public class Response_Consu_Adapter extends RecyclerView.Adapter<Response_Consu_
 
     @Override
     public void onBindViewHolder(@NonNull Response_Consu_Adapter.MyViewHolder holder, int position) {
+        SharedPreferences prefs2 = context.getSharedPreferences(MyPREFERENCES_PushKey, MODE_PRIVATE);
+        removeQuery = prefs2.getString("TAG_Push_Key", null);
+
         SharedPreferences prefs = context.getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
         DoctorUsername = prefs.getString("TAG_NAME", null);
 
         Private_Consu_Model list2 = list.get(position);
         DatabaseReference Consu_Response = FirebaseDatabase.getInstance().getReference().child("doctor").child(DoctorUsername).child("Consultation request").child("MSG");
-        Query query = Consu_Response.orderByKey();
 
         holder.response.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,19 +64,7 @@ public class Response_Consu_Adapter extends RecyclerView.Adapter<Response_Consu_
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, "Delete it", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
-        query.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
+                Consu_Response.child(removeQuery).removeValue();
             }
         });
         //============================Create + Configure the Dialog here============================
@@ -102,7 +89,8 @@ public class Response_Consu_Adapter extends RecyclerView.Adapter<Response_Consu_
     public int getItemCount() {
         return list.size();
     }
-    public void updateUsersList(ArrayList<Private_Consu_Model>  private_consu_models) {
+
+    public void updateUsersList(ArrayList<Private_Consu_Model> private_consu_models) {
         this.list = private_consu_models;
         notifyDataSetChanged();
     }

@@ -38,8 +38,8 @@ public class Follow_Fragment extends Fragment {
     // Adapter
     Doctor_Follow_Adapter doctor_follow_adapter;
     // String
-    String DoctorUsername, PatientUsername;
-
+    String DoctorUsername, PatientUsername, PatientUsername2;
+    Follow_Model follow_model;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -65,16 +65,16 @@ public class Follow_Fragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         list = new ArrayList<>();
+
         //============================Get Following from Doctor account=============================
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ClearAll();
-                Follow_Model follow_model;
+
                 for (DataSnapshot sn : snapshot.child(DoctorUsername).child("Follow").getChildren()) {
                     follow_model = new Follow_Model();
-                    follow_model.setImageUrl(PatientUsername);
-//                    follow_model.setType(sn.getKey());
+                    PatientUsername2 = follow_model.setUsername(sn.getKey());
                     list.add(follow_model);
                 }
                 doctor_follow_adapter = new Doctor_Follow_Adapter(getContext(), list);
@@ -88,30 +88,24 @@ public class Follow_Fragment extends Fragment {
             }
         });
 
-////        ========================Get Patient  Data From Firebase Function==========================
-//        myRef2.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-////                ClearAll();
-//                Follow_Model follow_model2;
-//                try {
-//                    follow_model2 = new Follow_Model();
-////                        follow_model2.setImageUrl(dataSnapshot.child(PatientUsername).child("User_Profile_Image").child("Image").child("mImageUrI").getValue().toString());
-////                        follow_model2.setType(dataSnapshot.child(PatientUsername).child("disease_info").child("Diabetes Type").getValue().toString());
-////                        list.add(follow_model2);
-//
-//                } catch (Exception e) {
-//                    Log.e("TAG", e.getMessage());
-//                }
-//                doctor_follow_adapter = new Doctor_Follow_Adapter(getContext(), list);
-//                recyclerView.setAdapter(doctor_follow_adapter);
-//                doctor_follow_adapter.updateUsersList(list);
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//            }
-//        });
+//        ========================Get Patient  Data From Firebase Function==========================
+        myRef2.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                try {
+                    follow_model.setImageUrl(dataSnapshot.child(PatientUsername2).child("User_Profile_Image").child("Image").child("mImageUrI").getValue().toString());
+                    follow_model.setType(dataSnapshot.child(PatientUsername2).child("disease_info").child("Diabetes Type").getValue().toString());
+                    follow_model.setName(dataSnapshot.child(PatientUsername2).child("personal_info").child("name").getValue().toString());
+
+                } catch (Exception e) {
+                    Log.e("TAG", e.getMessage());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
         return view;
     }
 

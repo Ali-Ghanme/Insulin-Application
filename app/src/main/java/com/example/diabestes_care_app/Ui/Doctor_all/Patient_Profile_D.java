@@ -57,7 +57,7 @@ public class Patient_Profile_D extends Basic_Activity {
 
         //============================Create + Configure the Dialog here============================
         dialog = new Dialog(Patient_Profile_D.this);
-        dialog.setContentView(R.layout.genral_message_layout);
+        dialog.setContentView(R.layout.consu_request_dialog);
         dialog.getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.dilog_background));
         //Setting the animations to dialog
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);

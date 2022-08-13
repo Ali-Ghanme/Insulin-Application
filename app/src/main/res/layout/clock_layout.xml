@@ -145,7 +145,7 @@
             app:srcCompat="@drawable/ic_add_black" />
 
         <Button
-            android:id="@+id/request_for"
+            android:id="@+id/request_for_dose"
             android:layout_width="@dimen/_160sdp"
             android:layout_height="@dimen/_40sdp"
             android:layout_alignParentBottom="true"

@@ -1,16 +1,19 @@
 package com.example.diabestes_care_app.Adapters;
 
 import static android.content.Context.MODE_PRIVATE;
+import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 import static com.example.diabestes_care_app.Ui.Patient_all.Doctor_Profile_P.MyPREFERENCES_PushKey;
 import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Doctor_Fragment.MyPREFERENCES_D;
 
 import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,8 +24,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.diabestes_care_app.Models.Private_Consu_Model;
 import com.example.diabestes_care_app.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -38,7 +45,7 @@ public class Response_Consu_Adapter extends RecyclerView.Adapter<Response_Consu_
     }
 
     public Response_Consu_Adapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.consu_resons, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.consu_respons_recyle_layout, parent, false);
         return new Response_Consu_Adapter.MyViewHolder(view);
     }
 
@@ -51,7 +58,22 @@ public class Response_Consu_Adapter extends RecyclerView.Adapter<Response_Consu_
         DoctorUsername = prefs.getString("TAG_NAME", null);
 
         Private_Consu_Model list2 = list.get(position);
-        DatabaseReference Consu_Response = FirebaseDatabase.getInstance().getReference().child("doctor").child(DoctorUsername).child("Consultation request").child("MSG");
+        DatabaseReference Consu_Response = FirebaseDatabase.getInstance().getReference("doctor").child(DoctorUsername).child("Consultation request").child("MSG");
+        Query query = Consu_Response.orderByChild("PushKey").equalTo(list2.getPushKey());
+
+        //============================Create + Configure the Dialog here============================
+        dialog = new Dialog(context);
+        dialog.setContentView(R.layout.consu_answer_dialog);
+        dialog.getWindow().setBackgroundDrawable(context.getResources().getDrawable(R.drawable.dilog_background));
+        //Setting the animations to dialog
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.setCancelable(true); //Optional
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+
+        Button oky = dialog.findViewById(R.id.ConsuA_btn_Reply);
+
+        EditText Answer = dialog.findViewById(R.id.ConsuA_et_Answer);
+
 
         holder.response.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,22 +82,51 @@ public class Response_Consu_Adapter extends RecyclerView.Adapter<Response_Consu_
             }
         });
 
+        oky.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for (DataSnapshot s : dataSnapshot.getChildren()) {
+                            String Consultation_Answer = Answer.getText().toString();
+                            s.child("Doctor_Answer").getRef().setValue(Consultation_Answer);
+                            Toast.makeText(context, Consultation_Answer, Toast.LENGTH_SHORT).show();
+                            dialog.dismiss();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        Log.e(TAG, "onCancelled", databaseError.toException());
+                    }
+                });
+            }
+        });
+
         holder.reject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, "Delete it", Toast.LENGTH_SHORT).show();
-                Consu_Response.child(removeQuery).removeValue();
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for (DataSnapshot s : dataSnapshot.getChildren()) {
+                            s.getRef().removeValue();
+                            list.remove(holder.getAdapterPosition());
+                            notifyItemRemoved(holder.getAdapterPosition());
+                            notifyItemRangeChanged(holder.getAdapterPosition(),list.size());
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        Log.e(TAG, "onCancelled", databaseError.toException());
+                    }
+                });
+
             }
         });
-        //============================Create + Configure the Dialog here============================
-        dialog = new Dialog(context);
-        dialog.setContentView(R.layout.custom_dilog);
-        dialog.getWindow().setBackgroundDrawable(context.getResources().getDrawable(R.drawable.dilog_background));
-        //Setting the animations to dialog
-        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        dialog.setCancelable(true); //Optional
-        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
-
 
         //============================Recycle Item data ============================================
         holder.Patient_Username.setText(list.get(position).getPatientName());
@@ -108,6 +159,7 @@ public class Response_Consu_Adapter extends RecyclerView.Adapter<Response_Consu_
             Consu_Que = itemView.findViewById(R.id.Consu_Que_response);
             response = itemView.findViewById(R.id.Consu_Accept_response);
             reject = itemView.findViewById(R.id.Consu_Reject_response);
+
         }
     }
 }

@@ -45,7 +45,7 @@ public class Doctor_Messages_Adapter extends RecyclerView.Adapter<Doctor_Message
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.messaged_adapter_layout, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.chat_messaged_layout, parent, false);
         return new Doctor_Messages_Adapter.MyViewHolder(view);
     }
 

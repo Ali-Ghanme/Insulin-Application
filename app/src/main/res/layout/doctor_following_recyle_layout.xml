@@ -83,17 +83,6 @@
                 app:layout_constraintLeft_toLeftOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-        <TextView
-            android:id="@+id/Dl_follow_patient_d"
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/_20sdp"
-            android:background="@drawable/bg_doctor_button"
-            android:backgroundTint="@color/Red"
-            android:fontFamily="@font/cairo_bold" />
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

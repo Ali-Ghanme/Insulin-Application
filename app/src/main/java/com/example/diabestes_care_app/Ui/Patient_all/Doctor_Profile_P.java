@@ -30,6 +30,9 @@ import com.example.diabestes_care_app.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -42,18 +45,20 @@ public class Doctor_Profile_P extends Basic_Activity {
     Dialog dialog;
     EditText et_title, et_subject;
     String Consultation_title, Consultation_subject, getName, getProfilePic, getUsername, getToken, PatientUsername, getPatientPic;
-    DatabaseReference myReference, myRef;
+    DatabaseReference myReference;
     String chatKey;
     Notification_Number notification_number;
-    SharedPreferences sharedpreferences,sharedpreferences2;
+    SharedPreferences sharedpreferences, sharedpreferences2;
     public static final String MyPREFERENCES_MSGKey = "MSG_KEY";
     public static final String MyPREFERENCES_PushKey = "Push_Key";
+    ArrayList<String> arrPackage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         fullscreen();
         setContentView(R.layout.activity_doctor_profile_p);
+        arrPackage = new ArrayList<>();
 
         //============================Define========================================================
         DoctorName = findViewById(R.id.DPP_tv_doctor_name);
@@ -81,11 +86,15 @@ public class Doctor_Profile_P extends Basic_Activity {
         myReference = FirebaseDatabase.getInstance().getReference("doctor").child(getUsername).child("Consultation request").child("MSG").push();
         FirebaseMessaging.getInstance().subscribeToTopic(getUsername);
         String removeQuery = myReference.getKey();
-        Log.e("TAG",removeQuery);
+        Log.e("TAG", removeQuery);
 
+        arrPackage.add(removeQuery);
+        Gson gson = new Gson();
+        String json = gson.toJson(arrPackage);
         SharedPreferences.Editor editor = sharedpreferences2.edit();
-        editor.putString("TAG_Push_Key", removeQuery);
+        editor.putString("TAG_Push_Key", json);
         editor.commit();
+
         //============================Back Button Action============================================
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,7 +110,7 @@ public class Doctor_Profile_P extends Basic_Activity {
 
         //============================Create + Configure the Dialog here============================
         dialog = new Dialog(Doctor_Profile_P.this);
-        dialog.setContentView(R.layout.genral_message_layout);
+        dialog.setContentView(R.layout.consu_request_dialog);
         dialog.getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.dilog_background));
         //Setting the animations to dialog
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -114,6 +123,12 @@ public class Doctor_Profile_P extends Basic_Activity {
         et_subject = dialog.findViewById(R.id.et_subjectt);
         chatKey = "";
 
+        request.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.show(); // Showing the dialog here
+            }
+        });
         //============================load data from message adapter class==========================
         oky.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -148,12 +163,6 @@ public class Doctor_Profile_P extends Basic_Activity {
             }
         });
 
-        request.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.show(); // Showing the dialog here
-            }
-        });
 
     }
 

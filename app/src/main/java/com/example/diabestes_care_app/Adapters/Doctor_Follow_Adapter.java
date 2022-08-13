@@ -30,7 +30,7 @@ public class Doctor_Follow_Adapter extends RecyclerView.Adapter<Doctor_Follow_Ad
     @NonNull
     @Override
     public Doctor_Follow_Adapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.doctor_following_list, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.doctor_following_recyle_layout, parent, false);
         return new Doctor_Follow_Adapter.MyViewHolder(view);
     }
 
@@ -65,7 +65,6 @@ public class Doctor_Follow_Adapter extends RecyclerView.Adapter<Doctor_Follow_Ad
             container = itemView.findViewById(R.id.Dl_container);
             img_off = itemView.findViewById(R.id.Dl_img_off);
             img_on = itemView.findViewById(R.id.Dl_img_on);
-            status = itemView.findViewById(R.id.Dl_follow_patient_d);
 
         }
     }

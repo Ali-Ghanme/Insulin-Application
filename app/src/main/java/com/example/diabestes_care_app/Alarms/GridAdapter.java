@@ -48,7 +48,7 @@ public class GridAdapter extends BaseAdapter {
 
         if (convertView == null) {
 
-            grid = inflater.inflate(R.layout.item_layout, null);
+            grid = inflater.inflate(R.layout.alram_item_layout, null);
             TextView textView = grid.findViewById(R.id.grid_text);
             ImageView imageView = grid.findViewById(R.id.grid_image);
             textView.setText(web[position]);

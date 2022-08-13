@@ -73,18 +73,18 @@
             android:id="@+id/Consu_btn_show_answer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/_20sdp"
             android:background="@drawable/ic_arrow_next"
             android:rotation="90" />
 
         <View
             android:layout_width="@dimen/_250sdp"
-            android:layout_centerHorizontal="true"
             android:layout_height="@dimen/_1sdp"
-            android:background="@color/light_gray"
-            android:layout_marginTop="@dimen/_60sdp"/>
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_60sdp"
+            android:background="@color/light_gray" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -119,9 +119,9 @@
             android:id="@+id/Consu_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
             android:layout_marginTop="@dimen/_15sdp"
             android:layout_marginRight="@dimen/_65sdp"
-            android:layout_alignParentRight="true"
             android:background="@drawable/tab_selector"
             android:fontFamily="@font/cairo_bold"
             android:textSize="@dimen/_10sdp" />
@@ -160,7 +160,6 @@
             android:fontFamily="@font/cairo_bold"
             android:text="متابعة"
             android:textColor="@color/white" />
-
 
 
     </RelativeLayout>

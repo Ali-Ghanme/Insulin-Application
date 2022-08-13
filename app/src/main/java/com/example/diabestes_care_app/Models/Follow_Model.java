@@ -20,8 +20,9 @@ public class Follow_Model implements Serializable {
         return username;
     }
 
-    public void setUsername(String username) {
+    public String setUsername(String username) {
         this.username = username;
+        return username;
     }
 
     public String getImageUrl() {
@@ -36,8 +37,9 @@ public class Follow_Model implements Serializable {
         return name;
     }
 
-    public void setName(String name) {
+    public String setName(String name) {
         this.name = name;
+        return name;
     }
 
     public String getType() {

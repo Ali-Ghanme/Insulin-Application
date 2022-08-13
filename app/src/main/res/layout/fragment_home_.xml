@@ -61,7 +61,7 @@
 
     <include
         android:id="@+id/bell"
-        layout="@layout/bell" />
+        layout="@layout/notifcation_bell_layout" />
 
     <EditText
         android:id="@+id/HP_search_input"

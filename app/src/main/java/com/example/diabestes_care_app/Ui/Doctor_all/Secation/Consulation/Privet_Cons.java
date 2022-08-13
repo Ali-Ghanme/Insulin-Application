@@ -61,27 +61,25 @@ public class Privet_Cons extends Fragment {
         myRef = FirebaseDatabase.getInstance().getReference("doctor").child(DoctorUsername).child("Consultation request").child("MSG");
 
         Query query = myRef.orderByKey();
-        query.addValueEventListener(new ValueEventListener() {
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 try {
                     for (DataSnapshot sn : snapshot.getChildren()) {
                         Private_Consu_Model private_consu_model = new Private_Consu_Model();
-
                         private_consu_model.setPatientName(sn.child("from").getValue().toString());
                         private_consu_model.setConsuSubject(sn.child("Subject").getValue().toString());
                         private_consu_model.setPatientImage(sn.child("Patient_Profile").getValue().toString());
                         private_consu_model.setConsuTitle(sn.child("Title").getValue().toString());
-
+                        private_consu_model.setPushKey(sn.child("PushKey").getValue().toString());
                         list.add(private_consu_model);
-                        response_consu_adapter = new Response_Consu_Adapter(getContext(), list);
-                        recyclerView.setAdapter(response_consu_adapter);
-                        response_consu_adapter.updateUsersList(list);
                     }
-                }catch (Exception e){
-                    Log.e("TAG",e.getMessage());
+                } catch (Exception e) {
+                    Log.e("TAG", e.getMessage());
                 }
-
+                response_consu_adapter = new Response_Consu_Adapter(getContext(), list);
+                recyclerView.setAdapter(response_consu_adapter);
+                response_consu_adapter.updateUsersList(list);
             }
 
             @Override

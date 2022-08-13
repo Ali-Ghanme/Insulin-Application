@@ -90,7 +90,7 @@ public class General_Fragment extends Fragment {
                         Log.e("TAG", MSGKey);
                     }
                 } catch (Exception e) {
-                    Toast.makeText(getContext(), "إنتظر قليلاً ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(requireContext(), "إنتظر قليلاً ", Toast.LENGTH_SHORT).show();
                     Log.e("TAG", e.getMessage());
                 }
                 ConsuListAdapter = new Consultation_Adapter(getContext(), list);

@@ -100,7 +100,7 @@ public class LogIn_Patient_Fragment extends Fragment {
                 checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        DB_reference.child(patientEnterUsername).child("Token").child("Patient_Token").setValue(PatientToken);
+                        Log.e("TAG", "onDataChange: "+ snapshot.getValue() );
                         // check if data exist
                         if (snapshot.exists()) {
                             username.setError(null);
@@ -111,7 +111,7 @@ public class LogIn_Patient_Fragment extends Fragment {
                                 SharedPreferences.Editor editor = sharedpreferences.edit();
                                 editor.putString("TAG_NAME", patientEnterUsername);
                                 editor.commit();
-
+                                DB_reference.child(patientEnterUsername).child("Token").child("Patient_Token").setValue(PatientToken);
                                 Intent intent = new Intent(getContext(), Home_Patient.class);
                                 startActivity(intent);
                                 getActivity().finish();

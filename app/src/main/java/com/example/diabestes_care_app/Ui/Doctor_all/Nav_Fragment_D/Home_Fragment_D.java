@@ -150,7 +150,7 @@ public class Home_Fragment_D extends Fragment {
                     }
 
                 } catch (Exception e) {
-                    Toast.makeText(getContext(), "خطأ في الرئيسيةً ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(requireContext(), "خطأ في الرئيسيةً ", Toast.LENGTH_SHORT).show();
                     Log.e("TAG", e.getMessage());
 
                 }

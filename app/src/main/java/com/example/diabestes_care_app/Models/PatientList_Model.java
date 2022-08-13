@@ -16,6 +16,7 @@ public class PatientList_Model {
     public PatientList_Model() {
     }
 
+
     public String getName() {
         return name;
     }

@@ -55,7 +55,7 @@ public class Follow_Fragment extends Fragment {
         SharedPreferences prefs2 = getContext().getSharedPreferences(MyPREFERENCES_P_List, MODE_PRIVATE);
         PatientUsername = prefs2.getString("TAG_NAME", null);
 
-        Log.e("TAG", PatientUsername);
+//        Log.e("TAG", PatientUsername);
 
         SharedPreferences prefs = getContext().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
         DoctorUsername = prefs.getString("TAG_NAME", null);
@@ -72,11 +72,20 @@ public class Follow_Fragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ClearAll();
 
+                Follow_Model follow_model;
                 for (DataSnapshot sn : snapshot.child(DoctorUsername).child("Follow").getChildren()) {
                     follow_model = new Follow_Model();
-                    PatientUsername2 = follow_model.setUsername(sn.getKey());
+                    follow_model.setName(sn.getKey());
+                    follow_model.setType(sn.getKey());
                     list.add(follow_model);
                 }
+//                
+//
+//                for (DataSnapshot sn : snapshot.child(DoctorUsername).child("Follow").getChildren()) {
+//                    follow_model = new Follow_Model();
+//                    PatientUsername2 = follow_model.setUsername(sn.getKey());
+//                    list.add(follow_model);
+//                }
                 doctor_follow_adapter = new Doctor_Follow_Adapter(getContext(), list);
                 recyclerView.setAdapter(doctor_follow_adapter);
                 doctor_follow_adapter.updateUsersList(list);

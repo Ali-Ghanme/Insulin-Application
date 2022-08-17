@@ -55,7 +55,6 @@ public class Follow_Fragment extends Fragment {
         SharedPreferences prefs2 = getContext().getSharedPreferences(MyPREFERENCES_P_List, MODE_PRIVATE);
         PatientUsername = prefs2.getString("TAG_NAME", null);
 
-//        Log.e("TAG", PatientUsername);
 
         SharedPreferences prefs = getContext().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
         DoctorUsername = prefs.getString("TAG_NAME", null);
@@ -79,13 +78,7 @@ public class Follow_Fragment extends Fragment {
                     follow_model.setType(sn.getKey());
                     list.add(follow_model);
                 }
-//                
-//
-//                for (DataSnapshot sn : snapshot.child(DoctorUsername).child("Follow").getChildren()) {
-//                    follow_model = new Follow_Model();
-//                    PatientUsername2 = follow_model.setUsername(sn.getKey());
-//                    list.add(follow_model);
-//                }
+
                 doctor_follow_adapter = new Doctor_Follow_Adapter(getContext(), list);
                 recyclerView.setAdapter(doctor_follow_adapter);
                 doctor_follow_adapter.updateUsersList(list);
@@ -105,6 +98,7 @@ public class Follow_Fragment extends Fragment {
                     follow_model.setImageUrl(dataSnapshot.child(PatientUsername2).child("User_Profile_Image").child("Image").child("mImageUrI").getValue().toString());
                     follow_model.setType(dataSnapshot.child(PatientUsername2).child("disease_info").child("Diabetes Type").getValue().toString());
                     follow_model.setName(dataSnapshot.child(PatientUsername2).child("personal_info").child("name").getValue().toString());
+                    follow_model.setUsername(dataSnapshot.child(PatientUsername2).child("personal_info").child("username").getValue().toString());
 
                 } catch (Exception e) {
                     Log.e("TAG", e.getMessage());

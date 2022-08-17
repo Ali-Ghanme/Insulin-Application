@@ -69,6 +69,7 @@
         android:layout_marginTop="@dimen/_25sdp"
         android:layout_marginEnd="@dimen/_25sdp"
         android:layout_marginBottom="@dimen/_25sdp"
+        android:backgroundTint="?attr/bg_color"
         android:background="@drawable/search_input_style"
         android:drawableRight="@drawable/ic_search"
         android:drawablePadding="@dimen/_10sdp"
@@ -79,7 +80,7 @@
         android:iconifiedByDefault="false"
         android:inputType="textPersonName"
         android:queryBackground="@android:color/transparent"
-        android:textColor="@color/gray"
+        android:textColor="?attr/text_color"
         android:textDirection="rtl"
         android:textSize="@dimen/_10sdp" />
 

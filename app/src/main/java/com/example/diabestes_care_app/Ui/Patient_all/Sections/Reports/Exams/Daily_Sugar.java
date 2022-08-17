@@ -33,7 +33,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.Calendar;
 
 
 public class Daily_Sugar extends Fragment {
@@ -68,10 +68,11 @@ public class Daily_Sugar extends Fragment {
         SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         PatientUsername = prefs.getString("TAG_NAME", null);
         databaseReference_daily = FirebaseDatabase.getInstance().getReference("patient").child(PatientUsername).child("Reports_info").child("فحص يومي").push();
+        Calendar cal = Calendar.getInstance();
 
         //============================  View Time Zone by Text View in page My_Exams================
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd G 'at' HH:mm:ss");
-        currentDataTime = sdf.format(new Date());
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("hh:mm a");
+        currentDataTime = sdf.format(cal.getTime());
         tv_date.setText(currentDataTime);
         //=============================== Check and save data from sugar Edit Text==================
         btn_checked_save_sugar.setOnClickListener(new View.OnClickListener() {

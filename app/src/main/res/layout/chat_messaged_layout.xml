@@ -7,6 +7,7 @@
     android:layout_marginTop="@dimen/_10sdp"
     android:layout_marginEnd="10dp"
     android:background="@drawable/bg_doctors_list"
+    android:backgroundTint="?attr/bg_color"
     android:elevation="1dp"
     android:layoutDirection="locale">
 
@@ -14,6 +15,7 @@
         android:id="@+id/root_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="?attr/bg_color"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,6 +51,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/cairo_bold"
                     android:maxLines="1"
+                    android:textColor="?attr/text_color"
                     android:textSize="@dimen/_13sdp" />
 
                 <TextView
@@ -58,7 +61,7 @@
                     android:layout_marginTop="@dimen/_2sdp"
                     android:fontFamily="@font/cairo_bold"
                     android:maxLines="1"
-                    android:textColor="@color/Patient_Color"
+                    android:textColor="?attr/text_color"
                     android:textSize="@dimen/_11sdp" />
             </LinearLayout>
 

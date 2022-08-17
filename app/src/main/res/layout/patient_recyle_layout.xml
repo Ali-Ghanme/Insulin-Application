@@ -9,6 +9,7 @@
     android:layout_marginTop="@dimen/_10sdp"
     android:layout_marginRight="10dp"
     android:background="@drawable/bg_doctors_list"
+    android:backgroundTint="?attr/bg_color"
     android:clickable="true"
     android:elevation="1.5dp"
     android:focusable="true">
@@ -17,6 +18,8 @@
         android:id="@+id/Pl_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/bg_doctors_list"
+        android:backgroundTint="?attr/bg_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent">
 
@@ -31,7 +34,7 @@
             android:lines="1"
             android:maxLines="1"
             android:singleLine="true"
-            android:textColor="@color/black" />
+            android:textColor="?attr/text_color" />
 
         <TextView
             android:id="@+id/Pl_doctor_username"
@@ -42,7 +45,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginRight="@dimen/_90sdp"
             android:fontFamily="@font/cairo_semibold"
-            android:textColor="@color/gray" />
+            android:textColor="?attr/text_color" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"

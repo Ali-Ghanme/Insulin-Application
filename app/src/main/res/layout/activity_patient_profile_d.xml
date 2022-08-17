@@ -31,6 +31,7 @@
             android:layout_marginLeft="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_15sdp"
             android:background="@drawable/round_back_light"
+            android:backgroundTint="?attr/bg_color"
             android:contentDescription="@string/todo"
             android:layoutDirection="ltr"
             android:paddingLeft="@dimen/_12sdp"
@@ -46,7 +47,7 @@
             android:layout_marginTop="@dimen/_20sdp"
             android:fontFamily="@font/cairo_bold"
             android:text="ملف المريض "
-            android:textColor="#282935"
+            android:textColor="?attr/text_color"
             android:textSize="@dimen/_18sdp" />
 
         <TextView
@@ -63,72 +64,44 @@
         android:id="@+id/relativeLayout2"
         android:layout_width="@dimen/_270sdp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/bg_background2"
+        android:backgroundTint="?attr/bg_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/PPD_img_Profile"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:layout_alignParentRight="true"
+            app:civ_border_color="@color/Doctor_Color"
+            app:civ_border_width="@dimen/_2sdp" />
 
         <TextView
             android:id="@+id/PPD_tv_doctor_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/_80sdp"
             android:fontFamily="@font/cairo_bold"
-            android:textColor="#282935"
-            android:textSize="@dimen/_18sdp" />
-
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/PPD_img_Profile"
-            android:layout_width="@dimen/_65sdp"
-            android:layout_height="@dimen/_65sdp"
-            android:layout_alignParentLeft="true"
-            android:layout_centerInParent="true"
-            app:civ_border_color="@color/Doctor_Color"
-            app:civ_border_width="@dimen/_2sdp" />
-
+            android:textColor="?attr/text_color"
+            android:textSize="@dimen/_14sdp" />
     </RelativeLayout>
 
     <View
-        android:id="@+id/PPD_view3_p"
+        android:id="@+id/EP_view3_p"
         android:layout_width="@dimen/_250sdp"
         android:layout_height="@dimen/_1sdp"
         android:layout_below="@id/relativeLayout2"
         android:layout_centerHorizontal="true"
         android:background="#CFCFCF"
-        app:layout_constraintBottom_toTopOf="@+id/relativeLayout3"
+        app:layout_constraintBottom_toTopOf="@+id/PPD_grid_1_p"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_30sdp"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/_20sdp"
-            android:fontFamily="@font/cairo_bold"
-            android:text="تفاصيل أكثر"
-            android:textColor="#282935"
-            android:textSize="@dimen/_18sdp" />
-
-        <ImageView
-            android:id="@+id/PPD_img_starts"
-            android:layout_width="@dimen/_40sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/_20sdp"
-            android:src="@drawable/ic_folder_details" />
-
-    </RelativeLayout>
 
     <GridLayout
         android:id="@+id/PPD_grid_1_p"
@@ -136,11 +109,12 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_60sdp"
+        android:layoutDirection="ltr"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layoutDirection="ltr"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout3">
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
 
         <GridLayout
             android:layout_width="wrap_content"
@@ -163,6 +137,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="#fefffc"
+                    android:backgroundTint="?attr/bg_color"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="@dimen/_10sdp">
@@ -179,7 +154,7 @@
                         android:fontFamily="@font/cairo_bold"
                         android:gravity="center_horizontal"
                         android:text="نوع المرض "
-                        android:textColor="#282935"
+                        android:textColor="?attr/text_color"
                         android:textSize="@dimen/_13sdp"
                         android:textStyle="bold" />
 
@@ -207,6 +182,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#fefffc"
+                    android:backgroundTint="?attr/bg_color"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="@dimen/_10sdp">
@@ -223,7 +199,7 @@
                         android:fontFamily="@font/cairo_bold"
                         android:gravity="center_horizontal"
                         android:text="عامل الاصابة"
-                        android:textColor="#282935"
+                        android:textColor="?attr/text_color"
                         android:textSize="@dimen/_13sdp"
                         android:textStyle="bold" />
 
@@ -261,6 +237,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="#fefffc"
+                    android:backgroundTint="?attr/bg_color"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="@dimen/_10sdp">
@@ -277,7 +254,7 @@
                         android:fontFamily="@font/cairo_bold"
                         android:gravity="center_horizontal"
                         android:text="طريقة العلاج"
-                        android:textColor="#282935"
+                        android:textColor="?attr/text_color"
                         android:textSize="@dimen/_13sdp"
                         android:textStyle="bold" />
 
@@ -305,6 +282,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="#fefffc"
+                    android:backgroundTint="?attr/bg_color"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="@dimen/_10sdp">
@@ -321,7 +299,7 @@
                         android:fontFamily="@font/cairo_bold"
                         android:gravity="center_horizontal"
                         android:text="أمراض أخرى"
-                        android:textColor="#282935"
+                        android:textColor="?attr/text_color"
                         android:textSize="@dimen/_13sdp"
                         android:textStyle="bold" />
 
@@ -344,14 +322,13 @@
         android:layout_width="@dimen/_150sdp"
         android:layout_height="@dimen/_40sdp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="@dimen/_30sdp"
         android:background="@drawable/news_rectangel"
         android:backgroundTint="@color/Doctor_Color"
         android:fontFamily="@font/cairo_bold"
         android:text="متابعة"
         android:textColor="@color/white"
         android:textSize="@dimen/_14sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/PPD_grid_1_p" />

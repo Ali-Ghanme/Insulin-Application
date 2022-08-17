@@ -31,7 +31,7 @@ import java.util.ArrayList;
 public class Reports_Adapter extends RecyclerView.Adapter<Reports_Adapter.MyViewHolder> {
     Context context;
     ArrayList<Reports_Model> list;
-    // private final int limit = 7;
+    private final int limit = 7;
     String status_sugar, PatientUsername, statuses_monthly;
 
     public Reports_Adapter(Context context, ArrayList<Reports_Model> list) {
@@ -94,14 +94,16 @@ public class Reports_Adapter extends RecyclerView.Adapter<Reports_Adapter.MyView
                 Log.e("TAG", databaseError.getMessage());
             }
         });
-
     }
 
     @Override
     public int getItemCount() {
+        if (list.size() > limit) {
+            return limit;
+        } else {
+        }
         return list.size();
     }
-
 
     public void updateUsersList(ArrayList<Reports_Model> reports_models) {
         this.list = reports_models;

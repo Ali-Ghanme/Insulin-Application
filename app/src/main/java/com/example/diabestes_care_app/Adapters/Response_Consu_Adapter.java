@@ -39,6 +39,7 @@ public class Response_Consu_Adapter extends RecyclerView.Adapter<Response_Consu_
     Dialog dialog;
     String DoctorUsername, removeQuery;
 
+
     public Response_Consu_Adapter(Context context, ArrayList<Private_Consu_Model> list) {
         this.context = context;
         this.list = list;
@@ -60,6 +61,7 @@ public class Response_Consu_Adapter extends RecyclerView.Adapter<Response_Consu_
         Private_Consu_Model list2 = list.get(position);
         DatabaseReference Consu_Response = FirebaseDatabase.getInstance().getReference("doctor").child(DoctorUsername).child("Consultation request").child("MSG");
         Query query = Consu_Response.orderByChild("PushKey").equalTo(list2.getPushKey());
+        DatabaseReference general_Consolation = FirebaseDatabase.getInstance().getReference("Consultation request").child("MSG").push();
 
         //============================Create + Configure the Dialog here============================
         dialog = new Dialog(context);
@@ -71,9 +73,7 @@ public class Response_Consu_Adapter extends RecyclerView.Adapter<Response_Consu_
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
 
         Button oky = dialog.findViewById(R.id.ConsuA_btn_Reply);
-
         EditText Answer = dialog.findViewById(R.id.ConsuA_et_Answer);
-
 
         holder.response.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,6 +91,11 @@ public class Response_Consu_Adapter extends RecyclerView.Adapter<Response_Consu_
                         for (DataSnapshot s : dataSnapshot.getChildren()) {
                             String Consultation_Answer = Answer.getText().toString();
                             s.child("Doctor_Answer").getRef().setValue(Consultation_Answer);
+
+                            general_Consolation.setValue(list2.getConsuTitle());
+                            general_Consolation.setValue(list2.getConsuSubject());
+                            general_Consolation.setValue(list2.getDoctorImage());
+                            general_Consolation.setValue(list2.getDoctorAnswer());
                             Toast.makeText(context, Consultation_Answer, Toast.LENGTH_SHORT).show();
                             dialog.dismiss();
                         }
@@ -115,7 +120,7 @@ public class Response_Consu_Adapter extends RecyclerView.Adapter<Response_Consu_
                             s.getRef().removeValue();
                             list.remove(holder.getAdapterPosition());
                             notifyItemRemoved(holder.getAdapterPosition());
-                            notifyItemRangeChanged(holder.getAdapterPosition(),list.size());
+                            notifyItemRangeChanged(holder.getAdapterPosition(), list.size());
                         }
                     }
 
@@ -132,8 +137,9 @@ public class Response_Consu_Adapter extends RecyclerView.Adapter<Response_Consu_
         holder.Patient_Username.setText(list.get(position).getPatientName());
         holder.Consu_title.setText(list.get(position).getConsuTitle());
         holder.Consu_Que.setText(list.get(position).getConsuSubject());
-
         Glide.with(context).load(list.get(position).getPatientImage()).placeholder(R.drawable.ic_user).error(R.drawable.ic_user).into(holder.Patient_Image);
+
+
     }
 
     @Override

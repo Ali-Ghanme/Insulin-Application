@@ -12,24 +12,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingEnd="@dimen/_10sdp"
         android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_10sdp"
         android:visibility="visible">
-
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_15sdp"
-            android:layout_marginRight="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
             android:background="@drawable/bg_edit_text"
-            android:backgroundTint="@color/white"
             android:elevation="@dimen/_2sdp"
+            android:backgroundTint="?attr/bg_color"
             android:padding="@dimen/_10sdp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-
             app:layout_constraintTop_toBottomOf="@+id/help">
 
             <EditText
@@ -42,12 +40,13 @@
                 android:drawablePadding="@dimen/_5sdp"
                 android:drawableTint="@color/gray"
                 android:elevation="@dimen/_1sdp"
+                android:backgroundTint="?attr/bg_color"
                 android:fontFamily="@font/cairo_bold"
                 android:hint="قم بإدخال نسبة السكر "
                 android:inputType="number"
-                android:paddingEnd="10dp"
                 android:paddingStart="10dp"
-                android:textColor="@color/Doctor_Color"
+                android:paddingEnd="10dp"
+                android:textColor="@color/Patient_Color"
                 android:textColorHint="#78909C"
                 android:textSize="13sp"
                 tools:ignore="TextFields" />
@@ -58,17 +57,19 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/cairo_bold"
                 android:paddingBottom="@dimen/_4sdp"
+                android:textColor="?attr/text_color"
                 android:text="فحص السكر العشوائي"
                 android:textSize="@dimen/_10sdp" />
         </RelativeLayout>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_15sdp"
-            android:layout_marginRight="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:backgroundTint="?attr/bg_color"
             android:background="@drawable/bg_edit_text"
-            android:backgroundTint="@color/white"
             android:elevation="@dimen/_2sdp"
             android:padding="@dimen/_10sdp"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -85,12 +86,14 @@
                 android:drawableLeft="@drawable/ic_calendar"
                 android:drawableTint="@color/gray"
                 android:editable="false"
+                android:backgroundTint="?attr/bg_color"
                 android:elevation="@dimen/_1sdp"
                 android:fontFamily="@font/cairo_bold"
                 android:hint="إختر فترة القياس  "
-                android:paddingEnd="10dp"
+                android:inputType="none"
                 android:paddingStart="10dp"
-                android:textColor="@color/Doctor_Color"
+                android:paddingEnd="10dp"
+                android:textColor="@color/Patient_Color"
                 android:textColorHint="#78909C"
                 android:textSize="13sp" />
 
@@ -99,6 +102,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/cairo_bold"
+                android:textColor="?attr/text_color"
                 android:paddingBottom="@dimen/_4sdp"
                 android:text="فترة  القياس"
                 android:textSize="@dimen/_10sdp" />
@@ -109,12 +113,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_15sdp"
-            android:layout_marginRight="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
             android:background="@drawable/bg_edit_text"
-            android:backgroundTint="@color/white"
             android:elevation="@dimen/_2sdp"
             android:padding="@dimen/_10sdp"
+            android:backgroundTint="?attr/bg_color"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/help">
@@ -126,6 +130,7 @@
                 android:fontFamily="@font/cairo_bold"
                 android:paddingBottom="@dimen/_4sdp"
                 android:text="وقت القياس"
+                android:textColor="?attr/text_color"
                 android:textSize="@dimen/_10sdp" />
 
             <TextView
@@ -135,15 +140,16 @@
                 android:layout_below="@+id/tv_period"
                 android:layout_centerHorizontal="true"
                 android:background="@drawable/bg_edit_text"
+                android:backgroundTint="?attr/bg_color"
                 android:drawableLeft="@drawable/ic_time"
                 android:drawablePadding="@dimen/_5sdp"
                 android:drawableTint="@color/gray"
                 android:padding="@dimen/_5sdp"
-                android:paddingEnd="10dp"
                 android:paddingStart="10dp"
                 android:paddingTop="@dimen/_5sdp"
+                android:paddingEnd="10dp"
                 android:textAlignment="center"
-                android:textColor="@color/Patient_Color"
+                android:textColor="?attr/text_color"
                 android:textSize="@dimen/_13sdp" />
 
         </RelativeLayout>
@@ -162,14 +168,15 @@
             android:text="حفظ"
             android:textColor="@color/white"
             android:textSize="@dimen/_9sdp" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_15sdp"
-            android:layout_marginRight="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_15sdp"
-            android:drawablePadding="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_15sdp"
             android:drawableRight="@drawable/ic_info"
+            android:drawablePadding="@dimen/_5sdp"
             android:drawableTint="@color/gray"
             android:fontFamily="@font/cairo_bold"
             android:text="@string/information_sugar"

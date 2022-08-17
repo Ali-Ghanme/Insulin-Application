@@ -1,7 +1,7 @@
-package com.example.diabestes_care_app.Ui.Patient_all.Sections.Reports.Repo_View;
+package com.example.diabestes_care_app.Ui.Doctor_all.Secation.Follow.PatinetData.Fragment;
 
 import static android.content.Context.MODE_PRIVATE;
-import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
+import static com.example.diabestes_care_app.Adapters.Doctor_Follow_Adapter.MyPREFERENCES_P_Username_D;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -27,8 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-
-public class Daily_Repo extends Fragment {
+public class Daily_Report_Fragment extends Fragment {
 
     Reports_Adapter reports_adapter;
     RecyclerView recyclerView;
@@ -40,12 +39,16 @@ public class Daily_Repo extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_daily__repo, container, false);
+        View view = inflater.inflate(R.layout.fragment_daily_report, container, false);
 
-        recyclerView = view.findViewById(R.id.recyclerView);
+        //===================================Define=================================================
+        recyclerView = view.findViewById(R.id.Daily_report_recyclerView);
+
         //============================Get Patient Username===========================================
-        SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
-        PatientUsername = prefs.getString("TAG_NAME", null);
+        // Get data from message adapter class
+        SharedPreferences prefs = getActivity().getSharedPreferences(MyPREFERENCES_P_Username_D, MODE_PRIVATE);
+        PatientUsername = prefs.getString("Patient_name_D", null);
+
         //============================Configure Firebase============================================
         databaseReference = FirebaseDatabase.getInstance().getReference("patient").child(PatientUsername).child("Reports_info").child("فحص يومي");
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());

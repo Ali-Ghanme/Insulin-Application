@@ -7,6 +7,7 @@
     android:layout_marginTop="@dimen/_10sdp"
     android:layout_marginRight="10dp"
     android:background="@drawable/bg_doctors_list"
+    android:backgroundTint="?attr/bg_color"
     android:clickable="true"
     android:elevation="1.5dp"
     android:focusable="true">
@@ -30,7 +31,7 @@
             android:lines="1"
             android:maxLines="1"
             android:singleLine="true"
-            android:textColor="@color/black" />
+            android:textColor="?attr/text_color" />
 
         <TextView
             android:id="@+id/Consu_title_s"
@@ -44,7 +45,7 @@
             android:maxLines="1"
             android:singleLine="true"
             android:text="العنوان:"
-            android:textColor="@color/black" />
+            android:textColor="?attr/text_color" />
 
         <TextView
             android:id="@+id/Consu_Que"
@@ -55,7 +56,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginRight="@dimen/_60sdp"
             android:fontFamily="@font/cairo_semibold"
-            android:textColor="@color/gray" />
+            android:textColor="?attr/text_color" />
 
         <TextView
             android:id="@+id/Consu_Que_s"
@@ -67,7 +68,7 @@
             android:layout_marginRight="@dimen/_20sdp"
             android:fontFamily="@font/cairo_semibold"
             android:text="السؤال :"
-            android:textColor="@color/gray" />
+            android:textColor="?attr/text_color" />
 
         <ImageButton
             android:id="@+id/Consu_btn_show_answer"
@@ -77,6 +78,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/_20sdp"
             android:background="@drawable/ic_arrow_next"
+            android:backgroundTint="?attr/text_color"
             android:rotation="90" />
 
         <View
@@ -90,7 +92,7 @@
     <RelativeLayout
         android:id="@+id/Consu_cont_show_answer"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="@dimen/_90sdp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -122,7 +124,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginTop="@dimen/_15sdp"
             android:layout_marginRight="@dimen/_65sdp"
-            android:background="@drawable/tab_selector"
+            android:textColor="?attr/text_color"
             android:fontFamily="@font/cairo_bold"
             android:textSize="@dimen/_10sdp" />
 
@@ -135,6 +137,7 @@
             android:layout_marginRight="@dimen/_20sdp"
             android:fontFamily="@font/cairo_bold"
             android:text="الاجابة :"
+            android:textColor="?attr/text_color"
             android:textSize="@dimen/_10sdp" />
 
         <TextView
@@ -146,6 +149,7 @@
             android:layout_marginTop="@dimen/_25sdp"
             android:layout_marginRight="@dimen/_60sdp"
             android:fontFamily="@font/cairo_bold"
+            android:textColor="?attr/text_color"
             android:textSize="@dimen/_10sdp" />
 
         <Button
@@ -156,7 +160,6 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/_10sdp"
             android:background="@drawable/bg_doctor_button"
-            android:backgroundTint="@color/Patient_Color"
             android:fontFamily="@font/cairo_bold"
             android:text="متابعة"
             android:textColor="@color/white" />

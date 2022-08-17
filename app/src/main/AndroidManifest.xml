@@ -5,7 +5,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION"/>
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
 
     <application
         android:allowBackup="true"
@@ -15,14 +15,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Diabestes_Care_App">
-
+        <activity
+            android:name=".Ui.Doctor_all.Secation.Follow.PatinetData.Patent_Report_d"
+            android:exported="false" />
         <activity
             android:name=".Users_Notification"
             android:exported="false" />
         <activity
             android:name=".Ui.Patient_all.Sections.Consulation.Consultation_Request"
             android:exported="false" />
-
         <activity
             android:name=".Ui.Doctor_all.Patient_Profile_D"
             android:exported="false" />
@@ -120,19 +121,16 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
         <activity
             android:name="com.example.diabestes_care_app.Alarms.alarmChooserActivity"
-            android:parentActivityName="com.example.diabestes_care_app.Alarms.alarmChooserActivity">
-
-        </activity>
-
+            android:parentActivityName="com.example.diabestes_care_app.Alarms.alarmChooserActivity" />
 
         <receiver android:name="com.example.diabestes_care_app.Alarms.AlarmReceiver" />
+
         <service
             android:name="com.example.diabestes_care_app.Alarms.ringtonePlayingService"
             android:enabled="true" />
-
-
         <service
             android:name=".NotificationSender.FirebaseMessagingService"
             android:exported="true"

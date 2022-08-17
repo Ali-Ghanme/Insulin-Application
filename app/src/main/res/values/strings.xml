@@ -102,6 +102,7 @@
         <item>قبل النوم</item>
     </string-array>
     <string name="title_activity_genral_cons">Genral_Cons</string>
+    <string name="title_activity_patinet_report">Patinet_Report</string>
 
 
 </resources>

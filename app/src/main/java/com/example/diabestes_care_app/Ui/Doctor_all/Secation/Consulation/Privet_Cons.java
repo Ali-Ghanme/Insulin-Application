@@ -73,6 +73,8 @@ public class Privet_Cons extends Fragment {
                         private_consu_model.setConsuTitle(sn.child("Title").getValue().toString());
                         private_consu_model.setPushKey(sn.child("PushKey").getValue().toString());
                         list.add(private_consu_model);
+
+
                     }
                 } catch (Exception e) {
                     Log.e("TAG", e.getMessage());
@@ -80,6 +82,7 @@ public class Privet_Cons extends Fragment {
                 response_consu_adapter = new Response_Consu_Adapter(getContext(), list);
                 recyclerView.setAdapter(response_consu_adapter);
                 response_consu_adapter.updateUsersList(list);
+                response_consu_adapter.notifyDataSetChanged();
             }
 
             @Override

@@ -65,7 +65,8 @@ public class Graphs_Fragment extends Fragment {
                         Toast.makeText(getContext(), suger, Toast.LENGTH_SHORT).show();
                     }
                 } catch (Exception e) {
-                    Log.e("TAG",e.getMessage());
+                    Toast.makeText(getContext(), ".00.", Toast.LENGTH_SHORT).show();
+
                 }
 
             }

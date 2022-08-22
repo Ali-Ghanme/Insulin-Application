@@ -12,7 +12,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 
-import com.example.diabestes_care_app.Local_Notification;
+import com.example.diabestes_care_app.Notification_Controller.Notification_Number;
 import com.example.diabestes_care_app.R;
 
 public class AlarmReceiver extends BroadcastReceiver {
@@ -21,11 +21,12 @@ public class AlarmReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
-        Intent notificationIntent = new Intent(context, Local_Notification.class);
+        Intent notificationIntent = new Intent(context, Notification_Number.class);
 
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
 
-        stackBuilder.addParentStack(Local_Notification.class);
+        stackBuilder.addParentStack(Notification_Number.class);
+       // stackBuilder.addParentStack(Local_Notification.class);
 
         stackBuilder.addNextIntent(notificationIntent);
 

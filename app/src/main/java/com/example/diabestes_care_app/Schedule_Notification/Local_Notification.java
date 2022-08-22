@@ -1,4 +1,4 @@
-package com.example.diabestes_care_app;
+package com.example.diabestes_care_app.Schedule_Notification;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.example.diabestes_care_app.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 

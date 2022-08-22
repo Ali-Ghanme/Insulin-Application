@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class Reports_Monthly_Adapter extends RecyclerView.Adapter<Reports_Monthly_Adapter.MyViewHolder> {
     Context context;
     ArrayList<Reports_Monthly_Model> list;
-    // private final int limit = 7;
+     private final int limit = 7;
 
 
     public Reports_Monthly_Adapter(Context context, ArrayList<Reports_Monthly_Model> list) {

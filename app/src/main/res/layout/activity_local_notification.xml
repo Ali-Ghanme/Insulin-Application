@@ -6,14 +6,14 @@
     android:paddingTop="@dimen/_16sdp"
     android:paddingRight="@dimen/_16sdp"
     android:paddingBottom="@dimen/_16sdp"
-    tools:context=".Local_Notification">
+    >
 
     <TextView
         android:id="@+id/tvnoti"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/_10sdp"
-        android:text="  Notification Details  "
+        android:text="Notification Details"
         android:textAlignment="center"
         android:textSize="@dimen/_16sdp" />
 

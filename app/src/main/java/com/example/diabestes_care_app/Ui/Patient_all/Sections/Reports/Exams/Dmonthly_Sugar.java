@@ -44,14 +44,14 @@ public class Dmonthly_Sugar extends Fragment {
     // Btn sheet
     Button btn_checked_save, btn, checked_save_height_weight, checked_save_blood, checked_save_cholesterol, checked_save_triglycerid;
     // Btn_sheet sheet كلية  // Btn_sheet دهون  // Btn_sheet دم
-    EditText examine_bmi, examine_college, examine_college_creatinine, examine_fats_hdl, examine_fats_ldl, examine_fats_triglycerid, examine_fats_cholesterol, examine_college_uric, examine_college_urea, examine_fats, examine_blood, et_number_sugar, btn_sheet_time_day_sugar;
+    EditText examine_bmi, examine_college, examine_college_creatinine, examine_fats_hdl, examine_fats_ldl, examine_fats_triglycerid, examine_fats_cholesterol, examine_college_uric, examine_college_urea, examine_fats, examine_blood ;
     TextView   tv_date_time;
-    DatabaseReference databaseReference, databaseReference_daily;
-    int bmi, creatineValue, sugarValue, uricValue, ureaValue, cholesterolValue, triglycerideValue, ldlValue, hdlValue, Blood_PressureValue, Blood_PressureValue2;
+    DatabaseReference databaseReference ;
+    Double bmi, creatineValue ,  uricValue, ureaValue, cholesterolValue, triglycerideValue, ldlValue, hdlValue, Blood_PressureValue;
+      
     ListView listView;
-    String PatientUsername, bmi_PressureValue, bmi_weight, bmi_height, number_sugar, daysugar, currentDataTimeblood, currentDataBloodTime, creatine, uric, urea, hdl, ldl, triglyceride, cholesterol, date_time, Blood_Pressure, Blood_Pressure2;
-    String[] time_day_suger = {"قبل النوم", "بعد العشاء", "قبل العشاء", "بعد الغداء ", "قبل الغداء", "بعد الإفطار", "قبل الإفطار"};
-    // Mohammed Siam
+    String PatientUsername,   bmi_weight, bmi_height, creatine, uric, urea, hdl, ldl, triglyceride, cholesterol , Blood_Pressure ;
+     // Mohammed Siam
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -90,7 +90,7 @@ public class Dmonthly_Sugar extends Fragment {
 
 
         //================================= Visible And Gone For fats And college =========
-        examine_college.setOnClickListener(new View.OnClickListener() {
+       examine_college.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -144,9 +144,14 @@ public class Dmonthly_Sugar extends Fragment {
                         //   if (creatine.length() == 0) {
                         if (creatine.isEmpty()) {
                             Toast.makeText(getActivity(), "لا توجد قيم مدخلة", Toast.LENGTH_SHORT).show();
-                        } else if ((creatineValue = Integer.parseInt(creatine)) >= 0.7 && (creatineValue = Integer.parseInt(creatine)) <= 1.2) {
+                        } else if ((creatineValue = Double.parseDouble(creatine)) >  0.7   && (creatineValue = Double.parseDouble(creatine)) <=  1.2 ) {
                             showSuccessDialog("أنت بصحة جيدة ", "استمر على هذا النحو من المحافظة على صحتك ");
                             // Upload Data on Firebase
+                            databaseReference.child("فحوصات وظائف الكلى").child("Creatine").setValue(creatine);
+                            bottomSheetDialog.dismiss();
+                        } else if ((creatineValue = Double.parseDouble(creatine)) < 0.6 || (creatineValue = Double.parseDouble(creatine)) > 1.3) {
+                            showWarningDialog("لا بأس استمر على الارشادات ", "هذا المؤشر ينبهك بالمحافظة على الصحة واتباع الإرشادات لانك معرض للاصابة بالسكري " );
+                              // Upload Data on Firebase
                             databaseReference.child("فحوصات وظائف الكلى").child("Creatine").setValue(creatine);
                             bottomSheetDialog.dismiss();
                         } else {
@@ -178,7 +183,7 @@ public class Dmonthly_Sugar extends Fragment {
 
                         if (uric.isEmpty()) {
                             Toast.makeText(getActivity(), "لا توجد قيم مدخلة", Toast.LENGTH_SHORT).show();
-                        } else if ((uricValue = Integer.parseInt(uric)) >= 3.5 && (uricValue = Integer.parseInt(uric)) <= 7.2) {
+                        } else if ((uricValue = Double.parseDouble(uric)) >= 3.5 && (uricValue = Double.parseDouble(uric)) <= 7.2) {
                             showSuccessDialog("أنت بصحة جيدة ", "استمر على هذا النحو من المحافظة على صحتك ");
                             // Upload Data on Firebase
                             databaseReference.child("فحوصات وظائف الكلى").child("Uric").setValue(uric);
@@ -212,7 +217,7 @@ public class Dmonthly_Sugar extends Fragment {
 
                         if (urea.isEmpty()) {
                             Toast.makeText(getActivity(), "لا توجد قيم مدخلة", Toast.LENGTH_SHORT).show();
-                        } else if ((ureaValue = Integer.parseInt(urea)) >= 6 && (ureaValue = Integer.parseInt(urea)) <= 25) {
+                        } else if ((ureaValue = Double.parseDouble(urea)) >= 6 && (ureaValue = Double.parseDouble(urea)) <= 25) {
                             showSuccessDialog("أنت بصحة جيدة ", "استمر على هذا النحو من المحافظة على صحتك ");
                             // Upload Data on Firebase
                             databaseReference.child("فحوصات وظائف الكلى").child("Urea").setValue(urea);
@@ -246,13 +251,13 @@ public class Dmonthly_Sugar extends Fragment {
 
                         if (cholesterol.isEmpty()) {
                             Toast.makeText(getActivity(), "لا توجد نتيجة", Toast.LENGTH_SHORT).show();
-                        } else if ((cholesterolValue = Integer.parseInt(cholesterol)) <= 200) {
+                        } else if ((cholesterolValue = Double.parseDouble(cholesterol)) <= 200) {
                             showSuccessDialog("أنت بصحة جيدة ", "استمر على هذا النحو من المحافظة على صحتك " + cholesterolValue);
                             databaseReference.child("فحوصات الدهون").child("Cholesterol").setValue(cholesterol);
-                        } else if ((cholesterolValue = Integer.parseInt(cholesterol)) > 200 && (cholesterolValue = Integer.parseInt(cholesterol)) <= 239) {
+                        } else if ((cholesterolValue = Double.parseDouble(cholesterol)) > 200 && (cholesterolValue = Double.parseDouble(cholesterol)) <= 239) {
                             showWarningDialog("لا بأس استمر على الارشادات ", "هذا المؤشر ينبهك بالمحافظة على الصحة واتباع الإرشادات");
                             databaseReference.child("فحوصات الدهون").child("Cholesterol").setValue(cholesterol);
-                        } else if ((cholesterolValue = Integer.parseInt(cholesterol)) >= 240) {
+                        } else if ((cholesterolValue = Double.parseDouble(cholesterol)) >= 240) {
                             showErrorDialog("تحذير للمتابعة", " برجى استشارة طبيب على الفور او التوجه لاقرب مستشفى  ");
                             databaseReference.child("فحوصات الدهون").child("Cholesterol").setValue(cholesterol);
                         } else {
@@ -282,17 +287,17 @@ public class Dmonthly_Sugar extends Fragment {
                         triglyceride = et_triglycerid.getText().toString();
                         if (triglyceride.isEmpty()) {
                             Toast.makeText(getActivity(), "لا توجد نتيجة", Toast.LENGTH_SHORT).show();
-                        } else if ((triglycerideValue = Integer.parseInt(triglyceride)) < 150) {
+                        } else if ((triglycerideValue = Double.parseDouble(triglyceride)) < 150) {
                             databaseReference.child("فحوصات الدهون").child("Triglyceride").setValue(triglyceride);
                             showSuccessDialog("أنت بصحة جيدة ", "استمر على هذا النحو من المحافظة على صحتك "  );
 
                             //  200 - 499
-                        } else if ((triglycerideValue = Integer.parseInt(triglyceride)) >= 200 && (triglycerideValue = Integer.parseInt(triglyceride)) <= 499) {
+                        } else if ((triglycerideValue = Double.parseDouble(triglyceride)) >= 200 && (triglycerideValue = Double.parseDouble(triglyceride)) <= 499) {
                             databaseReference.child("فحوصات الدهون").child("Triglyceride").setValue(triglyceride);
                             showWarningDialog("لا بأس استمر على الارشادات ", "هذا المؤشر ينبهك بالمحافظة على الصحة واتباع الإرشادات");
 
 
-                        } else if ((triglycerideValue = Integer.parseInt(triglyceride)) > 500) {
+                        } else if ((triglycerideValue = Double.parseDouble(triglyceride)) > 500) {
                             databaseReference.child("فحوصات الدهون").child("Triglyceride").setValue(triglyceride);
                             showErrorDialog("تحذير للمتابعة", " برجى استشارة طبيب على الفور او التوجه لاقرب مستشفى  ");
                         } else {
@@ -326,17 +331,17 @@ public class Dmonthly_Sugar extends Fragment {
                         if (ldl.isEmpty()) {
                             Toast.makeText(getActivity(), "لا توجد نتيجة", Toast.LENGTH_SHORT).show();
 
-                        } else if ((ldlValue = Integer.parseInt(ldl)) >= 70 && (ldlValue = Integer.parseInt(ldl)) <= 129) {
+                        } else if ((ldlValue = Double.parseDouble(ldl)) >= 70 && (ldlValue = Double.parseDouble(ldl)) <= 129) {
                             databaseReference.child("فحوصات الدهون").child("IDL").setValue(ldl);
                             showSuccessDialog("أنت بصحة جيدة ", "استمر على هذا النحو من المحافظة على صحتك " );
 
 
-                        } else if ((ldlValue = Integer.parseInt(ldl)) <= 70) {
+                        } else if ((ldlValue = Double.parseDouble(ldl)) <= 70) {
                             databaseReference.child("فحوصات الدهون").child("IDL").setValue(ldl);
                             showWarningDialog("لا بأس استمر على الارشادات ", "هذا المؤشر ينبهك بالمحافظة على الصحة واتباع الإرشادات");
 
 
-                        } else if ((ldlValue = Integer.parseInt(ldl)) > 130) {
+                        } else if ((ldlValue = Double.parseDouble(ldl)) > 130) {
                             databaseReference.child("فحوصات الدهون").child("IDL").setValue(ldl);
                             showErrorDialog("تحذير للمتابعة", " برجى استشارة طبيب على الفور او التوجه لاقرب مستشفى  ");
 
@@ -370,16 +375,16 @@ public class Dmonthly_Sugar extends Fragment {
 
                         if (hdl.isEmpty()) {
                             Toast.makeText(getActivity(), "لا توجد نتيجة", Toast.LENGTH_SHORT).show();
-                        } else if ((hdlValue = Integer.parseInt(hdl)) >= 60 && (hdlValue = Integer.parseInt(hdl)) <= 148) {
+                        } else if ((hdlValue = Double.parseDouble(hdl)) >= 60 && (hdlValue = Double.parseDouble(hdl)) <= 148) {
                             databaseReference.child("فحوصات الدهون").child("HDL").setValue(hdl);
                             showSuccessDialog("أنت بصحة جيدة ", "استمر على هذا النحو من المحافظة على صحتك " );
 
-                        } else if ((hdlValue = Integer.parseInt(hdl)) < 60) {
+                        } else if ((hdlValue = Double.parseDouble(hdl)) < 60) {
                             showWarningDialog("لا بأس استمر على الارشادات ", "هذا المؤشر ينبهك بالمحافظة على الصحة واتباع الإرشادات");
 
                             databaseReference.child("فحوصات الدهون").child("HDL").setValue(hdl);
 
-                        } else if ((hdlValue = Integer.parseInt(hdl)) > 149) {
+                        } else if ((hdlValue = Double.parseDouble(hdl)) > 149) {
                             showErrorDialog("تحذير للمتابعة", " برجى استشارة طبيب على الفور او التوجه لاقرب مستشفى  ");
 
                             databaseReference.child("فحوصات الدهون").child("HDL").setValue(hdl);
@@ -425,13 +430,13 @@ public class Dmonthly_Sugar extends Fragment {
 
                         if (Blood_Pressure.isEmpty()   ) {
                             Toast.makeText(getActivity(), " توجد نتيجة غير مدخلة", Toast.LENGTH_SHORT).show();
-                        } else if ((Blood_PressureValue = Integer.parseInt(Blood_Pressure)) <= 50 || (Blood_PressureValue = Integer.parseInt(Blood_Pressure)) >= 150 ) {
+                        } else if ((Blood_PressureValue = Double.parseDouble(Blood_Pressure)) <= 50 || (Blood_PressureValue = Double.parseDouble(Blood_Pressure)) >= 150 ) {
                             // Upload Data on Firebase
                             showErrorDialog("تحذير للمتابعة", " برجى استشارة طبيب على الفور او التوجه لاقرب مستشفى");
                             databaseReference.child("فحص ضغط الدم").child("Pressure").setValue(Blood_Pressure);
                             bottomSheetDialog.dismiss();
                         }
-                        else if ((Blood_PressureValue = Integer.parseInt(Blood_Pressure)) > 50 && (Blood_PressureValue = Integer.parseInt(Blood_Pressure)) < 150 ) {
+                        else if ((Blood_PressureValue = Double.parseDouble(Blood_Pressure)) > 50 && (Blood_PressureValue = Double.parseDouble(Blood_Pressure)) < 150 ) {
                             // Upload Data on Firebase
                             showErrorDialog(" انت بصحة جيددة", " برجى استشارة طبيب على الفور او التوجه لاقرب مستشفى");
                             databaseReference.child("فحص ضغط الدم").child("Pressure").setValue(Blood_Pressure);
@@ -468,8 +473,8 @@ public class Dmonthly_Sugar extends Fragment {
                             //EditText is empty
                             Toast.makeText(getActivity(), "لا توجد قيم مدخلة", Toast.LENGTH_SHORT).show();
                         } else {
-                            int bmi_heightValue = Integer.parseInt(bmi_height);
-                            int bmi_weightValue = Integer.parseInt(bmi_weight);
+                            Double bmi_heightValue = Double.parseDouble(bmi_height);
+                            Double bmi_weightValue = Double.parseDouble(bmi_weight);
                             //EditText is not empty
                             bmi = bmi_heightValue / bmi_weightValue * bmi_weightValue;
                             // Toast.makeText(getActivity(), " مؤشر الكتلة : " + bmi, Toast.LENGTH_SHORT).show();
@@ -559,12 +564,7 @@ return view;
         builder.setView(view);
         ((TextView) view.findViewById(R.id.textTitle)).setText(title);
 
-        // get variable and show in text view
-//        ((TextView) view.findViewById(R.id.textTitle)).setText(number_sugar);
-        // هذا السطر بمكني اجيب البيانات  من القيمة المدخلة وتضمينها داخل ال dialog
-        // ((TextView) view.findViewById(R.id.textTitle)).setText(number_sugar = et_number_sugar.getText().toString());
-//        ((TextView) view.findViewById(R.id.textMessage)).setText(getResources().getString(R.string.content_error));
-        ((TextView) view.findViewById(R.id.textMessage)).setText(message);
+         ((TextView) view.findViewById(R.id.textMessage)).setText(message);
         ((Button) view.findViewById(R.id.buttonAction)).setText(getResources().getString(R.string.okay));
         ((ImageView) view.findViewById(R.id.imageIcon)).setImageResource(R.drawable.ic_error);
         final AlertDialog alertDialog = builder.create();

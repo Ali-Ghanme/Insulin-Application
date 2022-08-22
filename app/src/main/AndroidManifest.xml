@@ -3,10 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.diabestes_care_app">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Diabestes_Care_App">
         <activity
-            android:name=".Ui.Doctor_all.Secation.Follow.PatinetData.Patent_Report_d"
+            android:name=".Schedule_Notification.Local_Notification"
             android:exported="false" />
         <activity
             android:name=".Users_Notification"
@@ -32,9 +28,6 @@
             android:exported="false" />
         <activity
             android:name=".Ui.Patient_all.Sections.Self_Care.Content.Content"
-            android:exported="false" />
-        <activity
-            android:name=".Local_Notification"
             android:exported="false" />
         <activity
             android:name=".Ui.Patient_all.Sections.Doses.Doses_Home"
@@ -118,19 +111,25 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name="com.example.diabestes_care_app.Alarms.alarmChooserActivity"
+            android:parentActivityName="com.example.diabestes_care_app.Alarms.alarmChooserActivity"></activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity
-            android:name="com.example.diabestes_care_app.Alarms.alarmChooserActivity"
-            android:parentActivityName="com.example.diabestes_care_app.Alarms.alarmChooserActivity" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
         <receiver android:name="com.example.diabestes_care_app.Alarms.AlarmReceiver" />
+        <receiver android:name=".Notification_Controller.LocalNotification.AlarmReceiver" />
 
         <service
             android:name="com.example.diabestes_care_app.Alarms.ringtonePlayingService"
             android:enabled="true" />
+
         <service
             android:name=".NotificationSender.FirebaseMessagingService"
             android:exported="true"
@@ -140,12 +139,10 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
-
-        <receiver android:name=".Notification_Controller.LocalNotification.AlarmReceiver" />
     </application>
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

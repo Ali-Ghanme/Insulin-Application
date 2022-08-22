@@ -46,7 +46,7 @@ public class Daily_Sugar extends Fragment {
     ListView listView;
     String PatientUsername, number_sugar, daysugar, currentDataTime;
     String[] time_day_suger = {"قبل النوم", "بعد العشاء", "قبل العشاء", "بعد الغداء ", "قبل الغداء", "بعد الإفطار", "قبل الإفطار"};
-    int sugarValue;
+    Double sugarValue;
     String success = "success", error = "error", warning = "warning";
 
     @Override
@@ -81,27 +81,26 @@ public class Daily_Sugar extends Fragment {
                 number_sugar = et_number_sugar.getText().toString();
                 if (number_sugar.isEmpty()) {
                     Toast.makeText(getActivity(), "لا توجد نتيجة", Toast.LENGTH_SHORT).show();
-                } else if ((sugarValue = Integer.parseInt(number_sugar)) < 69 || (sugarValue = Integer.parseInt(number_sugar)) >= 200) {
-                    Toast.makeText(getActivity(), " السكر منخفض  ", Toast.LENGTH_SHORT).show();
-                    showErrorDialog("تحذير", " برجى استشارة طبيب على الفور او التوجه لاقرب مستشفى ");
+                } else if ((sugarValue = Double.parseDouble(number_sugar)) < 69 || (sugarValue = Double.parseDouble(number_sugar)) >= 200) {
+
+                    showErrorDialog("تحذير السكر مرتفع", " برجى استشارة طبيب على الفور او التوجه لاقرب مستشفى && للأشخاص الطبيعين أكثر من 200 يعتبر مريض سكري ");
                     // Upload Data on Firebase
                     databaseReference_daily.child("نسبة السكر في الدم").setValue(number_sugar);
                     databaseReference_daily.child("فترة القياس").setValue(daysugar);
                     databaseReference_daily.child("وقت القياس").setValue(currentDataTime);
                     databaseReference_daily.child("حالة القياس").setValue(error);
                     // Mohammed Siam
-                } else if ((sugarValue = Integer.parseInt(number_sugar)) >= 70 && (sugarValue = Integer.parseInt(number_sugar)) <= 120) {
-                    Toast.makeText(getActivity(), " قيمة السكر  طبيعية  : " + number_sugar, Toast.LENGTH_SHORT).show();
-                    showSuccessDialog("أنت بصحة جيدة ", "استمر على هذا النحو من المحافظة على صحتك " + sugarValue);
+                } else if ((sugarValue = Double.parseDouble(number_sugar)) >= 70 && (sugarValue = Double.parseDouble(number_sugar)) <= 120) {
+
+                    showSuccessDialog("أنت بصحة جيدة", "استمر على هذا النحو من المحافظة على صحتك ");
                     // Upload Data on Firebase
                     databaseReference_daily.child("نسبة السكر في الدم").setValue(number_sugar);
                     databaseReference_daily.child("فترة القياس").setValue(daysugar);
                     databaseReference_daily.child("وقت القياس").setValue(currentDataTime);
                     databaseReference_daily.child("حالة القياس").setValue(success);
 
-                } else if ((sugarValue = Integer.parseInt(number_sugar)) > 120 && (sugarValue = Integer.parseInt(number_sugar)) < 200) {
-                    Toast.makeText(getActivity(), " معرض للاصابة بالسكري   : " + number_sugar, Toast.LENGTH_SHORT).show();
-                    showWarningDialog("لا بأس استمر على الارشادات ", "هذا المؤشر ينبهك بالمحافظة على الصحة واتباع الإرشادات" + sugarValue);
+                } else if ((sugarValue = Double.parseDouble(number_sugar)) > 120 && (sugarValue = Double.parseDouble(number_sugar)) < 200) {
+                     showWarningDialog("لا بأس استمر على الارشادات ", "هذا المؤشر ينبهك بالمحافظة على الصحة واتباع الإرشادات لانك معرض للاصابة بالسكري " + sugarValue);
                     // Upload Data on Firebase
                     databaseReference_daily.child("نسبة السكر في الدم").setValue(number_sugar);
                     databaseReference_daily.child("فترة القياس").setValue(daysugar);
@@ -201,7 +200,7 @@ public class Daily_Sugar extends Fragment {
         alertDialog.show();
     }
 
-    private void showErrorDialog(String title, String message) {
+    public void showErrorDialog(String title, String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.AlertDialogTheme);
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.layout_error_dialog, (ConstraintLayout) getActivity().findViewById(R.id.layoutDialogContainer));
         builder.setView(view);

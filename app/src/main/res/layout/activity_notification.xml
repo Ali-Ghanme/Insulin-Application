@@ -7,12 +7,13 @@
     tools:context=".Ui.Patient_all.Setting_P.notification">
 
     <RelativeLayout
-        android:id="@+id/notification"
+        android:id="@+id/FB_header"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_70sdp"
-        android:background="@drawable/bg_sing_up"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_height="@dimen/_80sdp"
+        android:background="@drawable/bg_half_rounded"
+        android:backgroundTint="@color/Patient_Color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
@@ -37,7 +38,7 @@
         android:paddingBottom="@dimen/_10sdp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/notification">
+        app:layout_constraintTop_toBottomOf="@+id/FB_header">
 
         <TextView
             android:id="@+id/notification_text"
@@ -51,29 +52,22 @@
             android:textAlignment="textStart"
             android:textSize="@dimen/_15sdp" />
 
-<!--        <com.bitvale.switcher.SwitcherX-->
-<!--            android:id="@+id/switcher_1"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_alignParentLeft="true"-->
-<!--            android:layout_marginLeft="@dimen/_20sdp"-->
-<!--            android:layout_marginTop="@dimen/_30sdp"-->
-<!--            android:checked="true"-->
-<!--            app:elevation="@dimen/_5sdp"-->
-<!--            app:switcher_icon_color="@color/switcher_icon_color"-->
-<!--            app:switcher_off_color="@color/Red"-->
-<!--            app:switcher_on_color="@color/Patient_Color" />-->
-
-
-        <Switch
+        <com.bitvale.switcher.SwitcherX
             android:id="@+id/switcher_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_30sdp"
-            android:checked="true"
-            app:elevation="@dimen/_5sdp" />
+            android:checked="false"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            app:elevation="@dimen/_5sdp"
+            app:switcher_icon_color="@color/switcher_icon_color"
+            app:switcher_off_color="@color/Red"
+            app:switcher_on_color="@color/Patient_Color"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
     </RelativeLayout>
 
     <RelativeLayout

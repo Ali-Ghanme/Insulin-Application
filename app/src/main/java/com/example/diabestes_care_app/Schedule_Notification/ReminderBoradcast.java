@@ -8,9 +8,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
-
 public class ReminderBoradcast extends BroadcastReceiver {
     public static String NOTIFICATION = "notification";
     public static String NOTIFICATIONID = "notification-id";
@@ -27,6 +24,5 @@ public class ReminderBoradcast extends BroadcastReceiver {
             assert notificationManager !=null;
             notificationManager.notify(id,notification);
         }
-
     }
 }

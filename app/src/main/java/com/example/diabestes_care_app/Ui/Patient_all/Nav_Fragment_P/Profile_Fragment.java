@@ -11,12 +11,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -34,14 +32,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-
 @SuppressLint("UseSwitchCompatOrMaterialCode")
 public class Profile_Fragment extends Fragment {
     // Section
-    RelativeLayout notification_cont,   help_cont, LogOut_cont, FB_help_cont;
+    RelativeLayout notification_cont, DarkMode_cont, help_cont, LogOut_cont, FB_help_cont;
     // Image Patient Profile , Edit Icon
     ImageView imageView, imageView2;
-
     // Patient Name
     TextView name;
     // Firebase
@@ -59,14 +55,15 @@ public class Profile_Fragment extends Fragment {
 
         //============================Defines=======================================================
         notification_cont = view.findViewById(R.id.FB_notification_cont);
-        // DarkMode_cont = view.findViewById(R.id.FB_DarkMode_cont);
+        DarkMode_cont = view.findViewById(R.id.FB_DarkMode_cont);
         help_cont = view.findViewById(R.id.FB_help_cont);
         LogOut_cont = view.findViewById(R.id.FB_LogOut_cont);
         name = view.findViewById(R.id.FB_tv_Patient_name);
         imageView = view.findViewById(R.id.FB_Patient_image);
         imageView2 = view.findViewById(R.id.FB_Patient_edit);
         FB_help_cont = view.findViewById(R.id.FB_help_contt);
-        //Switch  DarkMode_cont =    view.findViewById(R.id.FB_switcher);
+        Switch DarkMode_cont = view.findViewById(R.id.FB_switcher);
+
         //============================Shared Preference=============================================
         prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         PatientUsername = prefs.getString("TAG_NAME", null);
@@ -79,6 +76,7 @@ public class Profile_Fragment extends Fragment {
                 startActivity(intent);
             }
         });
+
         FB_help_cont.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,18 +93,18 @@ public class Profile_Fragment extends Fragment {
             }
         });
 
-//
 //        DarkMode_cont.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 //            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 //                if (isChecked) {
 //                    Toast.makeText(getContext(), "Hallow Dark Mod is Unavailable right now 😉", Toast.LENGTH_SHORT).show();
 //
 //                } else {
-//                    Toast.makeText(getContext(), " 😉", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getContext(), "😉", Toast.LENGTH_SHORT).show();
 //
 //                }
 //            }
 //        });
+
         help_cont.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -140,7 +138,7 @@ public class Profile_Fragment extends Fragment {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (getActivity() == null){
+                if (getActivity() == null) {
                     return;
                 }
                 String PatientImage = snapshot.child(PatientUsername).child("User_Profile_Image").child("Image").child("mImageUrI").getValue(String.class);

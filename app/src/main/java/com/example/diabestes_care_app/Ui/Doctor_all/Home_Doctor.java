@@ -1,8 +1,12 @@
 package com.example.diabestes_care_app.Ui.Doctor_all;
 
+import android.app.Dialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -33,7 +37,8 @@ public class Home_Doctor extends Basic_Activity {
     String DoctorUsername;
     DatabaseReference myRef;
     public static final String MyPREFERENCES_D = "D_Username";
-
+    Dialog dialog;
+    Button Continue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,11 +56,20 @@ public class Home_Doctor extends Basic_Activity {
             fragmentManager.beginTransaction().replace(R.id.fragment_container_d, home_fragment).commit();
         }
 
+        //============================Create + Configure the Dialog here============================
+        dialog = new Dialog(Home_Doctor.this);
+        dialog.setContentView(R.layout.offline_dialog);
+        dialog.getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.dilog_background));
+        //Setting the animations to dialog
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.setCancelable(false); //Optional
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        Continue = dialog.findViewById(R.id.Continue);
 
         //============================Firebase======================================================
         myRef = FirebaseDatabase.getInstance().getReference();
 
-        //============================Get Doctor Username===========================================
+        //============================Check Status of user and store it in Firebase=================
         SharedPreferences prefs = getApplicationContext().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
         DoctorUsername = prefs.getString("TAG_NAME", null);
 
@@ -73,11 +87,19 @@ public class Home_Doctor extends Basic_Activity {
                     Log.e("TAG", DoctorUsername + snooping_status);
                 } else {
                     Toast.makeText(Home_Doctor.this, "User Offline", Toast.LENGTH_SHORT).show();
+                    dialog.show();
                 }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+
+        Continue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
             }
         });
         //============================BottomNavigation Transaction==================================

@@ -2,9 +2,13 @@ package com.example.diabestes_care_app.Ui.Patient_all;
 
 import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
 
+import android.app.Dialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -33,8 +37,8 @@ public class Home_Patient extends Basic_Activity {
     AnimatedBottomBar animatedBottomBar;
     // Patient Username TextView
     String PatientUsername;
-
-
+    Dialog dialog;
+    Button Continue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +55,15 @@ public class Home_Patient extends Basic_Activity {
 //             Add Home Fragment as the default Fragment
             fragmentManager.beginTransaction().replace(R.id.fragment_container, home_fragment).commit();
         }
+        //============================Create + Configure the Dialog here============================
+        dialog = new Dialog(Home_Patient.this);
+        dialog.setContentView(R.layout.offline_dialog);
+        dialog.getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.dilog_background));
+        //Setting the animations to dialog
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.setCancelable(false); //Optional
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        Continue = dialog.findViewById(R.id.Continue);
 
         //============================Firebase======================================================
         myRef = FirebaseDatabase.getInstance().getReference();
@@ -81,6 +94,7 @@ public class Home_Patient extends Basic_Activity {
                     //tell linker to do a lot of sh****t
                     Toast.makeText(Home_Patient.this, "All Doctors Offline", Toast.LENGTH_SHORT).show();
                     Log.e("TAG", snooping_status);
+                    dialog.show();
                 }
             }
 
@@ -89,6 +103,12 @@ public class Home_Patient extends Basic_Activity {
             }
         });
 
+        Continue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
         //============================BottomNavigation Transaction==================================
         animatedBottomBar.setOnTabSelectListener(new AnimatedBottomBar.OnTabSelectListener() {
             @Override

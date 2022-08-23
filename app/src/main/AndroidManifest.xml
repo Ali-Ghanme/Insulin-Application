@@ -11,9 +11,9 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:resource="@drawable/ic_notification"
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
         android:theme="@style/Theme.Diabestes_Care_App">
         <activity
             android:name=".Ui.Doctor_all.Secation.Follow.PatinetData.Patent_Report_d"

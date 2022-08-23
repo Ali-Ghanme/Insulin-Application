@@ -1,6 +1,5 @@
 package com.example.diabestes_care_app.NotificationSender;
 
-import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
@@ -25,22 +24,21 @@ public class FcmNotificationsSender {
     String title;
     String body;
     Context mContext;
-    Activity mActivity;
+
 
     private RequestQueue requestQueue;
     private final String postUrl = "https://fcm.googleapis.com/fcm/send";
     private final String fcmServerKey = "AAAAVpUEzVo:APA91bFsjeSoQmspqE1ehZh6fI6uN9KWbvKB4gM31D_YTiT7ddps1b-L7dHBKsry6UUm2vf8T7peZj7WTni4mJKvfIspw6E5z5oqyYxHRPfJJjsncl_ig-vcxR0w2DbsqxcCV2SZKtsA";
 
-    public FcmNotificationsSender(String userFcmToken, String title, String body,  Context mContext, Activity mActivity ) {
+    public FcmNotificationsSender(String userFcmToken, String title, String body,  Context mContext) {
         this.userFcmToken = userFcmToken;
         this.title = title;
         this.body = body;
         this.mContext = mContext;
-        this.mActivity = mActivity;
     }
 
     public void SendNotifications() {
-        requestQueue = Volley.newRequestQueue(mActivity);
+        requestQueue = Volley.newRequestQueue(mContext);
         JSONObject mainObj = new JSONObject();
         try {
             mainObj.put("to", userFcmToken);
@@ -54,7 +52,7 @@ public class FcmNotificationsSender {
             JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, postUrl, mainObj, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
-                    Toast.makeText(mContext, "Is Work and send "+ userFcmToken, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext, "Is Work and send " + userFcmToken, Toast.LENGTH_SHORT).show();
                 }
             }, new Response.ErrorListener() {
                 @Override
@@ -75,10 +73,9 @@ public class FcmNotificationsSender {
 
         } catch (JSONException e) {
             e.printStackTrace();
-            Log.e("TAG",e.getMessage());
+            Log.e("TAG", e.getMessage());
+
         }
-
-
     }
 }
 

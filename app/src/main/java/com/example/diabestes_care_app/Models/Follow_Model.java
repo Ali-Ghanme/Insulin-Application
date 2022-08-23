@@ -3,17 +3,26 @@ package com.example.diabestes_care_app.Models;
 import java.io.Serializable;
 
 public class Follow_Model implements Serializable {
-    String name, type, health_status, imageUrl, username;
+    String name, type, health_status, imageUrl, username, token;
 
-    public Follow_Model(String name, String type, String health_status, String imageUrl, String username) {
+    public Follow_Model(String name, String type, String health_status, String imageUrl, String username,String token) {
         this.name = name;
         this.type = type;
         this.health_status = health_status;
         this.imageUrl = imageUrl;
         this.username = username;
+        this.token = token;
     }
 
     public Follow_Model() {
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 
     public String getUsername() {

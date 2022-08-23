@@ -89,7 +89,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/HP_search_input_d"
-        android:layout_marginTop="@dimen/_20sdp"
         android:background="?attr/selectableItemBackground"
         android:clickable="true"
         android:focusable="true">

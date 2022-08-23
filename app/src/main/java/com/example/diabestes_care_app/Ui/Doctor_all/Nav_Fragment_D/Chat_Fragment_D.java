@@ -76,7 +76,6 @@ public class Chat_Fragment_D extends Fragment {
         SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
         DoctorUsername = prefs.getString("TAG_NAME", null);
 
-//        Toast.makeText(getContext(), DoctorUsername, Toast.LENGTH_SHORT).show();
         return view;
     }
 
@@ -160,7 +159,6 @@ public class Chat_Fragment_D extends Fragment {
                                     messagesAdapter.notifyDataSetChanged();
                                 }
                             }
-
                             @Override
                             public void onCancelled(@NonNull DatabaseError error) {
 
@@ -170,7 +168,6 @@ public class Chat_Fragment_D extends Fragment {
                 } catch (Exception e) {
                     Toast.makeText(getContext(), "إنتظر قليلاً ", Toast.LENGTH_SHORT).show();
                 }
-
             }
 
             @Override

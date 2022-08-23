@@ -16,7 +16,6 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -145,18 +144,19 @@ public class Home_Fragment_D extends Fragment {
                         patientListModel.setUsername(snapshot.child("username").getValue().toString());
                         patientListModel.setPatientType(snapshot.child("disease_info").child("Diabetes Type").getValue().toString());
                         patientListModel.setImageUrl(snapshot.child("User_Profile_Image").child("Image").child("mImageUrI").getValue().toString());
+                        patientListModel.setToken(snapshot.child("Token").child("Patient_Token").getValue().toString());
                         list.add(patientListModel);
                         progressDialog.dismiss();
                     }
 
                 } catch (Exception e) {
-                    Toast.makeText(requireContext(), "خطأ في الرئيسيةً ", Toast.LENGTH_SHORT).show();
                     Log.e("TAG", e.getMessage());
 
                 }
                 patientList_adapter = new Patient_List_Adapter(getContext(), list);
                 recyclerView.setAdapter(patientList_adapter);
                 patientList_adapter.updateUsersList(list);
+                patientList_adapter.notifyDataSetChanged();
             }
 
             @Override

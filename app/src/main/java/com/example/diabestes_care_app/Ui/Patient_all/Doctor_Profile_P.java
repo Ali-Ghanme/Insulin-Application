@@ -137,8 +137,7 @@ public class Doctor_Profile_P extends Basic_Activity {
                 Consultation_subject = et_subject.getText().toString();
 
                 if (!Consultation_title.isEmpty() && !Consultation_subject.isEmpty() && !getToken.isEmpty()) {
-                    FcmNotificationsSender notificationsSender = new FcmNotificationsSender(getToken, Consultation_title, PatientUsername, getApplicationContext(),
-                            Doctor_Profile_P.this);
+                    FcmNotificationsSender notificationsSender = new FcmNotificationsSender(getToken, Consultation_title, PatientUsername,getApplicationContext());
                     notificationsSender.SendNotifications();
 
                     myReference.child("Title").setValue(Consultation_title);

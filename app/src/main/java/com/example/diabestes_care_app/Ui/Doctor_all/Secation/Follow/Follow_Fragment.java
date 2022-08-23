@@ -100,6 +100,7 @@ public class Follow_Fragment extends Fragment {
                     follow_model.setName(dataSnapshot.child(PatientUsername2).child("personal_info").child("name").getValue().toString());
                     follow_model.setUsername(dataSnapshot.child(PatientUsername2).child("personal_info").child("username").getValue().toString());
 
+
                 } catch (Exception e) {
                     Log.e("TAG", e.getMessage());
                 }

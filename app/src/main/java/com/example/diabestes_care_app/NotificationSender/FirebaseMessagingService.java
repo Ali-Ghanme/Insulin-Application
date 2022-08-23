@@ -42,12 +42,10 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
         int resourceImage = getResources().getIdentifier(remoteMessage.getNotification().getIcon(), "drawable", getPackageName());
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "CHANNEL_ID");
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//            builder.setSmallIcon(R.drawable.icontrans);
-            builder.setSmallIcon(R.drawable.icon);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            builder.setSmallIcon(R.drawable.ic_notification);
         } else {
-//            builder.setSmallIcon(R.drawable.icon_kritikar);
-            builder.setSmallIcon(R.drawable.icon);
+            builder.setSmallIcon(R.drawable.ic_notification);
         }
 
         Intent resultIntent = new Intent(this, Users_Notification.class);

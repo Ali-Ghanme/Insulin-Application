@@ -28,6 +28,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.diabestes_care_app.Models.PatientList_Model;
+import com.example.diabestes_care_app.NotificationSender.FcmNotificationsSender;
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Doctor_all.Patient_Profile_D;
 import com.example.diabestes_care_app.Ui.Patient_all.Doctor_Profile_P;
@@ -44,7 +45,7 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
     ArrayList<PatientList_Model> list;
     ArrayList<PatientList_Model> mDataFiltered;
     DatabaseReference myRef;
-    String DoctorUsername;
+    String DoctorUsername, doctor_name;
     Dialog dialog;
     String snooping_status;
     public static final String MyPREFERENCES_P_List = "D_P_Username";
@@ -54,6 +55,7 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
         this.context = context;
         this.list = list;
         this.mDataFiltered = list;
+
     }
 
     @NonNull
@@ -88,7 +90,17 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
         myRef = FirebaseDatabase.getInstance().getReference("doctor");
         DatabaseReference online_status_all_users = FirebaseDatabase.getInstance().getReference().child("online_statuses").child(list2.getUsername());
         DatabaseReference follow = FirebaseDatabase.getInstance().getReference().child("doctor").child(DoctorUsername).child("Follow").child(list2.getUsername()).child("Following");
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                doctor_name = snapshot.child(DoctorUsername).child("personal_info").child("name_ar").getValue().toString();
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         //============================Online/Offline read Status ===================================
         online_status_all_users.addValueEventListener(new ValueEventListener() {
             @Override
@@ -129,15 +141,24 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
                 public boolean onSingleTapConfirmed(MotionEvent e) {
                     follow.setValue(list2.getUsername());
                     if (holder.follow_btn.getText().equals("متابعة")) {
-                        dialog.show();
+                        holder.follow_btn.setText("أتابع");
+                        Toast.makeText(context, "لألغاء المتابعة اضغط مرتين", Toast.LENGTH_SHORT).show();
+                        // Remove the item on remove/button click
+//                        list.remove(holder.getAbsoluteAdapterPosition());
+//                        notifyItemRemoved(holder.getAbsoluteAdapterPosition());
+////                        notifyItemRangeChanged(holder.getAbsoluteAdapterPosition(), list.size());
+
+                        if (!list2.getToken().isEmpty()) {
+                            FcmNotificationsSender notificationsSender = new FcmNotificationsSender(list2.getToken(), "متابعة", " قام الدكتور " +
+                                    doctor_name + " بمتابعتك ", context.getApplicationContext());
+                            notificationsSender.SendNotifications();
+                        }
+
                     }
-                    holder.follow_btn.setText("أتابع");
 
                     SharedPreferences.Editor editor = sharedpreferences.edit();
                     editor.putString("TAG_NAME", list2.getImageUrl());
                     editor.apply();
-
-                    Log.e("TAG" , list2.getUsername());
 
                     return super.onSingleTapConfirmed(e);
                 }

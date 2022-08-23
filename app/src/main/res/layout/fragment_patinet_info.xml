@@ -9,15 +9,16 @@
 
     <RelativeLayout
         android:id="@+id/image"
-        android:layout_width="@dimen/_250sdp"
+        android:layout_width="@dimen/_240sdp"
         android:layout_height="@dimen/_70sdp"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginEnd="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_10sdp"
-        android:background="@drawable/bg_background2"
-        android:backgroundTint="?attr/bg_color">
+        android:background="@drawable/bg_doctors_list"
+        android:backgroundTint="?attr/bg_color"
+        android:elevation="1.5dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/FPI_img_Profile"
@@ -70,9 +71,9 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginRight="@dimen/_30sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
-                android:background="@drawable/bg_background2"
+                android:background="@drawable/bg_doctors_list"
                 android:backgroundTint="?attr/bg_color"
-                android:elevation="1dp">
+                android:elevation="1.5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -104,9 +105,9 @@
                 android:layout_marginLeft="@dimen/_30sdp"
                 android:layout_marginRight="@dimen/_30sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
-                android:background="@drawable/bg_background2"
+                android:background="@drawable/bg_doctors_list"
                 android:backgroundTint="?attr/bg_color"
-                android:elevation="1dp">
+                android:elevation="1.5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -138,9 +139,9 @@
                 android:layout_marginLeft="@dimen/_30sdp"
                 android:layout_marginRight="@dimen/_30sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
-                android:background="@drawable/bg_background2"
+                android:background="@drawable/bg_doctors_list"
                 android:backgroundTint="?attr/bg_color"
-                android:elevation="1dp">
+                android:elevation="1.5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -172,9 +173,9 @@
                 android:layout_marginLeft="@dimen/_30sdp"
                 android:layout_marginRight="@dimen/_30sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
-                android:background="@drawable/bg_background2"
+                android:background="@drawable/bg_doctors_list"
                 android:backgroundTint="?attr/bg_color"
-                android:elevation="1dp">
+                android:elevation="1.5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -206,9 +207,9 @@
                 android:layout_marginLeft="@dimen/_30sdp"
                 android:layout_marginRight="@dimen/_30sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
-                android:background="@drawable/bg_background2"
+                android:background="@drawable/bg_doctors_list"
                 android:backgroundTint="?attr/bg_color"
-                android:elevation="1dp">
+                android:elevation="1.5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -239,8 +240,8 @@
                 android:layout_gravity="right"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginRight="@dimen/_20sdp"
-                android:fontFamily="@font/cairo_bold"
                 android:layout_marginBottom="@dimen/_10sdp"
+                android:fontFamily="@font/cairo_bold"
                 android:text="معلومات طبية"
                 android:textColor="@color/Doctor_Color"
                 android:textSize="@dimen/_16sdp" />
@@ -253,9 +254,9 @@
                 android:layout_marginLeft="@dimen/_30sdp"
                 android:layout_marginRight="@dimen/_30sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
-                android:background="@drawable/bg_background2"
+                android:background="@drawable/bg_doctors_list"
                 android:backgroundTint="?attr/bg_color"
-                android:elevation="1dp">
+                android:elevation="1.5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -288,9 +289,9 @@
                 android:layout_marginLeft="@dimen/_30sdp"
                 android:layout_marginRight="@dimen/_30sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
-                android:background="@drawable/bg_background2"
+                android:background="@drawable/bg_doctors_list"
                 android:backgroundTint="?attr/bg_color"
-                android:elevation="1dp">
+                android:elevation="1.5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -323,9 +324,9 @@
                 android:layout_marginLeft="@dimen/_30sdp"
                 android:layout_marginRight="@dimen/_30sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
-                android:background="@drawable/bg_background2"
+                android:background="@drawable/bg_doctors_list"
                 android:backgroundTint="?attr/bg_color"
-                android:elevation="1dp">
+                android:elevation="1.5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -358,9 +359,9 @@
                 android:layout_marginLeft="@dimen/_30sdp"
                 android:layout_marginRight="@dimen/_30sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
-                android:background="@drawable/bg_background2"
+                android:background="@drawable/bg_doctors_list"
                 android:backgroundTint="?attr/bg_color"
-                android:elevation="1dp">
+                android:elevation="1.5dp">
 
                 <TextView
                     android:layout_width="wrap_content"

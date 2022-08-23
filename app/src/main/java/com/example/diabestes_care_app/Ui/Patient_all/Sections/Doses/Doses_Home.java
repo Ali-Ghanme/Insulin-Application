@@ -174,10 +174,10 @@ public class Doses_Home extends Basic_Activity {
                                     tTime.setText(timeString);
                                 } catch (NullPointerException ignored) {
                                 }
-                                if (Integer.parseInt(greetingTimeString) < 12) {
+                                if (Double.parseDouble(greetingTimeString) < 12) {
                                     tGreeting.setText(R.string.good_mor);
 //                                    tampm.setText(R.string.am);
-                                } else if (Integer.parseInt(greetingTimeString) < 17) {
+                                } else if (Double.parseDouble(greetingTimeString) < 17) {
                                     tGreeting.setText(R.string.good_aft);
 //                                    tampm.setText(R.string.pm);
                                 } else {

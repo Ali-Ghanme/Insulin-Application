@@ -86,11 +86,12 @@
     <string name="yes">اتبع الارشادات </string>
     <string name="no">حسنا </string>
 
+    <string name="title_activity_genral_cons">Genral_Cons</string>
+
     <string-array name="Gender_array">
         <item>ذكر</item>
         <item>انثى</item>
     </string-array>
-
     <string-array name="clock">
         <item> إختر فترة القياس </item>
         <item>قبل الإفطور</item>
@@ -101,8 +102,6 @@
         <item>بعد العشاء</item>
         <item>قبل النوم</item>
     </string-array>
-    <string name="title_activity_genral_cons">Genral_Cons</string>
-    <string name="title_activity_patinet_report">Patinet_Report</string>
 
 
 </resources>

@@ -17,24 +17,31 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 
-
+        <!--            android:layout_height="450dp"-->
         <com.jjoe64.graphview.GraphView
             android:id="@+id/graphview"
             android:layout_marginTop="@dimen/_20sdp"
             android:layout_width="wrap_content"
             android:layout_height="450dp"
+
               />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:letterSpacing="0.2"
-            android:layout_marginTop="-15dp"
-            android:background="@color/white"
+            android:layout_marginTop="-13.5dp"
+            android:background="#FAF9F9"
             android:text=" صباحا      ظهرا         عصرا        مغرب      عشاء"
             android:textColor="@color/black"
             android:fontFamily="@font/cairo_light"
             android:textSize="@dimen/_12sdp" />
 
+
+<!--        <Button-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="noti"-->
+<!--            android:id="@+id/noti"/>-->
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

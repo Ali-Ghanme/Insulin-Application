@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_65sdp"
         android:background="@drawable/bg_sing_up"
+        android:backgroundTint="@color/Doctor_Color"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -36,27 +37,14 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/Sing_up_header">
 
-        <TextView
-            android:id="@+id/Sp3_tv_UnName_D"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:fontFamily="@font/cairo_bold"
-            android:text="اسم الجامعة"
-            android:textAlignment="textStart"
-            android:textColor="@color/Doctor_Color"
-            android:textSize="@dimen/_12sdp"
-            android:textStyle="bold" />
-
         <EditText
             android:id="@+id/Sp3_UnName_D"
             android:layout_width="@dimen/_230sdp"
             android:layout_height="@dimen/_40sdp"
-            android:layout_below="@+id/Sp3_tv_UnName_D"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:background="@drawable/bg_edit_text"
+            android:backgroundTint="?attr/bg_color"
             android:drawableLeft="@drawable/ic_collage"
             android:drawableTint="@color/Doctor_Color"
             android:editable="false"
@@ -69,28 +57,16 @@
             android:textColor="@color/Doctor_Color"
             android:textSize="15sp" />
 
-        <TextView
-            android:id="@+id/Sp3_tv_certificate_D"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/Sp3_UnName_D"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:fontFamily="@font/cairo_bold"
-            android:text="الشهادة الجامعية"
-            android:textAlignment="textStart"
-            android:textColor="@color/Doctor_Color"
-            android:textSize="@dimen/_12sdp"
-            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/Sp3_certificate_D"
             android:layout_width="@dimen/_230sdp"
             android:layout_height="@dimen/_40sdp"
-            android:layout_below="@id/Sp3_tv_certificate_D"
+            android:layout_below="@id/Sp3_UnName_D"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:background="@drawable/bg_edit_text"
+            android:backgroundTint="?attr/bg_color"
             android:drawableLeft="@drawable/ic_collage"
             android:drawableTint="@color/Doctor_Color"
             android:editable="false"
@@ -110,9 +86,10 @@
             android:layout_height="@dimen/_40sdp"
             android:layout_below="@id/Sp3_certificate_D"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:autofillHints="creditCardExpirationDate"
             android:background="@drawable/bg_edit_text"
+            android:backgroundTint="?attr/bg_color"
             android:cursorVisible="false"
             android:drawableLeft="@drawable/ic_data"
             android:drawablePadding="@dimen/_13sdp"
@@ -131,28 +108,16 @@
             android:textSize="15sp"
             tools:ignore="TouchTargetSizeCheck" />
 
-        <TextView
-            android:id="@+id/Sp3_tv_Grad_Country_D"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/Sp3_et_year_Grade_D"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:fontFamily="@font/cairo_bold"
-            android:text="بلد التخرج"
-            android:textAlignment="textStart"
-            android:textColor="@color/Doctor_Color"
-            android:textSize="@dimen/_12sdp"
-            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/Sp3_Grad_Country_D"
             android:layout_width="@dimen/_230sdp"
             android:layout_height="@dimen/_40sdp"
-            android:layout_below="@id/Sp3_tv_Grad_Country_D"
+            android:layout_below="@id/Sp3_et_year_Grade_D"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:background="@drawable/bg_edit_text"
+            android:backgroundTint="?attr/bg_color"
             android:drawableLeft="@drawable/ic_location"
             android:drawableTint="@color/Doctor_Color"
             android:editable="false"
@@ -168,15 +133,17 @@
 
     <Button
         android:id="@+id/Sp3_bt321_next_D"
-        android:layout_width="@dimen/_50sdp"
-        android:layout_height="@dimen/_50sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/_50sdp"
-        android:background="@drawable/float_action_btn"
+        android:layout_marginBottom="@dimen/_30sdp"
+        android:background="@drawable/bg_ic_background"
         android:backgroundTint="@color/Doctor_Color"
-        android:drawableStart="@drawable/ic_float_action"
+        android:text="التالي"
+        android:textColor="@color/white"
+        android:fontFamily="@font/cairo_bold"
+        android:textSize="@dimen/_12sdp"
         android:paddingHorizontal="@dimen/_20sdp"
-        app:borderWidth="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

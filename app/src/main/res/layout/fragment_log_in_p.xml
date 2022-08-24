@@ -18,7 +18,7 @@
             android:layout_marginTop="@dimen/_30sdp"
             android:layout_marginRight="@dimen/_30sdp"
             android:fontFamily="@font/cairo_bold"
-            android:text="اسم المستخدم / رقم الهاتف"
+            android:text="اسم المستخدم"
             android:textAlignment="textStart"
             android:textColor="@color/Patient_Color"
             android:textSize="11sp"
@@ -32,6 +32,7 @@
             android:layout_marginTop="@dimen/_60sdp"
             android:autofillHints="username"
             android:background="@drawable/bg_edit_text"
+            android:backgroundTint="?attr/bg_color"
             android:drawableLeft="@drawable/ic_user_edit"
             android:drawablePadding="@dimen/_13sdp"
             android:elevation="@dimen/_1sdp"
@@ -64,7 +65,6 @@
             android:textSize="11sp"
             android:textStyle="bold" />
 
-
         <EditText
             android:id="@+id/FSI_et_pass_P"
             android:layout_width="@dimen/_230sdp"
@@ -74,6 +74,7 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:autofillHints="password"
             android:background="@drawable/bg_edit_text"
+            android:backgroundTint="?attr/bg_color"
             android:drawableLeft="@drawable/ic_password_hide"
             android:drawablePadding="@dimen/_13sdp"
             android:elevation="@dimen/_1sdp"

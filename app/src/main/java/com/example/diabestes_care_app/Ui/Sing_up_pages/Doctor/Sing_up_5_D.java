@@ -1,11 +1,13 @@
 package com.example.diabestes_care_app.Ui.Sing_up_pages.Doctor;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -40,6 +42,8 @@ public class Sing_up_5_D extends Basic_Activity {
     ProgressBar mProgress;
     Button btn_Upload;
     Uri mImageUri;
+    Dialog dialog;
+    Button close,continues;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,5 +137,34 @@ public class Sing_up_5_D extends Basic_Activity {
             mImageUri = data.getData();
             Picasso.with(this).load(mImageUri).into(mImageView);
         }
+    }
+    @Override
+    public void onBackPressed() {
+        //============================Create + Configure the Dialog here============================
+        dialog = new Dialog(Sing_up_5_D.this);
+        dialog.setContentView(R.layout.exite_layout);
+        dialog.getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.dilog_background));
+        //Setting the animations to dialog
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.setCancelable(false); //Optional
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        dialog.show();
+        close = dialog.findViewById(R.id.Close);
+        continues = dialog.findViewById(R.id.Continue2);
+        dialog.show();
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                finish();
+            }
+        });
+
+        continues.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
     }
 }

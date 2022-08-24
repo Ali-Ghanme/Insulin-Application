@@ -1,10 +1,12 @@
 package com.example.diabestes_care_app.Ui.Sing_up_pages.Patient;
 
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -32,12 +34,14 @@ public class Sing_Up_1_P extends Basic_Activity {
 
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://diabeticsproject-default-rtdb.firebaseio.com/");
     Button btn_next_S;
-    EditText mName, mUsername, mDate, mWehigt, mTall, mID;
+    EditText mName, mUsername, mDate, mWehigt, mTall;
     final Calendar myCalendar = Calendar.getInstance();
     RadioGroup mGender;
     RadioButton mGenderOption;
     String strGender;
     String patientName, patientUsername, patientDate, patientWehigt, patientTall, PatientID, PatientAge, PatientToken;
+    Dialog dialog;
+    Button close,continues;
 
 
     @Override
@@ -54,8 +58,6 @@ public class Sing_Up_1_P extends Basic_Activity {
         mDate = findViewById(R.id.Sp1_date_P);
         mWehigt = findViewById(R.id.Sp1_wehigt_P);
         mTall = findViewById(R.id.Sp1_tall_P);
-        mID = findViewById(R.id.Sp1_ID_P);
-
 
         // Generate Token for Patient
         FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
@@ -115,12 +117,11 @@ public class Sing_Up_1_P extends Basic_Activity {
                 patientDate = mDate.getText().toString();
                 patientWehigt = mWehigt.getText().toString();
                 patientTall = mTall.getText().toString();
-                PatientID = mID.getText().toString();
 
 
                 //====================================Validation===============================
                 // cheek if user fill all data fields before sending data to firebase
-                if (validIsEmpty(patientName, patientUsername, patientWehigt, patientTall, PatientID, patientDate)) {
+                if (validIsEmpty(patientName, patientUsername, patientWehigt, patientTall,patientDate , patientDate)) {
                     Toast.makeText(Sing_Up_1_P.this, "Fill all fields", Toast.LENGTH_SHORT).show();
                 } else if (!patientUsername.startsWith("P")) {
                     Toast.makeText(Sing_Up_1_P.this, "User Name Must Start With P", Toast.LENGTH_SHORT).show();
@@ -140,7 +141,7 @@ public class Sing_Up_1_P extends Basic_Activity {
                                 databaseReference.child("patient").child(patientUsername).child("personal_info").child("gender").setValue(strGender);
                                 databaseReference.child("patient").child(patientUsername).child("personal_info").child("wehigt").setValue(patientWehigt);
                                 databaseReference.child("patient").child(patientUsername).child("personal_info").child("tall").setValue(patientTall);
-                                databaseReference.child("patient").child(patientUsername).child("personal_info").child("iD").setValue(PatientID);
+//                                databaseReference.child("patient").child(patientUsername).child("personal_info").child("iD").setValue(PatientID);
                                 databaseReference.child("patient").child(patientUsername).child("personal_info").child("Age").setValue(PatientAge);
                                 databaseReference.child("patient").child(patientUsername).child("Token").child("Patient_Token").setValue(PatientToken);
                                 Toast.makeText(Sing_Up_1_P.this, PatientAge, Toast.LENGTH_SHORT).show();
@@ -178,5 +179,35 @@ public class Sing_Up_1_P extends Basic_Activity {
         String ageS = ageInt.toString();
         Log.e("TAG", ageS);
         return ageS;
+    }
+
+    @Override
+    public void onBackPressed() {
+        //============================Create + Configure the Dialog here============================
+        dialog = new Dialog(Sing_Up_1_P.this);
+        dialog.setContentView(R.layout.exite_layout);
+        dialog.getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.dilog_background));
+        //Setting the animations to dialog
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.setCancelable(false); //Optional
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        dialog.show();
+        close = dialog.findViewById(R.id.Close);
+        continues = dialog.findViewById(R.id.Continue2);
+        dialog.show();
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                finish();
+            }
+        });
+
+        continues.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
     }
 }

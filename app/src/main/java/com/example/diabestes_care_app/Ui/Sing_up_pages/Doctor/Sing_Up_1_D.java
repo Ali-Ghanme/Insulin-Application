@@ -1,10 +1,12 @@
 package com.example.diabestes_care_app.Ui.Sing_up_pages.Doctor;
 
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -37,7 +39,8 @@ public class Sing_Up_1_D extends Basic_Activity {
     Button btn_next_S;
     EditText name_ar, name_en, username, mDate;
     String DoctorName_ar, DoctorName_en, DoctorUsername, DoctorDate, DoctorToken;
-
+    Dialog dialog;
+    Button close,continues;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -147,6 +150,35 @@ public class Sing_Up_1_D extends Basic_Activity {
             @Override
             public void onClick(View view) {
                 new DatePickerDialog(Sing_Up_1_D.this, date, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+    }
+    @Override
+    public void onBackPressed() {
+        //============================Create + Configure the Dialog here============================
+        dialog = new Dialog(Sing_Up_1_D.this);
+        dialog.setContentView(R.layout.exite_layout);
+        dialog.getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.dilog_background));
+        //Setting the animations to dialog
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.setCancelable(false); //Optional
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        dialog.show();
+        close = dialog.findViewById(R.id.Close);
+        continues = dialog.findViewById(R.id.Continue2);
+        dialog.show();
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                finish();
+            }
+        });
+
+        continues.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
             }
         });
     }

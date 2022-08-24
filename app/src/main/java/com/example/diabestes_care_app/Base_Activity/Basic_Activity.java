@@ -18,7 +18,7 @@ import java.util.Calendar;
 import java.util.Locale;
 
 public class Basic_Activity extends AppCompatActivity {
-    boolean password_is_visible;
+    static boolean password_is_visible;
 
     public void fullscreen() {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -52,7 +52,7 @@ public class Basic_Activity extends AppCompatActivity {
         return edit1.isEmpty() || edit2.isEmpty() || edit3.isEmpty() || edit4.isEmpty() || edit5.isEmpty() || edit6.isEmpty();
     }
 
-    public void showPass(EditText password) {
+    public static void showPass(EditText password) {
         int selection = password.getSelectionEnd();
         if (password_is_visible) {
             //set drawable image here
@@ -87,4 +87,5 @@ public class Basic_Activity extends AppCompatActivity {
         SimpleDateFormat dateFormat = new SimpleDateFormat(myFormat, Locale.UK);
         mData.setText(dateFormat.format(myCalendar.getTime()));
     }
+
 }

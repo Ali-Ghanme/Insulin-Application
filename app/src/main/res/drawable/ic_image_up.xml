@@ -4,12 +4,12 @@
     android:viewportWidth="197"
     android:viewportHeight="195">
     <path
-        android:fillColor="#fff"
+        android:fillColor="?attr/bg_color"
         android:pathData="M15,94.5a83.5,82.5 0,1 0,167 0a83.5,82.5 0,1 0,-167 0z"
         android:strokeWidth="1.5"
         android:strokeColor="@color/Patient_Color" />
     <path
-        android:fillColor="#fff"
+        android:fillColor="?attr/bg_color"
         android:pathData="M170.611,151.951a17.661,17.661 0,0 0,-33 -4.714,14.137 14.137,0 0,0 1.532,28.191L169.786,175.428a11.752,11.752 0,0 0,0.825 -23.477ZM158,158.928v9.429L148.571,168.357L148.571,158.928L141.5,158.928L153.286,147.143 165.071,158.928Z" />
     <path
         android:fillColor="@color/Patient_Color"

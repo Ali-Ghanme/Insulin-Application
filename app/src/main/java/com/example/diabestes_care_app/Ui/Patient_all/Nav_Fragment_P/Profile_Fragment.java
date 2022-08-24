@@ -13,8 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -46,7 +46,6 @@ public class Profile_Fragment extends Fragment {
     String PatientUsername;
     // Shared Preference
     SharedPreferences prefs;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -62,7 +61,6 @@ public class Profile_Fragment extends Fragment {
         imageView = view.findViewById(R.id.FB_Patient_image);
         imageView2 = view.findViewById(R.id.FB_Patient_edit);
         FB_help_cont = view.findViewById(R.id.FB_help_contt);
-        Switch DarkMode_cont = view.findViewById(R.id.FB_switcher);
 
         //============================Shared Preference=============================================
         prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
@@ -93,17 +91,12 @@ public class Profile_Fragment extends Fragment {
             }
         });
 
-//        DarkMode_cont.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                if (isChecked) {
-//                    Toast.makeText(getContext(), "Hallow Dark Mod is Unavailable right now 😉", Toast.LENGTH_SHORT).show();
-//
-//                } else {
-//                    Toast.makeText(getContext(), "😉", Toast.LENGTH_SHORT).show();
-//
-//                }
-//            }
-//        });
+        DarkMode_cont.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Hallow Dark Mod is Unavailable right now 😉", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         help_cont.setOnClickListener(new View.OnClickListener() {
             @Override

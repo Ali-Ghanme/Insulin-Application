@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="@dimen/_200sdp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="?attr/bg_color"
+    android:paddingBottom="@dimen/_10sdp">
+
+    <TextView
+        android:id="@+id/et_titlee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/_5sdp"
+        android:elevation="@dimen/_1sdp"
+        android:fontFamily="@font/cairo_bold"
+        android:padding="@dimen/_10sdp"
+        android:textAlignment="center"
+        android:text="هل أنت متأكد بأنك تريد  الخروج من \n عملية التسجيل ؟"
+        android:textColor="@color/Patient_Color"
+        android:textSize="@dimen/_10sdp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/et_subject2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:elevation="@dimen/_1sdp"
+        android:fontFamily="@font/cairo_bold"
+        android:maxLines="50"
+        android:padding="@dimen/_10sdp"
+        android:text="سيترتب على ذلك حذف  البيانات \n المدخلة سابقا أثناء العملية"
+        android:textAlignment="center"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/_10sdp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp">
+
+        <Button
+            android:id="@+id/Close"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:background="@drawable/news_rectangel"
+            android:backgroundTint="@color/text_input_pa"
+            android:fontFamily="@font/cairo_bold"
+            android:text="الخروج"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_8sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/Continue2"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:background="@drawable/news_rectangel"
+            android:backgroundTint="@color/text_input_pa"
+            android:fontFamily="@font/cairo_bold"
+            android:text="الاستمرار"
+            android:textAlignment="center"
+            android:textSize="@dimen/_8sdp" />
+    </RelativeLayout>
+</LinearLayout>

@@ -10,7 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
@@ -56,12 +55,9 @@ public class Sing_Up_3_D extends Basic_Activity {
             public void onClick(View v) {
                 final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(
                         Sing_Up_3_D.this, R.style.BottomSheetDialogTheme);
-                View bottomSheetView = LayoutInflater.from(getApplicationContext())
-                        .inflate(
-                                R.layout.layout_bottom_sheet, (LinearLayout) findViewById(R.id.bottomSheetContier)
-                        );
+                View bottomSheetView = LayoutInflater.from(Sing_Up_3_D.this).inflate(R.layout.layout_bottom_sheet_main,
+                        findViewById(R.id.bottomSheetContier_main));
                 listView = bottomSheetView.findViewById(R.id.City_bottom_listView);
-
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(Sing_Up_3_D.this, R.layout.activity_listview, university);
                 listView.setAdapter(adapter);
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -72,7 +68,6 @@ public class Sing_Up_3_D extends Basic_Activity {
                         bottomSheetDialog.dismiss();
                     }
                 });
-
                 bottomSheetView.findViewById(R.id.City_bottom_listView);
                 bottomSheetDialog.setContentView(bottomSheetView);
                 bottomSheetDialog.show();
@@ -87,12 +82,9 @@ public class Sing_Up_3_D extends Basic_Activity {
             public void onClick(View v) {
                 final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(
                         Sing_Up_3_D.this, R.style.BottomSheetDialogTheme);
-                View bottomSheetView = LayoutInflater.from(getApplicationContext())
-                        .inflate(
-                                R.layout.layout_bottom_sheet, (LinearLayout) findViewById(R.id.bottomSheetContier)
-                        );
+                View bottomSheetView = LayoutInflater.from(Sing_Up_3_D.this).inflate(R.layout.layout_bottom_sheet_main,
+                        findViewById(R.id.bottomSheetContier));
                 listView = bottomSheetView.findViewById(R.id.City_bottom_listView);
-
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(Sing_Up_3_D.this, R.layout.activity_listview, city);
                 listView.setAdapter(adapter);
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -117,12 +109,9 @@ public class Sing_Up_3_D extends Basic_Activity {
             public void onClick(View v) {
                 final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(
                         Sing_Up_3_D.this, R.style.BottomSheetDialogTheme);
-                View bottomSheetView = LayoutInflater.from(getApplicationContext())
-                        .inflate(
-                                R.layout.layout_bottom_sheet, (LinearLayout) findViewById(R.id.bottomSheetContier)
-                        );
+                View bottomSheetView = LayoutInflater.from(Sing_Up_3_D.this).inflate(R.layout.layout_bottom_sheet_main,
+                        findViewById(R.id.bottomSheetContier));
                 listView = bottomSheetView.findViewById(R.id.City_bottom_listView);
-
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(Sing_Up_3_D.this, R.layout.activity_listview, certificate);
                 listView.setAdapter(adapter);
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -146,8 +135,6 @@ public class Sing_Up_3_D extends Basic_Activity {
                 DoctorUname = UnName.getText().toString();
                 DoctorCertificate = Certificate.getText().toString();
                 DoctorGradeCountry = Grad_Country.getText().toString();
-
-
                 databaseReference.child("doctor").child(doctor_userName).child("doctor_info").child("اسم الجامعة").setValue(DoctorUname);
                 databaseReference.child("doctor").child(doctor_userName).child("doctor_info").child("بلد التخرج").setValue(DoctorCertificate);
                 databaseReference.child("doctor").child(doctor_userName).child("doctor_info").child("الشهادة الجامعية").setValue(DoctorGradeCountry);

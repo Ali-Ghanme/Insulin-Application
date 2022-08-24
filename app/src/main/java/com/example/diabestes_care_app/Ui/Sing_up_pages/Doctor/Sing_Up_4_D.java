@@ -1,14 +1,15 @@
 package com.example.diabestes_care_app.Ui.Sing_up_pages.Doctor;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
@@ -27,7 +28,8 @@ public class Sing_Up_4_D extends Basic_Activity {
     String[] SubCity = {"الشمال", "دير البلح", "خانيونس", "رفح", "غزة"};
     String[] Qu = {"نعم", "لا"};
     String[] WP = {"خاص", "حكومي"};
-
+    Dialog dialog;
+    Button close,continues;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +53,7 @@ public class Sing_Up_4_D extends Basic_Activity {
             public void onClick(View v) {
                 final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(
                         Sing_Up_4_D.this, R.style.BottomSheetDialogTheme);
-                View bottomSheetView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.layout_bottom_sheet, findViewById(R.id.bottomSheetContier));
+                View bottomSheetView = LayoutInflater.from(Sing_Up_4_D.this).inflate(R.layout.layout_bottom_sheet_main, findViewById(R.id.bottomSheetContier));
 
                 listView = bottomSheetView.findViewById(R.id.City_bottom_listView);
 
@@ -80,10 +82,7 @@ public class Sing_Up_4_D extends Basic_Activity {
             public void onClick(View v) {
                 final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(
                         Sing_Up_4_D.this, R.style.BottomSheetDialogTheme);
-                View bottomSheetView = LayoutInflater.from(getApplicationContext())
-                        .inflate(
-                                R.layout.layout_bottom_sheet, (LinearLayout) findViewById(R.id.bottomSheetContier)
-                        );
+                View bottomSheetView = LayoutInflater.from(Sing_Up_4_D.this).inflate(R.layout.layout_bottom_sheet_main, findViewById(R.id.bottomSheetContier));
                 listView = bottomSheetView.findViewById(R.id.City_bottom_listView);
 
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(Sing_Up_4_D.this, R.layout.activity_listview, SubCity);
@@ -110,12 +109,8 @@ public class Sing_Up_4_D extends Basic_Activity {
             public void onClick(View v) {
                 final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(
                         Sing_Up_4_D.this, R.style.BottomSheetDialogTheme);
-                View bottomSheetView = LayoutInflater.from(getApplicationContext())
-                        .inflate(
-                                R.layout.layout_bottom_sheet, (LinearLayout) findViewById(R.id.bottomSheetContier)
-                        );
+                View bottomSheetView = LayoutInflater.from(Sing_Up_4_D.this).inflate(R.layout.layout_bottom_sheet_main, findViewById(R.id.bottomSheetContier));
                 listView = bottomSheetView.findViewById(R.id.City_bottom_listView);
-
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(Sing_Up_4_D.this, R.layout.activity_listview, Qu);
                 listView.setAdapter(adapter);
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -139,10 +134,7 @@ public class Sing_Up_4_D extends Basic_Activity {
             public void onClick(View v) {
                 final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(
                         Sing_Up_4_D.this, R.style.BottomSheetDialogTheme);
-                View bottomSheetView = LayoutInflater.from(getApplicationContext())
-                        .inflate(
-                                R.layout.layout_bottom_sheet, findViewById(R.id.bottomSheetContier)
-                        );
+                View bottomSheetView = LayoutInflater.from(Sing_Up_4_D.this).inflate(R.layout.layout_bottom_sheet_main, findViewById(R.id.bottomSheetContier));
                 listView = bottomSheetView.findViewById(R.id.City_bottom_listView);
 
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(Sing_Up_4_D.this, R.layout.activity_listview, WP);
@@ -178,6 +170,35 @@ public class Sing_Up_4_D extends Basic_Activity {
                 intent4.putExtra("username4", patient_userName);
                 startActivity(intent4);
                 finish();
+            }
+        });
+    }
+    @Override
+    public void onBackPressed() {
+        //============================Create + Configure the Dialog here============================
+        dialog = new Dialog(Sing_Up_4_D.this);
+        dialog.setContentView(R.layout.exite_layout);
+        dialog.getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.dilog_background));
+        //Setting the animations to dialog
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.setCancelable(false); //Optional
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        dialog.show();
+        close = dialog.findViewById(R.id.Close);
+        continues = dialog.findViewById(R.id.Continue2);
+        dialog.show();
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                finish();
+            }
+        });
+
+        continues.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
             }
         });
     }

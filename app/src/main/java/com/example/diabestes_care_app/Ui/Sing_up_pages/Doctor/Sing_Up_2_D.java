@@ -1,22 +1,18 @@
 package com.example.diabestes_care_app.Ui.Sing_up_pages.Doctor;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.R;
-import com.example.diabestes_care_app.Ui.Sing_up_pages.Patient.Sing_Up_2_P;
-import com.example.diabestes_care_app.Ui.Sing_up_pages.Patient.Sing_Up_3_P;
-import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -24,7 +20,8 @@ public class Sing_Up_2_D extends Basic_Activity {
     Button btn_next_S;
     EditText phone, email, NID, pass, co_Pass;
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://diabeticsproject-default-rtdb.firebaseio.com/");
-
+    Dialog dialog;
+    Button close,continues;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -109,6 +106,35 @@ public class Sing_Up_2_D extends Basic_Activity {
                     }
                 }
                 return false;
+            }
+        });
+    }
+    @Override
+    public void onBackPressed() {
+        //============================Create + Configure the Dialog here============================
+        dialog = new Dialog(Sing_Up_2_D.this);
+        dialog.setContentView(R.layout.exite_layout);
+        dialog.getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.dilog_background));
+        //Setting the animations to dialog
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.setCancelable(false); //Optional
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        dialog.show();
+        close = dialog.findViewById(R.id.Close);
+        continues = dialog.findViewById(R.id.Continue2);
+        dialog.show();
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                finish();
+            }
+        });
+
+        continues.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
             }
         });
     }

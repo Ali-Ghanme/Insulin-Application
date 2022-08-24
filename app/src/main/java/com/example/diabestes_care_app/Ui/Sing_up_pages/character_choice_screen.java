@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.R;
@@ -18,7 +18,7 @@ import com.example.diabestes_care_app.Ui.Sing_up_pages.Patient.Sing_Up_1_P;
 public class character_choice_screen extends Basic_Activity {
     Button btn_d;
     Button btn_p;
-    Button log_in;
+    TextView log_in;
     SharedPreferences preferences_D, preferences_P;
 
     @Override

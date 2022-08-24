@@ -118,7 +118,7 @@ public class Daily_Sugar extends Fragment {
                 final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(
                         getActivity(), R.style.BottomSheetDialogTheme);
                 View bottomSheetView = LayoutInflater.from(getActivity())
-                        .inflate(R.layout.layout_bottom_sheet, (LinearLayout) getActivity().findViewById(R.id.bottomSheetContier));
+                        .inflate(R.layout.layout_bottom_sheet_main, (LinearLayout) getActivity().findViewById(R.id.bottomSheetContier));
                 listView = bottomSheetView.findViewById(R.id.City_bottom_listView);
 
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), R.layout.activity_listview, time_day_suger);

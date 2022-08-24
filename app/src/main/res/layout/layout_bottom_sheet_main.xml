@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/bottomSheetContier"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center_horizontal"
+    android:background="?attr/bg_color"
+    android:id="@+id/bottomSheetContier_main"
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
@@ -29,6 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_20sdp"
+            android:background="?attr/bg_color"
             android:textAlignment="center"
             android:textDirection="rtl"/>
     </RelativeLayout>

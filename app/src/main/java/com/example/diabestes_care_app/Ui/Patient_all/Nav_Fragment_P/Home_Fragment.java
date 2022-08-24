@@ -15,7 +15,6 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -158,7 +157,7 @@ public class Home_Fragment extends Fragment {
                         progressDialog.dismiss();
                     }
                 } catch (Exception e) {
-                    Toast.makeText(getContext(), "إنتظر قليلاً ", Toast.LENGTH_SHORT).show();
+                    Log.e("TAG",e.getMessage());
                 }
                 doctorListAdapter = new Doctor_List_Adapter(getContext(), list);
                 recyclerView.setAdapter(doctorListAdapter);

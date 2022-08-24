@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_70sdp"
         android:background="@drawable/bg_sing_up"
+        android:backgroundTint="@color/Doctor_Color"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -39,25 +40,14 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/Sing_up_header_dr4">
 
-        <TextView
-            android:id="@+id/Sp4_tv_city_D"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:fontFamily="@font/cairo_bold"
-            android:text=" المدينة "
-            android:layout_gravity="right"
-            android:textColor="@color/Doctor_Color"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
         <EditText
             android:id="@+id/Sp4_City_D"
             android:layout_width="@dimen/_230sdp"
             android:layout_height="@dimen/_40sdp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:background="@drawable/bg_edit_text"
+            android:backgroundTint="?attr/bg_color"
             android:drawableLeft="@drawable/ic_location"
             android:drawableTint="@color/Doctor_Color"
             android:editable="false"
@@ -68,27 +58,17 @@
             android:paddingLeft="@dimen/_20sdp"
             android:paddingRight="@dimen/_10sdp"
             android:textColor="@color/Doctor_Color"
+            android:textColorHint="#78909C"
             android:textSize="15sp" />
-
-        <TextView
-            android:id="@+id/Sp4_tv_SubCity_D"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:fontFamily="@font/cairo_bold"
-            android:text=" المحافظة "
-            android:textColor="@color/Doctor_Color"
-            android:textSize="@dimen/_12sdp"
-            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/Sp4_subCity_D"
             android:layout_width="@dimen/_230sdp"
             android:layout_height="@dimen/_40sdp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:background="@drawable/bg_edit_text"
+            android:backgroundTint="?attr/bg_color"
             android:drawableLeft="@drawable/ic_location"
             android:drawableTint="@color/Doctor_Color"
             android:editable="false"
@@ -99,19 +79,8 @@
             android:paddingLeft="@dimen/_20sdp"
             android:paddingRight="@dimen/_10sdp"
             android:textColor="@color/Doctor_Color"
+            android:textColorHint="#78909C"
             android:textSize="15sp" />
-
-        <TextView
-            android:id="@+id/Sp4_tv_haveWork_D"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:fontFamily="@font/cairo_bold"
-            android:text="هل تمتلك عيادة خاصة"
-            android:textColor="@color/Doctor_Color"
-            android:textSize="@dimen/_12sdp"
-            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/Sp4_have_work_D"
@@ -119,45 +88,36 @@
             android:layout_height="@dimen/_40sdp"
             android:layout_below="@+id/Sp2_textview_D"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:background="@drawable/bg_edit_text"
+            android:backgroundTint="?attr/bg_color"
             android:drawableLeft="@drawable/ic_work"
             android:drawableTint="@color/Doctor_Color"
             android:editable="false"
             android:elevation="@dimen/_1sdp"
             android:fontFamily="@font/cairo_bold"
-            android:hint="نعم/لا"
+            android:hint="هل تعمل حاليا"
             android:maxLines="1"
             android:paddingLeft="@dimen/_20sdp"
             android:paddingRight="@dimen/_10sdp"
             android:textColor="@color/Doctor_Color"
+            android:textColorHint="#78909C"
             android:textSize="15sp" />
-
-        <TextView
-            android:id="@+id/Sp4_tv_whatWork_D"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:fontFamily="@font/cairo_bold"
-            android:text=" مكان العمل "
-            android:textColor="@color/Doctor_Color"
-            android:textSize="@dimen/_12sdp"
-            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/Sp4_placeOfWork_D"
             android:layout_width="@dimen/_230sdp"
             android:layout_height="@dimen/_40sdp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:background="@drawable/bg_edit_text"
+            android:backgroundTint="?attr/bg_color"
             android:drawableLeft="@drawable/ic_business"
             android:drawableTint="@color/Doctor_Color"
             android:editable="false"
             android:elevation="@dimen/_1sdp"
             android:fontFamily="@font/cairo_bold"
-            android:hint=" حكومي/خاص"
+            android:hint="طبيعة العمل"
             android:maxLines="1"
             android:paddingLeft="@dimen/_20sdp"
             android:paddingRight="@dimen/_10sdp"
@@ -168,15 +128,17 @@
 
     <Button
         android:id="@+id/Sp4_bt_next_D"
-        android:layout_width="@dimen/_50sdp"
-        android:layout_height="@dimen/_50sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/_50sdp"
-        android:background="@drawable/float_action_btn"
+        android:layout_marginBottom="@dimen/_30sdp"
+        android:background="@drawable/bg_ic_background"
         android:backgroundTint="@color/Doctor_Color"
-        android:drawableStart="@drawable/ic_float_action"
+        android:fontFamily="@font/cairo_bold"
         android:paddingHorizontal="@dimen/_20sdp"
-        app:borderWidth="0dp"
+        android:text="التالي"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_12sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

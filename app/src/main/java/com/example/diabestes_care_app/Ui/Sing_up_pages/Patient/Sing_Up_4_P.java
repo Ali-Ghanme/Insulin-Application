@@ -1,10 +1,12 @@
 package com.example.diabestes_care_app.Ui.Sing_up_pages.Patient;
 
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -12,7 +14,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -35,7 +36,8 @@ public class Sing_Up_4_P extends Basic_Activity {
     ListView listView;
     String[] cause = {"تاريخ عائلي", "التعرض لأمراض فيروسية", "العمر", "الوزن",};
     String[] other_ill = {"أمراض الجهاز التنفسي", "ضغط الدم", "أمراض القلب"};
-
+    Dialog dialog;
+    Button close, continues;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,14 +55,9 @@ public class Sing_Up_4_P extends Basic_Activity {
         mCause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(
-                        Sing_Up_4_P.this, R.style.BottomSheetDialogTheme);
-                View bottomSheetView = LayoutInflater.from(getApplicationContext())
-                        .inflate(
-                                R.layout.layout_bottom_sheet, (LinearLayout) findViewById(R.id.bottomSheetContier)
-                        );
+                final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(Sing_Up_4_P.this, R.style.BottomSheetDialogTheme);
+                View bottomSheetView = LayoutInflater.from(Sing_Up_4_P.this).inflate(R.layout.layout_bottom_sheet_main, findViewById(R.id.bottomSheetContier));
                 listView = bottomSheetView.findViewById(R.id.City_bottom_listView);
-
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(Sing_Up_4_P.this, R.layout.activity_listview, cause);
                 listView.setAdapter(adapter);
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -81,14 +78,9 @@ public class Sing_Up_4_P extends Basic_Activity {
         others.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(
-                        Sing_Up_4_P.this, R.style.BottomSheetDialogTheme);
-                View bottomSheetView = LayoutInflater.from(getApplicationContext())
-                        .inflate(
-                                R.layout.layout_bottom_sheet, (LinearLayout) findViewById(R.id.bottomSheetContier)
-                        );
+                final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(Sing_Up_4_P.this, R.style.BottomSheetDialogTheme);
+                View bottomSheetView = LayoutInflater.from(Sing_Up_4_P.this).inflate(R.layout.layout_bottom_sheet_main, findViewById(R.id.bottomSheetContier));
                 listView = bottomSheetView.findViewById(R.id.City_bottom_listView);
-
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(Sing_Up_4_P.this, R.layout.activity_listview, other_ill);
                 listView.setAdapter(adapter);
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -99,12 +91,12 @@ public class Sing_Up_4_P extends Basic_Activity {
                         bottomSheetDialog.dismiss();
                     }
                 });
-
                 bottomSheetView.findViewById(R.id.City_bottom_listView);
                 bottomSheetDialog.setContentView(bottomSheetView);
                 bottomSheetDialog.show();
             }
         });
+
         C_Other.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -162,5 +154,35 @@ public class Sing_Up_4_P extends Basic_Activity {
         String myFormat = "dd/MM/yyyy";
         SimpleDateFormat dateFormat = new SimpleDateFormat(myFormat, Locale.UK);
         mDateInjury.setText(dateFormat.format(myCalendar.getTime()));
+    }
+
+    @Override
+    public void onBackPressed() {
+        //============================Create + Configure the Dialog here============================
+        dialog = new Dialog(Sing_Up_4_P.this);
+        dialog.setContentView(R.layout.exite_layout);
+        dialog.getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.dilog_background));
+        //Setting the animations to dialog
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.setCancelable(false); //Optional
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        dialog.show();
+        close = dialog.findViewById(R.id.Close);
+        continues = dialog.findViewById(R.id.Continue2);
+        dialog.show();
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                finish();
+            }
+        });
+
+        continues.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
     }
 }

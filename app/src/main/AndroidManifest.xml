@@ -2,15 +2,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.diabestes_care_app">
+
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:resource="@drawable/ic_notification"
         android:requestLegacyExternalStorage="true"
+        android:resource="@drawable/ic_notification"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/Theme.Diabestes_Care_App">
         <activity
@@ -24,6 +26,9 @@
             android:exported="false" />
         <activity
             android:name=".Ui.Doctor_all.Patient_Profile_D"
+            android:exported="false" />
+        <activity
+            android:name=".Ui.Doctor_all.Secation.Follow.PatinetData.Patent_Report_d"
             android:exported="false" />
         <activity
             android:name=".chat.Chat_D"
@@ -115,7 +120,7 @@
 
         <activity
             android:name="com.example.diabestes_care_app.Alarms.alarmChooserActivity"
-            android:parentActivityName="com.example.diabestes_care_app.Alarms.alarmChooserActivity"></activity>
+            android:parentActivityName="com.example.diabestes_care_app.Alarms.alarmChooserActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

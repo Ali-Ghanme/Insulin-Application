@@ -12,6 +12,7 @@
         android:layout_height="@dimen/_70sdp"
         android:background="@drawable/bg_sing_up"
         app:layout_constraintLeft_toLeftOf="parent"
+        android:backgroundTint="@color/Doctor_Color"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 

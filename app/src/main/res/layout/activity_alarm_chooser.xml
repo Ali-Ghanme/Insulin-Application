@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Ui.Patient_all.Sections.Doses.Doses_Home"
-    >
+    tools:context=".Alarm">
 
     <RelativeLayout
         android:layout_width="match_parent"

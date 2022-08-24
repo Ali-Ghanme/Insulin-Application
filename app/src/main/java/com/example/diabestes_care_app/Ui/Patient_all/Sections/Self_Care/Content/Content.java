@@ -50,12 +50,12 @@ public class Content extends Basic_Activity {
         mList.add(new SelfCare_Model(R.string.عن_المرض, R.drawable.ic_splash_1, items[0]));
         mList.add(new SelfCare_Model(R.string.أنواع_المرض, R.drawable.ic_splash_1, items[1]));
         mList.add(new SelfCare_Model(R.string.ma, R.drawable.ic_splash_1, items[2]));
-        mList.add(new SelfCare_Model(R.string.Gabobet_sokar, R.drawable.ic_splash_1, items[3]));
-        mList.add(new SelfCare_Model(R.string.Gabobet_sokar, R.drawable.ic_splash_1, items[4]));
+        mList.add(new SelfCare_Model(R.string.breakfast, R.drawable.ic_splash_1, items[3]));
+        mList.add(new SelfCare_Model(R.string.suhoor, R.drawable.ic_splash_1, items[4]));
         mList.add(new SelfCare_Model(R.string.Gabobet_sokar, R.drawable.ic_splash_1, items[5]));
-        mList.add(new SelfCare_Model(R.string.Gabobet_sokar, R.drawable.ic_splash_1, items[6]));
-        mList.add(new SelfCare_Model(R.string.Gabobet_sokar, R.drawable.ic_splash_1, items[7]));
-        mList.add(new SelfCare_Model(R.string.Gabobet_sokar, R.drawable.ic_splash_1, items[8]));
+        mList.add(new SelfCare_Model(R.string.syndrome, R.drawable.ic_splash_1, items[6]));
+        mList.add(new SelfCare_Model(R.string.fainting, R.drawable.ic_splash_1, items[7]));
+        mList.add(new SelfCare_Model(R.string.doses, R.drawable.ic_splash_1, items[8]));
 
 
         //=============================== setup viewpager===========================================

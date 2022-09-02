@@ -82,9 +82,10 @@ public class General_Fragment extends Fragment {
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         Consolation_Model consolation_model = new Consolation_Model();
                         consolation_model.setTitle(snapshot.child("Title").getValue().toString());
-                        consolation_model.setDoctorName(snapshot.child("to").getValue().toString());
                         consolation_model.setQuestion(snapshot.child("Subject").getValue().toString());
-                        consolation_model.setImageUrl(snapshot.child("Doctor_Profile").getValue().toString());
+                        consolation_model.setAnswer(snapshot.child("Doctor_Answer").getValue().toString());
+                        consolation_model.setDoctorName(snapshot.child("to").getValue().toString());
+                        consolation_model.setImageUrl(snapshot.child("Doctor_Image").getValue().toString());
                         list.add(consolation_model);
                         Log.e("TAG", MSGKey);
                     }

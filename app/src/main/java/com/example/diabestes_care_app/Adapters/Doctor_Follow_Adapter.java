@@ -50,9 +50,10 @@ public class Doctor_Follow_Adapter extends RecyclerView.Adapter<Doctor_Follow_Ad
     @Override
     public void onBindViewHolder(@NonNull Doctor_Follow_Adapter.MyViewHolder holder, int position) {
         sharedpreferences = context.getSharedPreferences(MyPREFERENCES_P_Username_D, MODE_PRIVATE);
-        holder.name.setText(list.get(position).getName());
         Follow_Model list2 = list.get(position);
-        DatabaseReference online_status_all_users = FirebaseDatabase.getInstance().getReference().child("online_statuses").child(list2.getName());
+
+        // Online DataBase Reference
+        DatabaseReference online_status_all_users = FirebaseDatabase.getInstance().getReference().child("online_statuses").child(list2.getUsername());
         //============================Online/Offline read Status ===================================
         online_status_all_users.addValueEventListener(new ValueEventListener() {
             @Override
@@ -76,25 +77,25 @@ public class Doctor_Follow_Adapter extends RecyclerView.Adapter<Doctor_Follow_Ad
                     }
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Log.e("TAG", databaseError.getMessage());
             }
         });
 
-        FirebaseDatabase.getInstance().getReference("patient").child(list.get(position).getName()).addValueEventListener(new ValueEventListener() {
+        //============================Online/Offline read Status ===================================
+        FirebaseDatabase.getInstance().getReference("patient").child(list.get(position).getUsername()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String image = snapshot.child("User_Profile_Image").child("Image").child("mImageUrI").getValue().toString();
                 String diabetesType = snapshot.child("disease_info").child("Diabetes Type").getValue().toString();
                 Glide.with(context).load(image).placeholder(R.drawable.ic_user).error(R.drawable.notifications).into(holder.imageView);
+                String name = snapshot.child("personal_info").child("name").getValue().toString();
+                holder.name.setText(name);
                 holder.type.setText(diabetesType);
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
 
@@ -104,9 +105,9 @@ public class Doctor_Follow_Adapter extends RecyclerView.Adapter<Doctor_Follow_Ad
             public void onClick(View v) {
 
                 SharedPreferences.Editor editor = sharedpreferences.edit();
-                editor.putString("PatientUsername_D", list2.getUsername());
-                editor.putString("Patient_Pic_Profile_D", list2.getImageUrl());
                 editor.putString("Patient_name_D", list2.getName());
+                editor.putString("Patient_Pic_Profile_D", list2.getImageUrl());
+                editor.putString("PatientUsername_D", list2.getUsername());
                 editor.apply();
 
                 Intent intent = new Intent(context, Patent_Report_d.class);

@@ -20,91 +20,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/Consu_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="@dimen/_60sdp"
-            android:fontFamily="@font/cairo_semibold"
-            android:lines="1"
-            android:maxLines="1"
-            android:singleLine="true"
-            android:textColor="?attr/text_color" />
-
-        <TextView
-            android:id="@+id/Consu_title_s"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="@dimen/_20sdp"
-            android:fontFamily="@font/cairo_semibold"
-            android:lines="1"
-            android:maxLines="1"
-            android:singleLine="true"
-            android:text="العنوان:"
-            android:textColor="?attr/text_color" />
-
-        <TextView
-            android:id="@+id/Consu_Que"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/Consu_title"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="@dimen/_60sdp"
-            android:fontFamily="@font/cairo_semibold"
-            android:textColor="?attr/text_color" />
-
-        <TextView
-            android:id="@+id/Consu_Que_s"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/Consu_title"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="@dimen/_20sdp"
-            android:fontFamily="@font/cairo_semibold"
-            android:text="السؤال :"
-            android:textColor="?attr/text_color" />
-
-        <ImageButton
-            android:id="@+id/Consu_btn_show_answer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/_20sdp"
-            android:background="@drawable/ic_arrow_next"
-            android:backgroundTint="?attr/text_color"
-            android:rotation="90" />
-
-        <View
-            android:layout_width="@dimen/_250sdp"
-            android:layout_height="@dimen/_1sdp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_60sdp"
-            android:background="@color/light_gray" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/Consu_cont_show_answer"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/_90sdp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Consu_container">
-
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/Doc_Image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_20sdp">
+            android:layout_marginRight="@dimen/_10sdp">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/Consu_Doc_Image"
@@ -123,19 +45,74 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginTop="@dimen/_15sdp"
-            android:layout_marginRight="@dimen/_65sdp"
-            android:textColor="?attr/text_color"
+            android:layout_marginRight="@dimen/_55sdp"
             android:fontFamily="@font/cairo_bold"
+            android:textColor="?attr/text_color"
             android:textSize="@dimen/_10sdp" />
+
+        <TextView
+            android:id="@+id/Consu_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Doc_Image"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_50sdp"
+            android:fontFamily="@font/cairo_semibold"
+            android:lines="1"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="قلب"
+            android:textColor="?attr/text_color" />
+
+        <TextView
+            android:id="@+id/Consu_title_s"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Doc_Image"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:fontFamily="@font/cairo_semibold"
+            android:lines="1"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="العنوان:"
+            android:textColor="?attr/text_color" />
+
+        <TextView
+            android:id="@+id/Consu_Que"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Consu_title"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_50sdp"
+            android:fontFamily="@font/cairo_semibold"
+            android:maxLines="1"
+            android:textColor="?attr/text_color" />
+
+        <TextView
+            android:id="@+id/Consu_Que_s"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Consu_title"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:fontFamily="@font/cairo_semibold"
+            android:text="السؤال :"
+            android:textColor="?attr/text_color" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/Consu_name"
+            android:layout_below="@+id/Consu_Que_s"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="@dimen/_25sdp"
-            android:layout_marginRight="@dimen/_20sdp"
-            android:fontFamily="@font/cairo_bold"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:fontFamily="@font/cairo_semibold"
             android:text="الاجابة :"
             android:textColor="?attr/text_color"
             android:textSize="@dimen/_10sdp" />
@@ -144,26 +121,14 @@
             android:id="@+id/Consu_answer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/Consu_name"
+            android:layout_below="@+id/Consu_Que_s"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="@dimen/_25sdp"
-            android:layout_marginRight="@dimen/_60sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_45sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
             android:fontFamily="@font/cairo_bold"
+            android:maxLines="20"
             android:textColor="?attr/text_color"
             android:textSize="@dimen/_10sdp" />
-
-        <Button
-            android:id="@+id/Pl_follow_patient"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:background="@drawable/bg_doctor_button"
-            android:fontFamily="@font/cairo_bold"
-            android:text="متابعة"
-            android:textColor="@color/white" />
-
-
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

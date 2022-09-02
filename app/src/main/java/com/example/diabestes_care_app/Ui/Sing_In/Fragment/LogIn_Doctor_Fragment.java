@@ -5,6 +5,7 @@ import static android.content.Context.MODE_PRIVATE;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -108,6 +109,7 @@ public class LogIn_Doctor_Fragment extends Fragment {
     }
 
     private void isUser() {
+        username.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
         String doctorEnterUsername = username.getText().toString();
         String doctorEnterPassword = password.getText().toString();
 

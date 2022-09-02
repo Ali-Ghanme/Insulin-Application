@@ -124,7 +124,7 @@ public class Sing_Up_3_P extends Basic_Activity {
                     databaseReference.child("patient").child(patient_userName).child("disease_info").child("Diabetes Type").setValue(strType);
                     databaseReference.child("patient").child(patient_userName).child("disease_info").child("Diabetes Medics Type").
                             setValue(data1 + "," + data2 + "," + data3 + "," + data4 + "," + data5 + "," + data6 + "," + data7);
-                    Toast.makeText(Sing_Up_3_P.this, "User have registered successfully ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Sing_Up_3_P.this, "User have registered successfull ", Toast.LENGTH_SHORT).show();
                     finish();
 
                     Intent intent3 = new Intent(Sing_Up_3_P.this, Sing_Up_4_P.class);

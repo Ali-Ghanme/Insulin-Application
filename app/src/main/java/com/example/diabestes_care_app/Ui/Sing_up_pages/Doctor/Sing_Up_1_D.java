@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,6 +56,7 @@ public class Sing_Up_1_D extends Basic_Activity {
         mGender = findViewById(R.id.Sp1_Gender_D);
         btn_next_S = findViewById(R.id.Sp1_bt_next_D);
 
+        username.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
 
         // Generate Token for Patient
         FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
@@ -85,7 +87,7 @@ public class Sing_Up_1_D extends Basic_Activity {
                     Toast.makeText(Sing_Up_1_D.this, "Fill all fields", Toast.LENGTH_SHORT).show();
                 } else if (!DoctorUsername.startsWith("D")) {
                     Toast.makeText(Sing_Up_1_D.this, "User Name Must Start With D", Toast.LENGTH_SHORT).show();
-                } else {
+                }else {
                     databaseReference.child("doctor").addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {

@@ -55,12 +55,11 @@ public class Privet_Cons extends Fragment {
         SharedPreferences prefs = getActivity().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
         DoctorUsername = prefs.getString("TAG_NAME", null);
 
-
         //============================ArrayList=====================================================
         list = new ArrayList<>();
         myRef = FirebaseDatabase.getInstance().getReference("doctor").child(DoctorUsername).child("Consultation request").child("MSG");
-
         Query query = myRef.orderByKey();
+
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -68,13 +67,15 @@ public class Privet_Cons extends Fragment {
                     for (DataSnapshot sn : snapshot.getChildren()) {
                         Private_Consu_Model private_consu_model = new Private_Consu_Model();
                         private_consu_model.setPatientName(sn.child("from").getValue().toString());
+                        private_consu_model.setDoctor_name(sn.child("to").getValue().toString());
                         private_consu_model.setConsuSubject(sn.child("Subject").getValue().toString());
                         private_consu_model.setPatientImage(sn.child("Patient_Profile").getValue().toString());
                         private_consu_model.setConsuTitle(sn.child("Title").getValue().toString());
+                        private_consu_model.setDoctorImage(sn.child("Doctor_Profile").getValue().toString());
+                        private_consu_model.setDoctorAnswer(sn.child("Doctor_Answer").getValue().toString());
                         private_consu_model.setPushKey(sn.child("PushKey").getValue().toString());
+                        private_consu_model.setPatientToken(sn.child("PatientToken").getValue().toString());
                         list.add(private_consu_model);
-
-
                     }
                 } catch (Exception e) {
                     Log.e("TAG", e.getMessage());

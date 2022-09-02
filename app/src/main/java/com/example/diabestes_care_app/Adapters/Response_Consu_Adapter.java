@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.diabestes_care_app.Models.Private_Consu_Model;
+import com.example.diabestes_care_app.NotificationSender.FcmNotificationsSender;
 import com.example.diabestes_care_app.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -45,6 +46,7 @@ public class Response_Consu_Adapter extends RecyclerView.Adapter<Response_Consu_
         this.list = list;
     }
 
+    @NonNull
     public Response_Consu_Adapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.consu_respons_recyle_layout, parent, false);
         return new Response_Consu_Adapter.MyViewHolder(view);
@@ -92,15 +94,31 @@ public class Response_Consu_Adapter extends RecyclerView.Adapter<Response_Consu_
                             String Consultation_Answer = Answer.getText().toString();
                             s.child("Doctor_Answer").getRef().setValue(Consultation_Answer);
 
-                            general_Consolation.setValue(list2.getConsuTitle());
-                            general_Consolation.setValue(list2.getConsuSubject());
-                            general_Consolation.setValue(list2.getDoctorImage());
-                            general_Consolation.setValue(list2.getDoctorAnswer());
-                            Toast.makeText(context, Consultation_Answer, Toast.LENGTH_SHORT).show();
+                            general_Consolation.child("Title").setValue(list2.getConsuTitle());
+                            general_Consolation.child("Subject").setValue(list2.getConsuSubject());
+                            general_Consolation.child("Doctor_Image").setValue(list2.getDoctorImage());
+                            general_Consolation.child("to").setValue(list2.getDoctor_name());
+                            general_Consolation.child("PatientToken").setValue(list2.getPatientToken());
+                            general_Consolation.child("Doctor_Answer").setValue(Consultation_Answer);
+
+                            Toast.makeText(context, list2.getPatientToken(), Toast.LENGTH_SHORT).show();
+                            try {
+                                if (!list2.getPatientToken().isEmpty()) {
+                                    FcmNotificationsSender notificationsSender = new FcmNotificationsSender(list2.getPatientToken(), "رد على استشارة", " قام الدكتور " +
+                                            list2.getDoctor_name() + " برد على استشاراتك ستجدها في قسم الاستشارات العامة ", context.getApplicationContext());
+                                    notificationsSender.SendNotifications();
+                                }
+                            } catch (Exception exception) {
+                                Log.e("TAG", exception.getMessage());
+                            }
+
+                            s.getRef().removeValue();
+                            list.remove(holder.getAdapterPosition());
+                            notifyItemRemoved(holder.getAdapterPosition());
+                            notifyItemRangeChanged(holder.getAdapterPosition(), list.size());
                             dialog.dismiss();
                         }
                     }
-
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
                         Log.e(TAG, "onCancelled", databaseError.toException());
@@ -123,13 +141,11 @@ public class Response_Consu_Adapter extends RecyclerView.Adapter<Response_Consu_
                             notifyItemRangeChanged(holder.getAdapterPosition(), list.size());
                         }
                     }
-
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
                         Log.e(TAG, "onCancelled", databaseError.toException());
                     }
                 });
-
             }
         });
 
@@ -138,8 +154,6 @@ public class Response_Consu_Adapter extends RecyclerView.Adapter<Response_Consu_
         holder.Consu_title.setText(list.get(position).getConsuTitle());
         holder.Consu_Que.setText(list.get(position).getConsuSubject());
         Glide.with(context).load(list.get(position).getPatientImage()).placeholder(R.drawable.ic_user).error(R.drawable.ic_user).into(holder.Patient_Image);
-
-
     }
 
     @Override
@@ -165,7 +179,6 @@ public class Response_Consu_Adapter extends RecyclerView.Adapter<Response_Consu_
             Consu_Que = itemView.findViewById(R.id.Consu_Que_response);
             response = itemView.findViewById(R.id.Consu_Accept_response);
             reject = itemView.findViewById(R.id.Consu_Reject_response);
-
         }
     }
 }

@@ -7,8 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -81,7 +79,7 @@ public class Home_Fragment_D extends Fragment {
         progressDialog.setCancelable(true);
         progressDialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         progressDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
-//        progressDialog.show();
+        progressDialog.show();
 
         bell = view.findViewById(R.id.bell_D);
 
@@ -111,22 +109,22 @@ public class Home_Fragment_D extends Fragment {
         // Get Patient Data Method
         GetDataFromFirebase();
 
-        //============================Search And Filter Function====================================
-        searchInput.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                patientList_adapter.getFilter().filter(s);
-                search = s;
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-            }
-        });
+//        //============================Search And Filter Function====================================
+//        searchInput.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//                patientList_adapter.getFilter().filter(s);
+//                search = s;
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//            }
+//        });
         return view;
     }
 

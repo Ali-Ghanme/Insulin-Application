@@ -41,7 +41,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_70sdp"
         android:contentDescription="@string/todo"
-        app:civ_border_color="@android:color/white"
+        app:civ_border_color="?attr/bg_color"
         app:civ_border_width="3dp" />
 
     <TextView
@@ -104,6 +104,7 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="@dimen/_10sdp"
+                android:backgroundTint="?attr/bg_color"
                 app:cardCornerRadius="@dimen/_10sdp"
                 app:cardElevation="@dimen/_3sdp">
 
@@ -140,6 +141,7 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="@dimen/_10sdp"
+                android:backgroundTint="?attr/bg_color"
                 app:cardCornerRadius="@dimen/_10sdp"
                 app:cardElevation="@dimen/_3sdp">
 
@@ -187,6 +189,7 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="@dimen/_10sdp"
+                android:backgroundTint="?attr/bg_color"
                 app:cardCornerRadius="@dimen/_10sdp"
                 app:cardElevation="@dimen/_3sdp">
 
@@ -224,6 +227,7 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="@dimen/_10sdp"
+                android:backgroundTint="?attr/bg_color"
                 app:cardCornerRadius="@dimen/_10sdp"
                 app:cardElevation="@dimen/_3sdp">
 

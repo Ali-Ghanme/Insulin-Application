@@ -38,8 +38,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginRight="@dimen/_75sdp"
-            android:fontFamily="@font/cairo_bold"
-            android:text="علي علوكة" />
+            android:fontFamily="@font/cairo_bold" />
 
         <TextView
             android:id="@+id/FPI_type"
@@ -48,8 +47,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginTop="@dimen/_35sdp"
             android:layout_marginRight="@dimen/_75sdp"
-            android:fontFamily="@font/cairo_bold"
-            android:text="النوع الأول" />
+            android:fontFamily="@font/cairo_bold" />
     </RelativeLayout>
 
     <ScrollView
@@ -94,7 +92,6 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/_20sdp"
                     android:fontFamily="@font/cairo_bold"
-                    android:text="21"
                     android:textSize="@dimen/_9sdp" />
             </RelativeLayout>
 
@@ -128,7 +125,6 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/_20sdp"
                     android:fontFamily="@font/cairo_bold"
-                    android:text="غزة"
                     android:textSize="@dimen/_9sdp" />
             </RelativeLayout>
 
@@ -162,7 +158,6 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/_20sdp"
                     android:fontFamily="@font/cairo_bold"
-                    android:text="ذكر"
                     android:textSize="@dimen/_9sdp" />
             </RelativeLayout>
 
@@ -196,7 +191,6 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/_20sdp"
                     android:fontFamily="@font/cairo_bold"
-                    android:text="175"
                     android:textSize="@dimen/_9sdp" />
             </RelativeLayout>
 
@@ -230,7 +224,6 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/_20sdp"
                     android:fontFamily="@font/cairo_bold"
-                    android:text="65"
                     android:textSize="@dimen/_9sdp" />
             </RelativeLayout>
 
@@ -277,7 +270,6 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/_20sdp"
                     android:fontFamily="@font/cairo_bold"
-                    android:text="أنسولين"
                     android:textSize="@dimen/_9sdp" />
             </RelativeLayout>
 
@@ -312,7 +304,6 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/_20sdp"
                     android:fontFamily="@font/cairo_bold"
-                    android:text="لايوجد"
                     android:textSize="@dimen/_9sdp" />
             </RelativeLayout>
 
@@ -347,7 +338,6 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/_20sdp"
                     android:fontFamily="@font/cairo_bold"
-                    android:text="10/09/1968"
                     android:textSize="@dimen/_9sdp" />
             </RelativeLayout>
 
@@ -382,7 +372,6 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/_20sdp"
                     android:fontFamily="@font/cairo_bold"
-                    android:text="وراثي"
                     android:textSize="@dimen/_9sdp" />
             </RelativeLayout>
         </LinearLayout>

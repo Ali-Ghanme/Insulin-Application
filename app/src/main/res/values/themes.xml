@@ -13,8 +13,13 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
         <!-- Customize your theme here. -->
-        <item name="bg_color">#F4F6FF</item>
+        <item name="bg_color">#FFFFFF</item>
         <item name="text_color">#1d1b1e</item>
+        <item name="nav_color_p">@color/Patient_Color</item>
+        <item name="nav_color_d">@color/Doctor_Color</item>
+        <item name="tab_nav_color">@color/Patient_Color</item>
+        <item name="nav_selected_one_p">@color/white</item>
+        <item name="nav_selected_one_d">@color/white</item>
     </style>
 
     <style name="Theme.Diabestes_Care_App.NoActionBar">

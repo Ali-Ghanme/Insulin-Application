@@ -51,7 +51,7 @@ public class Patient_info_Fragment extends Fragment {
 
         // Get data from message adapter class
         SharedPreferences prefs = getActivity().getSharedPreferences(MyPREFERENCES_P_Username_D, MODE_PRIVATE);
-        getName = prefs.getString("Patient_name_D", null);
+        getName = prefs.getString("PatientUsername_D", null);
 
         databaseReference = FirebaseDatabase.getInstance().getReference("patient").child(getName);
 

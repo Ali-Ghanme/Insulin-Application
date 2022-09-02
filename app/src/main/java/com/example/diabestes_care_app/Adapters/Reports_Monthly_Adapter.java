@@ -84,11 +84,9 @@ public class Reports_Monthly_Adapter extends RecyclerView.Adapter<Reports_Monthl
             result_triglycerid = itemView.findViewById(R.id.result_triglycerid);
             result_ldl = itemView.findViewById(R.id.result_ldl);
             result_hdl = itemView.findViewById(R.id.result_hdl);
-            result_pressures = itemView.findViewById(R.id.result_pressuer);
+            result_pressures = itemView.findViewById(R.id.result_pressure);
             result_bmi_height = itemView.findViewById(R.id.result_bmi_height);
             result_bmi_weight = itemView.findViewById(R.id.result_bmi_weight);
-
-
         }
     }
 }

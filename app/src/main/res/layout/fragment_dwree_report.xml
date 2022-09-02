@@ -1,8 +1,451 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_centerHorizontal="true"
     tools:context=".Ui.Doctor_all.Secation.Follow.PatinetData.Fragment.Dwree_Report_Fragment">
 
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_show_cholesterol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:fontFamily="@font/cairo_semibold"
+            android:text="فحص وظائف الكلية :"
+            android:textColor="@color/Patient_Color"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/cont_creatine"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_30sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/bg_doctors_list"
+            android:backgroundTint="?attr/bg_color"
+            android:elevation="1.5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:text="الكرياتين"
+                android:textColor="@color/Patient_Color"
+                android:textSize="@dimen/_9sdp" />
+
+            <TextView
+                android:id="@+id/FDR_result_creatinine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:text="فارغ"
+                android:textSize="@dimen/_9sdp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/cont_urea"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_30sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/bg_doctors_list"
+            android:backgroundTint="?attr/bg_color"
+            android:elevation="1.5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:text="يوريا"
+                android:textColor="@color/Patient_Color"
+                android:textSize="@dimen/_9sdp" />
+
+            <TextView
+                android:id="@+id/FDR_result_urea"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:text="فارغ"
+                android:textSize="@dimen/_9sdp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/cont_uric"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_30sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/bg_doctors_list"
+            android:backgroundTint="?attr/bg_color"
+            android:elevation="1.5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:text="Uric"
+                android:textColor="@color/Patient_Color"
+                android:textSize="@dimen/_9sdp" />
+
+            <TextView
+                android:id="@+id/FDR_result_uric"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:text="فارغ"
+                android:textSize="@dimen/_9sdp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_show_fats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:fontFamily="@font/cairo_semibold"
+            android:text="فحص الدهون :"
+            android:textColor="@color/Patient_Color"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/cont_cholesterol"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_30sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/bg_doctors_list"
+            android:backgroundTint="?attr/bg_color"
+            android:elevation="1.5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:text="الكوليسترول"
+                android:textColor="@color/Patient_Color"
+                android:textSize="@dimen/_9sdp" />
+
+            <TextView
+                android:id="@+id/FDR_result_cholesterol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:text="فارغ"
+                android:textSize="@dimen/_9sdp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/cont_triglycerid"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_30sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/bg_doctors_list"
+            android:backgroundTint="?attr/bg_color"
+            android:elevation="1.5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:text="الدهون الثلاثية"
+                android:textColor="@color/Patient_Color"
+                android:textSize="@dimen/_9sdp" />
+
+            <TextView
+                android:id="@+id/FDR_result_triglycerid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:text="فارغ"
+                android:textSize="@dimen/_9sdp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/cont_ldl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_30sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/bg_doctors_list"
+            android:backgroundTint="?attr/bg_color"
+            android:elevation="1.5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:text="الكوليسترول الضار"
+                android:textColor="@color/Patient_Color"
+                android:textSize="@dimen/_9sdp" />
+
+            <TextView
+                android:id="@+id/FDR_result_ldl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:text="فارغ"
+                android:textSize="@dimen/_9sdp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/cont_hdl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_30sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/bg_doctors_list"
+            android:backgroundTint="?attr/bg_color"
+            android:elevation="1.5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:text="الكوليسترول النافع"
+                android:textColor="@color/Patient_Color"
+                android:textSize="@dimen/_9sdp" />
+
+            <TextView
+                android:id="@+id/FDR_result_hdl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:text="فارغ"
+                android:textSize="@dimen/_9sdp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_show_pressuer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:fontFamily="@font/cairo_semibold"
+            android:text="فحص ضغط الدم"
+            android:textColor="@color/Patient_Color"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/cont_pressure"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_30sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/bg_doctors_list"
+            android:backgroundTint="?attr/bg_color"
+            android:elevation="1.5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:text="ضغط الدم"
+                android:textColor="@color/Patient_Color"
+                android:textSize="@dimen/_9sdp" />
+
+            <TextView
+                android:id="@+id/FDR_result_pressure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:text="فارغ"
+                android:textSize="@dimen/_9sdp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_show_bmi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:fontFamily="@font/cairo_semibold"
+            android:text="حساب مؤشر كتلة الجسم  :"
+            android:textColor="@color/Patient_Color"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/cont_bmi_height"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_30sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/bg_doctors_list"
+            android:backgroundTint="?attr/bg_color"
+            android:elevation="1.5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:text="الوزن"
+                android:textColor="@color/Patient_Color"
+                android:textSize="@dimen/_9sdp" />
+
+            <TextView
+                android:id="@+id/FDR_result_bmi_height"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:text="فارغ"
+                android:textSize="@dimen/_9sdp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/cont_bmi_weight"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_30sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/bg_doctors_list"
+            android:backgroundTint="?attr/bg_color"
+            android:elevation="1.5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:text="الطول"
+                android:textColor="@color/Patient_Color"
+                android:textSize="@dimen/_9sdp" />
+
+            <TextView
+                android:id="@+id/FDR_result_bmi_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:text="فارغ"
+                android:textSize="@dimen/_9sdp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/cont_bmi"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_30sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/bg_doctors_list"
+            android:backgroundTint="?attr/bg_color"
+            android:elevation="1.5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:text="مؤشر الكتلة"
+                android:textColor="@color/Patient_Color"
+                android:textSize="@dimen/_9sdp" />
+
+            <TextView
+                android:id="@+id/FDR_result_bmi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:text="فارغ"
+                android:textSize="@dimen/_9sdp" />
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>

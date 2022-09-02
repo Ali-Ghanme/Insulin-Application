@@ -43,7 +43,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_70sdp"
         android:contentDescription="@string/todo"
-        app:civ_border_color="@android:color/white"
+        app:civ_border_color="?attr/bg_color"
         app:civ_border_width="3dp" />
 
     <TextView
@@ -89,7 +89,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/HP_search_input"
-        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_5sdp"
         android:background="?attr/selectableItemBackground"
         android:clickable="true"
         android:focusable="true">

@@ -64,7 +64,7 @@ public class Doctor_List_Adapter extends RecyclerView.Adapter<Doctor_List_Adapte
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 snooping_status = dataSnapshot.getValue(String.class);
-                 if (snooping_status == null) {
+                if (snooping_status == null) {
                     return;
                 } else {
                     try {
@@ -104,10 +104,9 @@ public class Doctor_List_Adapter extends RecyclerView.Adapter<Doctor_List_Adapte
         //============================Recycle Item data ============================================
         // TextView
         holder.name.setText(list.get(position).getName());
-        holder.username.setText(list.get(position).getName());
+        holder.username.setText(list.get(position).getUsername());
         // ImageView : Glide Library
         Glide.with(context).load(list.get(position).getImageUrl()).placeholder(R.drawable.ic_user).error(R.drawable.notifications).into(holder.imageView);
-
     }
 
     @Override

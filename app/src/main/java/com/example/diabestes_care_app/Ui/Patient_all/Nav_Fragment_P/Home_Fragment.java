@@ -150,7 +150,7 @@ public class Home_Fragment extends Fragment {
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         DoctorList_Model doctorListModel = new DoctorList_Model();
                         doctorListModel.setName(snapshot.child("personal_info").child("name_ar").getValue().toString());
-                        doctorListModel.setUsername(snapshot.child("personal_info").child("username").getValue().toString());
+                        doctorListModel.setUsername(snapshot.child("username").getValue().toString());
                         doctorListModel.setImageUrl(snapshot.child("User_Profile_Image").child("Image").child("mImageUrI").getValue().toString());
                         doctorListModel.setToken(snapshot.child("Token").child("Doctor_Token").getValue().toString());
                         list.add(doctorListModel);

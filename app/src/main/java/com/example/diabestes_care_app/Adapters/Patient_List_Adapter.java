@@ -14,10 +14,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.Filter;
-import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -40,7 +37,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adapter.MyViewHolder> implements Filterable {
+// implements Filterable
+public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adapter.MyViewHolder> {
     Context context;
     ArrayList<PatientList_Model> list;
     ArrayList<PatientList_Model> mDataFiltered;
@@ -68,8 +66,8 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
     @SuppressLint("ClickableViewAccessibility")
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.imageView.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition_animation));
-        holder.container.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_scale_animation));
+//        holder.imageView.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition_animation));
+//        holder.container.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_scale_animation));
 
         sharedpreferences = context.getSharedPreferences(MyPREFERENCES_P_List, MODE_PRIVATE);
 
@@ -90,6 +88,7 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
         myRef = FirebaseDatabase.getInstance().getReference("doctor");
         DatabaseReference online_status_all_users = FirebaseDatabase.getInstance().getReference().child("online_statuses").child(list2.getUsername());
         DatabaseReference follow = FirebaseDatabase.getInstance().getReference().child("doctor").child(DoctorUsername).child("Follow").child(list2.getUsername()).child("Following");
+
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -147,13 +146,15 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
 //                        list.remove(holder.getAbsoluteAdapterPosition());
 //                        notifyItemRemoved(holder.getAbsoluteAdapterPosition());
 ////                        notifyItemRangeChanged(holder.getAbsoluteAdapterPosition(), list.size());
-
-                        if (!list2.getToken().isEmpty()) {
-                            FcmNotificationsSender notificationsSender = new FcmNotificationsSender(list2.getToken(), "متابعة", " قام الدكتور " +
-                                    doctor_name + " بمتابعتك ", context.getApplicationContext());
-                            notificationsSender.SendNotifications();
+                        try {
+                            if (!list2.getToken().isEmpty()) {
+                                FcmNotificationsSender notificationsSender = new FcmNotificationsSender(list2.getToken(), "متابعة", " قام الدكتور " +
+                                        doctor_name + " بمتابعتك ", context.getApplicationContext());
+                                notificationsSender.SendNotifications();
+                            }
+                        } catch (Exception exception) {
+                            Log.e("TAG", exception.getMessage());
                         }
-
                     }
 
                     SharedPreferences.Editor editor = sharedpreferences.edit();
@@ -165,7 +166,6 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
 
                 @Override
                 public boolean onDoubleTap(MotionEvent e) {
-                    Toast.makeText(context, "Hallow this is Double Tap", Toast.LENGTH_SHORT).show();
                     follow.removeValue();
                     holder.follow_btn.setText("متابعة");
                     return super.onDoubleTap(e);
@@ -239,35 +239,35 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
 
     }
 
-    public Filter getFilter() {
-        return new Filter() {
-            @Override
-            protected FilterResults performFiltering(CharSequence constraint) {
-                String Key = constraint.toString();
-                if (Key.isEmpty()) {
-                    mDataFiltered = list;
-                } else {
-                    ArrayList<PatientList_Model> lstFiltered = new ArrayList<>();
-                    for (PatientList_Model row : list) {
-
-                        if (row.getName().toLowerCase().contains(Key.toLowerCase())) {
-                            lstFiltered.add(row);
-                        }
-                    }
-                    mDataFiltered = lstFiltered;
-                }
-                FilterResults filterResults = new FilterResults();
-                filterResults.values = mDataFiltered;
-                return filterResults;
-            }
-
-            @Override
-            protected void publishResults(CharSequence constraint, FilterResults results) {
-                mDataFiltered = (ArrayList<PatientList_Model>) results.values;
-                notifyDataSetChanged();
-            }
-        };
-    }
+//    public Filter getFilter() {
+//        return new Filter() {
+//            @Override
+//            protected FilterResults performFiltering(CharSequence constraint) {
+//                String Key = constraint.toString();
+//                if (Key.isEmpty()) {
+//                    mDataFiltered = list;
+//                } else {
+//                    ArrayList<PatientList_Model> lstFiltered = new ArrayList<>();
+//                    for (PatientList_Model row : list) {
+//
+//                        if (row.getName().toLowerCase().contains(Key.toLowerCase())) {
+//                            lstFiltered.add(row);
+//                        }
+//                    }
+//                    mDataFiltered = lstFiltered;
+//                }
+//                FilterResults filterResults = new FilterResults();
+//                filterResults.values = mDataFiltered;
+//                return filterResults;
+//            }
+//
+//            @Override
+//            protected void publishResults(CharSequence constraint, FilterResults results) {
+//                mDataFiltered = (ArrayList<PatientList_Model>) results.values;
+//                notifyDataSetChanged();
+//            }
+//        };
+//    }
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView name, type;
@@ -290,8 +290,6 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
 
         @Override
         public void onClick(View v) {
-            int position = getBindingAdapterPosition();
-            Toast.makeText(context, "Position" + position, Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(context, Doctor_Profile_P.class);
             context.startActivity(intent);
         }

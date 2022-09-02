@@ -3,9 +3,9 @@
 
     <solid android:color="@color/card_bg_color" />
     <corners android:radius="10dp" />
-    <padding android:top="12dp" android:left="12dp"
-        android:bottom="12dp" android:right="12dp" />
-
-
-
+    <padding
+        android:bottom="12dp"
+        android:left="12dp"
+        android:right="12dp"
+        android:top="12dp" />
 </shape>

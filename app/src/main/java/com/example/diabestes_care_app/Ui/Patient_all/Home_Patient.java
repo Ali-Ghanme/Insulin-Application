@@ -39,6 +39,7 @@ public class Home_Patient extends Basic_Activity {
     String PatientUsername;
     Dialog dialog;
     Button Continue;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,36 +65,23 @@ public class Home_Patient extends Basic_Activity {
         dialog.setCancelable(false); //Optional
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         Continue = dialog.findViewById(R.id.Continue);
-
-        //============================Firebase======================================================
-        myRef = FirebaseDatabase.getInstance().getReference();
         //============================Get Patient Username===========================================
         SharedPreferences prefs = getApplicationContext().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         PatientUsername = prefs.getString("TAG_NAME", null);
 
-        //============================Get User Status ==============================================
-        //say your realtime database has the child `online_statuses`
+        //============================Firebase======================================================
+        myRef = FirebaseDatabase.getInstance().getReference();
         DatabaseReference online_status_all_users = FirebaseDatabase.getInstance().getReference().child("online_statuses").child(PatientUsername);
 
-        //on each user's device when connected they should indicate e.g. `linker` should tell everyone he's snooping around
+        //============================Get User Status ==============================================
         online_status_all_users.setValue("online");
-
-        //also when he's not doing any snooping or if snooping goes bad he should also tell
         online_status_all_users.onDisconnect().setValue("offline");
-
         online_status_all_users.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String snooping_status = dataSnapshot.getValue(String.class);
                 //mario should decide what to do with linker's snooping status here e.g.
-                if (snooping_status.contentEquals("online")) {
-                    //tell linker to stop doing sh*t
-                    Toast.makeText(Home_Patient.this, snooping_status, Toast.LENGTH_SHORT).show();
-                    Log.e("TAG", snooping_status);
-                } else {
-                    //tell linker to do a lot of sh****t
-                    Toast.makeText(Home_Patient.this, "All Doctors Offline", Toast.LENGTH_SHORT).show();
-                    Log.e("TAG", snooping_status);
+                if (snooping_status.contentEquals("offline")) {
                     dialog.show();
                 }
             }

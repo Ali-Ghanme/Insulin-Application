@@ -39,6 +39,7 @@ public class Home_Doctor extends Basic_Activity {
     public static final String MyPREFERENCES_D = "D_Username";
     Dialog dialog;
     Button Continue;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +56,6 @@ public class Home_Doctor extends Basic_Activity {
 //             Add Home Fragment as the default Fragment
             fragmentManager.beginTransaction().replace(R.id.fragment_container_d, home_fragment).commit();
         }
-
         //============================Create + Configure the Dialog here============================
         dialog = new Dialog(Home_Doctor.this);
         dialog.setContentView(R.layout.offline_dialog);
@@ -66,27 +66,24 @@ public class Home_Doctor extends Basic_Activity {
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         Continue = dialog.findViewById(R.id.Continue);
 
-        //============================Firebase======================================================
-        myRef = FirebaseDatabase.getInstance().getReference();
-
-        //============================Check Status of user and store it in Firebase=================
+        //============================Shared Preference=============================================
         SharedPreferences prefs = getApplicationContext().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
         DoctorUsername = prefs.getString("TAG_NAME", null);
 
-        DatabaseReference online_status_all_users = FirebaseDatabase.getInstance().getReference().child("online_statuses");
+        //============================Firebase======================================================
+        myRef = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference online_status_all_users = FirebaseDatabase.getInstance().getReference().child("online_statuses").child(DoctorUsername);
 
-        online_status_all_users.child(DoctorUsername).setValue("online");
-        online_status_all_users.child(DoctorUsername).onDisconnect().setValue("offline");
 
-        online_status_all_users.child(DoctorUsername).addValueEventListener(new ValueEventListener() {
+        online_status_all_users.setValue("online");
+        online_status_all_users.onDisconnect().setValue("offline");
+
+        online_status_all_users.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String snooping_status = dataSnapshot.getValue(String.class);
-                //mario should decide what to do with linker's snooping status here e.g.
-                if (snooping_status.contentEquals("online")) {
+                if (snooping_status.contentEquals("offline")) {
                     Log.e("TAG", DoctorUsername + snooping_status);
-                } else {
-                    Toast.makeText(Home_Doctor.this, "User Offline", Toast.LENGTH_SHORT).show();
                     dialog.show();
                 }
             }

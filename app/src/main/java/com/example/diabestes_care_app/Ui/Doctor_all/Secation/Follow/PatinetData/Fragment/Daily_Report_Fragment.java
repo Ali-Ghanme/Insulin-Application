@@ -47,7 +47,7 @@ public class Daily_Report_Fragment extends Fragment {
         //============================Get Patient Username===========================================
         // Get data from message adapter class
         SharedPreferences prefs = getActivity().getSharedPreferences(MyPREFERENCES_P_Username_D, MODE_PRIVATE);
-        PatientUsername = prefs.getString("Patient_name_D", null);
+        PatientUsername = prefs.getString("PatientUsername_D", null);
 
         //============================Configure Firebase============================================
         databaseReference = FirebaseDatabase.getInstance().getReference("patient").child(PatientUsername).child("Reports_info").child("فحص يومي");

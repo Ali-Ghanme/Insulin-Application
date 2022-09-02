@@ -17,7 +17,8 @@
         android:id="@+id/Dl_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?attr/bg_color"
+        android:background="@drawable/bg_doctors_list"
+        android:backgroundTint="?attr/bg_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent">
 

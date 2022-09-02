@@ -5,7 +5,6 @@ import static com.example.diabestes_care_app.Ui.Doctor_all.Home_Doctor.MyPREFERE
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -78,14 +77,14 @@ public class Consultation_Request extends Basic_Activity {
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         Consolation_Model consolation_model = new Consolation_Model();
                         consolation_model.setTitle(snapshot.child("Title").getValue().toString());
-                        consolation_model.setDoctorName(snapshot.child("to").getValue().toString());
                         consolation_model.setQuestion(snapshot.child("Subject").getValue().toString());
-                        consolation_model.setImageUrl(snapshot.child("Doctor_Profile").getValue().toString());
+                        consolation_model.setAnswer(snapshot.child("Doctor_Answer").getValue().toString());
+                        consolation_model.setDoctorName(snapshot.child("to").getValue().toString());
+                        consolation_model.setImageUrl(snapshot.child("Doctor_Image").getValue().toString());
                         list.add(consolation_model);
                         Log.e("TAG", MSGKey);
                     }
                 } catch (Exception e) {
-                    Toast.makeText(Consultation_Request.this, "إنتظر قليلاً ", Toast.LENGTH_SHORT).show();
                     Log.e("TAG", e.getMessage());
                 }
                 ConsuListAdapter = new Consultation_Adapter(Consultation_Request.this, list);

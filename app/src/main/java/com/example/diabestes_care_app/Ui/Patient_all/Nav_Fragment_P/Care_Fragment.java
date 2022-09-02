@@ -23,7 +23,7 @@ import androidx.fragment.app.Fragment;
 import com.bumptech.glide.Glide;
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Patient_all.Sections.Consulation.Consultation_Request;
-import com.example.diabestes_care_app.Ui.Patient_all.Sections.Doses.Doses_Home;
+import com.example.diabestes_care_app.Ui.Patient_all.Sections.Doses.ui.MainActivity;
 import com.example.diabestes_care_app.Ui.Patient_all.Sections.Reports.Patient_Files;
 import com.example.diabestes_care_app.Ui.Patient_all.Sections.Self_Care.Self_Care;
 import com.google.firebase.database.DataSnapshot;
@@ -82,7 +82,7 @@ public class Care_Fragment extends Fragment {
         FC_Doses_p.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Doses_Home.class);
+                Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
             }
         });

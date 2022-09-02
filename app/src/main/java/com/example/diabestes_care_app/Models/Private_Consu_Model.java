@@ -1,16 +1,18 @@
 package com.example.diabestes_care_app.Models;
 
 public class Private_Consu_Model {
-    String patientImage, patientName, consuTitle, consuSubject, doctorAnswer, PushKey, doctorImage;
+    String patientImage, patientName, consuTitle, consuSubject, doctorAnswer, doctor_name, PushKey, doctorImage,patientToken;
 
-    public Private_Consu_Model(String patientImage, String patientName, String consuTitle, String consuSubject, String doctorAnswer, String pushKey, String doctorImage) {
+    public Private_Consu_Model(String patientImage, String patientName, String consuTitle, String consuSubject, String doctorAnswer, String doctor_name, String pushKey, String doctorImage, String patientToken) {
         this.patientImage = patientImage;
         this.patientName = patientName;
         this.consuTitle = consuTitle;
         this.consuSubject = consuSubject;
         this.doctorAnswer = doctorAnswer;
-        this.PushKey = pushKey;
+        this.doctor_name = doctor_name;
+        PushKey = pushKey;
         this.doctorImage = doctorImage;
+        this.patientToken = patientToken;
     }
 
     public Private_Consu_Model() {
@@ -56,6 +58,14 @@ public class Private_Consu_Model {
         this.doctorAnswer = doctorAnswer;
     }
 
+    public String getDoctor_name() {
+        return doctor_name;
+    }
+
+    public void setDoctor_name(String doctor_name) {
+        this.doctor_name = doctor_name;
+    }
+
     public String getPushKey() {
         return PushKey;
     }
@@ -70,5 +80,13 @@ public class Private_Consu_Model {
 
     public void setDoctorImage(String doctorImage) {
         this.doctorImage = doctorImage;
+    }
+
+    public String getPatientToken() {
+        return patientToken;
+    }
+
+    public void setPatientToken(String patientToken) {
+        this.patientToken = patientToken;
     }
 }

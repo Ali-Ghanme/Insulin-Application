@@ -26,9 +26,9 @@
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/Patient_reports_tab_D"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_centerVertical="true"
+            android:layout_height="@dimen/_35sdp"
             android:layout_marginHorizontal="10dp"
+            android:layout_centerVertical="true"
             android:background="@drawable/tab_selector"
             android:elevation="3dp"
             app:layout_constraintLeft_toLeftOf="parent"

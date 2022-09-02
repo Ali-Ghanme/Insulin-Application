@@ -34,9 +34,9 @@ public class Patent_Report_d extends Basic_Activity {
 
         //====================Adapter Configuration=================================================
         adapter = new Patent_Report_d.MainAdapter(getSupportFragmentManager());
-        adapter.AddFragment(new Patient_info_Fragment(), "معلومات المريض");
-        adapter.AddFragment(new Daily_Report_Fragment(), "الفحصوصات اليومية");
-        adapter.AddFragment(new Dwree_Report_Fragment(), "الفحصوصات الدورية");
+        adapter.AddFragment(new Patient_info_Fragment(), "م.المريض");
+        adapter.AddFragment(new Daily_Report_Fragment(), "ف.اليومية");
+        adapter.AddFragment(new Dwree_Report_Fragment(), "ف.الدورية");
 
         //========================Set Adapter for the viewpager Configuration=======================
         viewPager_subject.setAdapter(adapter);

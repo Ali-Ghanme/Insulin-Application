@@ -40,8 +40,8 @@ public class My_Patient_Fragment_D extends Fragment {
         adapter.AddFragment(new Consolation_Fragment(), "الاستشارات ");
 
         //========================Set Adapter for the viewpager Configuration=======================
-        viewPager_subject.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager_subject);
+        viewPager_subject.setAdapter(adapter);
         return view;
     }
 

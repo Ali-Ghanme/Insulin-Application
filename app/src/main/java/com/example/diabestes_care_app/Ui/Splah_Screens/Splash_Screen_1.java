@@ -34,16 +34,10 @@ public class Splash_Screen_1 extends Basic_Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        fullscreen();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-        //========================make the activity on full screen==================================
-        fullscreen();
-        //=======================check if its opened before or not==================================
-        if (restorePrefData()) {
-            Intent mainActivity = new Intent(getApplicationContext(), character_choice_screen.class);
-            startActivity(mainActivity);
-            finish();
-        }
+
         //==================================define views============================================
         btnNext = findViewById(R.id.btn_next_Sp);
         btnGetStarted = findViewById(R.id.btn_get_started);
@@ -64,6 +58,8 @@ public class Splash_Screen_1 extends Basic_Activity {
         mList.add(new Splash_Screen_Modal("نظم جرعاتك", "يمكنك وضع منبه للتذكير بجرعات\n" + " العلاج",  R.drawable.ic_splash_4));
         mList.add(new Splash_Screen_Modal("تقارير","" + "التذكير بالفحوصات الدورية لمريض السكري" ,  R.drawable.ic_report));
         mList.add(new Splash_Screen_Modal("عناية ذاتية", "قسم كامل للتعليمات والانظمة الصحية \n" + " الخاصة بمرضى السكري\n"  ,  R.drawable.ic_splash_instraction));
+
+
         //=============================== setup viewpager===========================================
         viewAdapterSplashScreen = new ViewAdapter_Splash_Screen(this, mList);
         viewPager.setAdapter(viewAdapterSplashScreen);
@@ -79,7 +75,6 @@ public class Splash_Screen_1 extends Basic_Activity {
                     viewPager.setCurrentItem(position);
                 }
                 if (position > mList.size() - 1) { // when we reach to the last screen
-                    // TODO : show the Get Started Button and hide the indicator and the next button
                     loadLastScreen();
                 }
             }
@@ -106,16 +101,14 @@ public class Splash_Screen_1 extends Basic_Activity {
             public void onClick(View v) {
                 Intent mainActivity = new Intent(getApplicationContext(), character_choice_screen.class);
                 startActivity(mainActivity);
+                savePrefsData();
+                finish();
             }
         });
+
     }
 
-    private boolean restorePrefData() {
-        SharedPreferences pref = getApplicationContext().getSharedPreferences("myPrefs", MODE_PRIVATE);
-        return pref.getBoolean("isIntroOpened", false);
-    }
-
-    private void savePrefsData() {
+    public void savePrefsData() {
         SharedPreferences pref = getApplicationContext().getSharedPreferences("myPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         editor.putBoolean("isIntroOpened", true);
@@ -123,7 +116,7 @@ public class Splash_Screen_1 extends Basic_Activity {
     }
 
     //==========show the Get Started Button and hide the indicator and the next button==============
-    private void loadLastScreen() {
+    public void loadLastScreen() {
         btnNext.setVisibility(View.INVISIBLE);
         btnGetStarted.setVisibility(View.VISIBLE);
         tvSkip.setVisibility(View.INVISIBLE);

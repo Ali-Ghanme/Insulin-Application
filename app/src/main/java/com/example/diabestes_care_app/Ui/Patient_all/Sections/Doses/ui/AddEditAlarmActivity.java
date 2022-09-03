@@ -3,7 +3,6 @@ package com.example.diabestes_care_app.Ui.Patient_all.Sections.Doses.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 
 import androidx.annotation.IntDef;
 import androidx.annotation.Nullable;
@@ -35,10 +34,6 @@ public final class AddEditAlarmActivity extends Basic_Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_alarm);
 
-        //noinspection ConstantConditions
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setTitle(getToolbarTitle());
-
         final Alarm alarm = getAlarm();
 
         if(getSupportFragmentManager().findFragmentById(R.id.edit_alarm_frag_container) == null) {
@@ -69,36 +64,6 @@ public final class AddEditAlarmActivity extends Basic_Activity {
     private @Mode int getMode() {
         final @Mode int mode = getIntent().getIntExtra(MODE_EXTRA, UNKNOWN);
         return mode;
-    }
-
-    private String getToolbarTitle() {
-        int titleResId;
-        switch (getMode()) {
-            case EDIT_ALARM:
-                titleResId = R.string.edit_alarm;
-                break;
-            case ADD_ALARM:
-                titleResId = R.string.add_alarm;
-                break;
-            case UNKNOWN:
-            default:
-                throw new IllegalStateException("Mode supplied as intent extra for " +
-                        AddEditAlarmActivity.class.getSimpleName() + " must match value in " +
-                        Mode.class.getSimpleName());
-        }
-        return getString(titleResId);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                break;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     public static Intent buildAddEditAlarmActivityIntent(Context context, @Mode int mode) {

@@ -31,10 +31,8 @@ import java.util.Locale;
 
 public final class AlarmUtils {
 
-    private static final SimpleDateFormat TIME_FORMAT =
-            new SimpleDateFormat("h:mm", Locale.getDefault());
-    private static final SimpleDateFormat AM_PM_FORMAT =
-            new SimpleDateFormat("a", Locale.getDefault());
+    private static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat("h:mm", Locale.getDefault());
+    private static final SimpleDateFormat AM_PM_FORMAT = new SimpleDateFormat("a", Locale.getDefault());
 
     private static final int REQUEST_ALARM = 1;
     private static final String[] PERMISSIONS_ALARM = {
@@ -131,6 +129,7 @@ public final class AlarmUtils {
     public static String getReadableTime(long time) {
         return TIME_FORMAT.format(time);
     }
+
 
     public static String getAmPm(long time) {
         return AM_PM_FORMAT.format(time);

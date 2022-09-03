@@ -17,7 +17,9 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.media.AudioAttributes;
 import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.SparseBooleanArray;
@@ -192,7 +194,13 @@ public final class AlarmReceiver extends BroadcastReceiver {
 
     private static void createNotificationChannel(Context ctx) {
         if(SDK_INT < O) return;
+        Uri defaultSoundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
 
+        // Creating an Audio Attribute
+        AudioAttributes audioAttributes = new AudioAttributes.Builder()
+                .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                .setUsage(AudioAttributes.USAGE_ALARM)
+                .build();
         final NotificationManager mgr = ctx.getSystemService(NotificationManager.class);
         if(mgr == null) return;
 
@@ -203,6 +211,8 @@ public final class AlarmReceiver extends BroadcastReceiver {
             channel.enableVibration(true);
             channel.setVibrationPattern(new long[] {1000,500,1000,500,1000,500});
             channel.setBypassDnd(true);
+            channel.setSound(defaultSoundUri, audioAttributes);
+
             mgr.createNotificationChannel(channel);
         }
     }

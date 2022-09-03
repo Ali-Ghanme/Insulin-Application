@@ -31,6 +31,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/launch_main_activity"
+            android:fontFamily="@font/cairo_bold"
+            android:textColor="@color/Patient_Color"
             tools:text="Load Main Activity"
             style="@style/Base.Widget.AppCompat.Button.Borderless.Colored" />
 
@@ -39,6 +41,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="@font/cairo_bold"
+            android:textColor="@color/Patient_Color"
             android:text="@string/dismiss"
             tools:text="Dismiss"
             style="@style/Base.Widget.AppCompat.Button.Borderless.Colored" />

@@ -22,19 +22,19 @@ import androidx.fragment.app.Fragment;
 import com.example.diabestes_care_app.R;
 
 public final class AlarmLandingPageFragment extends Fragment implements SensorEventListener {
-    private  long lastTime;
-    private   float speed;
-    private  float lastX;
-    private  float lastY;
-    private  float lastZ;
-    private  float x, y, z;
+    private long lastTime;
+    private float speed;
+    private float lastX;
+    private float lastY;
+    private float lastZ;
+    private float x, y, z;
     private int count;
 
 
     static final int SHAKE_THRESHOLD = 100;
-    public static  int DATA_X = SensorManager.DATA_X;
-    public static  int DATA_Y = SensorManager.DATA_Y;
-    public static  int DATA_Z = SensorManager.DATA_Z;
+    public static int DATA_X = SensorManager.DATA_X;
+    public static int DATA_Y = SensorManager.DATA_Y;
+    public static int DATA_Z = SensorManager.DATA_Z;
     public SensorManager sensorManager;
     public Sensor accelerormeterSensor;
     private PowerManager pm;
@@ -49,8 +49,9 @@ public final class AlarmLandingPageFragment extends Fragment implements SensorEv
         vibrator = (Vibrator) getActivity().getSystemService(VIBRATOR_SERVICE);
         sensorManager = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
         accelerormeterSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        final Button launchMainActivityBtn = (Button) v.findViewById(R.id.load_main_activity_btn);
-        final Button dismiss = (Button) v.findViewById(R.id.dismiss_btn);
+        final Button launchMainActivityBtn = v.findViewById(R.id.load_main_activity_btn);
+        final Button dismiss = v.findViewById(R.id.dismiss_btn);
+
         launchMainActivityBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,6 +60,7 @@ public final class AlarmLandingPageFragment extends Fragment implements SensorEv
                 getActivity().finish();
             }
         });
+
         dismiss.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,16 +68,16 @@ public final class AlarmLandingPageFragment extends Fragment implements SensorEv
                 getActivity().finish();
             }
         });
-        pm=(PowerManager)getActivity().getSystemService(Context.POWER_SERVICE);
 
+        pm = (PowerManager) getActivity().getSystemService(Context.POWER_SERVICE);
         startvibe();
         return v;
     }
 
     @Override
-    public void onStart(){
+    public void onStart() {
         super.onStart();
-        if(accelerormeterSensor!=null)
+        if (accelerormeterSensor != null)
             sensorManager.registerListener(this, accelerormeterSensor,
                     SensorManager.SENSOR_DELAY_GAME);
     }
@@ -104,10 +106,9 @@ public final class AlarmLandingPageFragment extends Fragment implements SensorEv
                 z = event.values[SensorManager.DATA_Z];
                 speed = Math.abs(x + y + z - lastX - lastY - lastZ) / gabOfTime * 10000;
                 if (speed > SHAKE_THRESHOLD) {
-                    lastTime=currentTime;
+                    lastTime = currentTime;
                     count++;//for shake test
-                    if(count==10)
-                    {
+                    if (count == 10) {
                         vibrator.cancel();
                         getActivity().finish();
                     }
@@ -119,7 +120,7 @@ public final class AlarmLandingPageFragment extends Fragment implements SensorEv
         }
     }
 
-    public void startvibe(){
-        vibrator.vibrate(new long[]{100,1000,100,500,100,1000},0);
+    public void startvibe() {
+        vibrator.vibrate(new long[]{100, 1000, 100, 500, 100, 1000}, 0);
     }
 }

@@ -16,8 +16,8 @@
     <string name="good_aft">طاب مساؤك</string>
     <string name="good_ev">مساء الخير</string>
     <string name="good_mor">مساء الخير</string>
-    <string name="am">AM</string>
-    <string name="pm">PM</string>
+    <string name="am">ص</string>
+    <string name="pm">م</string>
     <string name="login">تسجيل الدخول  </string>
     <string name="hi">سعداء لانظمامكم</string>
 
@@ -159,8 +159,8 @@
     </string>
 
 
-    <string name="yes">اتبع الارشادات </string>
-    <string name="no">حسنا </string>
+    <string name="yes">حذف </string>
+    <string name="no">التراجع</string>
 
     <string name="title_activity_genral_cons">Genral_Cons</string>
 
@@ -193,8 +193,8 @@
     <string name="update_failed">Update Failed</string>
     <string name="delete_complete">Alarm Deleted</string>
     <string name="delete_failed">Delete Failed</string>
-    <string name="delete_dialog_title">Confirm Delete Alarm</string>
-    <string name="delete_dialog_content">Are you sure you would like to delete this alarm?</string>
+    <string name="delete_dialog_title">حذف التنبيه</string>
+    <string name="delete_dialog_content">هل أنت متأكد من حذف التنبيه؟</string>
 
     <!-- Edit Alarm Menu -->
     <string name="action_save">Save</string>
@@ -205,13 +205,12 @@
     <string name="dismiss">Dismiss</string>
 
     <!-- Days -->
-    <string name="saturday">Saturday</string>
-    <string name="sunday">Sunday</string>
-    <string name="monday">Monday</string>
-    <string name="tuesday">Tuesday</string>
-    <string name="wednesday">Wednesday</string>
-    <string name="thursday">Thursday</string>
-    <string name="friday">Friday</string>
-
+    <string name="monday">الاثنين</string>
+    <string name="tuesday">الثلاثاء</string>
+    <string name="wednesday">الأربعاء</string>
+    <string name="thursday">الخميس</string>
+    <string name="friday">الجمعة</string>
+    <string name="saturday">السبت</string>
+    <string name="sunday">الأحد</string>
 
 </resources>

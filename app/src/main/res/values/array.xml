@@ -2,13 +2,13 @@
 <resources>
 
     <string-array name="days_abbreviated">
-        <item>Sa</item>
-        <item>Su</item>
-        <item>M</item>
-        <item>Tu</item>
-        <item>W</item>
-        <item>Th</item>
-        <item>F</item>
+        <item>إث</item>
+        <item>ث</item>
+        <item>أر</item>
+        <item>خم</item>
+        <item>جم</item>
+        <item>سب</item>
+        <item>أح</item>
     </string-array>
 
 </resources>

@@ -58,6 +58,7 @@
             android:layout_marginBottom="@dimen/activity_vertical_margin"
             android:background="@drawable/bg_ic_background"
             android:backgroundTint="?attr/bg_color"
+            android:elevation="@dimen/_1sdp"
             android:layoutDirection="ltr"
             android:timePickerMode="spinner"
             tools:targetApi="lollipop" />
@@ -69,11 +70,13 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="@dimen/activity_vertical_margin"
             android:background="@drawable/bg_edit_text"
+            android:elevation="@dimen/_1sdp"
             android:backgroundTint="?attr/bg_color"
             android:fontFamily="@font/cairo_bold"
             android:hint="اسم الجرعة"
             android:inputType="textCapWords"
             android:maxLength="15"
+            android:textSize="@dimen/_10sdp"
             android:padding="@dimen/_10sdp"
             android:textColor="@color/secondary_text" />
 
@@ -90,6 +93,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/bg_edit_text"
             android:backgroundTint="?attr/bg_color"
+            android:elevation="@dimen/_1sdp"
             android:padding="@dimen/_10sdp"
             app:columnCount="2">
 

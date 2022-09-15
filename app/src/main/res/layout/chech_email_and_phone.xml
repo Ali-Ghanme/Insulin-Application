@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/_270sdp"
+    android:layout_height="@dimen/_340sdp"
+    android:layout_gravity="center_horizontal"
+    android:elevation="@dimen/_10sdp"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_marginTop="@dimen/_100sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:text="Enter Your Email :"
+        android:textSize="@dimen/_10sdp"
+        />
+
+    />
+    <EditText
+        android:id="@+id/et_email"
+        android:layout_width="@dimen/_240sdp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        android:background="@drawable/news_rectangel"
+        android:elevation="@dimen/_1sdp"
+        android:fontFamily="@font/cairo_bold"
+        android:hint="asd@gmail.com"
+        android:inputType="textEmailAddress"
+        android:padding="@dimen/_10sdp"
+        android:textColor="@color/Patient_Color"
+        android:textColorHint="@color/subtitle"
+        android:textSize="@dimen/_10sdp"
+        android:textStyle="bold" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:layout_marginEnd="0dp"
+        android:textSize="@dimen/_10sdp"
+        android:text="Enter Your Number Phone :"
+        />
+    <EditText
+        android:id="@+id/et_phone"
+        android:layout_width="@dimen/_240sdp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        android:background="@drawable/news_rectangel"
+        android:elevation="@dimen/_1sdp"
+        android:fontFamily="@font/cairo_bold"
+        android:hint="0599999999"
+        android:inputType="phone"
+        android:padding="@dimen/_10sdp"
+        android:textColor="@color/Patient_Color"
+        android:textColorHint="@color/subtitle"
+        android:textSize="@dimen/_10sdp"
+        android:textStyle="bold" />
+    <Button
+        android:id="@+id/okey"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/news_rectangel"
+        android:backgroundTint="@color/Doctor_Color"
+        android:fontFamily="@font/cairo_bold"
+        android:text="تحقق "
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_11sdp"/>
+
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="1dp"
+        android:layout_height="0dp"/>
+
+
+</LinearLayout>

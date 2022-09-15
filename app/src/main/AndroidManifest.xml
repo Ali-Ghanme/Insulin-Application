@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
@@ -17,6 +17,9 @@
         android:resource="@drawable/ic_notification"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/Theme.Diabestes_Care_App">
+        <activity
+            android:name=".ResetPassword"
+            android:exported="false" />
         <activity
             android:name=".Ui.Splah_Screens.Splash_Screen_1"
             android:exported="false" />
@@ -139,9 +142,7 @@
             </intent-filter>
         </service>
 
-
         <activity android:name=".Ui.Patient_all.Sections.Doses.ui.AddEditAlarmActivity" />
-
         <activity
             android:name=".Ui.Patient_all.Sections.Doses.ui.AlarmLandingPageActivity"
             android:theme="@style/AlertLandingPageTheme" />
@@ -149,12 +150,13 @@
         <service android:name=".Ui.Patient_all.Sections.Doses.service.LoadAlarmsService" />
 
         <receiver android:name=".Ui.Patient_all.Sections.Doses.service.LoadAlarmsReceiver" />
-
         <receiver android:name=".Ui.Patient_all.Sections.Doses.service.AlarmReceiver" />
-
-        <receiver android:name=".Ui.Patient_all.Sections.Doses.service.BootReceiver" android:enabled="true" android:exported="true">
+        <receiver
+            android:name=".Ui.Patient_all.Sections.Doses.service.BootReceiver"
+            android:enabled="true"
+            android:exported="true">
             <intent-filter android:priority="100">
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
     </application>

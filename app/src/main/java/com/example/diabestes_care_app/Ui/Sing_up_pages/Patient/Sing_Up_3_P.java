@@ -19,7 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Sing_Up_3_P extends Basic_Activity {
-    Button btn_next;
+    Button btn_next, btn_next2;
     RadioGroup RG_mType;
     RadioButton mTypeOption;
     CheckBox checkBox1, checkBox2, checkBox3, checkBox4, checkBox5, checkBox6, checkBox7;
@@ -36,6 +36,7 @@ public class Sing_Up_3_P extends Basic_Activity {
         setContentView(R.layout.activity_sign_up_3_p);
         //====================================Define Checkbox=======================================
         btn_next = findViewById(R.id.Sp3_bt_next_P);
+        btn_next2 = findViewById(R.id.Sp3_bt_next_P2);
         RG_mType = findViewById(R.id.Sp3_RG_type_P);
 
         checkBox1 = findViewById(R.id.Sp3_medics_types_1_P);
@@ -115,6 +116,28 @@ public class Sing_Up_3_P extends Basic_Activity {
 
         //=================Gender Radio Group to get Data And set into Firebase=====================
         btn_next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // cheek if user fill all data fields before sending data to firebase
+                if (validIsEmpty(strType, strType, strType, strType, strType, strType)) {
+                    Toast.makeText(Sing_Up_3_P.this, "Fill all fields", Toast.LENGTH_SHORT).show();
+                } else {
+                    databaseReference.child("patient").child(patient_userName).child("disease_info").child("Diabetes Type").setValue(strType);
+                    databaseReference.child("patient").child(patient_userName).child("disease_info").child("Diabetes Medics Type").
+                            setValue(data1 + "," + data2 + "," + data3 + "," + data4 + "," + data5 + "," + data6 + "," + data7);
+                    Toast.makeText(Sing_Up_3_P.this, "User have registered successfull ", Toast.LENGTH_SHORT).show();
+                    finish();
+
+                    Intent intent3 = new Intent(Sing_Up_3_P.this, Sing_Up_4_P.class);
+                    intent3.putExtra("username3", patient_userName);
+                    startActivity(intent3);
+
+                }
+            }
+        });
+
+        //=================Next Button get Data And save into Firebase==============================
+        btn_next2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // cheek if user fill all data fields before sending data to firebase

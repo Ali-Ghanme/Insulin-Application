@@ -3,7 +3,6 @@ package com.example.diabestes_care_app.Ui.Doctor_all.Nav_Fragment_D;
 import static android.content.Context.MODE_PRIVATE;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -23,7 +22,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.diabestes_care_app.Adapters.Patient_List_Adapter;
 import com.example.diabestes_care_app.Models.PatientList_Model;
-import com.example.diabestes_care_app.Notification_Controller.Notification_Number;
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Users_Notification;
 import com.google.firebase.database.DataSnapshot;
@@ -39,7 +37,7 @@ import java.util.ArrayList;
 public class Home_Fragment_D extends Fragment {
 
     // Firebase
-    DatabaseReference myRef, followRef, followList, Ref;
+    DatabaseReference myRef;
     // Widget
     RecyclerView recyclerView;
     // Variables
@@ -53,11 +51,9 @@ public class Home_Fragment_D extends Fragment {
     ImageView imageProfile;
     // ShardPreference
     public static final String MyPREFERENCES_D = "D_Username";
-    Context context;
     // Patient Username TextView
     String DoctorUsername;
     // Notification Counter
-    Notification_Number notification_number;
     View bell;
     ProgressDialog progressDialog;
 

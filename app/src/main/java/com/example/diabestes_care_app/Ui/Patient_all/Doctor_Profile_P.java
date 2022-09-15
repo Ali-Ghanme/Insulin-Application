@@ -167,9 +167,10 @@ public class Doctor_Profile_P extends Basic_Activity {
                     Log.e("TAG", e.getMessage());
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("TAG",error.getMessage());
+                Log.e("TAG", error.getMessage());
             }
         });
     }

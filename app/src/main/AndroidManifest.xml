@@ -18,6 +18,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/Theme.Diabestes_Care_App">
         <activity
+            android:name=".AboutTheDoctor"
+            android:exported="false" />
+        <activity
             android:name=".ResetPassword"
             android:exported="false" />
         <activity

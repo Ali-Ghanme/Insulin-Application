@@ -16,19 +16,16 @@
             android:id="@+id/Subject"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="@dimen/_25sdp"
             android:layout_marginLeft="@dimen/_10sdp"
             android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_25sdp">
 
-         >
             <LinearLayout
                 android:id="@+id/container_fats"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/container_college"
-                android:orientation="vertical"
-             >
-
+                android:orientation="vertical">
 
                 <EditText
                     android:id="@+id/examine_fats"
@@ -37,18 +34,18 @@
                     android:layout_below="@id/container_college"
                     android:layout_centerHorizontal="true"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
                     android:background="@drawable/bg_edit_text"
                     android:drawableTint="@color/Patient_Color"
                     android:editable="false"
-                    android:textAlignment="center"
                     android:elevation="@dimen/_3sdp"
                     android:fontFamily="@font/cairo_bold"
                     android:hint="فحص الدهون"
                     android:maxLines="1"
                     android:paddingLeft="@dimen/_20sdp"
                     android:paddingRight="@dimen/_20sdp"
+                    android:textAlignment="center"
                     android:textColor="@color/Patient_Color"
                     android:textColorHint="#1C1C1C"
                     android:textSize="13sp"
@@ -59,8 +56,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/examine_show"
-                    android:visibility="gone"
-                    >
+                    android:visibility="gone">
+
                     <EditText
                         android:id="@+id/examine_fats_cholesterol"
                         android:layout_width="@dimen/_230sdp"
@@ -168,11 +165,11 @@
                     android:layout_height="@dimen/_35sdp"
                     android:layout_centerHorizontal="true"
                     android:layout_gravity="center"
+                    android:layout_marginTop="3dp"
                     android:layout_marginBottom="@dimen/_4sdp"
                     android:background="@drawable/bg_edit_text"
                     android:drawablePadding="@dimen/_13sdp"
                     android:editable="false"
-                    android:layout_marginTop="3dp"
                     android:elevation="@dimen/_3sdp"
                     android:fontFamily="@font/cairo_bold"
                     android:hint="فحص وظائف الكلية "
@@ -268,9 +265,9 @@
                 android:layout_height="@dimen/_35sdp"
                 android:layout_below="@id/container_fats"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="@dimen/_4sdp"
                 android:layout_marginLeft="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
                 android:background="@drawable/bg_edit_text"
                 android:drawableTint="@color/Patient_Color"
                 android:editable="false"

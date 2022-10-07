@@ -1,7 +1,5 @@
 package com.example.diabestes_care_app;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Dialog;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.diabestes_care_app.Ui.Patient_all.Doctor_Profile_P;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class ResetPassword extends AppCompatActivity {
     Dialog dialog;
@@ -21,6 +19,7 @@ public class ResetPassword extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reset_password);
+
         // Create + Configure the Dialog here
         dialog = new Dialog(ResetPassword.this);
         dialog.setContentView(R.layout.chech_email_and_phone);
@@ -48,4 +47,4 @@ public class ResetPassword extends AppCompatActivity {
             }
         });
     }
-    }
+}

@@ -28,7 +28,7 @@ public class Diabats_Info extends Fragment {
     // Patient Username
     String PatientUsername;
     // Data Patient
-    TextView DiabetesType_t, DiabetesMedics_t, PatientCauses_t, bloodGlucoseMeter_t, HaveIssue_t, DateInjury_t;
+    TextView DiabetesType_t, DiabetesMedics_t, HaveIssue_t;
     // Hallow
 
     @Override
@@ -40,10 +40,7 @@ public class Diabats_Info extends Fragment {
         //============================Defines=======================================================
         DiabetesType_t = view.findViewById(R.id.FD_DiabetesType);
         DiabetesMedics_t = view.findViewById(R.id.FD_DiabetesMedics);
-        PatientCauses_t = view.findViewById(R.id.FD_PatientCauses);
-        bloodGlucoseMeter_t = view.findViewById(R.id.FD_bloodGlucoseMeter);
         HaveIssue_t = view.findViewById(R.id.FD_HaveIssue);
-        DateInjury_t = view.findViewById(R.id.FD_DateInjury);
 
         //============================Shared Preference=============================================
         SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
@@ -61,16 +58,10 @@ public class Diabats_Info extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String DiabetesType = snapshot.child(PatientUsername).child("disease_info").child("Diabetes Type").getValue(String.class);
                 String DiabetesMedics = snapshot.child(PatientUsername).child("disease_info").child("Diabetes Medics Type").getValue(String.class);
-                String PatientCauses = snapshot.child(PatientUsername).child("disease_info").child("Patient Causes").getValue(String.class);
-                String bloodGlucoseMeter = snapshot.child(PatientUsername).child("disease_info").child("Does the patient have a blood glucose meter?").getValue(String.class);
-                String HaveIssue = snapshot.child(PatientUsername).child("disease_info").child("Have issue").getValue(String.class);
-                String DateInjury = snapshot.child(PatientUsername).child("disease_info").child("Patient Date Injury").getValue(String.class);
+                String HaveIssue = snapshot.child(PatientUsername).child("disease_info").child("أمراض أخرى").getValue(String.class);
                 DiabetesType_t.setText(DiabetesType);
                 DiabetesMedics_t.setText(DiabetesMedics);
-                PatientCauses_t.setText(PatientCauses);
-                bloodGlucoseMeter_t.setText(bloodGlucoseMeter);
                 HaveIssue_t.setText(HaveIssue);
-                DateInjury_t.setText(DateInjury);
             }
 
             @Override

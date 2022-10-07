@@ -6,6 +6,7 @@ import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_F
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -37,7 +38,7 @@ public class Edit_Profile_P extends Basic_Activity {
     DatabaseReference myRef;
     String restoredText;
     TextView name;
-    ImageView imageView;
+    ImageView imageView,imageView2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +51,15 @@ public class Edit_Profile_P extends Basic_Activity {
         viewPager_subject = findViewById(R.id.viewpager_tab_2);
         name = findViewById(R.id.EP_doctor_name_p);
         imageView = findViewById(R.id.EP_Doctor_image_p);
+        imageView2= findViewById(R.id.EP_btn_back);
 
+        //===========================Actions========================================================
+        imageView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         //============================username ShardPreference======================================
         SharedPreferences prefs = Edit_Profile_P.this.getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         restoredText = prefs.getString("TAG_NAME", null);
@@ -106,7 +115,7 @@ public class Edit_Profile_P extends Basic_Activity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String PatientImage = snapshot.child(restoredText).child("User_Profile_Image").child("Image").child("mImageUrI").getValue(String.class);
-                String PatientName = snapshot.child(restoredText).child("User_Profile_Image").child("name").getValue(String.class);
+                String PatientName = snapshot.child(restoredText).child("personal_info").child("name").getValue(String.class);
                 Log.d("TAG", name + "/" + PatientImage);
                 Glide.with(getApplicationContext()).load(PatientImage).into(imageView);
                 name.setText(PatientName);

@@ -40,7 +40,6 @@ public class Response_Consu_Adapter extends RecyclerView.Adapter<Response_Consu_
     Dialog dialog;
     String DoctorUsername, removeQuery;
 
-
     public Response_Consu_Adapter(Context context, ArrayList<Private_Consu_Model> list) {
         this.context = context;
         this.list = list;
@@ -49,7 +48,7 @@ public class Response_Consu_Adapter extends RecyclerView.Adapter<Response_Consu_
     @NonNull
     public Response_Consu_Adapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.consu_respons_recyle_layout, parent, false);
-        return new Response_Consu_Adapter.MyViewHolder(view);
+        return new MyViewHolder(view);
     }
 
     @Override
@@ -119,6 +118,7 @@ public class Response_Consu_Adapter extends RecyclerView.Adapter<Response_Consu_
                             dialog.dismiss();
                         }
                     }
+
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
                         Log.e(TAG, "onCancelled", databaseError.toException());
@@ -141,6 +141,7 @@ public class Response_Consu_Adapter extends RecyclerView.Adapter<Response_Consu_
                             notifyItemRangeChanged(holder.getAdapterPosition(), list.size());
                         }
                     }
+
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
                         Log.e(TAG, "onCancelled", databaseError.toException());
@@ -166,7 +167,7 @@ public class Response_Consu_Adapter extends RecyclerView.Adapter<Response_Consu_
         notifyDataSetChanged();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
         ImageView Patient_Image;
         TextView Patient_Username, Consu_title, Consu_Que;
         Button response, reject;

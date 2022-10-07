@@ -30,7 +30,7 @@ public class Consultation_Adapter extends RecyclerView.Adapter<Consultation_Adap
     @Override
     public Consultation_Adapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.consu_recycler_layout, parent, false);
-        return new Consultation_Adapter.MyViewHolder(view);
+        return new MyViewHolder(view);
     }
 
     @Override
@@ -55,7 +55,13 @@ public class Consultation_Adapter extends RecyclerView.Adapter<Consultation_Adap
         notifyDataSetChanged();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+
+    public void setFilteredList(ArrayList<Consolation_Model> filteredList) {
+        this.list = filteredList;
+        notifyDataSetChanged();
+    }
+
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
         TextView title, question, doctorName, answer;
         ImageView doctorImage;
 

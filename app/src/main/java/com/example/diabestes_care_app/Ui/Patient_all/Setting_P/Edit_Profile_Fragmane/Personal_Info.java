@@ -30,7 +30,7 @@ public class Personal_Info extends Fragment {
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://diabeticsproject-default-rtdb.firebaseio.com/");
 
     String restoredText;
-    EditText weight_t, length_t, age_t, date_t, Phone_number_t, email_t, address_t;
+    EditText Phone_number_t, email_t, address_t;
     Button update_btn;
     SharedPreferences prefs;
     ProgressDialog progressDialog;
@@ -41,28 +41,14 @@ public class Personal_Info extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_personal__info, container, false);
         //============================Defines=======================================================
-        weight_t = view.findViewById(R.id.FD_weight);
-        length_t = view.findViewById(R.id.FD_length);
-        date_t = view.findViewById(R.id.FD_date);
         Phone_number_t = view.findViewById(R.id.FD_Phone_number);
         email_t = view.findViewById(R.id.FD_email);
-        age_t = view.findViewById(R.id.FD_age);
         address_t = view.findViewById(R.id.FD_address);
         update_btn = view.findViewById(R.id.Update_btn);
-//                        databaseReference.child(restoredText).child("personal_info").child("wehigt").setValue(wehigt);
-//                        databaseReference.child(restoredText).child("personal_info").child("wehigt").setValue(wehigt);
-//                        databaseReference.child(restoredText).child("personal_info").child("wehigt").setValue(wehigt);
-//                        databaseReference.child(restoredText).child("personal_info").child("wehigt").setValue(wehigt);
-//                        databaseReference.child(restoredText).child("personal_info").child("wehigt").setValue(wehigt);
-//                        databaseReference.child(restoredText).child("personal_info").child("wehigt").setValue(wehigt);
 
-        String tall = length_t.getText().toString();
-        String date = date_t.getText().toString();
         String phone = Phone_number_t.getText().toString();
         String email = email_t.getText().toString();
-        String age = age_t.getText().toString();
         String adders = address_t.getText().toString();
-
 
         prefs = view.getContext().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         restoredText = prefs.getString("TAG_NAME", null);
@@ -76,17 +62,17 @@ public class Personal_Info extends Fragment {
         progressDialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         progressDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
 
-
         update_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String wehigt = weight_t.getText().toString();
                 progressDialog.show();
                 databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         try {
-                            databaseReference.child(restoredText).child("personal_info").child("wehigt").setValue(wehigt);
+                            databaseReference.child(restoredText).child("personal_info").child("Phone").setValue(phone);
+                            databaseReference.child(restoredText).child("personal_info").child("Email").setValue(email);
+                            databaseReference.child(restoredText).child("personal_info").child("City").setValue(adders);
                             Toast.makeText(getContext(), "Data is Updated", Toast.LENGTH_SHORT).show();
                             progressDialog.dismiss();
                         } catch (Exception e) {
@@ -111,16 +97,10 @@ public class Personal_Info extends Fragment {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String weight = snapshot.child(restoredText).child("personal_info").child("wehigt").getValue(String.class);
-                String length = snapshot.child(restoredText).child("personal_info").child("tall").getValue(String.class);
-                String date = snapshot.child(restoredText).child("personal_info").child("Date").getValue(String.class);
                 String Phone_number = snapshot.child(restoredText).child("personal_info").child("Phone").getValue(String.class);
                 String email = snapshot.child(restoredText).child("personal_info").child("Email").getValue(String.class);
                 String address = snapshot.child(restoredText).child("personal_info").child("City").getValue(String.class);
 
-                weight_t.setText(weight);
-                length_t.setText(length);
-                date_t.setText(date);
                 Phone_number_t.setText(Phone_number);
                 email_t.setText(email);
                 address_t.setText(address);

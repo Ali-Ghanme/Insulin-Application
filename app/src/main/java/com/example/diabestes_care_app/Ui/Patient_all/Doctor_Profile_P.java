@@ -155,7 +155,6 @@ public class Doctor_Profile_P extends Basic_Activity {
         });
     }
 
-
     private void getPatientToken() {
         PatientReferences.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

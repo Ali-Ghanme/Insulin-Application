@@ -20,7 +20,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
-import com.example.diabestes_care_app.NotificationSender.SendNotification;
+
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Patient_all.Setting_P.Edit_Profile_P;
 import com.example.diabestes_care_app.Ui.Patient_all.Setting_P.Help;
@@ -75,13 +75,13 @@ public class Profile_Fragment extends Fragment {
             }
         });
 
-        FB_help_cont.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), SendNotification.class);
-                startActivity(intent);
-            }
-        });
+//        FB_help_cont.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getContext(), SendNotification.class);
+//                startActivity(intent);
+//            }
+//        });
 
         notification_cont.setOnClickListener(new View.OnClickListener() {
             @Override

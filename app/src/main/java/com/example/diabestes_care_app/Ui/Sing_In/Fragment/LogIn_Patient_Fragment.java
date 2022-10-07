@@ -3,6 +3,7 @@ package com.example.diabestes_care_app.Ui.Sing_In.Fragment;
 import static android.content.Context.MODE_PRIVATE;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,6 +17,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -52,6 +54,9 @@ public class LogIn_Patient_Fragment extends Fragment {
     SharedPreferences Check_Box_preferences_P;
     // String
     String PatientToken;
+    // Forget Password
+    TextView forgetPassword;
+    Dialog dialog;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -65,9 +70,26 @@ public class LogIn_Patient_Fragment extends Fragment {
         password2 = view.findViewById(R.id.FSI_et_pass_P);
         SingUp = view.findViewById(R.id.FSI_btn_Signup_P);
         rememberMe = view.findViewById(R.id.FSI_remember_CB_P);
-
+        forgetPassword = view.findViewById(R.id.FSI_tv3_restore_pass_P);
         //==============================Shared Preference===========================================
         sharedpreferences = this.getActivity().getSharedPreferences(MyPREFERENCES_P, Context.MODE_PRIVATE);
+
+        //==========================================================================================
+        // Create + Configure the Dialog here
+        dialog = new Dialog(getContext());
+        dialog.setContentView(R.layout.chech_email_and_phone);
+        dialog.getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.dilog_background));
+        //Setting the animations to dialog
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.setCancelable(true); //Optional
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+
+        forgetPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.show(); // Showing the dialog here
+            }
+        });
 
         //============================== Remember Me Login  Patient ================================
         rememberMe.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

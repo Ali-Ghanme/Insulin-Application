@@ -6,18 +6,43 @@
     android:layout_height="match_parent"
     tools:context=".Ui.Patient_all.Sections.Consulation.Consultation_Request">
 
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@color/Patient_Color"
+        android:fontFamily="@font/cairo_bold"
+        android:gravity="center"
+        android:text="قسم الاستشارات العامة"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/DPP_btn_back"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="@dimen/_12sdp"
+        android:background="@drawable/ic_arrow_back_p"
+        android:backgroundTint="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/search_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_10sdp"
-        android:queryHint="Search Here"
-        android:iconifiedByDefault="false"
         android:layout_alignParentTop="true"
+        android:layout_margin="@dimen/_20sdp"
+        android:background="@drawable/bg_edit_text"
+        android:backgroundTint="?attr/bg_color"
+        android:elevation="@dimen/_1sdp"
+        android:iconifiedByDefault="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/header" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/Consu_recycle"

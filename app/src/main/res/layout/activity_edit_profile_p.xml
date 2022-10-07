@@ -20,6 +20,18 @@
             android:background="@drawable/bg_half_rounded"
             android:backgroundTint="@color/Patient_Color" />
 
+        <ImageView
+            android:id="@+id/EP_btn_back"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:background="@drawable/ic_arrow_back_p"
+            android:backgroundTint="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/EP_title_p"
             android:layout_width="wrap_content"

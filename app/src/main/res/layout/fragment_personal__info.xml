@@ -15,153 +15,15 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
-            android:id="@+id/Weight_patient"
-            android:layout_width="@dimen/_250sdp"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:paddingLeft="@dimen/_20sdp"
-            android:paddingRight="@dimen/_20sdp">
-
-            <TextView
-                android:id="@+id/textvie1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:fontFamily="@font/cairo_bold"
-                android:text=" الوزن"
-                android:textColor="@color/Patient_Color"
-                android:textSize="@dimen/_12sdp" />
-
-            <EditText
-                android:id="@+id/FD_weight"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_toLeftOf="@+id/textvie1"
-                android:background="@null"
-                android:fontFamily="@font/cairo_bold"
-                android:textColor="@color/gray"
-                android:textSize="@dimen/_12sdp" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/length_patient"
-            android:layout_width="@dimen/_250sdp"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_below="@id/Weight_patient"
-            android:layout_centerHorizontal="true"
-            android:paddingLeft="20dp"
-            android:paddingRight="@dimen/_20sdp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:fontFamily="@font/cairo_bold"
-                android:text="الطول"
-                android:textColor="@color/Patient_Color"
-                android:textSize="@dimen/_12sdp" />
-
-            <EditText
-                android:id="@+id/FD_length"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:background="@null"
-                android:fontFamily="@font/cairo_bold"
-                android:textColor="@color/gray"
-                android:textSize="@dimen/_12sdp" />
-
-            <View style="@style/Divider.Horizontal" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/address_patient"
-            android:layout_width="@dimen/_250sdp"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_below="@id/length_patient"
-            android:layout_centerHorizontal="true"
-            android:paddingLeft="20dp"
-            android:paddingRight="@dimen/_20sdp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/cairo_bold"
-                android:text="العمر "
-                android:textColor="@color/Patient_Color"
-                android:textSize="@dimen/_12sdp" />
-
-            <EditText
-                android:id="@+id/FD_age"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:background="@null"
-                android:fontFamily="@font/cairo_bold"
-                android:textColor="@color/gray"
-                android:textSize="@dimen/_12sdp" />
-
-            <View style="@style/Divider.Horizontal" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/age_patient"
-            android:layout_width="@dimen/_250sdp"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_below="@id/address_patient"
-            android:layout_centerHorizontal="true"
-            android:paddingLeft="20dp"
-            android:paddingRight="@dimen/_20sdp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/cairo_bold"
-                android:text="تاريخ الميلاد "
-                android:textColor="@color/Patient_Color"
-                android:textSize="@dimen/_12sdp" />
-
-            <EditText
-                android:id="@+id/FD_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:background="@null"
-                android:fontFamily="@font/cairo_bold"
-                android:textColor="@color/gray"
-                android:textSize="@dimen/_12sdp" />
-
-            <View style="@style/Divider.Horizontal" />
-        </RelativeLayout>
-
-        <RelativeLayout
             android:id="@+id/phone_patient"
-            android:layout_width="@dimen/_250sdp"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/_35sdp"
-            android:layout_below="@id/age_patient"
             android:layout_centerHorizontal="true"
-            android:paddingLeft="20dp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:paddingLeft="@dimen/_20sdp"
             android:paddingRight="@dimen/_20sdp">
 
             <TextView
@@ -180,22 +42,29 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:background="@null"
                 android:fontFamily="@font/cairo_bold"
                 android:textColor="@color/gray"
                 android:textSize="@dimen/_12sdp" />
 
-            <View style="@style/Divider.Horizontal" />
+            <View
+                style="@style/Divider.Horizontal"
+                android:layout_below="@+id/FD_Phone_number" />
+
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/text5_patient"
-            android:layout_width="@dimen/_250sdp"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/_35sdp"
             android:layout_below="@id/phone_patient"
             android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
             android:fontFamily="@font/cairo_bold"
             android:paddingLeft="20dp"
             android:paddingRight="@dimen/_20sdp">
@@ -216,22 +85,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:background="@null"
                 android:fontFamily="@font/cairo_bold"
                 android:textColor="@color/gray"
                 android:textSize="@dimen/_12sdp" />
 
-            <View style="@style/Divider.Horizontal" />
+            <View
+                style="@style/Divider.Horizontal"
+                android:layout_below="@+id/FD_email" />
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/text6_patient"
-            android:layout_width="@dimen/_250sdp"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/_35sdp"
             android:layout_below="@id/text5_patient"
             android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
             android:paddingLeft="20dp"
             android:paddingRight="20dp">
 
@@ -240,7 +115,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/cairo_bold"
                 android:text="العنوان "
@@ -249,18 +124,19 @@
 
             <EditText
                 android:id="@+id/FD_address"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:layout_toLeftOf="@+id/textvie6"
                 android:background="@null"
                 android:fontFamily="@font/cairo_bold"
                 android:textColor="@color/gray"
                 android:textSize="@dimen/_12sdp" />
 
-            <View style="@style/Divider.Horizontal" />
+            <View
+                style="@style/Divider.Horizontal"
+                android:layout_below="@+id/FD_address" />
         </RelativeLayout>
     </RelativeLayout>
 

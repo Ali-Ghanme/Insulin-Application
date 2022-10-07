@@ -62,7 +62,6 @@
             android:lines="1"
             android:maxLines="1"
             android:singleLine="true"
-            android:text="قلب"
             android:textColor="?attr/text_color" />
 
         <TextView

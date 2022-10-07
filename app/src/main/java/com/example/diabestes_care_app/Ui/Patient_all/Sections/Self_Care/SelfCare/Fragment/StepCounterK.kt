@@ -37,8 +37,10 @@ class StepCounterK : Fragment(), SensorEventListener {
     // steps and it has also been given the value of 0 float
     private var previousTotalSteps = 0f
 
-    private lateinit var tv_stepsTaken : TextView
-    private lateinit var tv_ditance : TextView
+    private lateinit var tvStepsTaken : TextView
+    private lateinit var tvDistance : TextView
+    private lateinit var tvStepTaken2 : TextView
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -53,8 +55,9 @@ class StepCounterK : Fragment(), SensorEventListener {
         super.onViewCreated(view, savedInstanceState)
         //Initialize
         activity?.let {
-            tv_stepsTaken = it.findViewById(R.id.tv_stepsTaken2)
-            tv_ditance = it.findViewById(R.id.tv_distance)
+            tvStepsTaken = it.findViewById(R.id.tv_stepsTaken2)
+            tvDistance = it.findViewById(R.id.distance_res)
+            tvStepTaken2 = it.findViewById(R.id.cal_result)
             loadData()
             restSteps()
             // Adding a context of SENSOR_SERVICE aas Sensor Manager
@@ -94,11 +97,13 @@ class StepCounterK : Fragment(), SensorEventListener {
             // Current steps are calculated by taking the difference of total steps
             // and previous steps
             val currentSteps = totalSteps.toInt() - previousTotalSteps.toInt()
-            val distance  = getCalories(currentSteps)
+            val calories  = getCalories(currentSteps)
+            val distance  = getDistanceCovered(currentSteps)
 
             // It will show the current steps to the user
-            tv_stepsTaken.text = ("$currentSteps")
-            tv_ditance.text = ("$distance")
+            tvStepsTaken.text = ("$currentSteps")
+            tvStepTaken2.text = ("$calories")
+            tvDistance.text = ("$distance")
         }
     }
 
@@ -115,19 +120,19 @@ class StepCounterK : Fragment(), SensorEventListener {
     }
 
     private fun restSteps() {
-        tv_stepsTaken.setOnClickListener {
+        tvStepsTaken.setOnClickListener {
             // This will give a toast message if the user want to reset the steps
             Toast.makeText(context, "Long tap to reset steps", Toast.LENGTH_SHORT).show()
         }
 
-        tv_stepsTaken.setOnLongClickListener {
+        tvStepsTaken.setOnLongClickListener {
 
             previousTotalSteps = totalSteps
 
             // When the user will click long tap on the screen,
             // the steps will be reset to 0
-            tv_stepsTaken.text = 0.toString()
-            tv_ditance.text = 0.toString()
+            tvStepsTaken.text = 0.toString()
+            tvDistance.text = 0.toString()
 
             // This will save the data
             saveData()
@@ -155,12 +160,12 @@ class StepCounterK : Fragment(), SensorEventListener {
         // We do not have to write anything in this function for this app
     }
 
-    fun getCalories(steps: Int): String? {
+    private fun getCalories(steps: Int): String? {
         val Cal = (steps * 0.045).toInt()
         return "$Cal calories"
     }
 
-    fun getDistanceCovered(steps: Int): String? {
+    private fun getDistanceCovered(steps: Int): String? {
         val feet = (steps * 2.5).toInt()
         val distance = feet/3.281
         val finalDistance:Double = String.format("%.2f", distance).toDouble()

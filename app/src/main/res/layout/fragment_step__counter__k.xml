@@ -10,7 +10,8 @@
         android:id="@+id/circularProgressIndicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:progress="25"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:progress="100"
         app:indicatorColor="@color/Patient_Color"
         app:indicatorSize="160dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,5 +47,95 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/circularProgressIndicator"
         app:layout_constraintTop_toBottomOf="@+id/tv_stepsTaken2" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/FC_SelfCare_box_p2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_130sdp"
+        android:layout_margin="@dimen/_20sdp"
+        android:backgroundTint="?attr/bg_color"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:cardElevation="0.5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/circularProgressIndicator">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_10sdp">
+
+            <TextView
+                android:id="@+id/step_tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:fontFamily="@font/cairo_bold"
+                android:text="الخطوات المقطوعة" />
+
+            <TextView
+                android:id="@+id/step_res"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:fontFamily="@font/cairo_bold" />
+
+            <TextView
+                android:id="@+id/cal_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/step_tv2"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:text="السعرات الحرارية المحروقة" />
+
+            <TextView
+                android:id="@+id/cal_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/step_res"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/cairo_bold" />
+
+            <TextView
+                android:id="@+id/distance_tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cal_result"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:text=" المسافة المقطوعة" />
+
+            <TextView
+                android:id="@+id/distance_res"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cal_result"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/cairo_bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/distance_tv2"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:text="الحالة" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/distance_tv2"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/cairo_bold" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

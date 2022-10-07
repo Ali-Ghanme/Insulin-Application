@@ -15,11 +15,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
-            android:id="@+id/Weight_patient"
-            android:layout_width="@dimen/_250sdp"
+            android:id="@+id/DiabetesType_patient"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/_35sdp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
             android:paddingLeft="@dimen/_20sdp"
             android:paddingRight="@dimen/_20sdp">
 
@@ -27,7 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:fontFamily="@font/cairo_bold"
                 android:text="نوع المرض"
@@ -39,7 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:fontFamily="@font/cairo_bold"
                 android:textColor="@color/gray"
@@ -48,10 +51,15 @@
 
         <RelativeLayout
             android:id="@+id/FD_DiabetesMedics_R"
-            android:layout_width="@dimen/_250sdp"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/_35sdp"
-            android:layout_below="@id/Weight_patient"
+            android:layout_below="@id/DiabetesType_patient"
             android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
             android:paddingLeft="20dp"
             android:paddingRight="@dimen/_20sdp">
 
@@ -59,7 +67,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:fontFamily="@font/cairo_bold"
                 android:text="نوع العلاج"
@@ -71,76 +79,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:fontFamily="@font/cairo_bold"
-                android:textColor="@color/gray"
-                android:textSize="@dimen/_12sdp" />
-
-            <View style="@style/Divider.Horizontal" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/FD_PatientCauses_R"
-            android:layout_width="@dimen/_250sdp"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_below="@id/FD_DiabetesMedics_R"
-            android:layout_centerHorizontal="true"
-            android:paddingLeft="20dp"
-            android:paddingRight="@dimen/_20sdp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:fontFamily="@font/cairo_bold"
-                android:text="عامل الإصابة"
-                android:textColor="@color/Patient_Color"
-                android:textSize="@dimen/_12sdp" />
-
-            <TextView
-                android:id="@+id/FD_PatientCauses"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:fontFamily="@font/cairo_bold"
-                android:textColor="@color/gray"
-                android:textSize="@dimen/_12sdp" />
-
-            <View style="@style/Divider.Horizontal" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/FD_bloodGlucoseMeter_R"
-            android:layout_width="@dimen/_250sdp"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_below="@id/FD_PatientCauses_R"
-            android:layout_centerHorizontal="true"
-            android:paddingLeft="20dp"
-            android:paddingRight="@dimen/_20sdp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:fontFamily="@font/cairo_bold"
-                android:text="هل تملك جهاز فحص السكر"
-                android:textColor="@color/Patient_Color"
-                android:textSize="@dimen/_12sdp" />
-
-            <TextView
-                android:id="@+id/FD_bloodGlucoseMeter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:fontFamily="@font/cairo_bold"
                 android:textColor="@color/gray"
@@ -151,44 +90,11 @@
 
         <RelativeLayout
             android:id="@+id/FD_HaveIssue_R"
-            android:layout_width="@dimen/_250sdp"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/_35sdp"
-            android:layout_below="@id/FD_bloodGlucoseMeter_R"
+            android:layout_below="@id/FD_DiabetesMedics_R"
             android:layout_centerHorizontal="true"
-            android:paddingLeft="20dp"
-            android:paddingRight="@dimen/_20sdp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:fontFamily="@font/cairo_bold"
-                android:text=" تاريخ الاصابة"
-                android:textColor="@color/Patient_Color"
-                android:textSize="@dimen/_12sdp" />
-
-            <TextView
-                android:id="@+id/FD_HaveIssue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:fontFamily="@font/cairo_bold"
-                android:textColor="@color/gray"
-                android:textSize="@dimen/_12sdp" />
-
-            <View style="@style/Divider.Horizontal" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/FD_DateInjury_R"
-            android:layout_width="@dimen/_250sdp"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_below="@id/FD_HaveIssue_R"
-            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/_10sdp"
             android:fontFamily="@font/cairo_bold"
             android:paddingLeft="20dp"
             android:paddingRight="@dimen/_20sdp">
@@ -197,7 +103,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:fontFamily="@font/cairo_bold"
                 android:text="أمراض اخرى "
@@ -205,11 +111,11 @@
                 android:textSize="@dimen/_12sdp" />
 
             <TextView
-                android:id="@+id/FD_DateInjury"
+                android:id="@+id/FD_HaveIssue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:fontFamily="@font/cairo_bold"
                 android:textColor="@color/gray"

@@ -5,8 +5,12 @@ import static com.example.diabestes_care_app.Ui.Doctor_all.Home_Doctor.MyPREFERE
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -35,6 +39,10 @@ public class Consultation_Request extends Basic_Activity {
     Consultation_Adapter ConsuListAdapter;
     // Doctor Username TextView
     String DoctorUsername, MSGKey;
+    // Serach View
+    SearchView searchView;
+    // Image View
+    ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +52,15 @@ public class Consultation_Request extends Basic_Activity {
 
         //============================Defines=======================================================
         recyclerView = findViewById(R.id.Consu_recycle);
+        searchView = findViewById(R.id.search_bar);
+        imageView = findViewById(R.id.DPP_btn_back);
 
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         //============================Get Patient Username===========================================
         SharedPreferences prefs = Consultation_Request.this.getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
         DoctorUsername = prefs.getString("TAG_NAME", null);
@@ -64,6 +80,19 @@ public class Consultation_Request extends Basic_Activity {
         ClearAll();
         // Get Data Method
         GetDataFromFirebase();
+        // Search Filter
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                FilterList(newText);
+                return true;
+            }
+        });
     }
 
     //========================Get Doctor list Data From Firebase Function===========================
@@ -108,5 +137,24 @@ public class Consultation_Request extends Basic_Activity {
             ConsuListAdapter.notifyDataSetChanged();
         }
         list = new ArrayList<>();
+    }
+
+    // Searach Method
+    private void FilterList(String newText) {
+        ArrayList<Consolation_Model> filteredList = new ArrayList<>();
+        for (Consolation_Model item : list) {
+            if (item.getTitle().toLowerCase().contains(newText.toLowerCase())) {
+                filteredList.add(item);
+            } else if (item.getAnswer().toLowerCase().contains(newText.toLowerCase())) {
+                filteredList.add(item);
+            } else if (item.getDoctorName().toLowerCase().contains(newText.toLowerCase())) {
+                filteredList.add(item);
+            }
+        }
+        if (filteredList.isEmpty()) {
+            Toast.makeText(this, "No Data Found", Toast.LENGTH_SHORT).show();
+        } else {
+            ConsuListAdapter.setFilteredList(filteredList);
+        }
     }
 }

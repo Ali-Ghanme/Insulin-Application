@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -26,6 +27,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Daily_Report_Fragment extends Fragment {
 
@@ -46,7 +48,7 @@ public class Daily_Report_Fragment extends Fragment {
 
         //============================Get Patient Username===========================================
         // Get data from message adapter class
-        SharedPreferences prefs = getActivity().getSharedPreferences(MyPREFERENCES_P_Username_D, MODE_PRIVATE);
+        SharedPreferences prefs = requireActivity().getSharedPreferences(MyPREFERENCES_P_Username_D, MODE_PRIVATE);
         PatientUsername = prefs.getString("PatientUsername_D", null);
 
         //============================Configure Firebase============================================
@@ -55,25 +57,34 @@ public class Daily_Report_Fragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         list = new ArrayList<>();
+        getUserData();
 
+        return view;
+    }
+
+    void getUserData() {
         Query query = databaseReference.orderByKey();
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 try {
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        Reports_Model reportsModel = new Reports_Model();
+                    if (dataSnapshot.getValue() != null) {
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                            Reports_Model reportsModel = new Reports_Model();
+                            reportsModel.setTimeSugar(Objects.requireNonNull(snapshot.child("فترة القياس").getValue()).toString());
+                            reportsModel.setTime(Objects.requireNonNull(snapshot.child("وقت القياس").getValue()).toString());
+                            reportsModel.setBloodSugar(Objects.requireNonNull(snapshot.child("نسبة السكر في الدم").getValue()).toString());
+                            reportsModel.setStatusSugar(Objects.requireNonNull(snapshot.child("حالة القياس").getValue()).toString());
+                            list.add(reportsModel);
+                            reports_adapter = new Reports_Adapter(getContext(), list);
+                            recyclerView.setAdapter(reports_adapter);
+                            reports_adapter.updateUsersList(list);
+                        }
+                    } else {
+                        Toast.makeText(getContext(), "لا يوجد بيانات بعد", Toast.LENGTH_SHORT).show();
 
-                        reportsModel.setTimeSugar(snapshot.child("فترة القياس").getValue().toString());
-                        reportsModel.setTime(snapshot.child("وقت القياس").getValue().toString());
-                        reportsModel.setBloodSugar(snapshot.child("نسبة السكر في الدم").getValue().toString());
-                        reportsModel.setStatusSugar(snapshot.child("حالة القياس").getValue().toString());
-
-                        list.add(reportsModel);
-                        reports_adapter = new Reports_Adapter(getContext(), list);
-                        recyclerView.setAdapter(reports_adapter);
-                        reports_adapter.updateUsersList(list);
                     }
+
                 } catch (Exception e) {
                     Log.e("TAG", e.getMessage());
                 }
@@ -85,6 +96,5 @@ public class Daily_Report_Fragment extends Fragment {
                 Log.e("TAG", error.getMessage());
             }
         });
-        return view;
     }
 }

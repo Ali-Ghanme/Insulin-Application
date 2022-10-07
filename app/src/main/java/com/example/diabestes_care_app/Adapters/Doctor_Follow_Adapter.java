@@ -2,6 +2,7 @@ package com.example.diabestes_care_app.Adapters;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -27,6 +28,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Doctor_Follow_Adapter extends RecyclerView.Adapter<Doctor_Follow_Adapter.MyViewHolder> {
     Context context;
@@ -44,7 +46,7 @@ public class Doctor_Follow_Adapter extends RecyclerView.Adapter<Doctor_Follow_Ad
     @Override
     public Doctor_Follow_Adapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.doctor_following_recyle_layout, parent, false);
-        return new Doctor_Follow_Adapter.MyViewHolder(view);
+        return new MyViewHolder(view);
     }
 
     @Override
@@ -60,7 +62,7 @@ public class Doctor_Follow_Adapter extends RecyclerView.Adapter<Doctor_Follow_Ad
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 snooping_status = dataSnapshot.getValue(String.class);
                 if (snooping_status == null) {
-                    return;
+                    Log.e("TAG", "ni Status for this use");
                 } else {
                     try {
                         if (snooping_status.contentEquals("online")) {
@@ -77,6 +79,7 @@ public class Doctor_Follow_Adapter extends RecyclerView.Adapter<Doctor_Follow_Ad
                     }
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Log.e("TAG", databaseError.getMessage());
@@ -87,32 +90,28 @@ public class Doctor_Follow_Adapter extends RecyclerView.Adapter<Doctor_Follow_Ad
         FirebaseDatabase.getInstance().getReference("patient").child(list.get(position).getUsername()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String image = snapshot.child("User_Profile_Image").child("Image").child("mImageUrI").getValue().toString();
-                String diabetesType = snapshot.child("disease_info").child("Diabetes Type").getValue().toString();
+                String image = Objects.requireNonNull(snapshot.child("User_Profile_Image").child("Image").child("mImageUrI").getValue()).toString();
+                String diabetesType = Objects.requireNonNull(snapshot.child("disease_info").child("Diabetes Type").getValue()).toString();
                 Glide.with(context).load(image).placeholder(R.drawable.ic_user).error(R.drawable.notifications).into(holder.imageView);
-                String name = snapshot.child("personal_info").child("name").getValue().toString();
+                String name = Objects.requireNonNull(snapshot.child("personal_info").child("name").getValue()).toString();
                 holder.name.setText(name);
                 holder.type.setText(diabetesType);
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
 
         //============================Pass Data Patient ============================================
-        holder.container.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                SharedPreferences.Editor editor = sharedpreferences.edit();
-                editor.putString("Patient_name_D", list2.getName());
-                editor.putString("Patient_Pic_Profile_D", list2.getImageUrl());
-                editor.putString("PatientUsername_D", list2.getUsername());
-                editor.apply();
-
-                Intent intent = new Intent(context, Patent_Report_d.class);
-                context.startActivity(intent);
-            }
+        holder.container.setOnClickListener(v -> {
+            SharedPreferences.Editor editor = sharedpreferences.edit();
+            editor.putString("Patient_name_D", list2.getName());
+            editor.putString("Patient_Pic_Profile_D", list2.getImageUrl());
+            editor.putString("PatientUsername_D", list2.getUsername());
+            editor.apply();
+            Intent intent = new Intent(context, Patent_Report_d.class);
+            context.startActivity(intent);
         });
     }
 
@@ -121,12 +120,13 @@ public class Doctor_Follow_Adapter extends RecyclerView.Adapter<Doctor_Follow_Ad
         return list.size();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void updateUsersList(List<Follow_Model> follow_models) {
         this.list = follow_models;
         notifyDataSetChanged();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
         TextView name, type;
         ImageView imageView;
         ImageView img_off, img_on;

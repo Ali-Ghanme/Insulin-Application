@@ -1,14 +1,11 @@
 package com.example.diabestes_care_app.Ui.Sing_up_pages.Patient;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -18,8 +15,6 @@ import androidx.annotation.NonNull;
 
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.R;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,18 +27,17 @@ import java.util.Calendar;
 
 public class Sing_Up_1_P extends Basic_Activity {
 
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://diabeticsproject-default-rtdb.firebaseio.com/");
+    DatabaseReference databaseReference;
     Button btn_next_S;
     EditText mName, mUsername, mDate, mWehigt, mTall;
     final Calendar myCalendar = Calendar.getInstance();
     RadioGroup mGender;
     RadioButton mGenderOption;
     String strGender;
-    String patientName, patientUsername, patientDate, patientWehigt, patientTall, PatientID, PatientAge, PatientToken;
-    Dialog dialog;
-    Button close,continues;
+    String patientName, patientUsername, patientDate, patientWehigt, patientTall, PatientAge, PatientToken;
 
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         fullscreen();
@@ -59,109 +53,86 @@ public class Sing_Up_1_P extends Basic_Activity {
         mWehigt = findViewById(R.id.Sp1_wehigt_P);
         mTall = findViewById(R.id.Sp1_tall_P);
 
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("patient");
         // Generate Token for Patient
-        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
-            @Override
-            public void onComplete(@NonNull Task<String> task) {
-                if (!task.isSuccessful()) {
-                    return;
-                }
-                // Get new FCM registration token
-                PatientToken = task.getResult();
-                System.out.println("TOKEN" + PatientToken);
+        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
+            if (!task.isSuccessful()) {
+                return;
             }
+            // Get new FCM registration token
+            PatientToken = task.getResult();
+            System.out.println("TOKEN" + PatientToken);
         });
         //====================================DataPicker===============================
-        DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int day) {
-                myCalendar.set(Calendar.YEAR, year);
-                myCalendar.set(Calendar.MONTH, month);
-                myCalendar.set(Calendar.DAY_OF_MONTH, day);
-                updateLabel(mDate, myCalendar, "dd/MM/yyyy");
-                PatientAge = getAge(year, month, day);
-            }
+        DatePickerDialog.OnDateSetListener date = (view, year, month, day) -> {
+            myCalendar.set(Calendar.YEAR, year);
+            myCalendar.set(Calendar.MONTH, month);
+            myCalendar.set(Calendar.DAY_OF_MONTH, day);
+            updateLabel(mDate, myCalendar, "dd/MM/yyyy");
+            PatientAge = getAge(year, month, day);
         };
-        mDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new DatePickerDialog(Sing_Up_1_P.this, date, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+        mDate.setOnClickListener(view -> new DatePickerDialog(Sing_Up_1_P.this, date, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show());
 
+        //====================================Gender Radio Group to get Data And set into Firebase===============================
+        mGender.setOnCheckedChangeListener((group, checkedId) -> {
+            mGenderOption = mGender.findViewById(checkedId);
+            switch (checkedId) {
+                case R.id.Sp1_male_P:
+                case R.id.Sp1_female_P:
+                    strGender = mGenderOption.getText().toString();
+                    break;
+                default:
             }
         });
 
         //====================================Gender Radio Group to get Data And set into Firebase===============================
-        mGender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                mGenderOption = mGender.findViewById(checkedId);
-                switch (checkedId) {
-                    case R.id.Sp1_male_P:
-                        strGender = mGenderOption.getText().toString();
-                        break;
-                    case R.id.Sp1_female_P:
-                        strGender = mGenderOption.getText().toString();
-                        break;
-                    default:
-                }
+        btn_next_S.setOnClickListener(view -> {
+            // get data form edit text into string variables
+            patientName = mName.getText().toString();
+            patientUsername = mUsername.getText().toString();
+            patientDate = mDate.getText().toString();
+            patientWehigt = mWehigt.getText().toString();
+            patientTall = mTall.getText().toString();
+
+            //====================================Validation===============================
+            // cheek if user fill all data fields before sending data to firebase
+            if (validIsEmpty(patientName, patientUsername, patientWehigt, patientTall, patientDate, patientDate)) {
+                Toast.makeText(Sing_Up_1_P.this, "الرجاء ملأ جميع الحقول", Toast.LENGTH_SHORT).show();
+            } else if (patientUsername.startsWith("P", 1)) {
+                Toast.makeText(Sing_Up_1_P.this, "أبدأ اسم المستخدم ب حرف P", Toast.LENGTH_SHORT).show();
+            } else {
+                databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        // check if username is not registered before
+                        if (snapshot.hasChild(patientUsername)) {
+                            Toast.makeText(Sing_Up_1_P.this, "ID is already registered", Toast.LENGTH_SHORT).show();
+                        } else {
+                            // sending data to firebase real time
+                            // we are using a phone number as unique identity of every user
+                            databaseReference.child(patientUsername).child("personal_info").child("name").setValue(patientName);
+                            databaseReference.child(patientUsername).child("username").setValue(patientUsername);
+                            databaseReference.child(patientUsername).child("personal_info").child("date").setValue(patientDate);
+                            databaseReference.child(patientUsername).child("personal_info").child("gender").setValue(strGender);
+                            databaseReference.child(patientUsername).child("personal_info").child("wehigt").setValue(patientWehigt);
+                            databaseReference.child(patientUsername).child("personal_info").child("tall").setValue(patientTall);
+                            databaseReference.child(patientUsername).child("personal_info").child("Age").setValue(PatientAge);
+                            databaseReference.child(patientUsername).child("Token").child("Patient_Token").setValue(PatientToken);
+                            Toast.makeText(Sing_Up_1_P.this, PatientAge, Toast.LENGTH_SHORT).show();
+                            Intent intent2 = new Intent(Sing_Up_1_P.this, Sing_Up_2_P.class);
+                            intent2.putExtra("username", patientUsername);
+                            startActivity(intent2);
+                            finish();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Log.e("My_Error", error.getMessage());
+                    }
+                });
             }
         });
-
-        //====================================Gender Radio Group to get Data And set into Firebase===============================
-        btn_next_S.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // get data form edit text into string variables
-                patientName = mName.getText().toString();
-                patientUsername = mUsername.getText().toString();
-                patientDate = mDate.getText().toString();
-                patientWehigt = mWehigt.getText().toString();
-                patientTall = mTall.getText().toString();
-
-
-                //====================================Validation===============================
-                // cheek if user fill all data fields before sending data to firebase
-                if (validIsEmpty(patientName, patientUsername, patientWehigt, patientTall,patientDate , patientDate)) {
-                    Toast.makeText(Sing_Up_1_P.this, "Fill all fields", Toast.LENGTH_SHORT).show();
-                } else if (!patientUsername.startsWith("P")) {
-                    Toast.makeText(Sing_Up_1_P.this, "User Name Must Start With P", Toast.LENGTH_SHORT).show();
-                } else {
-                    databaseReference.child("patient").addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            // check if username is not registered before
-                            if (snapshot.hasChild(patientUsername)) {
-                                Toast.makeText(Sing_Up_1_P.this, "ID is already registered", Toast.LENGTH_SHORT).show();
-                            } else {
-                                // sending data to firebase real time
-                                // we are using a phone number as unique identity of every user
-                                databaseReference.child("patient").child(patientUsername).child("personal_info").child("name").setValue(patientName);
-                                databaseReference.child("patient").child(patientUsername).child("username").setValue(patientUsername);
-                                databaseReference.child("patient").child(patientUsername).child("personal_info").child("date").setValue(patientDate);
-                                databaseReference.child("patient").child(patientUsername).child("personal_info").child("gender").setValue(strGender);
-                                databaseReference.child("patient").child(patientUsername).child("personal_info").child("wehigt").setValue(patientWehigt);
-                                databaseReference.child("patient").child(patientUsername).child("personal_info").child("tall").setValue(patientTall);
-//                                databaseReference.child("patient").child(patientUsername).child("personal_info").child("iD").setValue(PatientID);
-                                databaseReference.child("patient").child(patientUsername).child("personal_info").child("Age").setValue(PatientAge);
-                                databaseReference.child("patient").child(patientUsername).child("Token").child("Patient_Token").setValue(PatientToken);
-                                Toast.makeText(Sing_Up_1_P.this, PatientAge, Toast.LENGTH_SHORT).show();
-//                                Toast.makeText(Sing_Up_1_P.this, "User have registered successfully ", Toast.LENGTH_SHORT).show();
-                                Intent intent2 = new Intent(Sing_Up_1_P.this, Sing_Up_2_P.class);
-                                intent2.putExtra("username", patientUsername);
-                                startActivity(intent2);
-                                finish();
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-                            Log.e("My_Error", error.getMessage());
-                        }
-                    });
-                }
-            }
-        });
-
     }
 
     private String getAge(int year, int month, int day) {
@@ -175,39 +146,14 @@ public class Sing_Up_1_P extends Basic_Activity {
         if (today.get(Calendar.DAY_OF_YEAR) < dob.get(Calendar.DAY_OF_YEAR)) {
             age--;
         }
-        Integer ageInt = new Integer(age);
-        String ageS = ageInt.toString();
+        int ageInt = age;
+        String ageS = Integer.toString(ageInt);
         Log.e("TAG", ageS);
         return ageS;
     }
 
-    @Override
     public void onBackPressed() {
-        //============================Create + Configure the Dialog here============================
-        dialog = new Dialog(Sing_Up_1_P.this);
-        dialog.setContentView(R.layout.exite_layout);
-        dialog.getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.dilog_background));
-        //Setting the animations to dialog
-        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        dialog.setCancelable(false); //Optional
-        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
-        dialog.show();
-        close = dialog.findViewById(R.id.Close);
-        continues = dialog.findViewById(R.id.Continue2);
-        dialog.show();
-        close.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                finish();
-            }
-        });
-
-        continues.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
+        exitHappen(this, databaseReference, patientUsername);
     }
+
 }

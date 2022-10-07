@@ -4,9 +4,9 @@
     android:layout_width="@dimen/_200sdp"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
+    android:background="?attr/bg_color"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:background="?attr/bg_color"
     android:paddingBottom="@dimen/_10sdp">
 
     <TextView
@@ -18,8 +18,8 @@
         android:elevation="@dimen/_1sdp"
         android:fontFamily="@font/cairo_bold"
         android:padding="@dimen/_10sdp"
-        android:textAlignment="center"
         android:text="هل أنت متأكد بأنك تريد  الخروج من \n عملية التسجيل ؟"
+        android:textAlignment="center"
         android:textColor="@color/Patient_Color"
         android:textSize="@dimen/_10sdp"
         android:textStyle="bold" />
@@ -52,9 +52,9 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/_20sdp"
             android:background="@drawable/news_rectangel"
-            android:backgroundTint="@color/text_input_pa"
+            android:backgroundTint="@color/Red"
             android:fontFamily="@font/cairo_bold"
-            android:text="الخروج"
+            android:text="نعم الخروج"
             android:textColor="@color/white"
             android:textSize="@dimen/_8sdp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -70,8 +70,9 @@
             android:background="@drawable/news_rectangel"
             android:backgroundTint="@color/text_input_pa"
             android:fontFamily="@font/cairo_bold"
-            android:text="الاستمرار"
+            android:text="لا الاستمرار"
             android:textAlignment="center"
+            android:textColor="@color/white"
             android:textSize="@dimen/_8sdp" />
     </RelativeLayout>
 </LinearLayout>

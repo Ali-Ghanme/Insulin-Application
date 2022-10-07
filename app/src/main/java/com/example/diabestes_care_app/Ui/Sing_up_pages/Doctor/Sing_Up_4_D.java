@@ -1,12 +1,9 @@
 package com.example.diabestes_care_app.Ui.Sing_up_pages.Doctor;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,7 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Sing_Up_4_D extends Basic_Activity {
 
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://diabeticsproject-default-rtdb.firebaseio.com/");
+    DatabaseReference databaseReference;
     EditText auto_City, auto_SubCity, auto_Qu, auto_WP;
     Button ButtonNext;
     ListView listView;
@@ -28,8 +25,8 @@ public class Sing_Up_4_D extends Basic_Activity {
     String[] SubCity = {"الشمال", "دير البلح", "خانيونس", "رفح", "غزة"};
     String[] Qu = {"نعم", "لا"};
     String[] WP = {"خاص", "حكومي"};
-    Dialog dialog;
-    Button close,continues;
+    String doctor_userName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,162 +41,110 @@ public class Sing_Up_4_D extends Basic_Activity {
         auto_WP = findViewById(R.id.Sp4_placeOfWork_D);
 
         Intent intentUsername = getIntent();
-        String patient_userName = intentUsername.getStringExtra("username3");
+        doctor_userName = intentUsername.getStringExtra("username3");
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("doctor");
 
         //============================Spinner Function==============================================
+        auto_City.setOnClickListener(v -> {
+            final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(
+                    Sing_Up_4_D.this, R.style.BottomSheetDialogTheme);
+            View bottomSheetView = LayoutInflater.from(Sing_Up_4_D.this).inflate(R.layout.layout_bottom_sheet_main, findViewById(R.id.bottomSheetContier));
 
-        auto_City.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(
-                        Sing_Up_4_D.this, R.style.BottomSheetDialogTheme);
-                View bottomSheetView = LayoutInflater.from(Sing_Up_4_D.this).inflate(R.layout.layout_bottom_sheet_main, findViewById(R.id.bottomSheetContier));
+            listView = bottomSheetView.findViewById(R.id.City_bottom_listView);
 
-                listView = bottomSheetView.findViewById(R.id.City_bottom_listView);
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(Sing_Up_4_D.this, R.layout.activity_listview, city);
+            listView.setAdapter(adapter);
+            listView.setOnItemClickListener((parent, view, position, id) -> {
+                String City = listView.getAdapter().getItem(position).toString();
+                auto_City.setText(City);
+                bottomSheetDialog.dismiss();
+            });
 
-                ArrayAdapter<String> adapter = new ArrayAdapter<>(Sing_Up_4_D.this, R.layout.activity_listview, city);
-                listView.setAdapter(adapter);
-                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
-                        String City = listView.getAdapter().getItem(position).toString();
-                        auto_City.setText(City);
-                        bottomSheetDialog.dismiss();
-                    }
-                });
-
-                bottomSheetView.findViewById(R.id.City_bottom_listView);
-                bottomSheetDialog.setContentView(bottomSheetView);
-                bottomSheetDialog.show();
-            }
+            bottomSheetView.findViewById(R.id.City_bottom_listView);
+            bottomSheetDialog.setContentView(bottomSheetView);
+            bottomSheetDialog.show();
         });
 
         //============================Spinner Function==============================================
+        auto_SubCity.setOnClickListener(v -> {
+            final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(
+                    Sing_Up_4_D.this, R.style.BottomSheetDialogTheme);
+            View bottomSheetView = LayoutInflater.from(Sing_Up_4_D.this).inflate(R.layout.layout_bottom_sheet_main, findViewById(R.id.bottomSheetContier));
+            listView = bottomSheetView.findViewById(R.id.City_bottom_listView);
 
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(Sing_Up_4_D.this, R.layout.activity_listview, SubCity);
+            listView.setAdapter(adapter);
+            listView.setOnItemClickListener((parent, view, position, id) -> {
+                String SubCity = listView.getAdapter().getItem(position).toString();
+                auto_SubCity.setText(SubCity);
+                bottomSheetDialog.dismiss();
+            });
 
-        auto_SubCity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(
-                        Sing_Up_4_D.this, R.style.BottomSheetDialogTheme);
-                View bottomSheetView = LayoutInflater.from(Sing_Up_4_D.this).inflate(R.layout.layout_bottom_sheet_main, findViewById(R.id.bottomSheetContier));
-                listView = bottomSheetView.findViewById(R.id.City_bottom_listView);
-
-                ArrayAdapter<String> adapter = new ArrayAdapter<>(Sing_Up_4_D.this, R.layout.activity_listview, SubCity);
-                listView.setAdapter(adapter);
-                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
-                        String SubCity = listView.getAdapter().getItem(position).toString();
-                        auto_SubCity.setText(SubCity);
-                        bottomSheetDialog.dismiss();
-                    }
-                });
-
-                bottomSheetView.findViewById(R.id.City_bottom_listView);
-                bottomSheetDialog.setContentView(bottomSheetView);
-                bottomSheetDialog.show();
-            }
+            bottomSheetView.findViewById(R.id.City_bottom_listView);
+            bottomSheetDialog.setContentView(bottomSheetView);
+            bottomSheetDialog.show();
         });
 
         //============================Spinner Function==============================================
+        auto_Qu.setOnClickListener(v -> {
+            final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(
+                    Sing_Up_4_D.this, R.style.BottomSheetDialogTheme);
+            View bottomSheetView = LayoutInflater.from(Sing_Up_4_D.this).inflate(R.layout.layout_bottom_sheet_main, findViewById(R.id.bottomSheetContier));
+            listView = bottomSheetView.findViewById(R.id.City_bottom_listView);
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(Sing_Up_4_D.this, R.layout.activity_listview, Qu);
+            listView.setAdapter(adapter);
+            listView.setOnItemClickListener((parent, view, position, id) -> {
+                String Qu = listView.getAdapter().getItem(position).toString();
+                auto_Qu.setText(Qu);
+                bottomSheetDialog.dismiss();
+            });
 
-        auto_Qu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(
-                        Sing_Up_4_D.this, R.style.BottomSheetDialogTheme);
-                View bottomSheetView = LayoutInflater.from(Sing_Up_4_D.this).inflate(R.layout.layout_bottom_sheet_main, findViewById(R.id.bottomSheetContier));
-                listView = bottomSheetView.findViewById(R.id.City_bottom_listView);
-                ArrayAdapter<String> adapter = new ArrayAdapter<>(Sing_Up_4_D.this, R.layout.activity_listview, Qu);
-                listView.setAdapter(adapter);
-                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
-                        String Qu = listView.getAdapter().getItem(position).toString();
-                        auto_Qu.setText(Qu);
-                        bottomSheetDialog.dismiss();
-                    }
-                });
-
-                bottomSheetView.findViewById(R.id.City_bottom_listView);
-                bottomSheetDialog.setContentView(bottomSheetView);
-                bottomSheetDialog.show();
-            }
+            bottomSheetView.findViewById(R.id.City_bottom_listView);
+            bottomSheetDialog.setContentView(bottomSheetView);
+            bottomSheetDialog.show();
         });
+
         //============================Spinner Function==============================================
+        auto_WP.setOnClickListener(v -> {
+            final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(
+                    Sing_Up_4_D.this, R.style.BottomSheetDialogTheme);
+            View bottomSheetView = LayoutInflater.from(Sing_Up_4_D.this).inflate(R.layout.layout_bottom_sheet_main, findViewById(R.id.bottomSheetContier));
+            listView = bottomSheetView.findViewById(R.id.City_bottom_listView);
 
-        auto_WP.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(
-                        Sing_Up_4_D.this, R.style.BottomSheetDialogTheme);
-                View bottomSheetView = LayoutInflater.from(Sing_Up_4_D.this).inflate(R.layout.layout_bottom_sheet_main, findViewById(R.id.bottomSheetContier));
-                listView = bottomSheetView.findViewById(R.id.City_bottom_listView);
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(Sing_Up_4_D.this, R.layout.activity_listview, WP);
+            listView.setAdapter(adapter);
+            listView.setOnItemClickListener((parent, view, position, id) -> {
+                String WP_S = listView.getAdapter().getItem(position).toString();
+                auto_WP.setText(WP_S);
+                bottomSheetDialog.dismiss();
+            });
 
-                ArrayAdapter<String> adapter = new ArrayAdapter<>(Sing_Up_4_D.this, R.layout.activity_listview, WP);
-                listView.setAdapter(adapter);
-                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
-                        String WP_S = listView.getAdapter().getItem(position).toString();
-                        auto_WP.setText(WP_S);
-                        bottomSheetDialog.dismiss();
-                    }
-                });
-
-                bottomSheetView.findViewById(R.id.City_bottom_listView);
-                bottomSheetDialog.setContentView(bottomSheetView);
-                bottomSheetDialog.show();
-            }
+            bottomSheetView.findViewById(R.id.City_bottom_listView);
+            bottomSheetDialog.setContentView(bottomSheetView);
+            bottomSheetDialog.show();
         });
+
         //============================Button Click==============================================
-        ButtonNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String DoctorCity = auto_City.getText().toString();
-                String DoctorSubCity = auto_SubCity.getText().toString();
-                String DoctorQu = auto_Qu.getText().toString();
-                String DoctorWp = auto_WP.getText().toString();
+        ButtonNext.setOnClickListener(v -> {
+            String DoctorCity = auto_City.getText().toString();
+            String DoctorSubCity = auto_SubCity.getText().toString();
+            String DoctorQu = auto_Qu.getText().toString();
+            String DoctorWp = auto_WP.getText().toString();
 
-                databaseReference.child("doctor").child(patient_userName).child("doctor_info").child("المدينة").setValue(DoctorCity);
-                databaseReference.child("doctor").child(patient_userName).child("doctor_info").child("المحافظة").setValue(DoctorSubCity);
-                databaseReference.child("doctor").child(patient_userName).child("doctor_info").child("العيادة الخارجية").setValue(DoctorQu);
-                databaseReference.child("doctor").child(patient_userName).child("doctor_info").child("طبيعية العمل").setValue(DoctorWp);
-                Intent intent4 = new Intent(Sing_Up_4_D.this, Sing_up_5_D.class);
-                intent4.putExtra("username4", patient_userName);
-                startActivity(intent4);
-                finish();
-            }
+            databaseReference.child(doctor_userName).child("doctor_info").child("المدينة").setValue(DoctorCity);
+            databaseReference.child(doctor_userName).child("doctor_info").child("المحافظة").setValue(DoctorSubCity);
+            databaseReference.child(doctor_userName).child("doctor_info").child("العيادة الخارجية").setValue(DoctorQu);
+            databaseReference.child(doctor_userName).child("doctor_info").child("طبيعية العمل").setValue(DoctorWp);
+            Intent intent4 = new Intent(Sing_Up_4_D.this, Sing_up_5_D.class);
+            intent4.putExtra("username4", doctor_userName);
+            startActivity(intent4);
+            finish();
         });
     }
+
     @Override
     public void onBackPressed() {
-        //============================Create + Configure the Dialog here============================
-        dialog = new Dialog(Sing_Up_4_D.this);
-        dialog.setContentView(R.layout.exite_layout);
-        dialog.getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.dilog_background));
-        //Setting the animations to dialog
-        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        dialog.setCancelable(false); //Optional
-        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
-        dialog.show();
-        close = dialog.findViewById(R.id.Close);
-        continues = dialog.findViewById(R.id.Continue2);
-        dialog.show();
-        close.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                finish();
-            }
-        });
-
-        continues.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
+        exitHappen(this, databaseReference, doctor_userName);
     }
+
 }

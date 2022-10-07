@@ -1,17 +1,24 @@
 package com.example.diabestes_care_app.Base_Activity;
 
+import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.webkit.MimeTypeMap;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.diabestes_care_app.R;
+import com.google.firebase.database.DatabaseReference;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -19,6 +26,7 @@ import java.util.Locale;
 
 public class Basic_Activity extends AppCompatActivity {
     static boolean password_is_visible;
+    Dialog dialog;
 
     public void fullscreen() {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -26,12 +34,12 @@ public class Basic_Activity extends AppCompatActivity {
 
     public static boolean isValidEmail(CharSequence target) {
         if (target == null)
-            return false;
-        return android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
+            return true;
+        return !android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }
 
     public boolean validCellPhone(String number) {
-        return android.util.Patterns.PHONE.matcher(number).matches();
+        return !android.util.Patterns.PHONE.matcher(number).matches();
     }
 
     public boolean validUserName(String userName) {
@@ -41,11 +49,11 @@ public class Basic_Activity extends AppCompatActivity {
     }
 
     public boolean validPassword(String password) {
-        return password.length() > 8;
+        return password.length() <= 8;
     }
 
     public boolean validCoPassword(String password, String CoPassword) {
-        return password.equals(CoPassword);
+        return !password.equals(CoPassword);
     }
 
     public boolean validIsEmpty(String edit1, String edit2, String edit3, String edit4, String edit5, String edit6) {
@@ -88,4 +96,29 @@ public class Basic_Activity extends AppCompatActivity {
         mData.setText(dateFormat.format(myCalendar.getTime()));
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
+    public void exitHappen(Context context, DatabaseReference db, String UserName) {
+        //============================Create + Configure the Dialog here============================
+        dialog = new Dialog(context);
+        dialog.setContentView(R.layout.exite_layout);
+        dialog.getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.dilog_background));
+        //Setting the animations to dialog
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.setCancelable(false); //Optional
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        dialog.show();
+        Button close = dialog.findViewById(R.id.Close);
+        Button continues = dialog.findViewById(R.id.Continue2);
+        close.setOnClickListener(v -> {
+            if (UserName != null) {
+                db.child(UserName).removeValue();
+                finish();
+            } else {
+                Toast.makeText(context, "أنت لم تسجل مستخدم بعد!", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+
+        });
+        continues.setOnClickListener(v -> dialog.dismiss());
+    }
 }

@@ -22,6 +22,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Objects;
+
 public class Patient_info_Fragment extends Fragment {
     ImageView patient_profile;
     TextView name, type, age, city, gender, tall, weight;
@@ -61,21 +63,19 @@ public class Patient_info_Fragment extends Fragment {
                 if (getActivity() == null) {
                     return;
                 }
-                String image = snapshot.child("User_Profile_Image").child("Image").child("mImageUrI").getValue().toString();
+                String image = Objects.requireNonNull(snapshot.child("User_Profile_Image").child("Image").child("mImageUrI").getValue()).toString();
                 Glide.with(getActivity()).load(image).into(patient_profile);
-
-                name.setText(snapshot.child("personal_info").child("name").getValue().toString());
-                age.setText(snapshot.child("personal_info").child("Age").getValue().toString());
-                city.setText(snapshot.child("personal_info").child("City").getValue().toString());
-                gender.setText(snapshot.child("personal_info").child("gender").getValue().toString());
-                tall.setText(snapshot.child("personal_info").child("tall").getValue().toString());
-                weight.setText(snapshot.child("personal_info").child("wehigt").getValue().toString());
-
-                type.setText(snapshot.child("disease_info").child("Diabetes Type").getValue().toString());
-                medicsType.setText(snapshot.child("disease_info").child("Diabetes Medics Type").getValue().toString());
-                another.setText(snapshot.child("disease_info").child("أمراض أخرى").getValue().toString());
-                injury_date.setText(snapshot.child("disease_info").child("تاريخ الاصابة").getValue().toString());
-                injury_factor.setText(snapshot.child("disease_info").child("عوامل الاصابة").getValue().toString());
+                name.setText(Objects.requireNonNull(snapshot.child("personal_info").child("name").getValue()).toString());
+                age.setText(Objects.requireNonNull(snapshot.child("personal_info").child("Age").getValue()).toString());
+                city.setText(Objects.requireNonNull(snapshot.child("personal_info").child("City").getValue()).toString());
+                gender.setText(Objects.requireNonNull(snapshot.child("personal_info").child("gender").getValue()).toString());
+                tall.setText(Objects.requireNonNull(snapshot.child("personal_info").child("tall").getValue()).toString());
+                weight.setText(Objects.requireNonNull(snapshot.child("personal_info").child("wehigt").getValue()).toString());
+                type.setText(Objects.requireNonNull(snapshot.child("disease_info").child("Diabetes Type").getValue()).toString());
+                medicsType.setText(Objects.requireNonNull(snapshot.child("disease_info").child("Diabetes Medics Type").getValue()).toString());
+                another.setText(Objects.requireNonNull(snapshot.child("disease_info").child("أمراض أخرى").getValue()).toString());
+                injury_date.setText(Objects.requireNonNull(snapshot.child("disease_info").child("تاريخ الاصابة").getValue()).toString());
+                injury_factor.setText(Objects.requireNonNull(snapshot.child("disease_info").child("عوامل الاصابة").getValue()).toString());
             }
 
             @Override

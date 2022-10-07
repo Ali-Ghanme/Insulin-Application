@@ -5,6 +5,7 @@ import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 import static com.example.diabestes_care_app.Ui.Patient_all.Doctor_Profile_P.MyPREFERENCES_PushKey;
 import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Doctor_Fragment.MyPREFERENCES_D;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -162,6 +163,7 @@ public class Response_Consu_Adapter extends RecyclerView.Adapter<Response_Consu_
         return list.size();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void updateUsersList(ArrayList<Private_Consu_Model> private_consu_models) {
         this.list = private_consu_models;
         notifyDataSetChanged();

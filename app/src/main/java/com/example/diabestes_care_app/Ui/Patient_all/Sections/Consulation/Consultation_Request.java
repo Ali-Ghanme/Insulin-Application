@@ -2,6 +2,7 @@ package com.example.diabestes_care_app.Ui.Patient_all.Sections.Consulation;
 
 import static com.example.diabestes_care_app.Ui.Doctor_all.Home_Doctor.MyPREFERENCES_D;
 
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -81,6 +82,7 @@ public class Consultation_Request extends Basic_Activity {
         // Get Data Method
         GetDataFromFirebase();
         // Search Filter
+        searchView.setQueryHint("أتبحث عن سؤال معين ؟");
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -129,6 +131,7 @@ public class Consultation_Request extends Basic_Activity {
     }
 
     //============================Clear Recycle Review Data Function================================
+    @SuppressLint("NotifyDataSetChanged")
     private void ClearAll() {
         if (list != null) {
             list.clear();
@@ -139,13 +142,13 @@ public class Consultation_Request extends Basic_Activity {
         list = new ArrayList<>();
     }
 
-    // Searach Method
+    //==================================Search Method===============================================
     private void FilterList(String newText) {
         ArrayList<Consolation_Model> filteredList = new ArrayList<>();
         for (Consolation_Model item : list) {
             if (item.getTitle().toLowerCase().contains(newText.toLowerCase())) {
                 filteredList.add(item);
-            } else if (item.getAnswer().toLowerCase().contains(newText.toLowerCase())) {
+            } else if (item.getQuestion().toLowerCase().contains(newText.toLowerCase())) {
                 filteredList.add(item);
             } else if (item.getDoctorName().toLowerCase().contains(newText.toLowerCase())) {
                 filteredList.add(item);

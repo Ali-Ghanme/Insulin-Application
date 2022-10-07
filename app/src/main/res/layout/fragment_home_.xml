@@ -63,26 +63,21 @@
         android:id="@+id/bell"
         layout="@layout/notifcation_bell_layout" />
 
-    <EditText
+    <androidx.appcompat.widget.SearchView
         android:id="@+id/HP_search_input"
-        android:layout_width="@dimen/_260sdp"
-        android:layout_height="@dimen/_40sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_45sdp"
         android:layout_below="@id/HP_patient_name"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="@dimen/_25sdp"
         android:layout_marginTop="@dimen/_10sdp"
         android:background="@drawable/search_input_style"
         android:backgroundTint="?attr/bg_color"
-        android:drawableRight="@drawable/ic_search"
-        android:drawablePadding="@dimen/_10sdp"
         android:elevation="@dimen/_5sdp"
-        android:fontFamily="@font/cairo_semibold"
-        android:hint="|  أتبحث عن طبيب ؟"
-        android:iconifiedByDefault="false"
         android:inputType="textPersonName"
-        android:queryBackground="@android:color/transparent"
-        android:textColor="?attr/text_color"
-        android:textSize="@dimen/_10sdp" />
+        app:queryBackground="@android:color/transparent"
+        app:iconifiedByDefault="false"
+        app:searchIcon="@drawable/ic_search"
+        app:theme="@style/AppSearchView" />
 
     <RelativeLayout
         android:id="@+id/head_parent"

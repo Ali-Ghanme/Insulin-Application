@@ -35,13 +35,11 @@ public class Consultation_Adapter extends RecyclerView.Adapter<Consultation_Adap
 
     @Override
     public void onBindViewHolder(@NonNull Consultation_Adapter.MyViewHolder holder, int position) {
-
         holder.title.setText(list.get(position).getTitle());
         holder.question.setText(list.get(position).getQuestion());
         holder.doctorName.setText(list.get(position).getDoctorName());
         holder.answer.setText(list.get(position).getAnswer());
         Glide.with(context).load(list.get(position).getImageUrl()).placeholder(R.drawable.ic_user).error(R.drawable.notifications).into(holder.doctorImage);
-
     }
 
     @Override
@@ -55,7 +53,7 @@ public class Consultation_Adapter extends RecyclerView.Adapter<Consultation_Adap
         notifyDataSetChanged();
     }
 
-
+    @SuppressLint("NotifyDataSetChanged")
     public void setFilteredList(ArrayList<Consolation_Model> filteredList) {
         this.list = filteredList;
         notifyDataSetChanged();

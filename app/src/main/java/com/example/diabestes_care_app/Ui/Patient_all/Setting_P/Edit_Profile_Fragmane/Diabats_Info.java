@@ -3,12 +3,16 @@ package com.example.diabestes_care_app.Ui.Patient_all.Setting_P.Edit_Profile_Fra
 import static android.content.Context.MODE_PRIVATE;
 import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
 
+import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -29,7 +33,8 @@ public class Diabats_Info extends Fragment {
     String PatientUsername;
     // Data Patient
     TextView DiabetesType_t, DiabetesMedics_t, HaveIssue_t;
-    // Hallow
+    Button update_btn;
+    ProgressDialog progressDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,18 +46,62 @@ public class Diabats_Info extends Fragment {
         DiabetesType_t = view.findViewById(R.id.FD_DiabetesType);
         DiabetesMedics_t = view.findViewById(R.id.FD_DiabetesMedics);
         HaveIssue_t = view.findViewById(R.id.FD_HaveIssue);
+        update_btn = view.findViewById(R.id.button2);
+        myRef = FirebaseDatabase.getInstance().getReference("patient");
 
         //============================Shared Preference=============================================
         SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         PatientUsername = prefs.getString("TAG_NAME", null);
+        //============================Defines=======================================================
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.setMessage("إنتظر قليلاً يتم تحديث البيانات..");
+        progressDialog.getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.dilog_background));
+        progressDialog.setCancelable(true);
+        progressDialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        progressDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
 
+        update_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progressDialog.show();
+                myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        try {
+                            String DType = DiabetesType_t.getText().toString();
+                            String DMid = DiabetesMedics_t.getText().toString();
+                            String DISu = HaveIssue_t.getText().toString();
+
+                            myRef.child(PatientUsername).child("disease_info").child("Diabetes Type").setValue(DType);
+                            myRef.child(PatientUsername).child("disease_info").child("Diabetes Medics Type").setValue(DMid);
+                            myRef.child(PatientUsername).child("disease_info").child("أمراض أخرى").setValue(DISu);
+                            Toast.makeText(getContext(), "Data is Updated", Toast.LENGTH_SHORT).show();
+                            progressDialog.dismiss();
+                            getData();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            Log.e("TAG", e.getMessage());
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+            }
+        });
         return view;
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        myRef = FirebaseDatabase.getInstance().getReference("patient");
+        getData();
+
+    }
+
+    void getData() {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

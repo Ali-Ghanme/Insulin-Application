@@ -46,10 +46,6 @@ public class Personal_Info extends Fragment {
         address_t = view.findViewById(R.id.FD_address);
         update_btn = view.findViewById(R.id.Update_btn);
 
-        String phone = Phone_number_t.getText().toString();
-        String email = email_t.getText().toString();
-        String adders = address_t.getText().toString();
-
         prefs = view.getContext().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         restoredText = prefs.getString("TAG_NAME", null);
 
@@ -70,11 +66,16 @@ public class Personal_Info extends Fragment {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         try {
+                            String phone = Phone_number_t.getText().toString();
+                            String email = email_t.getText().toString();
+                            String adders = address_t.getText().toString();
+
                             databaseReference.child(restoredText).child("personal_info").child("Phone").setValue(phone);
                             databaseReference.child(restoredText).child("personal_info").child("Email").setValue(email);
                             databaseReference.child(restoredText).child("personal_info").child("City").setValue(adders);
                             Toast.makeText(getContext(), "Data is Updated", Toast.LENGTH_SHORT).show();
                             progressDialog.dismiss();
+                            getData();
                         } catch (Exception e) {
                             e.printStackTrace();
                             Log.e("TAG", e.getMessage());
@@ -94,6 +95,9 @@ public class Personal_Info extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        getData();
+    }
+    void getData(){
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

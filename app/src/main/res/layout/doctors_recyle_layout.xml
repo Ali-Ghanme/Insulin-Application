@@ -8,9 +8,9 @@
     android:layout_marginLeft="@dimen/_10sdp"
     android:layout_marginTop="@dimen/_10sdp"
     android:layout_marginRight="10dp"
-    android:clickable="true"
     android:background="@drawable/bg_doctors_list"
     android:backgroundTint="?attr/bg_color"
+    android:clickable="true"
     android:elevation="1.5dp"
     android:focusable="true">
 
@@ -32,7 +32,8 @@
             android:lines="1"
             android:maxLines="1"
             android:singleLine="true"
-            android:textColor="?attr/text_color" />
+            android:textColor="?attr/text_color"
+            android:textSize="@dimen/_12sdp" />
 
         <TextView
             android:id="@+id/Dl_patient_username"
@@ -43,7 +44,8 @@
             android:layout_marginTop="5dp"
             android:layout_marginRight="@dimen/_90sdp"
             android:fontFamily="@font/cairo_semibold"
-            android:textColor="?attr/text_color" />
+            android:textColor="?attr/text_color"
+            android:textSize="@dimen/_12sdp" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"

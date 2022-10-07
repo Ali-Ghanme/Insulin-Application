@@ -19,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_35sdp"
             android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/_10sdp"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_10sdp"
@@ -39,14 +40,14 @@
 
             <EditText
                 android:id="@+id/FD_Phone_number"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/_150sdp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:background="@null"
                 android:fontFamily="@font/cairo_bold"
-                android:textColor="@color/gray"
+                android:textColor="?attr/text_color"
                 android:textSize="@dimen/_12sdp" />
 
             <View
@@ -82,14 +83,14 @@
 
             <EditText
                 android:id="@+id/FD_email"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/_150sdp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:background="@null"
                 android:fontFamily="@font/cairo_bold"
-                android:textColor="@color/gray"
+                android:textColor="?attr/text_color"
                 android:textSize="@dimen/_12sdp" />
 
             <View
@@ -124,14 +125,14 @@
 
             <EditText
                 android:id="@+id/FD_address"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/_150sdp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:background="@null"
                 android:fontFamily="@font/cairo_bold"
-                android:textColor="@color/gray"
+                android:textColor="?attr/text_color"
                 android:textSize="@dimen/_12sdp" />
 
             <View

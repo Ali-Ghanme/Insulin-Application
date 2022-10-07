@@ -35,7 +35,7 @@ import com.google.firebase.database.ValueEventListener;
 @SuppressLint("UseSwitchCompatOrMaterialCode")
 public class Profile_Fragment extends Fragment {
     // Section
-    RelativeLayout notification_cont, DarkMode_cont, help_cont, LogOut_cont, FB_help_cont;
+    RelativeLayout notification_cont, DarkMode_cont, help_cont, LogOut_cont;
     // Image Patient Profile , Edit Icon
     ImageView imageView, imageView2;
     // Patient Name
@@ -46,6 +46,7 @@ public class Profile_Fragment extends Fragment {
     String PatientUsername;
     // Shared Preference
     SharedPreferences prefs;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -60,7 +61,6 @@ public class Profile_Fragment extends Fragment {
         name = view.findViewById(R.id.FB_tv_Patient_name);
         imageView = view.findViewById(R.id.FB_Patient_image);
         imageView2 = view.findViewById(R.id.FB_Patient_edit);
-        FB_help_cont = view.findViewById(R.id.FB_help_contt);
 
         //============================Shared Preference=============================================
         prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
@@ -75,13 +75,6 @@ public class Profile_Fragment extends Fragment {
             }
         });
 
-//        FB_help_cont.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getContext(), SendNotification.class);
-//                startActivity(intent);
-//            }
-//        });
 
         notification_cont.setOnClickListener(new View.OnClickListener() {
             @Override

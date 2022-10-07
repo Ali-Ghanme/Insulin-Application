@@ -3,6 +3,7 @@ package com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P;
 import static android.content.Context.MODE_PRIVATE;
 import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -12,11 +13,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -48,7 +50,7 @@ public class Home_Fragment extends Fragment {
     // Adapter
     Doctor_List_Adapter doctorListAdapter;
     // Search Variables
-    EditText searchInput;
+    SearchView searchInput;
     CharSequence search = "";
     TextView username;
     ImageView imageProfile;
@@ -62,6 +64,7 @@ public class Home_Fragment extends Fragment {
     SharedPreferences sharedpreferences;
     public static final String MyPREFERENCES_Patient_Profile = "Patient Profile";
 
+    @SuppressLint("CutPasteId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home_, container, false);
@@ -107,26 +110,26 @@ public class Home_Fragment extends Fragment {
         //============================Put data in Recyclerview======================================
         //ArrayList
         list = new ArrayList<>();
-        // Get Data Method
-        GetDataFromFirebase();
         // Clear ArrayList
         ClearAll();
-//        //============================Search And Filter Function====================================
-//        searchInput.addTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-//            }
-//
-//            @Override
-//            public void onTextChanged(CharSequence s, int start, int before, int count) {
-//                doctorListAdapter.getFilter().filter(s);
-//                search = s;
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable s) {
-//            }
-//        });
+        // Get Data Method
+        GetDataFromFirebase();
+        // Search Filter
+        searchInput.setQueryHint("إبحث عن طبيب");
+
+        searchInput.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                FilterList(newText);
+                return true;
+            }
+        });
+
         //============================Notification Counter by using it Function=====================
         notification_number = new Notification_Number(view.findViewById(R.id.bell));
 
@@ -136,6 +139,7 @@ public class Home_Fragment extends Fragment {
                 notification_number.incrementNumber();
             }
         });
+
         return view;
     }
 
@@ -157,7 +161,7 @@ public class Home_Fragment extends Fragment {
                         progressDialog.dismiss();
                     }
                 } catch (Exception e) {
-                    Log.e("TAG",e.getMessage());
+                    Log.e("TAG", e.getMessage());
                 }
                 doctorListAdapter = new Doctor_List_Adapter(getContext(), list);
                 recyclerView.setAdapter(doctorListAdapter);
@@ -210,6 +214,21 @@ public class Home_Fragment extends Fragment {
                 Log.e("TAG", error.getMessage());
             }
         });
+    }
+
+    //==================================Search Method===============================================
+    private void FilterList(String newText) {
+        ArrayList<DoctorList_Model> filteredList = new ArrayList<>();
+        for (DoctorList_Model item : list) {
+            if (item.getName().toLowerCase().contains(newText.toLowerCase())) {
+                filteredList.add(item);
+            }
+        }
+        if (filteredList.isEmpty()) {
+            Toast.makeText(getContext(), "No Data Found", Toast.LENGTH_SHORT).show();
+        } else {
+            doctorListAdapter.setFilteredList(filteredList);
+        }
     }
 }
 

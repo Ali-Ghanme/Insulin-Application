@@ -50,23 +50,21 @@ public class Daily_Sugar extends Fragment {
     String success = "success", error = "error", warning = "warning";
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_daily__suger, container, false);
-
-        tableLayout = view.findViewById(R.id.Repo_tab_layout_SR);
-
-        liner_show_one = view.findViewById(R.id.liner_show_one);
-
-        et_number_sugar = view.findViewById(R.id.et_number_suger);
-        btn_sheet_time_day_sugar = view.findViewById(R.id.btn_sheet_time_day_suger);
-        tv_date = view.findViewById(R.id.tv_date);
-        btn_checked_save_sugar = view.findViewById(R.id.btn_checked_save_suger);
 
         //============================Get Patient Username===========================================
         SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         PatientUsername = prefs.getString("TAG_NAME", null);
+
+        //================================Define Variable===========================================
+        tableLayout = view.findViewById(R.id.Repo_tab_layout_SR);
+        liner_show_one = view.findViewById(R.id.liner_show_one);
+        et_number_sugar = view.findViewById(R.id.et_number_suger);
+        btn_sheet_time_day_sugar = view.findViewById(R.id.btn_sheet_time_day_suger);
+        tv_date = view.findViewById(R.id.tv_date);
+        btn_checked_save_sugar = view.findViewById(R.id.btn_checked_save_suger);
         databaseReference_daily = FirebaseDatabase.getInstance().getReference("patient").child(PatientUsername).child("Reports_info").child("فحص يومي").push();
         Calendar cal = Calendar.getInstance();
 
@@ -74,6 +72,7 @@ public class Daily_Sugar extends Fragment {
         @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("hh:mm a");
         currentDataTime = sdf.format(cal.getTime());
         tv_date.setText(currentDataTime);
+        
         //=============================== Check and save data from sugar Edit Text==================
         btn_checked_save_sugar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,7 +99,7 @@ public class Daily_Sugar extends Fragment {
                     databaseReference_daily.child("حالة القياس").setValue(success);
 
                 } else if ((sugarValue = Double.parseDouble(number_sugar)) > 120 && (sugarValue = Double.parseDouble(number_sugar)) < 200) {
-                     showWarningDialog("لا بأس استمر على الارشادات ", "هذا المؤشر ينبهك بالمحافظة على الصحة واتباع الإرشادات لانك معرض للاصابة بالسكري " + sugarValue);
+                    showWarningDialog("لا بأس استمر على الارشادات ", "هذا المؤشر ينبهك بالمحافظة على الصحة واتباع الإرشادات لانك معرض للاصابة بالسكري " + sugarValue);
                     // Upload Data on Firebase
                     databaseReference_daily.child("نسبة السكر في الدم").setValue(number_sugar);
                     databaseReference_daily.child("فترة القياس").setValue(daysugar);

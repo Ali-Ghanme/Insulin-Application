@@ -20,9 +20,6 @@
             android:layout_height="@dimen/_35sdp"
             android:layout_centerHorizontal="true"
             android:layout_margin="@dimen/_10sdp"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_10sdp"
             android:paddingLeft="@dimen/_20sdp"
             android:paddingRight="@dimen/_20sdp">
 
@@ -37,16 +34,22 @@
                 android:textColor="@color/Patient_Color"
                 android:textSize="@dimen/_12sdp" />
 
-            <TextView
+            <EditText
                 android:id="@+id/FD_DiabetesType"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/_150sdp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_10sdp"
+                android:background="@null"
                 android:fontFamily="@font/cairo_bold"
-                android:textColor="@color/gray"
+                android:textColor="?attr/text_color"
+                android:textDirection="ltr"
                 android:textSize="@dimen/_12sdp" />
+
+            <View
+                style="@style/Divider.Horizontal"
+                android:layout_below="@+id/FD_DiabetesType" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -74,18 +77,22 @@
                 android:textColor="@color/Patient_Color"
                 android:textSize="@dimen/_12sdp" />
 
-            <TextView
+            <EditText
                 android:id="@+id/FD_DiabetesMedics"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/_150sdp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_10sdp"
+                android:background="@null"
                 android:fontFamily="@font/cairo_bold"
-                android:textColor="@color/gray"
+                android:textColor="?attr/text_color"
+                android:textDirection="ltr"
                 android:textSize="@dimen/_12sdp" />
 
-            <View style="@style/Divider.Horizontal" />
+            <View
+                style="@style/Divider.Horizontal"
+                android:layout_below="@+id/FD_DiabetesMedics" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -110,18 +117,22 @@
                 android:textColor="@color/Patient_Color"
                 android:textSize="@dimen/_12sdp" />
 
-            <TextView
+            <EditText
                 android:id="@+id/FD_HaveIssue"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/_150sdp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_10sdp"
+                android:background="@null"
                 android:fontFamily="@font/cairo_bold"
-                android:textColor="@color/gray"
+                android:textColor="?attr/text_color"
+                android:textDirection="ltr"
                 android:textSize="@dimen/_12sdp" />
 
-            <View style="@style/Divider.Horizontal" />
+            <View
+                style="@style/Divider.Horizontal"
+                android:layout_below="@+id/FD_HaveIssue" />
         </RelativeLayout>
     </RelativeLayout>
 

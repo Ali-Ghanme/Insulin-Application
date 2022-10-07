@@ -1,14 +1,12 @@
 package com.example.diabestes_care_app.Adapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
-import android.widget.Filter;
-import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -30,17 +28,14 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Doctor_List_Adapter extends RecyclerView.Adapter<Doctor_List_Adapter.MyViewHolder> implements Filterable {
+public class Doctor_List_Adapter extends RecyclerView.Adapter<Doctor_List_Adapter.MyViewHolder> {
     Context context;
     List<DoctorList_Model> list;
-    List<DoctorList_Model> mDataFiltered;
     String snooping_status;
-
 
     public Doctor_List_Adapter(Context context, List<DoctorList_Model> list) {
         this.context = context;
         this.list = list;
-        this.mDataFiltered = list;
     }
 
     @NonNull
@@ -52,11 +47,11 @@ public class Doctor_List_Adapter extends RecyclerView.Adapter<Doctor_List_Adapte
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.imageView.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition_animation));
-        holder.container.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_scale_animation));
+//        holder.imageView.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition_animation));
+//        holder.container.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_scale_animation));
 
         //====================Initialize object from model & database reference=====================
-        DoctorList_Model list2 = mDataFiltered.get(position);
+        DoctorList_Model list2 = list.get(position);
         DatabaseReference online_status_all_users = FirebaseDatabase.getInstance().getReference().child("online_statuses").child(list2.getUsername());
 
         //============================Online/Offline read Status ===================================
@@ -65,7 +60,7 @@ public class Doctor_List_Adapter extends RecyclerView.Adapter<Doctor_List_Adapte
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 snooping_status = dataSnapshot.getValue(String.class);
                 if (snooping_status == null) {
-                    return;
+                    Log.e("TAG", "Error");
                 } else {
                     try {
                         if (snooping_status.contentEquals("online")) {
@@ -88,6 +83,7 @@ public class Doctor_List_Adapter extends RecyclerView.Adapter<Doctor_List_Adapte
                 Log.e("TAG", databaseError.getMessage());
             }
         });
+
         //============================Pass Data Patient ============================================
         holder.container.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,42 +107,19 @@ public class Doctor_List_Adapter extends RecyclerView.Adapter<Doctor_List_Adapte
 
     @Override
     public int getItemCount() {
-        return mDataFiltered.size();
+        return list.size();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void updateUsersList(List<DoctorList_Model> DoctorList_Model) {
         this.list = DoctorList_Model;
         notifyDataSetChanged();
     }
 
-    public Filter getFilter() {
-        return new Filter() {
-            @Override
-            protected FilterResults performFiltering(CharSequence constraint) {
-                String Key = constraint.toString();
-                if (Key.isEmpty()) {
-                    mDataFiltered = list;
-                } else {
-                    ArrayList<DoctorList_Model> lstFiltered = new ArrayList<>();
-                    for (DoctorList_Model row : list) {
-
-                        if (row.getName().toLowerCase().contains(Key.toLowerCase())) {
-                            lstFiltered.add(row);
-                        }
-                    }
-                    mDataFiltered = lstFiltered;
-                }
-                FilterResults filterResults = new FilterResults();
-                filterResults.values = mDataFiltered;
-                return filterResults;
-            }
-
-            @Override
-            protected void publishResults(CharSequence constraint, FilterResults results) {
-                mDataFiltered = (ArrayList<DoctorList_Model>) results.values;
-                notifyDataSetChanged();
-            }
-        };
+    @SuppressLint("NotifyDataSetChanged")
+    public void setFilteredList(ArrayList<DoctorList_Model> filteredList) {
+        this.list = filteredList;
+        notifyDataSetChanged();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

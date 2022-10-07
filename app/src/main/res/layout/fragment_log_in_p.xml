@@ -8,7 +8,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp">
 
         <TextView
             android:id="@+id/FSI_tv_P"
@@ -21,7 +22,7 @@
             android:text="اسم المستخدم"
             android:textAlignment="textStart"
             android:textColor="@color/Patient_Color"
-            android:textSize="11sp"
+            android:textSize="@dimen/_9sdp"
             android:textStyle="bold" />
 
         <EditText
@@ -39,11 +40,11 @@
             android:fontFamily="@font/cairo_bold"
             android:inputType="text"
             android:maxLines="1"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingRight="@dimen/_10sdp"
             android:textColor="@color/Patient_Color"
             android:textColorHint="#78909C"
-            android:textSize="15sp"
+            android:textSize="@dimen/_12sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -62,7 +63,7 @@
             android:text=" كلمة المرور "
             android:textAlignment="textStart"
             android:textColor="@color/Patient_Color"
-            android:textSize="11sp"
+            android:textSize="@dimen/_9sdp"
             android:textStyle="bold" />
 
         <EditText
@@ -81,11 +82,11 @@
             android:fontFamily="@font/cairo_bold"
             android:inputType="textPassword"
             android:maxLines="1"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingRight="@dimen/_10sdp"
             android:textColor="@color/Patient_Color"
             android:textColorHint="#78909C"
-            android:textSize="15sp"
+            android:textSize="@dimen/_12sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

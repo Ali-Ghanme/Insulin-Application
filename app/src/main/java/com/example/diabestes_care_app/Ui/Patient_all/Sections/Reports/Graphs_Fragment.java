@@ -1,25 +1,20 @@
 package com.example.diabestes_care_app.Ui.Patient_all.Sections.Reports;
 
-import android.annotation.SuppressLint;
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.icu.text.DateFormat;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.diabestes_care_app.Adapters.Reports_Adapter;
-import com.example.diabestes_care_app.Models.Reports_Model;
 import com.example.diabestes_care_app.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -28,15 +23,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.jjoe64.graphview.GraphView;
-import com.jjoe64.graphview.GridLabelRenderer;
-import com.jjoe64.graphview.LegendRenderer;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import static android.content.Context.MODE_PRIVATE;
 
  public class Graphs_Fragment extends Fragment {
 
@@ -71,37 +62,48 @@ import static android.content.Context.MODE_PRIVATE;
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 try {
                     if (dataSnapshot != null) {
-
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         String friend = snapshot.child("نسبة السكر في الدم").getValue().toString();
                         friends.add(friend);
 
+                        String firstElement0 = friends.get(0);
+                        String firstElement1 = friends.get(1);
+                        String firstElement2 = friends.get(2);
+                        String firstElement3 = friends.get(3);
+                        String firstElement4 = friends.get(4);
 
+                        sugerindex0 = Integer.parseInt(firstElement0);
+                        sugerindex1 = Integer.parseInt(firstElement1);
+                        sugerindex2 = Integer.parseInt(firstElement2);
+                        sugerindex3 = Integer.parseInt(firstElement3);
+                        sugerindex4 = Integer.parseInt(firstElement4);
+                        LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>();
+
+                        series.appendData(new DataPoint(1, sugerindex0 ), true, 5);
+                        series.appendData(new DataPoint(2, sugerindex1 ), true, 5);
+                        series.appendData(new DataPoint(3, sugerindex2 ), true, 5);
+                        series.appendData(new DataPoint(4, sugerindex3 ), true, 5);
+                        series.appendData(new DataPoint(5, sugerindex4 ), true, 5);
+
+                        series.setColor(Color.BLUE);
+//                series.setTitle("نسبة السكر");
+                        series.setDrawDataPoints(true);
+                        series.setDataPointsRadius(20);
+                        series.setThickness(3);
+                        graph.addSeries(series);
+                        //تسمية المحاور
+
+                        graph.getViewport().setYAxisBoundsManual(false);
+                        graph.getViewport().setMinY(20);
+                        graph.getViewport().setMaxY(500);
                             }
-
+                    }else{
+                        Log.e("TAG","Hallow this is error");
                     }
                 } catch (Exception e) {
                     Toast.makeText(getContext(), "حدث خطأ - لا تقلق ", Toast.LENGTH_SHORT).show();
                 }
 
-                String firstElement0 = friends.get(0);
-                String firstElement1 = friends.get(1);
-                String firstElement2 = friends.get(2);
-                String firstElement3 = friends.get(3);
-                String firstElement4 = friends.get(4);
-                sugerindex0 = Integer.parseInt(firstElement0);
-                sugerindex1 = Integer.parseInt(firstElement1);
-                sugerindex2 = Integer.parseInt(firstElement2);
-                sugerindex3 = Integer.parseInt(firstElement3);
-                sugerindex4 = Integer.parseInt(firstElement4);
-                LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>();
-
-
-                    series.appendData(new DataPoint(1, sugerindex0 ), true, 5);
-                    series.appendData(new DataPoint(2, sugerindex1 ), true, 5);
-                    series.appendData(new DataPoint(3, sugerindex2 ), true, 5);
-                    series.appendData(new DataPoint(4, sugerindex3 ), true, 5);
-                    series.appendData(new DataPoint(5, sugerindex4 ), true, 5);
 
 
                 //تفاصيل عن تسمية النقطة
@@ -109,17 +111,6 @@ import static android.content.Context.MODE_PRIVATE;
 //                series.setColor(Color.RED);
 //                series.setTitle("نسبة السكر");
 
-                series.setColor(Color.BLUE);
-//                series.setTitle("نسبة السكر");
-                series.setDrawDataPoints(true);
-                series.setDataPointsRadius(20);
-                series.setThickness(3);
-                graph.addSeries(series);
-                //تسمية المحاور
-
-                graph.getViewport().setYAxisBoundsManual(false);
-                graph.getViewport().setMinY(20);
-                graph.getViewport().setMaxY(500);
 //                series.setColor(Color.RED);
 //                series.setTitle("نسبة السكر");
 //                series.setDrawDataPoints(true);

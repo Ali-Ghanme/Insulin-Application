@@ -34,9 +34,9 @@ public class Patient_Files extends Basic_Activity {
 
         //====================Adapter Configuration=================================================
         adapter = new Patient_Files.MainAdapter(getSupportFragmentManager());
+        adapter.AddFragment(new My_Exams_Fragment(), "فحوصاتي");
         adapter.AddFragment(new Reports_Fragment(), "التقارير");
         adapter.AddFragment(new Graphs_Fragment(), "رسومات بيانية");
-        adapter.AddFragment(new My_Exams_Fragment(), "فحوصاتي");
 
         //========================Set Adapter for the viewpager Configuration=======================
         viewPager_subject.setAdapter(adapter);

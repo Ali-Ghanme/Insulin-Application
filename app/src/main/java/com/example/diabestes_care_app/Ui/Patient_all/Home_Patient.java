@@ -81,13 +81,14 @@ public class Home_Patient extends Basic_Activity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String snooping_status = dataSnapshot.getValue(String.class);
                 //mario should decide what to do with linker's snooping status here e.g.
+                assert snooping_status != null;
                 if (snooping_status.contentEquals("offline")) {
                     dialog.show();
                 }
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
+            public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
 

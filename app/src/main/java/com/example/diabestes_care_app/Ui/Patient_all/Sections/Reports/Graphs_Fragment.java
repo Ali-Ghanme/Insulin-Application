@@ -2,6 +2,7 @@ package com.example.diabestes_care_app.Ui.Patient_all.Sections.Reports;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -29,6 +30,7 @@ import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Graphs_Fragment extends Fragment {
 
@@ -45,6 +47,7 @@ public class Graphs_Fragment extends Fragment {
 
 
     // رسوم بيانية
+    @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -53,7 +56,7 @@ public class Graphs_Fragment extends Fragment {
 
         graph = view.findViewById(R.id.graphview);
         //============================Get Patient Username===========================================
-        SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
+        SharedPreferences prefs = this.requireActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         PatientUsername = prefs.getString("TAG_NAME", null);
 
         //=============================Dialog=======================================================
@@ -67,13 +70,10 @@ public class Graphs_Fragment extends Fragment {
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         Button Okay = dialog.findViewById(R.id.btn_okay);
 
-        Okay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        Okay.setOnClickListener(v -> {
 
-                Toast.makeText(getContext(), "Okay", Toast.LENGTH_SHORT).show();
-                dialog.dismiss();
-            }
+            Toast.makeText(getContext(), "Okay", Toast.LENGTH_SHORT).show();
+            dialog.dismiss();
         });
 
         //============================Configure Firebase============================================
@@ -86,7 +86,7 @@ public class Graphs_Fragment extends Fragment {
                 if(dataSnapshot != null){
                     try {
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                            String friend = snapshot.child("نسبة السكر في الدم").getValue().toString();
+                            String friend = Objects.requireNonNull(snapshot.child("نسبة السكر في الدم").getValue()).toString();
 
                             String firstElement0 = friends.get(0);
                             String firstElement1 = friends.get(1);
@@ -99,7 +99,7 @@ public class Graphs_Fragment extends Fragment {
                             sugerindex2 = Integer.parseInt(firstElement2);
                             sugerindex3 = Integer.parseInt(firstElement3);
                             sugerindex4 = Integer.parseInt(firstElement4);
-                            LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>();
+                            LineGraphSeries<DataPoint> series = new LineGraphSeries<>();
 
                             series.appendData(new DataPoint(1, sugerindex0), true, 5);
                             series.appendData(new DataPoint(2, sugerindex1), true, 5);

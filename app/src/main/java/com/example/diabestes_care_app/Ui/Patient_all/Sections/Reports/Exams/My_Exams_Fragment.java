@@ -1,27 +1,18 @@
 package com.example.diabestes_care_app.Ui.Patient_all.Sections.Reports.Exams;
 
-import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.diabestes_care_app.R;
-import com.example.diabestes_care_app.Ui.Patient_all.Sections.Self_Care.Content.Content;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -88,3 +79,4 @@ public class My_Exams_Fragment extends Fragment {
         }
     }
 }
+// Hallow this is Update

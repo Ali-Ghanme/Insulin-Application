@@ -21,7 +21,7 @@ public class Self_Care extends Basic_Activity {
     TabLayout tabLayout;
     ViewPager viewPager_subject;
     Self_Care.MainAdapter adapter;
-
+    // Hallow this is Update
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         fullscreen();

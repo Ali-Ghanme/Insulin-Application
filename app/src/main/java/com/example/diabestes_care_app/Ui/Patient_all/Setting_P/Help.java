@@ -14,3 +14,4 @@ public class Help extends Basic_Activity {
         setContentView(R.layout.activity_help);
     }
 }    // Hallow
+// Hallow this is Update

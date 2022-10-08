@@ -37,7 +37,7 @@ public class Graphs_Fragment extends Fragment {
     // button week and day
     Button week, day;
     GraphView graph;
-    //    String friends;
+    // String friends;
     int sugarInt, sugerindex0, sugerindex1, sugerindex2, sugerindex3, sugerindex4;
     // Firebase
     DatabaseReference databaseReference;
@@ -83,7 +83,7 @@ public class Graphs_Fragment extends Fragment {
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot != null){
+                if (dataSnapshot != null) {
                     try {
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                             String friend = Objects.requireNonNull(snapshot.child("نسبة السكر في الدم").getValue()).toString();
@@ -188,3 +188,4 @@ public class Graphs_Fragment extends Fragment {
 //                graph.getViewport().setYAxisBoundsManual(true);
 //                graph.getViewport().setMinY(30);
 //                graph.getViewport().setMaxY(500);
+// Hallow this is Update

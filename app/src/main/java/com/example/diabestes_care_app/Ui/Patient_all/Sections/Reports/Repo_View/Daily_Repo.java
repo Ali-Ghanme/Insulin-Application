@@ -88,6 +88,6 @@ public class Daily_Repo extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-
     }
 }
+// Hallow this is Update

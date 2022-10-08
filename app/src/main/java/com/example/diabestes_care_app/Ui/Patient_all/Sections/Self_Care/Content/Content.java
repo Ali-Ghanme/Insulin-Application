@@ -31,7 +31,7 @@ public class Content extends Basic_Activity {
     Dialog dialog;
     Animation btnAnim;
 
-
+    // Hallow this is Update
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         fullscreen();

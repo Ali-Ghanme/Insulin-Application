@@ -575,5 +575,5 @@ public class Dmonthly_Sugar extends Fragment {
         }
         alertDialog.show();
     }
-
+// Hallow this is Update
 }

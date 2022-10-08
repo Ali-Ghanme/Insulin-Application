@@ -73,7 +73,7 @@ public class Edit_Profile_P extends Basic_Activity {
         viewPager_subject.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager_subject);
     }
-
+    // Hallow this is Update
     //=====================================Adapter method===========================================
     public static class MainAdapter2 extends FragmentPagerAdapter {
         ArrayList<Fragment> fragmentArrayList = new ArrayList<>();

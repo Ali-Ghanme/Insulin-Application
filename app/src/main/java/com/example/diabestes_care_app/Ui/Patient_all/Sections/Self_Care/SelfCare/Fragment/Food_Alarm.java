@@ -16,7 +16,7 @@ public class Food_Alarm extends Fragment {
     ListView listView;
     String[] items = {"الفطور", "الغذاء", "العشاء", "الفطور في رمضان",
             "السحور في رمضان"};
-
+    // Hallow this is Update
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

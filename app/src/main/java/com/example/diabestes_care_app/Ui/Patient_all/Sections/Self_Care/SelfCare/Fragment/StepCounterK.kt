@@ -16,7 +16,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat.getSystemService
 import com.example.diabestes_care_app.R
-
+// Hallow this is Update
 class StepCounterK : Fragment(), SensorEventListener {
     // Added SensorEventListener the MainActivity class
     // Implement all the members in the class MainActivity

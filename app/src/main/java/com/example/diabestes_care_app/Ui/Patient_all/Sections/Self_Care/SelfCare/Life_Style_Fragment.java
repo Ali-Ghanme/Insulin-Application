@@ -20,7 +20,7 @@ import com.google.android.material.tabs.TabLayout;
 import java.util.ArrayList;
 
 public class Life_Style_Fragment extends Fragment {
-
+    // Hallow this is Update
     TabLayout tabLayout;
     ViewPager viewPager_subject;
     Life_Style_Fragment.MainAdapter adapter;

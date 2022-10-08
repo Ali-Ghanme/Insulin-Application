@@ -19,7 +19,7 @@ public class Instruction_Fragment extends Fragment {
     ListView listView;
     String[] items = {"عن مرض السكري", "أنواع مرض السكري", "مضاعفات مرض السكري", "الفطور في رمضان", "السحور في رمضان", "ما هي غيبوبة السكر",
             "اعراض مبكرة لمرض السكري", "التعامل مع حالات اغماء السكري", "جرعات الانسولين وكيفية اخدها"};
-
+    // Hallow this is Update
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

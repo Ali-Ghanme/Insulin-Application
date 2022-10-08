@@ -226,5 +226,5 @@ public class Daily_Sugar extends Fragment {
         alertDialog.show();
     }
     // This is new update
-
+// Hallow this is Update
 }

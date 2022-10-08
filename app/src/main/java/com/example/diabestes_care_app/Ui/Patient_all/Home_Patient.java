@@ -39,7 +39,7 @@ public class Home_Patient extends Basic_Activity {
     String PatientUsername;
     Dialog dialog;
     Button Continue;
-
+    // Hallow this is Update
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

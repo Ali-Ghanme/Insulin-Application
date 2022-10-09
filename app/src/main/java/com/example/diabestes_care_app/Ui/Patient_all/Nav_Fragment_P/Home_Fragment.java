@@ -38,6 +38,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Home_Fragment extends Fragment {
 
@@ -51,7 +52,6 @@ public class Home_Fragment extends Fragment {
     Doctor_List_Adapter doctorListAdapter;
     // Search Variables
     SearchView searchInput;
-    CharSequence search = "";
     TextView username;
     ImageView imageProfile;
     // Patient Username TextView
@@ -62,9 +62,10 @@ public class Home_Fragment extends Fragment {
     ProgressDialog progressDialog;
     View bell;
     SharedPreferences sharedpreferences;
+
     public static final String MyPREFERENCES_Patient_Profile = "Patient Profile";
 
-    @SuppressLint("CutPasteId")
+    @SuppressLint({"CutPasteId", "UseCompatLoadingForDrawables"})
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home_, container, false);
@@ -75,19 +76,16 @@ public class Home_Fragment extends Fragment {
         recyclerView = view.findViewById(R.id.HP_recyclerView);
         imageProfile = view.findViewById(R.id.HP_profile_img);
 
-        sharedpreferences = getContext().getSharedPreferences(MyPREFERENCES_Patient_Profile, MODE_PRIVATE);
+        sharedpreferences = requireContext().getSharedPreferences(MyPREFERENCES_Patient_Profile, MODE_PRIVATE);
         bell = view.findViewById(R.id.bell);
 
-        bell.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), Users_Notification.class);
-                startActivity(intent);
-            }
+        bell.setOnClickListener(v -> {
+            Intent intent = new Intent(getContext(), Users_Notification.class);
+            startActivity(intent);
         });
 
         //============================Get Patient Username===========================================
-        SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
+        SharedPreferences prefs = this.requireActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         PatientUsername = prefs.getString("TAG_NAME", null);
 
         //============================Configure Firebase============================================
@@ -133,12 +131,7 @@ public class Home_Fragment extends Fragment {
         //============================Notification Counter by using it Function=====================
         notification_number = new Notification_Number(view.findViewById(R.id.bell));
 
-        imageProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                notification_number.incrementNumber();
-            }
-        });
+        imageProfile.setOnClickListener(v -> notification_number.incrementNumber());
 
         return view;
     }
@@ -153,10 +146,10 @@ public class Home_Fragment extends Fragment {
                 try {
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         DoctorList_Model doctorListModel = new DoctorList_Model();
-                        doctorListModel.setName(snapshot.child("personal_info").child("name_ar").getValue().toString());
-                        doctorListModel.setUsername(snapshot.child("username").getValue().toString());
-                        doctorListModel.setImageUrl(snapshot.child("User_Profile_Image").child("Image").child("mImageUrI").getValue().toString());
-                        doctorListModel.setToken(snapshot.child("Token").child("Doctor_Token").getValue().toString());
+                        doctorListModel.setName(Objects.requireNonNull(snapshot.child("personal_info").child("name_ar").getValue()).toString());
+                        doctorListModel.setUsername(Objects.requireNonNull(snapshot.child("username").getValue()).toString());
+                        doctorListModel.setImageUrl(Objects.requireNonNull(snapshot.child("User_Profile_Image").child("Image").child("mImageUrI").getValue()).toString());
+                        doctorListModel.setToken(Objects.requireNonNull(snapshot.child("Token").child("Doctor_Token").getValue()).toString());
                         list.add(doctorListModel);
                         progressDialog.dismiss();
                     }
@@ -176,6 +169,7 @@ public class Home_Fragment extends Fragment {
     }
 
     //============================Clear Recycle Review Data Function================================
+    @SuppressLint("NotifyDataSetChanged")
     private void ClearAll() {
         if (list != null) {
             list.clear();
@@ -206,7 +200,7 @@ public class Home_Fragment extends Fragment {
 
                 SharedPreferences.Editor editor = sharedpreferences.edit();
                 editor.putString("TAG_Image_P", image);
-                editor.commit();
+                editor.apply();
             }
 
             @Override
@@ -231,4 +225,3 @@ public class Home_Fragment extends Fragment {
         }
     }
 }
-// Hallow this is Update

@@ -2,6 +2,7 @@ package com.example.diabestes_care_app.Ui.Sing_In.Fragment;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -22,8 +22,6 @@ import androidx.fragment.app.Fragment;
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Doctor_all.Home_Doctor;
 import com.example.diabestes_care_app.Ui.Sing_up_pages.Doctor.Sing_Up_1_D;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -35,7 +33,7 @@ import com.google.firebase.messaging.FirebaseMessaging;
 public class LogIn_Doctor_Fragment extends Fragment {
 
     // Firebase
-    DatabaseReference DB_reference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://diabeticsproject-default-rtdb.firebaseio.com/");
+    DatabaseReference DB_reference;
     // username , password
     EditText username, password;
     // login and Signup
@@ -51,6 +49,7 @@ public class LogIn_Doctor_Fragment extends Fragment {
     // Token
     String DoctorToken;
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -63,44 +62,33 @@ public class LogIn_Doctor_Fragment extends Fragment {
         remember = view.findViewById(R.id.rememberMy);
         password = view.findViewById(R.id.FIS_et_pass_D);
         SingUp = view.findViewById(R.id.FIS_bt_sing_up_D);
-
+        DB_reference = FirebaseDatabase.getInstance().getReference();
         //==============================Shared Preference===========================================
-        sharedpreferences = this.getActivity().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
+        sharedpreferences = this.requireActivity().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
 
         //==============================Login Button================================================
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                isUser();
-            }
-        });
+        login.setOnClickListener(v -> isUser());
 
         //==============================Sing Button=================================================
-        SingUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intentS = new Intent(getContext(), Sing_Up_1_D.class);
-                startActivity(intentS);
-            }
+        SingUp.setOnClickListener(v -> {
+            Intent intentS = new Intent(getContext(), Sing_Up_1_D.class);
+            startActivity(intentS);
         });
 
         //==============================Remember Me Login Doctor================================================
-        remember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (buttonView.isChecked()) {
-                    Check_Box_preferences_D = getActivity().getSharedPreferences("checkbox_D", MODE_PRIVATE);
-                    SharedPreferences.Editor editor = Check_Box_preferences_D.edit();
-                    editor.putString("remember_D", "true");
-                    editor.apply();
-                    Toast.makeText(getActivity(), "Checked", Toast.LENGTH_SHORT).show();
-                } else if (!buttonView.isChecked()) {
-                    Check_Box_preferences_D = getActivity().getSharedPreferences("checkbox_D", MODE_PRIVATE);
-                    SharedPreferences.Editor editor = Check_Box_preferences_D.edit();
-                    editor.putString("remember_D", "false");
-                    editor.apply();
-                    Toast.makeText(getActivity(), "Un Checked", Toast.LENGTH_SHORT).show();
-                }
+        remember.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (buttonView.isChecked()) {
+                Check_Box_preferences_D = requireActivity().getSharedPreferences("checkbox_D", MODE_PRIVATE);
+                SharedPreferences.Editor editor = Check_Box_preferences_D.edit();
+                editor.putString("remember_D", "true");
+                editor.apply();
+                Toast.makeText(getActivity(), "Checked", Toast.LENGTH_SHORT).show();
+            } else if (!buttonView.isChecked()) {
+                Check_Box_preferences_D = requireActivity().getSharedPreferences("checkbox_D", MODE_PRIVATE);
+                SharedPreferences.Editor editor = Check_Box_preferences_D.edit();
+                editor.putString("remember_D", "false");
+                editor.apply();
+                Toast.makeText(getActivity(), "Un Checked", Toast.LENGTH_SHORT).show();
             }
         });
         //==============================END Remember Me Login Doctor ================================================
@@ -124,15 +112,16 @@ public class LogIn_Doctor_Fragment extends Fragment {
                     username.setError(null);
                     // fit password to specific username
                     String passwordFromDB = snapshot.child(doctorEnterUsername).child("Password").getValue(String.class);
+                    assert passwordFromDB != null;
                     if (passwordFromDB.equals(doctorEnterPassword)) {
 
                         SharedPreferences.Editor editor = sharedpreferences.edit();
                         editor.putString("TAG_NAME", doctorEnterUsername);
-                        editor.commit();
+                        editor.apply();
 
                         Intent intent = new Intent(getActivity(), Home_Doctor.class);
                         startActivity(intent);
-                        getActivity().finish();
+                        requireActivity().finish();
                     } else {
                         password.setError("Wrong Password");
                     }
@@ -153,16 +142,13 @@ public class LogIn_Doctor_Fragment extends Fragment {
     public void onStart() {
         super.onStart();
         // Generate Token for Patient
-        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
-            @Override
-            public void onComplete(@NonNull Task<String> task) {
-                if (!task.isSuccessful()) {
-                    return;
-                }
-                // Get new FCM registration token
-                DoctorToken = task.getResult();
-                System.out.println("TOKEN" + DoctorToken);
+        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
+            if (!task.isSuccessful()) {
+                return;
             }
+            // Get new FCM registration token
+            DoctorToken = task.getResult();
+            System.out.println("TOKEN" + DoctorToken);
         });
     }
 }

@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
-            android:id="@+id/phone_patient"
+            android:id="@+id/phone_patient_d"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_35sdp"
             android:layout_centerHorizontal="true"
@@ -35,11 +35,11 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/cairo_bold"
                 android:text="رقم الجوال "
-                android:textColor="@color/Patient_Color"
+                android:textColor="@color/Doctor_Color"
                 android:textSize="@dimen/_12sdp" />
 
             <EditText
-                android:id="@+id/FD_Phone_number"
+                android:id="@+id/FD_Phone_number_d"
                 android:layout_width="@dimen/_150sdp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
@@ -52,15 +52,15 @@
 
             <View
                 style="@style/Divider.Horizontal"
-                android:layout_below="@+id/FD_Phone_number" />
+                android:layout_below="@+id/FD_Phone_number_d" />
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/text5_patient"
+            android:id="@+id/text5_patient_d"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_35sdp"
-            android:layout_below="@id/phone_patient"
+            android:layout_below="@id/phone_patient_d"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_10sdp"
@@ -78,11 +78,11 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/cairo_bold"
                 android:text="الإيميل "
-                android:textColor="@color/Patient_Color"
+                android:textColor="@color/Doctor_Color"
                 android:textSize="@dimen/_12sdp" />
 
             <EditText
-                android:id="@+id/FD_email"
+                android:id="@+id/FD_email_d"
                 android:layout_width="@dimen/_150sdp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
@@ -95,14 +95,14 @@
 
             <View
                 style="@style/Divider.Horizontal"
-                android:layout_below="@+id/FD_email" />
+                android:layout_below="@+id/FD_email_d" />
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/text6_patient"
+            android:id="@+id/text6_patient_d"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_35sdp"
-            android:layout_below="@id/text5_patient"
+            android:layout_below="@id/text5_patient_d"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_10sdp"
@@ -112,7 +112,7 @@
             android:paddingRight="20dp">
 
             <TextView
-                android:id="@+id/textvie6"
+                android:id="@+id/textvie6_d"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -120,11 +120,11 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/cairo_bold"
                 android:text="العنوان "
-                android:textColor="@color/Patient_Color"
+                android:textColor="@color/Doctor_Color"
                 android:textSize="@dimen/_12sdp" />
 
             <EditText
-                android:id="@+id/FD_address"
+                android:id="@+id/FD_address_d"
                 android:layout_width="@dimen/_150sdp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
@@ -133,20 +133,115 @@
                 android:background="@null"
                 android:fontFamily="@font/cairo_bold"
                 android:textColor="?attr/text_color"
+                android:textDirection="ltr"
                 android:textSize="@dimen/_12sdp" />
-//
+
             <View
                 style="@style/Divider.Horizontal"
-                android:layout_below="@+id/FD_address" />
+                android:layout_below="@+id/FD_address_d" />
         </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/passwordRest_doctor_d"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_below="@id/text6_patient_d"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <TextView
+                android:id="@+id/password_tv_d"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/cairo_bold"
+                android:text=" كلمة المرور"
+                android:textColor="@color/Doctor_Color"
+                android:textSize="@dimen/_12sdp" />
+
+            <EditText
+                android:id="@+id/FD_passwordRest_d"
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@null"
+                android:drawableStart="@drawable/ic_lock"
+                android:drawablePadding="@dimen/_5sdp"
+                android:drawableTint="@color/Doctor_Color"
+                android:fontFamily="@font/cairo_bold"
+                android:inputType="numberPassword"
+                android:textColor="?attr/text_color"
+                android:textDirection="ltr"
+                android:textSize="@dimen/_12sdp" />
+
+            <View
+                style="@style/Divider.Horizontal"
+                android:layout_below="@+id/password_tv_d" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/passwordRestCon_doctor_d"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_below="@id/passwordRest_doctor_d"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <TextView
+                android:id="@+id/passwordRestCon_tv_d"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/cairo_bold"
+                android:text="تأكيد  كلمة المرور "
+                android:textColor="@color/Doctor_Color"
+                android:textSize="@dimen/_12sdp" />
+
+            <EditText
+                android:id="@+id/FD_passwordRestCon_d"
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@null"
+                android:drawableStart="@drawable/ic_lock"
+                android:drawablePadding="@dimen/_5sdp"
+                android:drawableTint="@color/Doctor_Color"
+                android:fontFamily="@font/cairo_bold"
+                android:inputType="numberPassword"
+                android:textColor="?attr/text_color"
+                android:textDirection="ltr"
+                android:textSize="@dimen/_12sdp" />
+
+            <View
+                style="@style/Divider.Horizontal"
+                android:layout_below="@+id/passwordRestCon_tv_d" />
+        </RelativeLayout>
+
     </RelativeLayout>
 
     <Button
-        android:id="@+id/Update_btn"
+        android:id="@+id/Update_btn_d"
         android:layout_width="@dimen/_100sdp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_20sdp"
         android:background="@drawable/bg_ic_background"
+        android:backgroundTint="@color/Doctor_Color"
         android:fontFamily="@font/cairo_bold"
         android:text="تحديث البيانات"
         android:textColor="@color/white"

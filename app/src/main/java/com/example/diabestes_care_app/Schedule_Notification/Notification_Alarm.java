@@ -1,25 +1,18 @@
 package com.example.diabestes_care_app.Schedule_Notification;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
-
 import android.app.AlarmManager;
 import android.app.Notification;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Patient_all.Sections.Self_Care.Content.Content;
-
-import java.text.SimpleDateFormat;
-import java.util.Locale;
 
 public class Notification_Alarm extends AppCompatActivity {
     public static String NOTIFICATION_CHANEL_ID = "1001";
@@ -81,7 +74,7 @@ public class Notification_Alarm extends AppCompatActivity {
 //        }
 
     }
-
+// Hallow World
     private void scheduleNotification(Notification notification, int delay) {
         Intent notifcationIntent = new Intent(this, ReminderBoradcast.class);
         notifcationIntent.putExtra(ReminderBoradcast.NOTIFICATIONID, 1);

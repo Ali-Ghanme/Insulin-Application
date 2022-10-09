@@ -74,8 +74,8 @@
         android:backgroundTint="?attr/bg_color"
         android:elevation="@dimen/_5sdp"
         android:inputType="textPersonName"
-        app:queryBackground="@android:color/transparent"
         app:iconifiedByDefault="false"
+        app:queryBackground="@android:color/transparent"
         app:searchIcon="@drawable/ic_search"
         app:theme="@style/AppSearchView" />
 

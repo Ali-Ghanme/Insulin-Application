@@ -66,9 +66,6 @@
             android:name=".Ui.Patient_all.Setting_P.Help"
             android:exported="false" />
         <activity
-            android:name=".Ui.Patient_all.Setting_P.notification"
-            android:exported="false" />
-        <activity
             android:name=".Ui.Sing_up_pages.Patient.Sing_Up_1_P"
             android:exported="false" />
         <activity
@@ -111,11 +108,12 @@
             android:name=".Ui.Sing_In.Sing_In"
             android:exported="false" />
         <activity
-            android:name=".Ui.Sing_up_pages.character_choice_screen"
+            android:name=".Ui.Doctor_all.Setting_D.Edit_Profile_D"
             android:exported="false" />
         <activity
-            android:name=".NotificationSender.SendNotification"
+            android:name=".Ui.Sing_up_pages.character_choice_screen"
             android:exported="false" />
+
         <activity
             android:name=".Ui.Splah_Screens.Loading_Screen"
             android:exported="true">

@@ -3,19 +3,16 @@ package com.example.diabestes_care_app.Ui.Sing_In;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.R;
-import com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P.Home_Fragment;
 import com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Doctor_Fragment;
 import com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment;
 import com.google.android.material.tabs.TabLayout;

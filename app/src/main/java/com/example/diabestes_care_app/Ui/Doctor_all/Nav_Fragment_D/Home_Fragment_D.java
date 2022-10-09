@@ -2,6 +2,7 @@ package com.example.diabestes_care_app.Ui.Doctor_all.Nav_Fragment_D;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,11 +11,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -32,6 +34,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 public class Home_Fragment_D extends Fragment {
@@ -45,7 +48,7 @@ public class Home_Fragment_D extends Fragment {
     // Adapter
     Patient_List_Adapter patientList_adapter;
     // Search Variables
-    EditText searchInput;
+    SearchView searchInput;
     CharSequence search = "";
     TextView username;
     ImageView imageProfile;
@@ -57,6 +60,7 @@ public class Home_Fragment_D extends Fragment {
     View bell;
     ProgressDialog progressDialog;
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -90,7 +94,7 @@ public class Home_Fragment_D extends Fragment {
         myRef = FirebaseDatabase.getInstance().getReference();
 
         //============================Get Doctor Username===========================================
-        SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
+        SharedPreferences prefs = this.requireActivity().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
         DoctorUsername = prefs.getString("TAG_NAME", null);
 
         //============================Configure Recyclerview========================================
@@ -104,23 +108,22 @@ public class Home_Fragment_D extends Fragment {
         ClearAll();
         // Get Patient Data Method
         GetDataFromFirebase();
+        // Search Filter
+        searchInput.setQueryHint("إبحث عن مرضى");
 
-//        //============================Search And Filter Function====================================
-//        searchInput.addTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-//            }
-//
-//            @Override
-//            public void onTextChanged(CharSequence s, int start, int before, int count) {
-//                patientList_adapter.getFilter().filter(s);
-//                search = s;
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable s) {
-//            }
-//        });
+        searchInput.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                FilterList(newText);
+                return true;
+            }
+        });
+
         return view;
     }
 
@@ -128,17 +131,18 @@ public class Home_Fragment_D extends Fragment {
     private void GetDataFromFirebase() {
         Query query = myRef.child("patient");
         query.addValueEventListener(new ValueEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 ClearAll();
                 try {
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         PatientList_Model patientListModel = new PatientList_Model();
-                        patientListModel.setName(snapshot.child("personal_info").child("name").getValue().toString());
-                        patientListModel.setUsername(snapshot.child("username").getValue().toString());
-                        patientListModel.setPatientType(snapshot.child("disease_info").child("Diabetes Type").getValue().toString());
-                        patientListModel.setImageUrl(snapshot.child("User_Profile_Image").child("Image").child("mImageUrI").getValue().toString());
-                        patientListModel.setToken(snapshot.child("Token").child("Patient_Token").getValue().toString());
+                        patientListModel.setName(Objects.requireNonNull(snapshot.child("personal_info").child("name").getValue()).toString());
+                        patientListModel.setUsername(Objects.requireNonNull(snapshot.child("username").getValue()).toString());
+                        patientListModel.setPatientType(Objects.requireNonNull(snapshot.child("disease_info").child("Diabetes Type").getValue()).toString());
+                        patientListModel.setImageUrl(Objects.requireNonNull(snapshot.child("User_Profile_Image").child("Image").child("mImageUrI").getValue()).toString());
+                        patientListModel.setToken(Objects.requireNonNull(snapshot.child("Token").child("Patient_Token").getValue()).toString());
                         list.add(patientListModel);
                         progressDialog.dismiss();
                     }
@@ -161,6 +165,7 @@ public class Home_Fragment_D extends Fragment {
     }
 
     //============================Clear Recycle Review Data Function================================
+    @SuppressLint("NotifyDataSetChanged")
     private void ClearAll() {
         if (list != null) {
             list.clear();
@@ -195,5 +200,22 @@ public class Home_Fragment_D extends Fragment {
                 Log.e("TAG", error.getMessage());
             }
         });
+    }
+
+    //==================================Search Method===============================================
+    private void FilterList(String newText) {
+        ArrayList<PatientList_Model> filteredList = new ArrayList<>();
+        for (PatientList_Model item : list) {
+            if (item.getName().toLowerCase().contains(newText.toLowerCase())) {
+                filteredList.add(item);
+            } else if (item.getPatientType().toLowerCase().contains(newText.toLowerCase())) {
+                filteredList.add(item);
+            }
+        }
+        if (filteredList.isEmpty()) {
+            Toast.makeText(getContext(), "لا يوجد بيانات بهذا العنوان", Toast.LENGTH_SHORT).show();
+        } else {
+            patientList_adapter.setFilteredList(filteredList);
+        }
     }
 }

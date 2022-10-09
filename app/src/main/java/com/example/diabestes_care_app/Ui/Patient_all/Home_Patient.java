@@ -2,6 +2,7 @@ package com.example.diabestes_care_app.Ui.Patient_all;
 
 import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -39,7 +40,9 @@ public class Home_Patient extends Basic_Activity {
     String PatientUsername;
     Dialog dialog;
     Button Continue;
+
     // Hallow this is Update
+    @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,6 +103,7 @@ public class Home_Patient extends Basic_Activity {
         });
         //============================BottomNavigation Transaction==================================
         animatedBottomBar.setOnTabSelectListener(new AnimatedBottomBar.OnTabSelectListener() {
+            @SuppressLint("NonConstantResourceId")
             @Override
             public void onTabSelected(int lastIndex, @Nullable AnimatedBottomBar.Tab lastTab, int newIndex, @NonNull AnimatedBottomBar.Tab newTab) {
                 Fragment fragment = null;

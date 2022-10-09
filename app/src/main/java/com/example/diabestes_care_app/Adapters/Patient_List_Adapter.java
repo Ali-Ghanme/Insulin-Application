@@ -41,7 +41,6 @@ import java.util.ArrayList;
 public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adapter.MyViewHolder> {
     Context context;
     ArrayList<PatientList_Model> list;
-    ArrayList<PatientList_Model> mDataFiltered;
     DatabaseReference myRef;
     String DoctorUsername, doctor_name;
     Dialog dialog;
@@ -52,8 +51,6 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
     public Patient_List_Adapter(Context context, ArrayList<PatientList_Model> list) {
         this.context = context;
         this.list = list;
-        this.mDataFiltered = list;
-
     }
 
     @NonNull
@@ -84,7 +81,7 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
 
         //====================Initialize object from model & database reference=====================
-        PatientList_Model list2 = mDataFiltered.get(position);
+        PatientList_Model list2 = list.get(position);
         myRef = FirebaseDatabase.getInstance().getReference("doctor");
         DatabaseReference online_status_all_users = FirebaseDatabase.getInstance().getReference().child("online_statuses").child(list2.getUsername());
         DatabaseReference follow = FirebaseDatabase.getInstance().getReference().child("doctor").child(DoctorUsername).child("Follow").child(list2.getUsername()).child("Following");
@@ -204,9 +201,10 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
 
     @Override
     public int getItemCount() {
-        return mDataFiltered.size();
+        return list.size();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void updateUsersList(ArrayList<PatientList_Model> PatientList_Model) {
         this.list = PatientList_Model;
         notifyDataSetChanged();
@@ -239,35 +237,12 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
 
     }
 
-//    public Filter getFilter() {
-//        return new Filter() {
-//            @Override
-//            protected FilterResults performFiltering(CharSequence constraint) {
-//                String Key = constraint.toString();
-//                if (Key.isEmpty()) {
-//                    mDataFiltered = list;
-//                } else {
-//                    ArrayList<PatientList_Model> lstFiltered = new ArrayList<>();
-//                    for (PatientList_Model row : list) {
-//
-//                        if (row.getName().toLowerCase().contains(Key.toLowerCase())) {
-//                            lstFiltered.add(row);
-//                        }
-//                    }
-//                    mDataFiltered = lstFiltered;
-//                }
-//                FilterResults filterResults = new FilterResults();
-//                filterResults.values = mDataFiltered;
-//                return filterResults;
-//            }
-//
-//            @Override
-//            protected void publishResults(CharSequence constraint, FilterResults results) {
-//                mDataFiltered = (ArrayList<PatientList_Model>) results.values;
-//                notifyDataSetChanged();
-//            }
-//        };
-//    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    public void setFilteredList(ArrayList<PatientList_Model> filteredList) {
+        this.list = filteredList;
+        notifyDataSetChanged();
+    }
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView name, type;

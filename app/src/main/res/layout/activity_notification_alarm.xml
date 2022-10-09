@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Schedule_Notification.Notification_Alarm">
+    tools:context=".Schedule_Notification.Notification_Alarm"
+    tools:ignore="ExtraText">
 
     <Button
         android:id="@+id/btn_notification"
@@ -13,4 +14,5 @@
         android:layout_gravity="center_vertical"
         android:text="Notification Text"
         />
+    // Hallow
 </LinearLayout>

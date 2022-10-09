@@ -20,8 +20,8 @@ import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.example.diabestes_care_app.R;
+import com.example.diabestes_care_app.Ui.Doctor_all.Setting_D.Edit_Profile_D;
 import com.example.diabestes_care_app.Ui.Patient_all.Setting_P.Help;
-import com.example.diabestes_care_app.Ui.Patient_all.Setting_P.notification;
 import com.example.diabestes_care_app.Ui.Sing_In.Sing_In;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -35,7 +35,7 @@ public class Profile_Fragment_D extends Fragment {
     // Section
     RelativeLayout notification_cont, DarkMode_cont, help_cont, LogOut_cont;
     // Doctor Profile Image
-    ImageView imageView;
+    ImageView imageView,imageView2;
     // Doctor UserName + name
     TextView name;
     //Firebase
@@ -56,42 +56,29 @@ public class Profile_Fragment_D extends Fragment {
         LogOut_cont = view.findViewById(R.id.FB_LogOut_cont_d);
         name = view.findViewById(R.id.FB_tv_doctor_name_d);
         imageView = view.findViewById(R.id.FB_Doctor_image_d);
+        imageView2 = view.findViewById(R.id.FB_Patient_edit_d);
 
-        SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
+        SharedPreferences prefs = this.requireActivity().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
         DoctorUsername = prefs.getString("TAG_NAME", null);
 
         //============================Next Click Listener===========================================
-        notification_cont.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), notification.class);
-                startActivity(intent);
-            }
+        imageView2.setOnClickListener(v -> {
+            Intent intent = new Intent(getContext(), Edit_Profile_D.class);
+            startActivity(intent);
         });
-        DarkMode_cont.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "Hallow Dark Mod is Unavailable right now 😉", Toast.LENGTH_SHORT).show();
-            }
+        DarkMode_cont.setOnClickListener(v -> Toast.makeText(getContext(), "Hallow Dark Mod is Unavailable right now 😉", Toast.LENGTH_SHORT).show());
+        help_cont.setOnClickListener(v -> {
+            Intent intent = new Intent(getContext(), Help.class);
+            startActivity(intent);
         });
-        help_cont.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), Help.class);
-                startActivity(intent);
-            }
-        });
-        LogOut_cont.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SharedPreferences preferences = getActivity().getSharedPreferences("checkbox_D", MODE_PRIVATE);
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.putString("remember_D", "false");
-                editor.apply();
-                Intent intent_d = new Intent(getActivity(), Sing_In.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent_d);
-                getActivity().finish();
-            }
+        LogOut_cont.setOnClickListener(v -> {
+            SharedPreferences preferences = requireActivity().getSharedPreferences("checkbox_D", MODE_PRIVATE);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putString("remember_D", "false");
+            editor.apply();
+            Intent intent_d = new Intent(getActivity(), Sing_In.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent_d);
+            requireActivity().finish();
         });
         return view;
     }

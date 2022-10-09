@@ -24,7 +24,6 @@ import com.bumptech.glide.Glide;
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Patient_all.Setting_P.Edit_Profile_P;
 import com.example.diabestes_care_app.Ui.Patient_all.Setting_P.Help;
-import com.example.diabestes_care_app.Ui.Patient_all.Setting_P.notification;
 import com.example.diabestes_care_app.Ui.Sing_In.Sing_In;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -35,7 +34,7 @@ import com.google.firebase.database.ValueEventListener;
 @SuppressLint("UseSwitchCompatOrMaterialCode")
 public class Profile_Fragment extends Fragment {
     // Section
-    RelativeLayout notification_cont, DarkMode_cont, help_cont, LogOut_cont;
+    RelativeLayout  DarkMode_cont, help_cont, LogOut_cont;
     // Image Patient Profile , Edit Icon
     ImageView imageView, imageView2;
     // Patient Name
@@ -54,7 +53,6 @@ public class Profile_Fragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile_, container, false);
 
         //============================Defines=======================================================
-        notification_cont = view.findViewById(R.id.FB_notification_cont);
         DarkMode_cont = view.findViewById(R.id.FB_DarkMode_cont);
         help_cont = view.findViewById(R.id.FB_help_cont);
         LogOut_cont = view.findViewById(R.id.FB_LogOut_cont);
@@ -71,15 +69,6 @@ public class Profile_Fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), Edit_Profile_P.class);
-                startActivity(intent);
-            }
-        });
-
-
-        notification_cont.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), notification.class);
                 startActivity(intent);
             }
         });

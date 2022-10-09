@@ -24,7 +24,8 @@ import com.google.firebase.storage.StorageTask;
 import com.squareup.picasso.Picasso;
 
 public class Sing_up_5_D extends Basic_Activity {
-    private static final int PICK_IMAGE_REQUEST = 1;
+
+    public static final int PICK_IMAGE_REQUEST = 1;
     ImageView mImageView;
     private DatabaseReference DB_Ref;
     private StorageReference Storage_Ref = FirebaseStorage.getInstance().getReference();
@@ -59,38 +60,7 @@ public class Sing_up_5_D extends Basic_Activity {
 
         //====================================Upload Image to Storage Firebase======================
         btn_Upload.setOnClickListener(v -> {
-            if (mUploadTask != null && mUploadTask.isInProgress()) {
-                Toast.makeText(Sing_up_5_D.this, "Upload is progress", Toast.LENGTH_SHORT).show();
-            } else {
-                if (mImageUri != null) {
-                    StorageReference fileReference = Storage_Ref.child(System.currentTimeMillis() + "." + getFileExtension(mImageUri));
-                    mUploadTask = fileReference.putFile(mImageUri).addOnSuccessListener(taskSnapshot -> {
-                                // This Handler handle with progress bar delay
-                                Handler handler = new Handler();
-                                handler.postDelayed(() -> mProgress.setProgress(0), 500);
-
-                                // I am with you my
-                                fileReference.getDownloadUrl().addOnSuccessListener(uri -> {
-                                    Upload_Model uploadModel = new Upload_Model(uri.toString());
-                                    DB_Ref.child(doctor_userName).child("User_Profile_Image").child("Image").setValue(uploadModel);
-                                    Toast.makeText(Sing_up_5_D.this, "Upload Successfully", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(Sing_up_5_D.this, Sing_In.class);
-                                    startActivity(intent);
-                                    finish();
-                                });
-                            })
-                            .addOnFailureListener(e -> {
-                                Toast.makeText(Sing_up_5_D.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                                Log.e("My_Error", mError.getMessage());
-                            })
-                            .addOnProgressListener(snapshot -> {
-                                double progress = (100.0 * snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
-                                mProgress.setProgress((int) progress);
-                            });
-                } else {
-                    Toast.makeText(Sing_up_5_D.this, "No File Selected", Toast.LENGTH_SHORT).show();
-                }
-            }
+            uploadPhoto();
         });
     }
 
@@ -108,5 +78,40 @@ public class Sing_up_5_D extends Basic_Activity {
     @Override
     public void onBackPressed() {
         exitHappen(this, DB_Ref, doctor_userName);
+    }
+
+    void uploadPhoto() {
+        if (mUploadTask != null && mUploadTask.isInProgress()) {
+            Toast.makeText(Sing_up_5_D.this, "Upload is progress", Toast.LENGTH_SHORT).show();
+        } else {
+            if (mImageUri != null) {
+                StorageReference fileReference = Storage_Ref.child(System.currentTimeMillis() + "." + getFileExtension(mImageUri));
+                mUploadTask = fileReference.putFile(mImageUri).addOnSuccessListener(taskSnapshot -> {
+                            // This Handler handle with progress bar delay
+                            Handler handler = new Handler();
+                            handler.postDelayed(() -> mProgress.setProgress(0), 500);
+
+                            // I am with you my
+                            fileReference.getDownloadUrl().addOnSuccessListener(uri -> {
+                                Upload_Model uploadModel = new Upload_Model(uri.toString());
+                                DB_Ref.child(doctor_userName).child("User_Profile_Image").child("Image").setValue(uploadModel);
+                                Toast.makeText(Sing_up_5_D.this, "Upload Successfully", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(Sing_up_5_D.this, Sing_In.class);
+                                startActivity(intent);
+                                finish();
+                            });
+                        })
+                        .addOnFailureListener(e -> {
+                            Toast.makeText(Sing_up_5_D.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                            Log.e("My_Error", mError.getMessage());
+                        })
+                        .addOnProgressListener(snapshot -> {
+                            double progress = (100.0 * snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
+                            mProgress.setProgress((int) progress);
+                        });
+            } else {
+                Toast.makeText(Sing_up_5_D.this, "No File Selected", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }

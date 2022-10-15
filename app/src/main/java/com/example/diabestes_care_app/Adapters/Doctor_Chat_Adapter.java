@@ -48,14 +48,14 @@ public class Doctor_Chat_Adapter extends RecyclerView.Adapter<Doctor_Chat_Adapte
             holder.myMsgLayout.setVisibility(View.VISIBLE);
             holder.oppoLayout.setVisibility(View.GONE);
 
-            holder.myMessage.setText(list.getMessage());
+            holder.oppoMessage.setText(list.getMessage());
             holder.myTime.setText(list.getDate() + "" + list.getTime());
         } else {
-            holder.myMsgLayout.setVisibility(View.GONE);
-            holder.oppoLayout.setVisibility(View.VISIBLE);
+            holder.myMsgLayout.setVisibility(View.VISIBLE);
+            holder.oppoLayout.setVisibility(View.GONE);
 
-            holder.oppoMessage.setText(list.getMessage());
-            holder.oppoTime.setText(list.getDate() + "" + list.getTime());
+            holder.myMessage.setText(list.getMessage());
+            holder.myTime.setText(list.getDate() + "" + list.getTime());
         }
     }
 

@@ -47,8 +47,6 @@ public class Doctor_List_Adapter extends RecyclerView.Adapter<Doctor_List_Adapte
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-//        holder.imageView.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition_animation));
-//        holder.container.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_scale_animation));
 
         //====================Initialize object from model & database reference=====================
         DoctorList_Model list2 = list.get(position);

@@ -17,9 +17,9 @@
         android:layout_height="match_parent"
         android:background="@drawable/bg_doctors_list"
         android:backgroundTint="?attr/bg_color"
-        android:orientation="vertical"
         android:gravity="center_horizontal"
         android:layoutDirection="ltr"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -86,7 +86,7 @@
                     android:id="@+id/Chat_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/cairo_bold"
+                    android:fontFamily="@font/cairo_regular"
                     android:maxLines="1"
                     android:textColor="?attr/text_color"
                     android:textSize="@dimen/_13sdp" />
@@ -96,7 +96,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_2sdp"
-                    android:fontFamily="@font/cairo_bold"
+                    android:fontFamily="@font/cairo_regular"
                     android:maxLines="1"
                     android:textColor="?attr/text_color"
                     android:textSize="@dimen/_11sdp" />
@@ -114,6 +114,5 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/_11sdp" />
         </RelativeLayout>
-
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

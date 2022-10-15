@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-<solid android:color="?attr/bg_color"/>  <!--Edit this in theme class for light mode use  #F0F3FA color -->
+    <solid android:color="?attr/chat_box_d" />  <!--Edit this in theme class for light mode use  #F0F3FA color -->
 </shape>

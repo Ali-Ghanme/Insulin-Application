@@ -1,7 +1,6 @@
 package com.example.diabestes_care_app.Ui.Patient_all.Sections.Doses.ui;
 
-import android.content.DialogInterface;
-import android.content.Intent;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -34,7 +33,6 @@ public final class AddEditAlarmFragment extends Fragment {
     private TimePicker mTimePicker;
     private EditText mLabel;
     private CheckBox mMon, mTues, mWed, mThurs, mFri, mSat, mSun;
-    private Button add, del;
 
     public static Fragment newInstance(Alarm alarm) {
         Bundle args = new Bundle();
@@ -62,35 +60,25 @@ public final class AddEditAlarmFragment extends Fragment {
         mFri = v.findViewById(R.id.edit_alarm_fri);
         mSat = v.findViewById(R.id.edit_alarm_sat);
         mSun = v.findViewById(R.id.edit_alarm_sun);
-        add =  v.findViewById(R.id.Add);
-        del =  v.findViewById(R.id.Del);
+        Button add = v.findViewById(R.id.Add);
+        Button del = v.findViewById(R.id.Del);
 
-        add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                save();
-                Intent intent = new Intent(getContext(),MainActivity.class);
-                startActivity(intent);
-                getActivity().finish();
-            }
+        add.setOnClickListener(v1 -> {
+            save();
         });
 
-        del.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                delete();
-            }
-        });
+        del.setOnClickListener(v12 -> delete());
                 setDayCheckboxes(alarm);
         return v;
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    public void onCreateOptionsMenu(@NonNull Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.edit_alarm_menu, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -105,6 +93,7 @@ public final class AddEditAlarmFragment extends Fragment {
     }
 
     private Alarm getAlarm() {
+        assert getArguments() != null;
         return getArguments().getParcelable(AddEditAlarmActivity.ALARM_EXTRA);
     }
 
@@ -140,38 +129,33 @@ public final class AddEditAlarmFragment extends Fragment {
 
         AlarmReceiver.setReminderAlarm(getContext(), alarm);
 
-        getActivity().finish();
+        requireActivity().finish();
 
     }
 
     private void delete() {
         final Alarm alarm = getAlarm();
         final AlertDialog.Builder builder =
-                new AlertDialog.Builder(getContext(), R.style.DeleteAlarmDialogTheme);
+                new AlertDialog.Builder(requireContext(), R.style.DeleteAlarmDialogTheme);
         builder.setTitle(R.string.delete_dialog_title);
         builder.setMessage(R.string.delete_dialog_content);
-        builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                //Cancel any pending notifications for this alarm
-                AlarmReceiver.cancelReminderAlarm(getContext(), alarm);
+        builder.setPositiveButton(R.string.yes, (dialogInterface, i) -> {
+            //Cancel any pending notifications for this alarm
+            AlarmReceiver.cancelReminderAlarm(getContext(), alarm);
 
-                final int rowsDeleted = DatabaseHelper.getInstance(getContext()).deleteAlarm(alarm);
-                int messageId;
-                if (rowsDeleted == 1) {
-                    messageId = R.string.delete_complete;
-                    Toast.makeText(getContext(), messageId, Toast.LENGTH_SHORT).show();
-                    LoadAlarmsService.launchLoadAlarmsService(getContext());
-                    getActivity().finish();
-                } else {
-                    messageId = R.string.delete_failed;
-                    Toast.makeText(getContext(), messageId, Toast.LENGTH_SHORT).show();
-                }
+            final int rowsDeleted = DatabaseHelper.getInstance(getContext()).deleteAlarm(alarm);
+            int messageId;
+            if (rowsDeleted == 1) {
+                messageId = R.string.delete_complete;
+                Toast.makeText(getContext(), messageId, Toast.LENGTH_SHORT).show();
+                LoadAlarmsService.launchLoadAlarmsService(getContext());
+                requireActivity().finish();
+            } else {
+                messageId = R.string.delete_failed;
+                Toast.makeText(getContext(), messageId, Toast.LENGTH_SHORT).show();
             }
         });
         builder.setNegativeButton(R.string.no, null);
         builder.show();
-
     }
-
 }

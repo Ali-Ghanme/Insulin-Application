@@ -10,7 +10,7 @@
         android:id="@+id/chat_header_d"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/bg_color"
+        android:background="?attr/chat_box_d"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -99,7 +99,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@drawable/chat_box"
-        android:elevation="1dp"
         android:paddingTop="@dimen/_5sdp"
         android:paddingBottom="@dimen/_5sdp"
         app:layout_constraintBottom_toBottomOf="parent">

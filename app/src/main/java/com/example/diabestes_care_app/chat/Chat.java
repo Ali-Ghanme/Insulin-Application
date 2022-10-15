@@ -5,15 +5,14 @@ import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_F
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.util.Log;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
@@ -44,16 +43,14 @@ public class Chat extends Basic_Activity {
 
     ImageView backButton, SendButton;
     CircleImageView profile_image;
-    TextView name;
-    private final DatabaseReference myRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://diabeticsproject-default-rtdb.firebaseio.com/");
+    TextView name, status;
+    private DatabaseReference myRef, online_status_all_users;
     EditText chatEditText;
-    String GenerateChatKey = "";
-    String restoredText;
-    String chatKey;
     RecyclerView ChatRecyclerView;
-    private final List<ChatList_Model> chatListModels = new ArrayList<>();
+    List<ChatList_Model> chatListModels = new ArrayList<>();
     private Patient_Chat_Adapter chatAdapter;
     private boolean loadingFirstTime = true;
+    String chatKey, restoredText, getUsername, getName, getProfilePic, snooping_status;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,11 +65,11 @@ public class Chat extends Basic_Activity {
         name = findViewById(R.id.chat_user_name);
         chatEditText = findViewById(R.id.chat_message_box_EditText);
         ChatRecyclerView = findViewById(R.id.Chat_RecyclerView);
+        status = findViewById(R.id.chat_user_status);
 
         //============================Defines SharedPreferences=====================================
         SharedPreferences prefs = Chat.this.getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         restoredText = prefs.getString("TAG_NAME", null);
-        Toast.makeText(this, restoredText, Toast.LENGTH_SHORT).show();
 
         //============================Defines Recyclerview Configuration============================
         ChatRecyclerView.setHasFixedSize(true);
@@ -83,48 +80,62 @@ public class Chat extends Basic_Activity {
         ChatRecyclerView.setAdapter(chatAdapter);
 
         //============================Get data from message adapter class===========================
-        String getUsername = getIntent().getStringExtra("username");
-        String getName = getIntent().getStringExtra("name");
-        String getProfilePic = getIntent().getStringExtra("profile_pic");
+        getUsername = getIntent().getStringExtra("username");
+        getName = getIntent().getStringExtra("name");
+        getProfilePic = getIntent().getStringExtra("profile_pic");
         chatKey = getIntent().getStringExtra("chat_key");
-        // getUsername is the patient username the account that i loge in by it
-        Toast.makeText(this, getUsername, Toast.LENGTH_SHORT).show();
+
+        online_status_all_users = FirebaseDatabase.getInstance().getReference().child("online_statuses").child(getUsername);
+        myRef = FirebaseDatabase.getInstance().getReference().child(getUsername);
+
+        // getUsername is the doctor username
+        Log.e("TAG","This is the patient username "+ getUsername);
 
         name.setText(getName);
         Glide.with(this).load(getProfilePic).into(profile_image);
 
+        //======================== Send,Store,Show Message =========================================
+        SendMassages();
+        ShowMassage();
+        onlineStatus();
+        backButton.setOnClickListener(v -> onBackPressed());
+    }
+
+
+    void ShowMassage() {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 // Generate chat key by default key is 1
                 if (chatKey.isEmpty()) {
                     chatKey = "1";
-                    if (snapshot.hasChild("chat")) {
-                        chatKey = String.valueOf(snapshot.child("chat").getChildrenCount());
-                        Log.e("TAG",chatKey);
+                    if (snapshot.hasChild("Chat")) {
+                        chatKey = String.valueOf(snapshot.child("Chat").getChildrenCount() + 1);
+                        Log.e("TAG", chatKey);
                     }
                 }
-                if (snapshot.hasChild("chat")) {
+                if (snapshot.hasChild("Chat")) {
 
-                    if (snapshot.child("chat").child(chatKey).hasChild("messages")) {
+                    if (snapshot.child("Chat").child(chatKey).hasChild("messages")) {
 
                         chatListModels.clear();
 
-                        for (DataSnapshot messagesSnapshot : snapshot.child("chat").child(chatKey).child("messages").getChildren()) {
+                        for (DataSnapshot messagesSnapshot : snapshot.child("Chat").child(chatKey).child("messages").getChildren()) {
 
                             if (messagesSnapshot.hasChild("msg") && messagesSnapshot.hasChild("username")) {
 
                                 String messageTimestamps = messagesSnapshot.getKey();
 
-                                final String getUsername = messagesSnapshot.child("username").getValue(String.class);
-                                final String getMsg = messagesSnapshot.child("msg").getValue(String.class);
+                                 String getUsername = messagesSnapshot.child("username").getValue(String.class);
+                                 String getMsg = messagesSnapshot.child("msg").getValue(String.class);
 
                                 Calendar cal = Calendar.getInstance(Locale.getDefault());
+                                assert messageTimestamps != null;
                                 cal.setTimeInMillis(Long.parseLong(messageTimestamps) * 1000);
                                 String date22 = DateFormat.format("dd-MM-yyyy", cal).toString();
-                                String timeee = DateFormat.format(" hh:mm:aa", cal).toString();
+                                String time = DateFormat.format(" hh:mm:aa", cal).toString();
 
-                                ChatList_Model chatListModel = new ChatList_Model(getUsername, getName, getMsg, date22, timeee);
+                                ChatList_Model chatListModel = new ChatList_Model(getUsername, getName, getMsg, date22, time);
                                 chatListModels.add(chatListModel);
 
                                 String datda = MemoryData.getLastMsgTS(Chat.this, chatKey);
@@ -142,7 +153,7 @@ public class Chat extends Basic_Activity {
 
                                     chatAdapter.updateChatList(chatListModels);
 
-                                    ChatRecyclerView.scrollToPosition(chatListModels.size() + 1);
+                                    ChatRecyclerView.scrollToPosition(chatListModels.size());
                                 }
                             }
                         }
@@ -156,29 +167,58 @@ public class Chat extends Basic_Activity {
             }
         });
 
-        SendButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final String geTextMessage = chatEditText.getText().toString();
-                // get current timesTamps
-                final String currentTimestamps = String.valueOf(System.currentTimeMillis()).substring(0, 10);
+    }
 
-                myRef.child("chat").child(chatKey).child("patient_1").setValue(restoredText);
-                myRef.child("chat").child(chatKey).child("doctor_2").setValue(getUsername);
-                myRef.child("chat").child(chatKey).child("messages").child(currentTimestamps).child("msg").setValue(geTextMessage);
-                myRef.child("chat").child(chatKey).child("messages").child(currentTimestamps).child("username").setValue(restoredText);
-                notification(geTextMessage);
-                chatEditText.clearAnimation();
-                chatEditText.getText().clear();
-            }
+    void SendMassages() {
+        SendButton.setOnClickListener(v -> {
+            final String geTextMessage = chatEditText.getText().toString();
+            // get current timesTamps
+            final String currentTimestamps = String.valueOf(System.currentTimeMillis()).substring(0,10);
+
+            myRef.child("Chat").child(chatKey).child("patient_1").setValue(restoredText);
+            myRef.child("Chat").child(chatKey).child("doctor_2").setValue(getUsername);
+            myRef.child("Chat").child(chatKey).child("messages").child(currentTimestamps).child("msg").setValue(geTextMessage);
+            myRef.child("Chat").child(chatKey).child("messages").child(currentTimestamps).child("username").setValue(restoredText);
+//                notification(geTextMessage);
+            chatEditText.clearAnimation();
+            chatEditText.getText().clear();
         });
 
-        backButton.setOnClickListener(new View.OnClickListener() {
+    }
+
+    void onlineStatus() {
+        //    ============================Online/Offline read Status ===================================
+        online_status_all_users.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View v) {
-                finish();
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                snooping_status = dataSnapshot.getValue(String.class);
+                if (snooping_status == null) {
+                    Log.e("TAG", "ni Status for this use");
+                } else {
+                    try {
+                        if (snooping_status.contentEquals("online")) {
+                            status.setText("نشط");
+                        } else {
+                            status.setText("غير نشط");
+                            status.setTextColor(Color.parseColor("#D3D3D3"));
+                        }
+                    } catch (Exception e) {
+                        Log.e("TAG", e.getMessage());
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.e("TAG", databaseError.getMessage());
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        myRef.child("Chat").child(chatKey).removeValue();
     }
 
     private void notification(String message) {

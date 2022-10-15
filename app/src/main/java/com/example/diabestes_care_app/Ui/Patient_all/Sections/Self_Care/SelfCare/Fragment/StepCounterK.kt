@@ -16,6 +16,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat.getSystemService
 import com.example.diabestes_care_app.R
+
 // Hallow this is Update
 class StepCounterK : Fragment(), SensorEventListener {
     // Added SensorEventListener the MainActivity class
@@ -37,9 +38,10 @@ class StepCounterK : Fragment(), SensorEventListener {
     // steps and it has also been given the value of 0 float
     private var previousTotalSteps = 0f
 
-    private lateinit var tvStepsTaken : TextView
-    private lateinit var tvDistance : TextView
-    private lateinit var tvStepTaken2 : TextView
+    private lateinit var tvStepsTaken: TextView
+    private lateinit var tvDistance: TextView
+    private lateinit var tvStepTaken2: TextView
+    private lateinit var tvStepCount: TextView
 
 
     override fun onCreateView(
@@ -58,11 +60,12 @@ class StepCounterK : Fragment(), SensorEventListener {
             tvStepsTaken = it.findViewById(R.id.tv_stepsTaken2)
             tvDistance = it.findViewById(R.id.distance_res)
             tvStepTaken2 = it.findViewById(R.id.cal_result)
+            tvStepCount = it.findViewById(R.id.step_res)
+
             loadData()
             restSteps()
             // Adding a context of SENSOR_SERVICE aas Sensor Manager
-            sensorManager =
-                requireActivity().getSystemService(Context.SENSOR_SERVICE) as SensorManager
+            sensorManager = requireActivity().getSystemService(Context.SENSOR_SERVICE) as SensorManager
 
         }
     }
@@ -97,13 +100,14 @@ class StepCounterK : Fragment(), SensorEventListener {
             // Current steps are calculated by taking the difference of total steps
             // and previous steps
             val currentSteps = totalSteps.toInt() - previousTotalSteps.toInt()
-            val calories  = getCalories(currentSteps)
-            val distance  = getDistanceCovered(currentSteps)
+            val calories = getCalories(currentSteps)
+            val distance = getDistanceCovered(currentSteps)
 
             // It will show the current steps to the user
             tvStepsTaken.text = ("$currentSteps")
-            tvStepTaken2.text = ("$calories")
-            tvDistance.text = ("$distance")
+            tvStepTaken2.text = (calories)
+            tvDistance.text = (distance)
+            tvStepCount.text = ("$currentSteps")
         }
     }
 
@@ -112,7 +116,8 @@ class StepCounterK : Fragment(), SensorEventListener {
         // Shared Preferences will allow us to save
         // and retrieve data in the form of key,value pair.
         // In this function we will save data
-        val sharedPreferences = requireActivity().getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
+        val sharedPreferences =
+            requireActivity().getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
 
         val editor = sharedPreferences.edit()
         editor.putFloat("key1", previousTotalSteps)
@@ -160,15 +165,15 @@ class StepCounterK : Fragment(), SensorEventListener {
         // We do not have to write anything in this function for this app
     }
 
-    private fun getCalories(steps: Int): String? {
+    private fun getCalories(steps: Int): String {
         val Cal = (steps * 0.045).toInt()
         return "$Cal calories"
     }
 
-    private fun getDistanceCovered(steps: Int): String? {
+    private fun getDistanceCovered(steps: Int): String {
         val feet = (steps * 2.5).toInt()
-        val distance = feet/3.281
-        val finalDistance:Double = String.format("%.2f", distance).toDouble()
+        val distance = feet / 3.281
+        val finalDistance: Double = String.format("%.2f", distance).toDouble()
         return "$finalDistance meter"
     }
 }

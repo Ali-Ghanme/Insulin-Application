@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Patient_Color"
+    android:background="@color/Doctor_Color"
     tools:context=".AboutTheDoctor">
-
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -29,7 +28,7 @@
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_15sdp"
-            android:background="@android:color/transparent"
+            android:background="@drawable/round_back_light"
             android:layoutDirection="ltr"
             android:paddingStart="@dimen/_12sdp"
             android:paddingEnd="@dimen/_5sdp"
@@ -41,42 +40,48 @@
             android:layout_width="@dimen/_100sdp"
             android:layout_height="@dimen/_100sdp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/ic_user_nav"
             android:layout_marginTop="@dimen/_60sdp"
+            android:src="@drawable/ic_user"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteY="68dp" />
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/_16sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:text="د.محمد صيام| Mohammed syam"
             android:id="@+id/txt1"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/circle_center"
-            android:textStyle="bold"
-            android:textColor="#000"/>
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/circle_center"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
-            android:textSize="@dimen/_12sdp"
-            android:text="طب عام"
+            android:fontFamily="@font/cairo_bold"
+            android:text="د.محمد صيام| Mohammed syam"
+            android:textColor="#000"
+            android:textSize="@dimen/_16sdp"
+            android:textStyle="bold" />
+
+        <TextView
             android:id="@+id/txt2"
-            android:layout_marginBottom="@dimen/_20sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/txt1"
-            android:textStyle="bold"
-            android:textColor="#402E2E"/>
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:fontFamily="@font/cairo_regular"
+            android:text="طب عام"
+            android:textColor="#402E2E"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold" />
+
         <LinearLayout
+            android:id="@+id/linear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:id="@+id/linear"
-            android:layout_below="@+id/txt2">
+            android:layout_below="@+id/txt2"
+            android:orientation="horizontal">
+
             <LinearLayout
                 android:layout_width="@dimen/_80sdp"
                 android:layout_height="@dimen/_100sdp"
@@ -85,144 +90,163 @@
                 android:backgroundTint="@color/Doctor_Color"
                 android:gravity="center"
                 android:orientation="vertical">
+
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:textSize="@dimen/_16sdp"
-                    android:text="+10"
                     android:id="@+id/txt3"
-                    android:layout_below="@+id/txt1"
-                    android:textStyle="bold"
-                    android:textColor="#000"/>
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt1"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/cairo_bold"
+                    android:text="+10"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/_16sdp"
-                    android:text="سنوات خبرة"
+                    android:textStyle="bold" />
+
+                <TextView
                     android:id="@+id/txt4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_below="@+id/txt1"
-                    android:textStyle="bold"
-                    android:textColor="#000"/>
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/cairo_regular"
+                    android:text="سنوات خبرة"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="@dimen/_80sdp"
                 android:layout_height="@dimen/_100sdp"
-                android:gravity="center"
                 android:layout_marginStart="@dimen/_20sdp"
                 android:background="@drawable/news_rectangel"
                 android:backgroundTint="@color/Doctor_Color"
+                android:gravity="center"
                 android:orientation="vertical">
+
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:textSize="@dimen/_16sdp"
-                    android:text="+10"
                     android:id="@+id/txt5"
-                    android:layout_below="@+id/txt1"
-                    android:textStyle="bold"
-                    android:textColor="#000"/>
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt1"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/cairo_bold"
+                    android:text="+10"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/_16sdp"
-                    android:text="سنوات خبرة"
+                    android:textStyle="bold" />
+
+                <TextView
                     android:id="@+id/txt6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_below="@+id/txt1"
-                    android:textStyle="bold"
-                    android:textColor="#000"/>
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/cairo_regular"
+                    android:text="سنوات خبرة"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="@dimen/_80sdp"
                 android:layout_height="@dimen/_100sdp"
-                android:gravity="center"
+                android:layout_marginStart="@dimen/_20sdp"
                 android:background="@drawable/news_rectangel"
                 android:backgroundTint="@color/Doctor_Color"
-                android:layout_marginStart="@dimen/_20sdp"
+                android:gravity="center"
                 android:orientation="vertical">
+
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:textSize="@dimen/_16sdp"
-                    android:text="+10"
                     android:id="@+id/txt7"
-                    android:layout_below="@+id/txt1"
-                    android:textStyle="bold"
-                    android:textColor="#000"/>
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt1"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/cairo_bold"
+                    android:text="+10"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/_16sdp"
-                    android:text="سنوات خبرة"
+                    android:textStyle="bold" />
+
+                <TextView
                     android:id="@+id/txt8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_below="@+id/txt1"
-                    android:textStyle="bold"
-                    android:textColor="#000"/>
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/cairo_regular"
+                    android:text="سنوات خبرة"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
         </LinearLayout>
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/_16sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:text="نبذة"
-            android:layout_marginEnd="@dimen/_20sdp"
             android:id="@+id/txt9"
-            android:layout_alignParentEnd="true"
-            android:layout_below="@+id/linear"
-            android:textStyle="bold"
-            android:textColor="#000"/>
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_20sdp"
-            android:textSize="@dimen/_12sdp"
-            android:text="طب عام"
-            android:id="@+id/txt10"
-            android:layout_marginBottom="@dimen/_20sdp"
+            android:layout_below="@+id/linear"
+            android:layout_alignParentRight="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:text="نبذة"
+            android:textColor="#000"
+            android:textSize="@dimen/_16sdp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/des"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_160sdp"
             android:layout_below="@+id/txt9"
-            android:textStyle="bold"
-            android:textColor="#402E2E"/>
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp">
 
+            <TextView
+                android:id="@+id/txt10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:fontFamily="@font/cairo_regular"
+                android:maxLines="50"
+                android:text="@string/الأطعمة_المفيدة"
+                android:textColor="#402E2E"
+                android:textSize="@dimen/_11sdp"
+                android:textStyle="bold" />
+        </RelativeLayout>
 
-
+        <Button
+            android:id="@+id/request_for"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@+id/des"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/news_rectangel"
+            android:backgroundTint="@color/Doctor_Color"
+            android:fontFamily="@font/cairo_bold"
+            android:text="إرسال طلب استشارة"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp" />
     </RelativeLayout>
-    <Button
-        android:id="@+id/request_for"
-        android:layout_width="@dimen/_250sdp"
-        android:layout_height="@dimen/_40sdp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="@dimen/_10sdp"
-        android:background="@drawable/news_rectangel"
-        android:backgroundTint="@color/Doctor_Color"
-        android:fontFamily="@font/cairo_bold"
-        android:text="إرسال طلب استشارة"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_14sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        />
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

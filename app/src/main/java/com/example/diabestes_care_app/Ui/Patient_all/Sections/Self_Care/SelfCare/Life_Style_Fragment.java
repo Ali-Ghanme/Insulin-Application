@@ -43,7 +43,6 @@ public class Life_Style_Fragment extends Fragment {
         viewPager_subject.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager_subject);
         return view;
-
     }
 
     //=====================================Adapter method===========================================

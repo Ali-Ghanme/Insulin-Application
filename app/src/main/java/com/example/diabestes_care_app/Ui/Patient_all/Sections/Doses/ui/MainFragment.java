@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -40,13 +41,13 @@ public final class MainFragment extends Fragment
         mReceiver = new LoadAlarmsReceiver(this);
     }
 
-    @Nullable
+    @NonNull
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         final View v = inflater.inflate(R.layout.fragment_main, container, false);
-
         final EmptyRecyclerView rv = v.findViewById(R.id.recycler);
+
         mAdapter = new AlarmsAdapter();
         rv.setEmptyView(v.findViewById(R.id.empty_view));
         rv.setAdapter(mAdapter);
@@ -60,23 +61,21 @@ public final class MainFragment extends Fragment
             final Intent i = buildAddEditAlarmActivityIntent(getContext(), ADD_ALARM);
             startActivity(i);
         });
-
         return v;
-
     }
 
     @Override
     public void onStart() {
         super.onStart();
         final IntentFilter filter = new IntentFilter(LoadAlarmsService.ACTION_COMPLETE);
-        LocalBroadcastManager.getInstance(getContext()).registerReceiver(mReceiver, filter);
+        LocalBroadcastManager.getInstance(requireContext()).registerReceiver(mReceiver, filter);
         LoadAlarmsService.launchLoadAlarmsService(getContext());
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        LocalBroadcastManager.getInstance(getContext()).unregisterReceiver(mReceiver);
+        LocalBroadcastManager.getInstance(requireContext()).unregisterReceiver(mReceiver);
     }
 
     @Override

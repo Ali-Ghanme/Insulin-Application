@@ -1,6 +1,7 @@
 package com.example.diabestes_care_app.Adapters;
 
 import static android.content.Context.MODE_PRIVATE;
+import static com.example.diabestes_care_app.Ui.Doctor_all.Nav_Fragment_D.Home_Fragment_D.MyPREFERENCES_D;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -35,7 +36,7 @@ public class Doctor_Follow_Adapter extends RecyclerView.Adapter<Doctor_Follow_Ad
     List<Follow_Model> list;
     String snooping_status;
     public static final String MyPREFERENCES_P_Username_D = "P_Username_D";
-    SharedPreferences sharedpreferences;
+    SharedPreferences prefs;
 
     public Doctor_Follow_Adapter(Context context, List<Follow_Model> list) {
         this.context = context;
@@ -51,8 +52,11 @@ public class Doctor_Follow_Adapter extends RecyclerView.Adapter<Doctor_Follow_Ad
 
     @Override
     public void onBindViewHolder(@NonNull Doctor_Follow_Adapter.MyViewHolder holder, int position) {
-        sharedpreferences = context.getSharedPreferences(MyPREFERENCES_P_Username_D, MODE_PRIVATE);
+        prefs = context.getSharedPreferences(MyPREFERENCES_P_Username_D, MODE_PRIVATE);
         Follow_Model list2 = list.get(position);
+
+        prefs = context.getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
+        String DoctorUsername = prefs.getString("TAG_NAME", null);
 
         // Online DataBase Reference
         DatabaseReference online_status_all_users = FirebaseDatabase.getInstance().getReference().child("online_statuses").child(list2.getUsername());
@@ -105,7 +109,7 @@ public class Doctor_Follow_Adapter extends RecyclerView.Adapter<Doctor_Follow_Ad
 
         //============================Pass Data Patient ============================================
         holder.container.setOnClickListener(v -> {
-            SharedPreferences.Editor editor = sharedpreferences.edit();
+            SharedPreferences.Editor editor = prefs.edit();
             editor.putString("Patient_name_D", list2.getName());
             editor.putString("Patient_Pic_Profile_D", list2.getImageUrl());
             editor.putString("PatientUsername_D", list2.getUsername());

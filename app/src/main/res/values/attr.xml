@@ -8,6 +8,6 @@
         <attr name="tab_nav_color" format="color" />
         <attr name="nav_selected_one_p" format="color" />
         <attr name="nav_selected_one_d" format="color" />
-
+        <attr name="chat_box_d" format="color"/>
     </declare-styleable>
 </resources>

@@ -33,7 +33,7 @@ public class Doctor_Chat_Adapter extends RecyclerView.Adapter<Doctor_Chat_Adapte
     @NonNull
     @Override
     public Doctor_Chat_Adapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.chat_adapter_layout, null));
+        return new MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.chat_adapter_layout_d, null));
     }
 
     @Override
@@ -44,19 +44,18 @@ public class Doctor_Chat_Adapter extends RecyclerView.Adapter<Doctor_Chat_Adapte
         String patientUsername = prefs.getString("TAG_NAME", null);
 
         if (list.getUsername().equals(patientUsername)) {
-            holder.myMsgLayout.setVisibility(View.GONE);
-            holder.oppoLayout.setVisibility(View.VISIBLE);
 
-            holder.oppoMessage.setText(list.getMessage());
-            holder.oppoTime.setText(list.getDate() + "" + list.getTime());
-
-        } else {
             holder.myMsgLayout.setVisibility(View.VISIBLE);
             holder.oppoLayout.setVisibility(View.GONE);
 
             holder.myMessage.setText(list.getMessage());
             holder.myTime.setText(list.getDate() + "" + list.getTime());
+        } else {
+            holder.myMsgLayout.setVisibility(View.GONE);
+            holder.oppoLayout.setVisibility(View.VISIBLE);
 
+            holder.oppoMessage.setText(list.getMessage());
+            holder.oppoTime.setText(list.getDate() + "" + list.getTime());
         }
     }
 
@@ -77,12 +76,12 @@ public class Doctor_Chat_Adapter extends RecyclerView.Adapter<Doctor_Chat_Adapte
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            oppoLayout = itemView.findViewById(R.id.oppoLayout);
-            myMsgLayout = itemView.findViewById(R.id.myMsgLayout);
-            oppoMessage = itemView.findViewById(R.id.oppoMessage);
-            myMessage = itemView.findViewById(R.id.myMsgMessage);
-            oppoTime = itemView.findViewById(R.id.oppoMsgTime);
-            myTime = itemView.findViewById(R.id.myMSgTime);
+            oppoLayout = itemView.findViewById(R.id.oppoLayout_d);
+            myMsgLayout = itemView.findViewById(R.id.myMsgLayout_d);
+            oppoMessage = itemView.findViewById(R.id.oppoMessage_d);
+            myMessage = itemView.findViewById(R.id.myMsgMessage_d);
+            oppoTime = itemView.findViewById(R.id.oppoMsgTime_d);
+            myTime = itemView.findViewById(R.id.myMSgTime_d);
         }
     }
 }

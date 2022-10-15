@@ -9,7 +9,7 @@
         android:layout_marginTop="@dimen/_10sdp">
 
         <LinearLayout
-            android:id="@+id/oppoLayout"
+            android:id="@+id/oppoLayout_d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_15sdp"
@@ -17,7 +17,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/oppoMessage"
+                android:id="@+id/oppoMessage_d"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/opo_msg_back"
@@ -26,7 +26,7 @@
                 android:textColor="?attr/text_color" />
 
             <TextView
-                android:id="@+id/oppoMsgTime"
+                android:id="@+id/oppoMsgTime_d"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_2sdp"
@@ -35,7 +35,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/myMsgLayout"
+            android:id="@+id/myMsgLayout_d"
             android:layout_width="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_height="wrap_content"
@@ -44,16 +44,17 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/myMsgMessage"
+                android:id="@+id/myMsgMessage_d"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/my_msg_back"
+                android:backgroundTint="@color/Doctor_Color"
                 android:fontFamily="@font/cairo_bold"
                 android:padding="@dimen/_20sdp"
                 android:textColor="@color/white" />
 
             <TextView
-                android:id="@+id/myMSgTime"
+                android:id="@+id/myMSgTime_d"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"

@@ -29,30 +29,5 @@
         app:layout_constraintTop_toBottomOf="@+id/content_back_btn"
         tools:ignore="SpeakableTextPresentCheck" />
 
-    <ImageView
-        android:id="@+id/content_next_btn"
-        android:layout_width="@dimen/_35sdp"
-        android:layout_height="@dimen/_35sdp"
-        android:layout_centerVertical="true"
-        android:layout_margin="@dimen/_20sdp"
-        android:background="@drawable/round_back_light"
-        android:paddingStart="@dimen/_2sdp"
-        android:paddingEnd="@dimen/_12sdp"
-        android:src="@drawable/ic_arrow_next"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btn_the_end"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_20sdp"
-        android:background="@drawable/bt_log_in_patient"
-        android:fontFamily="@font/cairo_bold"
-        android:text="إنهاء"
-        android:textColor="@color/white"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

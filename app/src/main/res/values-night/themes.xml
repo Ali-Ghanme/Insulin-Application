@@ -19,6 +19,7 @@
         <item name="nav_color_d">#1d1b1e</item>
         <item name="nav_selected_one_p">@color/Patient_Color</item>
         <item name="nav_selected_one_d">@color/Doctor_Color</item>
+        <item name="chat_box_d">@color/dark_gray</item>
     </style>
 
     <style name="Theme.Diabestes_Care_App.NoActionBar">

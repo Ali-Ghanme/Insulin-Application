@@ -49,7 +49,6 @@ public class Home_Fragment_D extends Fragment {
     Patient_List_Adapter patientList_adapter;
     // Search Variables
     SearchView searchInput;
-    CharSequence search = "";
     TextView username;
     ImageView imageProfile;
     // ShardPreference

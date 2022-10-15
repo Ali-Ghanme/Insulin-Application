@@ -14,6 +14,8 @@ public class MessagesList_Model {
         this.ChatKey = ChatKey;
     }
 
+    public MessagesList_Model() {
+    }
 
     public String getName() {
         return name;

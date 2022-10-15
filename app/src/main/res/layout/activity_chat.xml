@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
     tools:context=".chat.Chat">
 
     <RelativeLayout
         android:id="@+id/chat_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/bg_color"
+        android:background="?attr/chat_box_d"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -27,10 +27,11 @@
             android:layout_marginRight="@dimen/_20sdp"
             android:layout_marginBottom="@dimen/_20sdp"
             android:background="@drawable/round_back_light"
+            android:backgroundTint="?attr/bg_color"
             android:layoutDirection="ltr"
             android:paddingLeft="@dimen/_12sdp"
             android:paddingRight="@dimen/_5sdp"
-            android:src="@drawable/ic_arrow_back_d" />
+            android:src="@drawable/ic_arrow_back_p" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/chat_profile_pic"
@@ -100,7 +101,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/chat_box"
+        android:background="?attr/chat_box_d"
         android:elevation="1dp"
         android:paddingTop="@dimen/_5sdp"
         android:paddingBottom="@dimen/_5sdp"

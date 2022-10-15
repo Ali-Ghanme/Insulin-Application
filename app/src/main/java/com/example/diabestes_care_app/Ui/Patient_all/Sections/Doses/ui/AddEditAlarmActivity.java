@@ -22,8 +22,10 @@ public final class AddEditAlarmActivity extends Basic_Activity {
     public static final String MODE_EXTRA = "mode_extra";
 
     @Retention(RetentionPolicy.SOURCE)
-    @IntDef({EDIT_ALARM,ADD_ALARM,UNKNOWN})
-    @interface Mode{}
+    @IntDef({EDIT_ALARM, ADD_ALARM, UNKNOWN})
+    @interface Mode {
+    }
+
     public static final int EDIT_ALARM = 1;
     public static final int ADD_ALARM = 2;
     public static final int UNKNOWN = 0;
@@ -36,13 +38,9 @@ public final class AddEditAlarmActivity extends Basic_Activity {
 
         final Alarm alarm = getAlarm();
 
-        if(getSupportFragmentManager().findFragmentById(R.id.edit_alarm_frag_container) == null) {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .add(R.id.edit_alarm_frag_container, AddEditAlarmFragment.newInstance(alarm))
-                    .commit();
+        if (getSupportFragmentManager().findFragmentById(R.id.edit_alarm_frag_container) == null) {
+            getSupportFragmentManager().beginTransaction().add(R.id.edit_alarm_frag_container, AddEditAlarmFragment.newInstance(alarm)).commit();
         }
-
     }
 
     private Alarm getAlarm() {
@@ -61,7 +59,8 @@ public final class AddEditAlarmActivity extends Basic_Activity {
         }
     }
 
-    private @Mode int getMode() {
+    private @Mode
+    int getMode() {
         final @Mode int mode = getIntent().getIntExtra(MODE_EXTRA, UNKNOWN);
         return mode;
     }
@@ -72,4 +71,9 @@ public final class AddEditAlarmActivity extends Basic_Activity {
         return i;
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+    }
 }

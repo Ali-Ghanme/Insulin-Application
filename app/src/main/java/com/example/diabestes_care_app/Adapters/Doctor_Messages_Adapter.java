@@ -3,6 +3,7 @@ package com.example.diabestes_care_app.Adapters;
 import static android.content.Context.MODE_PRIVATE;
 import static com.example.diabestes_care_app.Ui.Doctor_all.Nav_Fragment_D.Home_Fragment_D.MyPREFERENCES_D;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,7 +11,6 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -22,8 +22,13 @@ import com.example.diabestes_care_app.Models.MessagesList_Model;
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.chat.Chat;
 import com.example.diabestes_care_app.chat.Chat_D;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -50,6 +55,7 @@ public class Doctor_Messages_Adapter extends RecyclerView.Adapter<Doctor_Message
     }
 
     //==============================================================================================
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
@@ -59,16 +65,13 @@ public class Doctor_Messages_Adapter extends RecyclerView.Adapter<Doctor_Message
         // Object from MessageList_Model
         MessagesList_Model list2 = messagesListModels.get(position);
 
-        // Animation for the ImageView and Container
-        holder.Doctor_Image_Profile_Chat.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition_animation));
-        holder.container.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_scale_animation));
 
         // Holder for TextView
         holder.name.setText(messagesListModels.get(position).getName());
 
         // Holder to ImageView : Glide Library
         Glide.with(context).load(messagesListModels.get(position).getDoctorImage()).placeholder(R.drawable.ic_user).error(R.drawable.notifications)
-                .into(holder.Doctor_Image_Profile_Chat);
+                .into(holder.imageView);
 
         // This if condition to see that last message and unseenMessage
         if (list2.getUnseenMessages() == 0) {
@@ -80,32 +83,47 @@ public class Doctor_Messages_Adapter extends RecyclerView.Adapter<Doctor_Message
             holder.lastMessage.setTextColor(context.getResources().getColor(R.color.text_input_pa));
         }
 
-        // This is When Iam Click on the container that contain the user should go to the user chat screen
-        holder.container.setOnClickListener(new View.OnClickListener() {
+        //============================Online/Offline read Status ===================================
+        FirebaseDatabase.getInstance().getReference("patient").child(list2.getUsername()).addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View v) {
-                // I need the User username that is login now to specified what is the message layout will show to him
-                // What is the getUsername hold is hold the User username that patient click on recycle review
-                if (list2.getUsername().equals(DoctorUsername)) {
-                    Intent intent = new Intent(context, Chat.class);
-                    intent.putExtra("username", list2.getUsername());
-                    intent.putExtra("name", list2.getName());
-                    intent.putExtra("profile_pic", list2.getDoctorImage());
-                    intent.putExtra("chat_key", list2.getChatKey());
-                    context.startActivity(intent);
-                } else {
-                    Intent intent = new Intent(context, Chat_D.class);
-                    intent.putExtra("username", list2.getUsername());
-                    intent.putExtra("name", list2.getName());
-                    intent.putExtra("profile_pic", list2.getDoctorImage());
-                    intent.putExtra("chat_key", list2.getChatKey());
-                    context.startActivity(intent);
-                }
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                list2.setDoctorImage(Objects.requireNonNull(snapshot.child("User_Profile_Image").child("Image").child("mImageUrI").getValue()).toString());
+                list2.setLastMessage(Objects.requireNonNull(snapshot.child("disease_info").child("Diabetes Type").getValue()).toString());
+                list2.setName(Objects.requireNonNull(snapshot.child("personal_info").child("name").getValue()).toString());
+
+                Glide.with(context).load(list2.getDoctorImage()).placeholder(R.drawable.ic_user).error(R.drawable.notifications).into(holder.imageView);
+
+                holder.name.setText(list2.getName());
+                holder.lastMessage.setText(list2.getLastMessage());
             }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+
+
+        // This is When Iam Click on the container that contain the user should go to the user chat screen
+        holder.container.setOnClickListener(v -> {
+            // I need the User username that is login now to specified what is the message layout will show to him
+            // What is the getUsername hold is hold the User username that patient click on recycle review
+            Intent intent;
+            if (list2.getUsername().equals(DoctorUsername)) {
+                intent = new Intent(context, Chat.class);
+            } else {
+                intent = new Intent(context, Chat_D.class);
+            }
+            intent.putExtra("username_d", list2.getUsername());
+            intent.putExtra("name_d", list2.getName());
+            intent.putExtra("profile_pic_d", list2.getDoctorImage());
+            intent.putExtra("chat_key_d", list2.getChatKey());
+            context.startActivity(intent);
         });
     }
 
     //=================================Update Data==================================================
+    @SuppressLint("NotifyDataSetChanged")
     public void UpdateData(ArrayList<MessagesList_Model> messagesListModels) {
         this.messagesListModels = messagesListModels;
         notifyDataSetChanged();
@@ -120,14 +138,14 @@ public class Doctor_Messages_Adapter extends RecyclerView.Adapter<Doctor_Message
 
     //==============================================================================================
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        private final CircleImageView Doctor_Image_Profile_Chat;
+        private final CircleImageView imageView;
         private final TextView name, lastMessage, unseenMessages;
         private final LinearLayout container;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            Doctor_Image_Profile_Chat = itemView.findViewById(R.id.Chat_Image_Profile);
+            imageView = itemView.findViewById(R.id.Chat_Image_Profile);
             name = itemView.findViewById(R.id.Chat_name);
             lastMessage = itemView.findViewById(R.id.Chat_lasMessage);
             unseenMessages = itemView.findViewById(R.id.Chat_unseenMessages);

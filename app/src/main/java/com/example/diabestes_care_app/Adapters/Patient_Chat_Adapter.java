@@ -3,6 +3,7 @@ package com.example.diabestes_care_app.Adapters;
 import static android.content.Context.MODE_PRIVATE;
 import static com.example.diabestes_care_app.Ui.Doctor_all.Nav_Fragment_D.Home_Fragment_D.MyPREFERENCES_D;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.view.LayoutInflater;
@@ -65,6 +66,7 @@ public class Patient_Chat_Adapter extends RecyclerView.Adapter<Patient_Chat_Adap
         return chatListListModel.size();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void updateChatList(List<ChatList_Model> chatListListModel) {
         this.chatListListModel = chatListListModel;
         notifyDataSetChanged();
@@ -72,9 +74,12 @@ public class Patient_Chat_Adapter extends RecyclerView.Adapter<Patient_Chat_Adap
 
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        private LinearLayout oppoLayout, myMsgLayout;
-        private TextView oppoMessage, myMessage;
-        private TextView oppoTime, myTime;
+        private final LinearLayout oppoLayout;
+        private final LinearLayout myMsgLayout;
+        private final TextView oppoMessage;
+        private final TextView myMessage;
+        private final TextView oppoTime;
+        private final TextView myTime;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);

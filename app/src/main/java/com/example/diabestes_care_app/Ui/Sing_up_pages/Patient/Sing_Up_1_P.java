@@ -34,7 +34,7 @@ public class Sing_Up_1_P extends Basic_Activity {
     RadioGroup mGender;
     RadioButton mGenderOption;
     String strGender;
-    String patientName, patientUsername, patientDate, patientWehigt, patientTall, PatientAge, PatientToken;
+    String patientName, patientUsername, patientDate, PatientAge, PatientToken;
 
 
     @SuppressLint("NonConstantResourceId")
@@ -50,8 +50,6 @@ public class Sing_Up_1_P extends Basic_Activity {
         mUsername = findViewById(R.id.Sp1_username_P);
         mGender = findViewById(R.id.Sp1_Gender_P);
         mDate = findViewById(R.id.Sp1_date_P);
-        mWehigt = findViewById(R.id.Sp1_wehigt_P);
-        mTall = findViewById(R.id.Sp1_tall_P);
 
         databaseReference = FirebaseDatabase.getInstance().getReference().child("patient");
         // Generate Token for Patient
@@ -91,12 +89,12 @@ public class Sing_Up_1_P extends Basic_Activity {
             patientName = mName.getText().toString();
             patientUsername = mUsername.getText().toString();
             patientDate = mDate.getText().toString();
-            patientWehigt = mWehigt.getText().toString();
-            patientTall = mTall.getText().toString();
+//            patientWehigt = mWehigt.getText().toString();
+//            patientTall = mTall.getText().toString();
 
             //====================================Validation===============================
             // cheek if user fill all data fields before sending data to firebase
-            if (validIsEmpty(patientName, patientUsername, patientWehigt, patientTall, patientDate, patientDate)) {
+            if (validIsEmpty(patientName, patientUsername, patientDate, patientDate, patientDate, patientDate)) {
                 Toast.makeText(Sing_Up_1_P.this, "الرجاء ملأ جميع الحقول", Toast.LENGTH_SHORT).show();
             } else if (patientUsername.startsWith("P", 1)) {
                 Toast.makeText(Sing_Up_1_P.this, "أبدأ اسم المستخدم ب حرف P", Toast.LENGTH_SHORT).show();
@@ -114,8 +112,6 @@ public class Sing_Up_1_P extends Basic_Activity {
                             databaseReference.child(patientUsername).child("username").setValue(patientUsername);
                             databaseReference.child(patientUsername).child("personal_info").child("date").setValue(patientDate);
                             databaseReference.child(patientUsername).child("personal_info").child("gender").setValue(strGender);
-                            databaseReference.child(patientUsername).child("personal_info").child("wehigt").setValue(patientWehigt);
-                            databaseReference.child(patientUsername).child("personal_info").child("tall").setValue(patientTall);
                             databaseReference.child(patientUsername).child("personal_info").child("Age").setValue(PatientAge);
                             databaseReference.child(patientUsername).child("Token").child("Patient_Token").setValue(PatientToken);
                             Toast.makeText(Sing_Up_1_P.this, PatientAge, Toast.LENGTH_SHORT).show();

@@ -3,6 +3,7 @@ package com.example.diabestes_care_app.Ui.Patient_all;
 import static com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P.Home_Fragment.MyPREFERENCES_Patient_Profile;
 import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -61,6 +62,7 @@ public class Doctor_Profile_P extends Basic_Activity {
     ArrayList<String> arrPackage;
 
     // Hallow this is Update
+    @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

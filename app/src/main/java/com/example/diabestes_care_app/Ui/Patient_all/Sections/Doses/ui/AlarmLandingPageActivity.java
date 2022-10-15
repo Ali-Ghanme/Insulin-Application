@@ -2,7 +2,6 @@ package com.example.diabestes_care_app.Ui.Patient_all.Sections.Doses.ui;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.WindowManager;
 
@@ -18,12 +17,10 @@ public final class AlarmLandingPageActivity extends Basic_Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         fullscreen();
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            getWindow().setFlags(
-                    WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-                    WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-            );
-        }
+        getWindow().setFlags(
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+        );
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm_landing_page);

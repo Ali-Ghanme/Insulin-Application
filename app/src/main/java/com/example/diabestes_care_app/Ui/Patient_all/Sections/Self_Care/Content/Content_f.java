@@ -18,7 +18,7 @@ import com.example.diabestes_care_app.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Content extends Basic_Activity {
+public class Content_f extends Basic_Activity {
 
     ViewPager viewPager;
     ViewAdapter_Content viewAdapter_content;
@@ -34,27 +34,25 @@ public class Content extends Basic_Activity {
         fullscreen();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content);
-        String[] items = {"عن المرض", "أنواع المرض", "مضاعفات المرض", "غيبوبة السكر", "جرعات الأنسولين", "أعراض مرض السكري", "تعليمات"};
+        String[] items = {"نصائح غذائية لمرضى السكري", "غذاء مرضى السكري لمدة يوم واحد", "الأطعمة المفيدة لمرضى السكري وأفضلها ", " الأكل الممنوع لمرضى السكر ", "مقارنة"};
         //==================================define views===============================================
         viewPager = findViewById(R.id.view_pager_content);
         btnBack = findViewById(R.id.content_back_btn);
         //=================================fill list screen=========================================
         final List<SelfCare_Model> mList = new ArrayList<>();
 
-        mList.add(new SelfCare_Model(R.string.عن_المرض, items[0]));
-        mList.add(new SelfCare_Model(R.string.أنواع_المرض, items[1]));
-        mList.add(new SelfCare_Model(R.string.مضاعفات_مرض_السكري, items[2]));
-        mList.add(new SelfCare_Model(R.string.غيبوبة_السكر, items[3]));
-        mList.add(new SelfCare_Model(R.string.جرعات_الأنسولين, items[4]));
-        mList.add(new SelfCare_Model(R.string.أعراض_مرض_السكري, items[5]));
-        mList.add(new SelfCare_Model(R.string.تعليمات, items[6]));
+        mList.add(new SelfCare_Model(R.string.نصائح_غذائية, items[0]));
+        mList.add(new SelfCare_Model(R.string.غذاء_مرضى_السكري_ليوم_واحد, items[1]));
+        mList.add(new SelfCare_Model(R.string.الأطعمة_المفيدة, items[2]));
+        mList.add(new SelfCare_Model(R.string.الأكل_الممنوع, items[3]));
+        mList.add(new SelfCare_Model(R.string.الأطعمة_الممنوعة, items[4]));
 
         //=============================== setup viewpager===========================================
         viewAdapter_content = new ViewAdapter_Content(this, mList);
         viewPager.setAdapter(viewAdapter_content);
 
         //============================Create + Configure the Dialog here============================
-        dialog = new Dialog(Content.this);
+        dialog = new Dialog(Content_f.this);
         dialog.setContentView(R.layout.custom_dilog);
         dialog.getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.dilog_background));
         //Setting the animations to dialog

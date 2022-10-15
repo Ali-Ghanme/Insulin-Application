@@ -18,9 +18,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/Theme.Diabestes_Care_App">
         <activity
-            android:name=".AboutTheDoctor"
-            android:exported="false" />
-        <activity
             android:name=".ResetPassword"
             android:exported="false" />
         <activity
@@ -112,6 +109,9 @@
             android:exported="false" />
         <activity
             android:name=".Ui.Sing_up_pages.character_choice_screen"
+            android:exported="false" />
+        <activity
+            android:name=".Ui.Patient_all.Sections.Self_Care.Content.Content_f"
             android:exported="false" />
 
         <activity

@@ -1,5 +1,6 @@
 package com.example.diabestes_care_app;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,7 @@ public class ResetPassword extends AppCompatActivity {
     Button request;
     EditText et_email, et_phone;
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

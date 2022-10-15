@@ -45,7 +45,7 @@ public class Sing_Up_1_D extends Basic_Activity {
 
         //=============================Define variables=============================================
         name_ar = findViewById(R.id.Sp1_name_D);
-        name_en = findViewById(R.id.Sp1_en_name_D);
+//        name_en = findViewById(R.id.Sp1_en_name_D);
         mDate = findViewById(R.id.Sp1_date_D);
         username = findViewById(R.id.Sp1_username_D);
         mGender = findViewById(R.id.Sp1_Gender_D);

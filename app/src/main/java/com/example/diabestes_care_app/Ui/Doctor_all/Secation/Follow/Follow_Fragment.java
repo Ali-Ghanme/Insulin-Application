@@ -3,6 +3,7 @@ package com.example.diabestes_care_app.Ui.Doctor_all.Secation.Follow;
 import static android.content.Context.MODE_PRIVATE;
 import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Doctor_Fragment.MyPREFERENCES_D;
 
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -47,7 +48,7 @@ public class Follow_Fragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.Recycle_Doctor_Follow);
 
-        SharedPreferences prefs = getContext().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
+        SharedPreferences prefs = requireContext().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
         DoctorUsername = prefs.getString("TAG_NAME", null);
         myRef = FirebaseDatabase.getInstance().getReference("doctor");
 
@@ -62,8 +63,8 @@ public class Follow_Fragment extends Fragment {
         return view;
     }
 
-    //======================================Function================================================
-    //Get Following from Doctor account
+//    ======================================Function================================================
+//    Get Following from Doctor account
     private void GetFollowingPatient(){
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -89,6 +90,7 @@ public class Follow_Fragment extends Fragment {
         });
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private void ClearAll() {
         if (list != null) {
             list.clear();

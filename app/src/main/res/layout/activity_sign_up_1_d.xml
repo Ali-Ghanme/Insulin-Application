@@ -55,33 +55,11 @@
             android:hint="الاسم باللغة العربية "
             android:inputType="textPersonName"
             android:maxLines="1"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
+            android:paddingLeft="@dimen/_12sdp"
+            android:paddingRight="@dimen/_12sdp"
             android:textColor="@color/Doctor_Color"
             android:textColorHint="#78909C"
-            android:textSize="15sp"
-            tools:ignore="TouchTargetSizeCheck" />
-
-        <EditText
-            android:id="@+id/Sp1_en_name_D"
-            android:layout_width="@dimen/_230sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:autofillHints="name"
-            android:background="@drawable/bg_edit_text"
-            android:drawablePadding="@dimen/_13sdp"
-            android:drawableTint="@color/Doctor_Color"
-            android:elevation="@dimen/_1sdp"
-            android:backgroundTint="?attr/bg_color"
-            android:fontFamily="@font/cairo_bold"
-            android:hint="الاسم باللغة الانجليزية  "
-            android:inputType="textPersonName"
-            android:maxLines="1"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:textColor="@color/Doctor_Color"
-            android:textColorHint="#78909C"
-            android:textSize="15sp"
+            android:textSize="@dimen/_11sdp"
             tools:ignore="TouchTargetSizeCheck" />
 
         <EditText

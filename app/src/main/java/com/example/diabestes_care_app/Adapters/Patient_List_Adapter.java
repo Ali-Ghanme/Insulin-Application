@@ -63,8 +63,6 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
     @SuppressLint("ClickableViewAccessibility")
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-//        holder.imageView.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition_animation));
-//        holder.container.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_scale_animation));
 
         sharedpreferences = context.getSharedPreferences(MyPREFERENCES_P_List, MODE_PRIVATE);
 
@@ -85,6 +83,7 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
         myRef = FirebaseDatabase.getInstance().getReference("doctor");
         DatabaseReference online_status_all_users = FirebaseDatabase.getInstance().getReference().child("online_statuses").child(list2.getUsername());
         DatabaseReference follow = FirebaseDatabase.getInstance().getReference().child("doctor").child(DoctorUsername).child("Follow").child(list2.getUsername()).child("Following");
+        DatabaseReference follower = FirebaseDatabase.getInstance().getReference().child("patient").child(list2.getUsername()).child("Following By").child(DoctorUsername).child("Follower");
 
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -130,12 +129,12 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
 
         //============================Follow/Unfollow read Status ==================================
         holder.follow_btn.setOnTouchListener(new View.OnTouchListener() {
-
             GestureDetector gestureDetector = new GestureDetector(context.getApplicationContext(), new GestureDetector.SimpleOnGestureListener() {
                 @SuppressLint("ClickableViewAccessibility")
                 @Override
                 public boolean onSingleTapConfirmed(MotionEvent e) {
                     follow.setValue(list2.getUsername());
+                    follower.setValue(DoctorUsername);
                     if (holder.follow_btn.getText().equals("متابعة")) {
                         holder.follow_btn.setText("أتابع");
                         Toast.makeText(context, "لألغاء المتابعة اضغط مرتين", Toast.LENGTH_SHORT).show();
@@ -164,6 +163,7 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
                 @Override
                 public boolean onDoubleTap(MotionEvent e) {
                     follow.removeValue();
+                    follower.removeValue();
                     holder.follow_btn.setText("متابعة");
                     return super.onDoubleTap(e);
                 }
@@ -196,7 +196,6 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
         holder.type.setText(list.get(position).getPatientType());
         // ImageView : Glide Library
         Glide.with(context).load(list.get(position).getImageUrl()).placeholder(R.drawable.ic_user).error(R.drawable.notifications).into(holder.imageView);
-
     }
 
     @Override

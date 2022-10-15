@@ -3,6 +3,7 @@ package com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P;
 import static android.content.Context.MODE_PRIVATE;
 import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
 
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,18 +18,21 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.diabestes_care_app.Adapters.Doctor_Follow_Adapter;
 import com.example.diabestes_care_app.Adapters.Patient_Messages_Adapter;
 import com.example.diabestes_care_app.MemoryData.MemoryData;
+import com.example.diabestes_care_app.Models.Follow_Model;
 import com.example.diabestes_care_app.Models.MessagesList_Model;
 import com.example.diabestes_care_app.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -41,7 +45,7 @@ public class Chat_Fragment extends Fragment {
     // Patient Username from shared Preference
     String PatientUsername;
     // Firebase
-    DatabaseReference myRef;
+    DatabaseReference myRef2, myRef;
     // Image View Patient Profile
     CircleImageView imageView_Profile;
     // ArrayList
@@ -54,6 +58,10 @@ public class Chat_Fragment extends Fragment {
     private String chatKey = "";
     boolean dataSet = false;
 
+    List<Follow_Model> list;
+    // Adapter
+    Doctor_Follow_Adapter doctor_follow_adapter;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -65,11 +73,11 @@ public class Chat_Fragment extends Fragment {
         imageView_Profile = view.findViewById(R.id.FCH_profile_img_p);
 
         //============================Defines=======================================================
+        myRef2 = FirebaseDatabase.getInstance().getReference("patient");
         myRef = FirebaseDatabase.getInstance().getReference();
-        GetDataFromFirebase();
-
+        GetFollowingPatient();
         //============================Defines=======================================================
-        prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
+        prefs = this.requireActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         PatientUsername = prefs.getString("TAG_NAME", null);
         Toast.makeText(getContext(), PatientUsername, Toast.LENGTH_SHORT).show();
 
@@ -78,6 +86,7 @@ public class Chat_Fragment extends Fragment {
         messagesRecycleReview.setLayoutManager(new LinearLayoutManager(getContext()));
         messagesAdapter = new Patient_Messages_Adapter(messagesListModels, getContext());
         messagesRecycleReview.setAdapter(messagesAdapter);
+
         return view;
     }
 
@@ -85,15 +94,14 @@ public class Chat_Fragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        myRef = FirebaseDatabase.getInstance().getReference("patient");
-        myRef.addValueEventListener(new ValueEventListener() {
+        myRef2.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (getActivity() == null) {
                     return;
                 }
                 String PatientImage = snapshot.child(PatientUsername).child("User_Profile_Image").child("Image").child("mImageUrI").getValue(String.class);
-                Glide.with(getContext()).load(PatientImage).into(imageView_Profile);
+                Glide.with(requireContext()).load(PatientImage).into(imageView_Profile);
             }
 
             @Override
@@ -103,83 +111,96 @@ public class Chat_Fragment extends Fragment {
         });
     }
 
-    //========================Get Doctor list Data From Firebase Function===========================
-    private void GetDataFromFirebase() {
-        Query query = myRef.child("doctor");
-        query.addValueEventListener(new ValueEventListener() {
+    //======================================Function================================================
+    //Get Following from Doctor account
+    private void GetFollowingPatient() {
+        myRef2.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ClearAll();
                 messagesListModels.clear();
                 unseenMessage = 0;
                 lastMessage = "";
                 chatKey = "";
 
-                try {
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        final String getName = snapshot.child("personal_info").child("name_ar").getValue().toString();
-                        final String getUsername = snapshot.child("personal_info").child("username").getValue().toString();
-                        dataSet = false;
-                        final String getDoctorImage = snapshot.child("User_Profile_Image").child("Image").child("mImageUrI").getValue().toString();
+                Follow_Model follow_model;
+                for (DataSnapshot sn : snapshot.child(PatientUsername).child("Following By").getChildren()) {
+                    follow_model = new Follow_Model();
+                    follow_model.setUsername(sn.getKey());
+                    Log.e("TAG", "This is the chat key " + follow_model.getUsername());
 
-                        myRef.child("chat").addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                int getChatCounts = (int) snapshot.getChildrenCount();
 
-                                if (getChatCounts > 0) {
-                                    for (DataSnapshot dataSnapshot1 : snapshot.getChildren()) {
-                                        final String getKey = dataSnapshot1.getKey();
-                                        chatKey = getKey;
+                    Follow_Model finalFollow_model = follow_model;
+                    myRef.child("chat").addListenerForSingleValueEvent(new ValueEventListener() {
+                        @SuppressLint("NotifyDataSetChanged")
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            int getChatCounts = (int) snapshot.getChildrenCount();
 
-                                        if (dataSnapshot1.hasChild("patient_1") && dataSnapshot1.hasChild("doctor_2") && dataSnapshot1.hasChild("messages")) {
+                            if (getChatCounts > 0) {
+                                for (DataSnapshot dataSnapshot1 : snapshot.getChildren()) {
+                                    final String getKey = dataSnapshot1.getKey();
+                                    chatKey = getKey;
 
-                                            final String getUserOne = dataSnapshot1.child("patient_1").getValue(String.class);
-                                            final String getUserTow = dataSnapshot1.child("doctor_2").getValue(String.class);
+                                    if (dataSnapshot1.hasChild("patient_1") && dataSnapshot1.hasChild("doctor_2") && dataSnapshot1.hasChild("messages")) {
 
-                                            if ((getUserOne.equals(getUsername) && getUserTow.equals(PatientUsername)) || (getUserOne.equals(PatientUsername)
-                                                    && getUserTow.equals(getUsername))) {
-                                                for (DataSnapshot chatDataSnapshot : dataSnapshot1.child("messages").getChildren()) {
+                                        final String getUserOne = dataSnapshot1.child("patient_1").getValue(String.class);
+                                        final String getUserTow = dataSnapshot1.child("doctor_2").getValue(String.class);
 
-                                                    final long getMessageKey = Long.parseLong(chatDataSnapshot.getKey());
-                                                    final long getLastSeenMessage = Long.parseLong(MemoryData.getLastMsgTS(getContext(), getKey));
+                                        assert getUserOne != null;
+                                        if ((getUserOne.equals(finalFollow_model.getUsername()) && Objects.equals(getUserTow, PatientUsername)) || (getUserOne.equals(PatientUsername)
+                                                && Objects.equals(getUserTow, finalFollow_model.getUsername()))) {
+                                            for (DataSnapshot chatDataSnapshot : dataSnapshot1.child("messages").getChildren()) {
 
-                                                    lastMessage = chatDataSnapshot.child("msg").getValue(String.class);
+                                                final long getMessageKey = Long.parseLong(Objects.requireNonNull(chatDataSnapshot.getKey()));
+                                                final long getLastSeenMessage = Long.parseLong(MemoryData.getLastMsgTS(requireContext(), getKey));
 
-                                                    if (getMessageKey > getLastSeenMessage) {
-                                                        unseenMessage++;
-                                                    }
+                                                lastMessage = chatDataSnapshot.child("msg").getValue(String.class);
+
+                                                if (getMessageKey > getLastSeenMessage) {
+                                                    unseenMessage++;
                                                 }
                                             }
                                         }
                                     }
                                 }
-                                if (!dataSet) {
-                                    MessagesList_Model messagesListModel = new MessagesList_Model(getName, getUsername, lastMessage, getDoctorImage, chatKey, unseenMessage);
-                                    messagesListModels.add(messagesListModel);
-                                    messagesRecycleReview.setAdapter(new Patient_Messages_Adapter(messagesListModels, getContext()));
-                                    messagesAdapter.UpdateData(messagesListModels);
-                                    messagesAdapter.notifyDataSetChanged();
-
-                                }
                             }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
-
+                            if (!dataSet) {
+                                MessagesList_Model messagesListModel = new MessagesList_Model(finalFollow_model.getName(), finalFollow_model.getUsername(),
+                                        lastMessage, finalFollow_model.getImageUrl(), chatKey, unseenMessage);
+                                messagesListModels.add(messagesListModel);
+                                messagesRecycleReview.setAdapter(new Patient_Messages_Adapter(messagesListModels, getContext()));
+                                messagesAdapter.notifyDataSetChanged();
+                                messagesAdapter.UpdateData(messagesListModels);
                             }
-                        });
-                    }
-                } catch (Exception e) {
-                    Toast.makeText(getContext(), "waite second catch error", Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
                 }
-
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("TAG", error.getMessage());
+
             }
         });
     }
+
+    @SuppressLint("NotifyDataSetChanged")
+    private void ClearAll() {
+        if (list != null) {
+            list.clear();
+        } else {
+            Toast.makeText(getContext(), "The List is null", Toast.LENGTH_SHORT).show();
+        }
+        if (doctor_follow_adapter != null) {
+            doctor_follow_adapter.notifyDataSetChanged();
+        }
+        list = new ArrayList<>();
+    }
+
 }
-// Hallow this is Update

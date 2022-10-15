@@ -15,8 +15,11 @@
         android:id="@+id/root_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?attr/bg_color"
+        android:background="@drawable/bg_doctors_list"
+        android:backgroundTint="?attr/bg_color"
         android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layoutDirection="ltr"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -25,14 +28,48 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/Chat_Image_Profile"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/Chat_Image_ProfileCon"
                 android:layout_width="@dimen/_55sdp"
                 android:layout_height="@dimen/_55sdp"
+                android:layout_alignParentLeft="true"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:src="@drawable/ic_user" />
+                android:layout_marginLeft="@dimen/_220sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/Chat_Image_Profile"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/Ch_img_on"
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:background="@drawable/bg_doctor_button"
+                    android:visibility="gone"
+                    app:civ_border_color="@color/Doctor_Color"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/Ch_img_off"
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:background="@drawable/bg_patient_button"
+                    android:backgroundTint="@color/gray"
+                    android:visibility="visible"
+                    app:civ_border_color="@color/white"
+                    app:civ_border_width="@dimen/_3sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -40,7 +77,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_5sdp"
-                android:layout_toStartOf="@+id/Chat_Image_Profile"
+                android:layout_toStartOf="@+id/Chat_Image_ProfileCon"
                 android:layout_toEndOf="@+id/Chat_unseenMessages"
                 android:gravity="center"
                 android:orientation="vertical">

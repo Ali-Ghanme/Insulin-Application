@@ -92,7 +92,7 @@
             android:layout_height="@dimen/_55sdp"
             android:layout_below="@+id/Sp1_username_P"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:orientation="horizontal"
             android:scaleType="centerCrop">
 
@@ -100,7 +100,6 @@
                 android:id="@+id/Sp1_male_P"
                 android:layout_width="@dimen/_90sdp"
                 android:layout_height="@dimen/_40sdp"
-                android:layout_marginTop="@dimen/_5sdp"
                 android:background="@drawable/gender_background_selector"
                 android:button="@android:color/transparent"
                 android:drawableLeft="@drawable/ic_male"
@@ -118,7 +117,6 @@
                 android:layout_width="@dimen/_90sdp"
                 android:layout_height="@dimen/_40sdp"
                 android:layout_marginStart="@dimen/_40sdp"
-                android:layout_marginTop="@dimen/_5sdp"
                 android:background="@drawable/gender_background_selector"
                 android:button="@android:color/transparent"
                 android:drawableLeft="@drawable/ic_female"
@@ -139,6 +137,7 @@
             android:layout_height="@dimen/_40sdp"
             android:layout_below="@id/Sp1_Gender_P"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_20sdp"
             android:autofillHints="creditCardExpirationDate"
             android:background="@drawable/bg_edit_text"
             android:backgroundTint="?attr/bg_color"
@@ -161,52 +160,52 @@
             android:textSize="@dimen/_12sdp"
             tools:ignore="TouchTargetSizeCheck" />
 
-        <EditText
-            android:id="@+id/Sp1_wehigt_P"
-            android:layout_width="@dimen/_230sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_below="@id/Sp1_date_P"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:autofillHints="creditCardNumber"
-            android:background="@drawable/bg_edit_text"
-            android:backgroundTint="?attr/bg_color"
-            android:elevation="0.9dp"
-            android:fontFamily="@font/cairo_bold"
-            android:hint="الوزن"
-            android:inputType="number"
-            android:maxLines="1"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:scaleType="centerCrop"
-            android:textColor="@color/Patient_Color"
-            android:textColorHint="#78909C"
-            android:textSize="@dimen/_12sdp"
-            tools:ignore="TouchTargetSizeCheck" />
+        <!--        <EditText-->
+        <!--            android:id="@+id/Sp1_wehigt_P"-->
+        <!--            android:layout_width="@dimen/_230sdp"-->
+        <!--            android:layout_height="@dimen/_40sdp"-->
+        <!--            android:layout_below="@id/Sp1_date_P"-->
+        <!--            android:layout_centerHorizontal="true"-->
+        <!--            android:layout_marginTop="@dimen/_15sdp"-->
+        <!--            android:autofillHints="creditCardNumber"-->
+        <!--            android:background="@drawable/bg_edit_text"-->
+        <!--            android:backgroundTint="?attr/bg_color"-->
+        <!--            android:elevation="0.9dp"-->
+        <!--            android:fontFamily="@font/cairo_bold"-->
+        <!--            android:hint="الوزن"-->
+        <!--            android:inputType="number"-->
+        <!--            android:maxLines="1"-->
+        <!--            android:paddingStart="20dp"-->
+        <!--            android:paddingEnd="20dp"-->
+        <!--            android:scaleType="centerCrop"-->
+        <!--            android:textColor="@color/Patient_Color"-->
+        <!--            android:textColorHint="#78909C"-->
+        <!--            android:textSize="@dimen/_12sdp"-->
+        <!--            tools:ignore="TouchTargetSizeCheck" />-->
 
-        <EditText
-            android:id="@+id/Sp1_tall_P"
-            android:layout_width="@dimen/_230sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_below="@id/Sp1_wehigt_P"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:autofillHints="creditCardNumber"
-            android:background="@drawable/bg_edit_text"
-            android:backgroundTint="?attr/bg_color"
-            android:elevation="0.9dp"
-            android:layout_marginBottom="@dimen/_15sdp"
-            android:fontFamily="@font/cairo_bold"
-            android:hint="الطول"
-            android:inputType="number"
-            android:maxLines="1"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:scaleType="centerCrop"
-            android:textColor="@color/Patient_Color"
-            android:textColorHint="#78909C"
-            android:textSize="@dimen/_12sdp"
-            tools:ignore="TouchTargetSizeCheck" />
+        <!--        <EditText-->
+        <!--            android:id="@+id/Sp1_tall_P"-->
+        <!--            android:layout_width="@dimen/_230sdp"-->
+        <!--            android:layout_height="@dimen/_40sdp"-->
+        <!--            android:layout_below="@id/Sp1_wehigt_P"-->
+        <!--            android:layout_centerHorizontal="true"-->
+        <!--            android:layout_marginTop="@dimen/_15sdp"-->
+        <!--            android:layout_marginBottom="@dimen/_15sdp"-->
+        <!--            android:autofillHints="creditCardNumber"-->
+        <!--            android:background="@drawable/bg_edit_text"-->
+        <!--            android:backgroundTint="?attr/bg_color"-->
+        <!--            android:elevation="0.9dp"-->
+        <!--            android:fontFamily="@font/cairo_bold"-->
+        <!--            android:hint="الطول"-->
+        <!--            android:inputType="number"-->
+        <!--            android:maxLines="1"-->
+        <!--            android:paddingStart="20dp"-->
+        <!--            android:paddingEnd="20dp"-->
+        <!--            android:scaleType="centerCrop"-->
+        <!--            android:textColor="@color/Patient_Color"-->
+        <!--            android:textColorHint="#78909C"-->
+        <!--            android:textSize="@dimen/_12sdp"-->
+        <!--            tools:ignore="TouchTargetSizeCheck" />-->
 
     </RelativeLayout>
 

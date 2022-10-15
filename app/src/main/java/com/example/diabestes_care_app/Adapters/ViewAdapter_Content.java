@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -32,8 +31,8 @@ public class ViewAdapter_Content extends PagerAdapter {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.content_item_layout, null);
 
-        ImageView imageView = view.findViewById(R.id.Image_Content);
-        imageView.setImageResource(mListScreen.get(position).getCont_Image());
+//        ImageView imageView = view.findViewById(R.id.Image_Content);
+//        imageView.setImageResource(mListScreen.get(position).getCont_Image());
 
         TextView description = view.findViewById(R.id.Text_Content);
         description.setText(mListScreen.get(position).getContent());

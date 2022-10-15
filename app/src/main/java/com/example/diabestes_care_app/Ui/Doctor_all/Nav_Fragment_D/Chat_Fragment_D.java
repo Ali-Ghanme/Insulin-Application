@@ -3,6 +3,7 @@ package com.example.diabestes_care_app.Ui.Doctor_all.Nav_Fragment_D;
 import static android.content.Context.MODE_PRIVATE;
 import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Doctor_Fragment.MyPREFERENCES_D;
 
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,18 +18,21 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.diabestes_care_app.Adapters.Doctor_Follow_Adapter;
 import com.example.diabestes_care_app.Adapters.Doctor_Messages_Adapter;
 import com.example.diabestes_care_app.MemoryData.MemoryData;
+import com.example.diabestes_care_app.Models.Follow_Model;
 import com.example.diabestes_care_app.Models.MessagesList_Model;
 import com.example.diabestes_care_app.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -39,7 +43,7 @@ public class Chat_Fragment_D extends Fragment {
     // Variables
     String DoctorUsername;
     // Variables
-    DatabaseReference myRef;
+    DatabaseReference myRef, myRef2;
     // Variables
     CircleImageView imageView;
     // Variables
@@ -51,6 +55,10 @@ public class Chat_Fragment_D extends Fragment {
     private String lastMessage = "";
     private String chatKey = "";
     private boolean dataSet = false;
+
+    List<Follow_Model> list;
+    // Adapter
+    Doctor_Follow_Adapter doctor_follow_adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -64,17 +72,18 @@ public class Chat_Fragment_D extends Fragment {
 
         //============================Defines Firebase==============================================
         myRef = FirebaseDatabase.getInstance().getReference();
-        GetDataFromFirebase();
+        myRef2 = FirebaseDatabase.getInstance().getReference("doctor");
+        GetFollowingPatient();
+
+        //============================Defines SharedPreferences=====================================
+        SharedPreferences prefs = this.requireActivity().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
+        DoctorUsername = prefs.getString("TAG_NAME", null);
 
         //============================Recycle Review Setup==========================================
         messagesRecycleReview.setHasFixedSize(true);
         messagesRecycleReview.setLayoutManager(new LinearLayoutManager(getContext()));
         messagesAdapter = new Doctor_Messages_Adapter(messagesListModels, getContext());
         messagesRecycleReview.setAdapter(messagesAdapter);
-
-        //============================Defines SharedPreferences=====================================
-        SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
-        DoctorUsername = prefs.getString("TAG_NAME", null);
 
         return view;
     }
@@ -83,7 +92,6 @@ public class Chat_Fragment_D extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        myRef = FirebaseDatabase.getInstance().getReference("doctor");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -101,79 +109,100 @@ public class Chat_Fragment_D extends Fragment {
         });
     }
 
-    //========================Get Patient list Data From Firebase Function===========================
-    private void GetDataFromFirebase() {
-        Query query = myRef.child("patient");
-        query.addValueEventListener(new ValueEventListener() {
+    //======================================Function================================================
+    //Get Following from Doctor account
+    private void GetFollowingPatient() {
+        myRef2.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ClearAll();
                 messagesListModels.clear();
                 unseenMessage = 0;
                 lastMessage = "";
                 chatKey = "";
-                try {
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        final String getPatientName = snapshot.child("personal_info").child("name").getValue(String.class);
-                        final String getPatientUsername = snapshot.child("username").getValue(String.class);
-                        dataSet = false;
-                        final String getPatientImage = snapshot.child("User_Profile_Image").child("Image").child("mImageUrI").getValue(String.class);
+
+                Follow_Model follow_model;
+                for (DataSnapshot sn : snapshot.child(DoctorUsername).child("Follow").getChildren()) {
+                    follow_model = new Follow_Model();
+                    follow_model.setUsername(sn.getKey());
+                    follow_model.setType(sn.getKey());
+                    Log.e("TAG", "This is the chat key " + follow_model.getUsername());
 
 
-                        myRef.child("chat").addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                int getChatCounts = (int) snapshot.getChildrenCount();
+                    Follow_Model finalFollow_model = follow_model;
+                    myRef.child("chat").addListenerForSingleValueEvent(new ValueEventListener() {
+                        @SuppressLint("NotifyDataSetChanged")
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            int getChatCounts = (int) snapshot.getChildrenCount();
 
-                                if (getChatCounts > 0) {
-                                    for (DataSnapshot dataSnapshot1 : snapshot.getChildren()) {
-                                        final String getKey = dataSnapshot1.getKey();
-                                        chatKey = getKey;
+                            if (getChatCounts > 0) {
+                                for (DataSnapshot dataSnapshot1 : snapshot.getChildren()) {
+                                    final String getKey = dataSnapshot1.getKey();
+                                    chatKey = getKey;
 
-                                        if (dataSnapshot1.hasChild("patient_1") && dataSnapshot1.hasChild("doctor_2") && dataSnapshot1.hasChild("messages")) {
+                                    if (dataSnapshot1.hasChild("patient_1") && dataSnapshot1.hasChild("doctor_2")
+                                            && dataSnapshot1.hasChild("messages")) {
 
-                                            final String getUserOne = dataSnapshot1.child("patient_1").getValue(String.class);
-                                            final String getUserTow = dataSnapshot1.child("doctor_2").getValue(String.class);
+                                        final String getUserOne = dataSnapshot1.child("patient_1").getValue(String.class);
+                                        final String getUserTow = dataSnapshot1.child("doctor_2").getValue(String.class);
 
-                                            if ((getUserOne.equals(DoctorUsername) && getUserTow.equals(getPatientUsername)) || (getUserOne.equals(getPatientUsername) && getUserTow.equals(DoctorUsername))) {
-                                                for (DataSnapshot chatDataSnapshot : dataSnapshot1.child("messages").getChildren()) {
+                                        assert getUserOne != null;
+                                        if ((getUserOne.equals(DoctorUsername) && Objects.equals(getUserTow, finalFollow_model.getUsername()))
+                                                || (getUserOne.equals(finalFollow_model.getUsername()) && getUserTow.equals(DoctorUsername))) {
+                                            for (DataSnapshot chatDataSnapshot : dataSnapshot1.child("messages").getChildren()) {
 
-                                                    final long getMessageKey = Long.parseLong(chatDataSnapshot.getKey());
-                                                    final long getLastSeenMessage = Long.parseLong(MemoryData.getLastMsgTS(getContext(),chatKey));
+                                                final long getMessageKey = Long.parseLong(Objects.requireNonNull(chatDataSnapshot.getKey()));
+                                                final long getLastSeenMessage = Long.parseLong(MemoryData.getLastMsgTS(requireContext(), chatKey));
 
-                                                    lastMessage = chatDataSnapshot.child("msg").getValue(String.class);
+                                                lastMessage = chatDataSnapshot.child("msg").getValue(String.class);
 
-                                                    if (getMessageKey > getLastSeenMessage) {
-                                                        unseenMessage++;
-                                                    }
+                                                if (getMessageKey > getLastSeenMessage) {
+                                                    unseenMessage++;
                                                 }
                                             }
                                         }
                                     }
                                 }
-                                if (!dataSet) {
-                                    MessagesList_Model messagesListModel = new MessagesList_Model(getPatientName, getPatientUsername,
-                                            lastMessage, getPatientImage, chatKey, unseenMessage);
-                                    messagesListModels.add(messagesListModel);
-                                    messagesRecycleReview.setAdapter(new Doctor_Messages_Adapter(messagesListModels, getContext()));
-                                    messagesAdapter.UpdateData(messagesListModels);
-                                    messagesAdapter.notifyDataSetChanged();
-                                }
                             }
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
 
+                            if (!dataSet) {
+                                MessagesList_Model messagesListModel = new MessagesList_Model(finalFollow_model.getName(), finalFollow_model.getUsername(),
+                                        lastMessage, finalFollow_model.getImageUrl(), chatKey, unseenMessage);
+
+                                messagesListModels.add(messagesListModel);
+                                messagesRecycleReview.setAdapter(new Doctor_Messages_Adapter(messagesListModels, getContext()));
+                                messagesAdapter.UpdateData(messagesListModels);
+                                messagesAdapter.notifyDataSetChanged();
                             }
-                        });
-                    }
-                } catch (Exception e) {
-                    Toast.makeText(getContext(), "إنتظر قليلاً ", Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("TAG", error.getMessage());
+
             }
         });
     }
+
+    @SuppressLint("NotifyDataSetChanged")
+    private void ClearAll() {
+        if (list != null) {
+            list.clear();
+        } else {
+            Toast.makeText(getContext(), "The List is null", Toast.LENGTH_SHORT).show();
+        }
+        if (doctor_follow_adapter != null) {
+            doctor_follow_adapter.notifyDataSetChanged();
+        }
+        list = new ArrayList<>();
+    }
+
 }

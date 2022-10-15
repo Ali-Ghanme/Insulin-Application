@@ -13,11 +13,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
+import com.bitvale.switcher.SwitcherX;
 import com.bumptech.glide.Glide;
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Doctor_all.Setting_D.Edit_Profile_D;
@@ -35,13 +36,14 @@ public class Profile_Fragment_D extends Fragment {
     // Section
     RelativeLayout notification_cont, DarkMode_cont, help_cont, LogOut_cont;
     // Doctor Profile Image
-    ImageView imageView,imageView2;
+    ImageView imageView, imageView2;
     // Doctor UserName + name
     TextView name;
     //Firebase
     DatabaseReference myRef;
     //Username for SharedPreference
     String DoctorUsername;
+    SwitcherX theme;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -57,6 +59,7 @@ public class Profile_Fragment_D extends Fragment {
         name = view.findViewById(R.id.FB_tv_doctor_name_d);
         imageView = view.findViewById(R.id.FB_Doctor_image_d);
         imageView2 = view.findViewById(R.id.FB_Patient_edit_d);
+        theme = view.findViewById(R.id.FB_switcher_d);
 
         SharedPreferences prefs = this.requireActivity().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
         DoctorUsername = prefs.getString("TAG_NAME", null);
@@ -66,11 +69,13 @@ public class Profile_Fragment_D extends Fragment {
             Intent intent = new Intent(getContext(), Edit_Profile_D.class);
             startActivity(intent);
         });
-        DarkMode_cont.setOnClickListener(v -> Toast.makeText(getContext(), "Hallow Dark Mod is Unavailable right now 😉", Toast.LENGTH_SHORT).show());
+
+        theme.setOnClickListener(v -> SwitchTheme());
         help_cont.setOnClickListener(v -> {
             Intent intent = new Intent(getContext(), Help.class);
             startActivity(intent);
         });
+
         LogOut_cont.setOnClickListener(v -> {
             SharedPreferences preferences = requireActivity().getSharedPreferences("checkbox_D", MODE_PRIVATE);
             SharedPreferences.Editor editor = preferences.edit();
@@ -108,5 +113,66 @@ public class Profile_Fragment_D extends Fragment {
         });
     }
 
+    void SwitchTheme() {
+        SharedPreferences sharedPreferences = requireContext().getSharedPreferences("sharedPrefs", MODE_PRIVATE);
+        final SharedPreferences.Editor editor = sharedPreferences.edit();
+        final boolean isDarkModeOn = sharedPreferences.getBoolean("isDarkModeOn", false);
+
+        // When user reopens the app
+        // after applying dark/light mode
+        if (isDarkModeOn) {
+            AppCompatDelegate
+                    .setDefaultNightMode(
+                            AppCompatDelegate
+                                    .MODE_NIGHT_YES);
+            theme.setChecked(true, true);
+        } else {
+            AppCompatDelegate
+                    .setDefaultNightMode(
+                            AppCompatDelegate
+                                    .MODE_NIGHT_NO);
+            theme.setChecked(false, true);
+        }
+
+        theme.setOnClickListener(
+                view -> {
+                    // When user taps the enable/disable
+                    // dark mode button
+                    if (isDarkModeOn) {
+
+                        // if dark mode is on it
+                        // will turn it off
+                        AppCompatDelegate
+                                .setDefaultNightMode(
+                                        AppCompatDelegate
+                                                .MODE_NIGHT_NO);
+                        // it will set isDarkModeOn
+                        // boolean to false
+                        editor.putBoolean(
+                                "isDarkModeOn", false);
+                        editor.apply();
+
+                        // change text of Button
+                        theme.setChecked(false, true);
+                    } else {
+
+                        // if dark mode is off
+                        // it will turn it on
+                        AppCompatDelegate
+                                .setDefaultNightMode(
+                                        AppCompatDelegate
+                                                .MODE_NIGHT_YES);
+
+                        // it will set isDarkModeOn
+                        // boolean to true
+                        editor.putBoolean(
+                                "isDarkModeOn", true);
+                        editor.apply();
+
+                        // change text of Button
+                        theme.setChecked(true, true);
+                    }
+                });
+    }
 
 }

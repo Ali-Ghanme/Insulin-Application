@@ -3,6 +3,7 @@ package com.example.diabestes_care_app.Adapters;
 import static android.content.Context.MODE_PRIVATE;
 import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.view.LayoutInflater;
@@ -36,6 +37,7 @@ public class Doctor_Chat_Adapter extends RecyclerView.Adapter<Doctor_Chat_Adapte
         return new MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.chat_adapter_layout_d, null));
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull Doctor_Chat_Adapter.MyViewHolder holder, int position) {
         ChatList_Model list = chatListListModel.get(position);
@@ -44,12 +46,11 @@ public class Doctor_Chat_Adapter extends RecyclerView.Adapter<Doctor_Chat_Adapte
         String patientUsername = prefs.getString("TAG_NAME", null);
 
         if (list.getUsername().equals(patientUsername)) {
-
-            holder.myMsgLayout.setVisibility(View.VISIBLE);
-            holder.oppoLayout.setVisibility(View.GONE);
+            holder.myMsgLayout.setVisibility(View.GONE);
+            holder.oppoLayout.setVisibility(View.VISIBLE);
 
             holder.oppoMessage.setText(list.getMessage());
-            holder.myTime.setText(list.getDate() + "" + list.getTime());
+            holder.oppoTime.setText(list.getDate() + "" + list.getTime());
         } else {
             holder.myMsgLayout.setVisibility(View.VISIBLE);
             holder.oppoLayout.setVisibility(View.GONE);
@@ -64,15 +65,19 @@ public class Doctor_Chat_Adapter extends RecyclerView.Adapter<Doctor_Chat_Adapte
         return chatListListModel.size();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void updateChatList(List<ChatList_Model> chatListListModel) {
         this.chatListListModel = chatListListModel;
         notifyDataSetChanged();
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        private LinearLayout oppoLayout, myMsgLayout;
-        private TextView oppoMessage, myMessage;
-        private TextView oppoTime, myTime;
+        private final LinearLayout oppoLayout;
+        private final LinearLayout myMsgLayout;
+        private final TextView oppoMessage;
+        private final TextView myMessage;
+        private final TextView oppoTime;
+        private final TextView myTime;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);

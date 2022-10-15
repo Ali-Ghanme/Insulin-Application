@@ -122,7 +122,6 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/_20sdp"
                     android:layout_marginTop="@dimen/_30sdp"
-                    android:checked="false"
                     android:minWidth="48dp"
                     android:minHeight="48dp"
                     app:elevation="@dimen/_5sdp"

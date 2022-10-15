@@ -37,6 +37,7 @@ public class Patient_Chat_Adapter extends RecyclerView.Adapter<Patient_Chat_Adap
         return new MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.chat_adapter_layout, null));
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull Patient_Chat_Adapter.MyViewHolder holder, int position) {
         ChatList_Model list = chatListListModel.get(position);
@@ -50,14 +51,12 @@ public class Patient_Chat_Adapter extends RecyclerView.Adapter<Patient_Chat_Adap
 
             holder.oppoMessage.setText(list.getMessage());
             holder.oppoTime.setText(list.getDate() + "" + list.getTime());
-
         } else {
             holder.myMsgLayout.setVisibility(View.VISIBLE);
             holder.oppoLayout.setVisibility(View.GONE);
 
             holder.myMessage.setText(list.getMessage());
             holder.myTime.setText(list.getDate() + "" + list.getTime());
-
         }
     }
 
@@ -71,7 +70,6 @@ public class Patient_Chat_Adapter extends RecyclerView.Adapter<Patient_Chat_Adap
         this.chatListListModel = chatListListModel;
         notifyDataSetChanged();
     }
-
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         private final LinearLayout oppoLayout;

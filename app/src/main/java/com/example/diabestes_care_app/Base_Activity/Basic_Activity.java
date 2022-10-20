@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -16,7 +17,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
+import com.bitvale.switcher.SwitcherX;
 import com.example.diabestes_care_app.R;
 import com.google.firebase.database.DatabaseReference;
 
@@ -121,4 +124,51 @@ public class Basic_Activity extends AppCompatActivity {
         });
         continues.setOnClickListener(v -> dialog.dismiss());
     }
+
+    public  void switchTheme(SwitcherX theme, Context context) {
+        SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
+        final SharedPreferences.Editor editor = sharedPreferences.edit();
+        final boolean isDarkModeOn = sharedPreferences.getBoolean("isDarkModeOn", false);
+
+        if (isDarkModeOn) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            theme.setChecked(true, true);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            theme.setChecked(false, true);
+        }
+
+        theme.setOnClickListener(
+                view -> {
+                    // When user taps the enable/disable
+                    // dark mode button
+                    if (isDarkModeOn) {
+
+                        // if dark mode is on it
+                        // will turn it off
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                        // it will set isDarkModeOn
+                        // boolean to false
+                        editor.putBoolean("isDarkModeOn", false);
+                        editor.apply();
+
+                        // change text of Button
+                        theme.setChecked(false, true);
+                    } else {
+
+                        // if dark mode is off
+                        // it will turn it on
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+
+                        // it will set isDarkModeOn
+                        // boolean to true
+                        editor.putBoolean("isDarkModeOff", true);
+                        editor.apply();
+
+                        // change text of Button
+                        theme.setChecked(true , true);
+                    }
+                });
+    }
+
 }

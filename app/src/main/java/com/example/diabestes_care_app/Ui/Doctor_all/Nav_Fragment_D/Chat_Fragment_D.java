@@ -137,8 +137,7 @@ public class Chat_Fragment_D extends Fragment {
 
                             if (getChatCounts > 0) {
                                 for (DataSnapshot dataSnapshot1 : snapshot.getChildren()) {
-                                    final String getKey = dataSnapshot1.getKey();
-                                    chatKey = getKey;
+                                    chatKey = dataSnapshot1.getKey();
 
                                     if (dataSnapshot1.hasChild("patient_1") && dataSnapshot1.hasChild("doctor_2")
                                             && dataSnapshot1.hasChild("messages")) {
@@ -148,7 +147,7 @@ public class Chat_Fragment_D extends Fragment {
 
                                         assert getUserOne != null;
                                         if ((getUserOne.equals(DoctorUsername) && Objects.equals(getUserTow, finalFollow_model.getUsername()))
-                                                || (getUserOne.equals(finalFollow_model.getUsername()) && getUserTow.equals(DoctorUsername))) {
+                                                || (getUserOne.equals(finalFollow_model.getUsername()) && Objects.equals(getUserTow, DoctorUsername))) {
                                             for (DataSnapshot chatDataSnapshot : dataSnapshot1.child("messages").getChildren()) {
 
                                                 final long getMessageKey = Long.parseLong(Objects.requireNonNull(chatDataSnapshot.getKey()));

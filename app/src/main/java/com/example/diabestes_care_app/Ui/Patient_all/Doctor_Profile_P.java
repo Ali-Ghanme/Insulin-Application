@@ -7,12 +7,10 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
@@ -122,12 +120,8 @@ public class Doctor_Profile_P extends Basic_Activity {
         editor.commit();
 
         //============================Back Button Action============================================
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Doctor_Profile_P.this, Home_Patient.class);
-                startActivity(intent);
-            }
+        back.setOnClickListener(v -> {
+            onBackPressed();
         });
 
         //============================Load Data To Ui===============================================
@@ -143,18 +137,10 @@ public class Doctor_Profile_P extends Basic_Activity {
         chatKey = "";
 
         //============================Show Consu Dialog and send request for doctor=================
-        request.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.show(); // Showing the dialog here
-            }
+        request.setOnClickListener(v -> {
+            dialog.show(); // Showing the dialog here
         });
-        oky.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setConsuData();
-            }
-        });
+        oky.setOnClickListener(v -> setConsuData());
     }
 
     private void getPatientToken() {

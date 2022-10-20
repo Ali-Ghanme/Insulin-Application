@@ -5,6 +5,7 @@ import static com.example.diabestes_care_app.Adapters.Doctor_Follow_Adapter.MyPR
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,7 +55,7 @@ public class Patient_info_Fragment extends Fragment {
         // Get data from message adapter class
         SharedPreferences prefs = getActivity().getSharedPreferences(MyPREFERENCES_P_Username_D, MODE_PRIVATE);
         getName = prefs.getString("PatientUsername_D", null);
-
+        Log.e("TAG","This is the name of patinet "+getName);
         databaseReference = FirebaseDatabase.getInstance().getReference("patient").child(getName);
 
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {

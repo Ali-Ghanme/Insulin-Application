@@ -15,11 +15,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
 import com.bitvale.switcher.SwitcherX;
 import com.bumptech.glide.Glide;
+import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Doctor_all.Setting_D.Edit_Profile_D;
 import com.example.diabestes_care_app.Ui.Patient_all.Setting_P.Help;
@@ -70,7 +70,8 @@ public class Profile_Fragment_D extends Fragment {
             startActivity(intent);
         });
 
-        theme.setOnClickListener(v -> SwitchTheme());
+        theme.setOnClickListener(v -> ((Basic_Activity) requireActivity()).switchTheme(theme,getContext()));
+
         help_cont.setOnClickListener(v -> {
             Intent intent = new Intent(getContext(), Help.class);
             startActivity(intent);
@@ -113,66 +114,5 @@ public class Profile_Fragment_D extends Fragment {
         });
     }
 
-    void SwitchTheme() {
-        SharedPreferences sharedPreferences = requireContext().getSharedPreferences("sharedPrefs", MODE_PRIVATE);
-        final SharedPreferences.Editor editor = sharedPreferences.edit();
-        final boolean isDarkModeOn = sharedPreferences.getBoolean("isDarkModeOn", false);
-
-        // When user reopens the app
-        // after applying dark/light mode
-        if (isDarkModeOn) {
-            AppCompatDelegate
-                    .setDefaultNightMode(
-                            AppCompatDelegate
-                                    .MODE_NIGHT_YES);
-            theme.setChecked(true, true);
-        } else {
-            AppCompatDelegate
-                    .setDefaultNightMode(
-                            AppCompatDelegate
-                                    .MODE_NIGHT_NO);
-            theme.setChecked(false, true);
-        }
-
-        theme.setOnClickListener(
-                view -> {
-                    // When user taps the enable/disable
-                    // dark mode button
-                    if (isDarkModeOn) {
-
-                        // if dark mode is on it
-                        // will turn it off
-                        AppCompatDelegate
-                                .setDefaultNightMode(
-                                        AppCompatDelegate
-                                                .MODE_NIGHT_NO);
-                        // it will set isDarkModeOn
-                        // boolean to false
-                        editor.putBoolean(
-                                "isDarkModeOn", false);
-                        editor.apply();
-
-                        // change text of Button
-                        theme.setChecked(false, true);
-                    } else {
-
-                        // if dark mode is off
-                        // it will turn it on
-                        AppCompatDelegate
-                                .setDefaultNightMode(
-                                        AppCompatDelegate
-                                                .MODE_NIGHT_YES);
-
-                        // it will set isDarkModeOn
-                        // boolean to true
-                        editor.putBoolean(
-                                "isDarkModeOn", true);
-                        editor.apply();
-
-                        // change text of Button
-                        theme.setChecked(true, true);
-                    }
-                });
-    }
 
 }

@@ -1,7 +1,6 @@
 package com.example.diabestes_care_app.Adapters;
 
 import static android.content.Context.MODE_PRIVATE;
-import static com.example.diabestes_care_app.Ui.Doctor_all.Nav_Fragment_D.Home_Fragment_D.MyPREFERENCES_D;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -54,9 +53,6 @@ public class Doctor_Follow_Adapter extends RecyclerView.Adapter<Doctor_Follow_Ad
     public void onBindViewHolder(@NonNull Doctor_Follow_Adapter.MyViewHolder holder, int position) {
         prefs = context.getSharedPreferences(MyPREFERENCES_P_Username_D, MODE_PRIVATE);
         Follow_Model list2 = list.get(position);
-
-        prefs = context.getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
-        String DoctorUsername = prefs.getString("TAG_NAME", null);
 
         // Online DataBase Reference
         DatabaseReference online_status_all_users = FirebaseDatabase.getInstance().getReference().child("online_statuses").child(list2.getUsername());
@@ -116,6 +112,7 @@ public class Doctor_Follow_Adapter extends RecyclerView.Adapter<Doctor_Follow_Ad
             editor.apply();
             Intent intent = new Intent(context, Patent_Report_d.class);
             context.startActivity(intent);
+
         });
     }
 

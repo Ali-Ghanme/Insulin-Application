@@ -113,5 +113,4 @@ public class Profile_Fragment_D extends Fragment {
             }
         });
     }
-    // Hallow World
 }

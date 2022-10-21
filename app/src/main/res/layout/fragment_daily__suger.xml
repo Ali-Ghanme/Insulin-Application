@@ -129,7 +129,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/cairo_bold"
                 android:paddingBottom="@dimen/_4sdp"
-                android:text="وقت القياس"
+                android:text="الوقت الحالي للقياس"
                 android:textColor="?attr/text_color"
                 android:textSize="@dimen/_10sdp" />
 

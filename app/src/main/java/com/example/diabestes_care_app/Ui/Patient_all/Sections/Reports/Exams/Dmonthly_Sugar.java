@@ -37,8 +37,8 @@ public class Dmonthly_Sugar extends Fragment {
     // Btn sheet
     Button btn_checked_save, btn, checked_save_height_weight, checked_save_blood, checked_save_cholesterol, checked_save_triglycerid;
     // Btn_sheet sheet كلية  // Btn_sheet دهون  // Btn_sheet دم
-    EditText examine_bmi, examine_college, examine_college_creatinine, examine_fats_hdl, examine_fats_ldl, examine_fats_triglycerid, examine_fats_cholesterol, examine_college_uric, examine_college_urea, examine_fats, examine_blood;
-    TextView tv_date_time;
+    EditText    examine_college_creatinine, examine_fats_hdl, examine_fats_ldl, examine_fats_triglycerid, examine_fats_cholesterol, examine_college_uric, examine_college_urea;
+    TextView    examine_blood ,  examine_fats ,examine_college   ;
     DatabaseReference databaseReference;
     Double bmi, creatineValue, uricValue, ureaValue, cholesterolValue, triglycerideValue, ldlValue, hdlValue, Blood_PressureValue;
 
@@ -74,7 +74,7 @@ public class Dmonthly_Sugar extends Fragment {
         examine_fats_cholesterol = view.findViewById(R.id.examine_fats_cholesterol);
         //end  btn  sheet for examine_fats
         examine_blood = view.findViewById(R.id.examine_blood);
-        examine_bmi = view.findViewById(R.id.examine_bmi);
+       // examine_bmi = view.findViewById(R.id.examine_bmi);
 
         //============================Get Patient Username===========================================
         SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
@@ -82,39 +82,39 @@ public class Dmonthly_Sugar extends Fragment {
         databaseReference = FirebaseDatabase.getInstance().getReference("patient").child(PatientUsername).child("Reports_info").child("فحوصات دورية");
 
         //================================= Visible And Gone For fats And college =========
-        examine_college.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                int r = 3;
-                if (r == 3) {
-                    college.setVisibility(View.VISIBLE);
-                    fats.setVisibility(View.GONE);
-                    Toast.makeText(getActivity(), "فحوصات الكلية : " + r, Toast.LENGTH_SHORT).show();
-                } else {
-
-                    college.setVisibility(View.GONE);
-                    fats.setVisibility(View.GONE);
-                }
-            }
-        });
-
-        examine_fats.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int w = 4;
-                if (w == 4) {
-
-                    fats.setVisibility(View.VISIBLE);
-                    college.setVisibility(View.GONE);
-                    Toast.makeText(getActivity(), "فحوصات الدهون : " + w, Toast.LENGTH_SHORT).show();
-
-                } else {
-                    fats.setVisibility(View.GONE);
-                    college.setVisibility(View.GONE);
-                }
-            }
-        });
+//        examine_college.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                int r = 3;
+//                if (r == 3) {
+//                    college.setVisibility(View.VISIBLE);
+//                    fats.setVisibility(View.GONE);
+//                    Toast.makeText(getActivity(), "فحوصات الكلية : " + r, Toast.LENGTH_SHORT).show();
+//                } else {
+//
+//                    college.setVisibility(View.GONE);
+//                    fats.setVisibility(View.GONE);
+//                }
+//            }
+//        });
+//
+//        examine_fats.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                int w = 4;
+//                if (w == 4) {
+//
+//                    fats.setVisibility(View.VISIBLE);
+//                    college.setVisibility(View.GONE);
+//                    Toast.makeText(getActivity(), "فحوصات الدهون : " + w, Toast.LENGTH_SHORT).show();
+//
+//                } else {
+//                    fats.setVisibility(View.GONE);
+//                    college.setVisibility(View.GONE);
+//                }
+//            }
+//        });
 
         //======================Button Sheet view data college and Chek,Save Data===================
         //====college creatinine
@@ -440,54 +440,54 @@ public class Dmonthly_Sugar extends Fragment {
             }
         });
 
-        //================= Button Sheet view data Fats and Chek,Save Data  ===============
-        examine_bmi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getActivity(), R.style.BottomSheetDialogTheme);
-                View bottomSheetView = LayoutInflater.from(getActivity())
-                        .inflate(R.layout.layout_examine_bmi_btnsheet, (LinearLayout) getActivity().findViewById(R.id.bottomSheetContier));
-                final EditText et_bmi_height = bottomSheetView.findViewById(R.id.et_bmi_height);
-                final EditText et_bmi_weight = bottomSheetView.findViewById(R.id.et_bmi_weight);
-
-                checked_save_height_weight = bottomSheetView.findViewById(R.id.checked_save_height_weight);
-                checked_save_height_weight.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        college.setVisibility(View.GONE);
-                        fats.setVisibility(View.GONE);
-                        bmi_height = et_bmi_height.getText().toString();
-                        bmi_weight = et_bmi_weight.getText().toString();
-
-                        // 53 / 173*173
-                        if (bmi_height.isEmpty() || bmi_weight.isEmpty()) {
-                            //EditText is empty
-                            Toast.makeText(getActivity(), "لا توجد قيم مدخلة", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Double bmi_heightValue = Double.parseDouble(bmi_height);
-                            Double bmi_weightValue = Double.parseDouble(bmi_weight);
-
-                            // تحويل الطول من السنتميتر ل المتر
-                            Double height_meter = bmi_heightValue / 100;
-                            // ضرب الطول خارج المعادلة واعطاء القيمة ليقسمها على الوزن
-                            Double result2 = height_meter * height_meter;
-                            Double bmi = bmi_weightValue / result2;
-
-
-                            showSuccessDialog("مؤشر الكتلة ", "  مؤشر كتلة الجسم هوا : ( " + bmi.shortValue() + " ) النسبة جيدة حافظ على سلامتك   ");
-
-                            databaseReference.child("فحوصات مؤشر كتلة الجسم").child("bmi_height").setValue(bmi_height+"");
-                            databaseReference.child("فحوصات مؤشر كتلة الجسم").child("bmi_weight").setValue(bmi_weight+"");
-                            databaseReference.child("فحوصات مؤشر كتلة الجسم").child("مؤشر كتلة الجسم").setValue(bmi+"");
-                            bottomSheetDialog.dismiss();
-                        }
-                    }
-                });
-                bottomSheetDialog.setContentView(bottomSheetView);
-                bottomSheetDialog.show();
-            }
-
-        });
+//        //================= Button Sheet view data Fats and Chek,Save Data  ===============
+//        examine_bmi.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getActivity(), R.style.BottomSheetDialogTheme);
+//                View bottomSheetView = LayoutInflater.from(getActivity())
+//                        .inflate(R.layout.layout_examine_bmi_btnsheet, (LinearLayout) getActivity().findViewById(R.id.bottomSheetContier));
+//                final EditText et_bmi_height = bottomSheetView.findViewById(R.id.et_bmi_height);
+//                final EditText et_bmi_weight = bottomSheetView.findViewById(R.id.et_bmi_weight);
+//
+//                checked_save_height_weight = bottomSheetView.findViewById(R.id.checked_save_height_weight);
+//                checked_save_height_weight.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        college.setVisibility(View.GONE);
+//                        fats.setVisibility(View.GONE);
+//                        bmi_height = et_bmi_height.getText().toString();
+//                        bmi_weight = et_bmi_weight.getText().toString();
+//
+//                        // 53 / 173*173
+//                        if (bmi_height.isEmpty() || bmi_weight.isEmpty()) {
+//                            //EditText is empty
+//                            Toast.makeText(getActivity(), "لا توجد قيم مدخلة", Toast.LENGTH_SHORT).show();
+//                        } else {
+//                            Double bmi_heightValue = Double.parseDouble(bmi_height);
+//                            Double bmi_weightValue = Double.parseDouble(bmi_weight);
+//
+//                            // تحويل الطول من السنتميتر ل المتر
+//                            Double height_meter = bmi_heightValue / 100;
+//                            // ضرب الطول خارج المعادلة واعطاء القيمة ليقسمها على الوزن
+//                            Double result2 = height_meter * height_meter;
+//                            Double bmi = bmi_weightValue / result2;
+//
+//
+//                            showSuccessDialog("مؤشر الكتلة ", "  مؤشر كتلة الجسم هوا : ( " + bmi.shortValue() + " ) النسبة جيدة حافظ على سلامتك   ");
+//
+//                            databaseReference.child("فحوصات مؤشر كتلة الجسم").child("bmi_height").setValue(bmi_height+"");
+//                            databaseReference.child("فحوصات مؤشر كتلة الجسم").child("bmi_weight").setValue(bmi_weight+"");
+//                            databaseReference.child("فحوصات مؤشر كتلة الجسم").child("مؤشر كتلة الجسم").setValue(bmi+"");
+//                            bottomSheetDialog.dismiss();
+//                        }
+//                    }
+//                });
+//                bottomSheetDialog.setContentView(bottomSheetView);
+//                bottomSheetDialog.show();
+//            }
+//
+//        });
 
         return view;
 

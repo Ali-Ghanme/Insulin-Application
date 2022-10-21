@@ -29,7 +29,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-13.5dp"
+            android:layout_marginTop="-13.9dp"
             android:background="#FAF9F9"
             android:fontFamily="@font/cairo_light"
             android:letterSpacing="0.2"

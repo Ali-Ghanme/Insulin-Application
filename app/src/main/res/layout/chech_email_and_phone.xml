@@ -46,14 +46,14 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/et_phone"
+        android:id="@+id/et_username"
         android:layout_width="@dimen/_240sdp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_5sdp"
         android:background="@drawable/news_rectangel"
         android:elevation="@dimen/_1sdp"
         android:fontFamily="@font/cairo_bold"
-        android:hint="0599999999"
+        android:hint="username"
         android:backgroundTint="?attr/bg_color"
         android:inputType="phone"
         android:padding="@dimen/_10sdp"

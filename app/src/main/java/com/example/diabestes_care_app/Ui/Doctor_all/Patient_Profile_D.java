@@ -30,7 +30,8 @@ public class Patient_Profile_D extends Basic_Activity {
     protected void onCreate(Bundle savedInstanceState) {
         fullscreen();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_patient_profile_d);
+       // setContentView(R.layout.activity_patient_profile_d);
+
 
         DoctorName = findViewById(R.id.PPD_tv_doctor_name);
         Doctor_Profile = findViewById(R.id.PPD_img_Profile);

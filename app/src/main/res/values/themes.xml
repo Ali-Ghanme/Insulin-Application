@@ -21,6 +21,7 @@
         <item name="nav_selected_one_p">@color/white</item>
         <item name="nav_selected_one_d">@color/white</item>
         <item name="chat_box_d">@color/light_gray</item>
+        <item name="bg_background">@color/white</item>
 
     </style>
 

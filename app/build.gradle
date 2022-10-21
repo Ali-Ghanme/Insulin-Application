@@ -81,4 +81,9 @@ dependencies {
     implementation 'com.jjoe64:graphview:4.2.2'
     implementation 'com.android.support:gridlayout-v7:31.0.0'
     implementation 'com.android.support:appcompat-v7:31.0.0'
+
+    implementation 'com.sun.mail:android-mail:1.6.0'
+    implementation 'com.sun.mail:android-activation:1.6.0'
+
+
 }

@@ -2,6 +2,7 @@
 <resources>
     <declare-styleable name="dt">
         <attr name="bg_color" format="color" />
+        <attr name="bg_background" format="color" />
         <attr name="text_color" format="color" />
         <attr name="nav_color_p" format="color" />
         <attr name="nav_color_d" format="color" />

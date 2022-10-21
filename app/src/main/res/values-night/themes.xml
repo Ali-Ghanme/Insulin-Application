@@ -13,13 +13,15 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-        <item name="bg_color">#1d1b1e</item>
+        <item name="bg_color">#162230</item>
         <item name="text_color">#ffffff</item>
         <item name="nav_color_p">#1d1b1e</item>
         <item name="nav_color_d">#1d1b1e</item>
         <item name="nav_selected_one_p">@color/Patient_Color</item>
         <item name="nav_selected_one_d">@color/Doctor_Color</item>
         <item name="chat_box_d">@color/dark_gray</item>
+        <item name="bg_background">@color/dark_blue2</item>
+
     </style>
 
     <style name="Theme.Diabestes_Care_App.NoActionBar">

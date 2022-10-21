@@ -23,6 +23,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.diabestes_care_app.R;
+import com.example.diabestes_care_app.ResetPassword;
 import com.example.diabestes_care_app.Ui.Patient_all.Home_Patient;
 import com.example.diabestes_care_app.Ui.Sing_up_pages.Patient.Sing_Up_1_P;
 import com.google.firebase.database.DataSnapshot;
@@ -73,19 +74,31 @@ public class LogIn_Patient_Fragment extends Fragment {
         //==============================Shared Preference===========================================
         sharedpreferences = this.requireActivity().getSharedPreferences(MyPREFERENCES_P, Context.MODE_PRIVATE);
 
-        //==========================================================================================
-        // Create + Configure the Dialog here
-        dialog = new Dialog(getContext());
-        dialog.setContentView(R.layout.chech_email_and_phone);
-        dialog.getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.dilog_background));
-        //Setting the animations to dialog
-        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        dialog.setCancelable(true); //Optional
-        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+//        //==========================================================================================
+//        // Create + Configure the Dialog here
+//        dialog = new Dialog(getContext());
+//        dialog.setContentView(R.layout.chech_email_and_phone);
+//        dialog.getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.dilog_background));
+//        //Setting the animations to dialog
+//        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+//        dialog.setCancelable(true); //Optional
+//        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+//
+//        forgetPassword.setOnClickListener(v -> {
+//            dialog.show(); // Showing the dialog here
+//
+//        });
 
-        forgetPassword.setOnClickListener(v -> {
-            dialog.show(); // Showing the dialog here
-        });
+
+        forgetPassword.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View v) {
+                  Intent intent = new Intent(getContext(), ResetPassword.class);
+                  startActivity(intent);
+              }
+          }
+
+        );
 
         //============================== Remember Me Login  Patient ================================
         rememberMe.setOnCheckedChangeListener((buttonView, isChecked) -> {

@@ -6,47 +6,48 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center_horizontal"
+    android:background="?attr/bg_background"
     android:gravity="center_horizontal"
-    android:background="#1BA1A1A1"
     android:orientation="vertical">
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="@dimen/_20sdp"
-    android:orientation="horizontal">
-
-    <Button
-        android:id="@+id/checked_save_creatinine"
-        android:layout_width="140dp"
-        android:layout_height="40dp"
-        android:background="@drawable/btnext"
-        android:backgroundTint="@color/Patient_Color"
-        android:fontFamily="@font/cairo_bold"
-        android:text="  فحص و حفظ  "
-        android:textColor="@color/white"
-        android:textSize="@dimen/_9sdp" />
-
-    <TextView
-        android:id="@+id/tv_title_college"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/cairo_bold"
-        android:paddingBottom="@dimen/_4sdp"
-        android:text="فحص وظائف الكلية "
-        android:textAlignment="center"
-        android:textSize="@dimen/_15sdp" />
+        android:orientation="horizontal"
+        android:padding="@dimen/_20sdp">
+
+        <Button
+            android:id="@+id/checked_save_creatinine"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:background="@drawable/btnext"
+            android:backgroundTint="@color/Patient_Color"
+            android:fontFamily="@font/cairo_bold"
+            android:text="  فحص و حفظ  "
+            android:textColor="@color/white"
+            android:textSize="@dimen/_9sdp" />
+
+        <TextView
+            android:id="@+id/tv_title_college"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/cairo_bold"
+            android:paddingBottom="@dimen/_4sdp"
+            android:text="فحص وظائف الكلية "
+            android:textAlignment="center"
+            android:textSize="@dimen/_15sdp" />
 
 
-</LinearLayout>
+    </LinearLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_10sdp"
-        android:layout_marginRight="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
         android:background="@drawable/bg_edit_text"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="?attr/bg_color"
         android:elevation="@dimen/_2sdp"
         android:padding="@dimen/_15sdp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -60,6 +61,7 @@
             android:layout_height="48dp"
             android:layout_below="@+id/tv_text"
             android:background="@drawable/bg_edit_text"
+            android:backgroundTint="?attr/bg_background"
             android:drawableLeft="@drawable/ic_add"
             android:drawablePadding="@dimen/_5sdp"
             android:drawableTint="@color/gray"
@@ -67,8 +69,8 @@
             android:fontFamily="@font/cairo_bold"
             android:hint="قم بإدخال نسبة الكرياتينين (0.7 - 1.2) "
             android:inputType="numberDecimal"
-            android:paddingEnd="10dp"
             android:paddingStart="10dp"
+            android:paddingEnd="10dp"
             android:textColor="@color/Doctor_Color"
             android:textColorHint="#78909C"
             android:textSize="13sp"
@@ -88,13 +90,12 @@
     </RelativeLayout>
 
 
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_10sdp"
-        android:layout_marginRight="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginRight="@dimen/_10sdp"
         android:elevation="@dimen/_2sdp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -104,8 +105,8 @@
             android:id="@+id/tv_information"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawablePadding="@dimen/_5sdp"
             android:drawableRight="@drawable/ic_info"
+            android:drawablePadding="@dimen/_5sdp"
             android:drawableTint="@color/gray"
             android:fontFamily="@font/cairo_bold"
             android:padding="@dimen/_15sdp"
@@ -115,8 +116,6 @@
 
 
     </RelativeLayout>
-
-
 
 
 </LinearLayout>

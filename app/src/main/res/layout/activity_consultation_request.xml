@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/bg_background"
     tools:context=".Ui.Patient_all.Sections.Consulation.Consultation_Request">
 
     <TextView
@@ -55,6 +56,7 @@
         android:id="@+id/Consu_recycle"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+
         android:layout_margin="@dimen/_10sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

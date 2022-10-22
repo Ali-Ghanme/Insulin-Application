@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/bg_background"
     tools:context=".Ui.Patient_all.Setting_P.Help">
 
     <RelativeLayout
@@ -64,6 +65,7 @@
             android:layout_marginLeft="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_15sdp"
             android:background="@drawable/round_back_light"
+            android:backgroundTint="?attr/bg_background"
             android:elevation="@dimen/_1sdp"
             android:paddingLeft="@dimen/_12sdp"
             android:paddingRight="@dimen/_5sdp"
@@ -109,6 +111,8 @@
             android:layout_marginLeft="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_15sdp"
             android:background="@drawable/round_back_light"
+            android:backgroundTint="?attr/bg_background"
+
             android:elevation="@dimen/_1sdp"
             android:paddingLeft="@dimen/_12sdp"
             android:paddingRight="@dimen/_5sdp"
@@ -152,6 +156,7 @@
             android:layout_marginLeft="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_15sdp"
             android:background="@drawable/round_back_light"
+            android:backgroundTint="?attr/bg_background"
             android:elevation="@dimen/_1sdp"
             android:paddingLeft="@dimen/_12sdp"
             android:paddingRight="@dimen/_5sdp"
@@ -194,6 +199,7 @@
             android:layout_marginLeft="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_15sdp"
             android:background="@drawable/round_back_light"
+            android:backgroundTint="?attr/bg_background"
             android:elevation="@dimen/_1sdp"
             android:paddingLeft="@dimen/_12sdp"
             android:paddingRight="@dimen/_5sdp"

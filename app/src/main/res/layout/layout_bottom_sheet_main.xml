@@ -4,8 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center_horizontal"
-    android:background="?attr/bg_color"
+    android:background="?attr/bg_background"
     android:id="@+id/bottomSheetContier_main"
+
     android:gravity="center_horizontal"
     android:orientation="vertical">
 

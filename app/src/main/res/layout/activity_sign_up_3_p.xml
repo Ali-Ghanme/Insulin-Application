@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/bg_background"
     tools:context=".Ui.Sing_up_pages.Patient.Sing_Up_3_P">
 
     <RelativeLayout

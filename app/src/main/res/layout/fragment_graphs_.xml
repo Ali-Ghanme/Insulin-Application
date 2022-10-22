@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/bg_background"
+
     tools:context=".Ui.Patient_all.Sections.Reports.Graphs_Fragment">
 
     <LinearLayout
@@ -30,11 +32,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="-13.9dp"
-            android:background="#FAF9F9"
+            android:background="?attr/bg_color"
             android:fontFamily="@font/cairo_light"
             android:letterSpacing="0.2"
             android:text=" صباحا      ظهرا         عصرا        مغرب      عشاء"
-            android:textColor="@color/black"
+            android:textColor="?attr/text_color"
             android:textSize="@dimen/_12sdp" />
 
 

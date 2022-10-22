@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="?attr/bg_background"
     tools:context=".Ui.Patient_all.Sections.Reports.Repo_View.Reports_Fragment">
 
     <RelativeLayout
@@ -23,6 +24,7 @@
             android:layout_marginHorizontal="10dp"
             android:background="@drawable/tab_selector_d"
             android:elevation="@dimen/_1sdp"
+            android:backgroundTint="?attr/bg_color"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"

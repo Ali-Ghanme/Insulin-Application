@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/_70sdp"
     android:layout_marginLeft="@dimen/_10sdp"
+    android:background="?attr/bg_background"
     android:layout_marginTop="@dimen/_10sdp"
     android:layout_marginRight="10dp">
 
@@ -28,7 +29,7 @@
             android:maxLines="1"
             android:singleLine="true"
             android:text="لديك رسالة من "
-            android:textColor="@color/black" />
+            android:textColor="?attr/text_color" />
 
         <TextView
             android:id="@+id/Not_user_name2"

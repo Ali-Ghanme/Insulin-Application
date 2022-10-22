@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center_horizontal"
     android:gravity="center_horizontal"
-    android:background="#1BA1A1A1"
+    android:background="?attr/bg_background"
     android:orientation="vertical">
 
 <LinearLayout
@@ -45,7 +45,7 @@
         android:layout_marginRight="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_15sdp"
         android:background="@drawable/bg_edit_text"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="?attr/bg_color"
         android:elevation="@dimen/_2sdp"
         android:padding="@dimen/_15sdp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -71,12 +71,13 @@
             android:drawableLeft="@drawable/ic_add"
             android:drawablePadding="@dimen/_5sdp"
             android:drawableTint="@color/gray"
+            android:backgroundTint="?attr/bg_background"
             android:elevation="@dimen/_1sdp"
             android:fontFamily="@font/cairo_bold"
             android:hint="قم بإدخال نسبة (3.5 - 7.2)	Uric acid  "
             android:inputType="numberDecimal"
-            android:paddingEnd="10dp"
             android:paddingStart="10dp"
+            android:paddingEnd="10dp"
             android:textColor="@color/Doctor_Color"
             android:textColorHint="#78909C"
             android:textSize="13sp"

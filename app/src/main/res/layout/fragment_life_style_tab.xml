@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/bg_background"
     android:orientation="vertical"
     tools:context=".Ui.Patient_all.Sections.Self_Care.SelfCare.Life_Style_Fragment">
 
@@ -20,6 +21,7 @@
             android:background="@drawable/tab_selector_d"
             android:elevation="3dp"
             app:layout_constraintLeft_toLeftOf="parent"
+            android:backgroundTint="?attr/bg_color"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:tabBackground="@drawable/tab_selector_n_p"

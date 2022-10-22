@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="?attr/bg_background"
     tools:context=".Ui.Patient_all.Sections.Reports.Repo_View.Reports_Fragment">
 
     <androidx.recyclerview.widget.RecyclerView

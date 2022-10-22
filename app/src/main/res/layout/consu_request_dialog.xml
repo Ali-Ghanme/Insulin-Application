@@ -4,6 +4,7 @@
     android:layout_width="@dimen/_270sdp"
     android:layout_height="@dimen/_340sdp"
     android:layout_gravity="center_horizontal"
+    android:background="?attr/bg_background"
     android:elevation="@dimen/_10sdp"
     android:gravity="center_horizontal"
     android:orientation="vertical">
@@ -18,6 +19,8 @@
         android:layout_width="@dimen/_240sdp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_5sdp"
+        android:backgroundTint="?attr/bg_background"
+
         android:background="@drawable/news_rectangel"
         android:elevation="@dimen/_1sdp"
         android:fontFamily="@font/cairo_bold"
@@ -36,6 +39,7 @@
         android:layout_margin="@dimen/_5sdp"
         android:layout_marginBottom="@dimen/_15sdp"
         android:background="@drawable/news_rectangel"
+        android:backgroundTint="?attr/bg_background"
         android:elevation="@dimen/_1sdp"
         android:fontFamily="@font/cairo_bold"
         android:gravity="top"

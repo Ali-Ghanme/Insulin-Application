@@ -6,4 +6,5 @@
     android:layout_height="fill_parent"
     android:fontFamily="@font/cairo_bold"
     android:padding="10dip"
+    android:backgroundTint="?attr/bg_background"
     android:textSize="@dimen/_13sdp"/>

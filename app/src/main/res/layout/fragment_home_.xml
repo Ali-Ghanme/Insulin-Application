@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layoutDirection="locale"
+    android:background="?attr/bg_background"
     android:orientation="vertical"
     tools:context=".Ui.Patient_all.Nav_Fragment_P.Home_Fragment">
 

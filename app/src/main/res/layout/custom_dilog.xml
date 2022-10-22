@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="@dimen/_240sdp"
     android:layout_height="@dimen/_180sdp"
+    android:backgroundTint="?attr/bg_background"
     android:layout_gravity="center_horizontal"
-    android:background="@drawable/dilog_background"
+    android:background="?attr/bg_background"
     android:elevation="@dimen/_5sdp">
 
     <LinearLayout

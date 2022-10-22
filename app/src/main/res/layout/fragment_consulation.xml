@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="?attr/bg_background"
     android:layout_height="match_parent"
     tools:context=".Ui.Doctor_all.Secation.Consulation.Consolation_Fragment">
 
@@ -18,6 +19,7 @@
             android:id="@+id/Consu_tab_layout_SR"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_30sdp"
+            android:backgroundTint="?attr/bg_color"
             android:layout_centerVertical="true"
             android:layout_marginHorizontal="10dp"
             android:background="@drawable/tab_selector_d"

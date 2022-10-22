@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/bg_background"
     tools:context=".Ui.Sing_up_pages.Doctor.Sing_up_5_D">
 
     <RelativeLayout
@@ -11,8 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_70sdp"
         android:background="@drawable/bg_sing_up"
-        app:layout_constraintLeft_toLeftOf="parent"
         android:backgroundTint="@color/Doctor_Color"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 

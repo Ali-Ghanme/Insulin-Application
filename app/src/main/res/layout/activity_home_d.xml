@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/bg_background"
     android:orientation="vertical"
     tools:context=".Ui.Doctor_all.Home_Doctor">
 
@@ -12,10 +13,11 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="@dimen/_5sdp"
+        android:backgroundTint="?attr/bg_background"
         app:layout_constraintBottom_toTopOf="@+id/animate_bottom_d"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <nl.joery.animatedbottombar.AnimatedBottomBar
         android:id="@+id/animate_bottom_d"

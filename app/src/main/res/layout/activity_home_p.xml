@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="?attr/bg_background"
     android:orientation="vertical"
     tools:context=".Ui.Patient_all.Home_Patient">
 
@@ -11,7 +12,7 @@
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="@dimen/_5sdp"
+        android:backgroundTint="?attr/bg_background"
         app:layout_constraintBottom_toTopOf="@+id/animate_bottom"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -23,6 +24,7 @@
         android:layout_height="@dimen/_50sdp"
         android:layout_marginTop="@dimen/_20sdp"
         android:background="@drawable/home_nav_bottom"
+        android:backgroundTint="?attr/bg_color"
         android:elevation="@dimen/_100sdp"
         android:layoutDirection="ltr"
         app:abb_animationDuration="500"

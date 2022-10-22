@@ -179,15 +179,12 @@ public class Patient_List_Adapter extends RecyclerView.Adapter<Patient_List_Adap
         follow_status(holder, follow, list2);
 
         //============================Pass Data Patient ============================================
-        holder.container.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, Patient_Profile_D.class);
-                intent.putExtra("Patient name", list2.getName());
-                intent.putExtra("Patient_Pic_Profile", list2.getImageUrl());
-                intent.putExtra("username", list2.getUsername());
-                context.startActivity(intent);
-            }
+        holder.container.setOnClickListener(v -> {
+            Intent intent = new Intent(context, Patient_Profile_D.class);
+            intent.putExtra("Patient name", list2.getName());
+            intent.putExtra("Patient_Pic_Profile", list2.getImageUrl());
+            intent.putExtra("username", list2.getUsername());
+            context.startActivity(intent);
         });
 
         //============================Recycle Item data ============================================

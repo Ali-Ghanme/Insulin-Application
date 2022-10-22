@@ -3,7 +3,6 @@ package com.example.diabestes_care_app.Ui.Doctor_all;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,7 +29,7 @@ public class Patient_Profile_D extends Basic_Activity {
     protected void onCreate(Bundle savedInstanceState) {
         fullscreen();
         super.onCreate(savedInstanceState);
-       // setContentView(R.layout.activity_patient_profile_d);
+        setContentView(R.layout.activity_patient_profile_d);
 
 
         DoctorName = findViewById(R.id.PPD_tv_doctor_name);
@@ -38,12 +37,9 @@ public class Patient_Profile_D extends Basic_Activity {
         request = findViewById(R.id.PPD_request_for);
         back = findViewById(R.id.PPD_btn_back);
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Patient_Profile_D.this, Home_Patient.class);
-                startActivity(intent);
-            }
+        back.setOnClickListener(v -> {
+            Intent intent = new Intent(Patient_Profile_D.this, Home_Patient.class);
+            startActivity(intent);
         });
 
         // Get data from message adapter class

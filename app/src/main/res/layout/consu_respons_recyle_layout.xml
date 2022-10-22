@@ -7,7 +7,7 @@
     android:layout_marginTop="@dimen/_10sdp"
     android:layout_marginRight="10dp"
     android:background="@drawable/bg_doctors_list"
-    android:backgroundTint="?attr/bg_color"
+    android:backgroundTint="?attr/bg_background"
     android:clickable="true"
     android:elevation="1.5dp"
     android:focusable="true">

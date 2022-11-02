@@ -15,7 +15,7 @@ import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.diabestes_care_app.Adapters.Consultation_Adapter;
+import com.example.diabestes_care_app.Adapter.Consultation_Adapter;
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.Models.Consolation_Model;
 import com.example.diabestes_care_app.R;

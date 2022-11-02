@@ -13,7 +13,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.diabestes_care_app.Adapters.Reports_Adapter;
+import com.example.diabestes_care_app.Adapter.Reports_Adapter;
 import com.example.diabestes_care_app.Models.Reports_Model;
 import com.example.diabestes_care_app.R;
 import com.google.android.material.tabs.TabLayout;

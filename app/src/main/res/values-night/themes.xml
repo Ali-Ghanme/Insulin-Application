@@ -11,16 +11,18 @@
         <item name="colorSecondaryVariant">@color/teal_200</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-        <item name="bg_color">#162230</item>
+        <item name="bg_color">#020f1f</item>
         <item name="text_color">#ffffff</item>
-        <item name="nav_color_p">#1d1b1e</item>
-        <item name="nav_color_d">#162230</item>
+        <item name="nav_color_p">#020f1f</item>
+        <item name="nav_color_d">#020f1f</item>
+        <item name="tab_nav_color">#020f1f</item>
+        <item name="selected_bar">@color/Patient_Color</item>
         <item name="nav_selected_one_p">@color/Patient_Color</item>
         <item name="nav_selected_one_d">@color/Doctor_Color</item>
         <item name="chat_box_d">@color/dark_gray</item>
-        <item name="bg_background">@color/dark_blue2</item>
+        <item name="bg_background">#162230</item>
 
     </style>
 

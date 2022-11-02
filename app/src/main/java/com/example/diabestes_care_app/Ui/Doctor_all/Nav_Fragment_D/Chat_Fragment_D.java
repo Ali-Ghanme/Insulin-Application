@@ -17,8 +17,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.diabestes_care_app.Adapters.Doctor_Follow_Adapter;
-import com.example.diabestes_care_app.Adapters.Doctor_Messages_Adapter;
+import com.example.diabestes_care_app.Adapter.Doctor_Follow_Adapter;
+import com.example.diabestes_care_app.Adapter.Doctor_Messages_Adapter;
 import com.example.diabestes_care_app.MemoryData.MemoryData;
 import com.example.diabestes_care_app.Models.Follow_Model;
 import com.example.diabestes_care_app.Models.MessagesList_Model;

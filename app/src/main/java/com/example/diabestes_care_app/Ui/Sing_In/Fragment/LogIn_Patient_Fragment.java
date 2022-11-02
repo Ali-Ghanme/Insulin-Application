@@ -23,7 +23,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.diabestes_care_app.R;
-import com.example.diabestes_care_app.ResetPassword;
+import com.example.diabestes_care_app.Ui.Sing_In.RestPassword_P.ResetPassword;
 import com.example.diabestes_care_app.Ui.Patient_all.Home_Patient;
 import com.example.diabestes_care_app.Ui.Sing_up_pages.Patient.Sing_Up_1_P;
 import com.google.firebase.database.DataSnapshot;

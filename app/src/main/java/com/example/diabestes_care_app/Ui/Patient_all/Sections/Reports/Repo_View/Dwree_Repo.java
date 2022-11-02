@@ -9,13 +9,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.diabestes_care_app.Adapters.Reports_Monthly_Adapter;
+import com.example.diabestes_care_app.Adapter.Reports_Monthly_Adapter;
 import com.example.diabestes_care_app.Models.Reports_Monthly_Model;
 import com.example.diabestes_care_app.R;
 import com.google.firebase.database.DataSnapshot;
@@ -39,7 +41,9 @@ public class Dwree_Repo extends Fragment {
     ArrayList<Reports_Monthly_Model> list2;
     // Patient Username
     String PatientUsername;
-    // Mohammed Siam
+    // No_Data
+    LinearLayout no_data;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -48,13 +52,14 @@ public class Dwree_Repo extends Fragment {
         View view = inflater.inflate(R.layout.fragment_dwree__repo, container, false);
 
         recyclerViewMonthly = view.findViewById(R.id.recyclerViewMonthly);
+        no_data = view.findViewById(R.id.No_Data_p_2);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerViewMonthly.setLayoutManager(layoutManager);
         recyclerViewMonthly.setHasFixedSize(true);
 
         //============================Get Patient Username===========================================
-        SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
+        SharedPreferences prefs = this.requireActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         PatientUsername = prefs.getString("TAG_NAME", null);
         list2 = new ArrayList<>();
         //============================Configure Firebase============================================
@@ -65,35 +70,33 @@ public class Dwree_Repo extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 try {
+                    if (dataSnapshot.getValue() != null) {
+                        Reports_Monthly_Model reports_monthly_model = new Reports_Monthly_Model();
+                        // فحوصات الدهون
+                        reports_monthly_model.setResult_cholesterol(dataSnapshot.child("فحوصات الدهون").child("Cholesterol").getValue().toString());
+                        reports_monthly_model.setResult_hdl(dataSnapshot.child("فحوصات الدهون").child("HDL").getValue().toString());
+                        reports_monthly_model.setResult_ldl(dataSnapshot.child("فحوصات الدهون").child("IDL").getValue().toString());
+                        reports_monthly_model.setResult_triglycerid(dataSnapshot.child("فحوصات الدهون").child("Triglyceride").getValue().toString());
+                        // فحوصات  وظائف الكلى
+                        reports_monthly_model.setResult_urea(dataSnapshot.child("فحوصات وظائف الكلى").child("Urea").getValue().toString());
+                        reports_monthly_model.setResult_creatinine(dataSnapshot.child("فحوصات وظائف الكلى").child("Creatine").getValue().toString());
+                        reports_monthly_model.setResult_uric(dataSnapshot.child("فحوصات وظائف الكلى").child("Uric").getValue().toString());
 
-                    Reports_Monthly_Model reports_monthly_model = new Reports_Monthly_Model();
-
-                    // فحوصات الدهون
-                    reports_monthly_model.setResult_cholesterol(dataSnapshot.child("فحوصات الدهون").child("Cholesterol").getValue().toString());
-                    reports_monthly_model.setResult_hdl(dataSnapshot.child("فحوصات الدهون").child("HDL").getValue().toString());
-                    reports_monthly_model.setResult_ldl(dataSnapshot.child("فحوصات الدهون").child("IDL").getValue().toString());
-                    reports_monthly_model.setResult_triglycerid(dataSnapshot.child("فحوصات الدهون").child("Triglyceride").getValue().toString());
-
-                    // فحوصات  وظائف الكلى
-                    reports_monthly_model.setResult_urea(dataSnapshot.child("فحوصات وظائف الكلى").child("Urea").getValue().toString());
-                    reports_monthly_model.setResult_creatinine(dataSnapshot.child("فحوصات وظائف الكلى").child("Creatine").getValue().toString());
-                    reports_monthly_model.setResult_uric(dataSnapshot.child("فحوصات وظائف الكلى").child("Uric").getValue().toString());
-
-                    // فحوصات مؤشر الكتلة
-                    reports_monthly_model.setResult_bmi_height(dataSnapshot.child("فحوصات مؤشر كتلة الجسم").child("bmi_height").getValue().toString());
-                    reports_monthly_model.setResult_bmi_weight(dataSnapshot.child("فحوصات مؤشر كتلة الجسم").child("bmi_weight").getValue().toString());
-
-                    // فحص ضغط الدم
-                    reports_monthly_model.setResult_presser(dataSnapshot.child("فحص ضغط الدم").child("Pressure").getValue().toString());
-
-                    list2.add(reports_monthly_model);
-
-                } catch (Exception e) {
-                    Log.e("TAG", e.getMessage());
+//                        // فحص ضغط الدم
+//                        reports_monthly_model.setResult_presser(dataSnapshot.child("فحص ضغط الدم").child("Pressure").getValue().toString());
+                        list2.add(reports_monthly_model);
+                        reports_monthly_adapter = new Reports_Monthly_Adapter(getContext(), list2);
+                        recyclerViewMonthly.setAdapter(reports_monthly_adapter);
+                        reports_monthly_adapter.updateUsersList(list2);
+                        recyclerViewMonthly.setVisibility(View.VISIBLE);
+                        no_data.setVisibility(View.INVISIBLE);
+                    } else {
+                        Toast.makeText(getContext(), "Hallow", Toast.LENGTH_SHORT).show();
+                        no_data.setVisibility(View.VISIBLE);
+                        recyclerViewMonthly.setVisibility(View.INVISIBLE);
+                    }
+                } catch (Exception ignored) {
                 }
-                reports_monthly_adapter = new Reports_Monthly_Adapter(getContext(), list2);
-                recyclerViewMonthly.setAdapter(reports_monthly_adapter);
-                reports_monthly_adapter.updateUsersList(list2);
             }
 
             @Override
@@ -104,4 +107,3 @@ public class Dwree_Repo extends Fragment {
         return view;
     }
 }
-// Hallow this is Update

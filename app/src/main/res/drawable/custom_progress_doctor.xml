@@ -3,15 +3,15 @@
     <item android:id="@+id/btn_get_started">
         <shape
             android:shape="ring"
-            android:thickness="10dp"
+            android:thickness="5dp"
             android:useLevel="false">
-            <solid android:color="#6DDAB5" />
+            <solid android:color="#E2EFEB" />
         </shape>
     </item>
     <item android:id="@+id/progress">
         <shape
             android:shape="ring"
-            android:thickness="10dp"
+            android:thickness="5dp"
             android:useLevel="true">
             <solid android:color="@color/Doctor_Color" />
         </shape>

@@ -5,8 +5,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/bg_background"
-
     tools:context=".Ui.Patient_all.Sections.Reports.Graphs_Fragment">
+
+    <LinearLayout
+        android:id="@+id/No_Data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/_120sdp"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/Subject"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_230sdp"
+            android:layout_gravity="center"
+            android:src="@drawable/no_data" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/cairo_bold"
+            android:text="للأسف لم تسجل أي قراءات بعد "
+            android:textColor="?attr/text_color"
+            android:textSize="@dimen/_15sdp" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/Subject"
@@ -19,32 +48,23 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 
-        <!--            android:layout_height="450dp"-->
         <com.jjoe64.graphview.GraphView
             android:id="@+id/graphview"
             android:layout_width="wrap_content"
             android:layout_height="450dp"
-            android:layout_marginTop="@dimen/_20sdp"
-
-            />
+            android:layout_marginTop="@dimen/_20sdp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-13.9dp"
-            android:background="?attr/bg_color"
+            android:layout_marginTop="-18dp"
+            android:background="?attr/bg_background"
             android:fontFamily="@font/cairo_light"
             android:letterSpacing="0.2"
-            android:text=" صباحا      ظهرا         عصرا        مغرب      عشاء"
+            android:text=" صباحا      ظهرا     عصرا        مغرب       عشاء"
             android:textColor="?attr/text_color"
             android:textSize="@dimen/_12sdp" />
 
-
-        <!--        <Button-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:text="noti"-->
-        <!--            android:id="@+id/noti"/>-->
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

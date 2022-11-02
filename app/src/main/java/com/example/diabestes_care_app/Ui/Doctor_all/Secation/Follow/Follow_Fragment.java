@@ -16,7 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.diabestes_care_app.Adapters.Doctor_Follow_Adapter;
+import com.example.diabestes_care_app.Adapter.Doctor_Follow_Adapter;
 import com.example.diabestes_care_app.Models.Follow_Model;
 import com.example.diabestes_care_app.R;
 import com.google.firebase.database.DataSnapshot;

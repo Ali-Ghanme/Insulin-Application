@@ -120,22 +120,21 @@ public class Basic_Activity extends AppCompatActivity {
                 Toast.makeText(context, "أنت لم تسجل مستخدم بعد!", Toast.LENGTH_SHORT).show();
                 finish();
             }
-
         });
         continues.setOnClickListener(v -> dialog.dismiss());
     }
 
-    public  void switchTheme(SwitcherX theme, Context context) {
+    public void switchTheme(SwitcherX theme, Context context) {
         SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
         final SharedPreferences.Editor editor = sharedPreferences.edit();
         final boolean isDarkModeOn = sharedPreferences.getBoolean("isDarkModeOn", false);
 
         if (isDarkModeOn) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-            theme.setChecked(true, true);
+            theme.setChecked(false, true);
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-            theme.setChecked(false, true);
+            theme.setChecked(true, true);
         }
 
         theme.setOnClickListener(
@@ -166,7 +165,7 @@ public class Basic_Activity extends AppCompatActivity {
                         editor.apply();
 
                         // change text of Button
-                        theme.setChecked(true , true);
+                        theme.setChecked(true, true);
                     }
                 });
     }

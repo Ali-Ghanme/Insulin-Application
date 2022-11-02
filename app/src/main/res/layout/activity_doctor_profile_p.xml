@@ -58,7 +58,6 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:fontFamily="@font/cairo_bold"
-            android:text="د.محمد صيام| Mohammed syam"
             android:textColor="?attr/text_color"
             android:textSize="@dimen/_16sdp"
             android:textStyle="bold" />
@@ -72,7 +71,7 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_10sdp"
             android:fontFamily="@font/cairo_regular"
-            android:text="طب عام"
+            android:text="متخصص سكري"
             android:textColor="?attr/text_color"
             android:textSize="@dimen/_12sdp"
             android:textStyle="bold" />
@@ -112,9 +111,9 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:fontFamily="@font/cairo_regular"
-                    android:text="سنوات خبرة"
+                    android:text="مراجعات جرعات"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_12sdp"
+                    android:textSize="@dimen/_11sdp"
                     android:textStyle="bold" />
 
             </RelativeLayout>
@@ -146,7 +145,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:fontFamily="@font/cairo_regular"
-                    android:text="سنوات خبرة"
+                    android:text="إستشارات"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_12sdp"
                     android:textStyle="bold" />
@@ -222,7 +221,7 @@
                 android:layout_height="@dimen/_150sdp"
                 android:fontFamily="@font/cairo_semibold"
                 android:maxLines="30"
-                android:text="@string/أنواع_المرض"
+                android:text="هنا نبذة عن الطبيب "
                 android:textColor="?attr/text_color"
                 android:textSize="@dimen/_11sdp"
                 android:textStyle="bold" />

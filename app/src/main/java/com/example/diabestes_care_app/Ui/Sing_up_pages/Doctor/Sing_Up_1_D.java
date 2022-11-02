@@ -68,13 +68,12 @@ public class Sing_Up_1_D extends Basic_Activity {
         btn_next_S.setOnClickListener(view -> {
             // get data form edit text into string variables
             DoctorName_ar = name_ar.getText().toString();
-            DoctorName_en = name_en.getText().toString();
             DoctorUsername = username.getText().toString();
             DoctorDate = mDate.getText().toString();
 
             //====================================Validation====================================
             // cheek if user fill all data fields before sending data to firebase
-            if (validIsEmpty(DoctorName_ar, DoctorName_en, DoctorUsername, DoctorDate, DoctorDate, DoctorDate)) {
+            if (validIsEmpty(DoctorName_ar, DoctorUsername, DoctorDate, DoctorDate, DoctorDate, DoctorDate)) {
                 Toast.makeText(Sing_Up_1_D.this, "Fill all fields", Toast.LENGTH_SHORT).show();
             } else if (!DoctorUsername.startsWith("D")) {
                 Toast.makeText(Sing_Up_1_D.this, "User Name Must Start With D", Toast.LENGTH_SHORT).show();
@@ -89,7 +88,6 @@ public class Sing_Up_1_D extends Basic_Activity {
                             // sending data to firebase real time
                             // we are using a phone number as unique identity of every user
                             databaseReference.child(DoctorUsername).child("personal_info").child("name_ar").setValue(DoctorName_ar);
-                            databaseReference.child(DoctorUsername).child("personal_info").child("name_en").setValue(DoctorName_en);
                             databaseReference.child(DoctorUsername).child("personal_info").child("Gender").setValue(strGender);
                             databaseReference.child(DoctorUsername).child("personal_info").child("date").setValue(DoctorDate);
                             databaseReference.child(DoctorUsername).child("username").setValue(DoctorUsername);
@@ -139,6 +137,6 @@ public class Sing_Up_1_D extends Basic_Activity {
     @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     public void onBackPressed() {
-        exitHappen(this, databaseReference,DoctorUsername);
+        exitHappen(this, databaseReference, DoctorUsername);
     }
 }

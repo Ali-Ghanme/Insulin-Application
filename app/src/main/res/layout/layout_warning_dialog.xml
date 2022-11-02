@@ -7,31 +7,18 @@
     android:layout_margin="@dimen/_20sdp"
     android:padding="@dimen/_20sdp">
 
-    <Button
-        android:id="@+id/buttonNo"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/_35sdp"
-        android:backgroundTint="?attr/bg_background"
-        android:layout_marginEnd="@dimen/_10sdp"
-        android:layout_marginStart="@dimen/_40sdp"
-        android:background="@drawable/button_nautarl_background"
-        android:textColor="@color/colorWhite"
-        android:textSize="@dimen/_14sdp"
-        app:layout_constraintBottom_toBottomOf="@+id/layoutDialog"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonYes"
-        app:layout_constraintTop_toBottomOf="@+id/layoutDialog" />
 
     <Button
         android:id="@+id/buttonYes"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/_40sdp"
+        android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginEnd="@dimen/_35sdp"
+        android:background="@drawable/button_warning_background"
+        android:fontFamily="@font/cairo_regular"
         android:paddingStart="@dimen/_5sdp"
         android:paddingEnd="@dimen/_5sdp"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:background="@drawable/button_warning_background"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/black"
         android:textSize="@dimen/_14sdp"
         app:layout_constraintBottom_toBottomOf="@+id/layoutDialog"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,6 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/dialog_background"
+        android:backgroundTint="?attr/bg_background"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
@@ -61,28 +49,41 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/title_warning_background"
+            android:fontFamily="@font/cairo_regular"
             android:padding="10dp"
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/_18sdp"
-            android:textStyle="bold"
+            android:textSize="@dimen/_16sdp"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textMessage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_40sdp"
-            android:layout_marginEnd="20dp"
             android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_18sdp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="@dimen/_40sdp"
+            android:fontFamily="@font/cairo_bold"
             android:textColor="?attr/text_color"
-            android:textSize="@dimen/_16sdp"
-            android:fontFamily="@font/cairo_light"
+            android:textSize="@dimen/_14sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textTitle" />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+    <Button
+        android:id="@+id/buttonNo"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_marginStart="@dimen/_40sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:background="@drawable/button_nautarl_background"
+        android:backgroundTint="?attr/bg_color"
+        android:fontFamily="@font/cairo_regular"
+        android:textColor="?attr/text_color"
+        android:textSize="@dimen/_14sdp"
+        app:layout_constraintBottom_toBottomOf="@+id/layoutDialog"
+        app:layout_constraintEnd_toStartOf="@+id/buttonYes"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutDialog" />
 </androidx.constraintlayout.widget.ConstraintLayout>

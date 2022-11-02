@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/bg_background"
-    tools:context=".RestPassowrd2">
+    tools:context=".Ui.Sing_In.RestPassword_P.RestPassowrd2">
 
     <ImageView
         android:id="@+id/imageView4"

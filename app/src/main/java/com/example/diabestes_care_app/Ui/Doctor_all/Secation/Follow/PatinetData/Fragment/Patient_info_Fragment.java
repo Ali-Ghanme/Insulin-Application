@@ -1,7 +1,7 @@
 package com.example.diabestes_care_app.Ui.Doctor_all.Secation.Follow.PatinetData.Fragment;
 
 import static android.content.Context.MODE_PRIVATE;
-import static com.example.diabestes_care_app.Adapters.Doctor_Follow_Adapter.MyPREFERENCES_P_Username_D;
+import static com.example.diabestes_care_app.Adapter.Doctor_Follow_Adapter.MyPREFERENCES_P_Username_D;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;

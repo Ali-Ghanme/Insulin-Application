@@ -36,6 +36,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:tabBackground="@drawable/tab_selector_n"
+            app:tabIndicatorColor="@color/Patient_Color"
             app:tabGravity="fill"
             app:tabIndicatorHeight="0dp"
             app:tabMode="fixed"

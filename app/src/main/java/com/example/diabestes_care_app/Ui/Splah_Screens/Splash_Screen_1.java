@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.diabestes_care_app.Adapters.ViewAdapter_Splash_Screen;
+import com.example.diabestes_care_app.Adapter.ViewAdapter_Splash_Screen;
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.Models.Splash_Screen_Modal;
 import com.example.diabestes_care_app.R;

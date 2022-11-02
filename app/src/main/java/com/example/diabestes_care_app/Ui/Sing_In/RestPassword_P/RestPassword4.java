@@ -1,10 +1,11 @@
-package com.example.diabestes_care_app;
+package com.example.diabestes_care_app.Ui.Sing_In.RestPassword_P;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
+import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Sing_In.Sing_In;
 
 public class RestPassword4 extends Basic_Activity {

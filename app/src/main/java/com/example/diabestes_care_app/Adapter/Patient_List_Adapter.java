@@ -1,4 +1,4 @@
-package com.example.diabestes_care_app.Adapters;
+package com.example.diabestes_care_app.Adapter;
 
 import static android.content.Context.MODE_PRIVATE;
 import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Doctor_Fragment.MyPREFERENCES_D;

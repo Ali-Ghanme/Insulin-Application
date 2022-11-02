@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,4 +12,35 @@
         android:id="@+id/Daily_report_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-</LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/No_Data_d"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/_120sdp"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/Daily_report_recyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_230sdp"
+            android:layout_gravity="center"
+            android:src="@drawable/no_data" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/cairo_bold"
+            android:text="للأسف لم يسجل المريض أي قراءات بعد "
+            android:textColor="?attr/text_color"
+            android:textSize="@dimen/_15sdp" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

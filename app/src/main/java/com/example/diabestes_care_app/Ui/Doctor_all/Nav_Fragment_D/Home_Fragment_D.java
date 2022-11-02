@@ -22,7 +22,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.diabestes_care_app.Adapters.Patient_List_Adapter;
+import com.example.diabestes_care_app.Adapter.Patient_List_Adapter;
 import com.example.diabestes_care_app.Models.PatientList_Model;
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Users_Notification;
@@ -146,8 +146,7 @@ public class Home_Fragment_D extends Fragment {
                         progressDialog.dismiss();
                     }
 
-                } catch (Exception e) {
-                    Log.e("TAG", e.getMessage());
+                } catch (Exception ignored) {
 
                 }
                 patientList_adapter = new Patient_List_Adapter(getContext(), list);

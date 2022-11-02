@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="?attr/bg_color"
     android:layout_height="match_parent"
-    android:backgroundTint="?attr/bg_background"
     tools:context=".Ui.Splah_Screens.Splash_Screen_1">
 
     <RelativeLayout
@@ -42,6 +42,7 @@
             android:layout_marginRight="32dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/btnext"
+            android:backgroundTint="?attr/bg_background"
             android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
             android:drawableTint="@color/Patient_Color"
             android:elevation="2dp"

@@ -10,7 +10,7 @@ import android.widget.ImageView;
 
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.diabestes_care_app.Adapters.ViewAdapter_Content;
+import com.example.diabestes_care_app.Adapter.ViewAdapter_Content;
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.Models.SelfCare_Model;
 import com.example.diabestes_care_app.R;

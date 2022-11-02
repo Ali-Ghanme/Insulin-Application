@@ -1,4 +1,4 @@
-package com.example.diabestes_care_app;
+package com.example.diabestes_care_app.Ui.Sing_In.RestPassword_P;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
+import com.example.diabestes_care_app.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

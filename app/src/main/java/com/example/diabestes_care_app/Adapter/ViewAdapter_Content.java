@@ -1,4 +1,4 @@
-package com.example.diabestes_care_app.Adapters;
+package com.example.diabestes_care_app.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;

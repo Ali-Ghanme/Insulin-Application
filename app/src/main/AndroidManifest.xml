@@ -18,16 +18,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/Theme.Diabestes_Care_App">
         <activity
-            android:name=".RestPassword4"
+            android:name=".Ui.Sing_In.RestPassword_P.RestPassword4"
             android:exported="false" />
         <activity
-            android:name=".RestPassword3"
+            android:name=".Ui.Sing_In.RestPassword_P.RestPassword3"
             android:exported="false" />
         <activity
-            android:name=".RestPassowrd2"
+            android:name=".Ui.Sing_In.RestPassword_P.RestPassowrd2"
             android:exported="false" />
         <activity
-            android:name=".ResetPassword"
+            android:name=".Ui.Sing_In.RestPassword_P.ResetPassword"
             android:exported="false" />
         <activity
             android:name=".Ui.Splah_Screens.Splash_Screen_1"

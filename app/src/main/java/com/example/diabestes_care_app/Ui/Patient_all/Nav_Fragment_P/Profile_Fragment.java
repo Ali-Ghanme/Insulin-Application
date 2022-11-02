@@ -14,13 +14,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.bitvale.switcher.SwitcherX;
 import com.bumptech.glide.Glide;
-
+import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Patient_all.Setting_P.Edit_Profile_P;
 import com.example.diabestes_care_app.Ui.Patient_all.Setting_P.Help;
@@ -34,7 +34,7 @@ import com.google.firebase.database.ValueEventListener;
 @SuppressLint("UseSwitchCompatOrMaterialCode")
 public class Profile_Fragment extends Fragment {
     // Section
-    RelativeLayout  DarkMode_cont, help_cont, LogOut_cont;
+    RelativeLayout help_cont, LogOut_cont;
     // Image Patient Profile , Edit Icon
     ImageView imageView, imageView2;
     // Patient Name
@@ -45,6 +45,7 @@ public class Profile_Fragment extends Fragment {
     String PatientUsername;
     // Shared Preference
     SharedPreferences prefs;
+    SwitcherX theme;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -53,54 +54,41 @@ public class Profile_Fragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile_, container, false);
 
         //============================Defines=======================================================
-        DarkMode_cont = view.findViewById(R.id.FB_DarkMode_cont);
         help_cont = view.findViewById(R.id.FB_help_cont);
         LogOut_cont = view.findViewById(R.id.FB_LogOut_cont);
         name = view.findViewById(R.id.FB_tv_Patient_name);
         imageView = view.findViewById(R.id.FB_Patient_image);
         imageView2 = view.findViewById(R.id.FB_Patient_edit);
+        theme = view.findViewById(R.id.FB_switcher);
 
         //============================Shared Preference=============================================
-        prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
+        prefs = this.requireActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         PatientUsername = prefs.getString("TAG_NAME", null);
 
         //============================Next Click Listener===========================================
-        imageView2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), Edit_Profile_P.class);
-                startActivity(intent);
-            }
+        imageView2.setOnClickListener(v -> {
+            Intent intent = new Intent(getContext(), Edit_Profile_P.class);
+            startActivity(intent);
         });
 
-        DarkMode_cont.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "Hallow Dark Mod is Unavailable right now 😉", Toast.LENGTH_SHORT).show();
-            }
-        });
+        theme.setOnClickListener(v -> ((Basic_Activity) requireActivity()).switchTheme(theme, getContext()));
 
-        help_cont.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), Help.class);
-                startActivity(intent);
-            }
+
+        help_cont.setOnClickListener(v -> {
+            Intent intent = new Intent(getContext(), Help.class);
+            startActivity(intent);
         });
 
         //==============================Logout Patient==============================================
-        LogOut_cont.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SharedPreferences preferences = getActivity().getSharedPreferences("checkbox_P", MODE_PRIVATE);
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.putString("remember_P", "false");
-                editor.apply();
-                editor.clear();
-                Intent intent_p = new Intent(getActivity(), Sing_In.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent_p);
-                getActivity().finishAffinity();
-            }
+        LogOut_cont.setOnClickListener(v -> {
+            SharedPreferences preferences = requireActivity().getSharedPreferences("checkbox_P", MODE_PRIVATE);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putString("remember_P", "false");
+            editor.apply();
+            editor.clear();
+            Intent intent_p = new Intent(getActivity(), Sing_In.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent_p);
+            requireActivity().finishAffinity();
         });
         return view;
     }
@@ -129,4 +117,3 @@ public class Profile_Fragment extends Fragment {
         });
     }
 }
-// Hallow this is Update

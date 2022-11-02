@@ -10,5 +10,6 @@
         <attr name="nav_selected_one_p" format="color" />
         <attr name="nav_selected_one_d" format="color" />
         <attr name="chat_box_d" format="color"/>
+        <attr name="selected_bar" format="color"/>
     </declare-styleable>
 </resources>

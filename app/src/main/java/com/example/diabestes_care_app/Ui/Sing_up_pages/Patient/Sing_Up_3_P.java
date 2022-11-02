@@ -80,7 +80,6 @@ public class Sing_Up_3_P extends Basic_Activity {
     public void onBackPressed() {
         exitHappen(this, databaseReference, patient_userName);
     }
-
     void saveData() {
         // cheek if user fill all data fields before sending data to firebase
         if (validIsEmpty(strType, strType, strType, strType, strType, strType)) {
@@ -97,4 +96,5 @@ public class Sing_Up_3_P extends Basic_Activity {
             startActivity(intent3);
         }
     }
+
 }

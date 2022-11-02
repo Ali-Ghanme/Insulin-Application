@@ -21,7 +21,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.diabestes_care_app.Adapters.Patient_Chat_Adapter;
+import com.example.diabestes_care_app.Adapter.Patient_Chat_Adapter;
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.MemoryData.MemoryData;
 import com.example.diabestes_care_app.Models.ChatList_Model;

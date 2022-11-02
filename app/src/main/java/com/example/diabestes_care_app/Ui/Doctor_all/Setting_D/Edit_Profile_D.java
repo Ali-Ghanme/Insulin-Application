@@ -176,6 +176,7 @@ public class Edit_Profile_D extends Basic_Activity {
                                 Upload_Model uploadModel = new Upload_Model(uri.toString());
                                 DB_Ref.child(restoredText).child("User_Profile_Image").child("Image").setValue(uploadModel);
                                 Toast.makeText(Edit_Profile_D.this, "تم تحديث الصورة الشخصية بنجاح", Toast.LENGTH_SHORT).show();
+                                mProgress.setVisibility(View.INVISIBLE);
                             });
                         })
                         .addOnFailureListener(e -> {

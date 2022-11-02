@@ -24,7 +24,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.diabestes_care_app.Adapters.Doctor_List_Adapter;
+import com.example.diabestes_care_app.Adapter.Doctor_List_Adapter;
 import com.example.diabestes_care_app.Models.DoctorList_Model;
 import com.example.diabestes_care_app.Notification_Controller.Notification_Number;
 import com.example.diabestes_care_app.R;

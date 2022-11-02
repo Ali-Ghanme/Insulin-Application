@@ -113,13 +113,12 @@
     <ProgressBar
         android:id="@+id/Sp5_upPrg_bar_DP"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_width="@dimen/_50sdp"
-        android:layout_height="@dimen/_50sdp"
-        android:layout_marginBottom="@dimen/_20sdp"
+        android:layout_width="@dimen/_45sdp"
+        android:layout_height="@dimen/_45sdp"
+        android:layout_margin="@dimen/_10sdp"
         android:progressDrawable="@drawable/custom_progress_doctor"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

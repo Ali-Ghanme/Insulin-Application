@@ -110,4 +110,17 @@
         app:tabTextAppearance="@style/MyCustomTextAppearance"
         tools:ignore="SpeakableTextPresentCheck" />
 
+
+    <ProgressBar
+        android:id="@+id/Sp5_upPrg_bar_PP"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="@dimen/_45sdp"
+        android:layout_height="@dimen/_45sdp"
+        android:layout_margin="@dimen/_10sdp"
+        android:progressDrawable="@drawable/custom_progress_doctor"
+        android:backgroundTint="@color/Patient_Color"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

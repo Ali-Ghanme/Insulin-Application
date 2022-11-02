@@ -105,6 +105,5 @@ public class Sing_Up_2_D extends Basic_Activity {
                 startActivity(intent3);
             }
         });
-
     }
 }

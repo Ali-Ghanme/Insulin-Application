@@ -140,6 +140,4 @@ public class Sing_Up_2_P extends Basic_Activity {
     public void onBackPressed() {
         exitHappen(this, databaseReference, patient_userName);
     }
-
-
 }

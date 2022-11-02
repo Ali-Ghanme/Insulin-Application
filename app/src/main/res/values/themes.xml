@@ -15,8 +15,9 @@
         <!-- Customize your theme here. -->
         <item name="bg_color">@color/white</item>
         <item name="text_color">#1d1b1e</item>
-        <item name="nav_color_p">@color/Patient_Color</item>
+        <item name="nav_color_p">@color/white</item>
         <item name="nav_color_d">@color/Doctor_Color</item>
+        <item name="selected_bar">@color/white</item>
         <item name="tab_nav_color">@color/Patient_Color</item>
         <item name="nav_selected_one_p">@color/gray</item>
         <item name="nav_selected_one_d">@color/white</item>

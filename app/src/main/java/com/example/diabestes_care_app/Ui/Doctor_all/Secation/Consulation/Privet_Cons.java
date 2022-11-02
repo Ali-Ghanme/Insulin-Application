@@ -15,7 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.diabestes_care_app.Adapters.Response_Consu_Adapter;
+import com.example.diabestes_care_app.Adapter.Response_Consu_Adapter;
 import com.example.diabestes_care_app.Models.Private_Consu_Model;
 import com.example.diabestes_care_app.R;
 import com.google.firebase.database.DataSnapshot;

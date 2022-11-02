@@ -1,7 +1,7 @@
 package com.example.diabestes_care_app.Ui.Doctor_all.Secation.Follow.PatinetData.Fragment;
 
 import static android.content.Context.MODE_PRIVATE;
-import static com.example.diabestes_care_app.Adapters.Doctor_Follow_Adapter.MyPREFERENCES_P_Username_D;
+import static com.example.diabestes_care_app.Adapter.Doctor_Follow_Adapter.MyPREFERENCES_P_Username_D;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +34,8 @@ public class Dwree_Report_Fragment extends Fragment {
 
     DatabaseReference databaseReference;
     String getName;
+    LinearLayout no_Data;
+    ScrollView scrollView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -50,13 +54,16 @@ public class Dwree_Report_Fragment extends Fragment {
         result_bmi_weight = view.findViewById(R.id.FDR_result_bmi_weight);
         bim = view.findViewById(R.id.FDR_result_bmi);
 
+        no_Data = view.findViewById(R.id.No_Data_d_2);
+        scrollView = view.findViewById(R.id.scrollable_view);
+
+
         //=====================Get data from message adapter class==================================
         SharedPreferences prefs = requireActivity().getSharedPreferences(MyPREFERENCES_P_Username_D, MODE_PRIVATE);
         getName = prefs.getString("PatientUsername_D", null);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("patient").child(getName);
+        databaseReference = FirebaseDatabase.getInstance().getReference("patient").child(getName).child("Reports_info").child("فحوصات دورية");
         getUserData();
-
         return view;
     }
 
@@ -66,23 +73,26 @@ public class Dwree_Report_Fragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 try {
                     if (snapshot.getValue() != null) {
-                        result_creatinine.setText(Objects.requireNonNull(snapshot.child("Reports_info").child("فحوصات دورية").child("فحوصات وظائف الكلى").child("Creatine").getValue()).toString());
-                        result_urea.setText(Objects.requireNonNull(snapshot.child("Reports_info").child("فحوصات دورية").child("فحوصات وظائف الكلى").child("Urea").getValue()).toString());
-                        result_uric.setText(Objects.requireNonNull(snapshot.child("Reports_info").child("فحوصات دورية").child("فحوصات وظائف الكلى").child("Uric").getValue()).toString());
-                        result_cholesterol.setText(Objects.requireNonNull(snapshot.child("Reports_info").child("فحوصات دورية").child("فحوصات الدهون").child("Cholesterol").getValue()).toString());
-                        result_triglycerid.setText(Objects.requireNonNull(snapshot.child("Reports_info").child("فحوصات دورية").child("فحوصات الدهون").child("HDL").getValue()).toString());
-                        result_ldl.setText(Objects.requireNonNull(snapshot.child("Reports_info").child("فحوصات دورية").child("فحوصات الدهون").child("IDL").getValue()).toString());
-                        result_hdl.setText(Objects.requireNonNull(snapshot.child("Reports_info").child("فحوصات دورية").child("فحوصات الدهون").child("Triglyceride").getValue()).toString());
-                        result_pressures.setText(Objects.requireNonNull(snapshot.child("Reports_info").child("فحوصات دورية").child("فحص ضغط الدم").child("Pressure").getValue()).toString());
-                        result_bmi_height.setText(Objects.requireNonNull(snapshot.child("Reports_info").child("فحوصات دورية").child("فحوصات مؤشر كتلة الجسم").child("bmi_height").getValue()).toString());
-                        result_bmi_weight.setText(Objects.requireNonNull(snapshot.child("Reports_info").child("فحوصات دورية").child("فحوصات مؤشر كتلة الجسم").child("bmi_weight").getValue()).toString());
-                        bim.setText(Objects.requireNonNull(snapshot.child("Reports_info").child("فحوصات دورية").child("فحوصات مؤشر كتلة الجسم").child("مؤشر كتلة الجسم").getValue()).toString());
+                        result_creatinine.setText(Objects.requireNonNull(snapshot.child("فحوصات وظائف الكلى").child("Creatine").getValue()).toString());
+                        result_urea.setText(Objects.requireNonNull(snapshot.child("فحوصات وظائف الكلى").child("Urea").getValue()).toString());
+                        result_uric.setText(Objects.requireNonNull(snapshot.child("فحوصات وظائف الكلى").child("Uric").getValue()).toString());
+                        result_cholesterol.setText(Objects.requireNonNull(snapshot.child("فحوصات الدهون").child("Cholesterol").getValue()).toString());
+                        result_triglycerid.setText(Objects.requireNonNull(snapshot.child("فحوصات الدهون").child("HDL").getValue()).toString());
+                        result_ldl.setText(Objects.requireNonNull(snapshot.child("فحوصات الدهون").child("IDL").getValue()).toString());
+                        result_hdl.setText(Objects.requireNonNull(snapshot.child("فحوصات الدهون").child("Triglyceride").getValue()).toString());
+                        result_pressures.setText(Objects.requireNonNull(snapshot.child("فحص ضغط الدم").child("Pressure").getValue()).toString());
+                        result_bmi_height.setText(Objects.requireNonNull(snapshot.child("فحوصات مؤشر كتلة الجسم").child("bmi_height").getValue()).toString());
+                        result_bmi_weight.setText(Objects.requireNonNull(snapshot.child("فحوصات مؤشر كتلة الجسم").child("bmi_weight").getValue()).toString());
+                        bim.setText(Objects.requireNonNull(snapshot.child("فحوصات مؤشر كتلة الجسم").child("مؤشر كتلة الجسم").getValue()).toString());
+                        no_Data.setVisibility(View.INVISIBLE);
+                        scrollView.setVisibility(View.VISIBLE);
                     } else {
                         Toast.makeText(getContext(), "Hallow", Toast.LENGTH_SHORT).show();
+                        no_Data.setVisibility(View.VISIBLE);
+                        scrollView.setVisibility(View.INVISIBLE);
+
                     }
-                } catch (Exception e) {
-                    Toast.makeText(getContext(), "لا يوجد بيانات بعد", Toast.LENGTH_SHORT).show();
-                }
+                } catch (Exception ignored) {}
             }
 
             @Override

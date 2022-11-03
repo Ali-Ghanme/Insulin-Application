@@ -170,7 +170,6 @@ public class Daily_Sugar extends Fragment {
 
         view.findViewById(R.id.buttonNo).setOnClickListener(v -> {
             alertDialog.dismiss();
-            Toast.makeText(getActivity(), "Ok", Toast.LENGTH_SHORT).show();
         });
 
         if (alertDialog.getWindow() != null) {

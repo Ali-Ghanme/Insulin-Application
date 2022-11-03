@@ -81,15 +81,15 @@ public class Sing_Up_2_D extends Basic_Activity {
             //====================================Validation===============================
             // cheek if user fill all data fields before sending data to firebase
             if (validIsEmpty(doctorPhone, doctorEmail, doctorPass, doctorCoPass, doctorNID, doctorNID)) {
-                Toast.makeText(Sing_Up_2_D.this, "Fill all fields", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Sing_Up_2_D.this, "إملأ جميع الحقول", Toast.LENGTH_SHORT).show();
             } else if (validCoPassword(doctorPass, doctorCoPass)) {
-                Toast.makeText(Sing_Up_2_D.this, "password doesn't match", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Sing_Up_2_D.this, "كلمة المرور لا تتطابق", Toast.LENGTH_SHORT).show();
             } else if (isValidEmail(doctorEmail)) {
-                Toast.makeText(Sing_Up_2_D.this, "Email is not correct Syntax", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Sing_Up_2_D.this, "صيغة الإيميل غير صحيحة", Toast.LENGTH_SHORT).show();
             } else if (validPassword(doctorPass)) {
-                Toast.makeText(Sing_Up_2_D.this, "Password Must be more than 8 character", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Sing_Up_2_D.this, "كلمة السر ضعيفة", Toast.LENGTH_SHORT).show();
             } else if (validCellPhone(doctorPhone)) {
-                Toast.makeText(Sing_Up_2_D.this, "Phone is not correct", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Sing_Up_2_D.this, "صيغة رقم الهاتف غير صحيحة", Toast.LENGTH_SHORT).show();
             } else {
                 // sending data to firebase real time
                 // we are using a phone number as unique identity of every user
@@ -97,7 +97,6 @@ public class Sing_Up_2_D extends Basic_Activity {
                 databaseReference.child(doctor_userName).child("personal_info").child("Email").setValue(doctorEmail);
                 databaseReference.child(doctor_userName).child("personal_info").child("National Id").setValue(doctorNID);
                 databaseReference.child(doctor_userName).child("Password").setValue(doctorPass);
-                Toast.makeText(Sing_Up_2_D.this, "User have registered successfully ", Toast.LENGTH_SHORT).show();
                 finish();
 
                 Intent intent3 = new Intent(Sing_Up_2_D.this, Sing_Up_3_D.class);

@@ -16,7 +16,7 @@ import com.example.diabestes_care_app.Ui.Patient_all.Sections.Self_Care.Content.
 
 public class Instruction_Fragment extends Fragment {
     ListView listView;
-    String[] items = {"عن المرض", "أنواع المرض", "مضاعفات المرض", "غيبوبة السكر", "جرعات الأنسولين", "أعراض مرض السكري", "تعليمات"};
+    String[] items = {"تصفح"};
 
     // Hallow this is Update
     @Override

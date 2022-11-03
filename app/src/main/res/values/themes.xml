@@ -13,7 +13,7 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
         <!-- Customize your theme here. -->
-        <item name="bg_color">@color/white</item>
+        <item name="bg_color">@color/ghost_white</item>
         <item name="text_color">#1d1b1e</item>
         <item name="nav_color_p">@color/white</item>
         <item name="nav_color_d">@color/Doctor_Color</item>

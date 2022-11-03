@@ -122,7 +122,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginRight="@dimen/_35sdp"
             android:fontFamily="@font/cairo_regular"
-            android:text="لا تمتلك حساب بعد !"
+            android:text="إعادة تعين كلمة السر ؟"
             android:textColor="@color/Doctor_Color"
             android:textSize="@dimen/_12sdp" />
 

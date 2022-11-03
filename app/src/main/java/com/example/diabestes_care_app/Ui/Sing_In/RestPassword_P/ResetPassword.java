@@ -78,8 +78,8 @@ public class ResetPassword extends Basic_Activity {
             });
 
             if (et_userEmail.getText().toString().equals(FEmail)) {
-                SendMailFin(EEmail, FPin);
-                Log.e("TAG", ":" + FEmail);
+                SendMailFin(et_userEmail.getText().toString(), FPin);
+                Log.e("TAG", EEmail + ":" + FEmail);
                 Intent intent = new Intent(ResetPassword.this, RestPassowrd2.class);
                 intent.putExtra("UsernamePassword", EUserName);
                 startActivity(intent);
@@ -106,7 +106,7 @@ public class ResetPassword extends Basic_Activity {
             try {
                 Message message = new MimeMessage(session);
                 message.setFrom(new InternetAddress("gly703105@gmail.com"));
-                message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(et_userEmail.getText().toString()));
+                message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(To));
                 message.setSubject("مرحبا بك لقد طلبت طلب إعادة تعيين كلمة السر الخاصة بك \n هذا كود اعادة ظبط لكمة السر الرجاء عدم مشاركة الكود");
                 message.setText("كود اعادة تعيين كلمة السر الخاصة بك هو :\n" + Subject);
                 message.setHeader("Hallow", "One Tow");

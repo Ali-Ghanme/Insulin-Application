@@ -89,8 +89,7 @@ public class Sing_Up_1_P extends Basic_Activity {
             patientName = mName.getText().toString();
             patientUsername = mUsername.getText().toString();
             patientDate = mDate.getText().toString();
-//            patientWehigt = mWehigt.getText().toString();
-//            patientTall = mTall.getText().toString();
+            String PIN = String.valueOf(generatePIN());
 
             //====================================Validation===============================
             // cheek if user fill all data fields before sending data to firebase
@@ -113,6 +112,7 @@ public class Sing_Up_1_P extends Basic_Activity {
                             databaseReference.child(patientUsername).child("personal_info").child("date").setValue(patientDate);
                             databaseReference.child(patientUsername).child("personal_info").child("gender").setValue(strGender);
                             databaseReference.child(patientUsername).child("personal_info").child("Age").setValue(PatientAge);
+                            databaseReference.child(patientUsername).child("personal_info").child("PIN").setValue(PIN);
                             databaseReference.child(patientUsername).child("Token").child("Patient_Token").setValue(PatientToken);
                             Toast.makeText(Sing_Up_1_P.this, PatientAge, Toast.LENGTH_SHORT).show();
                             Intent intent2 = new Intent(Sing_Up_1_P.this, Sing_Up_2_P.class);

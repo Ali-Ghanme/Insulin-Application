@@ -57,7 +57,6 @@ public class Chat_Fragment extends Fragment {
     private String lastMessage = "";
     private String chatKey = "";
     boolean dataSet = false;
-
     List<Follow_Model> list;
     // Adapter
     Doctor_Follow_Adapter doctor_follow_adapter;
@@ -195,7 +194,7 @@ public class Chat_Fragment extends Fragment {
         if (list != null) {
             list.clear();
         } else {
-            Toast.makeText(getContext(), "The List is null", Toast.LENGTH_SHORT).show();
+            Log.e("TAG","List is Null Chat Fragment This is Normal");
         }
         if (doctor_follow_adapter != null) {
             doctor_follow_adapter.notifyDataSetChanged();

@@ -52,6 +52,7 @@ public class Response_Consu_Adapter extends RecyclerView.Adapter<Response_Consu_
         return new MyViewHolder(view);
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     public void onBindViewHolder(@NonNull Response_Consu_Adapter.MyViewHolder holder, int position) {
         SharedPreferences prefs2 = context.getSharedPreferences(MyPREFERENCES_PushKey, MODE_PRIVATE);
@@ -77,78 +78,65 @@ public class Response_Consu_Adapter extends RecyclerView.Adapter<Response_Consu_
         Button oky = dialog.findViewById(R.id.ConsuA_btn_Reply);
         EditText Answer = dialog.findViewById(R.id.ConsuA_et_Answer);
 
-        holder.response.setOnClickListener(new View.OnClickListener() {
+        holder.response.setOnClickListener(v -> dialog.show());
+
+        oky.setOnClickListener(v -> query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onClick(View v) {
-                dialog.show();
-            }
-        });
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot s : dataSnapshot.getChildren()) {
+                    String Consultation_Answer = Answer.getText().toString();
+                    s.child("Doctor_Answer").getRef().setValue(Consultation_Answer);
 
-        oky.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                query.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        for (DataSnapshot s : dataSnapshot.getChildren()) {
-                            String Consultation_Answer = Answer.getText().toString();
-                            s.child("Doctor_Answer").getRef().setValue(Consultation_Answer);
+                    general_Consolation.child("Title").setValue(list2.getConsuTitle());
+                    general_Consolation.child("Subject").setValue(list2.getConsuSubject());
+                    general_Consolation.child("Doctor_Image").setValue(list2.getDoctorImage());
+                    general_Consolation.child("to").setValue(list2.getDoctor_name());
+                    general_Consolation.child("PatientToken").setValue(list2.getPatientToken());
+                    general_Consolation.child("Doctor_Answer").setValue(Consultation_Answer);
 
-                            general_Consolation.child("Title").setValue(list2.getConsuTitle());
-                            general_Consolation.child("Subject").setValue(list2.getConsuSubject());
-                            general_Consolation.child("Doctor_Image").setValue(list2.getDoctorImage());
-                            general_Consolation.child("to").setValue(list2.getDoctor_name());
-                            general_Consolation.child("PatientToken").setValue(list2.getPatientToken());
-                            general_Consolation.child("Doctor_Answer").setValue(Consultation_Answer);
-
-                            Toast.makeText(context, list2.getPatientToken(), Toast.LENGTH_SHORT).show();
-                            try {
-                                if (!list2.getPatientToken().isEmpty()) {
-                                    FcmNotificationsSender notificationsSender = new FcmNotificationsSender(list2.getPatientToken(), "رد على استشارة", " قام الدكتور " +
-                                            list2.getDoctor_name() + " برد على استشاراتك ستجدها في قسم الاستشارات العامة ", context.getApplicationContext());
-                                    notificationsSender.SendNotifications();
-                                }
-                            } catch (Exception exception) {
-                                Log.e("TAG", exception.getMessage());
-                            }
-
-                            s.getRef().removeValue();
-                            list.remove(holder.getAdapterPosition());
-                            notifyItemRemoved(holder.getAdapterPosition());
-                            notifyItemRangeChanged(holder.getAdapterPosition(), list.size());
-                            dialog.dismiss();
+                    Toast.makeText(context, list2.getPatientToken(), Toast.LENGTH_SHORT).show();
+                    try {
+                        if (!list2.getPatientToken().isEmpty()) {
+                            FcmNotificationsSender notificationsSender = new FcmNotificationsSender(list2.getPatientToken(), "رد على استشارة", " قام الدكتور " +
+                                    list2.getDoctor_name() + " برد على استشاراتك ستجدها في قسم الاستشارات العامة ", context.getApplicationContext());
+                            notificationsSender.SendNotifications();
                         }
+                    } catch (Exception exception) {
+                        Log.e("TAG", exception.getMessage());
                     }
 
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        Log.e(TAG, "onCancelled", databaseError.toException());
-                    }
-                });
+                    s.getRef().removeValue();
+                    list.remove(holder.getAdapterPosition());
+                    notifyItemRemoved(holder.getAdapterPosition());
+                    notifyItemRangeChanged(holder.getAdapterPosition(), list.size());
+                    dialog.dismiss();
+                }
             }
-        });
 
-        holder.reject.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Toast.makeText(context, "Delete it", Toast.LENGTH_SHORT).show();
-                query.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        for (DataSnapshot s : dataSnapshot.getChildren()) {
-                            s.getRef().removeValue();
-                            list.remove(holder.getAdapterPosition());
-                            notifyItemRemoved(holder.getAdapterPosition());
-                            notifyItemRangeChanged(holder.getAdapterPosition(), list.size());
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        Log.e(TAG, "onCancelled", databaseError.toException());
-                    }
-                });
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.e(TAG, "onCancelled", databaseError.toException());
             }
+        }));
+
+        holder.reject.setOnClickListener(v -> {
+            Toast.makeText(context, "Delete it", Toast.LENGTH_SHORT).show();
+            query.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot s : dataSnapshot.getChildren()) {
+                        s.getRef().removeValue();
+                        list.remove(holder.getAdapterPosition());
+                        notifyItemRemoved(holder.getAdapterPosition());
+                        notifyItemRangeChanged(holder.getAdapterPosition(), list.size());
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    Log.e(TAG, "onCancelled", databaseError.toException());
+                }
+            });
         });
 
         //============================Recycle Item data ============================================

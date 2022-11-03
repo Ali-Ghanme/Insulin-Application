@@ -33,8 +33,8 @@ public class Sing_Up_1_D extends Basic_Activity {
     RadioButton mGenderOption;
     String strGender;
     Button btn_next_S;
-    EditText name_ar, name_en, username, mDate;
-    String DoctorName_ar, DoctorName_en, DoctorUsername, DoctorDate, DoctorToken;
+    EditText name_ar, username, mDate;
+    String DoctorName_ar, DoctorUsername, DoctorDate, DoctorToken;
 
     @SuppressLint("NonConstantResourceId")
     @Override
@@ -45,7 +45,6 @@ public class Sing_Up_1_D extends Basic_Activity {
 
         //=============================Define variables=============================================
         name_ar = findViewById(R.id.Sp1_name_D);
-//        name_en = findViewById(R.id.Sp1_en_name_D);
         mDate = findViewById(R.id.Sp1_date_D);
         username = findViewById(R.id.Sp1_username_D);
         mGender = findViewById(R.id.Sp1_Gender_D);
@@ -63,7 +62,7 @@ public class Sing_Up_1_D extends Basic_Activity {
             DoctorToken = task.getResult();
             System.out.println("TOKEN" + DoctorToken);
         });
-
+        String PIN = String.valueOf(generatePIN());
         //======================================Next Button=========================================
         btn_next_S.setOnClickListener(view -> {
             // get data form edit text into string variables
@@ -74,16 +73,16 @@ public class Sing_Up_1_D extends Basic_Activity {
             //====================================Validation====================================
             // cheek if user fill all data fields before sending data to firebase
             if (validIsEmpty(DoctorName_ar, DoctorUsername, DoctorDate, DoctorDate, DoctorDate, DoctorDate)) {
-                Toast.makeText(Sing_Up_1_D.this, "Fill all fields", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Sing_Up_1_D.this, "إملأ جميع الحقول", Toast.LENGTH_SHORT).show();
             } else if (!DoctorUsername.startsWith("D")) {
-                Toast.makeText(Sing_Up_1_D.this, "User Name Must Start With D", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Sing_Up_1_D.this, "يجب أن يبدأ اسم المستخدم بحرف D", Toast.LENGTH_SHORT).show();
             } else {
                 databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         // check if username is not registered before
                         if (snapshot.hasChild(DoctorUsername)) {
-                            Toast.makeText(Sing_Up_1_D.this, "ID is already registered", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Sing_Up_1_D.this, "هذا الاسم موجود بلفعل", Toast.LENGTH_SHORT).show();
                         } else {
                             // sending data to firebase real time
                             // we are using a phone number as unique identity of every user
@@ -92,11 +91,13 @@ public class Sing_Up_1_D extends Basic_Activity {
                             databaseReference.child(DoctorUsername).child("personal_info").child("date").setValue(DoctorDate);
                             databaseReference.child(DoctorUsername).child("username").setValue(DoctorUsername);
                             databaseReference.child(DoctorUsername).child("personal_info").child("username").setValue(DoctorUsername);
+                            databaseReference.child(DoctorUsername).child("personal_info").child("PIN").setValue(PIN);
                             databaseReference.child(DoctorUsername).child("Token").child("Doctor_Token").setValue(DoctorToken);
-                            Toast.makeText(Sing_Up_1_D.this, "User have registered successfully ", Toast.LENGTH_SHORT).show();
                             Intent intent2 = new Intent(Sing_Up_1_D.this, Sing_Up_2_D.class);
                             intent2.putExtra("username", DoctorUsername);
                             startActivity(intent2);
+
+
                             finish();
                         }
                     }

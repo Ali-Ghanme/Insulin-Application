@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.R;
@@ -24,8 +25,8 @@ public class Sing_Up_3_D extends Basic_Activity {
     Button Button_Next;
     EditText UnName, Certificate, Grad_Country, mDate;
     final Calendar myCalendar = Calendar.getInstance();
-    String[] university = {" اخرى ", "  الازهر", " فلسطين ", "الاسلامية", "الإسراء"};
-    String[] city = {"الضفة الغربية ", "جنين  ", "نابلس  ", "قطاع غزة"};
+    String[] university = {"الأقصى", "  الازهر", " فلسطين ", "الاسلامية", "الإسراء"};
+    String[] city = {"المملكة المتحدة", "الولايات المتحدة", "الأردن", "فلسطين"};
     String[] certificate = {" دكتورا ", "ماجستير  ", "بكالوريس  ", " دبلوم"};
     String DoctorMData, DoctorUname, DoctorCertificate, DoctorGradeCountry;
     ListView listView;
@@ -74,7 +75,7 @@ public class Sing_Up_3_D extends Basic_Activity {
             View bottomSheetView = LayoutInflater.from(Sing_Up_3_D.this).inflate(R.layout.layout_bottom_sheet_main,
                     findViewById(R.id.bottomSheetContier));
             listView = bottomSheetView.findViewById(R.id.City_bottom_listView);
-            ArrayAdapter<String> adapter = new ArrayAdapter<>(Sing_Up_3_D.this, R.layout.activity_listview, city);
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(Sing_Up_3_D.this, R.layout.activity_listview, certificate);
             listView.setAdapter(adapter);
             listView.setOnItemClickListener((parent, view, position, id) -> {
                 String UCertificate = listView.getAdapter().getItem(position).toString();
@@ -94,7 +95,7 @@ public class Sing_Up_3_D extends Basic_Activity {
             View bottomSheetView = LayoutInflater.from(Sing_Up_3_D.this).inflate(R.layout.layout_bottom_sheet_main,
                     findViewById(R.id.bottomSheetContier));
             listView = bottomSheetView.findViewById(R.id.City_bottom_listView);
-            ArrayAdapter<String> adapter = new ArrayAdapter<>(Sing_Up_3_D.this, R.layout.activity_listview, certificate);
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(Sing_Up_3_D.this, R.layout.activity_listview, city);
             listView.setAdapter(adapter);
             listView.setOnItemClickListener((parent, view, position, id) -> {
                 String UGrade_Country = listView.getAdapter().getItem(position).toString();
@@ -112,13 +113,18 @@ public class Sing_Up_3_D extends Basic_Activity {
             DoctorUname = UnName.getText().toString();
             DoctorCertificate = Certificate.getText().toString();
             DoctorGradeCountry = Grad_Country.getText().toString();
-            databaseReference.child("doctor").child(doctor_userName).child("doctor_info").child("اسم الجامعة").setValue(DoctorUname);
-            databaseReference.child("doctor").child(doctor_userName).child("doctor_info").child("بلد التخرج").setValue(DoctorCertificate);
-            databaseReference.child("doctor").child(doctor_userName).child("doctor_info").child("الشهادة الجامعية").setValue(DoctorGradeCountry);
-            Intent intent3 = new Intent(Sing_Up_3_D.this, Sing_Up_4_D.class);
-            intent3.putExtra("username3", doctor_userName);
-            startActivity(intent3);
-            finish();
+            if (validIsEmpty(DoctorUname, DoctorCertificate, DoctorGradeCountry, DoctorUname, DoctorCertificate, DoctorGradeCountry)) {
+                Toast.makeText(Sing_Up_3_D.this, "إملأ جميع الحقول", Toast.LENGTH_SHORT).show();
+            } else {
+                databaseReference.child(doctor_userName).child("doctor_info").child("اسم الجامعة").setValue(DoctorUname);
+                databaseReference.child(doctor_userName).child("doctor_info").child("بلد التخرج").setValue(DoctorCertificate);
+                databaseReference.child(doctor_userName).child("doctor_info").child("الشهادة الجامعية").setValue(DoctorGradeCountry);
+                Intent intent3 = new Intent(Sing_Up_3_D.this, Sing_Up_4_D.class);
+                intent3.putExtra("username3", doctor_userName);
+                startActivity(intent3);
+                finish();
+            }
+
         });
 
         //====================================DataPicker===============================
@@ -129,7 +135,11 @@ public class Sing_Up_3_D extends Basic_Activity {
         mDate.setOnClickListener(view -> {
             new DatePickerDialog(Sing_Up_3_D.this, date, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show();
             DoctorMData = mDate.getText().toString();
-            databaseReference.child("doctor").child(doctor_userName).child("doctor_info").child("تاريخ التخرج").setValue(DoctorMData);
+            if (DoctorMData.isEmpty()) {
+                Toast.makeText(Sing_Up_3_D.this, "إملأ جميع الحقول", Toast.LENGTH_SHORT).show();
+            } else {
+                databaseReference.child("doctor").child(doctor_userName).child("doctor_info").child("تاريخ التخرج").setValue(DoctorMData);
+            }
         });
     }
 

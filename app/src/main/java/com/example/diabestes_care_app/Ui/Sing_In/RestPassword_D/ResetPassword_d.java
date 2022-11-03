@@ -30,7 +30,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-public class ResetPassword extends Basic_Activity {
+public class ResetPassword_d extends Basic_Activity {
 
     EditText et_userEmail, et_userName;
     Button send_email;
@@ -57,7 +57,7 @@ public class ResetPassword extends Basic_Activity {
             EEmail = et_userEmail.getText().toString();
             EUserName = et_userName.getText().toString();
 
-            databaseReference = FirebaseDatabase.getInstance().getReference("patient").child(EUserName).child("personal_info");
+            databaseReference = FirebaseDatabase.getInstance().getReference("doctor").child(EUserName).child("personal_info");
 
             databaseReference.addValueEventListener(new ValueEventListener() {
                 @Override
@@ -80,7 +80,7 @@ public class ResetPassword extends Basic_Activity {
             if (et_userEmail.getText().toString().equals(FEmail)) {
                 SendMailFin(EEmail, FPin);
                 Log.e("TAG", ":" + FEmail);
-                Intent intent = new Intent(ResetPassword.this, RestPassowrd2.class);
+                Intent intent = new Intent(ResetPassword_d.this, RestPassowrd2_d.class);
                 intent.putExtra("UsernamePassword", EUserName);
                 startActivity(intent);
 

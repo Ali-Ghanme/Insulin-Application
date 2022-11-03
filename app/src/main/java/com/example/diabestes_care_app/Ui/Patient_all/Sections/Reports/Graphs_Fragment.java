@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -79,7 +78,7 @@ public class Graphs_Fragment extends Fragment {
                         sugerindex2 = Integer.parseInt(firstElement2);
                         sugerindex3 = Integer.parseInt(firstElement3);
                         sugerindex4 = Integer.parseInt(firstElement4);
-                        LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>();
+                        LineGraphSeries<DataPoint> series = new LineGraphSeries<>();
                         series.appendData(new DataPoint(1, sugerindex0), true, 5);
                         series.appendData(new DataPoint(2, sugerindex1), true, 5);
                         series.appendData(new DataPoint(3, sugerindex2), true, 5);
@@ -93,18 +92,19 @@ public class Graphs_Fragment extends Fragment {
                         graph.addSeries(series);
                         //تسمية المحاور
                         graph.getViewport().setYAxisBoundsManual(false);
-                        graph.getViewport().setMinY(20);
-                        graph.getViewport().setMaxY(500);
+                        graph.getViewport().setMinY(0);
+                        graph.getViewport().setMaxY(600);
+
                         no_data.setVisibility(View.INVISIBLE);
                         graphLiner.setVisibility(View.VISIBLE);
                     } else {
-                        Toast.makeText(getContext(), "لا يوجد بيانات بعد يومي", Toast.LENGTH_SHORT).show();
                         no_data.setVisibility(View.VISIBLE);
                         graphLiner.setVisibility(View.INVISIBLE);
                     }
                 } catch (Exception ignored) {
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Log.e("TAG", error.getMessage());

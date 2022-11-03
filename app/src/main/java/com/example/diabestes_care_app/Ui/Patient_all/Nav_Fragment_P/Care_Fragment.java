@@ -3,6 +3,7 @@ package com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P;
 import static android.content.Context.MODE_PRIVATE;
 import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -46,6 +47,7 @@ public class Care_Fragment extends Fragment {
     //Card View
     CardView FC_Instruction, FC_Report, FC_Doses_p, FC_Consu;
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -61,37 +63,25 @@ public class Care_Fragment extends Fragment {
         FC_Consu = view.findViewById(R.id.FC_ex_Consultation_p);
 
         //============================Get Doctor Username===========================================
-        SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
+        SharedPreferences prefs = this.requireActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         PatientUsername = prefs.getString("TAG_NAME", null);
 
         //=================================Blocks===================================================
-        FC_Instruction.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Self_Care.class);
-                startActivity(intent);
-            }
+        FC_Instruction.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), Self_Care.class);
+            startActivity(intent);
         });
-        FC_Report.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Patient_Files.class);
-                startActivity(intent);
-            }
+        FC_Report.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), Patient_Files.class);
+            startActivity(intent);
         });
-        FC_Doses_p.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), MainActivity.class);
-                startActivity(intent);
-            }
+        FC_Doses_p.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), MainActivity.class);
+            startActivity(intent);
         });
-        FC_Consu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Consultation_Request.class);
-                startActivity(intent);
-            }
+        FC_Consu.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), Consultation_Request.class);
+            startActivity(intent);
         });
 
         //============================Create + Configure the Dialog here============================
@@ -104,19 +94,12 @@ public class Care_Fragment extends Fragment {
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         Button Okay = dialog.findViewById(R.id.btn_okay);
 
-        Okay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Toast.makeText(getContext(), "Okay", Toast.LENGTH_SHORT).show();
-                dialog.dismiss();
-            }
+        Okay.setOnClickListener(v -> {
+            Toast.makeText(getContext(), "Okay", Toast.LENGTH_SHORT).show();
+            dialog.dismiss();
         });
-        info.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.show(); // Showing the dialog here
-            }
+        info.setOnClickListener(v -> {
+            dialog.show(); // Showing the dialog here
         });
 
         return view;
@@ -147,4 +130,3 @@ public class Care_Fragment extends Fragment {
         });
     }
 }
-// Hallow this is Update

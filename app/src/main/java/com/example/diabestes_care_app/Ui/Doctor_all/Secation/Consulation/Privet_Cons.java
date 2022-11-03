@@ -3,6 +3,7 @@ package com.example.diabestes_care_app.Ui.Doctor_all.Secation.Consulation;
 import static android.content.Context.MODE_PRIVATE;
 import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Doctor_Fragment.MyPREFERENCES_D;
 
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,6 +27,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 public class Privet_Cons extends Fragment {
@@ -51,7 +53,7 @@ public class Privet_Cons extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
 
-        SharedPreferences prefs = getActivity().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
+        SharedPreferences prefs = requireActivity().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
         DoctorUsername = prefs.getString("TAG_NAME", null);
 
         //============================ArrayList=====================================================
@@ -60,20 +62,21 @@ public class Privet_Cons extends Fragment {
         Query query = myRef.orderByKey();
 
         query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 try {
                     for (DataSnapshot sn : snapshot.getChildren()) {
                         Private_Consu_Model private_consu_model = new Private_Consu_Model();
-                        private_consu_model.setPatientName(sn.child("from").getValue().toString());
-                        private_consu_model.setDoctor_name(sn.child("to").getValue().toString());
-                        private_consu_model.setConsuSubject(sn.child("Subject").getValue().toString());
-                        private_consu_model.setPatientImage(sn.child("Patient_Profile").getValue().toString());
-                        private_consu_model.setConsuTitle(sn.child("Title").getValue().toString());
-                        private_consu_model.setDoctorImage(sn.child("Doctor_Profile").getValue().toString());
-                        private_consu_model.setDoctorAnswer(sn.child("Doctor_Answer").getValue().toString());
-                        private_consu_model.setPushKey(sn.child("PushKey").getValue().toString());
-                        private_consu_model.setPatientToken(sn.child("PatientToken").getValue().toString());
+                        private_consu_model.setPatientName(Objects.requireNonNull(sn.child("from").getValue()).toString());
+                        private_consu_model.setDoctor_name(Objects.requireNonNull(sn.child("to").getValue()).toString());
+                        private_consu_model.setConsuSubject(Objects.requireNonNull(sn.child("Subject").getValue()).toString());
+                        private_consu_model.setPatientImage(Objects.requireNonNull(sn.child("Patient_Profile").getValue()).toString());
+                        private_consu_model.setConsuTitle(Objects.requireNonNull(sn.child("Title").getValue()).toString());
+                        private_consu_model.setDoctorImage(Objects.requireNonNull(sn.child("Doctor_Profile").getValue()).toString());
+                        private_consu_model.setDoctorAnswer(Objects.requireNonNull(sn.child("Doctor_Answer").getValue()).toString());
+                        private_consu_model.setPushKey(Objects.requireNonNull(sn.child("PushKey").getValue()).toString());
+                        private_consu_model.setPatientToken(Objects.requireNonNull(sn.child("PatientToken").getValue()).toString());
                         list.add(private_consu_model);
                     }
                 } catch (Exception e) {

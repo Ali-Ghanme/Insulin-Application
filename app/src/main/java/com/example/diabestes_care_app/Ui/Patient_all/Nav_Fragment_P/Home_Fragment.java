@@ -153,8 +153,8 @@ public class Home_Fragment extends Fragment {
                         list.add(doctorListModel);
                         progressDialog.dismiss();
                     }
-                } catch (Exception e) {
-                    Log.e("TAG", e.getMessage());
+                } catch (Exception ignored) {
+
                 }
                 doctorListAdapter = new Doctor_List_Adapter(getContext(), list);
                 recyclerView.setAdapter(doctorListAdapter);

@@ -81,7 +81,7 @@ class StepCounterK : Fragment(), SensorEventListener {
 
         if (stepSensor == null) {
             // This will give a toast message to the user if there is no sensor in the device
-            Toast.makeText(context, "No sensor detected on this device", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "جهازك لا يدعم مستشعر الحركة", Toast.LENGTH_SHORT).show()
         } else {
             // Rate suitable for the user interface
             sensorManager?.registerListener(this, stepSensor, SensorManager.SENSOR_DELAY_UI)
@@ -89,7 +89,7 @@ class StepCounterK : Fragment(), SensorEventListener {
     }
 
     override fun onSensorChanged(event: SensorEvent?) {
-        sensorManager = requireActivity().getSystemService(Context.SENSOR_SERVICE) as SensorManager
+        sensorManager = this.requireActivity().getSystemService(Context.SENSOR_SERVICE) as SensorManager
 
         // Calling the TextView that we made in activity_main.xml
         // by the id given to that TextView

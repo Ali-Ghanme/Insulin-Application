@@ -7,8 +7,6 @@ import android.widget.Toast;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -26,11 +24,10 @@ public class FcmNotificationsSender {
     Context mContext;
 
 
-    private RequestQueue requestQueue;
     private final String postUrl = "https://fcm.googleapis.com/fcm/send";
     private final String fcmServerKey = "AAAAVpUEzVo:APA91bFsjeSoQmspqE1ehZh6fI6uN9KWbvKB4gM31D_YTiT7ddps1b-L7dHBKsry6UUm2vf8T7peZj7WTni4mJKvfIspw6E5z5oqyYxHRPfJJjsncl_ig-vcxR0w2DbsqxcCV2SZKtsA";
 
-    public FcmNotificationsSender(String userFcmToken, String title, String body,  Context mContext) {
+    public FcmNotificationsSender(String userFcmToken, String title, String body, Context mContext) {
         this.userFcmToken = userFcmToken;
         this.title = title;
         this.body = body;
@@ -38,7 +35,7 @@ public class FcmNotificationsSender {
     }
 
     public void SendNotifications() {
-        requestQueue = Volley.newRequestQueue(mContext);
+        RequestQueue requestQueue = Volley.newRequestQueue(mContext);
         JSONObject mainObj = new JSONObject();
         try {
             mainObj.put("to", userFcmToken);
@@ -49,17 +46,11 @@ public class FcmNotificationsSender {
             notiObject.put("icon", "Value"); // enter icon that exists in drawable only
             mainObj.put("notification", notiObject);
 
-            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, postUrl, mainObj, new Response.Listener<JSONObject>() {
-                @Override
-                public void onResponse(JSONObject response) {
-                    Toast.makeText(mContext, "Is Work and send " + userFcmToken, Toast.LENGTH_SHORT).show();
-                }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    // code run is got error
-                    Toast.makeText(mContext, "Error", Toast.LENGTH_SHORT).show();
-                }
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, postUrl, mainObj, response -> {
+//                    Toast.makeText(mContext, "Is Work and send " + userFcmToken, Toast.LENGTH_SHORT).show();
+            }, error -> {
+                // code run is got error
+                Toast.makeText(mContext, "Error", Toast.LENGTH_SHORT).show();
             }) {
                 @Override
                 public Map<String, String> getHeaders() throws AuthFailureError {

@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -38,6 +38,8 @@ public class Daily_Repo extends Fragment {
     DatabaseReference databaseReference;
     ArrayList<Reports_Model> list;
     String PatientUsername;
+    TextView countDown;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,8 +49,9 @@ public class Daily_Repo extends Fragment {
 
         recyclerView = view.findViewById(R.id.recyclerView);
         no_data_d2 = view.findViewById(R.id.No_Data_p);
+        countDown = view.findViewById(R.id.counttime);
         //============================Get Patient Username===========================================
-        SharedPreferences prefs = this.getActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
+        SharedPreferences prefs = this.requireActivity().getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         PatientUsername = prefs.getString("TAG_NAME", null);
         //============================Configure Firebase============================================
         databaseReference = FirebaseDatabase.getInstance().getReference("patient").child(PatientUsername).child("Reports_info").child("فحص يومي");
@@ -75,8 +78,9 @@ public class Daily_Repo extends Fragment {
                             reports_adapter.updateUsersList(list);
                         }
                         no_data_d2.setVisibility(View.INVISIBLE);
+                        recyclerView.setVisibility(View.VISIBLE);
+
                     } else {
-                        Toast.makeText(getContext(), "لا يوجد بيانات بعد يومي", Toast.LENGTH_SHORT).show();
                         no_data_d2.setVisibility(View.VISIBLE);
                         recyclerView.setVisibility(View.INVISIBLE);
                     }
@@ -85,13 +89,11 @@ public class Daily_Repo extends Fragment {
                 }
             }
 
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Log.e("TAG", error.getMessage());
             }
         });
-
         return view;
     }
 }

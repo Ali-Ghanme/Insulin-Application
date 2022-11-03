@@ -30,6 +30,18 @@
             android:name=".Ui.Sing_In.RestPassword_P.ResetPassword"
             android:exported="false" />
         <activity
+            android:name=".Ui.Sing_In.RestPassword_D.RestPassword4_d"
+            android:exported="false" />
+        <activity
+            android:name=".Ui.Sing_In.RestPassword_D.RestPassword3_d"
+            android:exported="false" />
+        <activity
+            android:name=".Ui.Sing_In.RestPassword_D.RestPassowrd2_d"
+            android:exported="false" />
+        <activity
+            android:name=".Ui.Sing_In.RestPassword_D.ResetPassword_d"
+            android:exported="false" />
+        <activity
             android:name=".Ui.Splah_Screens.Splash_Screen_1"
             android:exported="false" />
         <activity
@@ -168,6 +180,10 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+        <receiver
+            android:name=".BroadcastReceiver.DailyAlarmReceiver"
+            android:exported="true" />
+
     </application>
 
 </manifest>

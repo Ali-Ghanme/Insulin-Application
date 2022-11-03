@@ -39,22 +39,24 @@ public class RestPassowrd2 extends Basic_Activity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     fPIN = snapshot.child("PIN").getValue().toString();
-                    Log.e("TAG","This from firebase: "+ fPIN + "This is from user " + Pin.getText().toString());
+                    Log.e("TAG", "This from firebase: " + fPIN + "This is from user " + Pin.getText().toString());
+                    if (validCoPassword(Pin.getText().toString(), fPIN)) {
+                        Toast.makeText(getApplicationContext(), "PIN خاطئ", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Intent intent = new Intent(RestPassowrd2.this, RestPassword3.class);
+                        intent.putExtra("UsernamePassword", Username);
+                        startActivity(intent);
+                    }
                 }
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
                 }
             });
-            if (!validCoPassword(Pin.getText().toString(), fPIN)) {
-                Toast.makeText(this, "PIN خاطئ", Toast.LENGTH_SHORT).show();
-            } else {
-                Intent intent = new Intent(RestPassowrd2.this, RestPassword3.class);
-                intent.putExtra("UsernamePassword", Username);
-                startActivity(intent);
-            }
+
         });
     }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();

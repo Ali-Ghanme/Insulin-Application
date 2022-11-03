@@ -16,7 +16,7 @@ import com.example.diabestes_care_app.Ui.Patient_all.Sections.Self_Care.Content.
 
 public class Food_Alarm extends Fragment {
     ListView listView;
-    String[] items = {"الفطور", "الغذاء", "العشاء", "الفطور في رمضان", "السحور في رمضان"};
+    String[] items = {"نصائح غذائية"};
 
     // Hallow this is Update
     @Override

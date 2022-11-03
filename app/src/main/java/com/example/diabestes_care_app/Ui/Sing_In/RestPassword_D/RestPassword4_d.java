@@ -8,7 +8,7 @@ import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Sing_In.Sing_In;
 
-public class RestPassword4 extends Basic_Activity {
+public class RestPassword4_d extends Basic_Activity {
 
     Button button;
 
@@ -20,7 +20,7 @@ public class RestPassword4 extends Basic_Activity {
         button = findViewById(R.id.sing_in_pass);
 
         button.setOnClickListener(v -> {
-            Intent intent = new Intent(RestPassword4.this, Sing_In.class);
+            Intent intent = new Intent(RestPassword4_d.this, Sing_In.class);
             startActivity(intent);
         });
     }

@@ -18,11 +18,10 @@ import com.google.android.material.tabs.TabLayout;
 import java.util.ArrayList;
 
 public class Patient_Files extends Basic_Activity {
-// الرئيسة
     TabLayout tabLayout;
     ViewPager viewPager_subject;
     Patient_Files.MainAdapter adapter;
-    // Mohammed Siam
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         fullscreen();
@@ -37,6 +36,10 @@ public class Patient_Files extends Basic_Activity {
         adapter.AddFragment(new My_Exams_Fragment(), "فحوصاتي");
         adapter.AddFragment(new Reports_Fragment(), "التقارير");
         adapter.AddFragment(new Graphs_Fragment(), "رسومات بيانية");
+
+
+        registerAlarm(this, 1);
+
 
         //========================Set Adapter for the viewpager Configuration=======================
         viewPager_subject.setAdapter(adapter);
@@ -76,4 +79,3 @@ public class Patient_Files extends Basic_Activity {
         }
     }
 }
-// Hallow this is Update

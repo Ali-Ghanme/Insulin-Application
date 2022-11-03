@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -87,12 +86,12 @@ public class Dwree_Report_Fragment extends Fragment {
                         no_Data.setVisibility(View.INVISIBLE);
                         scrollView.setVisibility(View.VISIBLE);
                     } else {
-                        Toast.makeText(getContext(), "Hallow", Toast.LENGTH_SHORT).show();
                         no_Data.setVisibility(View.VISIBLE);
                         scrollView.setVisibility(View.INVISIBLE);
 
                     }
-                } catch (Exception ignored) {}
+                } catch (Exception ignored) {
+                }
             }
 
             @Override

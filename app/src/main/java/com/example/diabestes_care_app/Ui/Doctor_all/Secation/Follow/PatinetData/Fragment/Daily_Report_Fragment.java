@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -38,6 +37,7 @@ public class Daily_Report_Fragment extends Fragment {
     ArrayList<Reports_Model> list;
     String PatientUsername;
     LinearLayout No_Data;
+//    private final Handler mHandler = new Handler();
 
     @SuppressLint("RestrictedApi")
     @Override
@@ -62,7 +62,7 @@ public class Daily_Report_Fragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         list = new ArrayList<>();
         getUserData();
-
+//        myAction.run();
 
         return view;
     }
@@ -88,7 +88,6 @@ public class Daily_Report_Fragment extends Fragment {
                             recyclerView.setVisibility(View.VISIBLE);
                         }
                     } else {
-                        Toast.makeText(getContext(), "لا يوجد بيانات بعد يومي", Toast.LENGTH_SHORT).show();
                         No_Data.setVisibility(View.VISIBLE);
                         recyclerView.setVisibility(View.INVISIBLE);
                     }
@@ -97,11 +96,19 @@ public class Daily_Report_Fragment extends Fragment {
                 }
             }
 
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Log.e("TAG", error.getMessage());
             }
         });
     }
+
+//    private final Runnable myAction = new Runnable() {
+//        @Override
+//        public void run() {
+//            Toast.makeText(getContext(), "Hallow this action reapte ever 2 s", Toast.LENGTH_SHORT).show();
+//            Log.e("TAG", "this action reapte ever 2 s");
+//            mHandler.postDelayed(this, 5000);
+//        }
+//    };
 }

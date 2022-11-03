@@ -31,8 +31,7 @@ import java.util.ArrayList;
 public class Reports_Adapter extends RecyclerView.Adapter<Reports_Adapter.MyViewHolder> {
     Context context;
     ArrayList<Reports_Model> list;
-    // private final int limit = 7;
-    String status_sugar, PatientUsername, statuses_monthly;
+    String status_sugar, PatientUsername;
 
     public Reports_Adapter(Context context, ArrayList<Reports_Model> list) {
         this.context = context;
@@ -45,7 +44,7 @@ public class Reports_Adapter extends RecyclerView.Adapter<Reports_Adapter.MyView
 
     public Reports_Adapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.reports_recyle_layout, parent, false);
-        return new Reports_Adapter.MyViewHolder(view);
+        return new MyViewHolder(view);
 
     }
 
@@ -99,16 +98,18 @@ public class Reports_Adapter extends RecyclerView.Adapter<Reports_Adapter.MyView
 
     @Override
     public int getItemCount() {
-        return list.size();
+        int limit = 5;
+        return Math.min(list.size(), limit);
+
     }
 
-
+    @SuppressLint("NotifyDataSetChanged")
     public void updateUsersList(ArrayList<Reports_Model> reports_models) {
         this.list = reports_models;
         notifyDataSetChanged();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
         TextView title, time_sugar, time;
         ImageView status;
 

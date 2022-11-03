@@ -17,7 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class RestPassowrd2 extends Basic_Activity {
+public class RestPassowrd2_d extends Basic_Activity {
     DatabaseReference databaseReference;
     EditText Pin;
     Button button;
@@ -34,7 +34,7 @@ public class RestPassowrd2 extends Basic_Activity {
         Username = getIntent().getStringExtra("UsernamePassword");
 
         button.setOnClickListener(v -> {
-            databaseReference = FirebaseDatabase.getInstance().getReference("patient").child(Username).child("personal_info");
+            databaseReference = FirebaseDatabase.getInstance().getReference("doctor").child(Username).child("personal_info");
             databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -49,7 +49,7 @@ public class RestPassowrd2 extends Basic_Activity {
             if (!validCoPassword(Pin.getText().toString(), fPIN)) {
                 Toast.makeText(this, "PIN خاطئ", Toast.LENGTH_SHORT).show();
             } else {
-                Intent intent = new Intent(RestPassowrd2.this, RestPassword3.class);
+                Intent intent = new Intent(RestPassowrd2_d.this, RestPassword3_d.class);
                 intent.putExtra("UsernamePassword", Username);
                 startActivity(intent);
             }

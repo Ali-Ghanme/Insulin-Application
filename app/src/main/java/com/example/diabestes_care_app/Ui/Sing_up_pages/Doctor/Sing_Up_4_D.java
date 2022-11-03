@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.R;
@@ -130,15 +131,20 @@ public class Sing_Up_4_D extends Basic_Activity {
             String DoctorSubCity = auto_SubCity.getText().toString();
             String DoctorQu = auto_Qu.getText().toString();
             String DoctorWp = auto_WP.getText().toString();
+            // cheek if user fill all data fields before sending data to firebase
+            if (validIsEmpty(DoctorCity, DoctorSubCity, DoctorQu, DoctorWp, DoctorWp, DoctorWp)) {
+                Toast.makeText(Sing_Up_4_D.this, "إملأ جميع الحقول", Toast.LENGTH_SHORT).show();
+            } else {
+                databaseReference.child(doctor_userName).child("doctor_info").child("المدينة").setValue(DoctorCity);
+                databaseReference.child(doctor_userName).child("doctor_info").child("المحافظة").setValue(DoctorSubCity);
+                databaseReference.child(doctor_userName).child("doctor_info").child("العيادة الخارجية").setValue(DoctorQu);
+                databaseReference.child(doctor_userName).child("doctor_info").child("طبيعية العمل").setValue(DoctorWp);
+                Intent intent4 = new Intent(Sing_Up_4_D.this, Sing_up_5_D.class);
+                intent4.putExtra("username4", doctor_userName);
+                startActivity(intent4);
+                finish();
+            }
 
-            databaseReference.child(doctor_userName).child("doctor_info").child("المدينة").setValue(DoctorCity);
-            databaseReference.child(doctor_userName).child("doctor_info").child("المحافظة").setValue(DoctorSubCity);
-            databaseReference.child(doctor_userName).child("doctor_info").child("العيادة الخارجية").setValue(DoctorQu);
-            databaseReference.child(doctor_userName).child("doctor_info").child("طبيعية العمل").setValue(DoctorWp);
-            Intent intent4 = new Intent(Sing_Up_4_D.this, Sing_up_5_D.class);
-            intent4.putExtra("username4", doctor_userName);
-            startActivity(intent4);
-            finish();
         });
     }
 

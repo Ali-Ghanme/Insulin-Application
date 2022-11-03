@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,6 +22,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.diabestes_care_app.R;
 import com.example.diabestes_care_app.Ui.Doctor_all.Home_Doctor;
+import com.example.diabestes_care_app.Ui.Sing_In.RestPassword_D.ResetPassword_d;
 import com.example.diabestes_care_app.Ui.Sing_up_pages.Doctor.Sing_Up_1_D;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -48,6 +50,8 @@ public class LogIn_Doctor_Fragment extends Fragment {
     SharedPreferences Check_Box_preferences_D;
     // Token
     String DoctorToken;
+    // TextView
+    TextView restPassword;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -62,6 +66,7 @@ public class LogIn_Doctor_Fragment extends Fragment {
         remember = view.findViewById(R.id.rememberMy);
         password = view.findViewById(R.id.FIS_et_pass_D);
         SingUp = view.findViewById(R.id.FIS_bt_sing_up_D);
+        restPassword = view.findViewById(R.id.FIS_tv_show_D);
         DB_reference = FirebaseDatabase.getInstance().getReference();
         //==============================Shared Preference===========================================
         sharedpreferences = this.requireActivity().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
@@ -74,7 +79,10 @@ public class LogIn_Doctor_Fragment extends Fragment {
             Intent intentS = new Intent(getContext(), Sing_Up_1_D.class);
             startActivity(intentS);
         });
-
+        restPassword.setOnClickListener(v -> {
+            Intent intent = new Intent(getContext(), ResetPassword_d.class);
+            startActivity(intent);
+        });
         //==============================Remember Me Login Doctor================================================
         remember.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (buttonView.isChecked()) {

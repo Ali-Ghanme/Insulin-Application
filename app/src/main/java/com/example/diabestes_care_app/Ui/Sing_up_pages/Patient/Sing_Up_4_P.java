@@ -30,7 +30,7 @@ public class Sing_Up_4_P extends Basic_Activity {
     final Calendar myCalendar = Calendar.getInstance();
     CheckBox C_Other;
     ListView listView;
-    String[] cause = {"تاريخ عائلي", "التعرض لأمراض فيروسية", "العمر", "الوزن",};
+    String[] cause = {"تاريخ عائلي", "العمر", "الوزن",};
     String[] other_ill = {"أمراض الجهاز التنفسي", "ضغط الدم", "أمراض القلب"};
     String patient_userName;
 
@@ -110,10 +110,10 @@ public class Sing_Up_4_P extends Basic_Activity {
         String patientOthers = others.getText().toString();
         String patientCheck = C_Other.getText().toString();
 
-        databaseReference.child("patient").child(patient_userName).child("disease_info").child("تاريخ الاصابة").setValue(patientDateInjury);
-        databaseReference.child("patient").child(patient_userName).child("disease_info").child("عوامل الاصابة").setValue(patientCauses);
-        databaseReference.child("patient").child(patient_userName).child("disease_info").child("أمراض أخرى").setValue(patientOthers);
-        databaseReference.child("patient").child(patient_userName).child("disease_info").child("أمراض أخرى").setValue(patientCheck);
+        databaseReference.child(patient_userName).child("disease_info").child("تاريخ الاصابة").setValue(patientDateInjury);
+        databaseReference.child(patient_userName).child("disease_info").child("عوامل الاصابة").setValue(patientCauses);
+        databaseReference.child(patient_userName).child("disease_info").child("أمراض أخرى").setValue(patientOthers);
+        databaseReference.child(patient_userName).child("disease_info").child("لا يوجد أمراض أخرى").setValue(patientCheck);
         Toast.makeText(Sing_Up_4_P.this, "User have registered successfully ", Toast.LENGTH_SHORT).show();
         finish();
 

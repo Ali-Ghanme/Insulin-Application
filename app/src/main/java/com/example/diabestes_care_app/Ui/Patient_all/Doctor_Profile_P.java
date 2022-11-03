@@ -35,6 +35,7 @@ import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -59,7 +60,6 @@ public class Doctor_Profile_P extends Basic_Activity {
     // Arraylist
     ArrayList<String> arrPackage;
 
-    // Hallow this is Update
     @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +84,7 @@ public class Doctor_Profile_P extends Basic_Activity {
         dialog = new Dialog(Doctor_Profile_P.this);
         dialog.setContentView(R.layout.consu_request_dialog);
         dialog.getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.dilog_background));
+
         //Setting the animations to dialog
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         dialog.setCancelable(true); //Optional
@@ -93,6 +94,7 @@ public class Doctor_Profile_P extends Basic_Activity {
         // Get Patient Username
         SharedPreferences prefs = Doctor_Profile_P.this.getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
         PatientUsername = prefs.getString("TAG_NAME", null);
+
         // Get Patient Profile Image
         SharedPreferences prefs2 = Doctor_Profile_P.this.getSharedPreferences(MyPREFERENCES_Patient_Profile, MODE_PRIVATE);
         getPatientPic = prefs2.getString("TAG_Image_P", null);
@@ -117,7 +119,7 @@ public class Doctor_Profile_P extends Basic_Activity {
         String json = gson.toJson(arrPackage);
         SharedPreferences.Editor editor = SharedPreferences2.edit();
         editor.putString("TAG_Push_Key", json);
-        editor.commit();
+        editor.apply();
 
         //============================Back Button Action============================================
         back.setOnClickListener(v -> {
@@ -127,6 +129,7 @@ public class Doctor_Profile_P extends Basic_Activity {
         //============================Load Data To Ui===============================================
         // Doctor Name
         DoctorName.setText(getName);
+
         // Doctor Image
         Glide.with(this).load(getProfilePic).into(Doctor_Profile);
 
@@ -148,7 +151,7 @@ public class Doctor_Profile_P extends Basic_Activity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 try {
-                    PatientToken = snapshot.child("Token").child("Patient_Token").getValue().toString();
+                    PatientToken = Objects.requireNonNull(snapshot.child("Token").child("Patient_Token").getValue()).toString();
                     Log.e("TAG", PatientToken);
                 } catch (Exception e) {
                     Log.e("TAG", e.getMessage());
@@ -182,12 +185,12 @@ public class Doctor_Profile_P extends Basic_Activity {
 
             SharedPreferences.Editor editor = sharedpreferences.edit();
             editor.putString("TAG_NAME2", chatKey);
-            editor.commit();
+            editor.apply();
 
             Log.e("TAG", chatKey);
 
         } else {
-            Toast.makeText(Doctor_Profile_P.this, "Enter Token", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Doctor_Profile_P.this, "لا يمكن أن تكون الإستشارة فارغة", Toast.LENGTH_SHORT).show();
         }
         dialog.dismiss();
     }

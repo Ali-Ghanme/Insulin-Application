@@ -11,7 +11,7 @@ import com.example.diabestes_care_app.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class RestPassword3 extends Basic_Activity {
+public class RestPassword3_d extends Basic_Activity {
 
     DatabaseReference databaseReference;
     String Username;
@@ -30,17 +30,17 @@ public class RestPassword3 extends Basic_Activity {
 
         Username = getIntent().getStringExtra("UsernamePassword");
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("patient").child(Username);
+        databaseReference = FirebaseDatabase.getInstance().getReference("doctor").child(Username);
 
         button.setOnClickListener(v -> {
             if (validIsEmpty(editText1.getText().toString(), editText2.getText().toString(), editText1.getText().toString(),
                     editText2.getText().toString(), editText1.getText().toString(), editText2.getText().toString()) || validPassword(editText1.getText().toString()) ||
                     validCoPassword(editText1.getText().toString(), editText2.getText().toString())) {
-                Toast.makeText(RestPassword3.this, "كلمة السر لا تلبي متطلبات الأمان", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RestPassword3_d.this, "كلمة السر لا تلبي متطلبات الأمان", Toast.LENGTH_SHORT).show();
             } else {
                 databaseReference.child("Password").setValue(editText1.getText().toString());
                 databaseReference.child("CoPassword").setValue(editText2.getText().toString());
-                Intent intent = new Intent(RestPassword3.this, RestPassword4.class);
+                Intent intent = new Intent(RestPassword3_d.this, RestPassword4_d.class);
                 startActivity(intent);
             }
         });

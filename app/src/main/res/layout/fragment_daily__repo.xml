@@ -43,4 +43,12 @@
             android:textColor="?attr/text_color"
             android:textSize="@dimen/_15sdp" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/counttime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

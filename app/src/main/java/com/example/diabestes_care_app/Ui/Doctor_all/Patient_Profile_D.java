@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
@@ -50,7 +49,6 @@ public class Patient_Profile_D extends Basic_Activity {
 
         DoctorName.setText(getName);
         Glide.with(this).load(getProfilePic).into(Doctor_Profile);
-        Toast.makeText(this, getUsername, Toast.LENGTH_SHORT).show();
 
         //============================Create + Configure the Dialog here============================
         dialog = new Dialog(Patient_Profile_D.this);

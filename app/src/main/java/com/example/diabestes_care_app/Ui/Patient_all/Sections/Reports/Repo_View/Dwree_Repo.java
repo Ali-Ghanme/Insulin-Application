@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -88,10 +87,10 @@ public class Dwree_Repo extends Fragment {
                         reports_monthly_adapter = new Reports_Monthly_Adapter(getContext(), list2);
                         recyclerViewMonthly.setAdapter(reports_monthly_adapter);
                         reports_monthly_adapter.updateUsersList(list2);
+
                         recyclerViewMonthly.setVisibility(View.VISIBLE);
                         no_data.setVisibility(View.INVISIBLE);
                     } else {
-                        Toast.makeText(getContext(), "Hallow", Toast.LENGTH_SHORT).show();
                         no_data.setVisibility(View.VISIBLE);
                         recyclerViewMonthly.setVisibility(View.INVISIBLE);
                     }

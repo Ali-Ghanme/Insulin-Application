@@ -1,7 +1,9 @@
 package com.example.diabestes_care_app.Base_Activity;
 
 import android.annotation.SuppressLint;
+import android.app.AlarmManager;
 import android.app.Dialog;
+import android.app.PendingIntent;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -20,16 +22,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import com.bitvale.switcher.SwitcherX;
+import com.example.diabestes_care_app.BroadcastReceiver.DailyAlarmReceiver;
 import com.example.diabestes_care_app.R;
 import com.google.firebase.database.DatabaseReference;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
+import java.util.Random;
 
 public class Basic_Activity extends AppCompatActivity {
     static boolean password_is_visible;
     Dialog dialog;
+    Random r;
+    int output;
 
     public void fullscreen() {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -170,4 +176,19 @@ public class Basic_Activity extends AppCompatActivity {
                 });
     }
 
+    public void registerAlarm(Context context, int requestCode) {
+        int HOUR = 2;
+        Intent intent = new Intent(context, DailyAlarmReceiver.class);
+        @SuppressLint("UnspecifiedImmutableFlag") PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                context, requestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()
+                + 24 * HOUR, pendingIntent);
+    }
+
+    public int generatePIN(){
+        r = new Random();
+        output = r.nextInt(1000000-1000);
+        return output;
+    }
 }

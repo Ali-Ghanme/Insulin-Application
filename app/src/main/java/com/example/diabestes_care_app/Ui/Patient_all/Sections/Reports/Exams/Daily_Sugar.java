@@ -76,10 +76,19 @@ public class Daily_Sugar extends Fragment {
         btn_checked_save_sugar.setOnClickListener(v -> {
             number_sugar = et_number_sugar.getText().toString();
             if (number_sugar.isEmpty()) {
-                Toast.makeText(getActivity(), "لا توجد نتيجة", Toast.LENGTH_SHORT).show();
-            } else if ((sugarValue = Double.parseDouble(number_sugar)) >= 200 || (sugarValue = Double.parseDouble(number_sugar)) <= 89) {
+                Toast.makeText(getActivity(), "لا توجد قيم مدرجة", Toast.LENGTH_SHORT).show();
+            } else if ((sugarValue = Double.parseDouble(number_sugar)) >= 200) {
 
                 showErrorDialog("تحذير السكر مرتفع", "يرجى مراجعة الطبيب على الفور");
+                // Upload Data on Firebase
+                databaseReference_daily.child("نسبة السكر في الدم").setValue(number_sugar);
+                databaseReference_daily.child("فترة القياس").setValue(daysugar);
+                databaseReference_daily.child("وقت القياس").setValue(currentDataTime);
+                databaseReference_daily.child("حالة القياس").setValue(error);
+                // Mohammed Siam
+            } else if ((sugarValue = Double.parseDouble(number_sugar)) <= 89) {
+
+                showWarningDialog(  "يرجى تناول بعض السكريات مثل الحلوى");
                 // Upload Data on Firebase
                 databaseReference_daily.child("نسبة السكر في الدم").setValue(number_sugar);
                 databaseReference_daily.child("فترة القياس").setValue(daysugar);
@@ -148,7 +157,7 @@ public class Daily_Sugar extends Fragment {
         alertDialog.show();
     }
 
-    private void showWarningDialog(String message) {
+    private void showWarningDialog(String message ) {
         AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity(), R.style.AlertDialogTheme);
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.layout_warning_dialog, (ConstraintLayout) requireActivity().findViewById(R.id.layoutDialogContainer));
 

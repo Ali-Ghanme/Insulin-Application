@@ -243,7 +243,7 @@ public class Dmonthly_Sugar extends Fragment {
                         cholesterol = et_cholesterol.getText().toString();
 
                         if (cholesterol.isEmpty()) {
-                            Toast.makeText(getActivity(), "لا توجد نتيجة", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "لا توجد قيم مدرجة", Toast.LENGTH_SHORT).show();
                         } else if ((cholesterolValue = Double.parseDouble(cholesterol)) <= 200) {
                             showSuccessDialog("أنت بصحة جيدة ", "استمر على هذا النحو من المحافظة على صحتك " + cholesterolValue);
                             databaseReference.child("فحوصات الدهون").child("Cholesterol").setValue(cholesterol+"");
@@ -279,7 +279,7 @@ public class Dmonthly_Sugar extends Fragment {
 
                         triglyceride = et_triglycerid.getText().toString();
                         if (triglyceride.isEmpty()) {
-                            Toast.makeText(getActivity(), "لا توجد نتيجة", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "لا توجد قيم مدرجة", Toast.LENGTH_SHORT).show();
                         } else if ((triglycerideValue = Double.parseDouble(triglyceride)) < 150) {
                             databaseReference.child("فحوصات الدهون").child("Triglyceride").setValue(triglyceride+"");
                             showSuccessDialog("أنت بصحة جيدة ", "استمر على هذا النحو من المحافظة على صحتك ");
@@ -287,12 +287,12 @@ public class Dmonthly_Sugar extends Fragment {
                             //  200 - 499
                         } else if ((triglycerideValue = Double.parseDouble(triglyceride)) >= 200 && (triglycerideValue = Double.parseDouble(triglyceride)) <= 499) {
                             databaseReference.child("فحوصات الدهون").child("Triglyceride").setValue(triglyceride+"");
-                            showWarningDialog("لا بأس استمر على الارشادات ", "هذا المؤشر ينبهك بالمحافظة على الصحة واتباع الإرشادات");
+                            showWarningDialog("متابعة مع الطبيب ", "مؤشر خطير يجب اتباع الإرشادات ومراجعة طبيب ");
 
 
                         } else if ((triglycerideValue = Double.parseDouble(triglyceride)) > 500) {
                             databaseReference.child("فحوصات الدهون").child("Triglyceride").setValue(triglyceride+"");
-                            showErrorDialog("تحذير للمتابعة", " برجى استشارة طبيب على الفور او التوجه لاقرب مستشفى  ");
+                            showErrorDialog("تحذير", "مرفتع جدا يرجى مراجعة الطبيب عاجلا واتباع حمية غذائية قاسية  ");
                         } else {
                             // Upload Data on Firebase
                             bottomSheetDialog.dismiss();
@@ -322,7 +322,7 @@ public class Dmonthly_Sugar extends Fragment {
 
 
                         if (ldl.isEmpty()) {
-                            Toast.makeText(getActivity(), "لا توجد نتيجة", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "لا توجد قيم مدرجة", Toast.LENGTH_SHORT).show();
 
                         } else if ((ldlValue = Double.parseDouble(ldl)) >= 70 && (ldlValue = Double.parseDouble(ldl)) <= 129) {
                             databaseReference.child("فحوصات الدهون").child("IDL").setValue(ldl+"");
@@ -366,18 +366,18 @@ public class Dmonthly_Sugar extends Fragment {
                         hdl = et_hdl.getText().toString();
 
                         if (hdl.isEmpty()) {
-                            Toast.makeText(getActivity(), "لا توجد نتيجة", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "لا توجد قيم مدرجة", Toast.LENGTH_SHORT).show();
                         } else if ((hdlValue = Double.parseDouble(hdl)) >= 60 && (hdlValue = Double.parseDouble(hdl)) <= 148) {
                             databaseReference.child("فحوصات الدهون").child("HDL").setValue(hdl+"");
                             showSuccessDialog("أنت بصحة جيدة ", "استمر على هذا النحو من المحافظة على صحتك ");
 
-                        } else if ((hdlValue = Double.parseDouble(hdl)) < 60) {
-                            showWarningDialog("لا بأس استمر على الارشادات ", "هذا المؤشر ينبهك بالمحافظة على الصحة واتباع الإرشادات");
+                        } else if ((hdlValue = Double.parseDouble(hdl)) >= 40 ||  (hdlValue = Double.parseDouble(hdl)) <= 59){
+                            showWarningDialog(" منخفظ  ", "يمكنك استشارة الطبيب عبر التطبيق");
 
                             databaseReference.child("فحوصات الدهون").child("HDL").setValue(hdl+"");
 
-                        } else if ((hdlValue = Double.parseDouble(hdl)) > 149) {
-                            showErrorDialog("تحذير للمتابعة", " برجى استشارة طبيب على الفور او التوجه لاقرب مستشفى  ");
+                        } else if ((hdlValue = Double.parseDouble(hdl)) < 39) {
+                            showErrorDialog("منخفظ جدا ", " يرجى مراجعة الطبيب   ");
 
                             databaseReference.child("فحوصات الدهون").child("HDL").setValue(hdl+"");
 
@@ -421,7 +421,7 @@ public class Dmonthly_Sugar extends Fragment {
 
 
                         if (Blood_Pressure.isEmpty()) {
-                            Toast.makeText(getActivity(), " توجد نتيجة غير مدخلة", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), " توجد قيم مدرجة غير مدخلة", Toast.LENGTH_SHORT).show();
                         } else if ((Blood_PressureValue = Double.parseDouble(Blood_Pressure)) <= 50 || (Blood_PressureValue = Double.parseDouble(Blood_Pressure)) >= 150) {
                             // Upload Data on Firebase
                             showErrorDialog("تحذير للمتابعة", " برجى استشارة طبيب على الفور او التوجه لاقرب مستشفى");

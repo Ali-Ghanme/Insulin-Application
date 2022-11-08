@@ -5,8 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 
@@ -15,8 +14,8 @@ import com.example.diabestes_care_app.Ui.Patient_all.Sections.Self_Care.Content.
 
 
 public class Food_Alarm extends Fragment {
-    ListView listView;
-    String[] items = {"نصائح غذائية"};
+
+    Button button;
 
     // Hallow this is Update
     @Override
@@ -25,13 +24,11 @@ public class Food_Alarm extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_food__alram, container, false);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), R.layout.activity_listview, items);
-        listView = view.findViewById(R.id.listView_lifeStyle_2);
-        listView.setAdapter(adapter);
+        button = view.findViewById(R.id.btn_food);
 
-        listView.setOnItemClickListener((parent, view1, position, id) -> {
-            Intent intent = new Intent(getContext(), Content_f.class);
-            startActivity(intent);
+        button.setOnClickListener(v -> {
+            Intent intent = new Intent(Food_Alarm.this.getContext(), Content_f.class);
+            Food_Alarm.this.startActivity(intent);
         });
         return view;
     }

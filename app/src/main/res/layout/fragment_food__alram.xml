@@ -3,30 +3,47 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="?attr/bg_background"
     android:layout_height="match_parent"
+    android:background="?attr/bg_background"
     tools:context=".Ui.Patient_all.Sections.Self_Care.SelfCare.Fragment.Food_Alarm">
 
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/help_app"
         android:layout_width="@dimen/_280sdp"
         android:layout_height="match_parent"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/help">
 
-        <ListView
-            android:id="@+id/listView_lifeStyle_2"
-            android:layout_width="match_parent"
+        <ImageView
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_250sdp"
+            android:background="@drawable/ic_splash_instraction" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/cairo_bold"
+            android:text="يمكنك تصفح كافة المعلومات عن الأغذية الصحية الخاصة بمرضى السكري"
+            android:textAlignment="center"
+            android:textColor="@color/Patient_Color"
+            android:textSize="@dimen/_15sdp" />
+
+        <Button
+            android:id="@+id/btn_food"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_20sdp"
-            android:textDirection="rtl">
-
-        </ListView>
-    </RelativeLayout>
+            android:background="@drawable/bg_patient_button"
+            android:fontFamily="@font/cairo_bold"
+            android:text="تصفح"
+            android:textColor="@color/white" />
+    </LinearLayout>
 
 </FrameLayout>

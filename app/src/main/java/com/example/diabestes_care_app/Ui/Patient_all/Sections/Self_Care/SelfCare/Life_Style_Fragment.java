@@ -36,8 +36,8 @@ public class Life_Style_Fragment extends Fragment {
 
         //====================Adapter Configuration=================================================
         adapter = new Life_Style_Fragment.MainAdapter(getChildFragmentManager());
-        adapter.AddFragment(new StepCounterK(), "حاسب الخطوات");
         adapter.AddFragment(new Food_Alarm(), "الطعام");
+        adapter.AddFragment(new StepCounterK(), "حاسب الخطوات");
 
         //========================Set Adapter for the viewpager Configuration=======================
         viewPager_subject.setAdapter(adapter);

@@ -8,7 +8,7 @@
     android:fillViewport="true"
     tools:context=".Ui.Patient_all.Sections.Self_Care.Instruction_Fragment">
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/help_app"
         android:layout_width="@dimen/_280sdp"
         android:layout_height="match_parent"
@@ -16,6 +16,8 @@
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/help">
@@ -29,14 +31,32 @@
             android:textColor="@color/Patient_Color"
             android:textSize="@dimen/_15sdp" />
 
-        <ListView
-            android:id="@+id/listView_Instruction"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="@dimen/_200sdp"
             android:layout_marginTop="@dimen/_30sdp"
-            android:textDirection="rtl">
+            android:background="@drawable/ic_instraction_2" />
 
-        </ListView>
-    </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/cairo_bold"
+            android:text="يمكنك تصفح كافة المعلومات الخاصة بمرض السكري"
+            android:textAlignment="center"
+            android:textColor="@color/Patient_Color"
+            android:textSize="@dimen/_15sdp" />
+
+        <Button
+            android:id="@+id/btn_instraction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@drawable/bg_patient_button"
+            android:fontFamily="@font/cairo_bold"
+            android:text="تصفح"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
 </FrameLayout>
 

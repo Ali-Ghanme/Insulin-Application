@@ -25,12 +25,12 @@ public class Doctor_Chat_Adapter extends RecyclerView.Adapter<Doctor_Chat_Adapte
     final Context context;
     SharedPreferences prefs;
 
-
     public Doctor_Chat_Adapter(List<ChatList_Model> chatListListModel, Context context) {
         this.chatListListModel = chatListListModel;
         this.context = context;
     }
 
+    @SuppressLint("InflateParams")
     @NonNull
     @Override
     public Doctor_Chat_Adapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -51,6 +51,7 @@ public class Doctor_Chat_Adapter extends RecyclerView.Adapter<Doctor_Chat_Adapte
 
             holder.oppoMessage.setText(list.getMessage());
             holder.oppoTime.setText(list.getDate() + "" + list.getTime());
+
         } else {
             holder.myMsgLayout.setVisibility(View.VISIBLE);
             holder.oppoLayout.setVisibility(View.GONE);

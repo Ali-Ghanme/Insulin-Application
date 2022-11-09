@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="?attr/bg_background"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?attr/bg_background">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -13,9 +14,10 @@
             android:id="@+id/oppoLayout_d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_15sdp"
             android:layout_alignParentLeft="true"
-            android:orientation="vertical">
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:orientation="vertical"
+            tools:ignore="RtlHardcoded">
 
             <TextView
                 android:id="@+id/oppoMessage_d"
@@ -38,11 +40,12 @@
         <LinearLayout
             android:id="@+id/myMsgLayout_d"
             android:layout_width="wrap_content"
-            android:layout_alignParentRight="true"
             android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
             android:layout_marginLeft="@dimen/_50sdp"
             android:layout_marginRight="@dimen/_15sdp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:ignore="RelativeOverlap,RtlHardcoded">
 
             <TextView
                 android:id="@+id/myMsgMessage_d"

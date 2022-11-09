@@ -92,7 +92,9 @@ public class Doctor_Follow_Adapter extends RecyclerView.Adapter<Doctor_Follow_Ad
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String image = Objects.requireNonNull(snapshot.child("User_Profile_Image").child("Image").child("mImageUrI").getValue()).toString();
                 String diabetesType = Objects.requireNonNull(snapshot.child("disease_info").child("Diabetes Type").getValue()).toString();
-                Glide.with(context).load(image).placeholder(R.drawable.ic_user).error(R.drawable.notifications).into(holder.imageView);
+                if (context != null) {
+                    Glide.with(context.getApplicationContext()).load(image).placeholder(R.drawable.ic_user).error(R.drawable.notifications).into(holder.imageView);
+                }
                 String name = Objects.requireNonNull(snapshot.child("personal_info").child("name").getValue()).toString();
                 holder.name.setText(name);
                 holder.type.setText(diabetesType);

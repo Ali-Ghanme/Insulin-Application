@@ -31,6 +31,7 @@ public class Patient_Chat_Adapter extends RecyclerView.Adapter<Patient_Chat_Adap
         this.context = context;
     }
 
+    @SuppressLint("InflateParams")
     @NonNull
     @Override
     public Patient_Chat_Adapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -44,19 +45,19 @@ public class Patient_Chat_Adapter extends RecyclerView.Adapter<Patient_Chat_Adap
 
         prefs = context.getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
         String DoctorUsername = prefs.getString("TAG_NAME", null);
-
         if (list.getUsername().equals(DoctorUsername)) {
-            holder.myMsgLayout.setVisibility(View.GONE);
-            holder.oppoLayout.setVisibility(View.VISIBLE);
 
-            holder.oppoMessage.setText(list.getMessage());
-            holder.oppoTime.setText(list.getDate() + "" + list.getTime());
-        } else {
             holder.myMsgLayout.setVisibility(View.VISIBLE);
             holder.oppoLayout.setVisibility(View.GONE);
 
             holder.myMessage.setText(list.getMessage());
             holder.myTime.setText(list.getDate() + "" + list.getTime());
+        } else {
+            holder.myMsgLayout.setVisibility(View.GONE);
+            holder.oppoLayout.setVisibility(View.VISIBLE);
+
+            holder.oppoMessage.setText(list.getMessage());
+            holder.oppoTime.setText(list.getDate() + "" + list.getTime());
         }
     }
 

@@ -85,7 +85,7 @@ public class Patient_Messages_Adapter extends RecyclerView.Adapter<Patient_Messa
 
                 list2.setDoctorImage(Objects.requireNonNull(snapshot.child("User_Profile_Image").child("Image").child("mImageUrI").getValue()).toString());
                 list2.setName(Objects.requireNonNull(snapshot.child("personal_info").child("name_ar").getValue()).toString());
-                Glide.with(context).load(list2.getDoctorImage()).placeholder(R.drawable.ic_user).error(R.drawable.notifications).into(holder.imageView);
+                Glide.with(context.getApplicationContext()).load(list2.getDoctorImage()).placeholder(R.drawable.ic_user).error(R.drawable.notifications).into(holder.imageView);
                 holder.name.setText(list2.getName());
                 holder.lastMessage.setText(list2.getLastMessage());
             }

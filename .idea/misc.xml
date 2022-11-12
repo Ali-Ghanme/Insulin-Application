@@ -75,6 +75,8 @@
         <entry key="..\:/Android_Development_Projects/Flutter Project/Diabestes_Care_App/app/src/main/res/layout/activity_edit_profile_p.xml" value="0.2877297990594271" />
         <entry key="..\:/Android_Development_Projects/Flutter Project/Diabestes_Care_App/app/src/main/res/layout/activity_home_p.xml" value="0.2877297990594271" />
         <entry key="..\:/Android_Development_Projects/Flutter Project/Diabestes_Care_App/app/src/main/res/layout/activity_patient_profile.xml" value="0.2877297990594271" />
+        <entry key="..\:/Android_Development_Projects/Flutter Project/Diabestes_Care_App/app/src/main/res/layout/activity_patient_profile_d.xml" value="0.2877297990594271" />
+        <entry key="..\:/Android_Development_Projects/Flutter Project/Diabestes_Care_App/app/src/main/res/layout/activity_patinet_report_d.xml" value="0.2877297990594271" />
         <entry key="..\:/Android_Development_Projects/Flutter Project/Diabestes_Care_App/app/src/main/res/layout/activity_reset_password.xml" value="0.2877297990594271" />
         <entry key="..\:/Android_Development_Projects/Flutter Project/Diabestes_Care_App/app/src/main/res/layout/activity_rest_passowrd2.xml" value="0.2877297990594271" />
         <entry key="..\:/Android_Development_Projects/Flutter Project/Diabestes_Care_App/app/src/main/res/layout/activity_rest_password3.xml" value="0.2877297990594271" />
@@ -83,16 +85,18 @@
         <entry key="..\:/Android_Development_Projects/Flutter Project/Diabestes_Care_App/app/src/main/res/layout/activity_sign_up_1_d.xml" value="0.2877297990594271" />
         <entry key="..\:/Android_Development_Projects/Flutter Project/Diabestes_Care_App/app/src/main/res/layout/activity_sign_up_1_p.xml" value="0.2951754385964912" />
         <entry key="..\:/Android_Development_Projects/Flutter Project/Diabestes_Care_App/app/src/main/res/layout/activity_sign_up_3_d.xml" value="0.2951754385964912" />
-        <entry key="..\:/Android_Development_Projects/Flutter Project/Diabestes_Care_App/app/src/main/res/layout/activity_sign_up_3_p.xml" value="0.2951754385964912" />
+        <entry key="..\:/Android_Development_Projects/Flutter Project/Diabestes_Care_App/app/src/main/res/layout/activity_sign_up_3_p.xml" value="0.2877297990594271" />
         <entry key="..\:/Android_Development_Projects/Flutter Project/Diabestes_Care_App/app/src/main/res/layout/activity_sign_up_4_p.xml" value="0.2951754385964912" />
         <entry key="..\:/Android_Development_Projects/Flutter Project/Diabestes_Care_App/app/src/main/res/layout/activity_splash_screen.xml" value="0.2877297990594271" />
         <entry key="..\:/Android_Development_Projects/Flutter Project/Diabestes_Care_App/app/src/main/res/layout/chat_adapter_layout.xml" value="0.2877297990594271" />
         <entry key="..\:/Android_Development_Projects/Flutter Project/Diabestes_Care_App/app/src/main/res/layout/chat_adapter_layout_d.xml" value="0.2877297990594271" />
         <entry key="..\:/Android_Development_Projects/Flutter Project/Diabestes_Care_App/app/src/main/res/layout/consu_request_dialog.xml" value="0.2951754385964912" />
         <entry key="..\:/Android_Development_Projects/Flutter Project/Diabestes_Care_App/app/src/main/res/layout/consu_respons_recyle_layout.xml" value="0.2877297990594271" />
+        <entry key="..\:/Android_Development_Projects/Flutter Project/Diabestes_Care_App/app/src/main/res/layout/fragment_chat___d.xml" value="0.2877297990594271" />
         <entry key="..\:/Android_Development_Projects/Flutter Project/Diabestes_Care_App/app/src/main/res/layout/fragment_daily__repo.xml" value="0.2877297990594271" />
         <entry key="..\:/Android_Development_Projects/Flutter Project/Diabestes_Care_App/app/src/main/res/layout/fragment_daily__suger.xml" value="0.2877297990594271" />
         <entry key="..\:/Android_Development_Projects/Flutter Project/Diabestes_Care_App/app/src/main/res/layout/fragment_daily_report.xml" value="0.2877297990594271" />
+        <entry key="..\:/Android_Development_Projects/Flutter Project/Diabestes_Care_App/app/src/main/res/layout/fragment_diabats_info_d.xml" value="0.2877297990594271" />
         <entry key="..\:/Android_Development_Projects/Flutter Project/Diabestes_Care_App/app/src/main/res/layout/fragment_dwree__repo.xml" value="0.2877297990594271" />
         <entry key="..\:/Android_Development_Projects/Flutter Project/Diabestes_Care_App/app/src/main/res/layout/fragment_dwree_report.xml" value="0.2877297990594271" />
         <entry key="..\:/Android_Development_Projects/Flutter Project/Diabestes_Care_App/app/src/main/res/layout/fragment_food__alram.xml" value="0.2877297990594271" />
@@ -101,6 +105,8 @@
         <entry key="..\:/Android_Development_Projects/Flutter Project/Diabestes_Care_App/app/src/main/res/layout/fragment_instracation_tab.xml" value="0.2877297990594271" />
         <entry key="..\:/Android_Development_Projects/Flutter Project/Diabestes_Care_App/app/src/main/res/layout/fragment_log_in_d.xml" value="0.2877297990594271" />
         <entry key="..\:/Android_Development_Projects/Flutter Project/Diabestes_Care_App/app/src/main/res/layout/fragment_log_in_p.xml" value="0.2877297990594271" />
+        <entry key="..\:/Android_Development_Projects/Flutter Project/Diabestes_Care_App/app/src/main/res/layout/fragment_patinet_info.xml" value="0.2877297990594271" />
+        <entry key="..\:/Android_Development_Projects/Flutter Project/Diabestes_Care_App/app/src/main/res/layout/fragment_personal__info_d.xml" value="0.2877297990594271" />
         <entry key="..\:/Android_Development_Projects/Flutter Project/Diabestes_Care_App/app/src/main/res/layout/fragment_profile_.xml" value="0.2877297990594271" />
         <entry key="..\:/Android_Development_Projects/Flutter Project/Diabestes_Care_App/app/src/main/res/layout/fragment_profile___d.xml" value="0.2877297990594271" />
         <entry key="..\:/Android_Development_Projects/Flutter Project/Diabestes_Care_App/app/src/main/res/layout/layout_bottom_sheet_main.xml" value="0.2951754385964912" />

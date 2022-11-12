@@ -46,7 +46,6 @@ public class Patient_Chat_Adapter extends RecyclerView.Adapter<Patient_Chat_Adap
         prefs = context.getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
         String DoctorUsername = prefs.getString("TAG_NAME", null);
         if (list.getUsername().equals(DoctorUsername)) {
-
             holder.myMsgLayout.setVisibility(View.VISIBLE);
             holder.oppoLayout.setVisibility(View.GONE);
 

@@ -49,7 +49,6 @@
             android:layout_marginRight="@dimen/_75sdp"
             android:fontFamily="@font/cairo_bold" />
     </RelativeLayout>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -376,4 +375,5 @@
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>
+
 </RelativeLayout>

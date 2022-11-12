@@ -38,8 +38,9 @@
                 android:textColor="@color/Doctor_Color"
                 android:textSize="@dimen/_12sdp" />
 
+
             <EditText
-                android:id="@+id/FD_DiabetesType_d"
+                android:id="@+id/FD_HaveIssue_d"
                 android:layout_width="@dimen/_150sdp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
@@ -53,7 +54,7 @@
 
             <View
                 style="@style/Divider.Horizontal"
-                android:layout_below="@+id/FD_DiabetesType_d" />
+                android:layout_below="@+id/FD_HaveIssue_d" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -122,7 +123,7 @@
                 android:textSize="@dimen/_12sdp" />
 
             <EditText
-                android:id="@+id/FD_HaveIssue_d"
+                android:id="@+id/FD_DiabetesType_d"
                 android:layout_width="@dimen/_150sdp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
@@ -136,8 +137,48 @@
 
             <View
                 style="@style/Divider.Horizontal"
-                android:layout_below="@+id/FD_HaveIssue_d" />
+                android:layout_below="@+id/FD_DiabetesType_d" />
         </RelativeLayout>
+
+        <ScrollView
+            android:id="@+id/txt10S"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_below="@+id/FD_HaveIssue_R"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/bg_doctors_list"
+            android:backgroundTint="?attr/bg_color"
+            android:elevation="@dimen/_1sdp"
+            android:fillViewport="true"
+            android:fontFamily="@font/cairo_bold"
+            android:paddingLeft="20dp"
+            android:paddingRight="@dimen/_20sdp"
+            android:scrollbars="vertical">
+
+            <TextView
+                android:id="@+id/txt10"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_150sdp"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:maxLines="30"
+                android:text="نبذة "
+                android:textColor="@color/Doctor_Color"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold" />
+
+        </ScrollView>
+
+        <View
+            style="@style/Divider.Horizontal"
+            android:layout_below="@+id/txt10S"
+            android:layout_margin="@dimen/_10sdp" />
     </RelativeLayout>
 
     <Button

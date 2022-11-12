@@ -1,28 +1,27 @@
 package com.example.diabestes_care_app.Ui.Doctor_all;
 
-import android.app.Dialog;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 
 import com.bumptech.glide.Glide;
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.R;
-import com.example.diabestes_care_app.Ui.Patient_all.Home_Patient;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-import de.hdodenhof.circleimageview.CircleImageView;
+import java.util.Objects;
 
 public class Patient_Profile_D extends Basic_Activity {
-    Button request;
-    ImageView back;
-    CircleImageView Doctor_Profile;
-    TextView DoctorName;
-    // Dialog
-    Dialog dialog;
+    ImageView patient_profile, back;
+    TextView name, type, age, gender;
+    TextView medicsType, another, injury_date, injury_factor;
+    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,37 +29,47 @@ public class Patient_Profile_D extends Basic_Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_profile_d);
 
-
-        DoctorName = findViewById(R.id.PPD_tv_doctor_name);
-        Doctor_Profile = findViewById(R.id.PPD_img_Profile);
-        request = findViewById(R.id.PPD_request_for);
-        back = findViewById(R.id.PPD_btn_back);
-
-        back.setOnClickListener(v -> {
-            Intent intent = new Intent(Patient_Profile_D.this, Home_Patient.class);
-            startActivity(intent);
-        });
-
         // Get data from message adapter class
-        final String getName = getIntent().getStringExtra("Patient name");
-        final String getProfilePic = getIntent().getStringExtra("Patient_Pic_Profile");
         final String getUsername = getIntent().getStringExtra("username");
-        final String getType = getIntent().getStringExtra("type");
 
-        DoctorName.setText(getName);
-        Glide.with(this).load(getProfilePic).into(Doctor_Profile);
+        //=========================================Define===========================================
+        patient_profile = findViewById(R.id.FPI_img_Profile_d);
+        name = findViewById(R.id.FPI_name_d);
+        type = findViewById(R.id.FPI_type_d);
+        age = findViewById(R.id.FPI_age_d);
+        gender = findViewById(R.id.FPI_gender_d);
+        medicsType = findViewById(R.id.FPI_Medics_Type_d);
+        another = findViewById(R.id.FPI_another_d);
+        injury_date = findViewById(R.id.FPI_injury_date_d);
+        injury_factor = findViewById(R.id.FPI_injury_factor_d);
+        back = findViewById(R.id.DPP_btn_back_d);
 
-        //============================Create + Configure the Dialog here============================
-        dialog = new Dialog(Patient_Profile_D.this);
-        dialog.setContentView(R.layout.consu_request_dialog);
-        dialog.getWindow().setBackgroundDrawable(getResources().getDrawable(R.drawable.dilog_background));
-        //Setting the animations to dialog
-        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        dialog.setCancelable(true); //Optional
-        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        back.setOnClickListener(v -> onBackPressed());
+        // Get data from message adapter class
+        databaseReference = FirebaseDatabase.getInstance().getReference("patient").child(getUsername);
 
-        Button oky = dialog.findViewById(R.id.okey);
-        EditText et_title = dialog.findViewById(R.id.et_titlee);
-        EditText et_subject = dialog.findViewById(R.id.et_subjectt);
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (this == null) {
+                    return;
+                }
+                String image = Objects.requireNonNull(snapshot.child("User_Profile_Image").child("Image").child("mImageUrI").getValue()).toString();
+                Glide.with(getApplicationContext()).load(image).into(patient_profile);
+                name.setText(snapshot.child("personal_info").child("name").getValue().toString());
+                age.setText(snapshot.child("personal_info").child("Age").getValue().toString());
+                gender.setText(snapshot.child("personal_info").child("gender").getValue().toString());
+                type.setText(snapshot.child("disease_info").child("Diabetes Type").getValue().toString());
+                medicsType.setText(snapshot.child("disease_info").child("Diabetes Medics Type").getValue().toString());
+                another.setText(snapshot.child("disease_info").child("أمراض أخرى").getValue().toString());
+                injury_date.setText(snapshot.child("disease_info").child("تاريخ الاصابة").getValue().toString());
+                injury_factor.setText(snapshot.child("disease_info").child("عوامل الاصابة").getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }

@@ -3,6 +3,7 @@ package com.example.diabestes_care_app.Ui.Patient_all;
 import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -85,7 +86,9 @@ public class Home_Patient extends Basic_Activity {
                 //mario should decide what to do with linker's snooping status here e.g.
                 assert snooping_status != null;
                 if (snooping_status.contentEquals("offline")) {
-                    dialog.show();
+                    if (!((Activity) Home_Patient.this).isFinishing()) {
+                        dialog.show();
+                    }
                 }
             }
 

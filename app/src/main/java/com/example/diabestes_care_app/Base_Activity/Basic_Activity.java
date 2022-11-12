@@ -137,10 +137,10 @@ public class Basic_Activity extends AppCompatActivity {
 
         if (isDarkModeOn) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-            theme.setChecked(false, true);
+            theme.setChecked(true, true);
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-            theme.setChecked(true, true);
+            theme.setChecked(false, true);
         }
 
         theme.setOnClickListener(

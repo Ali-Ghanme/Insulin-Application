@@ -19,7 +19,7 @@ import com.bumptech.glide.Glide;
 import com.example.diabestes_care_app.Adapter.Doctor_Chat_Adapter;
 import com.example.diabestes_care_app.Base_Activity.Basic_Activity;
 import com.example.diabestes_care_app.MemoryData.MemoryData;
-import com.example.diabestes_care_app.Models.ChatList_Model;
+import com.example.diabestes_care_app.Models.ChatList_Model_d;
 import com.example.diabestes_care_app.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -42,7 +42,7 @@ public class Chat_D extends Basic_Activity {
     private DatabaseReference myRef;
     EditText chatEditText;
     RecyclerView ChatRecyclerView;
-    private final List<ChatList_Model> chatListModels = new ArrayList<>();
+    private final List<ChatList_Model_d> chatListModels = new ArrayList<>();
     private Doctor_Chat_Adapter chatAdapter;
     private boolean loadingFirstTime = true;
     DatabaseReference online_status_all_users;
@@ -84,7 +84,6 @@ public class Chat_D extends Basic_Activity {
 
         myRef = FirebaseDatabase.getInstance().getReference().child(restoredText);
         online_status_all_users = FirebaseDatabase.getInstance().getReference().child("online_statuses").child(getUsername);
-
         //============================= Image Profile + name =======================================
         name.setText(getName);
         Glide.with(this).load(getProfilePic).into(profile_image);
@@ -128,7 +127,7 @@ public class Chat_D extends Basic_Activity {
                                 String date22 = DateFormat.format("dd-MM-yyyy", cal).toString();
                                 String time = DateFormat.format(" hh:mm:aa", cal).toString();
 
-                                ChatList_Model chatListModel = new ChatList_Model(getUsername, getName, getMsg, date22, time);
+                                ChatList_Model_d chatListModel = new ChatList_Model_d(getUsername, getName, getMsg, date22, time);
                                 chatListModels.add(chatListModel);
 
                                 String data = MemoryData.getLastMsgTS(Chat_D.this, chatKey);

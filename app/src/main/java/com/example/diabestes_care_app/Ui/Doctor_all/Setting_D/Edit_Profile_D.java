@@ -1,7 +1,8 @@
 package com.example.diabestes_care_app.Ui.Doctor_all.Setting_D;
 
 
-import static com.example.diabestes_care_app.Ui.Doctor_all.Nav_Fragment_D.Home_Fragment_D.MyPREFERENCES_D;
+
+import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Doctor_Fragment.MyPREFERENCES_D;
 
 import android.content.Intent;
 import android.content.SharedPreferences;

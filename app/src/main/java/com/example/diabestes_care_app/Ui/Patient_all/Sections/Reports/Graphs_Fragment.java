@@ -2,6 +2,8 @@ package com.example.diabestes_care_app.Ui.Patient_all.Sections.Reports;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
+
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -39,7 +41,6 @@ public class Graphs_Fragment extends Fragment {
     // Firebase
     DatabaseReference databaseReference;
     String PatientUsername;
-    public static final String MyPREFERENCES_P = "P_Username";
 
     // رسوم بيانية
     @Override

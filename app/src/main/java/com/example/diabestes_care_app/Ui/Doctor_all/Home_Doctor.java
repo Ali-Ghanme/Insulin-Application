@@ -1,10 +1,10 @@
 package com.example.diabestes_care_app.Ui.Doctor_all;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
@@ -40,6 +40,7 @@ public class Home_Doctor extends Basic_Activity {
     Dialog dialog;
     Button Continue;
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,12 +94,7 @@ public class Home_Doctor extends Basic_Activity {
             }
         });
 
-        Continue.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
+        Continue.setOnClickListener(v -> dialog.dismiss());
         //============================BottomNavigation Transaction==================================
         animatedBottomBar.setOnTabSelectListener(new AnimatedBottomBar.OnTabSelectListener() {
             @Override

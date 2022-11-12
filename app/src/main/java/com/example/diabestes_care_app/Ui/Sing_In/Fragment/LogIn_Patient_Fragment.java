@@ -45,10 +45,10 @@ public class LogIn_Patient_Fragment extends Fragment {
     CheckBox rememberMe;
     // Object From Shared Preference
     SharedPreferences sharedpreferences;
-    // Name of Preference to Patient Username
-    public static final String MyPREFERENCES_P = "P_Username";
     // Remember Check Box Shared Preference
     SharedPreferences Check_Box_preferences_P;
+    public static final String MyPREFERENCES_P = "P_Username";
+
     // String
     String PatientToken;
     // Forget Password

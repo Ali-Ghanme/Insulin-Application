@@ -180,15 +180,15 @@ public class Basic_Activity extends AppCompatActivity {
         int HOUR = 2;
         Intent intent = new Intent(context, DailyAlarmReceiver.class);
         @SuppressLint("UnspecifiedImmutableFlag") PendingIntent pendingIntent = PendingIntent.getBroadcast(
-                context, requestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                context, requestCode, intent, PendingIntent.FLAG_MUTABLE);
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()
                 + 24 * HOUR, pendingIntent);
     }
 
-    public int generatePIN(){
+    public int generatePIN() {
         r = new Random();
-        output = r.nextInt(1000000-1000);
+        output = r.nextInt(1000000 - 1000);
         return output;
     }
 }

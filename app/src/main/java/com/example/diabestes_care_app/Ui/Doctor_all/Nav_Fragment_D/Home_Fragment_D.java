@@ -2,6 +2,8 @@ package com.example.diabestes_care_app.Ui.Doctor_all.Nav_Fragment_D;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import static com.example.diabestes_care_app.Ui.Doctor_all.Home_Doctor.MyPREFERENCES_D;
+
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -51,8 +53,6 @@ public class Home_Fragment_D extends Fragment {
     SearchView searchInput;
     TextView username;
     ImageView imageProfile;
-    // ShardPreference
-    public static final String MyPREFERENCES_D = "D_Username";
     // Patient Username TextView
     String DoctorUsername;
     // Notification Counter
@@ -82,12 +82,9 @@ public class Home_Fragment_D extends Fragment {
 
         bell = view.findViewById(R.id.bell_D);
 
-        bell.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), Users_Notification.class);
-                startActivity(intent);
-            }
+        bell.setOnClickListener(v -> {
+            Intent intent = new Intent(getContext(), Users_Notification.class);
+            startActivity(intent);
         });
         //============================Firebase======================================================
         myRef = FirebaseDatabase.getInstance().getReference();

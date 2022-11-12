@@ -1,7 +1,8 @@
 package com.example.diabestes_care_app.Adapter;
 
 import static android.content.Context.MODE_PRIVATE;
-import static com.example.diabestes_care_app.Ui.Doctor_all.Nav_Fragment_D.Home_Fragment_D.MyPREFERENCES_D;
+
+import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Doctor_Fragment.MyPREFERENCES_D;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -45,18 +46,19 @@ public class Patient_Chat_Adapter extends RecyclerView.Adapter<Patient_Chat_Adap
 
         prefs = context.getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
         String DoctorUsername = prefs.getString("TAG_NAME", null);
-        if (list.getUsername().equals(DoctorUsername)) {
-            holder.myMsgLayout.setVisibility(View.VISIBLE);
-            holder.oppoLayout.setVisibility(View.GONE);
 
-            holder.myMessage.setText(list.getMessage());
-            holder.myTime.setText(list.getDate() + "" + list.getTime());
-        } else {
+        if (list.getUsername().equals(DoctorUsername)) {
             holder.myMsgLayout.setVisibility(View.GONE);
             holder.oppoLayout.setVisibility(View.VISIBLE);
 
             holder.oppoMessage.setText(list.getMessage());
             holder.oppoTime.setText(list.getDate() + "" + list.getTime());
+        } else {
+            holder.myMsgLayout.setVisibility(View.VISIBLE);
+            holder.oppoLayout.setVisibility(View.GONE);
+
+            holder.myMessage.setText(list.getMessage());
+            holder.myTime.setText(list.getDate() + "" + list.getTime());
         }
     }
 

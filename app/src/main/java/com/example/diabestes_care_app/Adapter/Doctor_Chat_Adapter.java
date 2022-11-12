@@ -1,11 +1,12 @@
 package com.example.diabestes_care_app.Adapter;
 
 import static android.content.Context.MODE_PRIVATE;
-import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
+import static com.example.diabestes_care_app.Ui.Doctor_all.Home_Doctor.MyPREFERENCES_D;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,17 +16,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.diabestes_care_app.Models.ChatList_Model;
+import com.example.diabestes_care_app.Models.ChatList_Model_d;
 import com.example.diabestes_care_app.R;
 
 import java.util.List;
 
 public class Doctor_Chat_Adapter extends RecyclerView.Adapter<Doctor_Chat_Adapter.MyViewHolder> {
-    private List<ChatList_Model> chatListListModel;
+    private List<ChatList_Model_d> chatListListModel;
     final Context context;
     SharedPreferences prefs;
 
-    public Doctor_Chat_Adapter(List<ChatList_Model> chatListListModel, Context context) {
+    public Doctor_Chat_Adapter(List<ChatList_Model_d> chatListListModel, Context context) {
         this.chatListListModel = chatListListModel;
         this.context = context;
     }
@@ -40,24 +41,26 @@ public class Doctor_Chat_Adapter extends RecyclerView.Adapter<Doctor_Chat_Adapte
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull Doctor_Chat_Adapter.MyViewHolder holder, int position) {
-        ChatList_Model list = chatListListModel.get(position);
+        ChatList_Model_d list = chatListListModel.get(position);
 
-        prefs = context.getSharedPreferences(MyPREFERENCES_P, MODE_PRIVATE);
+        prefs = context.getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
         String patientUsername = prefs.getString("TAG_NAME", null);
 
-        if (list.getUsername().equals(patientUsername)) {
-            holder.myMsgLayout.setVisibility(View.GONE);
-            holder.oppoLayout.setVisibility(View.VISIBLE);
-
-            holder.oppoMessage.setText(list.getMessage());
-            holder.oppoTime.setText(list.getDate() + "" + list.getTime());
-
-        } else {
+        Log.e("TAG", patientUsername + list.getUsername_d());
+        if (list.getUsername_d().equals(patientUsername)) {
             holder.myMsgLayout.setVisibility(View.VISIBLE);
             holder.oppoLayout.setVisibility(View.GONE);
 
-            holder.myMessage.setText(list.getMessage());
-            holder.myTime.setText(list.getDate() + "" + list.getTime());
+            holder.myMessage.setText(list.getMessage_d());
+            holder.myTime.setText(list.getDate_d() + "" + list.getTime_d());
+
+        } else {
+
+            holder.myMsgLayout.setVisibility(View.GONE);
+            holder.oppoLayout.setVisibility(View.VISIBLE);
+
+            holder.oppoMessage.setText(list.getMessage_d());
+            holder.oppoTime.setText(list.getDate_d() + "" + list.getTime_d());
         }
     }
 
@@ -67,7 +70,7 @@ public class Doctor_Chat_Adapter extends RecyclerView.Adapter<Doctor_Chat_Adapte
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    public void updateChatList(List<ChatList_Model> chatListListModel) {
+    public void updateChatList(List<ChatList_Model_d> chatListListModel) {
         this.chatListListModel = chatListListModel;
         notifyDataSetChanged();
     }

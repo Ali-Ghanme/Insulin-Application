@@ -1,6 +1,7 @@
 package com.example.diabestes_care_app.Ui.Patient_all.Nav_Fragment_P;
 
 import static android.content.Context.MODE_PRIVATE;
+
 import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
 
 import android.annotation.SuppressLint;

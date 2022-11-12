@@ -10,15 +10,14 @@
         android:id="@+id/liner_show_tow"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <RelativeLayout
             android:id="@+id/Subject"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="0dp"
             android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="0dp"
             android:layout_marginRight="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_25sdp">
 
@@ -28,18 +27,18 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/container_college"
                 android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/examine_fats"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="right"
                     android:elevation="@dimen/_3sdp"
                     android:fontFamily="@font/cairo_bold"
                     android:text="فحص الدهون"
-
                     android:textColor="@color/Patient_Color"
                     android:textColorHint="#1C1C1C"
                     android:textSize="13sp"
-                    android:layout_gravity="end"
                     android:textStyle="bold" />
 
 
@@ -59,7 +58,6 @@
                         android:background="@drawable/bg_edit_text"
                         android:backgroundTint="@color/Patient_Color"
                         android:drawablePadding="@dimen/_13sdp"
-                        android:editable="false"
                         android:elevation="@dimen/_3sdp"
                         android:fontFamily="@font/cairo_bold"
                         android:hint=" الكوليستيرول  cholesterol  "
@@ -82,7 +80,6 @@
                         android:background="@drawable/bg_edit_text"
                         android:backgroundTint="@color/Patient_Color"
                         android:drawablePadding="@dimen/_13sdp"
-                        android:editable="false"
                         android:elevation="@dimen/_3sdp"
                         android:fontFamily="@font/cairo_bold"
                         android:hint=" الدهون الثالثية Triglycerid"
@@ -105,7 +102,6 @@
                         android:background="@drawable/bg_edit_text"
                         android:backgroundTint="@color/Patient_Color"
                         android:drawablePadding="@dimen/_13sdp"
-                        android:editable="false"
                         android:elevation="@dimen/_3sdp"
                         android:fontFamily="@font/cairo_bold"
                         android:hint=" الكوليستيرول الضار LDL "
@@ -128,7 +124,6 @@
                         android:background="@drawable/bg_edit_text"
                         android:backgroundTint="@color/Patient_Color"
                         android:drawablePadding="@dimen/_13sdp"
-                        android:editable="false"
                         android:elevation="@dimen/_3sdp"
                         android:fontFamily="@font/cairo_bold"
                         android:hint=" الكوليستيرول النافع HDL "
@@ -156,13 +151,13 @@
                     android:id="@+id/examine_college"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="right"
                     android:elevation="@dimen/_3sdp"
                     android:fontFamily="@font/cairo_bold"
                     android:text="فحص وظائف الكلية"
                     android:textColor="@color/Patient_Color"
                     android:textColorHint="#1C1C1C"
                     android:textSize="13sp"
-                    android:layout_gravity="end"
                     android:textStyle="bold" />
 
                 <RelativeLayout
@@ -181,7 +176,6 @@
                         android:background="@drawable/bg_edit_text"
                         android:backgroundTint="@color/Patient_Color"
                         android:drawablePadding="@dimen/_13sdp"
-                        android:editable="false"
                         android:elevation="@dimen/_3sdp"
                         android:fontFamily="@font/cairo_bold"
                         android:hint="   الكرياتينين creatinine "
@@ -204,7 +198,6 @@
                         android:background="@drawable/bg_edit_text"
                         android:backgroundTint="@color/Patient_Color"
                         android:drawablePadding="@dimen/_13sdp"
-                        android:editable="false"
                         android:elevation="@dimen/_3sdp"
                         android:fontFamily="@font/cairo_bold"
                         android:hint="   يوريا  Urea (BUN) "
@@ -227,7 +220,6 @@
                         android:background="@drawable/bg_edit_text"
                         android:backgroundTint="@color/Patient_Color"
                         android:drawablePadding="@dimen/_13sdp"
-                        android:editable="false"
                         android:elevation="@dimen/_3sdp"
                         android:fontFamily="@font/cairo_bold"
                         android:hint=" Uric acid "
@@ -241,88 +233,6 @@
                         android:textStyle="bold" />
                 </RelativeLayout>
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/examine_blood"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_below="@id/container_fats"
-                android:layout_gravity="end"
-                android:layout_marginTop="5dp"
-                android:elevation="@dimen/_3sdp"
-                android:fontFamily="@font/cairo_bold"
-                android:text="  فحص ضغط الدم"
-                android:textColor="@color/Patient_Color"
-                android:textColorHint="#1C1C1C"
-                android:textSize="13sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/examine_blood_test"
-                android:layout_width="@dimen/_230sdp"
-                android:layout_height="@dimen/_25sdp"
-                android:layout_below="@id/examine_blood"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:background="@drawable/bg_edit_text"
-                android:backgroundTint="@color/Patient_Color"
-                android:drawablePadding="@dimen/_13sdp"
-                android:editable="false"
-                android:elevation="@dimen/_3sdp"
-                android:fontFamily="@font/cairo_bold"
-                android:hint="  فحص ضغ الدم "
-                android:maxLines="1"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:textAlignment="center"
-                android:textColorHint="#FFFFFF"
-                android:textDirection="rtl"
-                android:textSize="12sp"
-                android:textStyle="bold" />
-
-<!--            <TextView-->
-<!--                android:id="@+id/examine_bmi"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_alignParentEnd="true"-->
-<!--                android:layout_below="@id/examine_blood_test"-->
-<!--                android:layout_gravity="end"-->
-<!--                android:layout_marginEnd="0dp"-->
-<!--                android:elevation="@dimen/_3sdp"-->
-<!--                android:fontFamily="@font/cairo_bold"-->
-<!--                android:text=" حساب مؤشر كتلة الجسم "-->
-<!--                android:textColor="@color/Patient_Color"-->
-<!--                android:textColorHint="#1C1C1C"-->
-<!--                android:textSize="13sp"-->
-<!--                android:textStyle="bold" />-->
-
-<!--            <EditText-->
-<!--                android:id="@+id/examine_bmi_test"-->
-<!--                android:layout_width="@dimen/_230sdp"-->
-<!--                android:layout_height="@dimen/_25sdp"-->
-<!--                android:layout_below="@id/examine_bmi"-->
-<!--                android:layout_centerHorizontal="true"-->
-<!--                android:layout_marginTop="@dimen/_5sdp"-->
-<!--                android:background="@drawable/bg_edit_text"-->
-<!--                android:backgroundTint="@color/Patient_Color"-->
-<!--                android:drawablePadding="@dimen/_13sdp"-->
-<!--                android:editable="false"-->
-<!--                android:elevation="@dimen/_3sdp"-->
-<!--                android:fontFamily="@font/cairo_bold"-->
-<!--                android:hint=" حساب مؤشر كتلة الجسم "-->
-<!--                android:maxLines="1"-->
-<!--                android:paddingLeft="20dp"-->
-<!--                android:paddingRight="20dp"-->
-<!--                android:textAlignment="center"-->
-<!--                android:textColorHint="#FFFFFF"-->
-<!--                android:textDirection="rtl"-->
-<!--                android:textSize="12sp"-->
-<!--                android:textStyle="bold" />-->
-
-
-
-
         </RelativeLayout>
 
     </LinearLayout>

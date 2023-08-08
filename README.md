@@ -32,17 +32,10 @@ The Insulin Application for Diabetic Care is designed to enhance the care of dia
 - Health Sensors: Integration of health data from connected sensors.
 - Notifications: Alerts and reminders for medication schedules.
 - Graphing Libraries: Used to visualize glucose trends.
-- [List any additional technologies or libraries you used]
 
 ## Installation
 
 1. Clone the repository: `git clone https://github.com/yourusername/insulin-app.git`
-2. [Add any additional installation steps if necessary]
-
-## Usage
-
-1. [Provide instructions on how to run and use the app]
-2. [Include screenshots or GIFs to showcase the app's functionality]
 
 ## Screenshots
 

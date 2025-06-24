@@ -1,8 +1,7 @@
 package com.example.diabestes_care_app.Adapter;
 
 import static android.content.Context.MODE_PRIVATE;
-import static com.example.diabestes_care_app.Ui.Sing_In.Fragment.LogIn_Patient_Fragment.MyPREFERENCES_P;
-
+import static com.example.diabestes_care_app.ui.auth.patient.fragment.logIn_patient_fragment.MyPREFERENCES_P;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -17,7 +16,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.diabestes_care_app.Models.Reports_Model;
+import com.example.diabestes_care_app.data.model.Reports_Model;
 import com.example.diabestes_care_app.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -43,7 +42,7 @@ public class Reports_Adapter extends RecyclerView.Adapter<Reports_Adapter.MyView
     @Override
 
     public Reports_Adapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.reports_recyle_layout, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.g_recycle_reports_layout, parent, false);
         return new MyViewHolder(view);
 
     }
@@ -69,7 +68,6 @@ public class Reports_Adapter extends RecyclerView.Adapter<Reports_Adapter.MyView
                 status_sugar = dataSnapshot.child("حالة القياس").getValue(String.class);
                 //mario should decide what to do with linkers snooping status here e.g.
                 if (list2.getStatusSugar() == null) {
-                    return;
                 } else {
                     try {
                         if (list2.getStatusSugar().contentEquals("success")) {

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.diabestes_care_app">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
@@ -18,124 +17,124 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/Theme.Diabestes_Care_App">
         <activity
-            android:name=".Ui.Sing_In.RestPassword_P.RestPassword4"
+            android:name=".ui.auth.patient.rest_password.RestPassword4"
             android:exported="false" />
         <activity
-            android:name=".Ui.Sing_In.RestPassword_P.RestPassword3"
+            android:name=".ui.auth.patient.rest_password.RestPassword3"
             android:exported="false" />
         <activity
-            android:name=".Ui.Sing_In.RestPassword_P.RestPassowrd2"
+            android:name=".ui.auth.patient.rest_password.RestPassword2"
             android:exported="false" />
         <activity
-            android:name=".Ui.Sing_In.RestPassword_P.ResetPassword"
+            android:name=".ui.auth.patient.rest_password.ResetPassword"
             android:exported="false" />
         <activity
-            android:name=".Ui.Sing_In.RestPassword_D.RestPassword4_d"
+            android:name=".ui.auth.doctor.rest_password.RestPassword4_d"
             android:exported="false" />
         <activity
-            android:name=".Ui.Sing_In.RestPassword_D.RestPassword3_d"
+            android:name=".ui.auth.doctor.rest_password.RestPassword3_d"
             android:exported="false" />
         <activity
-            android:name=".Ui.Sing_In.RestPassword_D.RestPassowrd2_d"
+            android:name=".ui.auth.doctor.rest_password.RestPassowrd2_d"
             android:exported="false" />
         <activity
-            android:name=".Ui.Sing_In.RestPassword_D.ResetPassword_d"
+            android:name=".ui.auth.doctor.rest_password.ResetPassword_d"
             android:exported="false" />
         <activity
-            android:name=".Ui.Splah_Screens.Splash_Screen_1"
+            android:name=".ui.splash.SplashScreen"
             android:exported="false" />
         <activity
-            android:name=".Schedule_Notification.Local_Notification"
+            android:name=".data.notification.Schedule_Notification.Local_Notification"
             android:exported="false" />
         <activity
-            android:name=".Users_Notification"
+            android:name=".data.notification.Users_Notification"
             android:exported="false" />
         <activity
-            android:name=".Ui.Patient_all.Sections.Consulation.Consultation_Request"
+            android:name=".ui.patient.health.consultations.ConsultationsScreen"
             android:exported="false" />
         <activity
-            android:name=".Ui.Doctor_all.Patient_Profile_D"
+            android:name=".ui.doctor.home.screens.PatientDetailsScreen"
             android:exported="false" />
         <activity
-            android:name=".Ui.Doctor_all.Secation.Follow.PatinetData.Patent_Report_d"
+            android:name=".ui.doctor.following.screens.PatentReportInfoScreen"
             android:exported="false" />
         <activity
-            android:name=".chat.Chat_D"
+            android:name=".ui.doctor.chat.screens.ChatDoctorScreen"
             android:exported="false" />
         <activity
-            android:name=".Ui.Patient_all.Sections.Self_Care.Content.Content"
+            android:name=".ui.patient.health.self_care.screens.Content"
             android:exported="false" />
         <activity
-            android:name=".Ui.Patient_all.Sections.Self_Care.Self_Care"
+            android:name=".ui.patient.health.self_care.screens.SelfCare"
             android:exported="false" />
         <activity
-            android:name=".chat.Chat"
+            android:name=".ui.patient.chat.screens.ChatPatientScreen"
             android:exported="false" />
         <activity
-            android:name=".Ui.Patient_all.Doctor_Profile_P"
+            android:name=".ui.patient.home.screens.ConsultationsRequestScreen"
             android:exported="false" />
         <activity
-            android:name=".Ui.Sing_up_pages.Doctor.Sing_up_5_D"
+            android:name=".ui.auth.doctor.sing_up.Sing_up_5_D"
             android:exported="false" />
         <activity
-            android:name=".Ui.Patient_all.Setting_P.Edit_Profile_P"
+            android:name=".ui.patient.profile.screens.EditPatientProfile"
+            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".Ui.Patient_all.Setting_P.Help"-->
+<!--            android:exported="false" />-->
+        <activity
+            android:name=".ui.auth.patient.sing_up.PatientSignUpStep1Activity"
             android:exported="false" />
         <activity
-            android:name=".Ui.Patient_all.Setting_P.Help"
+            android:name=".ui.auth.patient.sing_up.PatientSignUpStep2Activity"
             android:exported="false" />
         <activity
-            android:name=".Ui.Sing_up_pages.Patient.Sing_Up_1_P"
+            android:name=".ui.auth.patient.sing_up.PatientSignUpStep3Activity"
             android:exported="false" />
         <activity
-            android:name=".Ui.Sing_up_pages.Patient.Sing_Up_2_P"
+            android:name=".ui.auth.patient.sing_up.PatientSignUpStep4Activity"
             android:exported="false" />
         <activity
-            android:name=".Ui.Sing_up_pages.Patient.Sing_Up_3_P"
+            android:name=".ui.auth.patient.sing_up.PatientSignUpStep5Activity"
             android:exported="false" />
         <activity
-            android:name=".Ui.Sing_up_pages.Patient.Sing_Up_4_P"
+            android:name=".ui.patient.HomePatientScreen"
             android:exported="false" />
         <activity
-            android:name=".Ui.Sing_up_pages.Patient.Sing_Up_5_P"
+            android:name=".ui.patient.health.reports.screens.ReportsHomeActivity"
             android:exported="false" />
         <activity
-            android:name=".Ui.Patient_all.Home_Patient"
+            android:name=".ui.auth.doctor.sing_up.Sing_Up_1_D"
             android:exported="false" />
         <activity
-            android:name=".Ui.Patient_all.Sections.Reports.Patient_Files"
+            android:name=".ui.auth.doctor.sing_up.Sing_Up_2_D"
             android:exported="false" />
         <activity
-            android:name=".Ui.Sing_up_pages.Doctor.Sing_Up_1_D"
+            android:name=".ui.auth.doctor.sing_up.Sing_Up_3_D"
             android:exported="false" />
         <activity
-            android:name=".Ui.Sing_up_pages.Doctor.Sing_Up_2_D"
+            android:name=".ui.auth.doctor.sing_up.Sing_Up_4_D"
             android:exported="false" />
         <activity
-            android:name=".Ui.Sing_up_pages.Doctor.Sing_Up_3_D"
+            android:name=".ui.doctor.HomeDoctorScreen"
             android:exported="false" />
         <activity
-            android:name=".Ui.Sing_up_pages.Doctor.Sing_Up_4_D"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".Ui.Doctor_all.Home_Doctor"
+            android:name=".ui.auth.Sing_In"
             android:exported="false" />
         <activity
-            android:name=".Ui.Patient_all.Sections.Doses.ui.MainActivity"
+            android:name=".ui.doctor.profile.screens.EditDoctorProfile"
             android:exported="false" />
         <activity
-            android:name=".Ui.Sing_In.Sing_In"
+            android:name=".ui.splash.CharacterChoiceScreen"
             android:exported="false" />
         <activity
-            android:name=".Ui.Doctor_all.Setting_D.Edit_Profile_D"
+            android:name=".ui.patient.health.self_care.screens.ContentF"
             android:exported="false" />
         <activity
-            android:name=".Ui.Sing_up_pages.character_choice_screen"
-            android:exported="false" />
-        <activity
-            android:name=".Ui.Patient_all.Sections.Self_Care.Content.Content_f"
-            android:exported="false" />
-        <activity
-            android:name=".Ui.Splah_Screens.Loading_Screen"
+            android:name=".ui.splash.LoadingScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -151,10 +150,10 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <receiver android:name=".Notification_Controller.LocalNotification.AlarmReceiver" />
+        <receiver android:name=".data.notification.Notification_Controller.LocalNotification.AlarmReceiver" />
 
         <service
-            android:name=".NotificationSender.FirebaseMessagingService"
+            android:name=".data.notification.NotificationSender.FirebaseMessagingService"
             android:exported="true"
             android:permission="TODO"
             tools:ignore="ExportedService">
@@ -163,17 +162,17 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".Ui.Patient_all.Sections.Doses.ui.AddEditAlarmActivity" />
+        <activity android:name=".ui.patient.health.alram.screens.AddEditAlarmActivity" />
         <activity
-            android:name=".Ui.Patient_all.Sections.Doses.ui.AlarmLandingPageActivity"
+            android:name=".ui.patient.health.alram.screens.AlarmLandingPageActivity"
             android:theme="@style/AlertLandingPageTheme" />
 
-        <service android:name=".Ui.Patient_all.Sections.Doses.service.LoadAlarmsService" />
+        <service android:name=".services.LoadAlarmsService" />
 
-        <receiver android:name=".Ui.Patient_all.Sections.Doses.service.LoadAlarmsReceiver" />
-        <receiver android:name=".Ui.Patient_all.Sections.Doses.service.AlarmReceiver" />
+        <receiver android:name=".receiver.LoadAlarmsReceiver" />
+        <receiver android:name=".receiver.AlarmReceiver" />
         <receiver
-            android:name=".Ui.Patient_all.Sections.Doses.service.BootReceiver"
+            android:name=".receiver.BootReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter android:priority="100">
@@ -181,8 +180,8 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name=".BroadcastReceiver.DailyAlarmReceiver"
-            android:exported="true" />
+            android:name=".receiver.DailyAlarmReceiver"
+           />
 
     </application>
 

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:background="?attr/bg_background"
     android:layout_height="match_parent"
-    tools:context=".Ui.Doctor_all.Secation.Consulation.General_Fragment">
+    tools:context=".ui.doctor.following.fragments.consolating.GeneralConsolationFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/Consu_recycle_general"

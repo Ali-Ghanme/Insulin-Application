@@ -2,6 +2,6 @@
 <fragment
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/landing_page_fragment_container"
-    android:name="com.example.diabestes_care_app.Ui.Patient_all.Sections.Doses.ui.AlarmLandingPageFragment"
+    android:name="com.example.diabestes_care_app.ui.patient.health.alram.fragments.AlarmLandingPageFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"/>

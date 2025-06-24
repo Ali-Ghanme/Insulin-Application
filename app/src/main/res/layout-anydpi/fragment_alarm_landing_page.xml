@@ -32,9 +32,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/cairo_bold"
-            android:text="الانتقال الى المنبه"
             android:textColor="@color/Patient_Color"
-            tools:text="Load Main Activity" />
+            tools:text="الانتقال الى المنبه" />
 
         <Button
             android:id="@+id/dismiss_btn"
@@ -43,9 +42,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/cairo_bold"
-            android:text="غفوة"
             android:textColor="@color/Patient_Color"
-            tools:text="Dismiss" />
+            tools:text="غفوة" />
 
     </LinearLayout>
 

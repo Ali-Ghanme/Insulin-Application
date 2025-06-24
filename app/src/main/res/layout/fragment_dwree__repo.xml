@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="?attr/bg_background"
-    tools:context=".Ui.Patient_all.Sections.Reports.Repo_View.Dwree_Repo">
+    tools:context=".ui.patient.health.reports.fragments.PeriodicReportFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewMonthly"

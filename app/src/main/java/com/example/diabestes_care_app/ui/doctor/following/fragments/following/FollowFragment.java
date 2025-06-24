@@ -1,0 +1,106 @@
+package com.example.diabestes_care_app.ui.doctor.following.fragments.following;
+
+import static android.content.Context.MODE_PRIVATE;
+
+import static com.example.diabestes_care_app.ui.auth.doctor.fragments.login_doctor_fragment.MyPREFERENCES_D;
+
+import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.diabestes_care_app.ui.doctor.components.adapters.DoctorFollowAdapter;
+import com.example.diabestes_care_app.data.model.Follow_Model;
+import com.example.diabestes_care_app.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class FollowFragment extends Fragment {
+    // Firebase
+    DatabaseReference myRef;
+    // Widget
+    RecyclerView recyclerView;
+    // Variables
+    List<Follow_Model> list;
+    // Adapter
+    DoctorFollowAdapter doctor_follow_adapter;
+    // String
+    String DoctorUsername;
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_follow, container, false);
+
+        recyclerView = view.findViewById(R.id.Recycle_Doctor_Follow);
+
+        SharedPreferences prefs = requireContext().getSharedPreferences(MyPREFERENCES_D, MODE_PRIVATE);
+        DoctorUsername = prefs.getString("TAG_NAME", null);
+        myRef = FirebaseDatabase.getInstance().getReference("doctor");
+
+        // ArrayList
+        list = new ArrayList<>();
+        //============================Configure Recyclerview========================================
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setHasFixedSize(true);
+        ClearAll();
+        GetFollowingPatient();
+        return view;
+    }
+
+//    ======================================Function================================================
+//    Get Following from Doctor account
+    private void GetFollowingPatient(){
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ClearAll();
+                Follow_Model follow_model;
+                for (DataSnapshot sn : snapshot.child(DoctorUsername).child("Follow").getChildren()) {
+                    follow_model = new Follow_Model();
+                    follow_model.setUsername(sn.getKey());
+                    follow_model.setType(sn.getKey());
+                    list.add(follow_model);
+
+                }
+                doctor_follow_adapter = new DoctorFollowAdapter(getContext(), list);
+                recyclerView.setAdapter(doctor_follow_adapter);
+                doctor_follow_adapter.updateUsersList(list);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    private void ClearAll() {
+        if (list != null) {
+            list.clear();
+        }else {
+            Log.e("TAG","Follow Fragment Clear All Function");
+        }
+        if (doctor_follow_adapter != null) {
+            doctor_follow_adapter.notifyDataSetChanged();
+        }
+        list = new ArrayList<>();
+    }
+}

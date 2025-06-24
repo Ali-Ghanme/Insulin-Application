@@ -1,75 +1,50 @@
 <resources>
-    <string name="app_name">Diabestes_Care_App</string>
-    <string name="Home">الرئيسة</string>
+    <string name="app_name">Diabetes_Care_App</string>
     <string name="todo">TODO</string>
-    <string name="Welcome_text">صباح الخير</string>
-    <string name="Welcome_text_dr">صباح الخير د.أحمد</string>
-    <string name="number_of_Aviliable_doctor">17/40</string>
+
+    <!-- Sing Up Screen Text -->
+    <string name="next_button">التالي</string>
+
+
+    <!-- Sing Up Page 1 For Patient -->
+    <string name="header_title_P1"> اخبرنا عن نفسك</string>
+    <string name="username">إسم المستخدم</string>
+    <string name="male">ذكر</string>
+    <string name="female">أنثى</string>
+    <string name="dateOfBrith">تاريخ الميلاد</string>
+    <string name="weight">الوزن</string>
+    <string name="height">الطول</string>
+
+    <!-- Sing Up Page 2 For Patient -->
+    <string name="header_title_P2">الاتصال والسكن</string>
+    <string name="contact_info">معلومات الاتصال</string>
+    <string name="email">الايميل</string>
+    <string name="phone_number">رقم الجوال</string>
+    <string name="section_title">الامان</string>
+    <string name="password">كلمة السر</string>
+    <string name="Re_password">أعد كتابة كلمة السر</string>
+    <string name="address_title_section">معلومات السكن</string>
+    <string name="city">المدينة</string>
+    <!-- Patient Home Text -->
+
+    <!-- Sign In -->
 
     <string name="channel_name">channel_name</string>
-    <string name="channel_description">channel_description</string>
-    <string name="action_settings">Settings</string>
-    <string name="alarm_tune">Alarm Sounds</string>
-    <string name="space" />
-    <string name="alarm_chooser_toolbar_title">Alarm\u0020Sounds</string>
-    <string name="settings_toolbar_title">Settings</string>
-    <string name="good_aft">طاب مساؤك</string>
-    <string name="good_ev">مساء الخير</string>
-    <string name="good_mor">مساء الخير</string>
-    <string name="am">ص</string>
-    <string name="pm">م</string>
-    <string name="login">تسجيل الدخول  </string>
-    <string name="hi">سعداء لانظمامكم</string>
 
-    <string name="phone_numper">Phone Numper</string>
-    <string name="registration">  Registration </string>
-    <string name="regist">  تسجيل جديد  </string>
-    <string name="msg_token_fmt">   توكين للتجريب   </string>
-
-    <string name="password">  تسجيل جديد  </string>
-    <string name="ar"> طبيب </string>
-    <string name="pa"> مريض  </string>
-    <string name="name">  Name </string>
-    <string name="email"> Email </string>
-    <string name="Createanewaccount">Create a new account   :</string>
-    <string name="haveaccount">do you have an account   :</string>
-
-    <string name="title_activity_splash_screen1">Splash_Screen_1</string>
-    <string name="first_fragment_label">First Fragment</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="second_fragment_label">Second Fragment</string>
     <string name="next">التالي</string>
-    <string name="previous">Previous</string>
-    <string name="hello_first_fragment">Hello first fragment</string>
-
-    <string name="success">Success</string>
-    <string name="warning">Warning</string>
-    <string name="error">Error</string>
-    <string name="success_title">أنت بصحة جيدة </string>
-    <string name="content_success">استمر على هذا النحو من المحافظة على صحتك </string>
-
-    <string name="warning_title">لا بأس استمر على الارشادات </string>
-    <string name="content_warning">هذا المؤشر ينبهك بالمحافظة على الصحة واتباع الإرشادات </string>
-
-    <string name="error_title">تحذير للمتابعة </string>
-    <string name="content_error"> برجى استشارة طبيب على الفور او التوجه لاقرب مستشفى </string>
-
 
     <string name="okay">حسنا</string>
 
 
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="title_activity_sing_up21">Sing_Up2_1</string>
-    <string name="city">المدينة</string>
-
     <string name="information_sugar">عند إدخال عدة قراءات خلال ساعة فسوف تؤخد أخر قراءة . فمثللا إذا أدخلت قراءة بالخطا ثم ادخلت قراءة بعدها فسوف تحذف القراءة الأولى تلقائيا . </string>
-    <string name="indormation_college"> تأكد من إدخال جميع البيانات بشكل صحيح لضمان جودة النتائج وسلامتك </string>
-    <string name="indormation_blood"> النسبة الطبيعية لضغط الدم هي :  80 / 120 </string>
-    <string name="indormation_fats"> عند ارتفاع الدهون فانه مطلوب مراجعة الطبيب لأخذ الدواء المناسب مع تغيير نمط الحياة الغذائي  </string>
-    <string name="indormation_bmi"> حساب مؤشر كتلة الجسم = وزن الجسم بالكيلوغرام / الطول بالمتر X الطول بالمتر </string>
+    <string name="information_college"> تأكد من إدخال جميع البيانات بشكل صحيح لضمان جودة النتائج وسلامتك </string>
+    <string name="information_blood"> النسبة الطبيعية لضغط الدم هي :  80 / 120 </string>
+    <string name="information_fats"> عند ارتفاع الدهون فانه مطلوب مراجعة الطبيب لأخذ الدواء المناسب مع تغيير نمط الحياة الغذائي  </string>
+    <string name="information_bmi"> حساب مؤشر كتلة الجسم = وزن الجسم بالكيلوغرام / الطول بالمتر X الطول بالمتر </string>
 
     <string name="information_examine">عند الانتهاء من إدخال بيانات الفحوصات سيتم اشعارك بالتنبيهات التي يجب العمل عليها لتحافظ على سلامتك </string>
-    <string name="pargrah">يمكنك وضع منبه للتذكير بجرعات العلاج يمكنك اختيار نوع العلاج الذي تأخذاما حبوب او جرعات انسولين</string>
+    <string name="info">يمكنك وضع منبه للتذكير بجرعات العلاج يمكنك اختيار نوع العلاج الذي تأخذاما حبوب او جرعات انسولين</string>
 
 
     <!--Data of the instruction section -->
@@ -396,5 +371,6 @@
     <string name="friday">الجمعة</string>
     <string name="saturday">السبت</string>
     <string name="sunday">الأحد</string>
+
 
 </resources>

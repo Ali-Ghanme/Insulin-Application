@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="?attr/bg_background"
+    android:layout_height="match_parent"
+    tools:context=".ui.auth.patient.sing_up.PatientSignUpStep4Activity">
+
+    <RelativeLayout
+        android:id="@+id/Sp4_header_P"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_65sdp"
+        android:background="@drawable/bg_sing_up"
+        android:backgroundTint="@color/Patient_Color"
+        android:scaleType="centerCrop"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/cairo_bold"
+            android:scaleType="centerCrop"
+            android:text="عن السكري "
+            android:textColor="@color/white"
+            android:textSize="@dimen/_20sdp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/Subject"
+        android:layout_width="@dimen/_280sdp"
+        android:layout_height="@dimen/_300sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:scaleType="centerCrop"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Sp4_header_P">
+
+        <TextView
+            android:id="@+id/Sp4_tv_show_P"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_13sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:scaleType="centerCrop"
+            android:text=" التاريخ المرضي "
+            android:textAlignment="textStart"
+            android:textColor="@color/Patient_Color"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/Sp4_et_enjerdDate_P"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@id/Sp4_tv_show_P"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/bg_edit_text"
+            android:drawableLeft="@drawable/ic_data"
+            android:drawablePadding="@dimen/_13sdp"
+            android:elevation="@dimen/_1sdp"
+            android:focusable="false"
+            android:fontFamily="@font/cairo_bold"
+            android:hint=" تاريخ الاصابة"
+            android:maxLines="1"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:scaleType="centerCrop"
+            android:textColor="@color/Patient_Color"
+            android:textColorHint="#78909C"
+            android:textSize="15sp"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <EditText
+            android:id="@+id/Sp4_et_cause_P"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@id/Sp4_et_enjerdDate_P"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:autofillHints="phone"
+            android:background="@drawable/bg_edit_text"
+            android:drawablePadding="@dimen/_13sdp"
+            android:editable="false"
+            android:elevation="@dimen/_1sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:hint=" عامل الاصابة"
+            android:maxLines="1"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:scaleType="centerCrop"
+            android:textColor="@color/Patient_Color"
+            android:textColorHint="#78909C"
+            android:textSize="15sp"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/Sp4_tv_other_P"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Sp4_et_cause_P"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_13sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:scaleType="centerCrop"
+            android:text="أمراض أخرى"
+            android:textAlignment="textStart"
+            android:textColor="@color/Patient_Color"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/Sp4_cont_type_P"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_120sdp"
+            android:layout_below="@+id/Sp4_tv_other_P"
+            android:layout_marginTop="0dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/SP4_et_others_P"
+                android:layout_width="@dimen/_230sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/bg_edit_text"
+                    android:editable="false"
+                android:elevation="@dimen/_1sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:hint="مثلا: الضغط, القلب"
+                android:maxLines="1"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:scaleType="centerCrop"
+                android:textColor="@color/Patient_Color"
+                android:textColorHint="#78909C"
+                android:textSize="15sp"
+                tools:ignore="TouchTargetSizeCheck" />
+
+
+            <CheckBox
+                android:id="@+id/Sp4_diabetis_others_P"
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/gender_background_selector"
+                android:button="@android:color/transparent"
+                android:fontFamily="@font/cairo_bold"
+                android:elevation="@dimen/_1sdp"
+                android:paddingRight="@dimen/_15sdp"
+                android:text="لا يوجد أمراض اخرى"
+                android:textColor="@drawable/gender_text_selector"
+                android:textSize="15sp"
+                app:drawableTint="@drawable/gender_text_selector"
+                tools:ignore="TouchTargetSizeCheck" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/Sp4_bt_next_P"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/_30sdp"
+        android:background="@drawable/bg_ic_background"
+        android:elevation="10dp"
+        android:fontFamily="@font/cairo_bold"
+        android:paddingHorizontal="@dimen/_20sdp"
+        android:text="التالي"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_12sdp"
+        app:borderWidth="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Subject"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

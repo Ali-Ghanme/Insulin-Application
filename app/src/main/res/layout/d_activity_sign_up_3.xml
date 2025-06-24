@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/bg_background"
+    tools:context=".ui.auth.dcotor.sing_up.Sing_Up_3_D">
+
+    <RelativeLayout
+        android:id="@+id/Sing_up_header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_65sdp"
+        android:background="@drawable/bg_sing_up"
+        android:backgroundTint="@color/Doctor_Color"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/cairo_bold"
+            android:text="التاريخ الدراسي"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_20sdp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/Subject"
+        android:layout_width="@dimen/_280sdp"
+        android:layout_height="@dimen/_300sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Sing_up_header">
+
+        <EditText
+            android:id="@+id/Sp3_UnName_D"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@drawable/bg_edit_text"
+            android:drawableLeft="@drawable/ic_collage"
+            android:drawableTint="@color/Doctor_Color"
+            android:editable="false"
+            android:elevation="@dimen/_1sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:hint="اختر جامعتك"
+            android:maxLines="1"
+            android:paddingLeft="@dimen/_20sdp"
+            android:paddingRight="@dimen/_10sdp"
+            android:textColor="@color/Doctor_Color"
+            android:textSize="15sp" />
+
+
+        <EditText
+            android:id="@+id/Sp3_certificate_D"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@id/Sp3_UnName_D"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@drawable/bg_edit_text"
+            android:drawableLeft="@drawable/ic_collage"
+            android:drawableTint="@color/Doctor_Color"
+            android:editable="false"
+            android:elevation="@dimen/_1sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:hint="نوع الشهادة الجامعية"
+            android:maxLines="1"
+            android:paddingLeft="@dimen/_20sdp"
+            android:paddingRight="@dimen/_10sdp"
+            android:textColor="@color/Doctor_Color"
+            android:textSize="15sp" />
+
+
+        <EditText
+            android:id="@+id/Sp3_et_year_Grade_D"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@id/Sp3_certificate_D"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:autofillHints="creditCardExpirationDate"
+            android:background="@drawable/bg_edit_text"
+            android:cursorVisible="false"
+            android:drawableLeft="@drawable/ic_data"
+            android:drawablePadding="@dimen/_13sdp"
+            android:drawableTint="@color/Doctor_Color"
+            android:elevation="@dimen/_1sdp"
+            android:ems="1"
+            android:focusable="false"
+            android:fontFamily="@font/cairo_bold"
+            android:hint="سنة التخرج"
+            android:maxLines="1"
+            android:paddingLeft="@dimen/_20sdp"
+            android:paddingRight="@dimen/_20sdp"
+            android:scaleType="centerCrop"
+            android:textColor="@color/Doctor_Color"
+            android:textColorHint="#78909C"
+            android:textSize="15sp"
+            tools:ignore="TouchTargetSizeCheck" />
+
+
+        <EditText
+            android:id="@+id/Sp3_Grad_Country_D"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@id/Sp3_et_year_Grade_D"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@drawable/bg_edit_text"
+            android:drawableLeft="@drawable/ic_location"
+            android:drawableTint="@color/Doctor_Color"
+            android:editable="false"
+            android:elevation="@dimen/_1sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:hint="بلد التخرج"
+            android:maxLines="1"
+            android:paddingLeft="@dimen/_20sdp"
+            android:paddingRight="@dimen/_10sdp"
+            android:textColor="@color/Doctor_Color"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/Sp3_bt321_next_D"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/_30sdp"
+        android:background="@drawable/bg_ic_background"
+        android:backgroundTint="@color/Doctor_Color"
+        android:text="التالي"
+        android:textColor="@color/white"
+        android:fontFamily="@font/cairo_bold"
+        android:textSize="@dimen/_12sdp"
+        android:paddingHorizontal="@dimen/_20sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Subject"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

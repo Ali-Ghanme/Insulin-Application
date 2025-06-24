@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/bg_background"
+    android:orientation="vertical"
+    tools:context=".ui.doctor.home.screens.PatientDetailsScreen">
+
+    <RelativeLayout
+        android:id="@+id/FCH_header_d"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp"
+        android:background="@drawable/bg_half_rounded">
+
+        <ImageView
+            android:id="@+id/DPP_btn_back_d"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:background="@drawable/round_back_light"
+            android:layoutDirection="ltr"
+            android:paddingStart="@dimen/_12sdp"
+            android:paddingEnd="@dimen/_5sdp"
+            android:src="@drawable/ic_arrow_back_d" />
+
+        <TextView
+            android:id="@+id/FCH_title_d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="@dimen/_90sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:fontFamily="@font/cairo_bold"
+            android:text="ملف المريض"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_18sdp" />
+
+        <View
+            android:id="@+id/FCH_view_d"
+            android:layout_width="30dp"
+            android:layout_height="5dp"
+            android:layout_below="@id/FCH_title_d"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/bg_search" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/image"
+        android:layout_width="@dimen/_240sdp"
+        android:layout_height="@dimen/_70sdp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:background="@drawable/bg_doctors_list"
+        android:backgroundTint="?attr/bg_color"
+        android:elevation="1.5dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/FPI_img_Profile_d"
+            android:layout_width="@dimen/_55sdp"
+            android:layout_height="@dimen/_55sdp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:backgroundTint="@color/Doctor_Color"
+            app:civ_border_color="@color/Doctor_Color"
+            app:civ_border_width="@dimen/_2sdp" />
+
+        <TextView
+            android:id="@+id/FPI_name_d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_75sdp"
+            android:fontFamily="@font/cairo_bold" />
+
+        <TextView
+            android:id="@+id/FPI_type_d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:layout_marginRight="@dimen/_75sdp"
+            android:fontFamily="@font/cairo_bold" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/image"
+        android:layout_centerHorizontal="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/age"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginLeft="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_30sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:background="@drawable/bg_doctors_list"
+                    android:elevation="1.5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:fontFamily="@font/cairo_bold"
+                    android:text="العمر"
+                    android:textColor="@color/Doctor_Color"
+                    android:textSize="@dimen/_9sdp" />
+
+                <TextView
+                    android:id="@+id/FPI_age_d"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:fontFamily="@font/cairo_bold"
+                    android:textSize="@dimen/_9sdp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginLeft="@dimen/_30sdp"
+                android:layout_marginRight="@dimen/_30sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:background="@drawable/bg_doctors_list"
+                    android:elevation="1.5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:fontFamily="@font/cairo_bold"
+                    android:text="النوع"
+                    android:textColor="@color/Doctor_Color"
+                    android:textSize="@dimen/_9sdp" />
+
+                <TextView
+                    android:id="@+id/FPI_gender_d"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:fontFamily="@font/cairo_bold"
+                    android:textSize="@dimen/_9sdp" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:fontFamily="@font/cairo_bold"
+                android:text="معلومات طبية"
+                android:textColor="@color/Doctor_Color"
+                android:textSize="@dimen/_16sdp" />
+
+
+            <RelativeLayout
+                android:id="@+id/midcle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginLeft="@dimen/_30sdp"
+                android:layout_marginRight="@dimen/_30sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:background="@drawable/bg_doctors_list"
+                    android:elevation="1.5dp">
+
+                <TextView
+                    android:id="@+id/text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:fontFamily="@font/cairo_bold"
+                    android:text="نوع العلاج"
+                    android:textColor="@color/Doctor_Color"
+                    android:textSize="@dimen/_9sdp" />
+
+                <TextView
+                    android:id="@+id/FPI_Medics_Type_d"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginRight="@dimen/_20sdp"
+                    android:layout_toStartOf="@+id/text"
+                    android:fontFamily="@font/cairo_bold"
+                    android:maxLines="1"
+                    android:textSize="@dimen/_9sdp" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/ilnes"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginLeft="@dimen/_30sdp"
+                android:layout_marginRight="@dimen/_30sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:background="@drawable/bg_doctors_list"
+                    android:elevation="1.5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:fontFamily="@font/cairo_bold"
+                    android:text="أمراض أخرى"
+                    android:textColor="@color/Doctor_Color"
+                    android:textSize="@dimen/_9sdp" />
+
+                <TextView
+                    android:id="@+id/FPI_another_d"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:fontFamily="@font/cairo_bold"
+                    android:textSize="@dimen/_9sdp" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/date_of_enjery"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginLeft="@dimen/_30sdp"
+                android:layout_marginRight="@dimen/_30sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:background="@drawable/bg_doctors_list"
+                    android:elevation="1.5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:fontFamily="@font/cairo_bold"
+                    android:text="تاريخ الاصابة"
+                    android:textColor="@color/Doctor_Color"
+                    android:textSize="@dimen/_9sdp" />
+
+                <TextView
+                    android:id="@+id/FPI_injury_date_d"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:fontFamily="@font/cairo_bold"
+                    android:textSize="@dimen/_9sdp" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/cuses_of_enjery"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginLeft="@dimen/_30sdp"
+                android:layout_marginRight="@dimen/_30sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:background="@drawable/bg_doctors_list"
+                    android:elevation="1.5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:fontFamily="@font/cairo_bold"
+                    android:text="عامل الاصابة"
+                    android:textColor="@color/Doctor_Color"
+                    android:textSize="@dimen/_9sdp" />
+
+                <TextView
+                    android:id="@+id/FPI_injury_factor_d"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:fontFamily="@font/cairo_bold"
+                    android:textSize="@dimen/_9sdp" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

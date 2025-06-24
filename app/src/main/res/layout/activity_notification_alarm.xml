@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Schedule_Notification.Notification_Alarm"
+    tools:context=".data.notification.Schedule_Notification.Notification_Alarm"
     tools:ignore="ExtraText">
 
     <Button

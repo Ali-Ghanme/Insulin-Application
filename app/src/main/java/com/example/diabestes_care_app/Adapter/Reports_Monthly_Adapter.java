@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.diabestes_care_app.Models.Reports_Monthly_Model;
+import com.example.diabestes_care_app.data.model.Reports_Monthly_Model;
 import com.example.diabestes_care_app.R;
 
 import java.util.ArrayList;
@@ -31,7 +31,7 @@ public class Reports_Monthly_Adapter extends RecyclerView.Adapter<Reports_Monthl
     @Override
 
     public Reports_Monthly_Adapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.reports_monthly, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.g_screen_reports_monthly, parent, false);
         return new Reports_Monthly_Adapter.MyViewHolder(view);
     }
 

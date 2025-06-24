@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
-import com.example.diabestes_care_app.Models.SelfCare_Model;
+import com.example.diabestes_care_app.data.model.SelfCare_Model;
 import com.example.diabestes_care_app.R;
 
 import java.util.List;
@@ -29,7 +29,7 @@ public class ViewAdapter_Content extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.content_item_layout, null);
+        View view = inflater.inflate(R.layout.p_layout_content_item, null);
 
 //        ImageView imageView = view.findViewById(R.id.Image_Content);
 //        imageView.setImageResource(mListScreen.get(position).getCont_Image());

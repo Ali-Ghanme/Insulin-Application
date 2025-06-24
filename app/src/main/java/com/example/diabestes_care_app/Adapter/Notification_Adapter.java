@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.diabestes_care_app.Models.Notification_Model;
+import com.example.diabestes_care_app.data.model.Notification_Model;
 import com.example.diabestes_care_app.R;
 
 import java.util.ArrayList;
@@ -28,7 +28,7 @@ public class Notification_Adapter extends RecyclerView.Adapter<Notification_Adap
     @NonNull
     @Override
     public Notification_Adapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.notification, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.g_recycle_notification, parent, false);
         return new Notification_Adapter.MyViewHolder(view);
     }
 

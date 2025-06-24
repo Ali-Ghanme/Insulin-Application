@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/bg_background"
-    tools:context=".Ui.Patient_all.Sections.Self_Care.Content.Content">
+    tools:context=".ui.patient.health.self_care.screens.Content">
 
     <ImageView
         android:id="@+id/content_back_btn"

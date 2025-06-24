@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
-import com.example.diabestes_care_app.Models.Splash_Screen_Modal;
+import com.example.diabestes_care_app.data.model.Splash_Screen_Modal;
 import com.example.diabestes_care_app.R;
 
 import java.util.List;
@@ -29,7 +29,7 @@ public class ViewAdapter_Splash_Screen extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.activity_splash_screen_item, null);
+        View view = inflater.inflate(R.layout.g_adapter_item_splash, null);
 
         ImageView imageView = view.findViewById(R.id.image_view);
         imageView.setImageResource(mListScreen.get(position).getScreenImg());

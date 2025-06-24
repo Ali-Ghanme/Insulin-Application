@@ -19,7 +19,6 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_30sdp"
             android:layout_centerVertical="true"
-            android:backgroundTint="?attr/bg_color"
             android:layout_marginHorizontal="10dp"
             android:background="@drawable/tab_selector_d"
             android:elevation="@dimen/_1sdp"
